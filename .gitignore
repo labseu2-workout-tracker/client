@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# avoid conflicts between package-lock.json and yarn.lock
+.package-lock.json
