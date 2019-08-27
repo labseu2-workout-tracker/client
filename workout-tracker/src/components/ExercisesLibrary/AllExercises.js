@@ -1,6 +1,12 @@
 import React from 'react';
 
 const AllExercises = (props) => {
+  const muscles = [ 'Neck', 
+    'Lats', "Middle Back", 'Lower Back', 'Shoulders',
+     'Chest', 'Forearms', 'Hamstrings',
+    'Calves', 'Biceps', 'Triceps', 'Traps', 'Abdominals',
+    'Glutes', 'Quadriceps', "Adductors", "Abductors"];
+
   return ( 
     <div className="all-exercise">
     {props.exercises ? (props.exercises.map((exercise, index) => {
