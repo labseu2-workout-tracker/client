@@ -3,6 +3,7 @@ import * as type from "../actions";
 const initialState = {
   exercises: null,
   copyOfExercises: null,
+  singleExercise: null,
   currentMuscleGroup: null,
   postsPerPage: 10,
   pageNumbers: null
@@ -65,6 +66,13 @@ const exercises = (state = initialState, action) => {
       );
 
       return { ...state, exercises: theCurrentExercises };
+
+    case type.SHOW_SINGLE_EXERCISE:
+      const filterExercise = state.exercises.filter(
+        exercise => exercise.exercise_name === action.exerciseName
+      );
+
+      return { ...state, singleExercise: filterExercise };
 
     default:
       return state;
