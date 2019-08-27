@@ -18,6 +18,6 @@ export const fetchExercises = () => dispatch => {
     });
 };
 
-export const ShowMuscleGroup = (muscleGroup) => {
+export const showMuscleGroup = (muscleGroup) => {
   return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
 };

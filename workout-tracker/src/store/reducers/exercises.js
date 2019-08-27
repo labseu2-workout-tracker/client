@@ -18,7 +18,7 @@ const exercises = (state = initialState, action) => {
         copyOfExercises: filterExercisesWithoutRating
       };
 
-      case types.SHOW_CATGEGORY:
+      case type.SHOW_MUSCLE_GROUP:
         let searchResultForMuscleGroup = state.copyOfExercises.filter(exer => exer.muscle === action.muscleGroup);
 
         return { ...state, exercises: searchResultForMuscleGroup };
