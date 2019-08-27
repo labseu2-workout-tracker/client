@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_EXERCISES = 'FETCH_EXERCISES';
+export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 
 const exercises = 'http://localhost:5000/exercises';
 // adress get's changed later
@@ -15,4 +16,8 @@ export const fetchExercises = () => dispatch => {
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
     });
+};
+
+export const ShowMuscleGroup = (muscleGroup) => {
+  return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
 };
