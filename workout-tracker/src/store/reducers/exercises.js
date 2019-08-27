@@ -1,5 +1,4 @@
 import * as type from "../actions";
-import { bindActionCreators } from "../../../../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
 
 const initialState = {
   exercises: null,
@@ -27,11 +26,11 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === action.muscleGroup
       );
 
-      const indexOfLastPost = 1 * state.postsPerPage;
+      const indexOfLastPost = state.postsPerPage;
 
       const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
 
-      const currentPosts = searchResultForMuscleGroup.slice(
+      const currentExercises = searchResultForMuscleGroup.slice(
         indexOfFirstPost,
         indexOfLastPost
       );
@@ -44,10 +43,26 @@ const exercises = (state = initialState, action) => {
 
       return {
         ...state,
-        exercises: currentPosts,
+        exercises: currentExercises,
         pageNumbers: pageNumbers,
         currentMuscleGroup: action.muscleGroup
       };
+
+    case type.PAGINATE:
+      let searchForMuscleGroup = state.copyOfExercises.filter(
+        exercise => exercise.muscle === state.currentMuscleGroup
+      );
+
+      const indexOfTheLastPost = action.num * state.postsPerPage;
+
+      const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
+
+      const theCurrentExercises = searchForMuscleGroup.slice(
+        indexOfTheFirstPost,
+        indexOfTheLastPost
+      );
+
+      return { ...state, exercises: theCurrentExercises };
 
     default:
       return state;
