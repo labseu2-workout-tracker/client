@@ -1,21 +1,46 @@
-import React from 'react';
+import React from "react";
 
-const AllExercises = (props) => {
-  const muscles = [ 'Neck', 
-    'Lats', "Middle Back", 'Lower Back', 'Shoulders',
-     'Chest', 'Forearms', 'Hamstrings',
-    'Calves', 'Biceps', 'Triceps', 'Traps', 'Abdominals',
-    'Glutes', 'Quadriceps', "Adductors", "Abductors"];
+const AllExercises = props => {
+  const muscles = [
+    "Neck",
+    "Lats",
+    "Middle Back",
+    "Lower Back",
+    "Shoulders",
+    "Chest",
+    "Forearms",
+    "Hamstrings",
+    "Calves",
+    "Biceps",
+    "Triceps",
+    "Traps",
+    "Abdominals",
+    "Glutes",
+    "Quadriceps",
+    "Adductors",
+    "Abductors"
+  ];
 
-  return ( 
+  return (
     <div className="all-exercise">
-    {props.exercises ? (props.exercises.map((exercise, index) => {
-      return <div key={index}>
-        <p>{exercise.exercise_name}</p>
+      <div className="muscle-groups">
+        {muscles.map((category, index) => (
+          <button key={index} onClick={props.showMuscleGroup}>
+            {category}
+          </button>
+        ))}
       </div>
-    })) : null}
-  </div>
-    );
-}
- 
+      {props.exercises
+        ? props.exercises.map((exercise, index) => {
+            return (
+              <div key={index}>
+                <p>{exercise.exercise_name}</p>
+              </div>
+            );
+          })
+        : null}
+    </div>
+  );
+};
+
 export default AllExercises;
