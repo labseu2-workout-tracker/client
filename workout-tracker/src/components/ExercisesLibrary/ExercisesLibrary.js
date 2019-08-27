@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class ExerciseLibrary extends Component {
   constructor(props) {
@@ -10,4 +11,4 @@ class ExerciseLibrary extends Component {
   }
 }
  
-export default ExerciseLibrary;
+export default connect(mapStateToProps, null)(ExerciseLibrary);
