@@ -19,7 +19,7 @@ class ExerciseLibrary extends React.Component {
   render() {
     if (this.props.singleExercise) {
       return (
-        <SingleExercise />
+        <SingleExercise exercise={this.props.singleExercise} />
        )
     }
     return (
