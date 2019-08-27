@@ -1,5 +1,6 @@
 import React from "react";
 import AllExercises from "./AllExercises";
+import SingleExercise from "./SingleExercise";
 import { fetchExercises, showMuscleGroup, paginate } from "../../store/actions";
 import { connect } from "react-redux";
 
@@ -16,6 +17,11 @@ class ExerciseLibrary extends React.Component {
   };
 
   render() {
+    if (this.props.singleExercise) {
+      return (
+        <SingleExercise />
+       )
+    }
     return (
       <AllExercises
         exercises={this.props.exercises}
