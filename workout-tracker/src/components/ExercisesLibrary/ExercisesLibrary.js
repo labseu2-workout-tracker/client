@@ -28,6 +28,7 @@ class ExerciseLibrary extends React.Component {
         showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
         pageNumbers={this.props.pageNumbers}
         paginate={e => this.props.paginate(e.target.textContent)}
+        showSingleExercise={(e) => this.props.showSingleExercise(e.target.textContent)}
       />
     );
   }

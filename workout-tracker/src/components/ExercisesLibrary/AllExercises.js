@@ -34,7 +34,9 @@ const AllExercises = props => {
         ? props.exercises.map((exercise, index) => {
             return (
               <div key={index}>
-                <p>{exercise.exercise_name}</p>
+                <p
+                onClick={props.showSingleExercise}
+                >{exercise.exercise_name}</p>
               </div>
             );
           })
