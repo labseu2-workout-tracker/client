@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetchExercises } from '../../store/actions';
 import { connect } from 'react-redux';
 
 class ExerciseLibrary extends Component {
@@ -17,4 +18,4 @@ const mapStateToProps = state => {
   };
 };
  
-export default connect(mapStateToProps, null)(ExerciseLibrary);
+export default connect(mapStateToProps, { fetchExercises })(ExerciseLibrary);
