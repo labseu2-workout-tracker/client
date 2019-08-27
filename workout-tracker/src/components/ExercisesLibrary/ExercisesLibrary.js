@@ -19,6 +19,7 @@ class ExerciseLibrary extends React.Component {
     return (
       <AllExercises
         exercises={this.props.exercises}
+        pageNumbers={this.props.pageNumbers}
         showMuscleGroup={e =>
            this.props.showMuscleGroup(e.target.textContent)}
       />
@@ -28,7 +29,8 @@ class ExerciseLibrary extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    exercises: state.exercises.exercises
+    exercises: state.exercises.exercises,
+    pageNumbers: state.pageNumbers,
   };
 };
 
