@@ -5,8 +5,7 @@ const AllExercises = (props) => {
     <div className="all-exercise">
     {props.exercises ? (props.exercises.map((exercise, index) => {
       return <div key={index}>
-        <p onClick={() =>
-           props.getExercise(exercise.id)}>{exercise.exercise_name}</p>
+        <p>{exercise.exercise_name}</p>
         <button>Add</button>
       </div>
     })) : null}

@@ -1,4 +1,5 @@
 import React from 'react';
+import AllExercises from './AllExercises';
 import { fetchExercises } from '../../store/actions';
 import { connect } from 'react-redux';
 
@@ -8,7 +9,9 @@ class ExerciseLibrary extends Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <AllExercises exercises={this.props.exercises}  />
+     );
   }
 }
 
