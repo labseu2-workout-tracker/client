@@ -8,7 +8,7 @@ const initialState = {
 const exercises = (state = initialState, action) => {
   switch (action.type) {
     case type.FETCH_EXERCISES:
-      const filterExercisesWithoutRating = action.payload.filter(
+      const filterExercisesWithoutRating = action.exercises.filter(
         exercise => exercise.exercise_ratings !== "n/a"
       );
 

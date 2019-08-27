@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import exercises from './exercises';
 
 const appReducer = combineReducers({
-  //
+  exercises: exercises,
 });
 
 const rootReducer = (state, action) => {

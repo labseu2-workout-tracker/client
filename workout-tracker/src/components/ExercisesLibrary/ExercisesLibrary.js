@@ -3,14 +3,20 @@ import AllExercises from './AllExercises';
 import { fetchExercises } from '../../store/actions';
 import { connect } from 'react-redux';
 
-class ExerciseLibrary extends Component {
+class ExerciseLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
+
+  componentDidMount = () => {
+  this.props.fetchExercises();
+  };
+
   render() { 
     return ( 
-      <AllExercises exercises={this.props.exercises}  />
+      <AllExercises 
+      exercises={this.props.exercises}  />
      );
   }
 }

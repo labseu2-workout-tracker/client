@@ -6,7 +6,6 @@ const AllExercises = (props) => {
     {props.exercises ? (props.exercises.map((exercise, index) => {
       return <div key={index}>
         <p>{exercise.exercise_name}</p>
-        <button>Add</button>
       </div>
     })) : null}
   </div>
