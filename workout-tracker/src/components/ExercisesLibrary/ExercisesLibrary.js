@@ -10,5 +10,11 @@ class ExerciseLibrary extends Component {
     return (  );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+  exercises: state.exercises.exercises,
+  };
+};
  
 export default connect(mapStateToProps, null)(ExerciseLibrary);
