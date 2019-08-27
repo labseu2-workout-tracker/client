@@ -1,8 +1,12 @@
-import * as type from '../actions';
+import * as type from "../actions";
+import { bindActionCreators } from "../../../../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/redux";
 
 const initialState = {
   exercises: null,
-  copyOfExercises: null
+  copyOfExercises: null,
+  currentMuscleGroup: null,
+  postsPerPage: 10,
+  pageNumbers: null
 };
 
 const exercises = (state = initialState, action) => {
@@ -18,10 +22,32 @@ const exercises = (state = initialState, action) => {
         copyOfExercises: filterExercisesWithoutRating
       };
 
-      case type.SHOW_MUSCLE_GROUP:
-        let searchResultForMuscleGroup = state.copyOfExercises.filter(exer => exer.muscle === action.muscleGroup);
+    case type.SHOW_MUSCLE_GROUP:
+      let searchResultForMuscleGroup = state.copyOfExercises.filter(
+        exercise => exercise.muscle === action.muscleGroup
+      );
 
-        return { ...state, exercises: searchResultForMuscleGroup };
+      const indexOfLastPost = 1 * state.postsPerPage;
+
+      const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
+
+      const currentPosts = searchResultForMuscleGroup.slice(
+        indexOfFirstPost,
+        indexOfLastPost
+      );
+
+      const totalPosts = searchResultForMuscleGroup.length;
+
+      for (let i = 1; i <= Math.ceil(totalPosts / state.postsPerPage); i++) {
+        pageNumbers.push(i);
+      }
+
+      return {
+        ...state,
+        exercises: currentPosts,
+        pageNumbers: pageNumbers,
+        currentMuscleGroup: action.muscleGroup
+      };
 
     default:
       return state;
