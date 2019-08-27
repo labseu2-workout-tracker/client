@@ -37,6 +37,8 @@ const exercises = (state = initialState, action) => {
 
       const totalPosts = searchResultForMuscleGroup.length;
 
+      let pageNumbers = [];
+
       for (let i = 1; i <= Math.ceil(totalPosts / state.postsPerPage); i++) {
         pageNumbers.push(i);
       }
