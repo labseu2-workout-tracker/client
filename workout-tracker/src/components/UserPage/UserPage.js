@@ -1,5 +1,6 @@
 import React from 'react';
 import Calendar from './Calendar';
+import ActivityChart from './ActivityChart';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -7,8 +8,10 @@ class UserPage extends React.Component {
     this.state = {  }
   }
   render() { 
-    return ( 
+    return (
+      <div> 
       <Calendar />
+      </div>
      );
   }
 }
