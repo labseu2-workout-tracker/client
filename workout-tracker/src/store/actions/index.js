@@ -5,7 +5,7 @@ export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 export const PAGINATE = 'PAGINATE';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 
-const exercises = 'http://localhost:5000/exercises';
+const exercises = process.env.REACT_APP_BASE_URL;
 // adress get's changed later
 
 export const fetchExercises = () => dispatch => {
