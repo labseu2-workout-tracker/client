@@ -1,9 +1,11 @@
 import React from 'react';
+import ExerciseRating from './ExerciseRating';
 
 const SingleExercise = (props) => {
   return (
     <div>
   <p>{props.exercise.exercise_name}</p>
+  <ExerciseRating exerciseRating={Number(props.exercise.exercise_ratings.split('.').join(''))}/>
   <p>{props.exercise.description}</p>
   <p>{props.exercise.difficulty}</p>
   <img src={props.exercise.picture_one} alt="explanation of exercise one" />

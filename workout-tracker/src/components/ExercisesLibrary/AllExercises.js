@@ -24,9 +24,9 @@ const AllExercises = props => {
   return (
     <div className="all-exercise">
       <div className="muscle-groups">
-        {muscles.map((category, index) => (
+        {muscles.map((muscleGroup, index) => (
           <button key={index} onClick={props.showMuscleGroup}>
-            {category}
+            {muscleGroup}
           </button>
         ))}
       </div>
