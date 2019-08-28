@@ -1,4 +1,5 @@
 import React from 'react';
+import ExerciseRating from './ExerciseRating';
 
 const SingleExercise = (props) => {
   return (
