@@ -1,15 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
-import { showCategory } from '../../store/actions/tabsActions';
-
+import { Link } from 'react-router-dom';
+ 
 const Tabs = () => {
-  const tabs = ["Tracker", "Workout", "Settings", "Notifications"];
+  const tabs = ["tracker", "workout", "settings", "notifications"];
 
   return tabs.map(tab => (
-    <button onClick={e => props.showCategory(e.target.textContent)}>
-      {tab}
-    </button>
+    <Link to={`/${tab}`}>{tab}</Link>
   ));
 };
 
-export default connect(null, { showCategory })(Tabs);
+export default Tabs;
