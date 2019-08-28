@@ -11,6 +11,7 @@ class UserPage extends React.Component {
     return (
       <div> 
       <Calendar />
+      <ActivityChart/>
       </div>
      );
   }
