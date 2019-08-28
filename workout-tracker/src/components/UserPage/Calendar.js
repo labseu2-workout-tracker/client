@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from 'react-calendar'
+import ReactCalendar from 'react-calendar'
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ console.log(day)
 
   render() { 
     return ( 
-      <Calendar onChange={this.handleChange} /> 
+      <ReactCalendar onChange={this.handleChange} /> 
      );
   }
 }
