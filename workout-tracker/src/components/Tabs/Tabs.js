@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { showCategory } from '../../store/actions/tabsActions';
 
 const Tabs = () => {
   const tabs = ["Tracker", "Workout", "Settings", "Notifications"];
@@ -11,4 +12,4 @@ const Tabs = () => {
   ));
 };
 
-export default connect(null)(Tabs);
+export default connect(null, { showCategory })(Tabs);
