@@ -1,4 +1,5 @@
 import React from 'react';
+import Calendar from './Calendar';
 
 class UserPage extends Component {
   constructor(props) {
@@ -6,7 +7,9 @@ class UserPage extends Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <Calendar />
+     );
   }
 }
  
