@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_EXERCISES = 'FETCH_EXERCISES';
 export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
+export const PAGINATE = 'PAGINATE';
 
 const exercises = 'http://localhost:5000/exercises';
 // adress get's changed later
@@ -20,4 +21,8 @@ export const fetchExercises = () => dispatch => {
 
 export const showMuscleGroup = (muscleGroup) => {
   return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
+};
+
+export const paginate = (num) => {
+  return { type: PAGINATE, num: num };   
 };

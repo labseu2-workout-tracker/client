@@ -39,6 +39,12 @@ const AllExercises = props => {
             );
           })
         : null}
+        {props.pageNumbers ? (props.pageNumbers.map((num, index) => {
+          return <button key={index}
+            onClick={props.paginate}>
+            {num}
+          </button>
+        })) : null}
     </div>
   );
 };
