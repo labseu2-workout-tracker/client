@@ -13,7 +13,7 @@ console.log(day)
 
   render() { 
     return ( 
-      <ReactCalendar onChange={this.handleChange} /> 
+      <ReactCalendar onChange={this.getCurrentDay} /> 
      );
   }
 }
