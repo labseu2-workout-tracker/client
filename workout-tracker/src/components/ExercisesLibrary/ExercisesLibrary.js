@@ -1,7 +1,7 @@
 import React from "react";
 import AllExercises from "./AllExercises";
 import SingleExercise from "./SingleExercise";
-import { fetchExercises, showMuscleGroup, paginate, showSingleExercise } from "../../store/actions";
+import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeExercise } from "../../store/actions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
@@ -46,5 +46,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchExercises, showMuscleGroup, paginate, showSingleExercise }
+  { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeExercise }
 )(ExerciseLibrary);
