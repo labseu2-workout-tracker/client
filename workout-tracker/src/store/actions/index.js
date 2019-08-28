@@ -5,12 +5,11 @@ export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 export const PAGINATE = 'PAGINATE';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 
-const exercises = process.env.REACT_APP_BASE_URL;
+const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
 // adress get's changed later
 
 export const fetchExercises = () => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
-
   return axios.get(exercises)
     .then(res => {
       dispatch({ type: FETCH_EXERCISES, exercises: res.data });
