@@ -77,6 +77,10 @@ const exercises = (state = initialState, action) => {
 
       return { ...state, singleExercise: filterExercise };
 
+      case type.CLOSE_SINGLE_EXERCISE:
+  
+        return { ...state, singleExercise: null };
+
     default:
       return state;
   }
