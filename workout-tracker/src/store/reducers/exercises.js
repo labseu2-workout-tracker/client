@@ -3,6 +3,7 @@ import * as type from "../actions";
 const initialState = {
   exercises: null,
   copyOfExercises: null,
+  singleExercise: null,
   currentMuscleGroup: null,
   postsPerPage: 10,
   pageNumbers: null
@@ -11,14 +12,17 @@ const initialState = {
 const exercises = (state = initialState, action) => {
   switch (action.type) {
     case type.FETCH_EXERCISES:
-      const filterExercisesWithoutRating = action.exercises.filter(
-        exercise => exercise.exercise_ratings !== "n/a"
-      );
-
+      const changeRatingOfExercise = action.exercises.map(exercise => {
+        if (exercise.exercise_ratings === "n/a") {
+          exercise.exercise_ratings = "5.0";
+        }
+        return exercise;
+      });
+      
       return {
         ...state,
-        exercises: filterExercisesWithoutRating,
-        copyOfExercises: filterExercisesWithoutRating
+        exercises: changeRatingOfExercise,
+        copyOfExercises: changeRatingOfExercise
       };
 
     case type.SHOW_MUSCLE_GROUP:
@@ -65,6 +69,13 @@ const exercises = (state = initialState, action) => {
       );
 
       return { ...state, exercises: theCurrentExercises };
+
+    case type.SHOW_SINGLE_EXERCISE:
+      const filterExercise = state.exercises.filter(
+        exercise => exercise.exercise_name === action.exerciseName
+      );
+
+      return { ...state, singleExercise: filterExercise };
 
     default:
       return state;
