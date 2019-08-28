@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactCalendar from 'react-calendar'
+import ReactCalendar from 'react-calendar';
+// If we want to style calendar ourself import from 'react-calendar/dist/entry.nostyle'
 
 class Calendar extends React.Component {
   constructor(props) {
