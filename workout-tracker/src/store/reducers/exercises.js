@@ -1,4 +1,4 @@
-import * as type from "../actions";
+import * as type from "../actions/exerciseActions";
 
 const initialState = {
   exercises: null,
