@@ -2,6 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Workouts  extends React.Component {
+
+  // calling the action fetch workout with lifecycle msg
+  componentDidMount() {
+    this.props.fetchWorkouts();
+  }
   render() {
     return(
       <div>
