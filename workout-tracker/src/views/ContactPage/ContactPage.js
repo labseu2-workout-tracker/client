@@ -3,6 +3,24 @@ import styled from "styled-components";
 
 const StyledContactPage = styled.div`
   
+
+  .left-right-side {
+    display:flex;
+  }
+
+  .left-side {
+    width:50%;
+
+    img {
+      border-radius: 50%;
+      width: 20%;
+    }
+  }
+
+  .right-side {
+   width: 50%;
+  }
+  
   input {
     text-align: center;
   }
@@ -50,6 +68,7 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
+        <div className="left-right-side">
         <div className="left-side">
           <img
             src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -92,6 +111,7 @@ class ContactPage extends React.Component {
             placeholder="Message"
           />
           <button onClick={this.sendMessage}>Send</button>
+        </div>
         </div>
       </StyledContactPage>
     );
