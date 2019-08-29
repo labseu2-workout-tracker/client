@@ -18,6 +18,10 @@ class WorkoutView extends React.Component {
     return (
       <div>
         <div className="top">
+        {this.props.currentExercise ? 
+        (this.props.currentExercise.map(exercise => {
+          
+        }))}
         <Watch/>
         </div>
         <div className="bottom">
