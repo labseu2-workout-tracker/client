@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+const StyledWorkoutView = styled.div`
+`;
+
 class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
