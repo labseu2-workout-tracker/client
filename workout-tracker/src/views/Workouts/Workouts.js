@@ -9,5 +9,10 @@ const Workouts = () => {
    );
 }
  
+const mapStateToProps = state => {
+  return{
+    workouts:state.workouts.workouts,
 
+  }
+}
 export default connect(mapStateToProps)(Workouts);
