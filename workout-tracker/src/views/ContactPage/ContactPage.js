@@ -7,6 +7,11 @@ const StyledContactPage = styled.div`
   display: flex;
   justify-content: space-between;
 }
+
+.messageInput {
+  height: 8rem;
+  width: 50%;
+}
 `;
 
 class ContactPage extends React.Component {
@@ -69,6 +74,7 @@ class ContactPage extends React.Component {
           />
         </div>
         <input
+        className="messageInput"
           name="message"
           value={this.state.message}
           onChange={this.handleChange}
