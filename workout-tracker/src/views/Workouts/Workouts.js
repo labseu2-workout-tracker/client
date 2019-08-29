@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {fetchWorkouts } from '../../store/actions/workoutsActions';
+
 
 class Workouts  extends React.Component {
 
@@ -30,4 +32,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps)(Workouts);
+export default connect(mapStateToProps, {fetchWorkouts})(Workouts);
