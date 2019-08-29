@@ -8038,13 +8038,6 @@ react-calendar@^2.19.1:
     prop-types "^15.6.0"
     react-lifecycles-compat "^3.0.4"
 
-react-compound-timer@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-compound-timer/-/react-compound-timer-1.1.5.tgz#348e0ceba14f57aa6950b67e056bff83dc8ced84"
-  integrity sha512-cro9ihnRvqK+HUH4/PO/euz7queOM/ZuEOfMqOqoTlVwJNsCL0xQVPQwH3pef1k8Lp6jAQcv0tXtZ5ByMBVc9w==
-  dependencies:
-    react "^16.8.6"
-
 react-dev-utils@^9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.3.tgz#7607455587abb84599451460eb37cef0b684131a"
@@ -8203,7 +8196,7 @@ react-scripts@3.1.1:
   optionalDependencies:
     fsevents "2.0.7"
 
-react@^16.8.6, react@^16.9.0:
+react@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
