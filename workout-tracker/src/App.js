@@ -15,6 +15,24 @@ class App extends Component {
     authLoading: false,
     error: null
   }
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    const expiryDate = localStorage.getItem('expiryDate');
+    if (!token || !expiryDate) {
+      return;
+    }
+    if (new Date(expiryDate) <= new Date()) {
+      this.logoutHandler();
+      return;
+    }
+    const userId = localStorage.getItem('userId');
+    const remainingMilliseconds =
+      new Date(expiryDate).getTime() - new Date().getTime();
+    this.setState({ isAuth: true, token: token, userId: userId });
+    this.setAutoLogout(remainingMilliseconds);
+  }
+  
   render() {
     return (
       <div className="App">
