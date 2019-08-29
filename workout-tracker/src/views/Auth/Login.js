@@ -24,6 +24,31 @@ class Login extends Component {
     }
   };
 
+  inputChangeHandler = (input, value) => {
+    this.setState(prevState => {
+      let isValid = true;
+      for (const validator of prevState.loginForm[input].validators) {
+        isValid = isValid && validator(value);
+      }
+      const updatedForm = {
+        ...prevState.loginForm,
+        [input]: {
+          ...prevState.loginForm[input],
+          valid: isValid,
+          value: value
+        }
+      };
+      let formIsValid = true;
+      for (const inputName in updatedForm) {
+        formIsValid = formIsValid && updatedForm[inputName].valid;
+      }
+      return {
+        loginForm: updatedForm,
+        formIsValid: formIsValid
+      };
+    });
+  };
+
   render() {
     return ()
   }
