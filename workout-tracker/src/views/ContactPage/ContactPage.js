@@ -31,6 +31,7 @@ class ContactPage extends React.Component {
         <input name="email" value={this.state.email} onChange={this.handleChange} placeholder="JohnDoe@gmail.com" />
         <input name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="(Optional)" />        
         <input name="message" value={this.state.message} onChange={this.handleChange} placeholder="Message" />                
+        <button onClick={this.sendMessage}>Send</button>
         </StyledContactPage>
      );
   }
