@@ -11,4 +11,4 @@ class WorkoutView extends Component {
   }
 }
  
-export default WorkoutView;
+export default connect(mapStateToProps)(WorkoutView);
