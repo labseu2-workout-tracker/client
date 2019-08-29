@@ -11,19 +11,6 @@ class WorkoutView extends React.Component {
      
     };
   }
-
-  startWorkout = () => {
-    setInterval(
-      () =>
-        this.setState(prevState => {
-          return {
-            time: prevState.time + 1,
-          };
-        }),
-      1000
-    );
-  };
-
   render() {
     return (
       <div>
