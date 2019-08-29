@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Workouts = () => {
   return ( 
-    <div>This is the Workouts copmonent</div>
+    <div>
+      
+    </div>
    );
 }
  
-export default Workouts;
+export default connect(mapStateToProps)(Workouts);
