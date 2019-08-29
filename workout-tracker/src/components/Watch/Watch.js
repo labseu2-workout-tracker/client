@@ -1,6 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
+function Stopwatch() {
+  var time = 0;
+  var interval;
+  var offset;
+
+  function update() {}
+  function delta() {}
+  function timeFormat() {}
+
+  this.isOn = false;
+  this.start = function() {};
+  this.stop = function() {};
+  this.reset = function() {};
+}
+
+var watch = new Stopwatch();
+watch.start();
+
 const StyledWatch = styled.div`
 `;
 
