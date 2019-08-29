@@ -1,4 +1,5 @@
 import React from 'react';
+import Timer from 'react-compound-timer';
 import styled from 'styled-components';
 
 function Stopwatch() {
