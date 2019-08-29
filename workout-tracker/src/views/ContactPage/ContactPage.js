@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledContactPage = styled.div``;
+const StyledContactPage = styled.div`
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+`;
 
 class ContactPage extends React.Component {
   constructor(props) {
