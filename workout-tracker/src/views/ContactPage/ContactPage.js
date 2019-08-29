@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 const StyledContactPage = styled.div`
 
+input {
+  text-align: center;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
