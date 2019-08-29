@@ -18,7 +18,7 @@ class Login extends Component {
         value: '',
         valid: false,
         touched: false,
-        validators: [required, length({ min: 5 })]
+        validators: [required, length({ min: 8 })]
       },
       formIsValid: false
     }
@@ -76,7 +76,7 @@ class Login extends Component {
         >
           <Input
             id="email"
-            label="Your E-Mail"
+            label="Email"
             type="email"
             control="input"
             onChange={this.inputChangeHandler}
