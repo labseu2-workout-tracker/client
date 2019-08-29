@@ -10,20 +10,30 @@ class Watch extends React.Component {
     super(props);
     this.state = {  }
   }
-
+  
   componentDidMount = () => {
     const button = document.querySelectorAll('button');
+    button[2].textContent = "stop";
     button[2].click();
   }
-  render() { 
-    const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
+
+  finishWorkout = () => {
+    const button = document.querySelectorAll('button');
+    const time = document.querySelector('.seconds').textContent;
+    
+    button[2].click();
+    // time variable is actual time (in milliseconds)
+  }
+  render() {
+    const OPTIONS = { delay: 100}
     return ( 
       <StyledWatch>
         <h3>Timer</h3>
      <Timer options={OPTIONS} />
+     <button onClick={this.finishWorkout}>Finish</button>
       </StyledWatch>
      );
-  }
+    }
 }
  
 export default Watch;
