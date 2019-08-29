@@ -8,7 +8,12 @@ const StyledContactPage = styled.div`
 class ContactPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+     }
   }
   render() { 
     return ( 
