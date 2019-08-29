@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-class WorkoutView extends Component {
+class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {  }
