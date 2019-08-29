@@ -8,7 +8,13 @@ import SignupPage from './pages/Auth/Signup';
 import './App.css';
 
 class App extends Component {
-
+  state ={ 
+    isAuth: false,
+    token: null,
+    userId: null,
+    authLoading: false,
+    error: null
+  }
   render() {
     return (
       <div className="App">
