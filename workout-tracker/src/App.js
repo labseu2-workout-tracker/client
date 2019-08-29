@@ -33,6 +33,13 @@ class App extends Component {
     this.setAutoLogout(remainingMilliseconds);
   }
   
+  logoutHandler = () => {
+    this.setState({ isAuth: false, token: null });
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiryDate');
+    localStorage.removeItem('userId');
+  };
+
   render() {
     return (
       <div className="App">
