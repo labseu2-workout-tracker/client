@@ -8,7 +8,7 @@ class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 0
+     
     };
   }
 
@@ -36,7 +36,7 @@ class WorkoutView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentWorkout: state.currentWorkout.currentWorkout
+    // currentWorkout: state.currentWorkout.currentWorkout
   };
 };
 
