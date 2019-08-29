@@ -14,8 +14,9 @@ class ContactPage extends React.Component {
     return ( 
       <StyledContactPage>
         <Header/>
-      </StyledContactPage>
-      <input name="name" value={this.state.name} onChange={this.handleChange} placeholder="John Doe" />
+        <input name="name" value={this.state.name} onChange={this.handleChange} placeholder="John Doe" />
+        <input name="email" value={this.state.email} onChange={this.handleChange} placeholder="JohnDoe@gmail.com" />
+        </StyledContactPage>
      );
   }
 }
