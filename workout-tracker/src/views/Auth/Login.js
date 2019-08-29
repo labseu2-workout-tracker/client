@@ -49,6 +49,20 @@ class Login extends Component {
     });
   };
 
+  inputBlurHandler = input => {
+    this.setState(prevState => {
+      return {
+        loginForm: {
+          ...prevState.loginForm,
+          [input]: {
+            ...prevState.loginForm[input],
+            touched: true
+          }
+        }
+      };
+    });
+  };
+
   render() {
     return ()
   }
