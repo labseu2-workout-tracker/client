@@ -12,7 +12,7 @@ const Header = () => {
   return ( <StyledHeader>
     <h1>Logo</h1>
     <MainNavBar />
-    <i class="fa fa-wrench"></i>
+    <i className="fa fa-wrench"></i>
   </StyledHeader> );
 }
  
