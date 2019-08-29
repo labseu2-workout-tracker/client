@@ -16,9 +16,18 @@ class ContactPage extends React.Component {
      }
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
    this.setState({
      [e.target.name]: e.target.value,
+   });
+  };
+
+  sendMessage = () => {
+   this.setState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
    });
   };
 
