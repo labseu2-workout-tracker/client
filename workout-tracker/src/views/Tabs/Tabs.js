@@ -5,6 +5,7 @@ const Tabs = () => {
   const tabs = [ "My Workouts", "Settings", "Notifications", 'History'];
 
   return <div>
+    <Link to="/Home">Tracker</Link>
     {tabs.map((tab, index) => 
     <Link
     key={index}
