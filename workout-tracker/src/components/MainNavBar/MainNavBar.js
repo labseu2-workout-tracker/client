@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 const StyledMainNavBar = styled.nav`
-
+display: flex;
+justify-content: space-between;
 `;
 
 const MainNavBar = () => {
