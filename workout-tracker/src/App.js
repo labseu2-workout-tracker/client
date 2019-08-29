@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './views/Header/Header';
+import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
