@@ -10,6 +10,11 @@ class Watch extends React.Component {
     super(props);
     this.state = {  }
   }
+
+  componentDidMount = () => {
+    const button = document.querySelectorAll('button');
+    button[2].click();
+  }
   render() { 
     const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
     return ( 
