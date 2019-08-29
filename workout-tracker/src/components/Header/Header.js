@@ -7,11 +7,11 @@ const StyledHeader = styled.div`
 `;
 
 const Header = () => {
-  return ( <div>
+  return ( <StyledHeader>
     <h1>Logo</h1>
     <MainNavBar />
     <i class="fa fa-wrench"></i>
-  </div> );
+  </StyledHeader> );
 }
  
 export default Header;
