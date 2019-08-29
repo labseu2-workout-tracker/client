@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header';
 import styled from 'styled-components';
 
 const StyledContactPage = styled.div`
@@ -36,7 +35,6 @@ class ContactPage extends React.Component {
   render() { 
     return ( 
       <StyledContactPage>
-        <Header/>
         <h2>Contact Us</h2>
         <input name="name" value={this.state.name} onChange={this.handleChange} placeholder="John Doe" />
         <input name="email" value={this.state.email} onChange={this.handleChange} placeholder="JohnDoe@gmail.com" />
