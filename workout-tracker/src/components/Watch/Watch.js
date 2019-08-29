@@ -8,11 +8,20 @@ function Stopwatch() {
 
   function update() {}
   function delta() {}
-  function timeFormat() {}
+  function timeFormatter() {}
 
   this.isOn = false;
-  this.start = function() {};
+
+  this.start = function() {
+    if(!this.isOn) {
+     interval = setInterval(update, 10);
+     offset = Date.now();
+     this.isOn = true;
+    }
+  };
+  
   this.stop = function() {};
+  
   this.reset = function() {};
 }
 
