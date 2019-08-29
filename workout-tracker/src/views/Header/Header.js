@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNavBar from '../MainNavBar/MainNavBar';
+import MainNavBar from '../../components/MainNavBar/MainNavBar';
 import styled from 'styled-components';
 
 const StyledHeader = styled.div`
