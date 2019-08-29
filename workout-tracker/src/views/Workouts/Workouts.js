@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Workouts = () => {
-  return ( 
-    <div>
+class Workouts  extends React.Component {
+  render() {
+    return(
+      <div>
       {/* array- mappin over each workout */}
       {this.props.workouts.map(workout =>{
         return <div> 
@@ -13,8 +14,10 @@ const Workouts = () => {
         </div> 
       })}
     </div>
-   );
+    )
+  }
 }
+
  
 const mapStateToProps = state => {
   return{
