@@ -10,13 +10,13 @@ justify-content: space-between;
 const MainNavBar = () => {
   const navButtons = ["Home", "Workouts", "Exercises", "Contact"];
   return (
-    <nav>
+    <StyledMainNavBar>
       {navButtons.map((button, index) => (
         <NavLink key={index} to={`/${button}`}>
           {button}
         </NavLink>
       ))}
-    </nav>
+    </StyledMainNavBar>
   );
 };
 
