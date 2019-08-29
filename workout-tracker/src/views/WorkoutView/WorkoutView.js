@@ -3,7 +3,9 @@ import Watch from '../../components/Watch/Watch';
 import { connect } from "react-redux";
 import styled from "styled-components";
 
-const StyledWorkoutView = styled.div``;
+const StyledWorkoutView = styled.div`
+
+`;
 
 class WorkoutView extends React.Component {
   constructor(props) {
@@ -15,6 +17,9 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <div>
+        <div className="top">
+
+        </div>
         <Watch/>
       </div>
     );
