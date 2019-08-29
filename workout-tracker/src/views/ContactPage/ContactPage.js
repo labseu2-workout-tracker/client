@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContactPage = styled.div`
+  
   input {
     text-align: center;
   }
@@ -49,7 +50,12 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
-        <div className="left-side"></div>
+        <div className="left-side">
+          <img
+            src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="fitness"
+          />
+        </div>
         <div className="right-side">
           <div className="row">
             <p>Name:</p>
