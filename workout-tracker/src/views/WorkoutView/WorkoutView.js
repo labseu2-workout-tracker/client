@@ -18,9 +18,11 @@ class WorkoutView extends React.Component {
     return (
       <div>
         <div className="top">
+        <Watch/>
+        </div>
+        <div className="bottom">
 
         </div>
-        <Watch/>
       </div>
     );
   }
