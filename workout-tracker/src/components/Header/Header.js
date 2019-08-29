@@ -1,5 +1,6 @@
 import React from 'react';
 import MainNavBar from '../MainNavBar/MainNavBar';
+import styled from 'styled-components';
 
 const Header = () => {
   return ( <div>
