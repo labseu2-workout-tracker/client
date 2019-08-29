@@ -5,6 +5,7 @@ const initialState = {
   
 };
 
+//  default state
 const workouts = (state = initialState, action) => {
     switch (action.type) {
       case type.FETCH_WORKOUTS:
@@ -13,8 +14,7 @@ const workouts = (state = initialState, action) => {
           ...state,
           workouts: action.workouts,
         };
-  
-      
+   
       default:
         return state;
     }
