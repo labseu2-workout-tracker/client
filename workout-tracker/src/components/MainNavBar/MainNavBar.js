@@ -10,7 +10,7 @@ a {
 `;
 
 const MainNavBar = () => {
-  const navButtons = ["Home", "Workouts", "Exercises", "Contact"];
+  const navButtons = ["Home", "Workout", "Exercises", "Contact"];
   return (
     <StyledMainNavBar>
       {navButtons.map((button, index) =>
