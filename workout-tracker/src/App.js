@@ -12,6 +12,7 @@ function App() {
       <Header />
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Contact'} component={ContactPage} />    
     </div>
   );
 }
