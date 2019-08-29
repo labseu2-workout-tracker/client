@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <MainNavBar />
-        <Route path={'/My Workouts'} component={ExercisesLibrary} />
+        <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Home'} component={UserPage} />
     </div>
   );
