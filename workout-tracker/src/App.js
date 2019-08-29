@@ -81,6 +81,13 @@ class App extends Component {
       });
   };
 
+  setAutoLogout = milliseconds => {
+    setTimeout(() => {
+      this.logoutHandler();
+    }, milliseconds);
+  };
+  
+
   render() {
     return (
       <div className="App">
