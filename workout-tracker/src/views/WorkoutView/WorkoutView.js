@@ -15,6 +15,7 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <div>
+        <Watch/>
       </div>
     );
   }
