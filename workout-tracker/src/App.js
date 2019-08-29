@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from './views/Tabs/Tabs';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
