@@ -9,4 +9,5 @@ const Workouts = () => {
    );
 }
  
+
 export default connect(mapStateToProps)(Workouts);
