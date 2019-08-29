@@ -5,6 +5,7 @@ import UserPage from './views/UserPage/UserPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
+import LoginPage from './views/Auth/Login';
 import './App.css';
 
 class App extends Component {
@@ -91,6 +92,17 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
+         <Route
+          path="/login"
+          exact
+          render={props => (
+            <LoginPage
+              {...props}
+              onLogin={this.loginHandler}
+              loading={this.state.authLoading}
+            />
+          )}
+        />
         <Route
           path="/signup"
           exact
