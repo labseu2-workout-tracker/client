@@ -20,7 +20,14 @@ class WorkoutView extends React.Component {
         <div className="top">
         {this.props.currentExercise ? 
         (this.props.currentExercise.map(exercise => {
-          return <img src={exercise.picture_one} alt="exercise"/>
+          return <div>
+            <div className="left">
+            <img src={exercise.picture_one} alt="exercise"/>
+        </div>
+        <div className="middle">
+
+        </div>
+        </div>
         })) 
       : null}
         <Watch/>
