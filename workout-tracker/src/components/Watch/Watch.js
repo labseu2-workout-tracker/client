@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Watch extends Component {
+class Watch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {  }
