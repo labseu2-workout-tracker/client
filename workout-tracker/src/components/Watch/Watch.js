@@ -18,7 +18,9 @@ function Stopwatch() {
     return timePassed;
   }
 
-  function timeFormatter() {}
+  function timeFormatter(timeInMilliSeconds) {
+    var time = new Date(timeInMilliSeconds);
+  }
 
   this.isOn = false;
 
