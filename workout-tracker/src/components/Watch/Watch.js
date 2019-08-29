@@ -20,7 +20,13 @@ function Stopwatch() {
     }
   };
   
-  this.stop = function() {};
+  this.stop = function() {
+    if(this.isOn) {
+      clearInterval(interval);
+      intervall = null;
+      this.isOn = false;
+    }
+  };
   
   this.reset = function() {};
 }
