@@ -2,7 +2,9 @@ import React from 'react';
 import MainNavBar from '../MainNavBar/MainNavBar';
 
 const Header = () => {
-  return (  );
+  return ( <div>
+    <h1>Logo</h1>
+  </div> );
 }
  
 export default Header;
