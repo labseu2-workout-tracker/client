@@ -35,7 +35,7 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
-        <div>
+        <div className="row">
           <p>Name:</p>
           <input
             name="name"
@@ -44,7 +44,7 @@ class ContactPage extends React.Component {
             placeholder="John Doe"
           />
         </div>
-        <div>
+        <div className="row">
           <p>Email</p>
           <input
             name="email"
@@ -53,7 +53,7 @@ class ContactPage extends React.Component {
             placeholder="JohnDoe@gmail.com"
           />
         </div>
-        <div>
+        <div className="row">
           <p>Phone:</p>
           <input
             name="phone"
