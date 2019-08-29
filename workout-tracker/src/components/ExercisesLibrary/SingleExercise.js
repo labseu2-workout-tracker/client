@@ -6,7 +6,7 @@ const SingleExercise = props => {
     <div>
       <div className="close-exercise"
        onClick={props.closeExercise}>
-        <i class="fa fa-window-close" />
+        <i className="fa fa-window-close" />
       </div>
       <p>{props.exercise.exercise_name}</p>
       <ExerciseRating
