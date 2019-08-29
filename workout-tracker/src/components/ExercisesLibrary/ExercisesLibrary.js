@@ -1,7 +1,7 @@
 import React from "react";
 import AllExercises from "./AllExercises";
 import SingleExercise from "./SingleExercise";
-import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions";
+import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {

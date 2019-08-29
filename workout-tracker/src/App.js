@@ -1,26 +1,16 @@
 import React from 'react';
-import './App.css';
-import E from './components/ExercisesLibrary/ExercisesLibrary';
+import Tabs from './components/Tabs/Tabs';
+import ExercisesLibrary from './components/ExercisesLibrary/ExercisesLibrary';
 import UserPage from './components/UserPage/UserPage';
+import { Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <E/>
-        <UserPage />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tabs />
+        <Route path={'/workout'} component={ExercisesLibrary} />
+        <Route path={'/tracker'} component={UserPage} />
     </div>
   );
 }
