@@ -8,9 +8,15 @@ function Stopwatch() {
 
   function update() {
     time += delta();
+    var formattedTime = timeFormatter(time);
   }
 
-  function delta() {}
+  function delta() {
+    var now = Date.now();
+    var timePassed = now - offset;
+    offset = now;
+    return timePassed;
+  }
 
   function timeFormatter() {}
 
