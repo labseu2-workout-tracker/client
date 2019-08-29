@@ -122,4 +122,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
