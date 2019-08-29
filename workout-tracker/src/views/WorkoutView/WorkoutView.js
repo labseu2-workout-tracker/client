@@ -8,10 +8,16 @@ const StyledWorkoutView = styled.div`
 class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+      time: 0,
+     }
   }
   render() { 
-    return (  );
+    return ( 
+      <div>
+      
+      </div>
+     );
   }
 }
 
