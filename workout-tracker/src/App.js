@@ -44,14 +44,14 @@ class App extends Component {
     event.preventDefault();
     this.setState({ authLoading: true });
     fetch('http://localhost:5000/auth/signup', {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         email: authData.signupForm.email.value,
         password: authData.signupForm.password.value,
-        name: authData.signupForm.name.value
+        username: authData.signupForm.username.value
       })
     })
       .then(res => {
