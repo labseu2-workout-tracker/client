@@ -11,6 +11,7 @@ class Watch extends React.Component {
     this.state = {  }
   }
   render() { 
+    const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
     return ( 
       <StyledWatch>
      
