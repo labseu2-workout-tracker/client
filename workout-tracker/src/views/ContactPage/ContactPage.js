@@ -40,7 +40,10 @@ class ContactPage extends React.Component {
           <p>Name:</p>
         <input name="name" value={this.state.name} onChange={this.handleChange} placeholder="John Doe" />
         </div>
+        <div>
+          <p>Email</p>
         <input name="email" value={this.state.email} onChange={this.handleChange} placeholder="JohnDoe@gmail.com" />
+        </div>
         <input name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="(Optional)" />        
         <input name="message" value={this.state.message} onChange={this.handleChange} placeholder="Message" />                
         <button onClick={this.sendMessage}>Send</button>
