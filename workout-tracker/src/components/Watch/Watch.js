@@ -6,7 +6,9 @@ class Watch extends React.Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <h1 id="toggle">00 : 00 . 000</h1>
+     );
   }
 }
  
