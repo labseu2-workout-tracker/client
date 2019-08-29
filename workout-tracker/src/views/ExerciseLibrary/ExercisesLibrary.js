@@ -1,6 +1,6 @@
 import React from "react";
-import AllExercises from "./AllExercises";
-import SingleExercise from "./SingleExercise";
+import AllExercises from "../../components/Exercises/AllExercises";
+import SingleExercise from "../../components/Exercises/SingleExercise";
 import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
