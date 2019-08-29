@@ -14,8 +14,6 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <div>
-        <p>{this.state.time}</p>
-        <button onClick={this.startWorkout}>Start</button>
       </div>
     );
   }
