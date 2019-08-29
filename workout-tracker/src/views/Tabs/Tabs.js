@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const Tabs = () => {
-  const tabs = ["tracker", "workout", "settings", "notifications"];
+  const tabs = ["Tracker", "My Workouts", "Settings", "Notifications", 'History'];
 
   return tabs.map((tab, index) => (
     <Link
