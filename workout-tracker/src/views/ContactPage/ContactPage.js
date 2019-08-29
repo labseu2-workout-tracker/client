@@ -15,6 +15,7 @@ class ContactPage extends React.Component {
       <StyledContactPage>
         <Header/>
       </StyledContactPage>
+      <input name="name" value={this.state.name} onChange={this.handleChange} placeholder="John Doe" />
      );
   }
 }
