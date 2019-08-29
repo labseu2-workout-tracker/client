@@ -60,9 +60,30 @@ class Watch extends React.Component {
   render() { 
     return ( 
       <StyledWatch>
-      <h1 id="toggle">00 : 00 . 000</h1>
-      <button id="toggle">Start</button>
-      <button id="reset">Reset</button>
+      <Timer
+    initialTime={55000}
+>
+    {({ start, resume, pause, stop, reset, timerState }) => (
+        <React.Fragment>
+            <div>
+                <Timer.Days /> days
+                <Timer.Hours /> hours
+                <Timer.Minutes /> minutes
+                <Timer.Seconds /> seconds
+                <Timer.Milliseconds /> milliseconds
+            </div>
+            <div>{timerState}</div>
+            <br />
+            <div>
+                <button onClick={start}>Start</button>
+                <button onClick={pause}>Pause</button>
+                <button onClick={resume}>Resume</button>
+                <button onClick={stop}>Stop</button>
+                <button onClick={reset}>Reset</button>
+            </div>
+        </React.Fragment>
+    )}
+</Timer>
       </StyledWatch>
      );
   }
