@@ -14,7 +14,7 @@ class Watch extends React.Component {
     const OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
     return ( 
       <StyledWatch>
-     
+     <Timer options={OPTIONS} />
       </StyledWatch>
      );
   }
