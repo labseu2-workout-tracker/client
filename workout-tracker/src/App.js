@@ -4,7 +4,7 @@ import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
-import SignupPage from './pages/Auth/Signup';
+import SignupPage from './views/Auth/Signup';
 import './App.css';
 
 class App extends Component {
