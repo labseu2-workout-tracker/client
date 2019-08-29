@@ -14,6 +14,7 @@ function App() {
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Home'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
+        <Route path={'/Workout'} component={WorkoutView} />        
     </div>
   );
 }
