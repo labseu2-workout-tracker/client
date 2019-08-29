@@ -170,9 +170,17 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-        <Tabs />
+          <Switch>
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <Tabs/>
+            )}
+          />
           <Route path={'/My Workouts'} component={ExercisesLibrary} />
           <Route path={'/tracker'} component={UserPage} />
+        </Switch>
       </div>
       )
     }
