@@ -5,6 +5,7 @@ const Header = () => {
   return ( <div>
     <h1>Logo</h1>
     <MainNavBar />
+    <i class="fa fa-wrench"></i>
   </div> );
 }
  
