@@ -1,6 +1,6 @@
 import React from 'react';
-import Calendar from '../../components/MainUserComponents/Tracker/Calendar';
-import ActivityChart from '../../components/MainUserComponents/Tracker/ActivityChart';
+import Calendar from './Tracker/Calendar';
+import ActivityChart from './Tracker/ActivityChart';
 
 class UserPage extends React.Component {
   constructor(props) {
