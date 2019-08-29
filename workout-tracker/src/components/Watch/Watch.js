@@ -15,6 +15,7 @@ class Watch extends React.Component {
     const button = document.querySelectorAll('button');
     button[2].textContent = "stop";
     button[2].click();
+    button[0].click();
   }
 
   finishWorkout = () => {
