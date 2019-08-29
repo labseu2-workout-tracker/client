@@ -50,6 +50,9 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
+        <div className="left-side">
+
+        </div>
         <div className="row">
           <p>Name:</p>
           <input
