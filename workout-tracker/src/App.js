@@ -86,17 +86,39 @@ class App extends Component {
       this.logoutHandler();
     }, milliseconds);
   };
-  
+
 
   render() {
-    return (
-      <div className="App">
+    let routes = (
+      <Switch>
+        <Route
+          path="/signup"
+          exact
+          render={props => (
+            <SignupPage
+              {...props}
+              onSignup={this.signupHandler}
+              loading={this.state.authLoading}
+            />
+          )}
+        />
+        <Redirect to="/" />
+      </Switch>
+    );
+    if (this.state.isAuth) {
+      routes = (
+        <div className="App">
         <Tabs />
           <Route path={'/My Workouts'} component={ExercisesLibrary} />
           <Route path={'/tracker'} component={UserPage} />
       </div>
+      )
+    }
+    return (
+      <Fragment>
+        {routes}
+      </Fragment>
     );
-
   }
 }
 
