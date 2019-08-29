@@ -1,4 +1,5 @@
 import React from "react";
+import Tabs from '../Tabs/Tabs';
 import AllExercises from "../../components/Exercises/AllExercises";
 import SingleExercise from "../../components/Exercises/SingleExercise";
 import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions/exerciseActions";
@@ -25,6 +26,8 @@ class ExerciseLibrary extends React.Component {
        )
     }
     return (
+      <div>
+        <Tabs/>
       <AllExercises
         exercises={this.props.exercises}
         showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
@@ -32,6 +35,7 @@ class ExerciseLibrary extends React.Component {
         paginate={e => this.props.paginate(e.target.textContent)}
         showSingleExercise={(e) => this.props.showSingleExercise(e.target.textContent)}
       />
+      </div>
     );
   }
 }
