@@ -9,6 +9,7 @@ class Watch extends React.Component {
     return ( 
       <h1 id="toggle">00 : 00 . 000</h1>
       <button id="toggle">Start</button>
+      <button id="reset">Reset</button>
      );
   }
 }
