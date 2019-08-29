@@ -13,7 +13,7 @@ class ContactPage extends React.Component {
   render() { 
     return ( 
       <StyledContactPage>
-        
+        <Header/>
       </StyledContactPage>
      );
   }
