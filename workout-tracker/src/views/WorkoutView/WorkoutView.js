@@ -25,7 +25,10 @@ class WorkoutView extends React.Component {
             <img src={exercise.picture_one} alt="exercise"/>
         </div>
         <div className="middle">
-
+        <p>Set</p>
+        <p>Reps</p>
+        <p>Time</p>
+        <p>Weight</p>
         </div>
         </div>
         })) 
