@@ -6,8 +6,12 @@ function Stopwatch() {
   var interval;
   var offset;
 
-  function update() {}
+  function update() {
+    time += delta();
+  }
+
   function delta() {}
+
   function timeFormatter() {}
 
   this.isOn = false;
