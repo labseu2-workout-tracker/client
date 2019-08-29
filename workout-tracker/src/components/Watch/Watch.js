@@ -28,7 +28,9 @@ function Stopwatch() {
     }
   };
   
-  this.reset = function() {};
+  this.reset = function() {
+    time = 0;
+  };
 }
 
 var watch = new Stopwatch();
