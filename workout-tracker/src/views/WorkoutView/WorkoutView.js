@@ -10,5 +10,11 @@ class WorkoutView extends Component {
     return (  );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+   currentWorkout: state.currentWorkout.currentWorkout,
+  };
+};
  
 export default connect(mapStateToProps)(WorkoutView);
