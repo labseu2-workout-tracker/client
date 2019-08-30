@@ -56,6 +56,10 @@ class Settings extends React.Component {
     });
   };
 
+  changeSettings = () => {
+  this.props.updateSettings();
+  };
+
   render() {
     return (
       <StyledSettings>
