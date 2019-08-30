@@ -8,7 +8,10 @@ body{
 }
 a {
   text-decoration: none;
-  color: white;
+  color: rgb(11, 9, 9);
+}
+p{
+    padding: 2rem;
 }
 section {
   padding: 10 rem 0;
@@ -21,14 +24,14 @@ section {
   margin-right: -3px;
   margin-bottom: 5rem;
   text-align: center;
-  color: #333;
+  color: #6bbdfa;
   position: relative;
 }
 .heading::after {
   content: '';
   width: 10rem;
   height: .8rem;
-  background-color: #5e125c;
+  background-color: #6bbdfa;
   position:absolute;
   bottom: -2rem;
   left: 50%;
@@ -43,7 +46,7 @@ section {
 }
 .card{
     width: 32rem;
-    background-color: #c68bf0;
+    background-color: #c7d9eef9;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,26 +55,26 @@ section {
 }
 .card .card-img{
     width: 100%;
-    height: 26rem;
+    height: 20rem;
     object-fit: cover;   
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
 
 }
 .profile-img{
-    width: 15rem;
-    height: 15rem;
+    width: 13rem;
+    height: 13rem;
     object-fit: cover;
     border-radius: 50%;
-    margin-top:-11rem;
-    z-index: 999;
-    border: 1rem solid #ebeef8;
+    margin-top:-13rem;
+    z-index: 899;
+    border: 0.5rem solid #c7d9eef9;
     
 }
 .card h1{
     font-size:2.5rem;
     color: #333;
-    margin:  1.5rem 0;
+    margin:  1.5rem;
 }
 .job-title{
     color: #777;
@@ -86,10 +89,10 @@ section {
     color: #333;
 }
 .card .btn{
-    padding: 1 rem 2.5rem;
-    background-color: #5e125c;
+    padding: .8rem 2.5rem;
+    background-color: #6bbdfa;
     border-radius: 2rem;
-    margin: 1rem 0;
+    margin: 1rem;
     text-transform: capitalize;
     color: #eee;
     font-size: 1.4rem;
