@@ -18,31 +18,18 @@ const StyledSettings = styled.div`
   }
 `;
 
-const test = [
-  {
-    email: "hello",
-    password: "hello",
-    weight: "hello",
-    height: "hello",
-    gender: "hello",
-    difficulty: "hello",
-    email_notification: false,
-    push_notification: true
-  }
-];
-
 class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: test[0].email,
-      password: test[0].password,
-      weight: test[0].weight,
-      height: test[0].height,
-      gender: test[0].gender,
-      difficulty: test[0].difficulty,
-      email_notification: test[0].email_notification,
-      push_notification: test[0].push_notification,
+      email: this.props.settings[0].email,
+      password: this.props.settings[0].password,
+      weight: this.props.settings[0].weight,
+      height: this.props.settings[0].height,
+      gender: this.props.settings[0].gender,
+      difficulty: this.props.settings[0].difficulty,
+      email_notification: this.props.settings[0].email_notification,
+      push_notification: this.props.settings[0].push_notification,
     };
   }
 
@@ -74,10 +61,8 @@ class Settings extends React.Component {
   render() {
     return (
       <StyledSettings>
-        {// this.props.settings ?
-        // (
-        // this.props.settings
-        test.map((setting, index) => {
+        { this.props.settings ? (this.props.settings
+  .map((setting, index) => {
           return (
             <div key={index}>
               <div className="row">
