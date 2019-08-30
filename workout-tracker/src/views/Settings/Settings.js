@@ -14,11 +14,15 @@ class Settings extends React.Component {
   componentDidMount = () => {
   this.props.fetchSettings();
   };
-
+'push_notification', 'email_notification', 'body_weight', 'body_height', 'user_difficulty', 'gender'
   render() { 
     return ( 
       <StyledSettings>
-      {this.props.settings ? (this.props.settings) : null}
+      {this.props.settings ? (this.props.settings.map(setting => {
+        return <div>
+          <input value={this.state.email} onChange={this.handleChange} placeholder={setting.email} name="email" />
+        </div>
+      })) : null}
       </StyledSettings>
      );
   }
