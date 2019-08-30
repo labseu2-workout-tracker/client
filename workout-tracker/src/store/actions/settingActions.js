@@ -10,9 +10,13 @@ export const fetchSettings = () => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
   return axios.get(settings)
     .then(res => {
-      dispatch({ type: FETCH_SETTINGS, exercises: res.data });
+      dispatch({ type: FETCH_SETTINGS, settings: res.data });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
     });
+};
+
+export const updateSettings = (updatedSettings) => {
+  return { type: UPDATE_SETTINGS, updatedSettings: updatedSettings };   
 };
