@@ -41,8 +41,8 @@ class Settings extends React.Component {
       height: test[0].height,
       gender: test[0].gender,
       difficulty: test[0].difficulty,
-      email_notification: test[0].email_notification,
-      push_notification: test[0].push_notification
+      email_notification: test[0].email_notification.toString(),
+      push_notification: test[0].push_notification.toString(),
     };
   }
 
