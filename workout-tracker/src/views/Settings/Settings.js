@@ -11,4 +11,4 @@ class Settings extends React.Component {
   }
 }
  
-export default Settings;
+export default connect(mapStateToProps)(Settings);
