@@ -26,8 +26,8 @@ const test = [
     height: "hello",
     gender: "hello",
     difficulty: "hello",
-    email_notification: "hello",
-    push_notification: "hello"
+    email_notification: false,
+    push_notification: true
   }
 ];
 
@@ -143,6 +143,7 @@ class Settings extends React.Component {
         })
         // ) : null
         }
+        <button onClick={this.changeSettings}>Change</button>
       </StyledSettings>
     );
   }
