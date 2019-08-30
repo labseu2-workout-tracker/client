@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSettings } from '../../store/actions/settingActions';
+import { fetchSettings, updateSettings } from '../../store/actions/settingActions';
 import styled from 'styled-components';
 
 const StyledSettings = styled.div``;
@@ -25,4 +25,4 @@ const mapStateToProps = state => {
   };
 };
  
-export default connect(mapStateToProps, { fetchSettings })(Settings);
+export default connect(mapStateToProps, { fetchSettings, updateSettings })(Settings);
