@@ -6,6 +6,7 @@ import settings from './settings';
 const appReducer = combineReducers({
   exercises: exercises,
   workouts: workouts,
+  settings: settings,
 });
 
 const rootReducer = (state, action) => {
