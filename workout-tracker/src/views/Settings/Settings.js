@@ -32,6 +32,13 @@ class Settings extends React.Component {
   componentDidMount = () => {
   this.props.fetchSettings();
   };
+
+  handleChange = e => {
+  this.setState({
+    [e.target.name]: e.target.value,
+  });
+  };
+
   render() { 
     return ( 
       <StyledSettings>
