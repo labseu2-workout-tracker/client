@@ -30,7 +30,7 @@ section {
   bottom: -2rem;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 2rem'
+  border-radius: 2rem;
 }
 .card-wrapper{
     display: flex;
@@ -110,5 +110,5 @@ border-top: 1px solid rgba(0, 0, 0, .1)
 }
 .social-media i{
     font-size: 3rem;
-    
+
 }
