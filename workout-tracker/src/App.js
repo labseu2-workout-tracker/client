@@ -9,6 +9,7 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
 import LoginPage from './views/Auth/Login';
+
 import './App.css';
 
 class App extends Component {
@@ -173,18 +174,12 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-          <Switch>
-          <Route
-            path="/"
-            exact
-            render={props => (
-              <Tabs/>
-            )}
-          />
-          <Route path={'/My Workouts'} component={ExercisesLibrary} />
-          <Route path={'/tracker'} component={UserPage} />
-        </Switch>
-      </div>
+      <Header />
+        <Route path={'/Exercises'} component={ExercisesLibrary} />
+        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Contact'} component={ContactPage} />    
+        <Route path={'/Workout'} component={WorkoutView} />        
+    </div>
       )
     }
     return (
