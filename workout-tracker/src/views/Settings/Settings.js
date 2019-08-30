@@ -14,7 +14,7 @@ class Settings extends React.Component {
   componentDidMount = () => {
   this.props.fetchSettings();
   };
-'push_notification', 'email_notification',  'user_difficulty', 'gender'
+'push_notification',  'user_difficulty', 'gender'
   render() { 
     return ( 
       <StyledSettings>
@@ -25,7 +25,7 @@ class Settings extends React.Component {
           <input value={this.state.height} onChange={this.handleChange} placeholder={setting.body_height} name="height" />                    
           <input value={this.state.gender} onChange={this.handleChange} placeholder={setting.body_gender} name="gender" />
           <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
-
+          <input value={this.state.push_notification} onChange={this.handleChange} placeholder={setting.push_notification} name="push_notification" />                                      
         </div>
       })) : null}
       </StyledSettings>
