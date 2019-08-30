@@ -9,9 +9,9 @@ const settings = `${process.env.REACT_APP_BASE_URL}/settings`;
 export const fetchSettings = () => dispatch => {
   // type LOADING needs to be added (also for the redux state)
   const userId = localStorage.getItem('userId');
-  
+
   return axios
-    .get(settings)
+    .get(`${settings}/${userId}`)
     .then(res => {
       dispatch({ type: FETCH_SETTINGS, settings: res.data });
     })
