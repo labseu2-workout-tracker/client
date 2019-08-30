@@ -1,4 +1,5 @@
 import React from 'react';
+import Tabs from '../Tabs/Tabs';
 import Calendar from './Tracker/Calendar';
 import ActivityChart from './Tracker/ActivityChart';
 
@@ -10,6 +11,7 @@ class UserPage extends React.Component {
   render() { 
     return (
       <div> 
+        <Tabs/>
       <Calendar />
       <ActivityChart/>
       </div>
