@@ -184,6 +184,26 @@ class App extends Component {
     }
     return (
       <Fragment>
+        <Layout
+          header={
+            <Toolbar>
+              <MainNavigation
+                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+                onLogout={this.logoutHandler}
+                isAuth={this.state.isAuth}
+              />
+            </Toolbar>
+          }
+          mobileNav={
+            <MobileNavigation
+              open={this.state.showMobileNav}
+              mobile
+              onChooseItem={this.mobileNavHandler.bind(this, false)}
+              onLogout={this.logoutHandler}
+              isAuth={this.state.isAuth}
+            />
+          }
+        />
         {routes}
       </Fragment>
     );
