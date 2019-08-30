@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from './views/Header/Header';
+import Settings from './views/Settings/Settings';
 import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
