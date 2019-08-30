@@ -22,19 +22,30 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: this.props.settings[0].email,
-      password: this.props.settings[0].password,
-      weight: this.props.settings[0].weight,
-      height: this.props.settings[0].height,
-      gender: this.props.settings[0].gender,
-      difficulty: this.props.settings[0].difficulty,
-      email_notification: this.props.settings[0].email_notification,
-      push_notification: this.props.settings[0].push_notification,
+      email:  this.props.settings[0].email : null,
+      password:  this.props.settings[0].password : null,
+      weight:  this.props.settings[0].weight : null,
+      height:  this.props.settings[0].height : null,
+      gender:  this.props.settings[0].gender : null,
+      difficulty:  this.props.settings[0].difficulty : null,
+      email_notification:  this.props.settings[0].email_notification : null,
+      push_notification:  this.props.settings[0].push_notification : null,
     };
   }
 
   componentDidMount = () => {
     this.props.fetchSettings();
+
+    setTimeout(() => this.setState({
+      email:  this.props.settings[0].email : null,
+      password:  this.props.settings[0].password : null,
+      weight:  this.props.settings[0].weight : null,
+      height:  this.props.settings[0].height : null,
+      gender:  this.props.settings[0].gender : null,
+      difficulty:  this.props.settings[0].difficulty : null,
+      email_notification:  this.props.settings[0].email_notification : null,
+      push_notification:  this.props.settings[0].push_notification : null,
+    }), 2000)
   };
 
   handleChange = e => {
@@ -61,7 +72,7 @@ class Settings extends React.Component {
   render() {
     return (
       <StyledSettings>
-        { this.props.settings ? (this.props.settings
+        { this.props.setting ? (this.props.settings
   .map((setting, index) => {
           return (
             <div key={index}>
