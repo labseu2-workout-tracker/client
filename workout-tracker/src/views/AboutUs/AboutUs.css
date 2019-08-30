@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+section {
+  padding: 10 rem 0;
+  background-color: #ffffff;
+}
+.heading {
+  text-transform: uppercase;
+  font-size: 3.4 rem;
+  letter-spacing: 3px;
+  margin-right: -3px;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: #333;
+  position: relative;
+}
+.heading::after {
+  content: '';
+  width: 10rem;
+  height: .8rem;
+  background-color: #5e125c;
+  position:absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}

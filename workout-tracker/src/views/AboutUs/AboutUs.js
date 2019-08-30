@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutUs.css';
 import gym from '../../assets/avatar/gym.jpg';
 import tale from '../../assets/avatar/tale.jpg';
 import kelechi from '../../assets/avatar/kelechi.jpg';
