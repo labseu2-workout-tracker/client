@@ -144,6 +144,9 @@ class App extends Component {
     }, milliseconds);
   };
 
+  mobileNavHandler = isOpen => {
+    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
+  };
 
   render() {
     let routes = (
