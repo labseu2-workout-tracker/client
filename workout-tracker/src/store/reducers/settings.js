@@ -10,7 +10,7 @@ const settings = (state = initialState, action) => {
       
       return {
         ...state,
-        workouts: action.settings,
+        settings: action.settings,
       };
 
     default:
