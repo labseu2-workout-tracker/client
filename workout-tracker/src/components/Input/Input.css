@@ -5,8 +5,8 @@
 
 .input label {
   display: block;
-  text-transform: uppercase;
   margin-bottom: 0.25rem;
+  color: #404040;
 }
 
 .input input,
