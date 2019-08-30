@@ -197,7 +197,7 @@ class App extends Component {
             </Toolbar>
           }
           mobileNav={
-            <MobileNavigation
+            <MainNavBar
               open={this.state.showMobileNav}
               mobile
               onChooseItem={this.mobileNavHandler.bind(this, false)}
