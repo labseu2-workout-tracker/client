@@ -5,6 +5,10 @@ import styled from 'styled-components';
 
 const StyledSettings = styled.div`
 
+input {
+  text-align: center;
+}
+
 .row {
   display: flex;
   justify-content: center;
