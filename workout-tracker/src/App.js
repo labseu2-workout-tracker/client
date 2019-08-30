@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import Tabs from './views/Tabs/Tabs';
+import React from 'react';
+import MainNavBar from './components/MainNavBar/MainNavBar';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
 import './App.css';
+
 
 class App extends Component {
   state ={ 
