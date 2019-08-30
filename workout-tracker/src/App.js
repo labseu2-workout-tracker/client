@@ -20,7 +20,8 @@ class App extends Component {
     token: null,
     userId: null,
     authLoading: false,
-    error: null
+    error: null,
+    showMobileNav: false,
   }
 
   componentDidMount() {
