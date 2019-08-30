@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchSettings } from '../../store/actions/settingActions';
 import styled from 'styled-components';
 
 const StyledSettings = styled.div``;
@@ -12,7 +13,7 @@ class Settings extends React.Component {
   render() { 
     return ( 
       <StyledSettings>
-        
+
       </StyledSettings>
      );
   }
@@ -24,4 +25,4 @@ const mapStateToProps = state => {
   };
 };
  
-export default connect(mapStateToProps)(Settings);
+export default connect(mapStateToProps, { fetchSettings })(Settings);
