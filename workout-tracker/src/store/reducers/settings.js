@@ -13,6 +13,13 @@ const settings = (state = initialState, action) => {
         settings: action.settings,
       };
 
+      case type.UPDATE_SETTINGS:
+      
+        return {
+          ...state,
+          settings: action.updatedSettings,
+        };
+
     default:
       return state;
   }
