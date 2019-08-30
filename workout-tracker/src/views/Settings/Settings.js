@@ -8,7 +8,16 @@ const StyledSettings = styled.div``;
 class Settings extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+      email: ,
+      password: ,
+      weight: ,
+      height: ,
+      gender: ,
+      difficulty: ,
+      email_notification: ,
+      push_notification: ,
+     }
   }
 
   componentDidMount = () => {
@@ -24,8 +33,8 @@ class Settings extends React.Component {
           <input value={this.state.weight} onChange={this.handleChange} placeholder={setting.body_weight} name="weight" />          
           <input value={this.state.height} onChange={this.handleChange} placeholder={setting.body_height} name="height" />                    
           <input value={this.state.gender} onChange={this.handleChange} placeholder={setting.body_gender} name="gender" />
-          <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
           <input value={this.state.difficulty} onChange={this.handleChange} placeholder={setting.user_difficulty} name="difficulty" />                                      
+          <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
         </div>
       })) : null}
       </StyledSettings>
