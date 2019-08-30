@@ -10,7 +10,7 @@ const settings = (state = initialState, action) => {
       
       return {
         ...state,
-        settings: action.settings,
+        settings: [ action.settings ],
       };
 
       case type.UPDATE_SETTINGS:

@@ -22,30 +22,30 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email:  this.props.settings[0].email : null,
-      password:  this.props.settings[0].password : null,
-      weight:  this.props.settings[0].weight : null,
-      height:  this.props.settings[0].height : null,
-      gender:  this.props.settings[0].gender : null,
-      difficulty:  this.props.settings[0].difficulty : null,
-      email_notification:  this.props.settings[0].email_notification : null,
-      push_notification:  this.props.settings[0].push_notification : null,
+      email: this.props.settings ? this.props.settings[0].email : null,
+      password: this.props.settings ? this.props.settings[0].password : null,
+      weight: this.props.settings ? this.props.settings[0].weight : null,
+      height: this.props.settings ? this.props.settings[0].height : null,
+      gender: this.props.settings ? this.props.settings[0].gender : null,
+      difficulty: this.props.settings ? this.props.settings[0].difficulty : null,
+      email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
+      push_notification: this.props.settings ? this.props.settings[0].push_notification : null,
     };
   }
 
   componentDidMount = () => {
     this.props.fetchSettings();
 
-    setTimeout(() => this.setState({
-      email:  this.props.settings[0].email : null,
-      password:  this.props.settings[0].password : null,
-      weight:  this.props.settings[0].weight : null,
-      height:  this.props.settings[0].height : null,
-      gender:  this.props.settings[0].gender : null,
-      difficulty:  this.props.settings[0].difficulty : null,
-      email_notification:  this.props.settings[0].email_notification : null,
-      push_notification:  this.props.settings[0].push_notification : null,
-    }), 2000)
+    // setTimeout(() => this.setState({
+    //   email: this.props.settings ? this.props.settings[0].email : null,
+    //   password: this.props.settings ? this.props.settings[0].password : null,
+    //   weight: this.props.settings ? this.props.settings[0].weight : null,
+    //   height: this.props.settings ? this.props.settings[0].height : null,
+    //   gender: this.props.settings ? this.props.settings[0].gender : null,
+    //   difficulty: this.props.settings ? this.props.settings[0].difficulty : null,
+    //   email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
+    //   push_notification: this.props.settings ? this.props.settings[0].push_notification : null,
+    // }), 2000)
   };
 
   handleChange = e => {
@@ -72,7 +72,7 @@ class Settings extends React.Component {
   render() {
     return (
       <StyledSettings>
-        { this.props.setting ? (this.props.settings
+        { this.props.settings ? (this.props.settings
   .map((setting, index) => {
           return (
             <div key={index}>
@@ -162,7 +162,7 @@ class Settings extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // settings: state.settings.settings,
+    settings: state.settings.settings,
   };
 };
 
