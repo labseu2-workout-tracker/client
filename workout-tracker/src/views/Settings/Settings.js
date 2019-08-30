@@ -70,6 +70,7 @@ class Settings extends React.Component {
           <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
           </div>
           <div className="row">
+            <p>Push Notification: </p>
           <input value={this.state.push_notification} onChange={this.handleChange} placeholder={setting.push_notification} name="push_notification" />
           </div>
         </div>
