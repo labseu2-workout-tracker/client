@@ -42,6 +42,7 @@ class Settings extends React.Component {
           test.map((setting, index) => {
         return <div key={index}>
           <div className="row">
+            <p>Email: </p>
           <input value={this.state.email} onChange={this.handleChange} placeholder={setting.email} name="email" />
           </div>
           <div className="row">
