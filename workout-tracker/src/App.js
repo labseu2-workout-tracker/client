@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
