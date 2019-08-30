@@ -1,7 +1,7 @@
 import React from "react";
-import AllExercises from "./AllExercises";
-import SingleExercise from "./SingleExercise";
-import { fetchExercises, showMuscleGroup, paginate, showSingleExercise } from "../../store/actions";
+import AllExercises from "../../components/Exercises/AllExercises";
+import SingleExercise from "../../components/Exercises/SingleExercise";
+import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
@@ -13,13 +13,14 @@ class ExerciseLibrary extends React.Component {
   componentDidMount = () => {
     this.props.fetchExercises();
 
-    setTimeout(() => this.props.showMuscleGroup("Chest"), 1000); // That we dont see all exercises at the start
-  };
+    setTimeout(() => this.props.showMuscleGroup("Chest"), 2000); // That we dont see all exercises at the start
 
   render() {
     if (this.props.singleExercise) {
       return (
-        <SingleExercise exercise={this.props.singleExercise[0]} />
+        <SingleExercise 
+        exercise={this.props.singleExercise[0]}
+        closeExercise={this.props.closeSingleExercise} />
        )
     }
     return (
@@ -44,5 +45,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchExercises, showMuscleGroup, paginate, showSingleExercise }
+  { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise }
 )(ExerciseLibrary);

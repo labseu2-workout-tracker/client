@@ -1,4 +1,4 @@
-import * as type from "../actions";
+import * as type from "../actions/exerciseActions";
 
 const initialState = {
   exercises: null,
@@ -76,6 +76,10 @@ const exercises = (state = initialState, action) => {
       );
 
       return { ...state, singleExercise: filterExercise };
+
+      case type.CLOSE_SINGLE_EXERCISE:
+  
+        return { ...state, singleExercise: null };
 
     default:
       return state;
