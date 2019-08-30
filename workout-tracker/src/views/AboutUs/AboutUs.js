@@ -217,7 +217,7 @@ const About = () => {
             <div className="card">
               <img src={gym} alt="card background" className="card-img" />
               <img src={tigran} alt="profile" className="profile-img" />
-              <h1>Tigran Hamaysan </h1>
+              <h1>Tigran Asriyan </h1>
               <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
