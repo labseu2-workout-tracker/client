@@ -35,17 +35,6 @@ class Settings extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchSettings();
-
-    // setTimeout(() => this.setState({
-    //   email: this.props.settings ? this.props.settings[0].email : null,
-    //   password: this.props.settings ? this.props.settings[0].password : null,
-    //   weight: this.props.settings ? this.props.settings[0].weight : null,
-    //   height: this.props.settings ? this.props.settings[0].height : null,
-    //   gender: this.props.settings ? this.props.settings[0].gender : null,
-    //   difficulty: this.props.settings ? this.props.settings[0].difficulty : null,
-    //   email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
-    //   push_notification: this.props.settings ? this.props.settings[0].push_notification : null,
-    // }), 2000)
   };
 
   handleChange = e => {
