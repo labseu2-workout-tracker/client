@@ -238,7 +238,10 @@ const About = () => {
                 </li>
                 <li>
                   <a href="http"><i className="fab fa-linkedin-square"></i></a>
-                </li>               
+                </li> 
+                <li>
+                  <a href="http"><i className="fab fa-instagram-square"></i></a>
+                </li>              
               </ul>
             </div>
             {/* card 8  Sean*/}
