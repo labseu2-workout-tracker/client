@@ -110,5 +110,16 @@ border-top: 1px solid rgba(0, 0, 0, .1)
 }
 .social-media i{
     font-size: 3rem;
-
+}
+.fa-linkedin-square{
+    color: #172545;
+}
+.fa-twitter-square{
+    color: #0ea7e9;
+}
+.fa-facebook-square{
+    color: #3b5999;
+}
+.fa-github-square{
+    color: #333;
 }
