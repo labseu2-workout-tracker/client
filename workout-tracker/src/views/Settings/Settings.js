@@ -4,19 +4,28 @@ import { fetchSettings, updateSettings } from '../../store/actions/settingAction
 import styled from 'styled-components';
 
 const StyledSettings = styled.div``;
-
+const test = [{
+  email: 'hello',
+  password: 'hello',
+  weight: 'hello',
+  height: 'hello',
+  gender: 'hello',
+  difficulty: 'hello',
+  email_notification: 'hello',
+  push_notification: 'hello',
+}]
 class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      email: ,
-      password: ,
-      weight: ,
-      height: ,
-      gender: ,
-      difficulty: ,
-      email_notification: ,
-      push_notification: ,
+      email: test[0].email,
+      password: test[0].password,
+      weight: test[0].weight,
+      height: test[0].height,
+      gender: test[0].gender,
+      difficulty: test[0].difficulty,
+      email_notification: test[0].email_notification,
+      push_notification: test[0].push_notification,
      }
   }
 
@@ -26,7 +35,11 @@ class Settings extends React.Component {
   render() { 
     return ( 
       <StyledSettings>
-      {this.props.settings ? (this.props.settings.map(setting => {
+      {
+        // this.props.settings ? 
+        // (
+          // this.props.settings
+          test.map(setting => {
         return <div>
           <input value={this.state.email} onChange={this.handleChange} placeholder={setting.email} name="email" />
           <input value={this.state.password} onChange={this.handleChange} placeholder={setting.password} name="password" type="password" />          
@@ -37,7 +50,9 @@ class Settings extends React.Component {
           <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
           <input value={this.state.push_notification} onChange={this.handleChange} placeholder={setting.push_notification} name="push_notification" />                                     
         </div>
-      })) : null}
+      })
+      // ) : null
+      }
       </StyledSettings>
      );
   }
