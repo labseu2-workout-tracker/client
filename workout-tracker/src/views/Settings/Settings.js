@@ -58,6 +58,7 @@ class Settings extends React.Component {
           <input value={this.state.height} onChange={this.handleChange} placeholder={setting.body_height} name="height" />                    
           </div>
           <div className="row">
+            <p>Gender: </p>
           <input value={this.state.gender} onChange={this.handleChange} placeholder={setting.body_gender} name="gender" />
           </div>
           <div className="row">
