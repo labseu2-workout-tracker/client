@@ -21,7 +21,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={tale} alt="profile" className="profile-img" />
               <h1>Antonio Talent</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -49,7 +49,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={yusuf} alt="profile" className="profile-img" />
               <h1>Yusuf Abdulkarim</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -77,7 +77,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={remi} alt="profile" className="profile-img" />
               <h1>Remi Becheru</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -105,7 +105,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={kelechi} alt="profile" className="profile-img" />
               <h1>Kelechi Ogbonna</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -133,7 +133,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={benjamin} alt="profile" className="profile-img" />
               <h1>Benjamin Grabow</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -161,7 +161,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={matt} alt="profile" className="profile-img" />
               <h1>Matthew Locklin</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -189,7 +189,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={wasiu} alt="profile" className="profile-img" />
               <h1>Wasiu Idowu</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -217,7 +217,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={tigran} alt="profile" className="profile-img" />
               <h1>Tigran Hamaysan </h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Full Stack Developer</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -245,7 +245,7 @@ const About = () => {
               <img src={gym} alt="card background" className="card-img" />
               <img src={sean} alt="profile" className="profile-img" />
               <h1>Shaun Carmody</h1>
-              <p className="job-title">Project Manager</p>
+              <p className="job-title">Team Lead</p>
               <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
