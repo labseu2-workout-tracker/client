@@ -10,7 +10,11 @@ class Settings extends React.Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <StyledSettings>
+        
+      </StyledSettings>
+     );
   }
 }
 
