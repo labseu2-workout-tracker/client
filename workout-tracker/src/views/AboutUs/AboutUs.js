@@ -177,6 +177,33 @@ const About = () => {
               </ul>
             </div>
             {/*  card 6wasui card */}
+            <div className="card">
+              <img src={gym} alt="card background" className="card-img" />
+              <img src={tale} alt="profile" className="profile-img" />
+              <h1>Antonio Talent</h1>
+              <p className="job-title">Project Manager</p>
+              <p className="about">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <a href="htt" className="btn">
+                Contact
+              </a>
+              <ul className="social-media">
+                <li>
+                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                </li>
+                <li>
+                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                </li>
+                <li>
+                  <a href="http"><i className="fab fa-github-square"></i></a>
+                </li>
+                <li>
+                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                </li>               
+              </ul>
+            </div>
           </div>
         </div>
       </section>
