@@ -27,7 +27,7 @@ class Settings extends React.Component {
       weight: this.props.settings ? this.props.settings[0].weight : null,
       height: this.props.settings ? this.props.settings[0].height : null,
       gender: this.props.settings ? this.props.settings[0].gender : null,
-      difficulty: this.props.settings ? this.props.settings[0].difficulty : null,
+      user_level: this.props.settings ? this.props.settings[0].user_level : null,
       email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
       push_notification: this.props.settings ? this.props.settings[0].push_notification : null,
     };
@@ -50,7 +50,7 @@ class Settings extends React.Component {
       weight: this.state.weight,
       height: this.state.height,
       gender: this.state.gender,
-      difficulty: this.state.difficulty,
+      user_level: this.state.user_level,
       email_notification: this.state.email_notification,
       push_notification: this.state.push_notification,
     };
@@ -112,12 +112,12 @@ class Settings extends React.Component {
                 />
               </div>
               <div className="row">
-                <p>Difficulty</p>
+                <p>user_level</p>
                 <input
-                  value={this.state.difficulty}
+                  value={this.state.user_level}
                   onChange={this.handleChange}
-                  placeholder={setting.user_difficulty}
-                  name="difficulty"
+                  placeholder={setting.user_user_level}
+                  name="user_level"
                 />
               </div>
               <div className="row">
