@@ -1,22 +1,34 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const FETCH_SETTINGS = 'FETCH_SETTINGS';
-export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
+export const FETCH_SETTINGS = "FETCH_SETTINGS";
+export const UPDATE_SETTINGS = "UPDATE_SETTINGS";
 
 const settings = `${process.env.REACT_APP_BASE_URL}/settings`;
 // adress get's changed later
 
 export const fetchSettings = () => dispatch => {
-  // type LOADING needs to be added (also for the redux state) 
-  return axios.get(settings)
+  // type LOADING needs to be added (also for the redux state)
+  return axios
+    .get(settings)
     .then(res => {
       dispatch({ type: FETCH_SETTINGS, settings: res.data });
     })
     .catch(err => {
-   // type ERROR needs to be added (also for the redux state)
+      // type ERROR needs to be added (also for the redux state)
     });
 };
 
-export const updateSettings = (updatedSettings) => {
-  return { type: UPDATE_SETTINGS, updatedSettings: updatedSettings };   
+export const updateSettings = updatedSettings => {
+  return axios
+    .put(settings, updatedSettings)
+    .then(res => {
+
+      return axios.get(settings)
+      .then(res => {
+        return { type: UPDATE_SETTINGS, updatedSettings: res.data };
+      });
+    })
+    .catch(err => {
+      // type ERROR needs to be added (also for the redux state)
+    });
 };
