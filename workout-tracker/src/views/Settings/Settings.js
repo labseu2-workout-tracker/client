@@ -41,28 +41,28 @@ class Settings extends React.Component {
           // this.props.settings
           test.map((setting, index) => {
         return <div key={index}>
-          <div>
+          <div className="row">
           <input value={this.state.email} onChange={this.handleChange} placeholder={setting.email} name="email" />
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.password} onChange={this.handleChange} placeholder={setting.password} name="password" type="password" />          
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.weight} onChange={this.handleChange} placeholder={setting.body_weight} name="weight" />          
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.height} onChange={this.handleChange} placeholder={setting.body_height} name="height" />                    
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.gender} onChange={this.handleChange} placeholder={setting.body_gender} name="gender" />
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.difficulty} onChange={this.handleChange} placeholder={setting.user_difficulty} name="difficulty" />
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
           </div>
-          <div>
+          <div className="row">
           <input value={this.state.push_notification} onChange={this.handleChange} placeholder={setting.push_notification} name="push_notification" />
           </div>
         </div>
