@@ -75,6 +75,14 @@ class Settings extends React.Component {
                   placeholder={setting.email}
                   name="email"
                 />
+                <div className="row">
+                <p>Username: </p>
+                <input
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                  placeholder={setting.username}
+                  name="username"
+                />
               </div>
               <div className="row">
                 <p>Password: </p>
