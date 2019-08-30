@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import exercises from './exercises';
 import workouts from './workouts';
+import settings from './settings';
 
 const appReducer = combineReducers({
   exercises: exercises,
