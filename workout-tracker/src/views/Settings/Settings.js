@@ -57,6 +57,16 @@ class Settings extends React.Component {
   };
 
   changeSettings = () => {
+    const updatedSettings = {
+      email: this.state.email,
+      password: this.state.password,
+      weight: this.state.weight,
+      height: this.state.height,
+      gender: this.state.gender,
+      difficulty: this.state.difficulty,
+      email_notification: this.state.email_notification,
+      push_notification: this.state.push_notification,
+    }
   this.props.updateSettings();
   };
 
