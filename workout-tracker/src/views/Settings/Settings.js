@@ -66,8 +66,11 @@ class Settings extends React.Component {
       difficulty: this.state.difficulty,
       email_notification: this.state.email_notification,
       push_notification: this.state.push_notification,
-    }
-  this.props.updateSettings();
+    };
+
+  this.props.updateSettings(updatedSettings);
+
+  
   };
 
   render() {
