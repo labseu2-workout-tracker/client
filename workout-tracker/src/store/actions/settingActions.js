@@ -22,7 +22,7 @@ export const fetchSettings = () => dispatch => {
 
 export const updateSettings = updatedSettings => {
   return axios
-    .put(settings, updatedSettings)
+    .put(`${settings}/${userId}`, updatedSettings)
     .then(res => {
 
       return axios.get(settings)
