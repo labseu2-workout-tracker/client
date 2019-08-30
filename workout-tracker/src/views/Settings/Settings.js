@@ -3,7 +3,16 @@ import { connect } from 'react-redux';
 import { fetchSettings, updateSettings } from '../../store/actions/settingActions';
 import styled from 'styled-components';
 
-const StyledSettings = styled.div``;
+const StyledSettings = styled.div`
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+`;
+
+
 const test = [{
   email: 'hello',
   password: 'hello',
@@ -13,7 +22,8 @@ const test = [{
   difficulty: 'hello',
   email_notification: 'hello',
   push_notification: 'hello',
-}]
+}];
+
 class Settings extends React.Component {
   constructor(props) {
     super(props);
