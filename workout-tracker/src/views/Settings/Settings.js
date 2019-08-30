@@ -10,5 +10,11 @@ class Settings extends React.Component {
     return (  );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+// settings: state.settings.settings,
+  };
+};
  
 export default connect(mapStateToProps)(Settings);
