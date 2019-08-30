@@ -23,6 +23,7 @@ class App extends Component {
     authLoading: false,
     error: null,
     showMobileNav: false,
+    showBackdrop: false
   }
 
   componentDidMount() {
@@ -147,7 +148,11 @@ class App extends Component {
   };
 
   mobileNavHandler = isOpen => {
-    this.setState({ showMobileNav: isOpen});
+    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen});
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ showBackdrop: false, showMobileNav: false, error: null });
   };
 
   render() {
@@ -191,6 +196,9 @@ class App extends Component {
     }
     return (
       <Fragment>
+        {this.state.showBackdrop && (
+          <Backdrop onClick={this.backdropClickHandler} />
+        )}
         <Layout
           header={
             <Toolbar>
