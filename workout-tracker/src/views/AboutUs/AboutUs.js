@@ -14,7 +14,7 @@ import remi from '../../assets/avatar/remi.jpg';
 const About = () => {
   return (
     <>
-      <section className="container">
+      <section >
         <div className="container">
           <h1>Meet The Team</h1>
           <div className="card-wrapper">

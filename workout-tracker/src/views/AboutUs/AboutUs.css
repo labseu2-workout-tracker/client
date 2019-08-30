@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+    overflow-x: hidden;
+}
 a {
   text-decoration: none;
   color: white;
@@ -131,3 +134,38 @@ border-top: 1px solid rgba(0, 0, 0, .1)
  color: #5e125c;
 
 }
+@media screen and (min-width: 700px){
+    .card-wrapper{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .card{
+        margin:2rem;
+        transition: transfom .5s;
+    }
+    @keyframes fadeIn {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+        .card:nth-child(1){
+            animation: fadeIn .5s .5s backwards;
+        }
+        .card:nth-child(2){
+            animation: fadeIn .5s .1s backwards;
+        }
+        .card:nth-child(3){
+            animation: fadeIn .5s 1.5s backwards;
+        }
+        .card:nth-child(4){
+            animation: fadeIn .5s 2s backwards;
+        }   
+        .card:hover{
+            transform: scale(1.1);
+        }             
+    }
