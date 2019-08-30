@@ -8,6 +8,9 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
 import LoginPage from './views/Auth/Login';
+import MainNavBar from './components/MainNavBar/MainNavBar';
+import Toolbar from './components/Toolbar/Toolbar';
+import Layout from './components/Layout/Layout';
 
 import './App.css';
 
@@ -186,7 +189,7 @@ class App extends Component {
         <Layout
           header={
             <Toolbar>
-              <MainNavigation
+              <MainNavBar
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
                 onLogout={this.logoutHandler}
                 isAuth={this.state.isAuth}
