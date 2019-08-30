@@ -75,6 +75,7 @@ class Settings extends React.Component {
                   placeholder={setting.email}
                   name="email"
                 />
+              </div>
                 <div className="row">
                 <p>Username: </p>
                 <input
@@ -83,7 +84,7 @@ class Settings extends React.Component {
                   placeholder={setting.username}
                   name="username"
                 />
-              </div>
+                </div>
               <div className="row">
                 <p>Password: </p>
                 <input
