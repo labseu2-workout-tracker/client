@@ -5,10 +5,10 @@ export const UPDATE_SETTINGS = "UPDATE_SETTINGS";
 
 const settings = `${process.env.REACT_APP_BASE_URL}/settings`;
 // adress get's changed later
+const userId = localStorage.getItem('userId');
 
 export const fetchSettings = () => dispatch => {
   // type LOADING needs to be added (also for the redux state)
-  const userId = localStorage.getItem('userId');
 
   return axios
     .get(`${settings}/${userId}`)
