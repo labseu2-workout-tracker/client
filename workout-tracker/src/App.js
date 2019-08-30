@@ -12,6 +12,7 @@ import MainNavBar from './components/MainNavBar/MainNavBar';
 import MobileNavigation from './components/MainNavBar/MobileNavigation/MobileNavigation'
 import Toolbar from './components/Toolbar/Toolbar';
 import Layout from './components/Layout/Layout';
+import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
 
@@ -197,7 +198,7 @@ class App extends Component {
     return (
       <Fragment>
         {this.state.showBackdrop && (
-          <Backdrop onClick={this.backdropClickHandler} />
+          <Backdrop onClick={this.backdropClickHandler} open={this.state.showMobileNav}/>
         )}
         <Layout
           header={
