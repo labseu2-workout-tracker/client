@@ -21,6 +21,7 @@ class Settings extends React.Component {
       {this.props.settings ? (this.props.settings.map(setting => {
         return <div>
           <input value={this.state.email} onChange={this.handleChange} placeholder={setting.email} name="email" />
+          <input value={this.state.weight} onChange={this.handleChange} placeholder={setting.body_weight} name="weight" />          
         </div>
       })) : null}
       </StyledSettings>
