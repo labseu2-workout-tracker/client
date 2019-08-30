@@ -18,7 +18,7 @@ class Settings extends React.Component {
   render() { 
     return ( 
       <StyledSettings>
-
+      {this.props.settings ? (this.props.settings) : null}
       </StyledSettings>
      );
   }
