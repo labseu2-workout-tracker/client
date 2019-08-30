@@ -23,6 +23,7 @@ class Settings extends React.Component {
     super(props);
     this.state = {
       email: this.props.settings ? this.props.settings[0].email : null,
+      username: this.props.settings ? this.props.settings[0].username : null,     
       password: this.props.settings ? this.props.settings[0].password : null,
       weight: this.props.settings ? this.props.settings[0].weight : null,
       height: this.props.settings ? this.props.settings[0].height : null,
