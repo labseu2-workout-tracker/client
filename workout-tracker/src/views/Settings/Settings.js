@@ -141,7 +141,7 @@ class Settings extends React.Component {
             </div>
           );
         })
-        // ) : null
+        ) : null
         }
         <button onClick={this.changeSettings}>Change</button>
       </StyledSettings>
