@@ -12,9 +12,9 @@ class Settings extends React.Component {
   }
 
   componentDidMount = () => {
-
+  this.props.fetchSettings();
   };
-  
+
   render() { 
     return ( 
       <StyledSettings>
