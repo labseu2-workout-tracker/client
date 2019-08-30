@@ -41,8 +41,8 @@ class Settings extends React.Component {
       height: test[0].height,
       gender: test[0].gender,
       difficulty: test[0].difficulty,
-      email_notification: test[0].email_notification.toString(),
-      push_notification: test[0].push_notification.toString(),
+      email_notification: test[0].email_notification,
+      push_notification: test[0].push_notification,
     };
   }
 
@@ -129,7 +129,7 @@ class Settings extends React.Component {
                 <input
                   value={this.state.email_notification}
                   onChange={this.handleChange}
-                  placeholder={setting.email_notification}
+                  placeholder={setting.email_notification.toString()}
                   name="email_notification"
                 />
               </div>
@@ -138,7 +138,7 @@ class Settings extends React.Component {
                 <input
                   value={this.state.push_notification}
                   onChange={this.handleChange}
-                  placeholder={setting.push_notification}
+                  placeholder={setting.push_notification.toString()}
                   name="push_notification"
                 />
               </div>
