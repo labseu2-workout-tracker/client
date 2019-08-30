@@ -9,6 +9,7 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import SignupPage from './views/Auth/Signup';
 import LoginPage from './views/Auth/Login';
 import MainNavBar from './components/MainNavBar/MainNavBar';
+import MobileNavigation from './components/MainNavBar/MobileNavigation/MobileNavigation'
 import Toolbar from './components/Toolbar/Toolbar';
 import Layout from './components/Layout/Layout';
 
@@ -146,7 +147,7 @@ class App extends Component {
   };
 
   mobileNavHandler = isOpen => {
-    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
+    this.setState({ showMobileNav: isOpen});
   };
 
   render() {
@@ -201,7 +202,7 @@ class App extends Component {
             </Toolbar>
           }
           mobileNav={
-            <MainNavBar
+            <MobileNavigation
               open={this.state.showMobileNav}
               mobile
               onChooseItem={this.mobileNavHandler.bind(this, false)}
