@@ -35,6 +35,7 @@ class Settings extends React.Component {
           <input value={this.state.gender} onChange={this.handleChange} placeholder={setting.body_gender} name="gender" />
           <input value={this.state.difficulty} onChange={this.handleChange} placeholder={setting.user_difficulty} name="difficulty" />                                      
           <input value={this.state.email_notification} onChange={this.handleChange} placeholder={setting.email_notification} name="email_notification" />                            
+          <input value={this.state.push_notification} onChange={this.handleChange} placeholder={setting.push_notification} name="push_notification" />                                     
         </div>
       })) : null}
       </StyledSettings>
