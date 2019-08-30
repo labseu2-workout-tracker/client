@@ -110,6 +110,7 @@ border-top: 1px solid rgba(0, 0, 0, .1)
 }
 .social-media i{
     font-size: 3rem;
+    transition: color .5s;
 }
 .fa-linkedin-square{
     color: #172545;
@@ -122,4 +123,11 @@ border-top: 1px solid rgba(0, 0, 0, .1)
 }
 .fa-github-square{
     color: #333;
+}
+.fa-twitter-square:hover,
+.fa-github-square:hover,
+.fa-linkedin-square:hover,
+.fa-github-square:hover{
+ color: #5e125c;
+
 }
