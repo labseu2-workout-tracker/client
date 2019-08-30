@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import Tabs from './views/Tabs/Tabs';
 import React from 'react';
-import MainNavBar from './components/MainNavBar/MainNavBar';
+import Header from './views/Header/Header';
+import WorkoutView from './views/WorkoutView/WorkoutView';
+import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
 import './App.css';
-
 
 class App extends Component {
   state ={ 
@@ -111,10 +112,12 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-        <Tabs />
-          <Route path={'/My Workouts'} component={ExercisesLibrary} />
-          <Route path={'/tracker'} component={UserPage} />
-      </div>
+      <Header />
+        <Route path={'/Exercises'} component={ExercisesLibrary} />
+        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Contact'} component={ContactPage} />    
+        <Route path={'/Workout'} component={WorkoutView} />        
+    </div>
       )
     }
     return (
