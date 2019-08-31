@@ -178,7 +178,8 @@ class App extends Component {
       routes = (
         <div className="App">
       <Header />
-      <Route path={'/'} component={LandingPage} />   
+      {/* <LandingPage /> */}
+        <Route path={'/'} component={LandingPage} />   
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Home'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
