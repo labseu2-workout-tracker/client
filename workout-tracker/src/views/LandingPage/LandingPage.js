@@ -10,7 +10,7 @@ const LandingPage = () => {
   // use a hook for fetch stuffmaybe videos from our API
   return (
     <>
-      <section>
+      <section className="landingname">
         <div className="landingname">
           <img src={bg} alt="background Shape" id="bg" />
           <h1 id="h1">
@@ -19,7 +19,7 @@ const LandingPage = () => {
             Tracker
           </h1>
           <hr />
-          <p id="p">
+          <p className="heading" id="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni
             virtuti vitium contrario nomine opponitur. Hoc est non dividere, sed
             frangere.
@@ -36,6 +36,17 @@ const LandingPage = () => {
           <img src={fapp} alt="first" id="img-2" />
           <div className="landingRight"></div>
         </div>
+
+        <div className="card">
+              <img src={run} alt="card background" className="card-img" />
+              <img src={lift} alt="profile" className="profile-img" />
+              <h1>Workout Manuals</h1>
+              <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="htt" className="btn">
+                Join
+              </a>
+
+            </div>
       </section>
 
     </>

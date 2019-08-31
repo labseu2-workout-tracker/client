@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 html{
     font-size: 15px;
     font-family: "Roboto", sans-serif;
@@ -24,7 +20,6 @@ section {
 .heading {
   text-transform: uppercase;
   font-size: 3.4 rem;
-  letter-spacing: 3px;
   margin-right: -3px;
   margin-bottom: 5rem;
   text-align: center;

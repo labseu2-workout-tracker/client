@@ -1,6 +1,4 @@
-#bg{
-    
-}
+
 #h1 {
     font-size: 6em;
     color: #0086c9;
@@ -45,4 +43,9 @@
     box-shadow: -5px 5px 7px 1px rgba(0, 0, 0, 0.2);
   }
   
-  
+  .landingname{
+    display: flex;
+    align-items:center;
+    align-content:center;
+    flex-direction: column;
+  }
