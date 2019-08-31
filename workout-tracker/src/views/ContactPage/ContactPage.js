@@ -44,6 +44,7 @@ class ContactPage extends React.Component {
     super(props);
     this.state = {
       firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       message: ""
