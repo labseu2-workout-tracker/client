@@ -74,7 +74,6 @@ class ContactPage extends React.Component {
         <h6>Have a question about a product, feedback, or business
           inquiry for Workout Tracker?
         </h6>
-        <div className="left-right-side">
         <div className="left-side">
           <img
             src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -118,7 +117,7 @@ class ContactPage extends React.Component {
           />
           <button onClick={this.sendMessage}>Send</button>
         </div>
-        </div>
+        
       </StyledContactPage>
     );
   }
