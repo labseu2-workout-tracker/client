@@ -9,14 +9,6 @@ const LandingRight = () => {
        <section>
          <img src={run} alt="first" id="landingright-img"/>
          <div className="landingRight">
-             <div>
-                 <p>Something Useless</p>
-                 <p>Something Useless</p>
-             </div>
-             <div>
-                 <p>Something Useless</p>
-                 <p>Something Useless</p>
-             </div>
          </div>
        </section>
     );
