@@ -28,7 +28,7 @@ p {
     text-align: center;
   }
 
-  .row {
+  .column {
     display: flex;
     justify-content: space-between;
   }
@@ -78,7 +78,7 @@ class ContactPage extends React.Component {
          
     
         
-          <div className="row">
+          <div className="column">
             <p>Name:</p>
             <input
               name="name"
@@ -87,7 +87,7 @@ class ContactPage extends React.Component {
               placeholder="John Doe"
             />
           </div>
-          <div className="row">
+          <div className="column">
             <p>Email</p>
             <input
               name="email"
@@ -96,7 +96,7 @@ class ContactPage extends React.Component {
               placeholder="JohnDoe@gmail.com"
             />
           </div>
-          <div className="row">
+          <div className="column">
             <p>Phone:</p>
             <input
               name="phone"
