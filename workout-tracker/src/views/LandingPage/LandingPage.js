@@ -12,7 +12,7 @@ const LandingPage = () => {
     <>
       <section className="card-wrapper">
         <div className="landingname">
-          <img src={bg} alt="background Shape" id="bg" />
+     
           <h1 id="h1">
             Be<span>Fit</span>
             <br />

@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 const StyledMainNavBar = styled.div`
 a {
-  padding: 0 1rem;
+  padding:  1rem;
+  margin: 1rem;
+  color:#0086c9;
   text-decoration: none;
 }
 `;
