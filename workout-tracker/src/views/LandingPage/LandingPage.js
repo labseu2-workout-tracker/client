@@ -9,6 +9,9 @@ const LandingPage = () => {
         <h1>Be<span>Fitr</span><br/>Workout Tracker</h1>
         <hr />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni virtuti vitium contrario nomine opponitur. Hoc est non dividere, sed frangere.</p>
+        <div className="btn">
+          <button>Learn More</button>
+        </div>
        </section>
     );
 }
