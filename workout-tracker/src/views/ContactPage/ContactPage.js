@@ -79,10 +79,10 @@ class ContactPage extends React.Component {
     
         
           <div className="column">
-            <p>Name:</p>
+            <p>First Name</p>
             <input
-              name="name"
-              value={this.state.name}
+              name="firstName"
+              value={this.state.firstName}
               onChange={this.handleChange}
               placeholder="John Doe"
             />
