@@ -43,7 +43,7 @@ class ContactPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      firstName: "",
       email: "",
       phone: "",
       message: ""
