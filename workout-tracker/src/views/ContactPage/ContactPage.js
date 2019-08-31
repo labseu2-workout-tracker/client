@@ -98,6 +98,7 @@ class ContactPage extends React.Component {
             />
           </div>
           </div>
+          <div className="row">
           <div className="column">
             <p>Email</p>
             <input
@@ -115,6 +116,7 @@ class ContactPage extends React.Component {
               onChange={this.handleChange}
               placeholder="(Optional)"
             />
+          </div>
           </div>
           <input
             className="messageInput"
