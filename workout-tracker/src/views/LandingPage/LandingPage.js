@@ -17,6 +17,7 @@ const LandingPage = () => {
         </div>
        </section>
      <LandingRight />
+     <LandingRight />
      </>
     );
 }
