@@ -7,6 +7,7 @@ import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
 import About from './views/AboutUs/AboutUs'
+import LandingPage from './views/LandingPage/LandingPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
@@ -177,6 +178,7 @@ class App extends Component {
       routes = (
         <div className="App">
       <Header />
+      <Route path={'/'} component={LandingPage} />   
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Home'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
