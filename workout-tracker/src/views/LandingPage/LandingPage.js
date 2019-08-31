@@ -32,10 +32,16 @@ const LandingPage = () => {
           <img src={run} alt="first" id="img-1" />
           <div className="landingRight"></div>
         </div>
-        <div className="img-2">
-          <img src={fapp} alt="first" id="img-2" />
-          <div className="landingRight"></div>
-        </div>
+        <div className="card">
+              <img src={run} alt="card background" className="card-img" />
+              <img src={fapp} alt="profile" className="profile-img" />
+              <h1>User Structured</h1>
+              <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="htt" className="btn">
+                Join
+              </a>
+
+            </div>
 
         <div className="card">
               <img src={run} alt="card background" className="card-img" />
