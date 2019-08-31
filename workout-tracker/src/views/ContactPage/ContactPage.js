@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const StyledContactPage = styled.div`
   
+p {
+  color: #828698;
+}
 
   .left-right-side {
     display:flex;
