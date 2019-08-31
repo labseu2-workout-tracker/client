@@ -78,7 +78,7 @@ class ContactPage extends React.Component {
         
          
     
-        
+        <div className="row">
           <div className="column">
             <p>First Name</p>
             <input
@@ -96,6 +96,7 @@ class ContactPage extends React.Component {
               onChange={this.handleChange}
               placeholder="Doe"
             />
+          </div>
           </div>
           <div className="column">
             <p>Email</p>
