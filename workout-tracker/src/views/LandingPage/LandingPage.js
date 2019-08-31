@@ -1,7 +1,6 @@
 import React from 'react';
 import './LandingPage.css';
 import Button from '../../components/Button/Button';
-import LandingRight from '../../components/LandingRight/LandingRight';
 import bg from '../../assets/landingpage/bg-shape.svg';
 import run from '../../assets/landingpage/diet3.gif';
 import lift from '../../assets/landingpage/haha.gif';
@@ -14,13 +13,13 @@ const LandingPage = () => {
       <section>
         <div className="landingname">
           <img src={bg} alt="background Shape" id="bg" />
-          <h1>
+          <h1 id="h1">
             Be<span>Fit</span>
             <br />
-            Workout Tracker
+            Tracker
           </h1>
           <hr />
-          <p>
+          <p id="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni
             virtuti vitium contrario nomine opponitur. Hoc est non dividere, sed
             frangere.
@@ -30,11 +29,11 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="img-1">
-          <img src={run} alt="first" id="landingright-img" />
+          <img src={run} alt="first" id="img-1" />
           <div className="landingRight"></div>
         </div>
         <div className="img-2">
-          <img src={run} alt="first" id="landingright-img" />
+          <img src={fapp} alt="first" id="img-2" />
           <div className="landingRight"></div>
         </div>
       </section>
