@@ -85,7 +85,16 @@ class ContactPage extends React.Component {
               name="firstName"
               value={this.state.firstName}
               onChange={this.handleChange}
-              placeholder="John Doe"
+              placeholder="John"
+            />
+          </div>
+          <div className="column">
+            <p>Last Name</p>
+            <input
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+              placeholder="Doe"
             />
           </div>
           <div className="column">
