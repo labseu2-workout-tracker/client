@@ -6,23 +6,6 @@ const StyledContactPage = styled.div`
 p {
   color: #828698;
 }
-
-  .left-right-side {
-    display:flex;
-  }
-
-  .left-side {
-    width:50%;
-
-    img {
-      border-radius: 50%;
-      width: 50%;
-    }
-  }
-
-  .right-side {
-   width: 50%;
-  }
   
   input {
     text-align: center;
