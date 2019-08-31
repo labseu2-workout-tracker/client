@@ -7,11 +7,6 @@ import fapp from '../../assets/landingpage/diet.gif';
 const LandingRight = () => {
     return(
        <section>
-         <div className="floater">
-             <div className="icon-temp">
-            <img src={run} alt="floating thing" />
-             </div>
-         </div>
          <img src={run} alt="first" id="landingright-img"/>
          <div className="landingRight">
              <div>

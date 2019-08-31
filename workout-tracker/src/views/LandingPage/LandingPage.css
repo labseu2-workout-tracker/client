@@ -1,8 +1,5 @@
 #bg{
-    position: fixed;
-    top: 0;
-    left:0;
-    z-index: -1;
+    
 }
 h1 {
     font-size: 6em;
@@ -45,22 +42,3 @@ h1 {
     margin-right: 20px;
   } */
   
-  button {
-    font-family: "Nirmala UI";
-    font-size: 2.5em;
-    font-weight: bold;
-    border: none;
-    background: #E9F2F1;
-    color: #FE4A73;
-    border-radius: 15px;
-    width: 50px;
-    height: 60px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .clicked {
-    background: #FE4A73;
-    color: #E9F2F1;
-    outline: none;
-  }
