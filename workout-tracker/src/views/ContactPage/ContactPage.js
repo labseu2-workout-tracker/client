@@ -7,14 +7,20 @@ p {
   color: #828698;
 }
   
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .row {
+    display: flex;
+  }
+
   input {
     text-align: center;
   }
 
-  .column {
-    display: flex;
-    justify-content: space-between;
-  }
 
   .messageInput {
     height: 8rem;
