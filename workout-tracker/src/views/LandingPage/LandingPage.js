@@ -1,9 +1,12 @@
 import React from 'react';
 import './LandingPage.css'
+import LandingRight from '../../components/LandingRight/LandingRight';
 import bg from '../../assets/landingpage/bg-shape.svg'
+
 
 const LandingPage = () => {
     return(
+    <>
        <section>
         <img src={bg} alt="background Shape" id="bg" />
         <h1>Be<span>Fitr</span><br/>Workout Tracker</h1>
@@ -13,6 +16,8 @@ const LandingPage = () => {
           <button>Learn More</button>
         </div>
        </section>
+     <LandingRight />
+     </>
     );
 }
 export default LandingPage;
