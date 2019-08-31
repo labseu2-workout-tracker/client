@@ -77,7 +77,7 @@ class ContactPage extends React.Component {
         
          
     
-        <div className="right-side">
+        
           <div className="row">
             <p>Name:</p>
             <input
@@ -113,7 +113,7 @@ class ContactPage extends React.Component {
             placeholder="Message"
           />
           <button onClick={this.sendMessage}>Send</button>
-        </div>
+        
         
       </StyledContactPage>
     );
