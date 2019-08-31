@@ -10,7 +10,7 @@ const LandingPage = () => {
   // use a hook for fetch stuffmaybe videos from our API
   return (
     <>
-      <section className="landingname">
+      <section className="card-wrapper">
         <div className="landingname">
           <img src={bg} alt="background Shape" id="bg" />
           <h1 id="h1">
@@ -28,12 +28,9 @@ const LandingPage = () => {
             <Button>Learn More</Button>
           </div>
         </div>
-        <div className="img-1">
-          <img src={run} alt="first" id="img-1" />
-          <div className="landingRight"></div>
-        </div>
+    
         <div className="card">
-              <img src={run} alt="card background" className="card-img" />
+              <img src={fapp} alt="card background" className="card-img" />
               <img src={fapp} alt="profile" className="profile-img" />
               <h1>User Structured</h1>
               <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
