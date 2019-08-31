@@ -71,6 +71,9 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
+        <h6>Have a question about a product, feedback, or business
+          inquiry for Workout Tracker?
+        </h6>
         <div className="left-right-side">
         <div className="left-side">
           <img
