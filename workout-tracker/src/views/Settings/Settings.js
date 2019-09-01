@@ -227,7 +227,7 @@ class Settings extends React.Component {
               <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-dumbbell"></i>
+              <i class="fa fa-balance-scale"></i>
               </span>
             </li>
 
