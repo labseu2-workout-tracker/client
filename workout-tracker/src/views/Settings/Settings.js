@@ -79,6 +79,7 @@ class Settings extends React.Component {
                           <span className="text">Email:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.email}
                               onChange={this.handleChange}
                               placeholder={setting.email}
@@ -93,6 +94,7 @@ class Settings extends React.Component {
                           <span className="text">Username:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.username}
                               onChange={this.handleChange}
                               placeholder={setting.username}
@@ -107,6 +109,7 @@ class Settings extends React.Component {
                           <span className="text">Password:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.password}
                               onChange={this.handleChange}
                               placeholder={setting.password}
@@ -122,6 +125,7 @@ class Settings extends React.Component {
                           <span className="text">Weight:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.weight}
                               onChange={this.handleChange}
                               placeholder={setting.weight}
@@ -136,6 +140,7 @@ class Settings extends React.Component {
                           <span className="text">Height:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.height}
                               onChange={this.handleChange}
                               placeholder={setting.height}
@@ -150,6 +155,7 @@ class Settings extends React.Component {
                           <span className="text">Gender:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.gender}
                               onChange={this.handleChange}
                               placeholder={setting.gender}
@@ -164,6 +170,7 @@ class Settings extends React.Component {
                           <span className="text">Level:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.user_level}
                               onChange={this.handleChange}
                               placeholder={setting.user_level}
@@ -178,6 +185,7 @@ class Settings extends React.Component {
                           <span className="text">Email Notification:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.email_notification}
                               onChange={this.handleChange}
                               placeholder={setting.email_notification.toString()}
@@ -192,6 +200,7 @@ class Settings extends React.Component {
                           <span className="text">Push Notification:</span>
                           <span className="data">
                             <input
+                            className="update-input"
                               value={this.state.push_notification}
                               onChange={this.handleChange}
                               placeholder={setting.push_notification.toString()}
