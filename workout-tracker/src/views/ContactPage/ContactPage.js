@@ -19,10 +19,10 @@ h2 {
   color: black;
     line-height: 3.2rem;
     margin: 0;
-    font-size: .7rem;
 }
 
 p {
+  font-size: .7rem;
   color: #828698;
   margin: 0 0 .5rem 0;
 }
