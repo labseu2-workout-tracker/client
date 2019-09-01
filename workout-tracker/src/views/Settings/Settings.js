@@ -69,7 +69,6 @@ class Settings extends React.Component {
               return (
                 <div key={index}>
                   <div className="row">
-                    <p></p>
                     <p>Email: </p>
                     <input
                       value={this.state.email}
@@ -79,7 +78,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Username: </p>
                     <input
                       value={this.state.username}
@@ -89,7 +87,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Password: </p>
                     <input
                       value={this.state.password}
@@ -100,7 +97,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Weight: </p>
                     <input
                       value={this.state.weight}
@@ -110,7 +106,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Height: </p>
                     <input
                       value={this.state.height}
@@ -120,7 +115,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Gender: </p>
                     <input
                       value={this.state.gender}
@@ -130,7 +124,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>user_level</p>
                     <input
                       value={this.state.user_level}
@@ -140,7 +133,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Email Notification: </p>
                     <input
                       value={this.state.email_notification}
@@ -150,7 +142,6 @@ class Settings extends React.Component {
                     />
                   </div>
                   <div className="row">
-                    <p></p>
                     <p>Push Notification: </p>
                     <input
                       value={this.state.push_notification}
