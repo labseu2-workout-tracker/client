@@ -24,14 +24,20 @@ class Settings extends React.Component {
     this.state = {
       wantUpdate: false,
       email: this.props.settings ? this.props.settings[0].email : null,
-      username: this.props.settings ? this.props.settings[0].username : null,     
+      username: this.props.settings ? this.props.settings[0].username : null,
       password: this.props.settings ? this.props.settings[0].password : null,
       weight: this.props.settings ? this.props.settings[0].weight : null,
       height: this.props.settings ? this.props.settings[0].height : null,
       gender: this.props.settings ? this.props.settings[0].gender : null,
-      user_level: this.props.settings ? this.props.settings[0].user_level : null,
-      email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
-      push_notification: this.props.settings ? this.props.settings[0].push_notification : null,
+      user_level: this.props.settings
+        ? this.props.settings[0].user_level
+        : null,
+      email_notification: this.props.settings
+        ? this.props.settings[0].email_notification
+        : null,
+      push_notification: this.props.settings
+        ? this.props.settings[0].push_notification
+        : null
     };
   }
 
@@ -55,130 +61,167 @@ class Settings extends React.Component {
       gender: this.state.gender,
       user_level: this.state.user_level,
       email_notification: this.state.email_notification,
-      push_notification: this.state.push_notification,
+      push_notification: this.state.push_notification
     };
 
-  this.props.updateSettings(updatedSettings);
+    this.props.updateSettings(updatedSettings);
   };
 
   render() {
-      if(this.state.wantUpdate) {
+    if (this.state.wantUpdate) {
       <StyledSettings>
-        { this.props.settings ? (this.props.settings
-  .map((setting, index) => {
+        {this.props.settings
+          ? this.props.settings.map((setting, index) => {
+              return (
+                <div key={index}>
+                  <div className="row">
+                    <p></p>
+                    <p>Email: </p>
+                    <input
+                      value={this.state.email}
+                      onChange={this.handleChange}
+                      placeholder={setting.email}
+                      name="email"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Username: </p>
+                    <input
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                      placeholder={setting.username}
+                      name="username"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Password: </p>
+                    <input
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                      placeholder={setting.password}
+                      name="password"
+                      type="password"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Weight: </p>
+                    <input
+                      value={this.state.weight}
+                      onChange={this.handleChange}
+                      placeholder={setting.body_weight}
+                      name="weight"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Height: </p>
+                    <input
+                      value={this.state.height}
+                      onChange={this.handleChange}
+                      placeholder={setting.body_height}
+                      name="height"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Gender: </p>
+                    <input
+                      value={this.state.gender}
+                      onChange={this.handleChange}
+                      placeholder={setting.body_gender}
+                      name="gender"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>user_level</p>
+                    <input
+                      value={this.state.user_level}
+                      onChange={this.handleChange}
+                      placeholder={setting.user_user_level}
+                      name="user_level"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Email Notification: </p>
+                    <input
+                      value={this.state.email_notification}
+                      onChange={this.handleChange}
+                      placeholder={setting.email_notification.toString()}
+                      name="email_notification"
+                    />
+                  </div>
+                  <div className="row">
+                    <p></p>
+                    <p>Push Notification: </p>
+                    <input
+                      value={this.state.push_notification}
+                      onChange={this.handleChange}
+                      placeholder={setting.push_notification.toString()}
+                      name="push_notification"
+                    />
+                  </div>
+                </div>
+              );
+            })
+          : null}
+        <button onClick={this.changeSettings}>Change</button>
+      </StyledSettings>;
+    }
+    return this.props.settings
+      ? this.props.settings.map((setting, index) => {
           return (
             <div key={index}>
               <div className="row">
                 <p>Email: </p>
-                <input
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                  placeholder={setting.email}
-                  name="email"
-                />
-              </div>
-                <div className="row">
-                <p>Username: </p>
-                <input
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                  placeholder={setting.username}
-                  name="username"
-                />
-                </div>
-              <div className="row">
-                <p>Password: </p>
-                <input
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  placeholder={setting.password}
-                  name="password"
-                  type="password"
-                />
+                <p>{setting.email}</p>
               </div>
               <div className="row">
-                <p>Weight: </p>
-                <input
-                  value={this.state.weight}
-                  onChange={this.handleChange}
-                  placeholder={setting.body_weight}
-                  name="weight"
-                />
+                <p>Username:</p>
+                <p>{setting.username}</p>
               </div>
               <div className="row">
-                <p>Height: </p>
-                <input
-                  value={this.state.height}
-                  onChange={this.handleChange}
-                  placeholder={setting.body_height}
-                  name="height"
-                />
+                <p></p>
+                <p>{setting.password}</p>
               </div>
               <div className="row">
-                <p>Gender: </p>
-                <input
-                  value={this.state.gender}
-                  onChange={this.handleChange}
-                  placeholder={setting.body_gender}
-                  name="gender"
-                />
+                <p></p>
+                <p>{setting.weight}</p>
               </div>
               <div className="row">
-                <p>user_level</p>
-                <input
-                  value={this.state.user_level}
-                  onChange={this.handleChange}
-                  placeholder={setting.user_user_level}
-                  name="user_level"
-                />
+                <p></p>
+                <p>{setting.height}</p>
               </div>
               <div className="row">
-                <p>Email Notification: </p>
-                <input
-                  value={this.state.email_notification}
-                  onChange={this.handleChange}
-                  placeholder={setting.email_notification.toString()}
-                  name="email_notification"
-                />
+                <p></p>
+                <p>{setting.gender}</p>
               </div>
               <div className="row">
-                <p>Push Notification: </p>
-                <input
-                  value={this.state.push_notification}
-                  onChange={this.handleChange}
-                  placeholder={setting.push_notification.toString()}
-                  name="push_notification"
-                />
+                <p></p>
+                <p>{setting.user_level}</p>
+              </div>
+              <div className="row">
+                <p></p>
+                <p>{setting.email_notification}</p>
+              </div>
+              <div className="row">
+                <p></p>
+                <p>{setting.push_notification}</p>
               </div>
             </div>
           );
         })
-        ) : null
-        }
-        <button onClick={this.changeSettings}>Change</button>
-      </StyledSettings>
-      }
-    return (
-      this.props.settings ? (this.props.settings.map((setting, index) => {
-        return <div key={index}>
-     <p>{setting.email}</p>
-     <p>{setting.username}</p>
-     <p>{setting.password}</p>
-     <p>{setting.weight}</p>
-     <p>{setting.height}</p>
-     <p>{setting.gender}</p>
-     <p>{setting.user_level}</p>
-     <p>{setting.email_notification}</p>
-     <p>{setting.push_notification}</p>
-        </div>
-      })) : null
-    );
+      : null;
   }
 }
 
 const mapStateToProps = state => {
   return {
-    settings: state.settings.settings,
+    settings: state.settings.settings
   };
 };
 
