@@ -161,15 +161,15 @@ class Settings extends React.Component {
     return (
       this.props.settings ? (this.props.settings.map((setting, index) => {
         return <div key={index}>
-      email
-      username
-      password
-      weight
-      height
-      gender
-      user_level
-      email_notification 
-      push_notification 
+     <p>{setting.email}</p>
+     <p>{setting.username}</p>
+     <p>{setting.password}</p>
+     <p>{setting.weight}</p>
+     <p>{setting.height}</p>
+     <p>{setting.gender}</p>
+     <p>{setting.user_level}</p>
+     <p>{setting.email_notification}</p>
+     <p>{setting.push_notification}</p>
         </div>
       })) : null
     );
