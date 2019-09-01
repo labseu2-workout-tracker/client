@@ -110,6 +110,7 @@ class ContactPage extends React.Component {
           </div>
           </div>
           <div className="column">
+          <p>Message</p>
           <input
             className="messageInput"
             name="message"
