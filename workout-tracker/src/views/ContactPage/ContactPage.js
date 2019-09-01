@@ -32,14 +32,17 @@ p {
 
   .column-end {
     display: flex;
-
-    input {
+    justify-content: flex-end;
+    /* input {
     align-self: flex-end;
-    }
+    } */
   }
 
   .row {
     display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
 
     input {
       width: 90%;
@@ -98,7 +101,7 @@ class ContactPage extends React.Component {
          
     
         <div className="row">
-          <div className="column">
+          <div className="column column-start">
             <p>First Name</p>
             <input
               name="firstName"
@@ -118,7 +121,7 @@ class ContactPage extends React.Component {
           </div>
           </div>
           <div className="row">
-          <div className="column">
+          <div className="column column-start">
             <p>Email</p>
             <input
               name="email"
