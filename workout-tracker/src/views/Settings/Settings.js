@@ -29,15 +29,9 @@ class Settings extends React.Component {
       weight: this.props.settings ? this.props.settings[0].weight : null,
       height: this.props.settings ? this.props.settings[0].height : null,
       gender: this.props.settings ? this.props.settings[0].gender : null,
-      user_level: this.props.settings
-        ? this.props.settings[0].user_level
-        : null,
-      email_notification: this.props.settings
-        ? this.props.settings[0].email_notification
-        : null,
-      push_notification: this.props.settings
-        ? this.props.settings[0].push_notification
-        : null
+      user_level: this.props.settings ? this.props.settings[0].user_level : null,
+      email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
+      push_notification: this.props.settings ? this.props.settings[0].push_notification : null
     };
   }
 
