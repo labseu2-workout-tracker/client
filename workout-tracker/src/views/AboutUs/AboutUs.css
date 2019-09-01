@@ -8,7 +8,7 @@ body{
 }
 a {
   text-decoration: none;
-  color: #0b0909;
+
 }
 p{
     padding: 2rem;
@@ -74,25 +74,25 @@ section {
 }
 .card h1{
     font-size:2.5rem;
-    color: rgb(255, 255, 255);
+    color: #6bbdfa;
     margin:  1.5rem;
 }
 .job-title{
-    color: rgb(255, 255, 255);
+    color: #5c0d91;
     font-size: 1.5rem;
-    font-weight:100;
+    font-weight:300;
 }
 .about{
     font-size: 1.5rem;
     margin: 1.5rem 0;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
 }
 .card .btn{
     padding: .8rem 2.5rem;
     background-color: #6bbdfa;
     border-radius: 2rem;
-    margin: 1rem;
+    margin-bottom: 3rem;
     text-transform: capitalize;
     color: #eee;
     font-size: 1.4rem;
@@ -158,16 +158,16 @@ border-top: 1px solid rgba(0, 0, 0, .1)
         }
     }
         .card:nth-child(1){
-            animation: fadeIn .5s .5s backwards;
+            animation: fadeIn .3s .0s backwards;
         }
         .card:nth-child(2){
-            animation: fadeIn .5s .1s backwards;
+            animation: fadeIn .3s .1s backwards;
         }
         .card:nth-child(3){
-            animation: fadeIn .5s 1.5s backwards;
+            animation: fadeIn .3s 1.5s backwards;
         }
         .card:nth-child(4){
-            animation: fadeIn .5s 2s backwards;
+            animation: fadeIn .3s 2s backwards;
         }   
         .card:hover{
             transform: scale(1.1);
