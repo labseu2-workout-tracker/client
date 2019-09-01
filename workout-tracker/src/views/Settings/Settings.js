@@ -79,7 +79,7 @@ class Settings extends React.Component {
                           <span className="text">Email:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.email}
                               onChange={this.handleChange}
                               placeholder={setting.email}
@@ -94,7 +94,7 @@ class Settings extends React.Component {
                           <span className="text">Username:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.username}
                               onChange={this.handleChange}
                               placeholder={setting.username}
@@ -109,7 +109,7 @@ class Settings extends React.Component {
                           <span className="text">Password:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.password}
                               onChange={this.handleChange}
                               placeholder={setting.password}
@@ -125,7 +125,7 @@ class Settings extends React.Component {
                           <span className="text">Weight:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.weight}
                               onChange={this.handleChange}
                               placeholder={setting.weight}
@@ -140,7 +140,7 @@ class Settings extends React.Component {
                           <span className="text">Height:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.height}
                               onChange={this.handleChange}
                               placeholder={setting.height}
@@ -152,25 +152,10 @@ class Settings extends React.Component {
                           </span>
                         </li>
                         <li>
-                          <span className="text">Gender:</span>
-                          <span className="data">
-                            <input
-                            className="update-input"
-                              value={this.state.gender}
-                              onChange={this.handleChange}
-                              placeholder={setting.gender}
-                              name="gender"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-venus-mars"></i>
-                          </span>
-                        </li>
-                        <li>
                           <span className="text">Level:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.user_level}
                               onChange={this.handleChange}
                               placeholder={setting.user_level}
@@ -185,7 +170,7 @@ class Settings extends React.Component {
                           <span className="text">Email Notification:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.email_notification}
                               onChange={this.handleChange}
                               placeholder={setting.email_notification.toString()}
@@ -200,7 +185,7 @@ class Settings extends React.Component {
                           <span className="text">Push Notification:</span>
                           <span className="data">
                             <input
-                            className="update-input"
+                              className="update-input"
                               value={this.state.push_notification}
                               onChange={this.handleChange}
                               placeholder={setting.push_notification.toString()}
@@ -211,6 +196,47 @@ class Settings extends React.Component {
                             <i className="fa fa-bell"></i>
                           </span>
                         </li>
+
+
+                        <li>
+                          <span className="text">Gender:</span>
+                          <span className="data">
+                            <select
+                              name="gender"
+                              className="update-input"
+                              value={this.state.gender}
+                              onChange={this.handleChange}
+                            >
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                              <option value="other">Other</option>
+                            </select>
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-venus-mars"></i>
+                          </span>
+                        </li>
+
+
+                        <li>
+                          <span className="text">Email Notification:</span>
+                          <span className="data">
+                            <select
+                              className="update-input"
+                              value={this.state.email_notification}
+                              onChange={this.handleChange}
+                              name="email_notification"
+                            >
+                              <option value="male">False</option>
+                              <option value="female">True</option>
+                            </select>
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-venus-mars"></i>
+                          </span>
+                        </li>
+
+
                       </ul>
                     </div>
                   </div>
