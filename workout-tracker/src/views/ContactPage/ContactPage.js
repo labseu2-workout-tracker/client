@@ -5,6 +5,7 @@ const StyledContactPage = styled.div`
 display: flex;
 flex-direction: column;
 
+
 p {
   color: #828698;
 }
@@ -27,6 +28,10 @@ p {
   .messageInput {
     height: 8rem;
     width: 50%;
+  }
+
+  button {
+    background-color: #6bbdfa;
   }
 `;
 
