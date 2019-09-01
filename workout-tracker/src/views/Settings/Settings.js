@@ -218,7 +218,7 @@ class Settings extends React.Component {
                 <p>Push Notification</p>
                 <p>{setting.push_notification.toString()}</p>
               </div>
-        <button onClick={this.updateSettings}>Update</button>
+        <button onClick={this.startUpdate}>Update</button>
             </StyledSettings>
           );
         })
