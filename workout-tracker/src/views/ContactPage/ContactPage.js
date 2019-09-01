@@ -26,13 +26,24 @@ p {
   .column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding: .5rem 0;
     width: 100%;
   }
 
+  .column-end {
+    display: flex;
+
+    input {
+    align-self: flex-end;
+    }
+  }
+
   .row {
     display: flex;
+
+    input {
+      width: 90%;
+    }
   }
 
   .messageInput {
@@ -96,7 +107,7 @@ class ContactPage extends React.Component {
               placeholder="John"
             />
           </div>
-          <div className="column">
+          <div className="column column-end">
             <p>Last Name</p>
             <input
               name="lastName"
@@ -113,10 +124,10 @@ class ContactPage extends React.Component {
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
-              placeholder={this.state.email}
+              placeholder="JohnDoe@gmail.com"
             />
           </div>
-          <div className="column">
+          <div className="column column-end">
             <p>Phone</p>
             <input
               name="phone"
