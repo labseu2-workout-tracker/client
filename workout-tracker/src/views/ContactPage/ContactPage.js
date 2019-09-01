@@ -14,7 +14,9 @@ h2 {
   
 }
 
-
+.question {
+  color: black;
+}
 
 p {
   color: #828698;
