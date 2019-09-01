@@ -172,11 +172,11 @@ class Settings extends React.Component {
             <div key={index}>
               <div className="row">
                 <p>Email:</p>
-                <p>{setting.email}</p>
+                <p>{setting.email ? setting.email : "Not specified"}</p>
               </div>
               <div className="row">
                 <p>Username:</p>
-                <p>{setting.username}</p>
+                <p>{setting.username ? setting.username : "Not specified"}</p>
               </div>
               <div className="row">
                 <p>Weight:</p>
@@ -188,11 +188,11 @@ class Settings extends React.Component {
               </div>
               <div className="row">
                 <p>Gender:</p>
-                <p>{setting.gender}</p>
+                <p>{setting.gender ? setting.gender : "Not specified"}</p>
               </div>
               <div className="row">
                 <p>Level:</p>
-                <p>{setting.user_level}</p>
+                <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </div>
               <div className="row">
                 <p>Email Notification</p>
