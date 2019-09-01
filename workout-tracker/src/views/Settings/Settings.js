@@ -224,7 +224,58 @@ class Settings extends React.Component {
             <li>
               <span className="text">Weight:</span>
               <span className="data">
-              <p>{setting.username ? setting.username : "Not specified"}</p>
+              <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-dumbbell"></i>
+              </span>
+            </li>
+
+            <li>
+              <span className="text">Height:</span>
+              <span className="data">
+              <p>{setting.height === 0 ? "Not specified" : setting.height}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-weight"></i>
+              </span>
+            </li>
+
+            <li>
+              <span className="text">Gender:</span>
+              <span className="data">
+              <p>{setting.gender ? setting.gender : "Not specified"}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-weight"></i>
+              </span>
+            </li>
+
+            <li>
+              <span className="text">Level:</span>
+              <span className="data">
+              <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-weight"></i>
+              </span>
+            </li>
+
+            <li>
+              <span className="text">Email Notification:</span>
+              <span className="data">
+              <p>{setting.email_notification.toString()}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-weight"></i>
+              </span>
+            </li>
+
+            
+            <li>
+              <span className="text">Push Notification:</span>
+              <span className="data">
+              <p>{setting.push_notification.toString()}</p>
               </span>
               <span className="icon">
               <i className="fa fa-weight"></i>
