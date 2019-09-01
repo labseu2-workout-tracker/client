@@ -118,8 +118,8 @@ class ContactPage extends React.Component {
             onChange={this.handleChange}
             placeholder="Message"
           />
-          <button onClick={this.sendMessage}>Send</button>
           </div>
+          <button onClick={this.sendMessage}>Send</button>
         
         
       </StyledContactPage>
