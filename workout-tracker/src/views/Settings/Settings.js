@@ -159,9 +159,11 @@ class Settings extends React.Component {
       </StyledSettings>
       }
     return (
-      this.props.settings ? (this.props.settings.map((user, setting) => {
-        return 
-      }) : null)
+      this.props.settings ? (this.props.settings.map((setting, index) => {
+        return <div key={index}>
+
+        </div>
+      })) : null
     );
   }
 }
