@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContactPage = styled.div`
-  
+display: flex;
+flex-direction: column;
+
 p {
   color: #828698;
 }
