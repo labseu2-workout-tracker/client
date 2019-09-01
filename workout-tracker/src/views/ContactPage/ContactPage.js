@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import connect from "react-redux";
+import { connect } from "react-redux";
 
 const StyledContactPage = styled.div`
 display: flex;
@@ -135,4 +135,4 @@ class ContactPage extends React.Component {
   }
 }
 
-export default ContactPage;
+export default connect(mapStateToProps)(ContactPage);
