@@ -45,7 +45,7 @@ class ContactPage extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
-      email: "",
+      email: this.props.settings ? this.props.settings[0].email : "JohnDoe@gmail.com",
       phone: "",
       message: ""
     };
