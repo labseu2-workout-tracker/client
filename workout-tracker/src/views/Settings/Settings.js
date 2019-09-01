@@ -100,6 +100,21 @@ class Settings extends React.Component {
               </span>
             </li>
             <li>
+              <span className="text">Password:</span>
+              <span className="data">
+              <input
+                      value={this.state.password}
+                      onChange={this.handleChange}
+                      placeholder={setting.password}
+                      name="password"
+                      type="password"
+                    />
+              </span>
+              <span className="icon">
+              <i className="fa fa-envelope"></i>
+              </span>
+            </li>
+            <li>
               <span className="text">Weight:</span>
               <span className="data">
               <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
