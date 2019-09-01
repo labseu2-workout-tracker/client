@@ -5,7 +5,7 @@ import bg from '../../assets/landingpage/bg-shape.svg';
 import run from '../../assets/landingpage/diet3.gif';
 import lift from '../../assets/landingpage/haha.gif';
 import fapp from '../../assets/landingpage/diet.gif';
-import hehe from '../../assets/landingpage/diet2.gif';
+
 
 const LandingPage = () => {
   // use a hook for fetch stuffmaybe videos from our API

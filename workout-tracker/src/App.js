@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import Tabs from './views/Tabs/Tabs';
+// import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 // import Workouts from './views/Workouts/Workouts'
 import WorkoutView from './views/WorkoutView/WorkoutView';
