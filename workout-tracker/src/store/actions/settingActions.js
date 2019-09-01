@@ -13,7 +13,6 @@ export const fetchSettings = () => dispatch => {
   return axios
     .get(`${settings}/${userId}`)
     .then(res => {
-      debugger
       dispatch({ type: FETCH_SETTINGS, settings: res.data });
     })
     .catch(err => {
@@ -22,6 +21,7 @@ export const fetchSettings = () => dispatch => {
 };
 
 export const updateSettings = updatedSettings => {
+  debugger
   return axios
     .put(`${settings}/${userId}`, updatedSettings)
     .then(res => {

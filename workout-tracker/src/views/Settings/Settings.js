@@ -157,7 +157,7 @@ class Settings extends React.Component {
                     <input
                       value={this.state.user_level}
                       onChange={this.handleChange}
-                      placeholder={setting.user_user_level}
+                      placeholder={setting.user_level}
                       name="user_level"
                     />
                   </div>
