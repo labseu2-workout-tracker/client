@@ -167,38 +167,6 @@ class Settings extends React.Component {
                           </span>
                         </li>
                         <li>
-                          <span className="text">Email Notification:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.email_notification}
-                              onChange={this.handleChange}
-                              placeholder={setting.email_notification.toString()}
-                              name="email_notification"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-envelope"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Push Notification:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.push_notification}
-                              onChange={this.handleChange}
-                              placeholder={setting.push_notification.toString()}
-                              name="push_notification"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-bell"></i>
-                          </span>
-                        </li>
-
-
-                        <li>
                           <span className="text">Gender:</span>
                           <span className="data">
                             <select
@@ -232,7 +200,25 @@ class Settings extends React.Component {
                             </select>
                           </span>
                           <span className="icon">
-                            <i className="fa fa-venus-mars"></i>
+                          <i className="fa fa-envelope"></i>
+                          </span>
+                        </li>
+
+                        <li>
+                          <span className="text">Push Notification:</span>
+                          <span className="data">
+                            <select
+                              className="update-input"
+                              value={this.state.push_notification}
+                              onChange={this.handleChange}
+                              name="push_notification"
+                            >
+                              <option value="male">False</option>
+                              <option value="female">True</option>
+                            </select>
+                          </span>
+                          <span className="icon">
+                          <i className="fa fa-bell"></i>
                           </span>
                         </li>
 
