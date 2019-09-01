@@ -102,13 +102,18 @@ class ContactPage extends React.Component {
   sendMessage = () => {
     // We must add logic in the backend and here
     // for sending the message to our project email
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+
+    if(this.state.email && this.state.message.length > 10) {
+
+    
+      this.setState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    }
   };
 
   render() {
@@ -143,7 +148,7 @@ class ContactPage extends React.Component {
           </div>
           <div className="row">
           <div className="column column-start">
-            <p>Email</p>
+            <p>Email  *</p>
             <input
               name="email"
               value={this.state.email}
@@ -162,7 +167,7 @@ class ContactPage extends React.Component {
           </div>
           </div>
           <div className="column">
-          <p>Message</p>
+          <p>Message  *</p>
           <input
             className="messageInput"
             name="message"
