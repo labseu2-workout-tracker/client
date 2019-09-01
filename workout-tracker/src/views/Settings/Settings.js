@@ -117,7 +117,12 @@ class Settings extends React.Component {
             <li>
               <span className="text">Weight:</span>
               <span className="data">
-              <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
+              <input
+                      value={this.state.weight}
+                      onChange={this.handleChange}
+                      placeholder={setting.weight}
+                      name="weight"
+                    />
               </span>
               <span className="icon">
               <i className="fa fa-balance-scale"></i>
@@ -176,19 +181,7 @@ class Settings extends React.Component {
 
 
 
-              
-                //   </div>
-                //   <div className="row">
-                //     <p>Password: </p>
-                //     <input
-                //       value={this.state.password}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.password}
-                //       name="password"
-                //       type="password"
-                //     />
-                //   </div>
-                //   <div className="row">
+             w">
                 //     <p>Weight: </p>
                 //     <input
                 //       value={this.state.weight}
