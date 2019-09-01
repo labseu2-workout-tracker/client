@@ -257,7 +257,7 @@ class Settings extends React.Component {
               <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </span>
               <span className="icon">
-              <i class="fas fa-user-graduate"></i>
+              <i className="fa fa-graduation-cap"></i>
               </span>
             </li>
 
