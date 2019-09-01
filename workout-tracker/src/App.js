@@ -189,7 +189,7 @@ class App extends Component {
         <div className="App">
       <Header />
         <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} />        
     </div>
