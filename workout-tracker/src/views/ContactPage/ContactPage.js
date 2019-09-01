@@ -100,12 +100,12 @@ class ContactPage extends React.Component {
   };
 
   sendMessage = () => {
-    // We must add logic in the backend and here
-    // for sending the message to our project email
-
-    if(this.state.email && this.state.message.length > 10) {
-
     
+    if(this.state.email && this.state.message.length > 10) {
+      
+      // We must add logic in the backend and here
+      // for sending the message to our project email
+    // this.props.sendMessage()
       this.setState({
         firstName: "",
         lastName: "",
@@ -113,6 +113,8 @@ class ContactPage extends React.Component {
         phone: "",
         message: ""
       });
+    } else {
+      alert("Email and message are required.");
     }
   };
 
