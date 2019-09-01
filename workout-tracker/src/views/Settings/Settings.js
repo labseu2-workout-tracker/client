@@ -215,11 +215,11 @@ class Settings extends React.Component {
                 <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </div>
               <div className="row-start">
-                <p>Email Notification</p>
+                <p>Email Notification:</p>
                 <p>{setting.email_notification.toString()}</p>
               </div>
               <div className="row-start">
-                <p>Push Notification</p>
+                <p>Push Notification:</p>
                 <p>{setting.push_notification.toString()}</p>
               </div>
         <button onClick={this.startUpdate}>Update</button>
