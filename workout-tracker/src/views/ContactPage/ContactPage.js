@@ -10,6 +10,11 @@ flex-direction: column;
 text-align: left;
 padding: 0 1.5rem;
 
+h2 { 
+  
+}
+
+
 
 p {
   color: #828698;
@@ -73,9 +78,9 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
-        <h6>Have a question about a product, feedback, or business
+        <p className="question">Have a question about a product, feedback, or business
           inquiry for Workout Tracker?
-        </h6>
+        </p>
         
          
     
