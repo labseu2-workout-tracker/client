@@ -190,6 +190,7 @@ class Settings extends React.Component {
       ? this.props.settings.map((setting, index) => {
           return (
             <StyledSettings key={index}>
+              <div className="form">
               <div className="row-start">
                 <p>Email:</p>
                 <p>{setting.email ? setting.email : "Not specified"}</p>
@@ -213,6 +214,7 @@ class Settings extends React.Component {
               <div className="row-start">
                 <p>Level:</p>
                 <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
+              </div>
               </div>
               <div className="row-start">
                 <p>Email Notification:</p>
