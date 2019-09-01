@@ -11,11 +11,14 @@ text-align: left;
 padding: 0 1.5rem;
 
 h2 { 
-  
+  font-weight: 400;
+  line-height: 3.4rem;
 }
 
 .question {
   color: black;
+    line-height: 3.2rem;
+    margin: 0;
 }
 
 p {
@@ -61,9 +64,18 @@ input {
   }
 
   button {
-    background-color: #6bbdfa;
     border-color: transparent;
-    width: 20%;
+    width: 7rem;
+    height: 1.8rem;
+    font-size: .7rem;
+    line-height: 1.6rem;
+    border-radius: 4px;
+    border: 1px solid #f0f4f6;
+    color: #212432;
+    cursor: pointer;
+    letter-spacing: .5px;
+    text-align: center;
+    background: linear-gradient(46deg,#2eb7ce,#4296cb);
   }
 `;
 
