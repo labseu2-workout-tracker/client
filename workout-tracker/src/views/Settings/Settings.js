@@ -22,6 +22,7 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      wantUpdate: false,
       email: this.props.settings ? this.props.settings[0].email : null,
       username: this.props.settings ? this.props.settings[0].username : null,     
       password: this.props.settings ? this.props.settings[0].password : null,
