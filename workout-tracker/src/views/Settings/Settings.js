@@ -118,7 +118,7 @@ class Settings extends React.Component {
                             />
                           </span>
                           <span className="icon">
-                            <i className="fa fa-envelope"></i>
+                          <i className="fa fa-key"></i>
                           </span>
                         </li>
                         <li>
