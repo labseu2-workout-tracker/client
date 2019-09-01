@@ -101,7 +101,8 @@ class ContactPage extends React.Component {
     // We must add logic in the backend and here
     // for sending the message to our project email
     this.setState({
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       message: ""
