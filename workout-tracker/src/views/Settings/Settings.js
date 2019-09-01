@@ -227,7 +227,7 @@ class Settings extends React.Component {
               <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
               </span>
               <span className="icon">
-              <i class="fa fa-balance-scale"></i>
+              <i className="fa fa-balance-scale"></i>
               </span>
             </li>
 
@@ -237,7 +237,7 @@ class Settings extends React.Component {
               <p>{setting.height === 0 ? "Not specified" : setting.height}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-weight"></i>
+              <i className="fa fa-arrow-circle-up"></i>
               </span>
             </li>
 
@@ -247,7 +247,7 @@ class Settings extends React.Component {
               <p>{setting.gender ? setting.gender : "Not specified"}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-weight"></i>
+              <i className="fa fa-venus-mars"></i>
               </span>
             </li>
 
