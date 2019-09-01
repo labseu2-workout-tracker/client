@@ -180,11 +180,11 @@ class Settings extends React.Component {
               </div>
               <div className="row">
                 <p>Weight:</p>
-                <p>{setting.weight}</p>
+                <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
               </div>
               <div className="row">
                 <p>Height:</p>
-                <p>{setting.height ? : null}</p>
+                <p>{setting.height === 0 ? "Not specified" : setting.weight}</p>
               </div>
               <div className="row">
                 <p>Gender:</p>
