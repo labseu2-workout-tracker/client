@@ -164,7 +164,7 @@ class Settings extends React.Component {
     return this.props.settings
       ? this.props.settings.map((setting, index) => {
           return (
-            <div key={index}>
+            <StyledSettings key={index}>
               <div className="row-start">
                 <p>Email:</p>
                 <p>{setting.email ? setting.email : "Not specified"}</p>
@@ -197,7 +197,7 @@ class Settings extends React.Component {
                 <p>Push Notification</p>
                 <p>{setting.push_notification.toString()}</p>
               </div>
-            </div>
+            </StyledSettings>
           );
         })
       : null;
