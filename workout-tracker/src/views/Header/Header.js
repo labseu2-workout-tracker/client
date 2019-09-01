@@ -17,7 +17,7 @@ align-items: center;
 
 const Header = () => {
   return ( <StyledHeader>
-    <h1>Logo</h1>
+    <h1 >Logo</h1>
     <MainNavBar />
    <div className="user-icon">
    <i className="fa fa-user-circle"></i>

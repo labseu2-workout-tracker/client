@@ -149,6 +149,10 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
+        {/* landing page */}
+        <Route exact path="/"
+        component={LandingPage}
+        />
          <Route
           path="/login"
           exact
@@ -179,7 +183,7 @@ class App extends Component {
         <div className="App">
       <Header />
       {/* <LandingPage /> */}
-        <Route exact path={'/'} component={LandingPage} />   
+        {/* <Route exact path={'/'} component={LandingPage} />    */}
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
