@@ -190,7 +190,9 @@ class Settings extends React.Component {
               );
             })
           : null}
-        <button onClick={this.changeSettings}>Change</button>
+        <button
+        className="update-button"
+         onClick={this.changeSettings}>Change</button>
       </div>;
     }
     return this.props.settings
@@ -220,7 +222,6 @@ class Settings extends React.Component {
               <i className="fa fa-user"></i>
               </span>
             </li>
-
             <li>
               <span className="text">Weight:</span>
               <span className="data">
@@ -230,7 +231,6 @@ class Settings extends React.Component {
               <i className="fa fa-balance-scale"></i>
               </span>
             </li>
-
             <li>
               <span className="text">Height:</span>
               <span className="data">
@@ -240,7 +240,6 @@ class Settings extends React.Component {
               <i className="fa fa-arrow-circle-up"></i>
               </span>
             </li>
-
             <li>
               <span className="text">Gender:</span>
               <span className="data">
@@ -250,7 +249,6 @@ class Settings extends React.Component {
               <i className="fa fa-venus-mars"></i>
               </span>
             </li>
-
             <li>
               <span className="text">Level:</span>
               <span className="data">
@@ -260,7 +258,6 @@ class Settings extends React.Component {
               <i className="fa fa-graduation-cap"></i>
               </span>
             </li>
-
             <li>
               <span className="text">Email Notification:</span>
               <span className="data">
@@ -269,9 +266,7 @@ class Settings extends React.Component {
               <span className="icon">
               <i className="fa fa-envelope"></i>
               </span>
-            </li>
-
-            
+            </li>            
             <li>
               <span className="text">Push Notification:</span>
               <span className="data">
@@ -283,7 +278,9 @@ class Settings extends React.Component {
             </li>
           </ul>
         </div>
-        <button onClick={this.startUpdate}>Update</button>
+        <button
+        className="update-button"
+        onClick={this.startUpdate}>Update</button>
             </div>
           );
         })
