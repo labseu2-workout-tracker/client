@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledContactPage = styled.div`
 display: flex;
 flex-direction: column;
+text-align: left;
 
 
 p {
