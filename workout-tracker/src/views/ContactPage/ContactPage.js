@@ -105,7 +105,7 @@ class ContactPage extends React.Component {
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
-              placeholder="JohnDoe@gmail.com"
+              placeholder={this.state.email}
             />
           </div>
           <div className="column">
