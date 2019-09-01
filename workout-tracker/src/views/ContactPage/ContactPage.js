@@ -135,4 +135,10 @@ class ContactPage extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    settings: state.settings.settings,
+  };
+};
+
 export default connect(mapStateToProps)(ContactPage);
