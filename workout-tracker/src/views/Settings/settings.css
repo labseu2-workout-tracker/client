@@ -8,7 +8,7 @@ background-color: #6bbdfa;
   position: relative;
   box-sizing: border-box;
   margin: 100px auto 0;
-  width: 450px;
+  width: 550px;
   padding: 10px;
   color: #fff;
   background: rgba(45, 230, 220, 0.1);
@@ -54,6 +54,6 @@ background-color: #6bbdfa;
 }
 
 .info li:hover {
- transform: scale(1.4);
+ transform: scale(1.2);
  background: #6bbdfa;
 }

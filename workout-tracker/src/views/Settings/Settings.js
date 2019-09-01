@@ -220,6 +220,16 @@ class Settings extends React.Component {
               <i className="fa fa-user"></i>
               </span>
             </li>
+
+            <li>
+              <span className="text">Weight:</span>
+              <span className="data">
+              <p>{setting.username ? setting.username : "Not specified"}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-weight"></i>
+              </span>
+            </li>
           </ul>
         </div>
         <button onClick={this.startUpdate}>Update</button>
