@@ -199,64 +199,16 @@ class Settings extends React.Component {
         <div>
           <ul>
             <li>
-              <span>Email:</span>
-              <span>
+              <span className="text">Email:</span>
+              <span className="data">
                     <p>{setting.email ? setting.email : "Not specified"}</p>
               </span>
-              <span>
-                Icon
+              <span className="icon">
+              <i className="fa fa-envelope"></i>
               </span>
             </li>
 
-            {/* <li>
-              <span>Username:</span>
-              <span>
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span>
-                Icon
-              </span>
-            </li>
-
-            <li>
-              <span>Email:</span>
-              <span>
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span>
-                Icon
-              </span>
-            </li>
-
-            <li>
-              <span>Email:</span>
-              <span>
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span>
-                Icon
-              </span>
-            </li>
-
-            <li>
-              <span>Email:</span>
-              <span>
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span>
-                Icon
-              </span>
-            </li>
-
-            <li>
-              <span>Email:</span>
-              <span>
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span>
-                Icon
-              </span>
-            </li> */}
+          
           </ul>
         </div>
         <button onClick={this.startUpdate}>Update</button>
