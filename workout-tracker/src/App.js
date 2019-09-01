@@ -179,9 +179,9 @@ class App extends Component {
         <div className="App">
       <Header />
       {/* <LandingPage /> */}
-        <Route path={'/'} component={LandingPage} />   
+        <Route exact path={'/'} component={LandingPage} />   
         <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} /> 
         <Route path={'/About'} component={About} />           

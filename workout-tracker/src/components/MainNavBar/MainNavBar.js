@@ -12,7 +12,7 @@ a {
 `;
 
 const MainNavBar = () => {
-  const navButtons = ["Home", "Workout", "Exercises", "Contact", "About"];
+  const navButtons = ["Dashboard", "Workout", "Exercises", "Contact", "About"];
   return (
     <StyledMainNavBar>
       {navButtons.map((button, index) =>
