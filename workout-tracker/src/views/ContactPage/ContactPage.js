@@ -10,6 +10,7 @@ padding: 0 1.5rem;
 
 p {
   color: #828698;
+  margin: 0;
 }
   
   .column {
@@ -24,11 +25,6 @@ p {
     display: flex;
   }
 
-  input {
-    text-align: center;
-  }
-
-
   .messageInput {
     height: 8rem;
     width: 100%;
@@ -36,6 +32,8 @@ p {
 
   button {
     background-color: #6bbdfa;
+    border-color: transparent;
+    width: 20%;
   }
 `;
 
