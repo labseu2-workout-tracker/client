@@ -63,7 +63,7 @@ class Settings extends React.Component {
 
   render() {
     if (this.state.wantUpdate) {
-      <StyledSettings>
+     return <StyledSettings>
         {this.props.settings
           ? this.props.settings.map((setting, index) => {
               return (
