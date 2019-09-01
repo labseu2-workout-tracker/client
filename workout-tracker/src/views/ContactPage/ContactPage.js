@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { fetchSettings } from "../../store/actions/settingActions.js"
 
 const StyledContactPage = styled.div`
 display: flex;
@@ -141,4 +142,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ContactPage);
+export default connect(mapStateToProps, { fetchSettings })(ContactPage);
