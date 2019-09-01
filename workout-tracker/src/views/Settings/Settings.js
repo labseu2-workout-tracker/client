@@ -16,6 +16,8 @@ const StyledSettings = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  
 `;
 
 class Settings extends React.Component {
@@ -161,35 +163,35 @@ class Settings extends React.Component {
       ? this.props.settings.map((setting, index) => {
           return (
             <div key={index}>
-              <div className="row">
+              <div className="row-start">
                 <p>Email:</p>
                 <p>{setting.email ? setting.email : "Not specified"}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Username:</p>
                 <p>{setting.username ? setting.username : "Not specified"}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Weight:</p>
                 <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Height:</p>
                 <p>{setting.height === 0 ? "Not specified" : setting.weight}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Gender:</p>
                 <p>{setting.gender ? setting.gender : "Not specified"}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Level:</p>
                 <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Email Notification</p>
                 <p>{setting.email_notification.toString()}</p>
               </div>
-              <div className="row">
+              <div className="row-start">
                 <p>Push Notification</p>
                 <p>{setting.push_notification.toString()}</p>
               </div>
