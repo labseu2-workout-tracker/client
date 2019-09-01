@@ -5,47 +5,47 @@ import { connect } from "react-redux";
 // We must wait for new merging where I have the new actions
 
 const StyledContactPage = styled.div`
-display: flex;
-flex-direction: column;
-text-align: left;
-padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 1.5rem;
 
-h2 { 
-  font-weight: 400;
-  line-height: 3.4rem;
-}
+  h2 {
+    font-weight: 400;
+    line-height: 3.4rem;
+  }
 
-.question {
-  color: black;
+  .question {
+    color: black;
     line-height: 3.2rem;
     margin: 0;
-}
+  }
 
-p {
-  font-size: .7rem;
-  color: #828698;
-  margin: 0 0 .5rem 0;
-}
+  p {
+    font-size: 0.7rem;
+    color: #828698;
+    margin: 0 0 0.5rem 0;
+  }
 
-input {
-  border: 1px solid #e3eaee;
+  input {
+    border: 1px solid #e3eaee;
     border-radius: 4px;
     line-height: 1.2em;
-}
-  
+  }
+
   .column {
     display: flex;
     flex-direction: column;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     width: 100%;
   }
 
   .column-start {
-   padding-right: .5rem;
+    padding-right: 0.5rem;
   }
 
   .column-end {
-   padding-left: .5rem;
+    padding-left: 0.5rem;
   }
 
   .row {
@@ -69,15 +69,15 @@ input {
     border-color: transparent;
     width: 7rem;
     height: 1.8rem;
-    font-size: .7rem;
+    font-size: 0.7rem;
     line-height: 1.6rem;
     border-radius: 4px;
     border: 1px solid #f0f4f6;
     color: #212432;
     cursor: pointer;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     text-align: center;
-    background: linear-gradient(46deg,#2eb7ce,#4296cb);
+    background: linear-gradient(46deg, #2eb7ce, #4296cb);
   }
 `;
 
@@ -100,12 +100,10 @@ class ContactPage extends React.Component {
   };
 
   sendMessage = () => {
-    
-    if(this.state.email && this.state.message.length > 10) {
-      
+    if (this.state.email && this.state.message.length > 10) {
       // We must add logic in the backend and here
       // for sending the message to our project email
-    // this.props.sendMessage()
+      // this.props.sendMessage()...
       this.setState({
         firstName: "",
         lastName: "",
@@ -122,12 +120,11 @@ class ContactPage extends React.Component {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
-        <p className="question">Have a question about a product, feedback, or business
-          inquiry for Workout Tracker?
+        <p className="question">
+          Have a question about a product, feedback, or business inquiry for
+          Workout Tracker?
         </p>
-        
-         
-    
+
         <div className="row">
           <div className="column column-start">
             <p>First Name</p>
@@ -147,10 +144,10 @@ class ContactPage extends React.Component {
               placeholder="Doe"
             />
           </div>
-          </div>
-          <div className="row">
+        </div>
+        <div className="row">
           <div className="column column-start">
-            <p>Email  *</p>
+            <p>Email *</p>
             <input
               name="email"
               value={this.state.email}
@@ -164,12 +161,12 @@ class ContactPage extends React.Component {
               name="phone"
               value={this.state.phone}
               onChange={this.handleChange}
-              placeholder="(Optional)"
+              placeholder="ex: +49 1729149128"
             />
           </div>
-          </div>
-          <div className="column">
-          <p>Message  *</p>
+        </div>
+        <div className="column">
+          <p>Message *</p>
           <input
             className="messageInput"
             name="message"
@@ -177,10 +174,8 @@ class ContactPage extends React.Component {
             onChange={this.handleChange}
             placeholder="Message"
           />
-          </div>
-          <button onClick={this.sendMessage}>Send</button>
-        
-        
+        </div>
+        <button onClick={this.sendMessage}>Send</button>
       </StyledContactPage>
     );
   }
@@ -189,10 +184,11 @@ class ContactPage extends React.Component {
 const mapStateToProps = state => {
   return {
     // settings: state.settings.settings,
-// We must wait for new merging where I have the new reducer    
+    // We must wait for new merging where I have the new reducer
   };
 };
 
-export default connect(mapStateToProps, 
+export default connect(
+  mapStateToProps
   // { fetchSettings }
-  )(ContactPage);
+)(ContactPage);
