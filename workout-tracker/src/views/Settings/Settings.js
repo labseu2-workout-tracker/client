@@ -131,7 +131,12 @@ class Settings extends React.Component {
             <li>
               <span className="text">Height:</span>
               <span className="data">
-              <p>{setting.height === 0 ? "Not specified" : setting.height}</p>
+              <input
+                      value={this.state.height}
+                      onChange={this.handleChange}
+                      placeholder={setting.height}
+                      name="height"
+                    />
               </span>
               <span className="icon">
               <i className="fa fa-arrow-circle-up"></i>
@@ -140,7 +145,12 @@ class Settings extends React.Component {
             <li>
               <span className="text">Gender:</span>
               <span className="data">
-              <p>{setting.gender ? setting.gender : "Not specified"}</p>
+              <input
+                      value={this.state.gender}
+                      onChange={this.handleChange}
+                      placeholder={setting.gender}
+                      name="gender"
+                    />
               </span>
               <span className="icon">
               <i className="fa fa-venus-mars"></i>
@@ -181,24 +191,7 @@ class Settings extends React.Component {
 
 
 
-             w">
-                //     <p>Weight: </p>
-                //     <input
-                //       value={this.state.weight}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.weight}
-                //       name="weight"
-                //     />
-                //   </div>
-                //   <div className="row">
-                //     <p>Height: </p>
-                //     <input
-                //       value={this.state.height}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.height}
-                //       name="height"
-                //     />
-                //   </div>
+            
                 //   <div className="row">
                 //     <p>Gender: </p>
                 //     <input
