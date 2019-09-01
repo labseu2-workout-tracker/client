@@ -200,7 +200,7 @@ class Settings extends React.Component {
             className="user-data"
              key={index}>
         <div>
-          <ul>
+          <ul id="ul">
             <li>
               <span className="text">Email:</span>
               <span className="data">

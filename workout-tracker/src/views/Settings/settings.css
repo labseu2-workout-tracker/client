@@ -1,0 +1,11 @@
+.user-data {
+margin: 0;
+padding: 0;
+background-color: #6bbdfa;
+}
+
+#ul {
+  position: absolute;
+  margin: 100px auto;
+  width: 450px;
+}
