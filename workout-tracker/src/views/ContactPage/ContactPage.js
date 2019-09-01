@@ -20,7 +20,7 @@ h2 {
 
 p {
   color: #828698;
-  margin: 0;
+  margin: 0 0 .5rem 0;
 }
   
   .column {
@@ -30,12 +30,12 @@ p {
     width: 100%;
   }
 
+  .column-start {
+   padding-right: .5rem;
+  }
+
   .column-end {
-    display: flex;
-    justify-content: flex-end;
-    /* input {
-    align-self: flex-end;
-    } */
+   padding-left: .5rem;
   }
 
   .row {
@@ -45,7 +45,7 @@ p {
     width: 100%;
 
     input {
-      width: 90%;
+      width: 100%;
     }
   }
 
