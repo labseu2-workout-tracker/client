@@ -100,7 +100,7 @@ class ContactPage extends React.Component {
             />
           </div>
           <div className="column">
-            <p>Phone:</p>
+            <p>Phone</p>
             <input
               name="phone"
               value={this.state.phone}
@@ -109,6 +109,7 @@ class ContactPage extends React.Component {
             />
           </div>
           </div>
+          <div className="column">
           <input
             className="messageInput"
             name="message"
@@ -117,6 +118,7 @@ class ContactPage extends React.Component {
             placeholder="Message"
           />
           <button onClick={this.sendMessage}>Send</button>
+          </div>
         
         
       </StyledContactPage>
