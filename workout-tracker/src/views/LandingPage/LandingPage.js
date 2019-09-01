@@ -1,6 +1,5 @@
 import React from 'react';
 import './LandingPage.css';
-import Button from '../../components/Button/Button';
 import bg from '../../assets/landingpage/bg-shape.svg';
 import run from '../../assets/landingpage/diet3.gif';
 import lift from '../../assets/landingpage/haha.gif';
