@@ -17,7 +17,9 @@ const StyledSettings = styled.div`
     align-items: center;
   }
 
-  
+  .row-start {
+    display: flex;
+  }
 `;
 
 class Settings extends React.Component {
