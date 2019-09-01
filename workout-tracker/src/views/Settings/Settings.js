@@ -197,10 +197,11 @@ class Settings extends React.Component {
       ? this.props.settings.map((setting, index) => {
           return (
             <div
-            className="user-data"
              key={index}>
-        <div>
-          <ul id="ul">
+        <div
+            className="user-data"        
+        >
+          <ul className="info">
             <li>
               <span className="text">Email:</span>
               <span className="data">
