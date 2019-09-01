@@ -17,6 +17,12 @@ const StyledSettings = styled.div`
     align-items: center;
   }
 
+  .form {
+    border-radius: 5px;
+    background-color: #6bbdfa;
+    padding: 20px;
+  }
+
   .row-start {
     display: flex;
   }
@@ -190,40 +196,69 @@ class Settings extends React.Component {
       ? this.props.settings.map((setting, index) => {
           return (
             <StyledSettings key={index}>
-              <div className="form">
-              <div className="row-start">
-                <p>Email:</p>
-                <p>{setting.email ? setting.email : "Not specified"}</p>
-              </div>
-              <div className="row-start">
-                <p>Username:</p>
-                <p>{setting.username ? setting.username : "Not specified"}</p>
-              </div>
-              <div className="row-start">
-                <p>Weight:</p>
-                <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
-              </div>
-              <div className="row-start">
-                <p>Height:</p>
-                <p>{setting.height === 0 ? "Not specified" : setting.weight}</p>
-              </div>
-              <div className="row-start">
-                <p>Gender:</p>
-                <p>{setting.gender ? setting.gender : "Not specified"}</p>
-              </div>
-              <div className="row-start">
-                <p>Level:</p>
-                <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
-              </div>
-              </div>
-              <div className="row-start">
-                <p>Email Notification:</p>
-                <p>{setting.email_notification.toString()}</p>
-              </div>
-              <div className="row-start">
-                <p>Push Notification:</p>
-                <p>{setting.push_notification.toString()}</p>
-              </div>
+        <div>
+          <ul>
+            <li>
+              <span>Email:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li>
+
+            {/* <li>
+              <span>Username:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li>
+
+            <li>
+              <span>Email:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li>
+
+            <li>
+              <span>Email:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li>
+
+            <li>
+              <span>Email:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li>
+
+            <li>
+              <span>Email:</span>
+              <span>
+                    <p>{setting.email ? setting.email : "Not specified"}</p>
+              </span>
+              <span>
+                Icon
+              </span>
+            </li> */}
+          </ul>
+        </div>
         <button onClick={this.startUpdate}>Update</button>
             </StyledSettings>
           );
@@ -242,3 +277,39 @@ export default connect(
   mapStateToProps,
   { fetchSettings, updateSettings }
 )(Settings);
+
+
+// <div className="">
+// <div className="row-start">
+//   <p>Email:</p>
+//   <p>{setting.email ? setting.email : "Not specified"}</p>
+// </div>
+// <div className="row-start">
+//   <p>Username:</p>
+//   <p>{setting.username ? setting.username : "Not specified"}</p>
+// </div>
+// <div className="row-start">
+//   <p>Weight:</p>
+//   <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
+// </div>
+// <div className="row-start">
+//   <p>Height:</p>
+//   <p>{setting.height === 0 ? "Not specified" : setting.weight}</p>
+// </div>
+// <div className="row-start">
+//   <p>Gender:</p>
+//   <p>{setting.gender ? setting.gender : "Not specified"}</p>
+// </div>
+// <div className="row-start">
+//   <p>Level:</p>
+//   <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
+// </div>
+// </div>
+// <div className="row-start">
+//   <p>Email Notification:</p>
+//   <p>{setting.email_notification.toString()}</p>
+// </div>
+// <div className="row-start">
+//   <p>Push Notification:</p>
+//   <p>{setting.push_notification.toString()}</p>
+// </div>
