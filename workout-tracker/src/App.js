@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
@@ -9,6 +8,11 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
 import LoginPage from './views/Auth/Login';
+import MainNavBar from './components/MainNavBar/MainNavBar';
+import MobileNavigation from './components/MainNavBar/MobileNavigation/MobileNavigation'
+import Toolbar from './components/Toolbar/Toolbar';
+import Layout from './components/Layout/Layout';
+import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
 
@@ -18,7 +22,9 @@ class App extends Component {
     token: null,
     userId: null,
     authLoading: false,
-    error: null
+    error: null,
+    showMobileNav: false,
+    showBackdrop: false
   }
 
   componentDidMount() {
@@ -142,6 +148,13 @@ class App extends Component {
     }, milliseconds);
   };
 
+  mobileNavHandler = isOpen => {
+    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen});
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ showBackdrop: false, showMobileNav: false, error: null });
+  };
 
   render() {
     let routes = (
@@ -184,6 +197,29 @@ class App extends Component {
     }
     return (
       <Fragment>
+        {this.state.showBackdrop && (
+          <Backdrop onClick={this.backdropClickHandler} open={this.state.showMobileNav}/>
+        )}
+        <Layout
+          header={
+            <Toolbar>
+              <MainNavBar
+                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+                onLogout={this.logoutHandler}
+                isAuth={this.state.isAuth}
+              />
+            </Toolbar>
+          }
+          mobileNav={
+            <MobileNavigation
+              open={this.state.showMobileNav}
+              mobile
+              onChooseItem={this.mobileNavHandler.bind(this, false)}
+              onLogout={this.logoutHandler}
+              isAuth={this.state.isAuth}
+            />
+          }
+        />
         {routes}
       </Fragment>
     );
