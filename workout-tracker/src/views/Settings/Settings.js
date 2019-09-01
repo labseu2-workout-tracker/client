@@ -130,7 +130,7 @@ class Settings extends React.Component {
                     <input
                       value={this.state.weight}
                       onChange={this.handleChange}
-                      placeholder={setting.body_weight}
+                      placeholder={setting.weight}
                       name="weight"
                     />
                   </div>
@@ -139,7 +139,7 @@ class Settings extends React.Component {
                     <input
                       value={this.state.height}
                       onChange={this.handleChange}
-                      placeholder={setting.body_height}
+                      placeholder={setting.height}
                       name="height"
                     />
                   </div>
@@ -148,7 +148,7 @@ class Settings extends React.Component {
                     <input
                       value={this.state.gender}
                       onChange={this.handleChange}
-                      placeholder={setting.body_gender}
+                      placeholder={setting.gender}
                       name="gender"
                     />
                   </div>

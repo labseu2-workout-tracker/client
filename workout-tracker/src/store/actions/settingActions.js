@@ -13,6 +13,7 @@ export const fetchSettings = () => dispatch => {
   return axios
     .get(`${settings}/${userId}`)
     .then(res => {
+      debugger
       dispatch({ type: FETCH_SETTINGS, settings: res.data });
     })
     .catch(err => {
