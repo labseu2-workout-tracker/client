@@ -5,6 +5,7 @@ import bg from '../../assets/landingpage/bg-shape.svg';
 import run from '../../assets/landingpage/diet3.gif';
 import lift from '../../assets/landingpage/haha.gif';
 import fapp from '../../assets/landingpage/diet.gif';
+import hehe from '../../assets/landingpage/diet2.gif';
 
 const LandingPage = () => {
   // use a hook for fetch stuffmaybe videos from our API
@@ -30,23 +31,23 @@ const LandingPage = () => {
         </div>
     
         <div className="card">
-              <img src={fapp} alt="card background" className="card-img" />
-              <img src={fapp} alt="profile" className="profile-img" />
+              <img src={bg} alt="card background" className="card-img" />
+              <img src={run} alt="profile" className="profile-img" />
               <h1>User Structured</h1>
               <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               <a href="htt" className="btn">
-                Join
+                Find More
               </a>
 
             </div>
 
         <div className="card">
-              <img src={run} alt="card background" className="card-img" />
+              <img src={fapp} alt="card background" className="card-img" />
               <img src={lift} alt="profile" className="profile-img" />
               <h1>Workout Manuals</h1>
               <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               <a href="htt" className="btn">
-                Join
+                Find More
               </a>
 
             </div>

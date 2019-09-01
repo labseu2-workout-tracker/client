@@ -29,14 +29,6 @@ hr {
   display: flex;
 }
 
-#img-2 {
-  border-radius: 0 130px 0 130px;
-  box-shadow: -5px 5px 7px 1px rgba(0, 0, 0, 0.2);
-}
-#img-1 {
-  border-radius: 0 130px 0 130px;
-  box-shadow: -5px 5px 7px 1px rgba(0, 0, 0, 0.2);
-}
 
 .landingname {
   display: flex;
@@ -49,7 +41,105 @@ hr {
   list-style: none;
   font-size: 2rem;
 
- 
-  
- 
 }
+.land-wrapper{
+  display: flex;
+  align-items:center;
+  align-content:center;
+  flex-direction: column;
+}
+.land{
+  width: 30rem;
+  background-color: #c7d9eef9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  border-radius: 2rem;
+  box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+.land .land-img{
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;   
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+
+}
+.land-img{
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top:-10rem;
+  z-index: 899;
+  border: 1rem solid #c7d9eef9;
+  
+}
+.land h1{
+  font-size:2.5rem;
+  color: #333;
+  margin:  1.5rem;
+}
+.job-title{
+  color: #777;
+  font-size: 1.5rem;
+  font-weight:300;
+}
+
+.land .btn{
+  padding: .8rem 2.5rem;
+  background-color: #6bbdfa;
+  border-radius: 2rem;
+  margin: 1rem;
+  text-transform: capitalize;
+  color: #eee;
+  font-size: 1.4rem;
+  transition: all .5s;
+}
+.land .btn:hover{
+  transform: translateY(-2px);
+  box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
+}
+.land .btn:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+
+@media screen and (min-width: 700px){
+  .land-wrapper{
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+  .land{
+      margin:2rem;
+      transition: transfom .5s;
+  }
+  @keyframes fadeIn {
+      from{
+          opacity: 0;
+      }
+      to{
+          opacity: 1;
+      }
+  }
+      .land:nth-child(1){
+          animation: fadeIn .5s .5s backwards;
+      }
+      .land:nth-child(2){
+          animation: fadeIn .5s .1s backwards;
+      }
+      .land:nth-child(3){
+          animation: fadeIn .5s 1.5s backwards;
+      }
+      .land:nth-child(4){
+          animation: fadeIn .5s 2s backwards;
+      }   
+      .land:hover{
+          transform: scale(1.1);
+      }             
+  }
