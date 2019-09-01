@@ -159,6 +159,7 @@ class Settings extends React.Component {
       </StyledSettings>
       }
     return (
+      this.props.settings ? () : null)
     );
   }
 }
