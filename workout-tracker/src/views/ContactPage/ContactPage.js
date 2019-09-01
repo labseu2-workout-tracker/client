@@ -19,6 +19,7 @@ h2 {
   color: black;
     line-height: 3.2rem;
     margin: 0;
+    font-size: .7rem;
 }
 
 p {
