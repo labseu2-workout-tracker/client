@@ -5,6 +5,7 @@ const StyledContactPage = styled.div`
 display: flex;
 flex-direction: column;
 text-align: left;
+padding: 0 1.5rem;
 
 
 p {
@@ -15,6 +16,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: .5rem 0;
   }
 
   .row {
@@ -28,7 +30,7 @@ p {
 
   .messageInput {
     height: 8rem;
-    width: 50%;
+    width: 100%;
   }
 
   button {
