@@ -17,6 +17,7 @@ p {
     flex-direction: column;
     justify-content: space-between;
     padding: .5rem 0;
+    width: 100%;
   }
 
   .row {
