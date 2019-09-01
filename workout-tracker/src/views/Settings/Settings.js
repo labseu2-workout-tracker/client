@@ -84,6 +84,10 @@ class Settings extends React.Component {
     };
 
     this.props.updateSettings(updatedSettings);
+
+    this.setState({
+      wantUpdate: false,
+    });
   };
 
   render() {
