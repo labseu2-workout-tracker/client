@@ -5,6 +5,7 @@ import bg from '../../assets/landingpage/bg-shape.svg';
 import run from '../../assets/landingpage/diet3.gif';
 import lift from '../../assets/landingpage/haha.gif';
 import fapp from '../../assets/landingpage/diet.gif';
+import { Link } from 'react-router-dom';
 
 
 const LandingPage = () => {
@@ -26,7 +27,9 @@ const LandingPage = () => {
             frangere.
           </p>
           <div>
-            <Button>Learn More</Button>
+          <Link to="/signup" className="btn">
+                Sign Up
+              </Link>
           </div>
         </div>
     
@@ -35,9 +38,9 @@ const LandingPage = () => {
               <img src={run} alt="profile" className="profile-img" />
               <h1>User Structured</h1>
               <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <a href="htt" className="btn">
+              <Link to="#" className="btn">
                 Find More
-              </a>
+              </Link>
 
             </div>
 
@@ -46,9 +49,9 @@ const LandingPage = () => {
               <img src={lift} alt="profile" className="profile-img" />
               <h1>Workout Manuals</h1>
               <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <a href="htt" className="btn">
+              <Link to="#" className="btn">
                 Find More
-              </a>
+              </Link>
 
             </div>
       </section>
