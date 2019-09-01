@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { fetchSettings } from "../../store/actions/settingActions.js"
+// import { fetchSettings } from "../../store/actions/settingActions.js"
+// We must wait for new merging where I have the new actions
 
 const StyledContactPage = styled.div`
 display: flex;
@@ -138,8 +139,11 @@ class ContactPage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    settings: state.settings.settings,
+    // settings: state.settings.settings,
+// We must wait for new merging where I have the new reducer    
   };
 };
 
-export default connect(mapStateToProps, { fetchSettings })(ContactPage);
+export default connect(mapStateToProps, 
+  // { fetchSettings }
+  )(ContactPage);
