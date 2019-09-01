@@ -22,6 +22,12 @@ p {
   color: #828698;
   margin: 0 0 .5rem 0;
 }
+
+input {
+  border: 1px solid #e3eaee;
+    border-radius: 4px;
+    line-height: 1.2em;
+}
   
   .column {
     display: flex;
