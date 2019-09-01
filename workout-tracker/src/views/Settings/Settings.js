@@ -17,9 +17,15 @@ class Settings extends React.Component {
       weight: this.props.settings ? this.props.settings[0].weight : null,
       height: this.props.settings ? this.props.settings[0].height : null,
       gender: this.props.settings ? this.props.settings[0].gender : null,
-      user_level: this.props.settings ? this.props.settings[0].user_level : null,
-      email_notification: this.props.settings ? this.props.settings[0].email_notification : null,
-      push_notification: this.props.settings ? this.props.settings[0].push_notification : null
+      user_level: this.props.settings
+        ? this.props.settings[0].user_level
+        : null,
+      email_notification: this.props.settings
+        ? this.props.settings[0].email_notification
+        : null,
+      push_notification: this.props.settings
+        ? this.props.settings[0].push_notification
+        : null
     };
   }
 
@@ -35,7 +41,7 @@ class Settings extends React.Component {
 
   startUpdate = () => {
     this.setState({
-      wantUpdate: true,
+      wantUpdate: true
     });
   };
 
@@ -55,274 +61,256 @@ class Settings extends React.Component {
     this.props.updateSettings(updatedSettings);
 
     this.setState({
-      wantUpdate: false,
+      wantUpdate: false
     });
   };
 
   render() {
     if (this.state.wantUpdate) {
-     return <div>
-        {this.props.settings
-          ? this.props.settings.map((setting, index) => {
-              return (
-<div
-             key={index}>
-        <div
-            className="user-data"        
-        >
-          <ul className="info">
-            <li>
-              <span className="text">Email:</span>
-              <span className="data">
-              <input
-                      value={this.state.email}
-                      onChange={this.handleChange}
-                      placeholder={setting.email}
-                      name="email"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-envelope"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Username:</span>
-              <span className="data">
-              <input
-                      value={this.state.username}
-                      onChange={this.handleChange}
-                      placeholder={setting.username}
-                      name="username"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-user"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Password:</span>
-              <span className="data">
-              <input
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                      placeholder={setting.password}
-                      name="password"
-                      type="password"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-envelope"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Weight:</span>
-              <span className="data">
-              <input
-                      value={this.state.weight}
-                      onChange={this.handleChange}
-                      placeholder={setting.weight}
-                      name="weight"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-balance-scale"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Height:</span>
-              <span className="data">
-              <input
-                      value={this.state.height}
-                      onChange={this.handleChange}
-                      placeholder={setting.height}
-                      name="height"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-arrow-circle-up"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Gender:</span>
-              <span className="data">
-              <input
-                      value={this.state.gender}
-                      onChange={this.handleChange}
-                      placeholder={setting.gender}
-                      name="gender"
-                    />
-              </span>
-              <span className="icon">
-              <i className="fa fa-venus-mars"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Level:</span>
-              <span className="data">
-              <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-graduation-cap"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Email Notification:</span>
-              <span className="data">
-              <p>{setting.email_notification.toString()}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-envelope"></i>
-              </span>
-            </li>            
-            <li>
-              <span className="text">Push Notification:</span>
-              <span className="data">
-              <p>{setting.push_notification.toString()}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-bell"></i>
-              </span>
-            </li>
-          </ul>
-        </div>
+      return (
+        <div>
+          {this.props.settings
+            ? this.props.settings.map((setting, index) => {
+                return (
+                  <div key={index}>
+                    <div className="user-data">
+                      <ul className="info">
+                        <li>
+                          <span className="text">Email:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.email}
+                              onChange={this.handleChange}
+                              placeholder={setting.email}
+                              name="email"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-envelope"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Username:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.username}
+                              onChange={this.handleChange}
+                              placeholder={setting.username}
+                              name="username"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-user"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Password:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.password}
+                              onChange={this.handleChange}
+                              placeholder={setting.password}
+                              name="password"
+                              type="password"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-envelope"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Weight:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.weight}
+                              onChange={this.handleChange}
+                              placeholder={setting.weight}
+                              name="weight"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-balance-scale"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Height:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.height}
+                              onChange={this.handleChange}
+                              placeholder={setting.height}
+                              name="height"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-arrow-circle-up"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Gender:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.gender}
+                              onChange={this.handleChange}
+                              placeholder={setting.gender}
+                              name="gender"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-venus-mars"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Level:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.user_level}
+                              onChange={this.handleChange}
+                              placeholder={setting.user_level}
+                              name="user_level"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-graduation-cap"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Email Notification:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.email_notification}
+                              onChange={this.handleChange}
+                              placeholder={setting.email_notification.toString()}
+                              name="email_notification"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-envelope"></i>
+                          </span>
+                        </li>
+                        <li>
+                          <span className="text">Push Notification:</span>
+                          <span className="data">
+                            <input
+                              value={this.state.push_notification}
+                              onChange={this.handleChange}
+                              placeholder={setting.push_notification.toString()}
+                              name="push_notification"
+                            />
+                          </span>
+                          <span className="icon">
+                            <i className="fa fa-bell"></i>
+                          </span>
+                        </li>
+                      </ul>
                     </div>
-
-
-
-
-
-            
-                //   <div className="row">
-                //     <p>Gender: </p>
-                //     <input
-                //       value={this.state.gender}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.gender}
-                //       name="gender"
-                //     />
-                //   </div>
-                //   <div className="row">
-                //     <p>user_level</p>
-                //     <input
-                //       value={this.state.user_level}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.user_level}
-                //       name="user_level"
-                //     />
-                //   </div>
-                //   <div className="row">
-                //     <p>Email Notification: </p>
-                //     <input
-                //       value={this.state.email_notification}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.email_notification.toString()}
-                //       name="email_notification"
-                //     />
-                //   </div>
-                //   <div className="row">
-                //     <p>Push Notification: </p>
-                //     <input
-                //       value={this.state.push_notification}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.push_notification.toString()}
-                //       name="push_notification"
-                //     />
-                //   </div>
-                // </div>
-              );
-            })
-          : null}
-        <button
-        className="update-button"
-         onClick={this.changeSettings}>Change</button>
-      </div>;
+                  </div>
+                );
+              })
+            : null}
+          <button className="update-button" onClick={this.changeSettings}>
+            Change
+          </button>
+        </div>
+      );
     }
     return this.props.settings
       ? this.props.settings.map((setting, index) => {
           return (
-            <div
-             key={index}>
-        <div
-            className="user-data"        
-        >
-          <ul className="info">
-            <li>
-              <span className="text">Email:</span>
-              <span className="data">
-                    <p>{setting.email ? setting.email : "Not specified"}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-envelope"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Username:</span>
-              <span className="data">
-              <p>{setting.username ? setting.username : "Not specified"}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-user"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Weight:</span>
-              <span className="data">
-              <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-balance-scale"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Height:</span>
-              <span className="data">
-              <p>{setting.height === 0 ? "Not specified" : setting.height}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-arrow-circle-up"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Gender:</span>
-              <span className="data">
-              <p>{setting.gender ? setting.gender : "Not specified"}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-venus-mars"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Level:</span>
-              <span className="data">
-              <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-graduation-cap"></i>
-              </span>
-            </li>
-            <li>
-              <span className="text">Email Notification:</span>
-              <span className="data">
-              <p>{setting.email_notification.toString()}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-envelope"></i>
-              </span>
-            </li>            
-            <li>
-              <span className="text">Push Notification:</span>
-              <span className="data">
-              <p>{setting.push_notification.toString()}</p>
-              </span>
-              <span className="icon">
-              <i className="fa fa-bell"></i>
-              </span>
-            </li>
-          </ul>
-        </div>
-        <button
-        className="update-button"
-        onClick={this.startUpdate}>Update</button>
+            <div key={index}>
+              <div className="user-data">
+                <ul className="info">
+                  <li>
+                    <span className="text">Email:</span>
+                    <span className="data">
+                      <p>{setting.email ? setting.email : "Not specified"}</p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-envelope"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Username:</span>
+                    <span className="data">
+                      <p>
+                        {setting.username ? setting.username : "Not specified"}
+                      </p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-user"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Weight:</span>
+                    <span className="data">
+                      <p>
+                        {setting.weight === 0
+                          ? "Not specified"
+                          : setting.weight}
+                      </p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-balance-scale"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Height:</span>
+                    <span className="data">
+                      <p>
+                        {setting.height === 0
+                          ? "Not specified"
+                          : setting.height}
+                      </p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-arrow-circle-up"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Gender:</span>
+                    <span className="data">
+                      <p>{setting.gender ? setting.gender : "Not specified"}</p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-venus-mars"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Level:</span>
+                    <span className="data">
+                      <p>
+                        {setting.user_level
+                          ? setting.user_level
+                          : "Not specified"}
+                      </p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-graduation-cap"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Email Notification:</span>
+                    <span className="data">
+                      <p>{setting.email_notification.toString()}</p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-envelope"></i>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="text">Push Notification:</span>
+                    <span className="data">
+                      <p>{setting.push_notification.toString()}</p>
+                    </span>
+                    <span className="icon">
+                      <i className="fa fa-bell"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <button className="update-button" onClick={this.startUpdate}>
+                Update
+              </button>
             </div>
           );
         })
@@ -340,7 +328,6 @@ export default connect(
   mapStateToProps,
   { fetchSettings, updateSettings }
 )(Settings);
-
 
 // <div className="">
 // <div className="row-start">
