@@ -257,7 +257,7 @@ class Settings extends React.Component {
               <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </span>
               <span className="icon">
-              <i class="fas fa-running"></i>
+              <i class="fas fa-user-graduate"></i>
               </span>
             </li>
 
@@ -267,7 +267,7 @@ class Settings extends React.Component {
               <p>{setting.email_notification.toString()}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-weight"></i>
+              <i className="fa fa-envelope"></i>
               </span>
             </li>
 
