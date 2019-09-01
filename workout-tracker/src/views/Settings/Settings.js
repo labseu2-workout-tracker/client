@@ -20,6 +20,21 @@ const StyledSettings = styled.div`
   .row-start {
     display: flex;
   }
+
+  button {
+    border-color: transparent;
+    width: 7rem;
+    height: 1.8rem;
+    font-size: 0.7rem;
+    line-height: 1.6rem;
+    border-radius: 4px;
+    border: 1px solid #f0f4f6;
+    color: #212432;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: linear-gradient(46deg, #2eb7ce, #4296cb);
+  }
 `;
 
 class Settings extends React.Component {
