@@ -184,7 +184,7 @@ class Settings extends React.Component {
               </div>
               <div className="row">
                 <p>Height:</p>
-                <p>{setting.height}</p>
+                <p>{setting.height ? : null}</p>
               </div>
               <div className="row">
                 <p>Gender:</p>
@@ -196,11 +196,11 @@ class Settings extends React.Component {
               </div>
               <div className="row">
                 <p>Email Notification</p>
-                <p>{setting.email_notification}</p>
+                <p>{setting.email_notification.toString()}</p>
               </div>
               <div className="row">
                 <p>Push Notification</p>
-                <p>{setting.push_notification}</p>
+                <p>{setting.push_notification.toString()}</p>
               </div>
             </div>
           );
