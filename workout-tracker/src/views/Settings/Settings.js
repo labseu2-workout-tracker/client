@@ -211,6 +211,15 @@ class Settings extends React.Component {
               <i className="fa fa-envelope"></i>
               </span>
             </li>
+            <li>
+              <span className="text">Username:</span>
+              <span className="data">
+              <p>{setting.username ? setting.username : "Not specified"}</p>
+              </span>
+              <span className="icon">
+              <i className="fa fa-user"></i>
+              </span>
+            </li>
           </ul>
         </div>
         <button onClick={this.startUpdate}>Update</button>
