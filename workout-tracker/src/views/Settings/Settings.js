@@ -88,7 +88,12 @@ class Settings extends React.Component {
             <li>
               <span className="text">Username:</span>
               <span className="data">
-              <p>{setting.username ? setting.username : "Not specified"}</p>
+              <input
+                      value={this.state.username}
+                      onChange={this.handleChange}
+                      placeholder={setting.username}
+                      name="username"
+                    />
               </span>
               <span className="icon">
               <i className="fa fa-user"></i>
@@ -150,33 +155,13 @@ class Settings extends React.Component {
             </li>
           </ul>
         </div>
-        <button
-        className="update-button"
-        onClick={this.startUpdate}>Update</button>
-            </div>
+                    </div>
 
 
 
 
 
-                // <div key={index}>
-                //   <div className="row">
-                //     <p>Email: </p>
-                //     <input
-                //       value={this.state.email}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.email}
-                //       name="email"
-                //     />
-                //   </div>
-                //   <div className="row">
-                //     <p>Username: </p>
-                //     <input
-                //       value={this.state.username}
-                //       onChange={this.handleChange}
-                //       placeholder={setting.username}
-                //       name="username"
-                //     />
+              
                 //   </div>
                 //   <div className="row">
                 //     <p>Password: </p>
