@@ -74,20 +74,19 @@ section {
 }
 .card h1{
     font-size:2.5rem;
-    color: #333;
+    color: rgb(255, 255, 255);
     margin:  1.5rem;
 }
 .job-title{
-    color: #777;
+    color: rgb(255, 255, 255);
     font-size: 1.5rem;
-    font-weight:300;
+    font-weight:100;
 }
 .about{
     font-size: 1.5rem;
     margin: 1.5rem 0;
-    font-style:italic;
     text-align: center;
-    color: #333;
+    color: rgb(255, 255, 255);
 }
 .card .btn{
     padding: .8rem 2.5rem;

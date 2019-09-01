@@ -12,7 +12,7 @@ const LandingPage = () => {
   return (
     <>
       <section className="card-wrapper">
-        <div className="landingname">
+        <div className="land">
      
           <h1 id="h1">
             Be<span>Fit</span>
@@ -20,7 +20,7 @@ const LandingPage = () => {
             Tracker
           </h1>
           <hr />
-          <p className="heading" id="p">
+          <p id="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni
             virtuti vitium contrario nomine opponitur. Hoc est non dividere, sed
             frangere.

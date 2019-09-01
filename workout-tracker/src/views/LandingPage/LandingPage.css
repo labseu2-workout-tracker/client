@@ -3,15 +3,11 @@
   color: #0086c9;
   line-height: 0.8em;
   text-align: left;
+  
 }
 
 h1 span {
   color: #5c0d91;
-}
-
-hr {
-  margin: 40px;
-  border-top: none;
 }
 
 #p {
@@ -50,14 +46,14 @@ hr {
 }
 .land{
   width: 30rem;
-  background-color: #c7d9eef9;
+  height: 50rem;
   display: flex;
+  background-color: #ffffff;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  margin: 2rem 0;
-  border-radius: 2rem;
-  box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+  margin: 20rem;
+  bottom: -10rem;
 }
 .land .land-img{
   width: 100%;
