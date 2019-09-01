@@ -9,7 +9,7 @@ a {
   color:#0086c9;
   text-decoration: none;
 }
-`;
+`; 
 
 const MainNavBar = () => {
   const navButtons = ["Dashboard", "Workout", "Exercises", "Contact", "About"];

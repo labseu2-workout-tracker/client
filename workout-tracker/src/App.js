@@ -77,7 +77,7 @@ class App extends Component {
       .then(resData => {
         console.log(resData);
         this.setState({ isAuth: false, authLoading: false });
-        this.props.history.replace('/');
+        this.props.history.replace('/login');
       })
       .catch(err => {
         console.log(err);
@@ -175,7 +175,7 @@ class App extends Component {
             />
           )}
         />
-        <Redirect to="/" />
+        <Redirect to="/Dashboard" />
       </Switch>
     );
     if (this.state.isAuth) {
