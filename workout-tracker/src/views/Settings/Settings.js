@@ -257,7 +257,7 @@ class Settings extends React.Component {
               <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-weight"></i>
+              <i class="fas fa-running"></i>
               </span>
             </li>
 
@@ -278,7 +278,7 @@ class Settings extends React.Component {
               <p>{setting.push_notification.toString()}</p>
               </span>
               <span className="icon">
-              <i className="fa fa-weight"></i>
+              <i className="fa fa-bell"></i>
               </span>
             </li>
           </ul>
