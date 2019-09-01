@@ -55,6 +55,7 @@ input {
 
     input {
       width: 100%;
+      height: 1.5rem;
     }
   }
 
