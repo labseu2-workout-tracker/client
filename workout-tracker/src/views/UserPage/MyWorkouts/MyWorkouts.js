@@ -10,7 +10,11 @@ class WorkoutView extends React.Component {
     this.state = {};
   }
   render() {
-    return <div>My Workouts</div>;
+    return <div>
+          <h1>
+            My Workouts
+            </h1>
+            </div>;
   }
 }
 

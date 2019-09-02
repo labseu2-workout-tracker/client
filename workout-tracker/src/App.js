@@ -183,19 +183,21 @@ class App extends Component {
             />
           )}
         />
-        <Redirect to="/login" />
+        {/* <Redirect to="/login" /> */}
       </Switch>
     );
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-      <Header />
+      {/* <Header /> */}
+      <Switch>
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} /> 
         <Route path={'/About'} component={About} />           
+      </Switch>
     </div>
       )
     }

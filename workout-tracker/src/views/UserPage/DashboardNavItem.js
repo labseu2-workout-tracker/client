@@ -1,16 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { small_space, medium_space_2 } from '../variables/spacing';
-import { black, blue } from '../variables/colors'
+import "./DashboardNavItem.css"
 
-const DashboardNavItem = ({icon, text, path}) => {
-    return (
-        <div className='side-nav-item'>
-              <NavLink to={path} activeClassName="active-nav"><i className="material-icons">{icon}</i></NavLink>
-              <NavLink to={path} activeClassName="active-nav"><span>{text}</span></NavLink>
-        </div>
-    )
-}
+const dashItems = [
+  {id: "workouts", text: 'My Workouts', link: "/dashboard/myworkouts"},
+  {id: "tracker", text: 'Tracker', link: "/dashboard/tracker"},
+  {id: "history", text: 'History', link: "/dashboard/history"},
+  {id: "notifications", text: 'Notifications', link: "/dashboard/notifications"},
+  {id: "settings", text: 'Settings', link: "/dashboard/settings"},
+]
+const DashboardNavItem = () => [
+  ...dashItems.map(item => (
+    <li
+    key={item.id} >
+      <NavLink to={item.link}><span>{item.text}</span></NavLink>   
+    </li>
+  )
+  )
+]
 
-export default DashboardNavItem
+export default DashboardNavItem;

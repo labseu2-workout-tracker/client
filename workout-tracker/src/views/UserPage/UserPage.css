@@ -1,8 +1,11 @@
-aside {
+.dashboard-container {
+  margin-top: 55px;
+  display: flex;
+}
+.dash-sidebar-container {
   min-height: 90vh;
   width: 180px;
   padding: 24px 24px;
-
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
