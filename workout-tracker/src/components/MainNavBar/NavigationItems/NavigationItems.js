@@ -6,7 +6,7 @@ import './NavigationItems.css';
 const navItems = [
   { id: 'workouts', text: 'Workouts', link: '/', auth: true },
   { id: 'exercise', text: 'Exercises', link: '/exercises', auth: true },
-  { id: 'workout', text: 'Workout', link: '/workout', auth: false },
+  { id: 'workout', text: 'Workout', link: '/Workout', auth: false },
   { id: 'contact', text: 'Contact', link: '/contact', auth: false },
   { id: 'login', text: 'Login', link: '/login', auth: false },
   { id: 'signup', text: 'Signup', link: '/signup', auth: false }

@@ -164,9 +164,7 @@ class App extends Component {
     let routes = (
       <Switch>
         {/* landing page */}
-        <Route exact path="/"
-        component={LandingPage}
-        />
+        <Route path={'/Workout'} component={WorkoutView} /> 
          <Route
           path="/login"
           exact
