@@ -36,7 +36,7 @@ const StyledSettings = styled.div`
     padding: 10px 20px;
     transition: 0.5s;
 
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
       flex-direction: column; 
       height: 8rem;   
     }
