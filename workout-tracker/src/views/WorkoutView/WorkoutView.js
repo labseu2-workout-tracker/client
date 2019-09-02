@@ -25,6 +25,7 @@ class WorkoutView extends React.Component {
       <StyledWorkoutView>
         <Watch />
 
+        <p>Choose exercise:</p>
         {/* Display Exercises(but without duplicates) */}
         {this.props.workoutDetails
           ? this.props.workoutDetails.exercises
