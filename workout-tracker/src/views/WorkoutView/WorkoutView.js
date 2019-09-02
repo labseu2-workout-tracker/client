@@ -35,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(WorkoutView);
+export default connect(mapStateToProps, { fetchWorkoutStart })(WorkoutView);
