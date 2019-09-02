@@ -169,7 +169,7 @@ class Settings extends React.Component {
       password: this.state.password,
       weight: Number(this.state.weight),
       height: Number(this.state.height),
-      gender: this.state.gender,
+      gender: this.state.gender ? this.state.gender : "Male",
       user_level: this.state.user_level ? this.state.user_level : "Beginner",
       email_notification:
         this.state.email_notification === "true" ? true : false,
