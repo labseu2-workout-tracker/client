@@ -40,6 +40,15 @@ class WorkoutView extends React.Component {
   });
   };
 
+  finishExercise = () => {
+  this.setState(prevState => {
+    return {
+      exercise: prevState.exercise.unshift(),
+    };
+  });
+  console.log(this.state.exercise)
+  };
+
   render() {
     return (
       <StyledWorkoutView>
