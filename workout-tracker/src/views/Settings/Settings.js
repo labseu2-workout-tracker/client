@@ -153,6 +153,7 @@ class Settings extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(this.state.gender, this.state.user_level)
   };
 
   startUpdate = () => {
@@ -278,9 +279,9 @@ class Settings extends React.Component {
                               onChange={this.handleChange}
                               name="user_level"
                             >
-                              <option value="male">Beginner</option>
-                              <option value="female">Intermediate</option>
-                              <option value="other">Expert</option>
+                              <option value="Beginner">Beginner</option>
+                              <option value="Intermediate">Intermediate</option>
+                              <option value="Expert">Expert</option>
                             </select>
                           </span>
                           <span className="icon">
@@ -296,9 +297,9 @@ class Settings extends React.Component {
                               value={this.state.gender}
                               onChange={this.handleChange}
                             >
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                              <option value="other">Other</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Other">Other</option>
                             </select>
                           </span>
                           <span className="icon">
