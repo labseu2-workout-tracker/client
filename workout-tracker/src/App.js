@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 // import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
-// import Workouts from './views/Workouts/Workouts'
+import Settings from './views/Settings/Settings';
 import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
@@ -189,7 +189,7 @@ class App extends Component {
             />
           )}
         />
-        <Redirect to="/" />
+        <Redirect to="/login" />
       </Switch>
     );
     if (this.state.isAuth) {
@@ -199,7 +199,8 @@ class App extends Component {
       {/* <LandingPage /> */}
         {/* <Route exact path={'/'} component={LandingPage} />    */}
         <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Dashboard'} component={UserPage} />
+        <Route path={'/Settings'} component={Settings} />
+        <Route path={'/Home'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} /> 
         <Route path={'/About'} component={About} />           

@@ -24,6 +24,7 @@ class Watch extends React.Component {
     
     button[2].click();
     // time variable is actual time (in milliseconds)
+    console.log(time)
   }
   render() {
     const OPTIONS = { delay: 100}
