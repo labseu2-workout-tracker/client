@@ -12,7 +12,11 @@ class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentExercise: null
+      currentExercise: null,
+      set: "",
+      reps: "",
+      time: "", 
+      weight: ""
     };
   }
 
@@ -38,7 +42,6 @@ class WorkoutView extends React.Component {
             <div className="exercise-picture">
             <img src={this.state.currentExercise[0].picture_one} alt="Exercise explanation"/>
             </div>
-            Set Reps Time Weight
             <div>
               <div className="row">
               <p>Set</p>
