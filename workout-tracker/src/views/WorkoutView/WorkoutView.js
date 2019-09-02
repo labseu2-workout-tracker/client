@@ -1,7 +1,7 @@
 import React from "react";
 import Watch from '../../components/Watch/Watch';
 import { connect } from "react-redux";
-import { fetchWorkoutStart } from "../../store/actions/workoutsActions";
+import { fetchWorkoutDetails } from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutView = styled.div`
@@ -17,20 +17,13 @@ class WorkoutView extends React.Component {
   }
 
   componentDidMount = () => {
-  this.props.fetchWorkoutStart();
+  this.props.fetchWorkoutDetails();
   };
 
   render() {
     return (
       <StyledWorkoutView>
         <Watch/>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
-        <h1>HELOOOOOOOOOOOOO</h1>
 
         </StyledWorkoutView>
     );
@@ -43,4 +36,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkoutStart })(WorkoutView);
+export default connect(mapStateToProps, { fetchWorkoutDetails })(WorkoutView);
