@@ -12,18 +12,22 @@ class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exercises: this.props.workoutDetails ? this.props.workoutDetails.exercises : null,
-      currentExercise: null,
+      exercises: this.props.workoutDetails
+        ? this.props.workoutDetails.exercises
+        : null,
+      currentExercise: null
     };
   }
 
   componentDidMount = () => {
     this.props.fetchWorkoutDetails();
   };
- 
-  chooseExercise = (e) => {
-  
-  }
+
+  chooseExercise = e => {
+    const filterCurrentExercise = this.state.exercises.filter(
+      exercise => exercise.exercise_name === e.target.textContent
+    );
+  };
 
   render() {
     return (
@@ -35,7 +39,9 @@ class WorkoutView extends React.Component {
         {this.props.workoutDetails
           ? this.props.workoutDetails.exercises
               .reduce((acc, current) => {
-                const x = acc.find(item => item.exercise_name === current.exercise_name);
+                const x = acc.find(
+                  item => item.exercise_name === current.exercise_name
+                );
                 if (!x) {
                   return acc.concat([current]);
                 } else {
@@ -45,7 +51,9 @@ class WorkoutView extends React.Component {
               .map((exercise, index) => {
                 return (
                   <div key={index}>
-                    <p onClick={this.chooseExercise}>{exercise.exercise_name}</p>
+                    <p onClick={this.chooseExercise}>
+                      {exercise.exercise_name}
+                    </p>
                   </div>
                 );
               })
