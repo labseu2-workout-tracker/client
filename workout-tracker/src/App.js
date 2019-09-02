@@ -163,7 +163,6 @@ class App extends Component {
       <Switch>
          <Route
           path="/login"
-          exact
           render={props => (
             <LoginPage
               {...props}
@@ -174,7 +173,6 @@ class App extends Component {
         />
         <Route
           path="/signup"
-          exact
           render={props => (
             <SignupPage
               {...props}
@@ -191,12 +189,13 @@ class App extends Component {
         <div className="App">
       {/* <Header /> */}
       <Switch>
+        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} /> 
-        <Route path={'/About'} component={About} />           
+        <Route path={'/About'} component={About} />  
+        <Redirect to='/Dashboard' />       
       </Switch>
     </div>
       )
