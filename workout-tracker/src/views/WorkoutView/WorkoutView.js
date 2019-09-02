@@ -11,7 +11,9 @@ const StyledWorkoutView = styled.div`
 class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      exercises: this.props.workoutDetails ? this.props.workoutDetails.exercises : null,
+    };
   }
 
   componentDidMount = () => {
