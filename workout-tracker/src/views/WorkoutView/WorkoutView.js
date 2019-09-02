@@ -34,7 +34,9 @@ class WorkoutView extends React.Component {
     return (
       <StyledWorkoutView>
         {this.state.currentExercise ? (
-          
+          <div>
+            <img src={} alt="Exercise explanation"/>
+          </div>
         ) : null}
         <Watch />
 
