@@ -23,6 +23,7 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <StyledWorkoutView>
+        
         <Watch/>
 
         </StyledWorkoutView>
@@ -32,7 +33,7 @@ class WorkoutView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // currentWorkout: state.currentWorkout.currentWorkout
+    currentWorkout: state.currentWorkout.currentWorkout
   };
 };
 
