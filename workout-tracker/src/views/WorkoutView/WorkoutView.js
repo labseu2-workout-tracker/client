@@ -1,43 +1,48 @@
 import React from "react";
-import Watch from '../../components/Watch/Watch';
+import Watch from "../../components/Watch/Watch";
 import { connect } from "react-redux";
 import { fetchWorkoutDetails } from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutView = styled.div`
- font-size:1rem;
+  font-size: 1rem;
 `;
 
 class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-     
-    };
+    this.state = {};
   }
 
   componentDidMount = () => {
-  this.props.fetchWorkoutDetails();
+    this.props.fetchWorkoutDetails();
   };
 
   render() {
     return (
       <StyledWorkoutView>
-        {this.props.workoutDetails ? (this.props.workoutDetail.exercises.reduce((acc, current) => {
-  const x = acc.find(item => item.name === current.name);
-  if (!x) {
-    return acc.concat([current]);
-  } else {
-    return acc;
-  }
-}, [])
-.map((exercise, index) => {
-return <div key={index}>
+        <Watch />
 
-</div>
-        })) : null}
-        <Watch/>
-        </StyledWorkoutView>
+        {/* Display Exercises(but without duplicates) */}
+        {this.props.workoutDetails
+          ? this.props.workoutDetails.exercises
+              .reduce((acc, current) => {
+                const x = acc.find(item => item.exercise_name === current.exercise_name);
+                if (!x) {
+                  return acc.concat([current]);
+                } else {
+                  return acc;
+                }
+              }, [])
+              .map((exercise, index) => {
+                return (
+                  <div key={index}>
+                    <p>{exercise.exercise_name}</p>
+                  </div>
+                );
+              })
+          : null}
+      </StyledWorkoutView>
     );
   }
 }
@@ -48,4 +53,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkoutDetails })(WorkoutView);
+export default connect(
+  mapStateToProps,
+  { fetchWorkoutDetails }
+)(WorkoutView);
