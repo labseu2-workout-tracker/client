@@ -40,7 +40,7 @@ class WorkoutView extends React.Component {
               .map((exercise, index) => {
                 return (
                   <div key={index}>
-                    <p>{exercise.exercise_name}</p>
+                    <p onClick={this.chooseExercise}>{exercise.exercise_name}</p>
                   </div>
                 );
               })
