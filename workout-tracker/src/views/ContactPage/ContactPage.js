@@ -1,38 +1,83 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+// import { fetchSettings } from "../../store/actions/settingActions.js"
+// We must wait for new merging where I have the new actions
 
 const StyledContactPage = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 1.5rem;
 
-  .left-right-side {
-    display:flex;
+  h2 {
+    font-weight: 400;
+    line-height: 3.4rem;
   }
 
-  .left-side {
-    width:50%;
-
-    img {
-      border-radius: 50%;
-      width: 50%;
-    }
+  .question {
+    color: black;
+    line-height: 3.2rem;
+    margin: 0;
   }
 
-  .right-side {
-   width: 50%;
+  p {
+    font-size: 0.7rem;
+    color: #828698;
+    margin: 0 0 0.5rem 0;
   }
-  
+
   input {
-    text-align: center;
+    border: 1px solid #e3eaee;
+    border-radius: 4px;
+    line-height: 1.2em;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+
+  .column-start {
+    padding-right: 0.5rem;
+  }
+
+  .column-end {
+    padding-left: 0.5rem;
   }
 
   .row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+
+    input {
+      width: 100%;
+      height: 1.5rem;
+    }
   }
 
   .messageInput {
     height: 8rem;
-    width: 50%;
+    width: 100%;
+  }
+
+  button {
+    border-color: transparent;
+    width: 7rem;
+    height: 1.8rem;
+    font-size: 0.7rem;
+    line-height: 1.6rem;
+    border-radius: 4px;
+    border: 1px solid #f0f4f6;
+    color: #212432;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: linear-gradient(46deg, #2eb7ce, #4296cb);
   }
 `;
 
@@ -40,8 +85,9 @@ class ContactPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
+      firstName: "",
+      lastName: "",
+      email: this.props.settings ? this.props.settings[0].email : "",
       phone: "",
       message: ""
     };
@@ -54,39 +100,54 @@ class ContactPage extends React.Component {
   };
 
   sendMessage = () => {
-    // We must add logic in the backend and here
-    // for sending the message to our project email
-    this.setState({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+    if (this.state.email && this.state.message.length > 10) {
+      // We must add logic in the backend and here
+      // for sending the message to our project email
+      // this.props.sendMessage()...
+      this.setState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    } else {
+      alert("Email and message are required.");
+    }
   };
 
   render() {
     return (
       <StyledContactPage>
         <h2>Contact Us</h2>
-        <div className="left-right-side">
-        <div className="left-side">
-          <img
-            src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="fitness"
-          />
-        </div>
-        <div className="right-side">
-          <div className="row">
-            <p>Name:</p>
+        <p className="question">
+          Have a question about a product, feedback, or business inquiry for
+          Workout Tracker?
+        </p>
+
+        <div className="row">
+          <div className="column column-start">
+            <p>First Name</p>
             <input
-              name="name"
-              value={this.state.name}
+              name="firstName"
+              value={this.state.firstName}
               onChange={this.handleChange}
-              placeholder="John Doe"
+              placeholder="John"
             />
           </div>
-          <div className="row">
-            <p>Email</p>
+          <div className="column column-end">
+            <p>Last Name</p>
+            <input
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+              placeholder="Doe"
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="column column-start">
+            <p>Email *</p>
             <input
               name="email"
               value={this.state.email}
@@ -94,15 +155,18 @@ class ContactPage extends React.Component {
               placeholder="JohnDoe@gmail.com"
             />
           </div>
-          <div className="row">
-            <p>Phone:</p>
+          <div className="column column-end">
+            <p>Phone</p>
             <input
               name="phone"
               value={this.state.phone}
               onChange={this.handleChange}
-              placeholder="(Optional)"
+              placeholder="ex: +49 1729149128"
             />
           </div>
+        </div>
+        <div className="column">
+          <p>Message *</p>
           <input
             className="messageInput"
             name="message"
@@ -110,12 +174,21 @@ class ContactPage extends React.Component {
             onChange={this.handleChange}
             placeholder="Message"
           />
-          <button onClick={this.sendMessage}>Send</button>
         </div>
-        </div>
+        <button onClick={this.sendMessage}>Send</button>
       </StyledContactPage>
     );
   }
 }
 
-export default ContactPage;
+const mapStateToProps = state => {
+  return {
+    // settings: state.settings.settings,
+    // We must wait for new merging where I have the new reducer
+  };
+};
+
+export default connect(
+  mapStateToProps
+  // { fetchSettings }
+)(ContactPage);
