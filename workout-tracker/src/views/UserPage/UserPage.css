@@ -1,7 +1,13 @@
 .dashboard-container {
-  margin-top: 55px;
   display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 90%;
+  overflow-x: hidden;
+  z-index: -1;
+  min-height: 90vh;
 }
+
 .dash-sidebar-container {
   min-height: 90vh;
   width: 180px;
