@@ -27,10 +27,7 @@ export const fetchSettings = () => dispatch => {
     .put(`${settings}/${userId}`, updatedSettings)
     .then(res => {
 debugger
-      return axios.get(settings)
-      .then(res => {
          dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data });
-      });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
