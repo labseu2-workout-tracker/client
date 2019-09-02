@@ -11,21 +11,21 @@ class Settings extends React.Component {
     super(props);
     this.state = {
       wantUpdate: false,
-      email: this.props.settings ? this.props.settings[0].email : null,
-      username: this.props.settings ? this.props.settings[0].username : null,
-      password: this.props.settings ? this.props.settings[0].password : null,
-      weight: this.props.settings ? this.props.settings[0].weight : null,
-      height: this.props.settings ? this.props.settings[0].height : null,
-      gender: this.props.settings ? this.props.settings[0].gender : null,
+      email: this.props.settings ? this.props.settings[0].email : "",
+      username: this.props.settings ? this.props.settings[0].username : "",
+      password: this.props.settings ? this.props.settings[0].password : "",
+      weight: this.props.settings ? this.props.settings[0].weight : "",
+      height: this.props.settings ? this.props.settings[0].height : "",
+      gender: this.props.settings ? this.props.settings[0].gender : "",
       user_level: this.props.settings
         ? this.props.settings[0].user_level
-        : null,
+        : "",
       email_notification: this.props.settings
         ? this.props.settings[0].email_notification
-        : null,
+        : "",
       push_notification: this.props.settings
         ? this.props.settings[0].push_notification
-        : null
+        : ""
     };
   }
 
