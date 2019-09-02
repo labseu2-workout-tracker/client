@@ -17,3 +17,16 @@ export const fetchWorkouts = () => dispatch => {
    // type ERROR needs to be added (also for the redux state)
     });
 };
+
+export const fetchWorkoutStart = () => dispatch => {
+  // type LOADING needs to be added (also for the redux state) 
+  return axios.get(`${workouts}/workouts/1`)
+    .then(res => {
+      debugger
+      dispatch({ type: FETCH_WORKOUTS, workouts: res.data });
+    })
+    .catch(err => {
+   // type ERROR needs to be added (also for the redux state)
+   debugger
+    });
+};

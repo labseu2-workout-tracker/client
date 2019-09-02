@@ -196,7 +196,6 @@ class App extends Component {
       routes = (
         <div className="App">
       <Header />
-
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Settings'} component={Settings} />
         <Route path={'/Home'} component={UserPage} />
