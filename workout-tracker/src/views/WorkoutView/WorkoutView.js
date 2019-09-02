@@ -23,11 +23,18 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <StyledWorkoutView>
-        {this.props.workoutDetails ? (this.props.workoutDetails.map(details => {
-          
+        {this.props.workoutDetails ? (this.props.workoutDetail.exercises.reduce((acc, current) => {
+  const x = acc.find(item => item.name === current.name);
+  if (!x) {
+    return acc.concat([current]);
+  } else {
+    return acc;
+  }
+}, [])
+.map(exercise => {
+
         })) : null}
         <Watch/>
-
         </StyledWorkoutView>
     );
   }
