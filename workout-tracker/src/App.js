@@ -192,7 +192,7 @@ class App extends Component {
       <Header />
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Home'} component={UserPage} />
+        <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/Workout'} component={WorkoutView} /> 
         <Route path={'/About'} component={About} />           
