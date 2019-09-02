@@ -176,7 +176,9 @@ class Settings extends React.Component {
       weight: Number(this.state.weight),
       height: Number(this.state.height),
       gender: this.state.gender,
-      // user_level: this.state.user_level,
+      user_level: 'Beginner' 
+      // this.state.user_level
+      ,
       email_notification: this.state.email_notification === "true" ? true : false,
       push_notification: this.state.push_notification === "true" ? true : false
     };
@@ -274,19 +276,23 @@ class Settings extends React.Component {
                             <i className="fa fa-arrow-circle-up"></i>
                           </span>
                         </li>
+
                         <li>
                           <span className="text">Level:</span>
                           <span className="data">
-                            <input
+                            <select
                               className="update-input"
                               value={this.state.user_level}
                               onChange={this.handleChange}
-                              placeholder={setting.user_level}
                               name="user_level"
-                            />
+                            >
+                              <option value="male">Beginner</option>
+                              <option value="female">Intermediate</option>
+                              <option value="other">Expert</option>
+                            </select>
                           </span>
                           <span className="icon">
-                            <i className="fa fa-graduation-cap"></i>
+                          <i className="fa fa-graduation-cap"></i>
                           </span>
                         </li>
                         <li>
@@ -326,7 +332,6 @@ class Settings extends React.Component {
                           <i className="fa fa-envelope"></i>
                           </span>
                         </li>
-
                         <li>
                           <span className="text">Push Notification:</span>
                           <span className="data">
