@@ -1,6 +1,7 @@
 import React from "react";
 import Watch from '../../components/Watch/Watch';
 import { connect } from "react-redux";
+import { fetchWorkoutStart } from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutView = styled.div`
