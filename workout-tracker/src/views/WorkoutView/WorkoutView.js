@@ -65,6 +65,7 @@ class WorkoutView extends React.Component {
               <p>Weight</p>
               <input type="number" value={this.state.weight} onChange={this.handleChange} placeholder="How many KG's ?"  name="weight"/> 
               </div>
+              <button onClick={this.finishExercise}>End Exercise</button>
             </div>
           </div>
         ) : null}
