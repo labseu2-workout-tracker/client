@@ -23,7 +23,7 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <StyledWorkoutView>
-        {}
+        {this.props.workoutDetails ? () : null}
         <Watch/>
 
         </StyledWorkoutView>
