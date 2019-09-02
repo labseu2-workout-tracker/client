@@ -33,6 +33,9 @@ class WorkoutView extends React.Component {
   render() {
     return (
       <StyledWorkoutView>
+        {this.state.currentExercise ? (
+          
+        ) : null}
         <Watch />
 
         <p>Choose exercise:</p>
