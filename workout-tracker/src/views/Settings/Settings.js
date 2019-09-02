@@ -195,7 +195,7 @@ class Settings extends React.Component {
           {this.props.settings
             ? this.props.settings.map((setting, index) => {
                 return (
-                  <div key={index}>
+                  <StyledSettings key={index}>
                     <div className="user-data">
                       <ul className="info">
                         <li>
@@ -348,7 +348,7 @@ class Settings extends React.Component {
 
                       </ul>
                     </div>
-                  </div>
+                  </StyledSettings>
                 );
               })
             : null}
@@ -361,7 +361,7 @@ class Settings extends React.Component {
     return this.props.settings
       ? this.props.settings.map((setting, index) => {
           return (
-            <div key={index}>
+            <StyledSettings key={index}>
               <div className="user-data">
                 <ul className="info">
                   <li>
@@ -455,7 +455,7 @@ class Settings extends React.Component {
               <button className="update-button" onClick={this.startUpdate}>
                 Update
               </button>
-            </div>
+            </StyledSettings>
           );
         })
       : null;
