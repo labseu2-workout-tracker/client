@@ -138,7 +138,7 @@ border-top: 1px solid rgba(0, 0, 0, .1)
  color: #91b8ca;
 
 }
-@media screen and (min-width: 700px){
+@media screen and (min-width: 300px){
     .card-wrapper{
         flex-direction: row;
         flex-wrap: wrap;
