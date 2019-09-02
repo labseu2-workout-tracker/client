@@ -19,6 +19,10 @@ class WorkoutView extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkoutDetails();
   };
+ 
+  chooseExercise = (e) => {
+  
+  }
 
   render() {
     return (
