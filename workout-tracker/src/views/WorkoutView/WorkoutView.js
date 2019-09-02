@@ -31,8 +31,10 @@ class WorkoutView extends React.Component {
     return acc;
   }
 }, [])
-.map(exercise => {
+.map((exercise, index) => {
+return <div key={index}>
 
+</div>
         })) : null}
         <Watch/>
         </StyledWorkoutView>
