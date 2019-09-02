@@ -5,6 +5,11 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import "./settings.css";
+import styled from "styled-components";
+
+const StyledSettings = styled.div`
+
+`;
 
 class Settings extends React.Component {
   constructor(props) {

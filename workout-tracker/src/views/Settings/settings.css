@@ -25,6 +25,10 @@
   margin         : 5px 0;
   padding        : 10px 20px;
   transition     : .5s;
+  
+    @media (max-witdh: 800px) {
+      
+    }
 }
 
 .info li:nth-child(1) {
