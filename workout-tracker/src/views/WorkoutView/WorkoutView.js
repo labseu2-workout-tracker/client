@@ -12,9 +12,6 @@ class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exercises: this.props.workoutDetails
-        ? this.props.workoutDetails.exercises
-        : null,
       currentExercise: null
     };
   }
@@ -24,9 +21,13 @@ class WorkoutView extends React.Component {
   };
 
   chooseExercise = e => {
-    const filterCurrentExercise = this.state.exercises.filter(
-      exercise => exercise.exercise_name === e.target.textContent
-    );
+    const filterCurrentExercise = this.props.workoutDetails.exercises.filter(
+    exercise => exercise.exercise_name === e.target.textContent
+    )
+console.log(e.target.textContent)
+    // this.setState({
+    //   currentExercise: filterCurrentExercise,
+    // });
   };
 
   render() {

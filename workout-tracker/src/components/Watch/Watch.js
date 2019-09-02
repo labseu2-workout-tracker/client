@@ -13,8 +13,8 @@ class Watch extends React.Component {
   
   componentDidMount = () => {
     const button = document.querySelectorAll('button');
-    button[2].textContent = "stop";
-    button[2].click();
+    button[3].textContent = "stop";
+    button[3].click();
     button[0].click();
   }
 
@@ -22,7 +22,7 @@ class Watch extends React.Component {
     const button = document.querySelectorAll('button');
     // const time = document.querySelector('.seconds').textContent;
     
-    button[2].click();
+    button[3].click();
     // time variable is actual time (in milliseconds)
   }
   render() {
