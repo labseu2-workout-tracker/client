@@ -117,6 +117,10 @@ const StyledSettings = styled.div`
     display: inline-block;
     border-radius: 5px;
     padding: 10px 25px;
+
+    @media (max-width: 350px) {
+      width: 80%;
+    }
   }
 
   .text,
