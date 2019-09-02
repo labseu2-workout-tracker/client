@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import Header from './views/Header/Header';
+// import Workouts from './views/Workouts/Workouts'
 import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
+import About from './views/AboutUs/AboutUs'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
@@ -191,7 +193,8 @@ class App extends Component {
         <Route path={'/Exercises'} component={ExercisesLibrary} />
         <Route path={'/Dashboard'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
-        <Route path={'/Workout'} component={WorkoutView} />        
+        <Route path={'/Workout'} component={WorkoutView} /> 
+        <Route path={'/About'} component={About} />           
     </div>
       )
     }
