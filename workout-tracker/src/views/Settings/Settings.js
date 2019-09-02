@@ -4,7 +4,6 @@ import {
   fetchSettings,
   updateSettings
 } from "../../store/actions/settingActions";
-import "./settings.css";
 import styled from "styled-components";
 
 const StyledSettings = styled.div`
