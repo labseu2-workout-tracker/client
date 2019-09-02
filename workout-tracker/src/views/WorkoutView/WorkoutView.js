@@ -14,6 +14,11 @@ class WorkoutView extends React.Component {
      
     };
   }
+
+  componentDidMount = () => {
+  
+  };
+
   render() {
     return (
       <StyledWorkoutView>
