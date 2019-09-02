@@ -1,25 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styled from 'styled-components';
 
-const StyledMainNavBar = styled.div`
-a {
-  padding: 0 1rem;
-  text-decoration: none;
-}
-`;
+import MobileToggle from './MobileToggle/MobileToggle';
+import Logo from '../Logo/Logo';
+import NavigationItems from './NavigationItems/NavigationItems';
 
-const MainNavBar = () => {
-  const navButtons = ["Home", "Workout", "Exercises", "Contact", "About"];
-  return (
-    <StyledMainNavBar>
-      {navButtons.map((button, index) =>
-        <NavLink key={index} to={`/${button}`}>
-          {button}
-        </NavLink>
-        )}
-    </StyledMainNavBar>
-  );
-};
+import './MainNavBar.css';
+
+const MainNavBar = (props) => (
+  <nav className="main-nav">
+    <MobileToggle onOpen={props.onOpenMobileNav} />
+    <div className="main-nav__logo">
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
+    </div>
+    <div className="spacer" />
+    <ul className="main-nav__items">
+      <NavigationItems isAuth={props.isAuth} onLogout={props.onLogout} />
+    </ul>
+  </nav>
+);
 
 export default MainNavBar;
