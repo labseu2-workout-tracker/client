@@ -26,7 +26,7 @@ export const fetchWorkoutDetails = () => dispatch => {
   // changed backend on my files to get data back
     .then(res => {
       debugger
-      dispatch({ type: FETCH_WORKOUT_DETAILS, fetchWorkoutDetails: res.data });
+      dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
