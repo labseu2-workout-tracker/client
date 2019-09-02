@@ -42,15 +42,19 @@ class WorkoutView extends React.Component {
             <div>
               <div className="row">
               <p>Set</p>
+              <input type="number" value={} onChange={this.handleChange} placeholder={} name="set"/> 
               </div>
               <div className="row">
               <p>Reps</p>
+              <input type="number" value={} onChange={this.handleChange} placeholder={} name="reps"/> 
               </div>
               <div className="row">
               <p>Time</p>
+              <input type="number" value={} onChange={this.handleChange} placeholder={} name="time"/> 
               </div>
               <div className="row">
               <p>Weight</p>
+              <input type="number" value={} onChange={this.handleChange} placeholder={} name="weight"/> 
               </div>
             </div>
           </div>
