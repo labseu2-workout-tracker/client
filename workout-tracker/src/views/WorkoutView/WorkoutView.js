@@ -40,10 +40,18 @@ class WorkoutView extends React.Component {
             </div>
             Set Reps Time Weight
             <div>
+              <div className="row">
               <p>Set</p>
+              </div>
+              <div className="row">
               <p>Reps</p>
+              </div>
+              <div className="row">
               <p>Time</p>
+              </div>
+              <div className="row">
               <p>Weight</p>
+              </div>
             </div>
           </div>
         ) : null}
