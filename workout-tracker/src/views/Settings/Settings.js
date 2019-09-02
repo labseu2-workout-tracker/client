@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const StyledSettings = styled.div`
   .user-data {
-    margin: 2rem;
+    margin: 2rem 2rem 0 2rem;
     padding: 1.5rem 0;
     background-color: #6bbdfa;
     text-align: center;
