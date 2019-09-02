@@ -38,6 +38,13 @@ class WorkoutView extends React.Component {
             <div className="exercise-picture">
             <img src={this.state.currentExercise[0].picture_one} alt="Exercise explanation"/>
             </div>
+            Set Reps Time Weight
+            <div>
+              <p>Set</p>
+              <p>Reps</p>
+              <p>Time</p>
+              <p>Weight</p>
+            </div>
           </div>
         ) : null}
         <Watch />
