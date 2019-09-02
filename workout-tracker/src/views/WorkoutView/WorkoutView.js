@@ -13,6 +13,7 @@ class WorkoutView extends React.Component {
     super(props);
     this.state = {
       exercises: this.props.workoutDetails ? this.props.workoutDetails.exercises : null,
+      currentExercise: null,
     };
   }
 
