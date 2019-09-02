@@ -41,12 +41,14 @@ class WorkoutView extends React.Component {
   };
 
   finishExercise = () => {
-  
-  const deleteOneExercise = this.state.currentExercise.filter((exercise, index) => index !== 0 )
-  
-  this.setState({
-  currentExercise: deleteOneExercise,  
-  });
+  if(this.state.currentExercise[1]) {
+    const deleteOneExercise = this.state.currentExercise.filter((exercise, index) => index !== 0 )
+  console.log(this.state.currentExercise)
+    
+    this.setState({
+    currentExercise: deleteOneExercise,  
+    });
+  } 
   console.log(this.state.currentExercise)
   };
 
