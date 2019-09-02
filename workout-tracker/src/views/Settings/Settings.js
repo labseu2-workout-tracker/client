@@ -177,8 +177,8 @@ class Settings extends React.Component {
       height: this.state.height,
       gender: this.state.gender,
       user_level: this.state.user_level,
-      email_notification: this.state.email_notification,
-      push_notification: this.state.push_notification
+      email_notification: this.state.email_notification === "true" ? true : false,
+      push_notification: this.state.push_notification === "true" ? true : false
     };
 
     this.props.updateSettings(updatedSettings);
