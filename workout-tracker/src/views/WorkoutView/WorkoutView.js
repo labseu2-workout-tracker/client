@@ -21,13 +21,13 @@ class WorkoutView extends React.Component {
   };
 
   chooseExercise = e => {
-    const filterCurrentExercise = this.props.workoutDetails.exercises.filter(
+    const filterCurrentExercise = [this.props.workoutDetails][0].exercises.filter(
     exercise => exercise.exercise_name === e.target.textContent
-    )
-console.log(e.target.textContent)
-    // this.setState({
-    //   currentExercise: filterCurrentExercise,
-    // });
+    );
+
+    this.setState({
+      currentExercise: filterCurrentExercise,
+    });
   };
 
   render() {
