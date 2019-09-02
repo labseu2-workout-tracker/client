@@ -36,7 +36,7 @@ class WorkoutView extends React.Component {
         {this.state.currentExercise ? (
           <div>
             <div className="exercise-picture">
-            <img src={} alt="Exercise explanation"/>
+            <img src={this.state.currentExercise[0].picture_one} alt="Exercise explanation"/>
             </div>
           </div>
         ) : null}
