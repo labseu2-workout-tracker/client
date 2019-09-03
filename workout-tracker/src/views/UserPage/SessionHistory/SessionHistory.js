@@ -6,7 +6,6 @@ class SessionHistory extends React.Component {
         super(props)
     }
     render(){
-
         const user = localStorage.getItem("userId")
         return <div>
         <h1>This is the session history</h1>

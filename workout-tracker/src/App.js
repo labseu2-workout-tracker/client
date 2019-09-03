@@ -184,7 +184,7 @@ class App extends Component {
             />
           )}
         />
-        <Redirect to="/login" />
+        {/* <Redirect to="/login" /> */}
       </Switch>
     );
     if (this.state.isAuth) {
