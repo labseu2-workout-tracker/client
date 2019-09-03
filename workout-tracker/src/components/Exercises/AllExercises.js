@@ -13,6 +13,7 @@ display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 25%;
   }
 
   .button {
@@ -25,15 +26,25 @@ display: flex;
   
   .exercises {
     display:flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 75%;
   }
 
   .exercise {
-  width: 30rem;
+  /* width: 10rem; */
   border: .1rem black solid;
-  /* height: 110px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  p {
+    width: 30%;
+    padding: 0;
+  }
+  /* height: 14rem; */
 
   &:hover {
     cursor: pointer;
@@ -41,7 +52,8 @@ display: flex;
   }
 
   img {
-    width: 50%;
+    width: 30%;
+    height: 5rem;
   }
 
 
