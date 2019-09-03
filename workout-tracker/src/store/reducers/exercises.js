@@ -132,9 +132,17 @@ const exercises = (state = initialState, action) => {
         return { ...state, singleExercise: null };
 
         case type.GO_FORWARD:
+
+            const indexOfLastButton = state.buttonsPerPage[state.buttonsPerPage.length - 1] * state.buttonsPerPage;
+
+            const indexOfFirstButton = indexOfLastButton - state.buttonsPerPage;
       
-          // arr[arr.length - 1]
-            return { ...state, singleExercise: null };
+            const actualButtons = state.pageNumbers.slice(
+              indexOfFirstButton,
+              indexOfLastButton
+            );
+    
+            return { ...state, currentButtons: actualButtons };
     
     default:
       return state;
