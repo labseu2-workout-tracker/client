@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const StyledSettings = styled.div`
   .user-data {
-    margin: 2rem 2rem 0 2rem;
+    margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
     background-color: #6bbdfa;
     text-align: center;
@@ -21,8 +21,6 @@ const StyledSettings = styled.div`
     width: 80%;
     padding: 10px;
     color: #fff;
-    background: rgba(45, 230, 220, 0.1);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
   }
 
@@ -42,39 +40,39 @@ const StyledSettings = styled.div`
   }
 
   .info li:nth-child(1) {
-    background: rgba(239, 240, 243, 0.1);
+    background: rgba(107,189,250, .1);
   }
 
   .info li:nth-child(2) {
-    background: rgba(239, 240, 243, 0.2);
+    background: rgba(107,189,250, .2);
   }
 
   .info li:nth-child(3) {
-    background: rgba(239, 240, 243, 0.3);
+    background: rgba(107,189,250, .3);
   }
 
   .info li:nth-child(4) {
-    background: rgba(239, 240, 243, 0.4);
+    background: rgba(107,189,250, .4);
   }
 
   .info li:nth-child(5) {
-    background: rgba(239, 240, 243, 0.5);
+    background: rgba(107,189,250, .5);
   }
 
   .info li:nth-child(6) {
-    background: rgba(239, 240, 243, 0.6);
+    background: rgba(107,189,250, .6);
   }
 
   .info li:nth-child(7) {
-    background: rgba(239, 240, 243, 0.7);
+    background: rgba(107,189,250, .7);
   }
 
   .info li:nth-child(8) {
-    background: rgba(239, 240, 243, 0.8);
+    background: rgba(107,189,250, .8);
   }
 
   .info li:nth-child(9) {
-    background: rgba(239, 240, 243, 0.9);
+    background: rgba(107,189,250, .9);
   }
 
   .info li span:nth-child(1) {
