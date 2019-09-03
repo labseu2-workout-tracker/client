@@ -12,8 +12,10 @@ class Workouts  extends React.Component {
   }
   render() {
     return(
+      <>
+          <h1 className="coolstuff">Choose from our Workouts</h1>
       <div className="land-wrapper">
-
+    
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
       {this.props.workouts ? (this.props.workouts.map(workout =>{
@@ -27,6 +29,7 @@ class Workouts  extends React.Component {
         </div> 
       })) : null}
     </div>
+    </>
     )
   }
 }
