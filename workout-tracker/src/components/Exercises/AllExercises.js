@@ -27,13 +27,17 @@ const StyledAllExercises = styled.div`
   }
 
   .exercise {
-  width: 10rem;
+  width: 30rem;
   border: .1rem black solid;
-  height: 110px;
+  /* height: 110px; */
 
   &:hover {
     cursor: pointer;
   }
+  }
+
+  img {
+    width: 50%;
   }
 
 
