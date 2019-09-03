@@ -54,10 +54,11 @@ const AllExercises = props => {
           </button>
         ))}
       </div>
+      <div className="exercise" key={index}>
       {props.exercises
         ? props.exercises.map((exercise, index) => {
             return (
-              <div key={index}>
+              <div className="exercise" key={index}>
                 <p onClick={props.showSingleExercise}>
                   {exercise.exercise_name}
                 </p>
@@ -65,6 +66,7 @@ const AllExercises = props => {
             );
           })
         : null}
+        </div>
       {props.pageNumbers
         ? props.pageNumbers.map((num, index) => {
             return (
