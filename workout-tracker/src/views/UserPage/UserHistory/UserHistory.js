@@ -41,9 +41,9 @@ class SessionHistory extends React.Component {
 
               const date1 = item.session_start;
               const date2 = item.session_end;
-              const diffTime = Math.abs(date2.getTime() - date1.getTime());
+              // const diffTime = Math.abs(date2.getTime() - date1.getTime());
 
-              console.log(diffTime)
+              
               return (
                 <ol key={item.id}>
                   <li>
