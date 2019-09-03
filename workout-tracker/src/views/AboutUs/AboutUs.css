@@ -71,6 +71,7 @@ section {
   color: #6bbdfa;
   margin: 1.5rem;
   align-content: center; 
+  font-family: 'Viga', sans-serif;
 }
 /* card workouts */
 
@@ -132,14 +133,17 @@ section {
   font-size: 2.5rem;
   color: #6bbdfa;
   margin: .9rem;
+  font-family: 'Viga', sans-serif;
 }
 .team {
   font-size: 3.5rem;
   color: #6bbdfa;
   margin: 1.5rem;
+  font-family: 'Viga', sans-serif;
 }
 .job-title {
   color: #655f69;
+  font-family: 'Viga', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
 }
