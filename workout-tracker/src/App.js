@@ -6,7 +6,6 @@ import WorkoutView from './views/WorkoutView/WorkoutView';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
-import SessionHistory from "./views/UserPage/SessionHistory/SessionHistory";
 import About from './views/AboutUs/AboutUs'
 import LandingPage from './views/LandingPage/LandingPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
@@ -199,8 +198,7 @@ class App extends Component {
             <Route path={'/Exercises'} component={ExercisesLibrary} />
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    
-            <Route path={'/Workout'} component={WorkoutView} />
-            <Route path={'/History'} component={SessionHistory} />   
+            <Route path={'/Workout'} component={WorkoutView} />  
             <Route path={'/About'} component={About} />  
             <Redirect to='/Dashboard' />       
           </Switch>
