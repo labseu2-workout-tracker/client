@@ -40,8 +40,8 @@
 
 .button--flat:hover,
 .button--flat:active {
-  background: rgba(59, 0, 98, 0.3);
-  color: #3b0062;
+  background: rgba(106, 6, 173, 0.3);
+  color: #5c0d91;
 }
 
 .button--raised {
@@ -74,7 +74,7 @@
 
 .button.button--accent.button--raised {
   background: #fab83f;
-  color: #3b0062;
+  color: #4f0283;
 }
 
 .button--raised.button--accent:hover,
