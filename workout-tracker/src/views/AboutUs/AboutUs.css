@@ -15,6 +15,9 @@ section {
   padding: 10 rem 0;
   background-color: #ffffff;
 }
+.container{
+  align-content: center;
+}
 /* Workout img styling */
 .workout-img {
   width: 15rem;
@@ -138,6 +141,7 @@ section {
 .team {
   font-size: 3.5rem;
   color: #6bbdfa;
+  text-align:center;
   margin: 1.5rem;
   font-family: 'Viga', sans-serif;
 }
@@ -148,10 +152,11 @@ section {
   font-weight: 300;
 }
 .about {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 1.5rem 0;
   text-align: center;
   color: #ffffff;
+  font-weight: 250;
 }
 .card .btn {
   padding: 0.8rem 2.5rem;

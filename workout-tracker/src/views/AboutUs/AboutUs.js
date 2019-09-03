@@ -17,7 +17,7 @@ const About = () => {
     <>
       <section >
         <div className="container">
-          <h1 className="team">Meet The Team</h1>
+        <h1 className="team">Meet The Team</h1>
           <div className="card-wrapper">
             <div className="card">
               <img src={gym} alt="card background" className="card-img" />
