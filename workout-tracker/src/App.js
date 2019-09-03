@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 // import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
-import WorkoutView from './views/WorkoutView/WorkoutView';
+import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
@@ -164,7 +164,7 @@ class App extends Component {
     let routes = (
       <Switch>
         {/* landing page */}
-        <Route path={'/Workout'} component={WorkoutView} /> 
+        <Route path={'/Workout'} component={WorkoutSession} /> 
          <Route
           path="/login"
           exact
@@ -198,7 +198,7 @@ class App extends Component {
         <Route path={'/Settings'} component={Settings} />
         <Route path={'/Home'} component={UserPage} />
         <Route path={'/Contact'} component={ContactPage} />    
-        <Route path={'/Workout'} component={WorkoutView} /> 
+        <Route path={'/Workout'} component={WorkoutSession} /> 
         <Route path={'/About'} component={About} />           
     </div>
       )
