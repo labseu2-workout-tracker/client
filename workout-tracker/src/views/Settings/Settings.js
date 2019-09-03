@@ -350,7 +350,7 @@ class Settings extends React.Component {
                 );
               })
             : null}
-          <button className="update-button" onClick={this.changeSettings}>
+          <button className="button" onClick={this.changeSettings}>
             Change
           </button>
         </StyledSettings>
@@ -450,7 +450,7 @@ class Settings extends React.Component {
                   </li>
                 </ul>
               </div>
-              <button className="update-button" onClick={this.startUpdate}>
+              <button className="button" onClick={this.startUpdate}>
                 Update
               </button>
             </StyledSettings>
