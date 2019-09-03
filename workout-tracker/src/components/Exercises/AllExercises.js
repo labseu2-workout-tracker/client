@@ -18,6 +18,25 @@ const StyledAllExercises = styled.div`
     .number {
       width: 3rem;
     }
+  
+  .exercises {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .exercise {
+  width: 10rem;
+  border: .1rem black solid;
+  height: 110px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  }
+
+
 `;
 
 const AllExercises = props => {
@@ -54,7 +73,7 @@ const AllExercises = props => {
           </button>
         ))}
       </div>
-      <div className="exercise" key={index}>
+      <div className="exercises">
       {props.exercises
         ? props.exercises.map((exercise, index) => {
             return (
