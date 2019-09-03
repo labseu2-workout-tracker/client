@@ -138,7 +138,7 @@ const AllExercises = props => {
             );
           })
           : null}
-          <p> > </p>
+          <p onClick={this.goForward}> > </p>
     </StyledAllExercises>
   );
 };
