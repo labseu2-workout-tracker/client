@@ -122,11 +122,11 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
+      <p>{`<`}</p>              
       {props.currentButtons
         ? props.currentButtons.map((num, index) => {
             return (
               <div className="number-buttons">
-              <p><</p>              
               <button
                 className="button number"
                 key={index}
@@ -134,11 +134,11 @@ const AllExercises = props => {
               >
                 {num}
               </button>
-              <p>></p>
               </div>
             );
           })
-        : null}
+          : null}
+          <p> > </p>
     </StyledAllExercises>
   );
 };
