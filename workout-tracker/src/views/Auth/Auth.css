@@ -4,10 +4,30 @@
   padding: 1rem;
   border: 1px solid #6bbdfa;
   border-radius: 5px;
+  margin-top: 2rem;
+  background-color: #f2f2f2;
+}
+.login-header {
+  border-bottom: 1px solid #6bbdfa;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.login-footer {
+  border-top: 1px solid #6bbdfa;
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
+.login-footer a {
+  margin: auto;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 @media (min-width: 768px) {
   .auth-form {
-    width: 40rem;
+    width: 30rem;
   }
 }
