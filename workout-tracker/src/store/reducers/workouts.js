@@ -15,12 +15,9 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.FETCH_WORKOUT_DETAILS:
-    const yeah = action.workoutDetails.data;
-    debugger  
-    
     return {
         ...state,
-        workoutDetails: [action.workoutDetails]
+        workoutDetails: action.workoutDetails
       };
 
     default:
