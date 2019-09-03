@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 // import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
-import Workouts from './views/Workouts/Workouts';
 import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
@@ -20,6 +19,7 @@ import Layout from './components/Layout/Layout';
 import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
+import Workouts from './views/Workouts/Workouts';
 
 class App extends Component {
   state ={ 
@@ -54,6 +54,7 @@ class App extends Component {
     localStorage.removeItem('token');
     localStorage.removeItem('expiryDate');
     localStorage.removeItem('userId');
+    this.props.history.replace('/');
   };
 
   signupHandler = (event, authData) => {
@@ -84,8 +85,22 @@ class App extends Component {
       })
       .then(resData => {
         console.log(resData);
-        this.setState({ isAuth: false, authLoading: false });
-        this.props.history.replace('/login');
+        this.setState({
+          isAuth: true,
+          token: resData.token,
+          authLoading: false,
+          userId: resData.userId
+
+         });
+         localStorage.setItem('token', resData.token);
+        localStorage.setItem('userId', resData.userId);
+        const remainingMilliseconds = 60 * 60 * 1000;
+        const expiryDate = new Date(
+          new Date().getTime() + remainingMilliseconds
+        );
+        localStorage.setItem('expiryDate', expiryDate.toISOString());
+        this.setAutoLogout(remainingMilliseconds);
+        this.props.history.replace('/dashboard');
       })
       .catch(err => {
         console.log(err);
@@ -165,7 +180,13 @@ class App extends Component {
     let routes = (
       <Switch>
         {/* landing page */}
-        {/* <Route path={'/Workout'} component={WorkoutSession} />  */}
+        <Route exact path="/"
+        component={LandingPage}
+        />
+         <Route  path="/Workouts"
+        component={Workouts}
+        />
+
          <Route
           path="/login"
           render={props => (
@@ -192,19 +213,17 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-          <Switch>
-            <Route path={'/Dashboard'} component={UserPage} />
-            <Route path={'/Exercises'} component={ExercisesLibrary} />
-            <Route path={'/Settings'} component={Settings} />
-            <Route path={'/Contact'} component={ContactPage} />    
-            {/* <Route path={'/Workout'} component={WorkoutSession} /> */}
-        <Route path={'/Home'} component={LandingPage} /> 
+      {/* <Header /> */}
+      <Switch>
+        <Route path={'/Dashboard'} component={UserPage} />
+        <Route path={'/Exercises'} component={ExercisesLibrary} />
+        <Route path={'/Settings'} component={Settings} />
+        <Route path={'/Contact'} component={ContactPage} />    
+        <Route path={'/About'} component={About} />  
         <Route path={'/Workouts'} component={Workouts} /> 
-            <Route path={'/About'} component={About} />  
-
-            {/* <Redirect to='/Dashboard' />        */}
-          </Switch>
-        </div>
+        <Redirect to='/Dashboard' />       
+      </Switch>
+    </div>
       )
     }
     return (

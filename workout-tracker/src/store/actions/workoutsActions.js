@@ -10,6 +10,7 @@ const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
 // action dispatcher
 export const fetchWorkouts = () => dispatch => {
+
   // type LOADING needs to be added (also for the redux state) 
   axiosWithAuth().get(workouts)
     .then(res => {

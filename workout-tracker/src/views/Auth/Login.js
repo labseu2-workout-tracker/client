@@ -4,6 +4,8 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { required, length, email } from '../../utils/validators';
 import Auth from './Auth';
+import Logo from '../../components/Logo/Logo'
+import './Auth.css'
 
 class Login extends Component {
   state = {
@@ -74,9 +76,12 @@ class Login extends Component {
             })
           }
         >
+          <div className='login-header'>
+            <Logo />
+          </div>
           <Input
             id="email"
-            label="Email"
+            label="email"
             type="email"
             control="input"
             onChange={this.inputChangeHandler}
@@ -87,7 +92,7 @@ class Login extends Component {
           />
           <Input
             id="password"
-            label="Password"
+            label="password"
             type="password"
             control="input"
             onChange={this.inputChangeHandler}
@@ -99,6 +104,11 @@ class Login extends Component {
           <Button design="raised" type="submit" loading={this.props.loading}>
             Login
           </Button>
+          <div>
+            <div className='login-footer'>
+              <p>Not a member?</p> <Button design="flat" link='/signup'>Sign Up</Button>
+            </div>
+          </div>
         </form>
       </Auth>
     );
