@@ -29,6 +29,8 @@ class ExerciseLibrary extends React.Component {
         currentButtons={this.props.currentButtons}
         paginate={e => this.props.paginate(e.target.textContent)}
         showSingleExercise={(e) => this.props.showSingleExercise(e.target.textContent)}
+        goBack={this.props.goBack}
+        goForward={this.props.goForward}
       />
     );
   }
