@@ -19,6 +19,9 @@ const exercises = (state = initialState, action) => {
         return exercise;
       });
 
+      const filterOnlyGroupChest = changeRatingOfExercise.filter(exercise =>
+         exercise.muscle === "Chest");
+
       const indexLastPost = state.postsPerPage;
 
       const indexFirstPost = indexLastPost - state.postsPerPage;
