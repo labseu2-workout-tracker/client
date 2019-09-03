@@ -1,3 +1,4 @@
+import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 
 // actions
