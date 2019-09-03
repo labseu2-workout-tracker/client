@@ -55,6 +55,7 @@ class WorkoutSession extends React.Component {
   render() {
     return (
       <StyledWorkoutSession>
+        <div className="top">
         {this.state.currentExercise ? (
           <div>
             <div className="exercise-picture">
@@ -82,6 +83,7 @@ class WorkoutSession extends React.Component {
           </div>
         ) : null}
         <Watch />
+        </div>
 
         <p>Choose exercise:</p>
         {/* Display Exercises(but without duplicates) */}
