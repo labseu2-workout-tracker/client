@@ -23,11 +23,11 @@ class Watch extends React.Component {
     }
   };
 
-  finishWorkout = () => {
+  finishExercise = () => {
     const buttons = document.querySelectorAll("button");
     // const time = document.querySelector('.seconds').textContent;
 
-    console.log(buttons);
+    buttons[3].click();
     // time variable is actual time (in milliseconds)
   };
   render() {
@@ -36,7 +36,7 @@ class Watch extends React.Component {
       <StyledWatch>
         <h3>Timer</h3>
         <Timer options={OPTIONS} />
-        <button onClick={this.finishWorkout}>Finish</button>
+        <button onClick={this.finishExercise}>Finish</button>
       </StyledWatch>
     );
   }
