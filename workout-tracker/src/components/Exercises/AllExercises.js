@@ -107,6 +107,13 @@ const AllExercises = props => {
                 <p>
                   {exercise.exercise_name}
                 </p>
+<p>
+Muscle Targeted: <span>{exercise.muscle}</span>
+</p>
+
+<p>
+Equipment Type: <span>{exercise.equipment}</span>
+</p>
                 </div>
               </div>
             );

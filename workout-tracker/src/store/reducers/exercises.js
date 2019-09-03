@@ -5,7 +5,7 @@ const initialState = {
   copyOfExercises: null,
   singleExercise: null,
   currentMuscleGroup: null,
-  postsPerPage: 8,
+  postsPerPage: 5,
   pageNumbers: null
 };
 
