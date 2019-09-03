@@ -39,10 +39,20 @@ const exercises = (state = initialState, action) => {
         ButtonNumber.push(i);
       }
 
+      const indexLastButton = state.buttonsPerPage;
+
+      const indexFirstButton = indexLastButton - state.buttonsPerPage;
+
+      const currentButtons = ButtonNumber.slice(
+        indexFirstButton,
+        indexLastButton
+      );
+
       return {
         ...state,
         exercises: currentPosts,
         pageNumbers: ButtonNumber,
+        currentButtons: currentButtons,
         copyOfExercises: changeRatingOfExercise,
         currentMuscleGroup: "Chest"
       };
