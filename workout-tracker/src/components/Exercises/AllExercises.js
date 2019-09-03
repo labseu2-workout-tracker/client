@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledAllExercises = styled.div`
   margin-top: 1.4rem;
 
+
   .muscle-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +67,8 @@ const AllExercises = props => {
 
   return (
     <StyledAllExercises className="all-exercise">
-      <div className="muscle-buttons">
+      <div className="buttons-exercises">
+              <div className="muscle-buttons">
         {muscles.map((muscleGroup, index) => (
           <button
             className="button"
@@ -92,6 +94,7 @@ const AllExercises = props => {
             );
           })
         : null}
+        </div>
         </div>
       {props.pageNumbers
         ? props.pageNumbers.map((num, index) => {
