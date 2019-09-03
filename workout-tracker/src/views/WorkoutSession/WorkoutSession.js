@@ -5,7 +5,15 @@ import { fetchWorkoutDetails } from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutSession = styled.div`
-  font-size: 1rem;
+  /* font-size: 1rem; */
+
+  .top {
+    display: flex;
+  img {
+    width: 30%;
+  }
+  }
+
 `;
 
 class WorkoutSession extends React.Component {
@@ -57,11 +65,11 @@ class WorkoutSession extends React.Component {
       <StyledWorkoutSession>
         <div className="top">
         {this.state.currentExercise ? (
-          <div>
+          <div className="picture-inputs">
             <div className="exercise-picture">
             <img src={this.state.currentExercise[0].picture_one} alt="Exercise explanation"/>
             </div>
-            <div>
+            <div className="inputs">
               <div className="row">
               <p>Set</p>
               <input type="number" value={this.state.set} onChange={this.handleChange} placeholder={this.state.currentExercise.length}  name="set"/> 
