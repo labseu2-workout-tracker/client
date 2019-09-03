@@ -59,13 +59,13 @@ class WorkoutSession extends React.Component {
       const deleteOneExercise = this.state.currentExercise.filter(
         (exercise, index) => index !== 0
       );
-      console.log(this.state.currentExercise);
 
       this.setState({
         currentExercise: deleteOneExercise
       });
+    } else {
+      return
     }
-    console.log(this.state.currentExercise);
   };
 
   render() {
