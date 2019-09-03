@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router";
 //import ProfileImage from "./ProfileImage";
 import UserTracker from './Tracker/UserTracker';
 import MyWorkouts from './MyWorkouts/MyWorkouts';
-import UserHistory from './UserHistory/UserHistory';
+import SessionHistory from './UserHistory/UserHistory';
 import UserNotifications from './UserNotifications/UserNotifications';
 import Settings from '../Settings/Settings';
 import DashboardNavItem from "./DashboardNavItem";
@@ -28,7 +28,7 @@ const UserPage = (props) => {
         <Switch>
           <Route path={'/dashboard/myworkouts'} component={MyWorkouts} />
           <Route path={'/dashboard/tracker'} component={UserTracker} />
-          <Route path={'/dashboard/history'} component={UserHistory} />
+          <Route path={'/dashboard/history'} component={SessionHistory} />
           <Route path={'/dashboard/notifications'} component={UserNotifications} />
           <Route path={'/dashboard/settings'} component={Settings} />
         </Switch>
