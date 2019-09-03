@@ -182,10 +182,12 @@ class App extends Component {
         <Route exact path="/"
         component={LandingPage}
         />
-         <Route  path="/Workouts"
-        component={Workouts}
+        <Route path="/about"
+        component={About}
         />
-
+        <Route exact path="/contact"
+        component={ContactPage}
+        />        
          <Route
           path="/login"
           render={props => (
