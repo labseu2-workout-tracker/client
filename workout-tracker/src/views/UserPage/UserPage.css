@@ -10,13 +10,17 @@
 
 .dash-sidebar-container {
   min-height: 90vh;
-  width: 180px;
+  /* width: 180px; */
   padding: 24px 24px;
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
+  flex: 1;
 }
 
+.dashboard-component {
+  flex: 3;
+}
 .nav-items {
   padding: 24px 0;
 }
