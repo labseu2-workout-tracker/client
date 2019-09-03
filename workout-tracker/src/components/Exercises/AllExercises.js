@@ -3,6 +3,11 @@ import styled from "styled-components";
 
 const StyledAllExercises = styled.div`
   margin-top: 3rem;
+
+  .muscle-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const AllExercises = props => {
@@ -28,14 +33,16 @@ const AllExercises = props => {
 
   return (
     <StyledAllExercises className="all-exercise">
-      <div className="muscle-groups">
-        {muscles.map((muscleGroup, index) => {
-          return <div className="muscle-buttons">
-            <button className="button" key={index} onClick={props.showMuscleGroup}>
+      <div className="muscle-buttons">
+        {muscles.map((muscleGroup, index) => (
+          <button
+            className="button"
+            key={index}
+            onClick={props.showMuscleGroup}
+          >
             {muscleGroup}
           </button>
-          </div>
-})}
+        ))}
       </div>
       {props.exercises
         ? props.exercises.map((exercise, index) => {
