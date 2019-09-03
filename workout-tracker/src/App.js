@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+// import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
 import WorkoutView from './views/WorkoutView/WorkoutView';
@@ -7,6 +8,7 @@ import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
 import SessionHistory from "./views/UserPage/SessionHistory/SessionHistory";
 import About from './views/AboutUs/AboutUs'
+import LandingPage from './views/LandingPage/LandingPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 import SignupPage from './views/Auth/Signup';
@@ -83,7 +85,7 @@ class App extends Component {
       .then(resData => {
         console.log(resData);
         this.setState({ isAuth: false, authLoading: false });
-        this.props.history.replace('/');
+        this.props.history.replace('/login');
       })
       .catch(err => {
         console.log(err);
@@ -162,9 +164,12 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
+        {/* landing page */}
+        <Route exact path="/"
+        component={LandingPage}
+        />
          <Route
           path="/login"
-          exact
           render={props => (
             <LoginPage
               {...props}
@@ -175,7 +180,6 @@ class App extends Component {
         />
         <Route
           path="/signup"
-          exact
           render={props => (
             <SignupPage
               {...props}
@@ -190,15 +194,17 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-      <Header />
-        <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Home'} component={UserPage} />
-        <Route path={'/Contact'} component={ContactPage} />    
-        <Route path={'/Workout'} component={WorkoutView} /> 
-        <Route path={'/About'} component={About} />
-        <Route path={'/History'} component={SessionHistory} />          
-    </div>
+          <Switch>
+            <Route path={'/Dashboard'} component={UserPage} />
+            <Route path={'/Exercises'} component={ExercisesLibrary} />
+            <Route path={'/Settings'} component={Settings} />
+            <Route path={'/Contact'} component={ContactPage} />    
+            <Route path={'/Workout'} component={WorkoutView} />
+            <Route path={'/History'} component={SessionHistory} />   
+            <Route path={'/About'} component={About} />  
+            <Redirect to='/Dashboard' />       
+          </Switch>
+        </div>
       )
     }
     return (
