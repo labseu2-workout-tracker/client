@@ -103,9 +103,11 @@ const AllExercises = props => {
               key={index}>
                 <img src={exercise.picture_one} alt="exercise"/>
                 <img src={exercise.picture_two} alt="exercise"/>                
+                <div className="column">
                 <p>
                   {exercise.exercise_name}
                 </p>
+                </div>
               </div>
             );
           })
