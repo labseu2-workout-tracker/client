@@ -26,7 +26,7 @@ class ExerciseLibrary extends React.Component {
       <AllExercises
         exercises={this.props.exercises}
         showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
-        pageNumbers={this.props.pageNumbers}
+        currentButtons={this.props.currentButtons}
         paginate={e => this.props.paginate(e.target.textContent)}
         showSingleExercise={(e) => this.props.showSingleExercise(e.target.textContent)}
       />
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   return {
     exercises: state.exercises.exercises,
     singleExercise: state.exercises.singleExercise,
-    pageNumbers: state.exercises.pageNumbers,
+    currentButtons: state.exercises.currentButtons,
   };
 };
 
