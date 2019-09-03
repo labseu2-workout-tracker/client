@@ -10,6 +10,10 @@ const StyledAllExercises = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  .button {
+    width: 10rem;
+  }
 `;
 
 const AllExercises = props => {
