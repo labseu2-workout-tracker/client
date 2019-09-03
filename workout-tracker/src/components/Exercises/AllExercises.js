@@ -77,10 +77,13 @@ const AllExercises = props => {
       {props.exercises
         ? props.exercises.map((exercise, index) => {
             return (
-              <div className="exercise" key={index}>
-                <p onClick={props.showSingleExercise}>
+              <div className="exercise"
+              onClick={props.showSingleExercise}
+              key={index}>
+                <p>
                   {exercise.exercise_name}
                 </p>
+                <img src={exercise.picture_one} alt="exercise"/>
               </div>
             );
           })
