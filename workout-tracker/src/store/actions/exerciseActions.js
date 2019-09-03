@@ -42,3 +42,7 @@ export const closeSingleExercise = () => {
 export const goForward = () => {
   return { type: GO_FORWARD}; 
 };
+
+export const goBack = () => {
+  return { type: GO_BACK}; 
+};
