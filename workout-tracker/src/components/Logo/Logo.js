@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '../../assets/images/beFit-logo2.png'
+import logoImage from '../../assets/images/logo-svg-white.svg'
 import './Logo.css';
 
 const logo = props => <div><img className="image"  src={logoImage} alt="logo" /></div>

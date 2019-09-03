@@ -3,16 +3,31 @@
   display: flex;
   align-items: center;
 } */
-
-li {
+.dashboard-list-item {
   padding: 10px 0;
   width: 100%;
+  list-style-type: none;
+  text-align: left;
+  border-bottom: 2px solid #f2f2f2;
 }
-a {
+.dashboard-items {
+  padding: 10px 0;
+  width: 100%;
+  list-style-type: none;
+  text-align: left;
+  border-bottom: 2px solid #f2f2f2;
+}
+.dashboard-items:hover {
+  border-bottom: 2px solid orange;
+}
+.dashboard-items.active {
+  background: #0086c9;
+}
+
+/* a {
   color: #24292e;
-  text-decoration: none;
 }
 
 .active-nav {
   color: #0086c9;
-}
+} */
