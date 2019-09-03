@@ -39,7 +39,7 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: currentPosts,
-        pageNumbers: pageNumbers,
+        pageNumbers: ButtonNumber,
         copyOfExercises: changeRatingOfExercise
       };
 
