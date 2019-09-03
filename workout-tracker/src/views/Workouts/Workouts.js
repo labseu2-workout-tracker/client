@@ -12,8 +12,7 @@ class Workouts  extends React.Component {
   render() {
     return(
       <div>
-         <h1>Hello World</h1>
-
+        <h1>Hello World </h1>
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
       {this.props.workouts ? (this.props.workouts.map(workout =>{
