@@ -135,7 +135,9 @@ class WorkoutSession extends React.Component {
         <p>Choose exercise:</p>
         {/* Display Exercises(but without duplicates) */}
         {this.props.workoutDetails
-          ? this.props.workoutDetails.exercises
+          ? [
+            this.props.workoutDetails
+          ][0].exercises
               .reduce((acc, current) => {
                 const x = acc.find(
                   item => item.exercise_name === current.exercise_name

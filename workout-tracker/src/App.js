@@ -164,7 +164,7 @@ class App extends Component {
     let routes = (
       <Switch>
         {/* landing page */}
-        <Route path={'/Workout'} component={WorkoutSession} /> 
+        {/* <Route path={'/Workout'} component={WorkoutSession} />  */}
          <Route
           path="/login"
           render={props => (
@@ -196,8 +196,11 @@ class App extends Component {
             <Route path={'/Exercises'} component={ExercisesLibrary} />
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    
-            <Route path={'/Workout'} component={WorkoutSession} /> 
+            {/* <Route path={'/Workout'} component={WorkoutSession} /> */}
+        <Route path={'/Home'} component={LandingPage} /> 
+        <Route path={'/Workouts'} component={Workouts} /> 
             <Route path={'/About'} component={About} />  
+
             {/* <Redirect to='/Dashboard' />        */}
           </Switch>
         </div>
