@@ -1,40 +1,45 @@
-import React from 'react';
-import Timer from 'react-timer'
-import styled from 'styled-components';
+import React from "react";
+import Timer from "react-timer";
+import styled from "styled-components";
 
-const StyledWatch = styled.div`
-`;
+const StyledWatch = styled.div``;
 
 class Watch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
-  }
-  
-  componentDidMount = () => {
-    const button = document.querySelectorAll('button');
-    button[2].textContent = "stop";
-    button[2].click();
-    button[0].click();
+    this.state = {};
   }
 
-  finishWorkout = () => {
-    const button = document.querySelectorAll('button');
+  componentDidMount = () => {
+    const buttons = document.querySelectorAll("button");
+    var searchText = "pause";
+
+    for (var i = 0; i < buttons.length; i++) {
+      if (buttons[i].textContent == searchText) {
+        buttons[i].textContent = "stop";
+        buttons[i].click();
+        break;
+      }
+    }
+  };
+
+  finishExercise = () => {
+    const buttons = document.querySelectorAll("button");
     // const time = document.querySelector('.seconds').textContent;
-    
-    button[2].click();
+
+    buttons[3].click();
     // time variable is actual time (in milliseconds)
-  }
+  };
   render() {
-    const OPTIONS = { delay: 100}
-    return ( 
+    const OPTIONS = { delay: 100 };
+    return (
       <StyledWatch>
         <h3>Timer</h3>
-     <Timer options={OPTIONS} />
-     <button  onClick={this.finishWorkout}>Finish</button>
+        <Timer options={OPTIONS} />
+        <button onClick={this.finishExercise}>Finish</button>
       </StyledWatch>
-     );
-    }
+    );
+  }
 }
- 
+
 export default Watch;

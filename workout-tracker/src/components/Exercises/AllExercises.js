@@ -1,4 +1,9 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledAllExercises = styled.div`
+  margin-top: 3rem;
+`;
 
 const AllExercises = props => {
   const muscles = [
@@ -22,7 +27,7 @@ const AllExercises = props => {
   ];
 
   return (
-    <div className="all-exercise">
+    <StyledAllExercises className="all-exercise">
       <div className="muscle-groups">
         {muscles.map((muscleGroup, index) => (
           <button key={index} onClick={props.showMuscleGroup}>
@@ -34,20 +39,23 @@ const AllExercises = props => {
         ? props.exercises.map((exercise, index) => {
             return (
               <div key={index}>
-                <p
-                onClick={props.showSingleExercise}
-                >{exercise.exercise_name}</p>
+                <p onClick={props.showSingleExercise}>
+                  {exercise.exercise_name}
+                </p>
               </div>
             );
           })
         : null}
-        {props.pageNumbers ? (props.pageNumbers.map((num, index) => {
-          return <button key={index}
-            onClick={props.paginate}>
-            {num}
-          </button>
-        })) : null}
-    </div>
+      {props.pageNumbers
+        ? props.pageNumbers.map((num, index) => {
+            return (
+              <button key={index} onClick={props.paginate}>
+                {num}
+              </button>
+            );
+          })
+        : null}
+    </StyledAllExercises>
   );
 };
 
