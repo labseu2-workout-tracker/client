@@ -4,6 +4,9 @@ import styled from "styled-components";
 const StyledAllExercises = styled.div`
   margin-top: 1.4rem;
 
+.buttons-exercises {
+display: flex;
+}
 
   .muscle-buttons {
     display: flex;
