@@ -34,10 +34,8 @@ class SessionHistory extends React.Component {
         <h2>Here you can check out the work you have done!</h2>
         <List>
           {session === undefined ? (<p>Data is loading...</p>) : 
-
           (
             session.map(item => 
-
             ( <ol key={item.id}>
                 <li>
                   <h4>Session ID: {item.id}</h4>

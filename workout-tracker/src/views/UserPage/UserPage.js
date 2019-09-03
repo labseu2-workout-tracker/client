@@ -15,25 +15,24 @@ import './UserPage.css'
 const UserPage = (props) => {
   return (
     <div className="dashboard-container">
-    <aside className='dash-sidebar-container'>
-      <div className="nav-items">
-        <DashboardNavItem />
+      <aside className='dash-sidebar-container'>
+        <div className="nav-items">
+          <DashboardNavItem />
+        </div>
+        <div className="empty-div" />
+        <div className="grey-logo">
+          <img src={logo} alt="" />
+        </div>
+      </aside>
+      <div className='dashboard-component'>
+        <Switch>
+          <Route path={'/dashboard/myworkouts'} component={MyWorkouts} />
+          <Route path={'/dashboard/tracker'} component={UserTracker} />
+          <Route path={'/dashboard/history'} component={SessionHistory} />
+          <Route path={'/dashboard/notifications'} component={UserNotifications} />
+          <Route path={'/dashboard/settings'} component={Settings} />
+        </Switch>
       </div>
-      <div className="empty-div" />
-      <div className="grey-logo">
-        <img src={logo} alt="" />
-      </div>
-    </aside>
-    <div className='dashboard-view'>
-      <Switch>
-        <Route path={'/dashboard/myworkouts'} component={MyWorkouts} />
-        <Route path={'/dashboard/tracker'} component={UserTracker} />
-        <Route path={'/dashboard/history'} component={SessionHistory} />
-        <Route path={'/dashboard/notifications'} component={UserNotifications} />
-        <Route path={'/dashboard/settings'} component={Settings} />
-      </Switch>
-    </div>
-
     </div>
   );
 };

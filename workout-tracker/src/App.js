@@ -53,6 +53,7 @@ class App extends Component {
     localStorage.removeItem('token');
     localStorage.removeItem('expiryDate');
     localStorage.removeItem('userId');
+    this.props.history.replace('/');
   };
 
   signupHandler = (event, authData) => {
@@ -83,8 +84,22 @@ class App extends Component {
       })
       .then(resData => {
         console.log(resData);
-        this.setState({ isAuth: false, authLoading: false });
-        this.props.history.replace('/login');
+        this.setState({
+          isAuth: true,
+          token: resData.token,
+          authLoading: false,
+          userId: resData.userId
+
+         });
+         localStorage.setItem('token', resData.token);
+        localStorage.setItem('userId', resData.userId);
+        const remainingMilliseconds = 60 * 60 * 1000;
+        const expiryDate = new Date(
+          new Date().getTime() + remainingMilliseconds
+        );
+        localStorage.setItem('expiryDate', expiryDate.toISOString());
+        this.setAutoLogout(remainingMilliseconds);
+        this.props.history.replace('/dashboard');
       })
       .catch(err => {
         console.log(err);
@@ -193,6 +208,7 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
+<<<<<<< HEAD
           <Switch>
             <Route path={'/Dashboard'} component={UserPage} />
             <Route path={'/Exercises'} component={ExercisesLibrary} />
@@ -203,6 +219,19 @@ class App extends Component {
             <Redirect to='/Dashboard' />       
           </Switch>
         </div>
+=======
+      {/* <Header /> */}
+      <Switch>
+        <Route path={'/Dashboard'} component={UserPage} />
+        <Route path={'/Exercises'} component={ExercisesLibrary} />
+        <Route path={'/Settings'} component={Settings} />
+        <Route path={'/Contact'} component={ContactPage} />    
+        <Route path={'/Workout'} component={WorkoutView} /> 
+        <Route path={'/About'} component={About} />  
+        <Redirect to='/Dashboard' />       
+      </Switch>
+    </div>
+>>>>>>> 71b995102006905a47d41747978deebc690c2b60
       )
     }
     return (
