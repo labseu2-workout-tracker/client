@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {fetchWorkouts } from '../../store/actions/workoutsActions';
+import { Link } from 'react-router-dom';
 
 
 class Workouts  extends React.Component {
@@ -11,17 +12,24 @@ class Workouts  extends React.Component {
   }
   render() {
     return(
-      <div>
+      <>
+          <h1 className="coolstuff">Choose from our Workouts</h1>
+      <div className="land-wrapper">
+    
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
       {this.props.workouts ? (this.props.workouts.map(workout =>{
-        return <div> 
-          <h2>{workout.workout_name}</h2>
+        return <div className="workout-card"> 
+          <img src={workout.image_url} alt="workout" className="workout-img"/>
+          <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <img src={workout.image_url} alt="workout" />
+          <Link to="#" className="btn">
+                Add Workout
+              </Link>
         </div> 
       })) : null}
     </div>
+    </>
     )
   }
 }
