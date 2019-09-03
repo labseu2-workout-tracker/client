@@ -122,7 +122,7 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
-      <p>{`<`}</p>              
+      <p onClick={this.goBack}>{`<`}</p>              
       {props.currentButtons
         ? props.currentButtons.map((num, index) => {
             return (
