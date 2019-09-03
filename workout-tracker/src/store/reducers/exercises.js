@@ -26,12 +26,12 @@ const exercises = (state = initialState, action) => {
 
       const indexFirstPost = indexLastPost - state.postsPerPage;
 
-      const currentPosts = changeRatingOfExercise.slice(
+      const currentPosts = filterOnlyGroupChest.slice(
         indexFirstPost,
         indexLastPost
       );
 
-      const totalExercises = changeRatingOfExercise.length;
+      const totalExercises = filterOnlyGroupChest.length;
 
       let ButtonNumber = [];
 
@@ -43,7 +43,8 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: currentPosts,
         pageNumbers: ButtonNumber,
-        copyOfExercises: changeRatingOfExercise
+        copyOfExercises: changeRatingOfExercise,
+        currentMuscleGroup: "Chest"
       };
 
     case type.SHOW_MUSCLE_GROUP:
