@@ -125,6 +125,7 @@ const AllExercises = props => {
       {props.currentButtons
         ? props.currentButtons.map((num, index) => {
             return (
+              <div className="number-buttons">
               <button
                 className="button number"
                 key={index}
@@ -132,6 +133,7 @@ const AllExercises = props => {
               >
                 {num}
               </button>
+              </div>
             );
           })
         : null}
