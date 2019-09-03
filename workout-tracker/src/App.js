@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 // import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
-import WorkoutView from './views/WorkoutView/WorkoutView';
+import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
@@ -19,6 +19,7 @@ import Layout from './components/Layout/Layout';
 import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
+import Workouts from './views/Workouts/Workouts';
 
 class App extends Component {
   state ={ 
@@ -53,6 +54,7 @@ class App extends Component {
     localStorage.removeItem('token');
     localStorage.removeItem('expiryDate');
     localStorage.removeItem('userId');
+    this.props.history.replace('/');
   };
 
   signupHandler = (event, authData) => {
@@ -83,8 +85,22 @@ class App extends Component {
       })
       .then(resData => {
         console.log(resData);
-        this.setState({ isAuth: false, authLoading: false });
-        this.props.history.replace('/login');
+        this.setState({
+          isAuth: true,
+          token: resData.token,
+          authLoading: false,
+          userId: resData.userId
+
+         });
+         localStorage.setItem('token', resData.token);
+        localStorage.setItem('userId', resData.userId);
+        const remainingMilliseconds = 60 * 60 * 1000;
+        const expiryDate = new Date(
+          new Date().getTime() + remainingMilliseconds
+        );
+        localStorage.setItem('expiryDate', expiryDate.toISOString());
+        this.setAutoLogout(remainingMilliseconds);
+        this.props.history.replace('/dashboard');
       })
       .catch(err => {
         console.log(err);
@@ -167,6 +183,10 @@ class App extends Component {
         <Route exact path="/"
         component={LandingPage}
         />
+         <Route  path="/Workouts"
+        component={Workouts}
+        />
+
          <Route
           path="/login"
           render={props => (

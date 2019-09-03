@@ -12,9 +12,6 @@ class ExerciseLibrary extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchExercises();
-
-    setTimeout(() => this.props.showMuscleGroup("Chest"), 2000); // That we dont see all exercises at the start
-
   }
 
   render() {
