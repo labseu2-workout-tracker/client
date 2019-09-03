@@ -10,7 +10,7 @@ const StyledSettings = styled.div`
   .user-data {
     margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
-    background-color: #6bbdfa;
+   
     text-align: center;
   }
 
@@ -40,23 +40,23 @@ const StyledSettings = styled.div`
   }
 
   .info li:nth-child(1) {
-    background: rgba(107,189,250, .1);
+    background: rgba(107,189,250, .5);
   }
 
   .info li:nth-child(2) {
-    background: rgba(107,189,250, .2);
+    background: rgba(107,189,250, .5);
   }
 
   .info li:nth-child(3) {
-    background: rgba(107,189,250, .3);
+    background: rgba(107,189,250, .5);
   }
 
   .info li:nth-child(4) {
-    background: rgba(107,189,250, .4);
+    background: rgba(107,189,250, .6);
   }
 
   .info li:nth-child(5) {
-    background: rgba(107,189,250, .5);
+    background: rgba(107,189,250, .6);
   }
 
   .info li:nth-child(6) {
@@ -89,7 +89,7 @@ const StyledSettings = styled.div`
   }
 
   .info li:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     background: #6bbdfa;
   }
 
