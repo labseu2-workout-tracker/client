@@ -40,7 +40,34 @@ section {
     border-radius: 0 0 2rem 2rem;
     box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
-
+.workout-card h1{
+    font-size:1.7rem;
+    color: #6bbdfa;
+    margin:.5rem;
+}
+.workout-card .btn{
+    padding: .8rem 2.5rem;
+    background-color: #6bbdfa;
+    border-radius: 2rem;
+    margin-bottom: 3rem;
+    text-transform: capitalize;
+    color: #eee;
+    font-size: 1.4rem;
+    transition: all .7s;
+}
+.workout-card .btn:hover{
+    transform: translateY(-2px);
+    box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
+}
+.workout-card .btn:active{
+    transform: translateY(0);
+    box-shadow: none;
+}
+.workout-card p{
+    color: #655f69;
+    font-size: 1rem;
+    font-weight:300;
+}
 
 .heading {
   text-transform: uppercase;

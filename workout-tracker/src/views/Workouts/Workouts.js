@@ -19,7 +19,7 @@ class Workouts  extends React.Component {
       {this.props.workouts ? (this.props.workouts.map(workout =>{
         return <div className="workout-card"> 
           <img src={workout.image_url} alt="workout" className="workout-img"/>
-          <h2>{workout.workout_name}</h2>
+          <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
           <Link to="#" className="btn">
                 Add Workout
