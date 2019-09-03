@@ -30,7 +30,7 @@ const AllExercises = props => {
     <StyledAllExercises className="all-exercise">
       <div className="muscle-groups">
         {muscles.map((muscleGroup, index) => (
-          <button key={index} onClick={props.showMuscleGroup}>
+          <button className="button" key={index} onClick={props.showMuscleGroup}>
             {muscleGroup}
           </button>
         ))}
@@ -49,7 +49,7 @@ const AllExercises = props => {
       {props.pageNumbers
         ? props.pageNumbers.map((num, index) => {
             return (
-              <button key={index} onClick={props.paginate}>
+              <button className="button" key={index} onClick={props.paginate}>
                 {num}
               </button>
             );
