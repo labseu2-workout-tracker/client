@@ -131,6 +131,11 @@ const exercises = (state = initialState, action) => {
   
         return { ...state, singleExercise: null };
 
+        case type.GO_FORWARD:
+      
+          // arr[arr.length - 1]
+            return { ...state, singleExercise: null };
+    
     default:
       return state;
   }
