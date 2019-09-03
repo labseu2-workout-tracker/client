@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const user = 1;
+const user = 1; // localstorage userId to pe added
 
 class SessionHistory extends React.Component {
   constructor(props) {
