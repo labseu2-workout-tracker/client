@@ -20,17 +20,14 @@ export const fetchSettings = () => dispatch => {
     });
   };
   
-  export const updateSettings = updatedSettings => {
+  export const updateSettings = updatedSettings => dispatch => {
     const userId = localStorage.getItem('userId');
   debugger
   return axios
     .put(`${settings}/${userId}`, updatedSettings)
     .then(res => {
 debugger
-      return axios.get(settings)
-      .then(res => {
-        return { type: UPDATE_SETTINGS, updatedSettings: res.data };
-      });
+         dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)

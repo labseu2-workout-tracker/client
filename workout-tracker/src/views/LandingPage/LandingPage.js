@@ -16,8 +16,6 @@ const LandingPage = () => {
      
           <h1 id="h1">
             Be<span>Fit</span>
-            <br />
-            Tracker
           </h1>
           <hr />
           <p id="p">
