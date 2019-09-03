@@ -150,7 +150,7 @@ section {
   border-radius: 2rem;
   margin-bottom: 3rem;
   text-transform: capitalize;
-  color: #eee;
+  color: #ffffff;
   font-size: 1.4rem;
   transition: all 0.7s;
 }
@@ -162,21 +162,24 @@ section {
   transform: translateY(0);
   box-shadow: none;
 }
+
 .social-media {
   width: 100%;
+  align-content: center;
   list-style: none;
   display: flex;
   padding: 2rem;
-  align-items: baseline;
-  margin-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
+
 .social-media i {
   font-size: 3rem;
   transition: color 0.5s;
+  align-content: space-between;
 }
+
 .fa-linkedin-square {
-  color: #0b2a74;
+  color: #5a0b74;
 }
 .fa-twitter-square {
   color: #0ea7e9;
@@ -209,7 +212,7 @@ section {
       opacity: 0;
     }
     to {
-      opacity: 1;
+      opacity:1;
     }
         .card:nth-child(1){
             animation: fadeIn .3s .0s backwards;

@@ -109,11 +109,10 @@ const StyledSettings = styled.div`
   }
 
   .update-input {
-    width: 100%;
+    width: 20rem;
     box-sizing: border-box;
     display: inline-block;
-    border-radius: 5px;
-    padding: 10px 25px;
+    padding: 10px 25px ;
 
     @media (max-width: 350px) {
       width: 80%;
