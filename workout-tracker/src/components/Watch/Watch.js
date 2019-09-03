@@ -20,11 +20,10 @@ class Watch extends React.Component {
 
   finishWorkout = () => {
     const button = document.querySelectorAll('button');
-    const time = document.querySelector('.seconds').textContent;
+    // const time = document.querySelector('.seconds').textContent;
     
     button[2].click();
     // time variable is actual time (in milliseconds)
-    console.log(time)
   }
   render() {
     const OPTIONS = { delay: 100}
@@ -32,7 +31,7 @@ class Watch extends React.Component {
       <StyledWatch>
         <h3>Timer</h3>
      <Timer options={OPTIONS} />
-     <button onClick={this.finishWorkout}>Finish</button>
+     <button  onClick={this.finishWorkout}>Finish</button>
       </StyledWatch>
      );
     }
