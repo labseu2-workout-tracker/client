@@ -11,6 +11,8 @@ h1 span {
 
 #p {
   color: #0086c9;
+  align-content: center;
+  text-align: center;
 }
 
 .bottom {
@@ -60,7 +62,7 @@ h1 span {
 }
 
 .land .btn {
-  margin-left: 8rem;
+  margin: 2rem;
   padding: 0.6rem 2.5rem;
   background-color: #6bbdfa;
   align-items: center;
