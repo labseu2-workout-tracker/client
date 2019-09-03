@@ -101,10 +101,11 @@ const AllExercises = props => {
               <div className="exercise"
               onClick={props.showSingleExercise}
               key={index}>
+                <img src={exercise.picture_one} alt="exercise"/>
+                <img src={exercise.picture_two} alt="exercise"/>                
                 <p>
                   {exercise.exercise_name}
                 </p>
-                <img src={exercise.picture_one} alt="exercise"/>
               </div>
             );
           })
