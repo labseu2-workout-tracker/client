@@ -122,7 +122,7 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
-      <p onClick={this.goBack}>{`<`}</p>              
+      <p onClick={props.goBack}>{`<`}</p>              
       {props.currentButtons
         ? props.currentButtons.map((num, index) => {
             return (
@@ -138,7 +138,7 @@ const AllExercises = props => {
             );
           })
           : null}
-          <p onClick={this.goForward}> > </p>
+          <p onClick={props.goForward}> > </p>
     </StyledAllExercises>
   );
 };
