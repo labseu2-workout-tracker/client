@@ -9,11 +9,15 @@ const StyledWorkoutSession = styled.div`
 
   .top {
     display: flex;
+  }
+
+  .exercise-inputs {
+    display: flex;
+  }
+
   img {
     width: 30%;
   }
-  }
-
 `;
 
 class WorkoutSession extends React.Component {
