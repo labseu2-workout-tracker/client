@@ -19,6 +19,7 @@ import Layout from './components/Layout/Layout';
 import Backdrop from './components/Backdrop/Backdrop';
 
 import './App.css';
+import Workouts from './views/Workouts/Workouts';
 
 class App extends Component {
   state ={ 
@@ -167,6 +168,10 @@ class App extends Component {
         <Route exact path="/"
         component={LandingPage}
         />
+         <Route  path="/Workouts"
+        component={Workouts}
+        />
+
          <Route
           path="/login"
           render={props => (
@@ -199,6 +204,7 @@ class App extends Component {
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    
             <Route path={'/Workout'} component={WorkoutView} /> 
+            <Route path={'/Workouts'} component={Workouts} /> 
             <Route path={'/About'} component={About} />  
             <Redirect to='/Dashboard' />       
           </Switch>
