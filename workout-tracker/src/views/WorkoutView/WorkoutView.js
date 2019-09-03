@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 const StyledWorkoutView = styled.div`
-
+ font-size:1rem;
 `;
 
 class WorkoutView extends React.Component {

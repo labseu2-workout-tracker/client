@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import gym from '../../assets/avatar/gym.jpg';
+import gym from '../../assets/avatar/gym.gif';
 import tale from '../../assets/avatar/tale.jpg';
 import kelechi from '../../assets/avatar/kelechi.jpg';
 import sean from '../../assets/avatar/sean.jpg';
@@ -10,6 +10,7 @@ import wasiu from '../../assets/avatar/wasiu.jpg';
 import yusuf from '../../assets/avatar/yusuf.jpg';
 import benjamin from '../../assets/avatar/benjamin.jpg';
 import remi from '../../assets/avatar/remi.jpg';
+
 
 const About = () => {
   return (
