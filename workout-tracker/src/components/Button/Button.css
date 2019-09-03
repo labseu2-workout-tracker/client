@@ -30,7 +30,7 @@
 
 .button:hover,
 .button:active {
-  background: #3b0062;
+  background: #6bbdfa;
   color: white;
 }
 
@@ -40,8 +40,8 @@
 
 .button--flat:hover,
 .button--flat:active {
-  background: rgba(106, 6, 173, 0.3);
-  color: #5c0d91;
+  background: none;
+  color: #6bbdfa;
 }
 
 .button--raised {

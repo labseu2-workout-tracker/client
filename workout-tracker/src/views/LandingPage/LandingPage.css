@@ -44,7 +44,7 @@ h1 span {
 }
 .land {
   width: 35rem;
-  height: 50rem;
+  height: 40rem;
   display: flex;
   background-color: #ffffff;
   flex-direction: column;
@@ -140,8 +140,5 @@ h1 span {
   }
   .land:nth-child(4) {
     animation: fadeIn 0.5s 2s backwards;
-  }
-  .land:hover {
-    transform: scale(1.1);
   }
 }

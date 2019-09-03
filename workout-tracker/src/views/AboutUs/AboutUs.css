@@ -1,22 +1,79 @@
-
-html{
-    font-size: 15px;
-    font-family: "Roboto", sans-serif;
+html {
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
 }
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
-
 }
-p{
-    padding: 2rem;
+p {
+  padding: 2rem;
 }
 section {
   padding: 10 rem 0;
   background-color: #ffffff;
 }
+/* Workout img styling */
+.workout-img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 3rem;
+  margin-top: -10rem;
+  border: 0.7rem solid #c7d9eef9;
+}
+.workout-card {
+  width: 30rem;
+  background-color: #c7d9eef9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  margin-top: 10rem;
+  border-radius: 0 0 2rem 2rem;
+  box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+.workout-card h1 {
+  font-size: 1.7rem;
+  color: #6bbdfa;
+  margin: 0.5rem;
+}
+.workout-card .btn {
+  padding: 0.8rem 2.5rem;
+  background-color: #6bbdfa;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+  text-transform: capitalize;
+  color: #eee;
+  font-size: 1.4rem;
+  transition: all 0.7s;
+}
+.workout-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+.workout-card .btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.workout-card p {
+  color: #655f69;
+  font-size: 1rem;
+  text-align: start;
+  font-weight: 300;
+}
+.coolstuff {
+  font-size: 2.5rem;
+  color: #6bbdfa;
+  margin: 1.5rem;
+  align-content: center; 
+}
+/* card workouts */
+
 .heading {
   text-transform: uppercase;
   font-size: 3.4 rem;
@@ -29,133 +86,130 @@ section {
 .heading::after {
   content: '';
   width: 10rem;
-  height: .8rem;
+  height: 0.8rem;
   background-color: #6bbdfa;
-  position:absolute;
+  position: absolute;
   bottom: -2rem;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 2rem;
 }
-.card-wrapper{
-    display: flex;
-    align-items:center;
-    align-content:center;
-    flex-direction: column;
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
 }
-.card{
-    width: 30rem;
-    background-color: #c7d9eef9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0;
-    border-radius: 0 0 2rem 2rem;
-    box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+.card {
+  width: 30rem;
+  background-color: #c7d9eef9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  border-radius: 0 0 2rem 2rem;
+  box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
-.card .card-img{
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;   
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+.card .card-img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+}
+.profile-img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -10rem;
+  z-index: 899;
+  border: 1rem solid #c7d9eef9;
+}
 
+.card h1 {
+  font-size: 2.5rem;
+  color: #6bbdfa;
+  margin: 1.5rem;
 }
-.profile-img{
-    width: 15rem;
-    height: 15rem;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-top:-10rem;
-    z-index: 899;
-    border: 1rem solid #c7d9eef9;
-    
+.job-title {
+  color: #655f69;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
-.card h1{
-    font-size:2.5rem;
-    color: #6bbdfa;
-    margin:  1.5rem;
+.about {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  color: #ffffff;
 }
-.job-title{
-    color: #655f69;
-    font-size: 1.5rem;
-    font-weight:300;
+.card .btn {
+  padding: 0.8rem 2.5rem;
+  background-color: #6bbdfa;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+  text-transform: capitalize;
+  color: #eee;
+  font-size: 1.4rem;
+  transition: all 0.7s;
 }
-.about{
-    font-size: 1.5rem;
-    margin: 1.5rem 0;
-    text-align: center;
-    color: #ffffff;
+.card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
 }
-.card .btn{
-    padding: .8rem 2.5rem;
-    background-color: #6bbdfa;
-    border-radius: 2rem;
-    margin-bottom: 3rem;
-    text-transform: capitalize;
-    color: #eee;
-    font-size: 1.4rem;
-    transition: all .7s;
+.card .btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
-.card .btn:hover{
-    transform: translateY(-2px);
-    box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
+.social-media {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  padding: 2rem;
+  align-items: baseline;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.card .btn:active{
-    transform: translateY(0);
-    box-shadow: none;
+.social-media i {
+  font-size: 3rem;
+  transition: color 0.5s;
 }
-.social-media{
-width:100%;
-list-style:none;
-display: flex;
-padding: 2rem;
-align-items: baseline;
-margin-top: 1.5rem;
-border-top: 1px solid rgba(0, 0, 0, .1)
+.fa-linkedin-square {
+  color: #0b2a74;
 }
-.social-media i{
-    font-size: 3rem;
-    transition: color .5s;
+.fa-twitter-square {
+  color: #0ea7e9;
 }
-.fa-linkedin-square{
-    color: #0b2a74;
+.fa-facebook-square {
+  color: #3b5999;
 }
-.fa-twitter-square{
-    color: #0ea7e9;
-}
-.fa-facebook-square{
-    color: #3b5999;
-}
-.fa-github-square{
-    color: #333;
+.fa-github-square {
+  color: #333;
 }
 .fa-twitter-square:hover,
 .fa-github-square:hover,
 .fa-linkedin-square:hover,
-.fa-github-square:hover{
- color: #91b8ca;
-
+.fa-github-square:hover {
+  color: #91b8ca;
 }
-@media screen and (min-width: 300px){
-    .card-wrapper{
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+@media screen and (min-width: 300px) {
+  .card-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    margin: 2rem;
+    transition: transfom 0.5s;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-    .card{
-        margin:2rem;
-        transition: transfom .5s;
-    }
-    @keyframes fadeIn {
-        from{
-            opacity: 0;
-        }
-        to{
-            opacity: 1;
-        }
+    to {
+      opacity: 1;
     }
         .card:nth-child(1){
             animation: fadeIn .3s .0s backwards;
@@ -168,8 +222,6 @@ border-top: 1px solid rgba(0, 0, 0, .1)
         }
         .card:nth-child(4){
             animation: fadeIn .3s 2s backwards;
-        }   
-        .card:hover{
-            transform: scale(1.1);
-        }             
+        }          
     }
+}
