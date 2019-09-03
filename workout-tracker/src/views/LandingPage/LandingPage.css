@@ -141,7 +141,4 @@ h1 span {
   .land:nth-child(4) {
     animation: fadeIn 0.5s 2s backwards;
   }
-  .land:hover {
-    transform: scale(1.1);
-  }
 }
