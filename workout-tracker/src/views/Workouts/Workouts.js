@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {fetchWorkouts } from '../../store/actions/workoutsActions';
+import { Link } from 'react-router-dom';
 
 
 class Workouts  extends React.Component {
@@ -20,6 +21,9 @@ class Workouts  extends React.Component {
           <h2>{workout.workout_name}</h2>
           <p>{workout.workout_description}</p>
           <img src={workout.image_url} alt="workout" />
+          <Link to="#" className="btn">
+                Add Workout
+              </Link>
         </div> 
       })) : null}
     </div>
