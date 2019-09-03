@@ -7,6 +7,8 @@ const StyledAllExercises = styled.div`
   .muscle-buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
