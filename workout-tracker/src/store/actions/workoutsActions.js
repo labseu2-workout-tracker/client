@@ -21,7 +21,12 @@ export const fetchWorkouts = () => dispatch => {
 
 export const fetchWorkoutDetails = () => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
-  return axios.get(`${workouts}/workouts/1`)
+  const token = localStorage.getItem("token");
+  
+  return axios.get(`${workouts}/workouts/1`, {headers: {
+    Authorization: `Bearer ${token}`,
+  }},
+)
   //Prototype until backend is done 
   // changed backend on my files to get data back
     .then(res => {

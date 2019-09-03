@@ -11,12 +11,22 @@ const StyledWorkoutSession = styled.div`
     display: flex;
   }
 
-  .exercise-inputs {
-    display: flex;
+  .exercise-picture {
+    width: 50%;
+  };
+
+  .inputs {
+    width: 50%;
   }
 
+  .picture-inputs {
+    display: flex;
+    width: 66%;
+  }
+
+
   img {
-    width: 30%;
+    width: 100%;
   }
 `;
 
