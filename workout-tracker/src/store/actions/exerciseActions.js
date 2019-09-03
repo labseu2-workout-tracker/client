@@ -5,6 +5,9 @@ export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 export const PAGINATE = 'PAGINATE';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 export const CLOSE_SINGLE_EXERCISE = 'CLOSE_SINGLE_EXERCISE';
+export const GO_BACK = 'GO_BACK';
+export const GO_FORWARD = 'GO_FORWARD';
+
 
 const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
 // adress get's changed later
