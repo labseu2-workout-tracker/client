@@ -143,6 +143,10 @@ const exercises = (state = initialState, action) => {
             );
     
             return { ...state, currentButtons: actualButtons };
+
+            case type.GO_BACK:
+        
+                return { ...state, currentButtons: null };
     
     default:
       return state;
