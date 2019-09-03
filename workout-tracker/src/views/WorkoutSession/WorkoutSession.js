@@ -27,7 +27,7 @@ class WorkoutSession extends React.Component {
       currentExercise: null,
       set: "",
       reps: "",
-      time: "", 
+      time: "",
       weight: ""
     };
   }
@@ -37,64 +37,89 @@ class WorkoutSession extends React.Component {
   };
 
   chooseExercise = e => {
-    const filterCurrentExercise = [this.props.workoutDetails][0].exercises.filter(
-    exercise => exercise.exercise_name === e.target.textContent
+    const filterCurrentExercise = [
+      this.props.workoutDetails
+    ][0].exercises.filter(
+      exercise => exercise.exercise_name === e.target.textContent
     );
 
     this.setState({
-      currentExercise: filterCurrentExercise,
+      currentExercise: filterCurrentExercise
     });
   };
 
   handleChange = e => {
-  this.setState({
-    [e.target.name]: e.target.value,
-  });
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
   finishExercise = () => {
-  if(this.state.currentExercise[1]) {
-    const deleteOneExercise = this.state.currentExercise.filter((exercise, index) => index !== 0 )
-  console.log(this.state.currentExercise)
-    
-    this.setState({
-    currentExercise: deleteOneExercise,  
-    });
-  } 
-  console.log(this.state.currentExercise)
+    if (this.state.currentExercise[1]) {
+      const deleteOneExercise = this.state.currentExercise.filter(
+        (exercise, index) => index !== 0
+      );
+      console.log(this.state.currentExercise);
+
+      this.setState({
+        currentExercise: deleteOneExercise
+      });
+    }
+    console.log(this.state.currentExercise);
   };
 
   render() {
     return (
       <StyledWorkoutSession>
         <div className="top">
-        {this.state.currentExercise ? (
-          <div className="picture-inputs">
-            <div className="exercise-picture">
-            <img src={this.state.currentExercise[0].picture_one} alt="Exercise explanation"/>
-            </div>
-            <div className="inputs">
-              <div className="row">
-              <p>Set</p>
-              <input type="number" value={this.state.set} onChange={this.handleChange} placeholder={this.state.currentExercise.length}  name="set"/> 
+          {this.state.currentExercise ? (
+            <div className="picture-inputs">
+              <div className="exercise-picture">
+                <img
+                  src={this.state.currentExercise[0].picture_one}
+                  alt="Exercise explanation"
+                />
               </div>
-              <div className="row">
-              <p>Reps</p>
-              <input type="number" value={this.state.reps} onChange={this.handleChange} placeholder={this.state.currentExercise[0].reps}  name="reps"/> 
-              </div>
-              {/* <div className="row">
+              <div className="inputs">
+                <div className="row">
+                  <p>Set</p>
+                  <input
+                    type="number"
+                    value={this.state.set}
+                    onChange={this.handleChange}
+                    placeholder={this.state.currentExercise.length}
+                    name="set"
+                  />
+                </div>
+                <div className="row">
+                  <p>Reps</p>
+                  <input
+                    type="number"
+                    value={this.state.reps}
+                    onChange={this.handleChange}
+                    placeholder={this.state.currentExercise[0].reps}
+                    name="reps"
+                  />
+                </div>
+                {/* <div className="row">
               <p>Time</p>
               <input type="number" value={this.state.time} onChange={this.handleChange} placeholder={this.state.currentExercise.length}  name="time"/> 
               </div> */}
-              <div className="row">
-              <p>Weight</p>
-              <input type="number" value={this.state.weight} onChange={this.handleChange} placeholder="How many KG's ?"  name="weight"/> 
+                <div className="row">
+                  <p>Weight</p>
+                  <input
+                    type="number"
+                    value={this.state.weight}
+                    onChange={this.handleChange}
+                    placeholder="How many KG's ?"
+                    name="weight"
+                  />
+                </div>
+                <button onClick={this.finishExercise}>End Exercise</button>
               </div>
-              <button onClick={this.finishExercise}>End Exercise</button>
             </div>
-          </div>
-        ) : null}
-        <Watch />
+          ) : null}
+          <Watch />
         </div>
 
         <p>Choose exercise:</p>
@@ -136,7 +161,6 @@ export default connect(
   mapStateToProps,
   { fetchWorkoutDetails }
 )(WorkoutSession);
-
 
 // description: "Lie back on an incline bench with a dumbbell in each hand atop your thighs. The palms of your hands will be facing each other. Then, using your thighs to help push the dumbbells up, lift the dumbbells one at a time so that you can hold them at shoulder width. Once you have the dumbbells raised to shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. This will be your starting position. Be sure to keep full control of the dumbbells at all times. Then breathe out and push the dumbbells up with your chest. Lock your arms at the top, hold for a second, and then start slowly lowering the weight. Tip Ideally, lowering the weights should take about twice as long as raising them. Repeat the movement for the prescribed amount of repetitions. When you are done, place the dumbbells back on your thighs and then on the floor. This is the safest manner to release the dumbbells."
 // duration: null
