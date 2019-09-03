@@ -22,12 +22,25 @@ section {
     width: 15rem;
     height: 15rem;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 50% ;
     margin:3rem;
     margin-top:-10rem;
-    border: 1rem solid #c7d9eef9;
+    border: .7rem solid #c7d9eef9;
     
 }
+.workout-card{
+    width: 30rem;
+    background-color: #c7d9eef9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    margin-top:10rem;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
 
 .heading {
   text-transform: uppercase;

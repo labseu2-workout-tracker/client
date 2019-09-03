@@ -17,7 +17,7 @@ class Workouts  extends React.Component {
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
       {this.props.workouts ? (this.props.workouts.map(workout =>{
-        return <div className="card"> 
+        return <div className="workout-card"> 
           <img src={workout.image_url} alt="workout" className="workout-img"/>
           <h2>{workout.workout_name}</h2>
           <p>{workout.workout_description}</p>
