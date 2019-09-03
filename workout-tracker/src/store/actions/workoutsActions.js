@@ -25,7 +25,7 @@ export const fetchWorkoutDetails = () => dispatch => {
   
   //the one in the get request will be later changed to from the user choosed
   // workout (workout_id)
-  axiosWithAuth().get(`${workouts}/workouts/1`)
+  axiosWithAuth().get(`${workouts}/1`)
   //Prototype until backend is done 
   // changed backend on my files to get data back
     .then(res => {
