@@ -38,3 +38,7 @@ export const showSingleExercise = (exerciseName) => {
 export const closeSingleExercise = () => {
   return { type: CLOSE_SINGLE_EXERCISE}; 
 };
+
+export const goForward = () => {
+  return { type: GO_FORWARD}; 
+};
