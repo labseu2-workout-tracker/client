@@ -1,4 +1,4 @@
-import { axiosWithAuth } from './axiosWithAuth';
+import { axiosWithAuth } from '../axiosWithAuth';
 import axios from 'axios';
 
 // actions
@@ -23,7 +23,7 @@ export const fetchWorkouts = () => dispatch => {
 export const fetchWorkoutDetails = () => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
   
-  return axios.get(`${workouts}/workouts/1`)
+  return axiosWithAuth.get(`${workouts}/workouts/1`)
   //Prototype until backend is done 
   // changed backend on my files to get data back
     .then(res => {
