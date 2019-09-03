@@ -2,20 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const user = 1; // localstorage userId to pe added
+var bearer = "Bearer " + localStorage.token;
 
 class SessionHistory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      session: []
+      session: {}
     };
   }
 
   componentDidMount() {
-    if (user) {
+    if (localStorage.token) {
       axios
-        .get(`http://localhost:5000/workouthistory/${user}`)
+        .get("http://localhost:5000/workouts/history/", {
+          headers: { Authorization: bearer }
+        })
         .then(res => this.setState({ session: res.data }))
         .catch(err => {
           console.log(err);
@@ -24,25 +26,37 @@ class SessionHistory extends React.Component {
   }
 
   render() {
-    let session = this.state.session;
-    console.log(session);
+    let session = this.state.session.workoutHistory;
+    console.log(session)
     return (
       <div>
         <h1>This is the session history</h1>
         <h2>Here you can check out the work you have done!</h2>
         <List>
-          {session.map(item => (
-            <ol key={item.id}>
+          {session === undefined ? (<p>Data is loading...</p>) : 
 
-              <li>
-                <h4>Session ID: {item.id}</h4>
-                <p><strong>Created:</strong> {item.created_at}</p>
-                <p><strong>Workout Name:</strong> {item.workout_name}</p>
-                <p><strong>Description:</strong> {item.workout_description}</p>
-                <p><strong>Duration: --</strong> </p>
-              </li>
-            </ol>
-          ))}
+          (
+            session.map(item => 
+
+            ( <ol key={item.id}>
+                <li>
+                  <h4>Session ID: {item.id}</h4>
+                  <p>
+                    <strong>Session Start:</strong> {item.session_start}
+                  </p>
+                  <p>
+                    <strong>Workout Name:</strong> {item.workout_id}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {item.workout_description}
+                  </p>
+                  <p>
+                    <strong>Duration: --</strong>{" "}
+                  </p>
+                </li>
+              </ol>
+            ))
+          )}
         </List>
       </div>
     );
@@ -50,7 +64,6 @@ class SessionHistory extends React.Component {
 }
 
 export default SessionHistory;
-
 
 const List = styled.div`
   width: 500px;
