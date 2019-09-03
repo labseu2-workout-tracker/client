@@ -1,22 +1,41 @@
-import React from 'react';
-import Tabs from '../Tabs/Tabs';
-import Calendar from './Tracker/Calendar';
-import ActivityChart from './Tracker/ActivityChart';
+import React from "react";
+import { Route, Switch } from "react-router";
 
-class UserPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
-  render() { 
-    return (
-      <div> 
-        <Tabs/>
-      <Calendar />
-      <ActivityChart/>
+
+//import ProfileImage from "./ProfileImage";
+import UserTracker from './Tracker/UserTracker';
+import MyWorkouts from './MyWorkouts/MyWorkouts';
+import UserHistory from './UserHistory/UserHistory';
+import UserNotifications from './UserNotifications/UserNotifications';
+import Settings from '../Settings/Settings';
+import DashboardNavItem from "./DashboardNavItem";
+import logo from '../../assets/images/beFit-logo2.png'
+import './UserPage.css'
+
+const UserPage = (props) => {
+  return (
+    <div className="dashboard-container">
+    <aside className='dash-sidebar-container'>
+      <div className="nav-items">
+        <DashboardNavItem />
       </div>
-     );
-  }
-}
- 
+      <div className="empty-div" />
+      <div className="grey-logo">
+        <img src={logo} alt="" />
+      </div>
+    </aside>
+    <div>
+      <Switch>
+        <Route path={'/dashboard/myworkouts'} component={MyWorkouts} />
+        <Route path={'/dashboard/tracker'} component={UserTracker} />
+        <Route path={'/dashboard/history'} component={UserHistory} />
+        <Route path={'/dashboard/notifications'} component={UserNotifications} />
+        <Route path={'/dashboard/settings'} component={Settings} />
+      </Switch>
+    </div>
+
+    </div>
+  );
+};
+
 export default UserPage;
