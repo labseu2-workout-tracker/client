@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledAllExercises = styled.div`
-  margin-top: 3rem;
+  margin-top: 1.4rem;
 
   .muscle-buttons {
     display: flex;
@@ -13,7 +13,11 @@ const StyledAllExercises = styled.div`
 
   .button {
     width: 10rem;
+
   }
+    .number {
+      width: 3rem;
+    }
 `;
 
 const AllExercises = props => {
@@ -64,7 +68,7 @@ const AllExercises = props => {
       {props.pageNumbers
         ? props.pageNumbers.map((num, index) => {
             return (
-              <button className="button" key={index} onClick={props.paginate}>
+              <button className="button number" key={index} onClick={props.paginate}>
                 {num}
               </button>
             );
