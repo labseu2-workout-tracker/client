@@ -219,7 +219,7 @@ class App extends Component {
         <Route path={'/Settings'} component={Settings} />
         <Route path={'/Contact'} component={ContactPage} />    
         <Route path={'/About'} component={About} />  
-        <Route path={'/Workouts'} component={WorkoutSession} /> 
+        {/* <Route path={'/Workouts'} component={WorkoutSession} />  */}
         <Redirect to='/Dashboard' />       
       </Switch>
     </div>
