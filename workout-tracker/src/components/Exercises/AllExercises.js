@@ -4,9 +4,9 @@ import styled from "styled-components";
 const StyledAllExercises = styled.div`
   margin-top: 1.4rem;
 
-.buttons-exercises {
-display: flex;
-}
+  .buttons-exercises {
+    display: flex;
+  }
 
   .muscle-buttons {
     display: flex;
@@ -18,14 +18,13 @@ display: flex;
 
   .button {
     width: 10rem;
-
   }
-    .number {
-      width: 3rem;
-    }
-  
+  .number {
+    width: 3rem;
+  }
+
   .exercises {
-    display:flex;
+    display: flex;
     /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: center;
@@ -34,29 +33,32 @@ display: flex;
   }
 
   .exercise {
-  /* width: 10rem; */
-  border: .1rem black solid;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    /* width: 10rem; */
+    border: 0.1rem black solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-  p {
-    width: 30%;
-    padding: 0;
-  }
-  /* height: 14rem; */
+    p {
+      width: 30%;
+      padding: 0;
+    }
+    /* height: 14rem; */
 
-  &:hover {
-    cursor: pointer;
-  }
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   img {
-    width: 30%;
-    height: 5rem;
+    width: 10%;
+    /* height: 5rem; */
   }
-
-
 `;
 
 const AllExercises = props => {
@@ -83,48 +85,51 @@ const AllExercises = props => {
   return (
     <StyledAllExercises className="all-exercise">
       <div className="buttons-exercises">
-              <div className="muscle-buttons">
-        {muscles.map((muscleGroup, index) => (
-          <button
-            className="button"
-            key={index}
-            onClick={props.showMuscleGroup}
-          >
-            {muscleGroup}
-          </button>
-        ))}
+        <div className="muscle-buttons">
+          {muscles.map((muscleGroup, index) => (
+            <button
+              className="button"
+              key={index}
+              onClick={props.showMuscleGroup}
+            >
+              {muscleGroup}
+            </button>
+          ))}
+        </div>
+        <div className="exercises">
+          {props.exercises
+            ? props.exercises.map((exercise, index) => {
+                return (
+                  <div
+                    className="exercise"
+                    onClick={props.showSingleExercise}
+                    key={index}
+                  >
+                    <img src={exercise.picture_one} alt="exercise" />
+                    <img src={exercise.picture_two} alt="exercise" />
+                    <div className="column">
+                      <p>{exercise.exercise_name}</p>
+                      <p>
+                        Muscle Targeted: <span>{exercise.muscle}</span>
+                      </p>
+                      <p>
+                        Equipment Type: <span>{exercise.equipment}</span>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
-      <div className="exercises">
-      {props.exercises
-        ? props.exercises.map((exercise, index) => {
-            return (
-              <div className="exercise"
-              onClick={props.showSingleExercise}
-              key={index}>
-                <img src={exercise.picture_one} alt="exercise"/>
-                <img src={exercise.picture_two} alt="exercise"/>                
-                <div className="column">
-                <p>
-                  {exercise.exercise_name}
-                </p>
-<p>
-Muscle Targeted: <span>{exercise.muscle}</span>
-</p>
-
-<p>
-Equipment Type: <span>{exercise.equipment}</span>
-</p>
-                </div>
-              </div>
-            );
-          })
-        : null}
-        </div>
-        </div>
       {props.pageNumbers
         ? props.pageNumbers.map((num, index) => {
             return (
-              <button className="button number" key={index} onClick={props.paginate}>
+              <button
+                className="button number"
+                key={index}
+                onClick={props.paginate}
+              >
                 {num}
               </button>
             );
