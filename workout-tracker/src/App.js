@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 // import Tabs from './views/Tabs/Tabs';
 import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
-import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
 import UserPage from './views/UserPage/UserPage';
