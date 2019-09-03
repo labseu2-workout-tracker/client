@@ -6,7 +6,9 @@ const initialState = {
   singleExercise: null,
   currentMuscleGroup: null,
   postsPerPage: 5,
-  pageNumbers: null
+  pageNumbers: null,
+  currentButtons: null,
+  buttonsPerPage: 5,
 };
 
 const exercises = (state = initialState, action) => {
