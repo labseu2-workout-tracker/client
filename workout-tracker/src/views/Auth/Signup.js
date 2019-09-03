@@ -4,6 +4,8 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import { required, length, email } from '../../utils/validators';
 import Auth from './Auth';
+import Logo from '../../components/Logo/Logo'
+import './Auth'
 
 class Signup extends Component {
   state = {
@@ -73,6 +75,9 @@ class Signup extends Component {
     return (
       <Auth>
         <form onSubmit={e => this.props.onSignup(e, this.state)}>
+        <div className='login-header'>
+            <Logo />
+          </div>
           <Input
             id="email"
             label="email"
@@ -109,6 +114,11 @@ class Signup extends Component {
           <Button design="raised" type="submit" loading={this.props.loading}>
             Signup
           </Button>
+          <div>
+            <div className='login-footer'>
+              <p>Already a member?</p> <Button design="flat" link='/login'>Login</Button>
+            </div>
+          </div>
         </form>
       </Auth>
     );
