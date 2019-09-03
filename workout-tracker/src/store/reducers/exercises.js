@@ -19,26 +19,26 @@ const exercises = (state = initialState, action) => {
         return exercise;
       });
 
-      const indexOfLastPost = state.postsPerPage;
+      const indexLastPost = state.postsPerPage;
 
-      const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
+      const indexFirstPost = indexLastPost - state.postsPerPage;
 
-      const currentExercises = changeRatingOfExercise.slice(
-        indexOfFirstPost,
-        indexOfLastPost
+      const currentPosts = changeRatingOfExercise.slice(
+        indexFirstPost,
+        indexLastPost
       );
 
-      const totalPosts = searchResultForMuscleGroup.length;
+      const totalExercises = changeRatingOfExercise.length;
 
-      let pageNumbers = [];
+      let ButtonNumber = [];
 
-      for (let i = 1; i <= Math.ceil(totalPosts / state.postsPerPage); i++) {
-        pageNumbers.push(i);
+      for (let i = 1; i <= Math.ceil(totalExercises / state.postsPerPage); i++) {
+        ButtonNumber.push(i);
       }
 
       return {
         ...state,
-        exercises: changeRatingOfExercise,
+        exercises: currentPosts,
         pageNumbers: pageNumbers,
         copyOfExercises: changeRatingOfExercise
       };
