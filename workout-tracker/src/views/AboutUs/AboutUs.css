@@ -66,6 +66,7 @@ section {
 .workout-card p{
     color: #655f69;
     font-size: 1rem;
+    text-align: start;
     font-weight:300;
 }
 
