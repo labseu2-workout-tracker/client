@@ -48,9 +48,6 @@ class SessionHistory extends React.Component {
                     <strong>Workout Name:</strong> {item.workout_id}
                   </p>
                   <p>
-                    <strong>Description:</strong> {item.workout_description}
-                  </p>
-                  <p>
                     <strong>Duration: --</strong>{" "}
                   </p>
                 </li>
@@ -70,21 +67,17 @@ const List = styled.div`
   margin: 0 auto;
   h3 {
     font-size: 1.65rem;
-    margin: 15px 0;
     text-align: center;
   }
   li {
     list-style-type: none;
     position: relative;
     font-size: 1.5rem;
-    padding: 15px;
-    margin-bottom: 15px;
     color: black;
     border: 1px solid gray;
   }
   h4 {
     position: relative;
-    padding-bottom: 10px;
   }
   h4:after {
     content: "";
@@ -97,7 +90,6 @@ const List = styled.div`
   }
   p {
     font-size: 0.9rem;
-    line-height: 1.4rem;
-    margin-top: 15px;
+    padding:10px;
   }
 `;
