@@ -122,8 +122,8 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
-      {props.pageNumbers
-        ? props.pageNumbers.map((num, index) => {
+      {props.currentButtons
+        ? props.currentButtons.map((num, index) => {
             return (
               <button
                 className="button number"
