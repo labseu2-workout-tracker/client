@@ -167,7 +167,6 @@ class App extends Component {
         <Route path={'/Workout'} component={WorkoutSession} /> 
          <Route
           path="/login"
-          exact
           render={props => (
             <LoginPage
               {...props}
@@ -178,7 +177,6 @@ class App extends Component {
         />
         <Route
           path="/signup"
-          exact
           render={props => (
             <SignupPage
               {...props}
@@ -193,14 +191,16 @@ class App extends Component {
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-      <Header />
-        <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Home'} component={UserPage} />
-        <Route path={'/Contact'} component={ContactPage} />    
-        <Route path={'/Workout'} component={WorkoutSession} /> 
-        <Route path={'/About'} component={About} />           
-    </div>
+          <Switch>
+            <Route path={'/Dashboard'} component={UserPage} />
+            <Route path={'/Exercises'} component={ExercisesLibrary} />
+            <Route path={'/Settings'} component={Settings} />
+            <Route path={'/Contact'} component={ContactPage} />    
+            <Route path={'/Workout'} component={WorkoutSession} /> 
+            <Route path={'/About'} component={About} />  
+            {/* <Redirect to='/Dashboard' />        */}
+          </Switch>
+        </div>
       )
     }
     return (
