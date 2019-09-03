@@ -4,28 +4,149 @@ import {
   fetchSettings,
   updateSettings
 } from "../../store/actions/settingActions";
-import "./settings.css";
+import styled from "styled-components";
+
+const StyledSettings = styled.div`
+  .user-data {
+    margin: 2rem 2rem 0 2rem;
+    padding: 1.5rem 0;
+    background-color: #6bbdfa;
+    text-align: center;
+  }
+
+  .info {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0 auto 0;
+    width: 80%;
+    padding: 10px;
+    color: #fff;
+    background: rgba(45, 230, 220, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+
+  .info li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    margin: 5px 0;
+    padding: 10px 20px;
+    transition: 0.5s;
+
+    @media (max-width: 700px) {
+      flex-direction: column; 
+      height: 8rem;   
+    }
+  }
+
+  .info li:nth-child(1) {
+    background: rgba(239, 240, 243, 0.1);
+  }
+
+  .info li:nth-child(2) {
+    background: rgba(239, 240, 243, 0.2);
+  }
+
+  .info li:nth-child(3) {
+    background: rgba(239, 240, 243, 0.3);
+  }
+
+  .info li:nth-child(4) {
+    background: rgba(239, 240, 243, 0.4);
+  }
+
+  .info li:nth-child(5) {
+    background: rgba(239, 240, 243, 0.5);
+  }
+
+  .info li:nth-child(6) {
+    background: rgba(239, 240, 243, 0.6);
+  }
+
+  .info li:nth-child(7) {
+    background: rgba(239, 240, 243, 0.7);
+  }
+
+  .info li:nth-child(8) {
+    background: rgba(239, 240, 243, 0.8);
+  }
+
+  .info li:nth-child(9) {
+    background: rgba(239, 240, 243, 0.9);
+  }
+
+  .info li span:nth-child(1) {
+    width: 300px;
+  }
+
+  .info li span:nth-child(2) {
+    width: 200px;
+  }
+
+  .info li span:nth-child(3) {
+    width: 170px;
+    text-align: center;
+  }
+
+  .info li:hover {
+    transform: scale(1.2);
+    background: #6bbdfa;
+  }
+
+  .update-button {
+    border-color: transparent;
+    width: 7rem;
+    height: 1.8rem;
+    font-size: 0.7rem;
+    line-height: 1.6rem;
+    border-radius: 4px;
+    border: 1px solid #f0f4f6;
+    color: #212432;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    text-align: center;
+    background: linear-gradient(46deg, #2eb7ce, #4296cb);
+  }
+
+  .update-input {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 25px;
+
+    @media (max-width: 350px) {
+      width: 80%;
+    }
+  }
+
+  .text,
+  .data,
+  .icon {
+    width: 15%;
+  }
+`;
 
 class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       wantUpdate: false,
-      email: this.props.settings ? this.props.settings[0].email : null,
-      username: this.props.settings ? this.props.settings[0].username : null,
-      password: this.props.settings ? this.props.settings[0].password : null,
-      weight: this.props.settings ? this.props.settings[0].weight : null,
-      height: this.props.settings ? this.props.settings[0].height : null,
-      gender: this.props.settings ? this.props.settings[0].gender : null,
-      user_level: this.props.settings
-        ? this.props.settings[0].user_level
-        : null,
+      email: this.props.settings ? this.props.settings[0].email : "",
+      username: this.props.settings ? this.props.settings[0].username : "",
+      password: this.props.settings ? this.props.settings[0].password : "",
+      weight: this.props.settings ? this.props.settings[0].weight : "",
+      height: this.props.settings ? this.props.settings[0].height : "",
+      gender: this.props.settings ? this.props.settings[0].gender : "",
+      user_level: this.props.settings ? this.props.settings[0].user_level : "",
       email_notification: this.props.settings
         ? this.props.settings[0].email_notification
-        : null,
+        : "",
       push_notification: this.props.settings
         ? this.props.settings[0].push_notification
-        : null
+        : ""
     };
   }
 
@@ -37,6 +158,7 @@ class Settings extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    console.log(this.state.gender, this.state.user_level)
   };
 
   startUpdate = () => {
@@ -50,12 +172,13 @@ class Settings extends React.Component {
       email: this.state.email,
       username: this.state.username,
       password: this.state.password,
-      weight: this.state.weight,
-      height: this.state.height,
-      gender: this.state.gender,
-      user_level: this.state.user_level,
-      email_notification: this.state.email_notification,
-      push_notification: this.state.push_notification
+      weight: Number(this.state.weight),
+      height: Number(this.state.height),
+      gender: this.state.gender ? this.state.gender : "Male",
+      user_level: this.state.user_level ? this.state.user_level : "Beginner",
+      email_notification:
+        this.state.email_notification === "true" ? true : false,
+      push_notification: this.state.push_notification === "true" ? true : false
     };
 
     this.props.updateSettings(updatedSettings);
@@ -68,7 +191,7 @@ class Settings extends React.Component {
   render() {
     if (this.state.wantUpdate) {
       return (
-        <div>
+        <StyledSettings>
           {this.props.settings
             ? this.props.settings.map((setting, index) => {
                 return (
@@ -118,7 +241,7 @@ class Settings extends React.Component {
                             />
                           </span>
                           <span className="icon">
-                          <i className="fa fa-key"></i>
+                            <i className="fa fa-key"></i>
                           </span>
                         </li>
                         <li>
@@ -151,16 +274,20 @@ class Settings extends React.Component {
                             <i className="fa fa-arrow-circle-up"></i>
                           </span>
                         </li>
+
                         <li>
                           <span className="text">Level:</span>
                           <span className="data">
-                            <input
+                            <select
                               className="update-input"
                               value={this.state.user_level}
                               onChange={this.handleChange}
-                              placeholder={setting.user_level}
                               name="user_level"
-                            />
+                            >
+                              <option value="Beginner">Beginner</option>
+                              <option value="Intermediate">Intermediate</option>
+                              <option value="Expert">Expert</option>
+                            </select>
                           </span>
                           <span className="icon">
                             <i className="fa fa-graduation-cap"></i>
@@ -175,16 +302,15 @@ class Settings extends React.Component {
                               value={this.state.gender}
                               onChange={this.handleChange}
                             >
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                              <option value="other">Other</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Other">Other</option>
                             </select>
                           </span>
                           <span className="icon">
                             <i className="fa fa-venus-mars"></i>
                           </span>
                         </li>
-
 
                         <li>
                           <span className="text">Email Notification:</span>
@@ -200,10 +326,9 @@ class Settings extends React.Component {
                             </select>
                           </span>
                           <span className="icon">
-                          <i className="fa fa-envelope"></i>
+                            <i className="fa fa-envelope"></i>
                           </span>
                         </li>
-
                         <li>
                           <span className="text">Push Notification:</span>
                           <span className="data">
@@ -218,11 +343,9 @@ class Settings extends React.Component {
                             </select>
                           </span>
                           <span className="icon">
-                          <i className="fa fa-bell"></i>
+                            <i className="fa fa-bell"></i>
                           </span>
                         </li>
-
-
                       </ul>
                     </div>
                   </div>
@@ -232,13 +355,13 @@ class Settings extends React.Component {
           <button className="update-button" onClick={this.changeSettings}>
             Change
           </button>
-        </div>
+        </StyledSettings>
       );
     }
     return this.props.settings
       ? this.props.settings.map((setting, index) => {
           return (
-            <div key={index}>
+            <StyledSettings key={index}>
               <div className="user-data">
                 <ul className="info">
                   <li>
@@ -332,7 +455,7 @@ class Settings extends React.Component {
               <button className="update-button" onClick={this.startUpdate}>
                 Update
               </button>
-            </div>
+            </StyledSettings>
           );
         })
       : null;
@@ -349,38 +472,3 @@ export default connect(
   mapStateToProps,
   { fetchSettings, updateSettings }
 )(Settings);
-
-// <div className="">
-// <div className="row-start">
-//   <p>Email:</p>
-//   <p>{setting.email ? setting.email : "Not specified"}</p>
-// </div>
-// <div className="row-start">
-//   <p>Username:</p>
-//   <p>{setting.username ? setting.username : "Not specified"}</p>
-// </div>
-// <div className="row-start">
-//   <p>Weight:</p>
-//   <p>{setting.weight === 0 ? "Not specified" : setting.weight}</p>
-// </div>
-// <div className="row-start">
-//   <p>Height:</p>
-//   <p>{setting.height === 0 ? "Not specified" : setting.weight}</p>
-// </div>
-// <div className="row-start">
-//   <p>Gender:</p>
-//   <p>{setting.gender ? setting.gender : "Not specified"}</p>
-// </div>
-// <div className="row-start">
-//   <p>Level:</p>
-//   <p>{setting.user_level ? setting.user_level : "Not specified"}</p>
-// </div>
-// </div>
-// <div className="row-start">
-//   <p>Email Notification:</p>
-//   <p>{setting.email_notification.toString()}</p>
-// </div>
-// <div className="row-start">
-//   <p>Push Notification:</p>
-//   <p>{setting.push_notification.toString()}</p>
-// </div>
