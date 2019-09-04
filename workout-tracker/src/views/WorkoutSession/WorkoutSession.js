@@ -37,12 +37,6 @@ class WorkoutSession extends React.Component {
     };
   }
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   finishExercise = () => {
     if (this.props.currentExercise[1]) {
       const deleteOneExercise = this.props.currentExercise.filter(
@@ -71,38 +65,13 @@ class WorkoutSession extends React.Component {
               </div>
               <div className="inputs">
                 <div className="row">
-                  <p>Set</p>
-                  <input
-                    type="number"
-                    value={this.props.set}
-                    onChange={this.handleChange}
-                    placeholder={this.props.currentExercise.length}
-                    name="set"
-                  />
+                  <p>Sets to complete</p>
                 </div>
                 <div className="row">
                   <p>Reps</p>
-                  <input
-                    type="number"
-                    value={this.props.reps}
-                    onChange={this.handleChange}
-                    placeholder={this.props.currentExercise[0].reps}
-                    name="reps"
-                  />
                 </div>
-                {/* <div className="row">
-              <p>Time</p>
-              <input type="number" value={this.props.time} onChange={this.handleChange} placeholder={this.props.currentExercise.length}  name="time"/> 
-              </div> */}
                 <div className="row">
                   <p>Weight</p>
-                  <input
-                    type="number"
-                    value={this.props.weight}
-                    onChange={this.handleChange}
-                    placeholder="How many KG's ?"
-                    name="weight"
-                  />
                 </div>
                 <button onClick={this.finishExercise}>End Exercise</button>
               </div>
