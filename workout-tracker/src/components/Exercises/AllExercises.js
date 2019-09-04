@@ -121,7 +121,8 @@ const AllExercises = props => {
               })
             : null}
         </div>
-        <button className="button">Load More</button>
+        <button
+        onClick={props.loadMore} className="button">Load More</button>
       </div>
   
     </StyledAllExercises>
