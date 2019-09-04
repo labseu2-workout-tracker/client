@@ -6,7 +6,7 @@ import UserPage from './views/UserPage/UserPage';
 import About from './views/AboutUs/AboutUs'
 import LandingPage from './views/LandingPage/LandingPage';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
-
+import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import SignupPage from './views/Auth/Signup';
 import LoginPage from './views/Auth/Login';
 import MainNavBar from './components/MainNavBar/MainNavBar';
