@@ -91,7 +91,12 @@ const exercises = (state = initialState, action) => {
       return { ...state, exercises: filterSearchedExercise };
 
     case type.SHOW_EQUIPMENT:
-     
+        let searchForEquipment = state.currentMuscleGroup.filter(
+          exercise =>
+            exercise.equipment === action.equipment
+        );
+  
+       
     default:
       return state;
   }
