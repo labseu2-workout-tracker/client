@@ -89,7 +89,7 @@ const exercises = (state = initialState, action) => {
           const filterSearchedExercise = state.copyOfExercises.filter(exercise =>
             exercise.exercise_name.toLowerCase().startsWith(action.exercise.toLowerCase()));
          
-        
+            return { ...state, exercises: filterSearchedExercise};
 
     default:
       return state;
