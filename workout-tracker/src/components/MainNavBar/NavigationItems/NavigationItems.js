@@ -8,8 +8,8 @@ const navItems = [
   { id: 'exercise', text: 'Exercises', link: '/exercises', auth: true },
   // { id: 'workout', text: 'Workout', link: '/Workout', auth: true },
   { id: 'dashboard', text: 'Dashboard', link: '/dashboard', auth: true },
-  { id: 'contact', text: 'Contact', link: '/contact', auth: true },
-  { id: 'about', text: 'About', link: '/about', auth: true },
+  { id: 'contact', text: 'Contact', link: '/contact', auth: false },
+  { id: 'about', text: 'About', link: '/about', auth: false },
   { id: 'login', text: 'Login', link: '/login', auth: false },
   { id: 'signup', text: 'Signup', link: '/signup', auth: false },
 ];

@@ -17,7 +17,7 @@ const About = () => {
     <>
       <section >
         <div className="container">
-          <h1>Meet The Team</h1>
+        <h1 className="team">Meet The Team</h1>
           <div className="card-wrapper">
             <div className="card">
               <img src={gym} alt="card background" className="card-img" />
@@ -32,17 +32,17 @@ const About = () => {
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -60,17 +60,17 @@ const About = () => {
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -84,21 +84,21 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -116,19 +116,19 @@ const About = () => {
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
-              </ul>
+              </ul>             
             </div>
             {/* card 5 benjamin */}
             <div className="card">
@@ -140,21 +140,21 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -168,21 +168,21 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -196,21 +196,21 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -224,25 +224,22 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
-                </li> 
-                <li>
-                  <a href="http"><i className="fab fa-instagram-square"></i></a>
-                </li>              
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                </li>               
               </ul>
             </div>
             {/* card 8  Sean*/}
@@ -255,21 +252,21 @@ const About = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <a href="htt" className="btn">
+              <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-facebook-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-twitter-square"></i></a>
                 </li>
-                <li>
+                <li className="social-media">
                   <a href="http"><i className="fab fa-github-square"></i></a>
                 </li>
-                <li>
-                  <a href="http"><i className="fab fa-linkedin-square"></i></a>
+                <li className="social-media">
+                  <a href="http"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 #h1 {
   font-size: 6em;
   color: #0086c9;
@@ -7,10 +8,13 @@
 
 h1 span {
   color: #5c0d91;
+  font-family: 'Viga', sans-serif;
 }
 
 #p {
   color: #0086c9;
+  align-content: center;
+  text-align: center;
 }
 
 .bottom {
@@ -43,6 +47,7 @@ h1 span {
 
 }
 .land {
+  font-family: 'Viga', sans-serif;
   width: 35rem;
   height: 40rem;
   display: flex;
@@ -54,13 +59,14 @@ h1 span {
 }
 
 .land h1 {
+  font-family: 'Viga', sans-serif;
   font-size: 2.5rem;
   color: #333;
   margin: 0.5rem;
 }
 
 .land .btn {
-  margin-left: 8rem;
+  margin: 2rem;
   padding: 0.6rem 2.5rem;
   background-color: #6bbdfa;
   align-items: center;
