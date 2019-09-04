@@ -40,6 +40,7 @@ const exercises = (state = initialState, action) => {
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
+      const indexOfFirstExercise = 1;
       const indexOfLastExercise = state.exercisesPerPage;
      
       const currentExercises = searchResultForMuscleGroup.slice(
