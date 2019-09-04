@@ -169,7 +169,7 @@ const exercises = (state = initialState, action) => {
           while(endNumber % 5 !== 0) {
             endNumber--;
           }
-         
+          startNumber = endNumber - 5;
         } else {
       startNumber = state.startButton - 5;
   
