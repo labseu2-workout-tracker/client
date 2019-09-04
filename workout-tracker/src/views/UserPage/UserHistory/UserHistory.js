@@ -38,12 +38,9 @@ class SessionHistory extends React.Component {
   render() {
     let session = this.state.session.workoutHistory;
     let workouts = this.state.workouts;
-
     console.log(session);
-
     return (
       <div>
-        <h1>This is the session history</h1>
         <h2>Here you can check out the work you have done!</h2>
         <List>
           {session === undefined ? (
@@ -82,12 +79,13 @@ class SessionHistory extends React.Component {
               return (
                 <ol key={session.id}>
                   <li>
-                    <h4>Session ID: {session.id}</h4>
+                    <h4>Session Number : {session.id}</h4>
                     <p>
-                      <strong>Session Start:</strong> {session.session_start}
+                      <strong>Session Start : </strong>
+                      {session.session_start.slice(0, 10)}
                     </p>
                     <p>
-                      <strong>Workout Name:</strong>
+                      <strong>Workout Name : </strong>
                       {workouts === undefined
                         ? console.log("Wait")
                         : workouts.map(item => {
@@ -96,7 +94,10 @@ class SessionHistory extends React.Component {
                             }
                           })}
                     </p>
-                    <p>Duration : {diff(startingPoint, endPoint)} minutes.</p>
+                    <p>
+                      <strong>Duration : </strong>
+                      {diff(startingPoint, endPoint)} minutes.
+                    </p>
                   </li>
                 </ol>
               );
