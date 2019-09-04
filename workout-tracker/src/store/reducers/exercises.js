@@ -58,7 +58,8 @@ const exercises = (state = initialState, action) => {
           let searchMuscleGroup = state.copyOfExercises.filter(
             exercise => exercise.muscle === state.currentMuscleGroup
           );
-
+          const indexOfTheFirstExercise = 1;
+          
          
 
     case type.SHOW_SINGLE_EXERCISE:
