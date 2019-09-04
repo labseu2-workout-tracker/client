@@ -32,3 +32,7 @@ export const showSingleExercise = (exerciseName) => {
 export const closeSingleExercise = () => {
   return { type: CLOSE_SINGLE_EXERCISE}; 
 };
+
+export const loadMore = () => {
+  return { type: LOAD_MORE}; 
+};
