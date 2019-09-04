@@ -84,6 +84,8 @@ const AllExercises = props => {
 
   return (
     <StyledAllExercises className="all-exercise">
+       <input value={this.props.searchForName} onChange={props.handleChange} placeholder="Search" />
+
       <div className="buttons-exercises">
         <div className="muscle-buttons">
           {muscles.map((muscleGroup, index) => (
