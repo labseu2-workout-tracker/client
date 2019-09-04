@@ -85,6 +85,9 @@ const exercises = (state = initialState, action) => {
     case type.CLOSE_SINGLE_EXERCISE:
       return { ...state, singleExercise: null };
 
+      case types.SEARCH_EXERCISE:
+         
+
     default:
       return state;
   }

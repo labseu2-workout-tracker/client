@@ -40,4 +40,4 @@ export const loadMore = () => {
 
 export const searchExercise = (exercise) => {
   return { type: SEARCH_EXERCISE, exercise: exercise };   
-}
+};
