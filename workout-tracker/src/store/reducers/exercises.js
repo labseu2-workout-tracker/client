@@ -44,8 +44,8 @@ const exercises = (state = initialState, action) => {
       const indexOfLastExercise = state.exercisesPerPage;
      
       const currentExercises = searchResultForMuscleGroup.slice(
-        indexOfFirstPost,
-        indexOfLastPost
+        indexOfFirstExercise,
+        indexOfLastExercise
       );
      
       return {
