@@ -139,7 +139,7 @@ const exercises = (state = initialState, action) => {
 
           let endButton = state.endButton;
           
-          // let numberButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+          // let state.pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
           
           let currentNumbers = [];
           
@@ -147,6 +147,10 @@ const exercises = (state = initialState, action) => {
           
           endButton += 5;
           
+          if(endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
+            endButton = state.pageNumbers[state.pageNumbers.length - 1];
+            } 
+           
     
             return { ...state, currentButtons: actualButtons };
 
