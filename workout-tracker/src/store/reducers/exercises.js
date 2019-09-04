@@ -84,7 +84,7 @@ const exercises = (state = initialState, action) => {
     case type.CLOSE_SINGLE_EXERCISE:
       return { ...state, singleExercise: null };
 
-    case types.SEARCH_EXERCISE:
+    case type.SEARCH_EXERCISE:
       const filterSearchedExercise = state.copyOfExercises.filter(exercise =>
         exercise.exercise_name
           .toLowerCase()
