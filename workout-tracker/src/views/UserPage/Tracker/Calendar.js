@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // If we want to style calendar ourself import from 'react-calendar/dist/entry.nostyle'
 
 const Div = styled.div`
-  width: 40%;
-  border: 1px solid red;
+  width: 50%;
 `;
 
 class Calendar extends React.Component {
