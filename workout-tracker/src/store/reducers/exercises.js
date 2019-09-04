@@ -59,7 +59,9 @@ const exercises = (state = initialState, action) => {
             exercise => exercise.muscle === state.currentMuscleGroup
           );
           const indexOfTheFirstExercise = 1;
-          
+          const indexOfTheLastExercise = state.exercisesPerPage + state.exercisesPerPage;
+         
+      
          
 
     case type.SHOW_SINGLE_EXERCISE:
