@@ -30,8 +30,6 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: currentPosts,
-        pageNumbers: ButtonNumber,
-        currentButtons: currentButtons,
         copyOfExercises: changeRatingOfExercise,
         currentMuscleGroup: "Chest"
       };
