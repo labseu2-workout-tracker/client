@@ -100,15 +100,19 @@ const AllExercises = props => {
 
   return (
     <div className="all-exercise">
-      <input
-      className="search"
+
+     <div className="search">
+     <input
         type="text"
         value={props.searchName}
         onChange={props.handleChange}
-        placeholder="Search"
+        placeholder="Search" >
+        </input>
+        <i class="fas fa-search" onClick={props.searchForName}></i>
 
-      />
-      <i class="fas fa-search" onClick={props.searchForName}></i>
+     </div>
+
+    
 
       <div className="buttons-exercises">
         <div className="muscle-buttons">
