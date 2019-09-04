@@ -15,6 +15,9 @@ section {
   padding: 10 rem 0;
   background-color: #ffffff;
 }
+.container{
+  align-content: center;
+}
 /* Workout img styling */
 .workout-img {
   width: 15rem;
@@ -71,6 +74,7 @@ section {
   color: #6bbdfa;
   margin: 1.5rem;
   align-content: center; 
+  font-family: 'Viga', sans-serif;
 }
 /* card workouts */
 
@@ -107,7 +111,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 2rem;
   border-radius: 0 0 2rem 2rem;
   box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
@@ -131,26 +135,36 @@ section {
 .card h1 {
   font-size: 2.5rem;
   color: #6bbdfa;
+  margin: .9rem;
+  font-family: 'Viga', sans-serif;
+}
+.team {
+  font-size: 3.5rem;
+  color: #6bbdfa;
+  text-align:center;
   margin: 1.5rem;
+  font-family: 'Viga', sans-serif;
 }
 .job-title {
   color: #655f69;
+  font-family: 'Viga', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
 }
 .about {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 1.5rem 0;
   text-align: center;
   color: #ffffff;
+  font-weight: 250;
 }
 .card .btn {
   padding: 0.8rem 2.5rem;
   background-color: #6bbdfa;
   border-radius: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   text-transform: capitalize;
-  color: #eee;
+  color: #ffffff;
   font-size: 1.4rem;
   transition: all 0.7s;
 }
@@ -162,36 +176,39 @@ section {
   transform: translateY(0);
   box-shadow: none;
 }
+
 .social-media {
   width: 100%;
+  align-content: center;
   list-style: none;
   display: flex;
   padding: 2rem;
-  align-items: baseline;
-  margin-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
 }
+
 .social-media i {
   font-size: 3rem;
   transition: color 0.5s;
+  align-content: space-between;
 }
-.fa-linkedin-square {
-  color: #0b2a74;
+
+.fa-linkedin {
+  color: #0e76a8;
 }
 .fa-twitter-square {
   color: #0ea7e9;
 }
 .fa-facebook-square {
-  color: #3b5999;
+  color: #3b5998;
 }
 .fa-github-square {
   color: #333;
 }
 .fa-twitter-square:hover,
-.fa-github-square:hover,
-.fa-linkedin-square:hover,
+.fa-facebook-square:hover,
+.fa-linkedin:hover,
 .fa-github-square:hover {
-  color: #91b8ca;
+  color: #980cc6;
 }
 @media screen and (min-width: 300px) {
   .card-wrapper {
@@ -204,24 +221,4 @@ section {
     margin: 2rem;
     transition: transfom 0.5s;
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-        .card:nth-child(1){
-            animation: fadeIn .3s .0s backwards;
-        }
-        .card:nth-child(2){
-            animation: fadeIn .3s .1s backwards;
-        }
-        .card:nth-child(3){
-            animation: fadeIn .3s 1.5s backwards;
-        }
-        .card:nth-child(4){
-            animation: fadeIn .3s 2s backwards;
-        }          
-    }
 }

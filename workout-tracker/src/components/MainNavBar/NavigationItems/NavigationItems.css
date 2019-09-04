@@ -7,9 +7,14 @@
   color: white;
 }
 
+.navigation-item {
+  width: 30%;
+}
+
 .navigation-item.mobile {
   font-size: 1.75rem;
   margin: 0.5rem 0;
+  width: 30%;
 }
 
 .navigation-item.mobile a {
@@ -38,4 +43,16 @@
 .navigation-item button:hover,
 .navigation-item button:active {
   color: #fab83f;
+}
+
+.mobile-nav.open .navigation-item button {
+  color: red;
+  font-size: 26.25px;
+  margin-top: 7.5px;
+  width: 30%;
+  text-align: left;
+}
+
+.mobile-nav.open {
+  width: 30%;
 }
