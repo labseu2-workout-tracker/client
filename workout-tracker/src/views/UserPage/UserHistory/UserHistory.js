@@ -38,7 +38,6 @@ class SessionHistory extends React.Component {
   render() {
     let session = this.state.session.workoutHistory;
     let workouts = this.state.workouts;
-    console.log(session);
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
