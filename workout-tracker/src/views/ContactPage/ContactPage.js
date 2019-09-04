@@ -1,5 +1,4 @@
 import React from "react";
-
 import { connect } from "react-redux";
 import './ContactPage.css'
 // import { fetchSettings } from "../../store/actions/settingActions.js"
@@ -81,8 +80,8 @@ class ContactPage extends React.Component {
     <ul className="contact-list">
       <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">BeFit | EU</span></i></li>
       
-      <li className="list-item"><i className="fa fa-user fa-2x"><span className="contact-text phone"><a href="htt">Help Desk</a></span></i></li>
-      <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+      <li className="list-item"><i className="fa fa-info-circle fa-2x"><span className="contact-text phone"><a href="htt">Help Desk</a></span></i></li>
+      <li className="list-item"><i className="fa fa-fax fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
       <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
       
       <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:info@befit.com" title="Send me an email">info@befit.com</a></span></i></li>
@@ -106,7 +105,7 @@ class ContactPage extends React.Component {
     </ul>
     <hr />
 
-    <div className="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+    <div className="copyright">&copy;{new Date().getFullYear()} ALL OF THE RIGHTS RESERVED</div>
 
   </div>
          
