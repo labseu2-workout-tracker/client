@@ -19,6 +19,8 @@
 .dashboard-component {
   margin: auto;
   padding: 24px 0px;
+  overflow-y: auto;
+  height: 94%;
   flex: 7;
 }
 .nav-items {
