@@ -166,6 +166,9 @@ const exercises = (state = initialState, action) => {
         let endNumber = state.endButton;
         let startNumber = state.startButton;
         if(endNumber === state.pageNumbers[state.pageNumbers.length - 1]) {
+          while(endNumber % 5 !== 0) {
+            endNumber--;
+          }
          
         } else {
       startNumber = state.startButton - 5;
