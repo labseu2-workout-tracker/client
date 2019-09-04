@@ -101,8 +101,8 @@ const AllExercises = props => {
             ? props.exercises.map((exercise, index) => {
                 return (
                   <div
+                  onClick={() => props.showSingleExercise(exercise.id)}
                     className="exercise"
-                    onClick={props.showSingleExercise}
                     key={index}
                   >
                     <img src={exercise.picture_one} alt="exercise" />
