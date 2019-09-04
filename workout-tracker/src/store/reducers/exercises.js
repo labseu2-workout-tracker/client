@@ -5,6 +5,7 @@ const initialState = {
   copyOfExercises: null,
   singleExercise: null,
   arrayOfCurrentExercises: null,
+  currentMuscleGroup: null,
   indexOfLastExercise: 5,
   indexFirstExercise: 0
 };
@@ -33,7 +34,8 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
-        currentMuscleGroup: filterOnlyGroupChest
+        arrayOfCurrentExercises: filterOnlyGroupChest,
+        currentMuscleGroup: "Chest"
       };
 
     case type.SHOW_MUSCLE_GROUP:
@@ -50,18 +52,18 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: theCurrentExercises,
-        currentMuscleGroup: searchResultForMuscleGroup,
+        arrayOfCurrentExercises: searchResultForMuscleGroup,
         indexOfLastExercise: indexOfLastExercise
       };
 
     case type.LOAD_MORE:
       let indexOfTheLastExercise = state.indexOfLastExercise + 5;
 
-      if (indexOfTheLastExercise > state.currentMuscleGroup.length) {
-        indexOfTheLastExercise = state.currentMuscleGroup.length;
+      if (indexOfTheLastExercise > state.arrayOfCurrentExercises.length) {
+        indexOfTheLastExercise = state.arrayOfCurrentExercises.length;
       }
 
-      const actualExercises = state.currentMuscleGroup.slice(
+      const actualExercises = state.arrayOfCurrentExercises.slice(
         state.indexFirstExercise,
         indexOfTheLastExercise
       );
@@ -73,7 +75,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.SHOW_SINGLE_EXERCISE:
-      const filterExercise = state.currentMuscleGroup.filter(
+      const filterExercise = state.arrayOfCurrentExercises.filter(
         exercise => exercise.id === action.exercise_id
       );
       return { ...state, singleExercise: filterExercise };
@@ -91,7 +93,7 @@ const exercises = (state = initialState, action) => {
       return { ...state, exercises: filterSearchedExercise };
 
     case type.SHOW_EQUIPMENT:
-      let searchForEquipment = state.currentMuscleGroup.filter(
+      let searchForEquipment = state.arrayOfCurrentExercises.filter(
         exercise => exercise.equipment === action.equipment
       );
       const theIndexLastExercise = 5;
@@ -102,7 +104,7 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: theActualExercises,
-        currentMuscleGroup: searchForEquipment,
+        arrayOfCurrentExercises: searchForEquipment,
         indexOfLastExercise: theIndexLastExercise
       };
 
