@@ -38,7 +38,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  aside {
+  .dash-sidebar-container {
     display: none;
   }
 }
