@@ -79,10 +79,8 @@ class WorkoutSession extends React.Component {
 <div className="exercise-text-and-names">
 
 {this.props.currentExercise ? (
-            <div className="picture-text">
-              <div className="exercise-picture">
+              <div className="description">
                 <p>{this.props.currentExercise[0].description}</p>                
-              </div>
             </div>
           ) : (
             <p>No choosed exercise</p>
@@ -120,6 +118,17 @@ class WorkoutSession extends React.Component {
           </div>
         ) : <button onClick={() => this.props.endWorkout(this.props.workoutId)}>Finish Workout</button>}
 </div>
+
+{this.props.currentExercise ? (
+    <div className="video">
+      <video width="320" height="240" controls>
+        <source src={this.props.currentExercise[0].video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>               
+  </div>
+) : (
+  <p>No choosed exercise</p>
+)}
       </StyledWorkoutSession>
     );
   }
