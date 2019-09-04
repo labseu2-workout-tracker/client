@@ -15,11 +15,11 @@ const StyledWorkoutSession = styled.div`
     width: 50%;
   };
 
-  .inputs {
+  .text {
     width: 50%;
   }
 
-  .picture-inputs {
+  .picture-text {
     display: flex;
     width: 66%;
   }
@@ -56,14 +56,14 @@ class WorkoutSession extends React.Component {
       <StyledWorkoutSession>
         <div className="top">
           {this.props.currentExercise ? (
-            <div className="picture-inputs">
+            <div className="picture-text">
               <div className="exercise-picture">
                 <img
                   src={this.props.currentExercise[0].picture_one}
                   alt="Exercise explanation"
                 />
               </div>
-              <div className="inputs">
+              <div className="text">
                 <div className="row">
                   <p>Sets to complete:</p>
                   <p>{this.props.currentExercise.length}</p>
