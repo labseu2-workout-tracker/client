@@ -3,7 +3,7 @@ import * as type from "../actions/workoutsActions";
 const initialState = {
   workouts: null,
   workoutDetails: null,
-  currentExercise: null,
+  currentExercise: null
 };
 
 //  default state
@@ -16,16 +16,16 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.FETCH_WORKOUT_DETAILS:
-    return {
+      return {
         ...state,
         workoutDetails: action.workoutDetails
       };
 
-      case type.CHOOSE_EXERCISE:
-          return {
-              ...state,
-              currentExercise:
-            };
+    case type.CHOOSE_EXERCISE:
+      const filterCurrentExercise = state.workoutDetails.exercises.filter(
+        exercise => exercise.exercise_name === action.currentExercise
+      );
+
     default:
       return state;
   }
