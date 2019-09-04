@@ -25,6 +25,10 @@ const workouts = (state = initialState, action) => {
       const filterCurrentExercise = state.workoutDetails.exercises.filter(
         exercise => exercise.exercise_name === action.currentExercise
       );
+      return {
+        ...state,
+        currentExercise: filterCurrentExercise
+      };
 
     default:
       return state;
