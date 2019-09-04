@@ -25,7 +25,7 @@ class Workouts  extends React.Component {
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
           <Link onClick={this.startWorkout} to="#" className="btn">
-                Add Workout
+                Start Workout
               </Link>
         </div> 
       })) : null}
