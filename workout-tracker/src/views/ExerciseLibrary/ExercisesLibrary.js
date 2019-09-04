@@ -55,6 +55,7 @@ class ExerciseLibrary extends React.Component {
         searchName={this.state.searchName}
         handleChange={this.handleChange}
         searchForName={this.searchForName}
+        showEquipment={e => this.props.showEquipment(e.target.textContent)}
       />
     );
   }
