@@ -31,7 +31,7 @@ const exercises = (state = initialState, action) => {
      
       return {
         ...state,
-        exercises: currentPosts,
+        exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
         currentMuscleGroup: "Chest"
       };
