@@ -2,7 +2,7 @@ import * as type from "../actions/workoutsActions";
 
 const initialState = {
   workouts: null,
-  workoutDetails: null,
+  workoutId: null,
   allExercises: null,
   currentExercise: null,
 };
@@ -27,7 +27,7 @@ const workouts = (state = initialState, action) => {
     return {
         ...state,
         allExercises: addId,
-        workoutDetails: action.workoutDetails
+        workoutId: action.workoutId
       };
 
     case type.CHOOSE_EXERCISE:
