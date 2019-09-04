@@ -8,7 +8,8 @@ class SessionHistory extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      session: {}
+      session: {},
+      workouts: undefined
     };
   }
 
@@ -22,13 +23,24 @@ class SessionHistory extends React.Component {
         .catch(err => {
           console.log(err);
         });
+
+      axios
+        .get("http://localhost:5000/workouts/", {
+          headers: { Authorization: bearer }
+        })
+        .then(res => this.setState({ workouts: res.data }))
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 
   render() {
     let session = this.state.session.workoutHistory;
+    let workouts = this.state.workouts;
 
     console.log(session);
+
     return (
       <div>
         <h1>This is the session history</h1>
@@ -37,9 +49,9 @@ class SessionHistory extends React.Component {
           {session === undefined ? (
             <p>Data is loading...</p>
           ) : (
-            session.map(item => {
-              const date1 = item.session_start;
-              const date2 = item.session_end;
+            session.map(session => {
+              const date1 = session.session_start;
+              const date2 = session.session_end;
 
               // Extract starting point
               const startingPoint = date1.slice(11, 17);
@@ -68,16 +80,23 @@ class SessionHistory extends React.Component {
               }
 
               return (
-                <ol key={item.id}>
+                <ol key={session.id}>
                   <li>
-                    <h4>Session ID: {item.id}</h4>
+                    <h4>Session ID: {session.id}</h4>
                     <p>
-                      <strong>Session Start:</strong> {item.session_start}
+                      <strong>Session Start:</strong> {session.session_start}
                     </p>
                     <p>
-                      <strong>Workout Name:</strong> {item.workout_id}
+                      <strong>Workout Name:</strong>
+                      {workouts === undefined
+                        ? console.log("Wait")
+                        : workouts.map(item => {
+                            if (session.workout_id === item.id) {
+                              return item.workout_name;
+                            }
+                          })}
                     </p>
-                    <p>Duration : {diff(startingPoint,endPoint)} minutes.</p>
+                    <p>Duration : {diff(startingPoint, endPoint)} minutes.</p>
                   </li>
                 </ol>
               );
