@@ -5,7 +5,7 @@ const initialState = {
   copyOfExercises: null,
   singleExercise: null,
   currentMuscleGroup: null,
-  // exercisesPerPage: 5, 
+  exercisesPerPage: 5, 
 };
 
 const exercises = (state = initialState, action) => {
