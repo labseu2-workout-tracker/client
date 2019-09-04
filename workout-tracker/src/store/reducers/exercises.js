@@ -20,9 +20,11 @@ const exercises = (state = initialState, action) => {
       const filterOnlyGroupChest = changeRatingOfExercise.filter(
         exercise => exercise.muscle === "Chest"
       );
+
       const indexLastPost = state.exercisesPerPage;
-      const indexFirstPost = indexLastPost - state.exercisesPerPage;
-      const currentPosts = filterOnlyGroupChest.slice(
+      const indexFirstExercise = 1;
+
+      const currentExercises = filterOnlyGroupChest.slice(
         indexFirstPost,
         indexLastPost
       );
