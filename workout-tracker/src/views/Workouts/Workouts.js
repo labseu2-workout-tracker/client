@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchWorkouts, startWorkout } from '../../store/actions/workoutsActions';
+import {fetchWorkouts, fetchWorkoutDetails } from '../../store/actions/workoutsActions';
 import { Link } from 'react-router-dom';
 
 
@@ -24,7 +24,7 @@ class Workouts  extends React.Component {
           <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={() => this.props.startWorkout(workout.id)} to='Workout_session' className='btn'>
+          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
                 Start Workout
               </Link>
         </div> 
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps, { fetchWorkouts, startWorkout })(Workouts);
+export default connect(mapStateToProps, { fetchWorkouts, fetchWorkoutDetails })(Workouts);
