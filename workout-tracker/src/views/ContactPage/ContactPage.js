@@ -74,7 +74,24 @@ class ContactPage extends React.Component {
           
         </form>
         
-        
+        <div className="direct-contact-container">
+    
+    <ul className="contact-list">
+      <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">BeFit | EU</span></i></li>
+      
+      <li className="list-item"><i className="fa fa-user fa-2x"><span className="contact-text phone"><a href="htt">Help Desk</a></span></i></li>
+      <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+      <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+      
+      <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:benjamin_grabow@gmx.de" title="Send me an email">info@befit.com</a></span></i></li>
+      
+    </ul>
+
+   
+
+    <div className="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+
+  </div>
          
         
       </div>
