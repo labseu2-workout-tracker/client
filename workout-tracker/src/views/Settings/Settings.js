@@ -132,7 +132,7 @@ class Settings extends React.Component {
       wantUpdate: false,
       email: this.props.settings ? this.props.settings[0].email : "",
       username: this.props.settings ? this.props.settings[0].username : "",
-      password: this.props.settings ? this.props.settings[0].password : "",
+      // password: this.props.settings ? this.props.settings[0].password : "",
       weight: this.props.settings ? this.props.settings[0].weight : "",
       height: this.props.settings ? this.props.settings[0].height : "",
       gender: this.props.settings ? this.props.settings[0].gender : "",
@@ -167,7 +167,7 @@ class Settings extends React.Component {
     const updatedSettings = {
       email: this.state.email,
       username: this.state.username,
-      password: this.state.password,
+      // password: this.state.password,
       weight: Number(this.state.weight),
       height: Number(this.state.height),
       gender: this.state.gender ? this.state.gender : "Male",
@@ -224,7 +224,7 @@ class Settings extends React.Component {
                             <i className="fa fa-user"></i>
                           </span>
                         </li>
-                        <li>
+                        {/* <li>
                           <span className="text">Password:</span>
                           <span className="data">
                             <input
@@ -239,7 +239,7 @@ class Settings extends React.Component {
                           <span className="icon">
                             <i className="fa fa-key"></i>
                           </span>
-                        </li>
+                        </li> */}
                         <li>
                           <span className="text">Weight:</span>
                           <span className="data">
