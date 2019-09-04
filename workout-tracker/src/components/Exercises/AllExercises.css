@@ -190,13 +190,17 @@ background:#c7a06e;
   }
   
   .box-1 .btn {
-    padding: 0.8rem 2.5rem;
+    width: 140px;
+    padding: .5rem;
     background-color: #6bbdfa;
     border-radius: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-transform: capitalize;
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1rem;
     transition: all 0.7s;
   }
   .box-1 .btn:hover {
@@ -210,13 +214,17 @@ background:#c7a06e;
   }
 
   .box-3 .btn {
-    padding: 0.8rem 2.5rem;
+    width: 140px;
+    padding: .5rem;
     background-color: #6bbdfa;
     border-radius: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-transform: capitalize;
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1rem;
     transition: all 0.7s;
   }
   .box-3 .btn:hover {
@@ -228,3 +236,43 @@ background:#c7a06e;
     box-shadow: none;
     background-color: #c7a06e; 
   }
+/* standard laptop */
+  @media screen and (max-width: 1440px) {
+      .container-1{
+          background-color: red;
+      }
+
+  }
+/* ipad pr0 */
+  @media screen and (max-width: 1024px) {
+    .container-1{
+        background-color: green;
+    }
+
+}
+/* kindle fire */
+@media screen and (max-width: 800px) {
+    .container-1{
+        background-color: rgb(189, 147, 11);
+    }
+      .box-1 .btn {
+        padding: .5rem;
+        font-size: 1rem;
+      }
+      .box-3 .btn {
+        padding: .5rem;
+        font-size: 1rem;
+      }
+      .box-2 .btn {
+        padding: .5rem;
+        font-size: 1rem;
+      }
+
+}
+/* iphoneX */
+@media screen and (max-width: 375px) {
+    .container-1{
+        background-color: rgb(128, 0, 107);
+    }
+
+}
