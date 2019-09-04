@@ -4,8 +4,7 @@ import { axiosWithAuth } from '../axiosWithAuth';
 // actions
 export const FETCH_WORKOUTS = 'FETCH_WORKOUTS';
 export const FETCH_WORKOUT_DETAILS = 'FETCH_WORKOUT_DETAILS';
-export const chooseExercise = 'CHOOSE_EXERCISE';
-
+export const CHOOSE_EXERCISE = 'CHOOSE_EXERCISE';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
@@ -35,4 +34,8 @@ export const fetchWorkoutDetails = (workout_id) => dispatch => {
    // type ERROR needs to be added (also for the redux state)
    debugger
     });
+};
+
+export const chooseExercise = (exercise_name) => {  
+    return{ type: CHOOSE_EXERCISE, current_exercise: exercise_name };
 };
