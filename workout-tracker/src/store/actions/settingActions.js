@@ -12,7 +12,7 @@ export const fetchSettings = () => dispatch => {
   axiosWithAuth()
   .get(`${settings}`)
   .then(res => {
-      dispatch({ type: FETCH_SETTINGS, settings: res.data });
+      dispatch({ type: FETCH_SETTINGS, settings: res.data.user });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
