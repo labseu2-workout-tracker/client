@@ -146,7 +146,7 @@ const exercises = (state = initialState, action) => {
       if (endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
         endButton = state.pageNumbers[state.pageNumbers.length - 1];
 
-        if(startButton >= endButton) {
+        if (startButton >= endButton) {
           startButton -= 5;
         }
       }
@@ -155,14 +155,20 @@ const exercises = (state = initialState, action) => {
         currentNumbers.push(i);
       }
 
-      return { ...state, currentButtons: currentNumbers, startButton: startButton, endButton: endButton };
+      return {
+        ...state,
+        currentButtons: currentNumbers,
+        startButton: startButton,
+        endButton: endButton
+      };
 
     case type.GO_BACK:
-
-      let startNumber = state.startButton - 5;
-
-      let endNumber = state.endButton - 5;
-
+   
+      startNumber = state.startButton - 5;
+  
+      endNumber = state.endButton - 5;
+    } 
+    
       let currentNumberBtns = [];
 
       if (startNumber < 6) {
@@ -174,8 +180,13 @@ const exercises = (state = initialState, action) => {
         currentNumberBtns.push(i);
       }
 
-      return { ...state, currentButtons: currentNumberBtns, startButton: startNumber, endButton: endNumber };
-      
+      return {
+        ...state,
+        currentButtons: currentNumberBtns,
+        startButton: startNumber,
+        endButton: endNumber
+      };
+
     default:
       return state;
   }
