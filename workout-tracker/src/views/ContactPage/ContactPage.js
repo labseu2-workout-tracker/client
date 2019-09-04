@@ -43,7 +43,11 @@ class ContactPage extends React.Component {
 
   render() {
     return (
-     
+     <>
+     <section className="contact">
+
+     </section>
+     </>
         
     );
   }
