@@ -42,10 +42,10 @@ const workouts = (state = initialState, action) => {
           const deleteExercise = state.currentExercise.filter(
             exercise => exercise.id !== action.exercise_id
           );
-          debugger
+          
           return {
             ...state,
-            currentExercise: deleteExercise
+            currentExercise: state.currentExercise.length > 1 ? deleteExercise : null,
           };  
 
     default:

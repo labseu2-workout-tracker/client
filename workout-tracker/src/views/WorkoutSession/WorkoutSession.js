@@ -76,7 +76,7 @@ class WorkoutSession extends React.Component {
               <button onClick={() => this.props.finishExercise(this.props.currentExercise[0].id)}>finish Exercise</button>
               </div>
             </div>
-          ) : null}
+          ) : <p>HELLOOOOO</p>}
           <Watch />
         </div>
 
