@@ -4,7 +4,7 @@ const initialState = {
   exercises: null,
   copyOfExercises: null,
   singleExercise: null,
-  currentMuscleGroup: null,
+  arrayOfCurrentExercises: null,
   indexOfLastExercise: 5,
   indexFirstExercise: 0
 };
