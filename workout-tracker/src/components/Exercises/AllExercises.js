@@ -140,7 +140,7 @@ const AllExercises = props => {
                     key={index}
                   >
                     <img className="img" src={exercise.picture_one} alt="exercise" />
-                    <img className="img" src={exercise.picture_two} alt="exercise" />
+                
                     <div className="column">
                       <p>{exercise.exercise_name}</p>
                       <p>
@@ -150,6 +150,7 @@ const AllExercises = props => {
                         Equipment Type: <span>{exercise.equipment}</span>
                       </p>
                     </div>
+                    <img className="img" src={exercise.picture_two} alt="exercise" />
                   </div>
                 );
               })
