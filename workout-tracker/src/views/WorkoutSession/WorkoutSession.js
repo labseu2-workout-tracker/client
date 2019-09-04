@@ -1,7 +1,7 @@
 import React from "react";
 import Watch from "../../components/Watch/Watch";
 import { connect } from "react-redux";
-import {  } from "../../store/actions/workoutsActions";
+import { } from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutSession = styled.div`
@@ -150,7 +150,7 @@ class WorkoutSession extends React.Component {
               .map((exercise, index) => {
                 return (
                   <div key={index}>
-                    <p onClick={this.chooseExercise}>
+                    <p onClick={() => this.props.chooseExercise(exercise.exercise_name)}>
                       {exercise.exercise_name}
                     </p>
                   </div>
