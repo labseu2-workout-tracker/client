@@ -66,7 +66,7 @@ const exercises = (state = initialState, action) => {
             indexOfTheLastExercise
           );
 
-     
+          return { ...state, exercises: actualExercises, exercisesPerPage: indexOfTheLastExercise  };
          
 
     case type.SHOW_SINGLE_EXERCISE:
