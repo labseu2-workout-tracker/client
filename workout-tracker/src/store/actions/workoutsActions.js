@@ -7,6 +7,7 @@ export const FETCH_WORKOUT_DETAILS = 'FETCH_WORKOUT_DETAILS';
 export const START_WORKOUT = 'START_WORKOUT';
 export const CHOOSE_EXERCISE = 'CHOOSE_EXERCISE';
 export const FINISH_EXERCISE = 'FINISH_EXERCISE';
+export const END_WORKOUT = 'END_WORKOUT';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
