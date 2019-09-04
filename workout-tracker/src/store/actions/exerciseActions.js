@@ -4,8 +4,6 @@ export const FETCH_EXERCISES = 'FETCH_EXERCISES';
 export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 export const CLOSE_SINGLE_EXERCISE = 'CLOSE_SINGLE_EXERCISE';
-export const GO_BACK = 'GO_BACK';
-export const GO_FORWARD = 'GO_FORWARD';
 
 
 const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
@@ -32,12 +30,4 @@ export const showSingleExercise = (exerciseName) => {
 
 export const closeSingleExercise = () => {
   return { type: CLOSE_SINGLE_EXERCISE}; 
-};
-
-export const goForward = () => {
-  return { type: GO_FORWARD}; 
-};
-
-export const goBack = () => {
-  return { type: GO_BACK}; 
 };
