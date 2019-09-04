@@ -45,12 +45,9 @@ const exercises = (state = initialState, action) => {
         indexOfLastPost
       );
      
-
       return {
         ...state,
         exercises: currentExercises,
-        pageNumbers: pageNumbers,
-        currentButtons: theCurrentButtons,
         currentMuscleGroup: action.muscleGroup
       };
 
