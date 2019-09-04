@@ -26,21 +26,7 @@ const exercises = (state = initialState, action) => {
         indexFirstPost,
         indexLastPost
       );
-      const totalExercises = filterOnlyGroupChest.length;
-      let ButtonNumber = [];
-      for (
-        let i = 1;
-        i <= Math.ceil(totalExercises / state.exercisesPerPage);
-        i++
-      ) {
-        ButtonNumber.push(i);
-      }
-      const indexLastButton = state.buttonsPerPage;
-      const indexFirstButton = indexLastButton - state.buttonsPerPage;
-      const currentButtons = ButtonNumber.slice(
-        indexFirstButton,
-        indexLastButton
-      );
+     
       return {
         ...state,
         exercises: currentPosts,
