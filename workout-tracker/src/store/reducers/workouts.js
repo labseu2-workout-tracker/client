@@ -51,7 +51,7 @@ const workouts = (state = initialState, action) => {
 
           return {
             ...state,
-            allExercises: deleteExerciseAll,
+            allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
             currentExercise: state.currentExercise.length > 1 ? deleteExerciseFromCurrent : null,
           };  
 
