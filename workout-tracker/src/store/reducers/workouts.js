@@ -39,13 +39,13 @@ const workouts = (state = initialState, action) => {
       };
 
       case type.FINISH_EXERCISE:
-          const deleteExercise = state.currentExercise.filter(
+          const deleteExerciseFromCurrent = state.currentExercise.filter(
             exercise => exercise.id !== action.exercise_id
           );
           
           return {
             ...state,
-            currentExercise: state.currentExercise.length > 1 ? deleteExercise : null,
+            currentExercise: state.currentExercise.length > 1 ? deleteExerciseFromCurrent : null,
           };  
 
     default:
