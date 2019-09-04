@@ -160,7 +160,7 @@ const AllExercises = props => {
           <h1>Equipment</h1>
           {equipment.map((equipment, index) => (
             <button
-              className="button"
+              className="btn"
               key={index}
               onClick={props.showEquipment}
             >
