@@ -24,8 +24,12 @@ class ExerciseLibrary extends React.Component {
   };
 
   searchForName = () => {
-
-  };
+    this.props.searchExercise(this.state.searchName);
+  
+    this.setState({
+      searchName: '',
+    });
+    };
 
   render() {
     if (this.props.singleExercise) {
