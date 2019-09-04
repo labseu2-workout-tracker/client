@@ -10,6 +10,7 @@ class Workouts  extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
   }
+
   render() {
     return(
       <>
@@ -23,7 +24,7 @@ class Workouts  extends React.Component {
           <img src={workout.image_url} alt="workout" className="workout-img"/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link to="#" className="btn">
+          <Link onClick={this.startWorkout} to="#" className="btn">
                 Add Workout
               </Link>
         </div> 
