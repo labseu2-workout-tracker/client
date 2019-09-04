@@ -161,7 +161,7 @@ const exercises = (state = initialState, action) => {
         currentNumbers.push(i);
       }
 
-      return { ...state, currentButtons: actualButtons };
+      return { ...state, currentButtons: currentNumbers, startButton: startButton, endButton: endButton };
 
     case type.GO_BACK:
       return { ...state, currentButtons: null };
