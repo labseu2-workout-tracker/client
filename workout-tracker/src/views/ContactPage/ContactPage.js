@@ -87,7 +87,22 @@ class ContactPage extends React.Component {
       
     </ul>
 
-   
+    <hr />
+    <ul className="soci-media-list">
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-github"></i></a>
+      </li>
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-twitter" ></i></a>
+      </li>
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-instagram"></i></a>
+      </li>
+      <li><a href="httt" className="contact-icon">
+        <i className="fab fa-github"></i></a>
+      </li>
+    </ul>
+    <hr />
 
     <div className="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
 
