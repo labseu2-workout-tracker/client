@@ -42,22 +42,6 @@ class WorkoutSession extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    // this.props.fetchWorkoutDetails();
-  };
-
-  chooseExercise = e => {
-    const filterCurrentExercise =
-      this.props.workoutDetails.exercises
-      .filter(
-      exercise => exercise.exercise_name === e.target.textContent
-    );
-
-    this.setState({
-      currentExercise: filterCurrentExercise
-    });
-  };
-
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
