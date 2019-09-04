@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-// import Tabs from './views/Tabs/Tabs';
-import Header from './views/Header/Header';
 import Settings from './views/Settings/Settings';
 import ContactPage from './views/ContactPage/ContactPage';
 import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
@@ -178,7 +176,6 @@ class App extends Component {
   render() {
     let routes = (
       <Switch>
-        {/* landing page */}
         <Route exact path="/"
         component={LandingPage}
         />
@@ -206,23 +203,21 @@ class App extends Component {
             />
           )}
         />
-        {/* <Redirect to="/login" /> */}
       </Switch>
     );
     if (this.state.isAuth) {
       routes = (
         <div className="App">
-      {/* <Header /> */}
-      <Switch>
-        <Route path={'/Dashboard'} component={UserPage} />
-        <Route path={'/Exercises'} component={ExercisesLibrary} />
-        <Route path={'/Settings'} component={Settings} />
-        <Route path={'/Contact'} component={ContactPage} />    
-        <Route path={'/About'} component={About} />  
-        <Route path={'/Workouts'} component={Workouts} /> 
-        <Redirect to='/Dashboard' />       
-      </Switch>
-    </div>
+          <Switch>
+            <Route path={'/Dashboard'} component={UserPage} />
+            <Route path={'/Exercises'} component={ExercisesLibrary} />
+            <Route path={'/Settings'} component={Settings} />
+            <Route path={'/Contact'} component={ContactPage} />    
+            <Route path={'/Workouts'} component={Workouts} /> 
+            <Route path={'/About'} component={About} />  
+            <Redirect to='/Dashboard' />       
+          </Switch>
+        </div>
       )
     }
     return (

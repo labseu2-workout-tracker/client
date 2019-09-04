@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserSettings = () => {
   return ( 
-    <div>This is the UserSettings copmonent</div>
+    <div>This is the UserSettings component</div>
    );
 }
  
