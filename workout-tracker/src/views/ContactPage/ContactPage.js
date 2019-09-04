@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import './ContactPage.css'
 // import { fetchSettings } from "../../store/actions/settingActions.js"
 // We must wait for new merging where I have the new actions
 
@@ -83,7 +84,7 @@ class ContactPage extends React.Component {
       <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
       <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
       
-      <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:benjamin_grabow@gmx.de" title="Send me an email">info@befit.com</a></span></i></li>
+      <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:info@befit.com" title="Send me an email">info@befit.com</a></span></i></li>
       
     </ul>
 
