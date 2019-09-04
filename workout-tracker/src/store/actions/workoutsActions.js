@@ -29,7 +29,22 @@ export const fetchWorkoutDetails = (workout_id) => dispatch => {
   
   axiosWithAuth().get(`${workouts}/${workout_id}`)
     .then(res => {
+      startWorkout(workout_id);
       dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data });
+    })
+    .catch(err => {
+   // type ERROR needs to be added (also for the redux state)
+   debugger
+    });
+};
+
+export const startWorkout = (workout_id) => dispatch => {
+  // type LOADING needs to be added (also for the redux state) 
+  
+  axiosWithAuth().get(`${workouts}/${workout_id}/start`)
+    .then(res => {
+      debugger
+      dispatch({ type: START_WORKOUT });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
