@@ -21,7 +21,6 @@ export const fetchSettings = () => dispatch => {
   };
   
   export const updateSettings = updatedSettings => dispatch => {
-    const userId = localStorage.getItem('userId');
   debugger
   return axios
     .put(`${settings}/${userId}`, updatedSettings)
