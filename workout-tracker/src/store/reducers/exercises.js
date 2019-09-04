@@ -51,29 +51,6 @@ const exercises = (state = initialState, action) => {
         currentMuscleGroup: action.muscleGroup
       };
 
-    case type.PAGINATE:
-      if (state.currentMuscleGroup) {
-        let searchForMuscleGroup = state.copyOfExercises.filter(
-          exercise => exercise.muscle === state.currentMuscleGroup
-        );
-        const indexOfTheLastPost = action.num * state.exercisesPerPage;
-        const indexOfTheFirstPost = indexOfTheLastPost - state.exercisesPerPage;
-        const theCurrentExercises = searchForMuscleGroup.slice(
-          indexOfTheFirstPost,
-          indexOfTheLastPost
-        );
-        return { ...state, exercises: theCurrentExercises };
-      } else {
-        let searchForMuscleGroup = state.copyOfExercises;
-        const indexOfTheLastPost = action.num * state.exercisesPerPage;
-        const indexOfTheFirstPost = indexOfTheLastPost - state.exercisesPerPage;
-        const theCurrentExercises = searchForMuscleGroup.slice(
-          indexOfTheFirstPost,
-          indexOfTheLastPost
-        );
-        return { ...state, exercises: theCurrentExercises };
-      }
-
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
         exercise => exercise.exercise_name === action.exerciseName
