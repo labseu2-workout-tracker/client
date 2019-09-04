@@ -33,7 +33,7 @@ const StyledWorkoutSession = styled.div`
 class WorkoutSession extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.props = {
     };
   }
 
@@ -44,8 +44,8 @@ class WorkoutSession extends React.Component {
   };
 
   finishExercise = () => {
-    if (this.state.currentExercise[1]) {
-      const deleteOneExercise = this.state.currentExercise.filter(
+    if (this.props.currentExercise[1]) {
+      const deleteOneExercise = this.props.currentExercise.filter(
         (exercise, index) => index !== 0
       );
 
@@ -61,11 +61,11 @@ class WorkoutSession extends React.Component {
     return (
       <StyledWorkoutSession>
         <div className="top">
-          {this.state.currentExercise ? (
+          {this.props.currentExercise ? (
             <div className="picture-inputs">
               <div className="exercise-picture">
                 <img
-                  src={this.state.currentExercise[0].picture_one}
+                  src={this.props.currentExercise[0].picture_one}
                   alt="Exercise explanation"
                 />
               </div>
@@ -74,9 +74,9 @@ class WorkoutSession extends React.Component {
                   <p>Set</p>
                   <input
                     type="number"
-                    value={this.state.set}
+                    value={this.props.set}
                     onChange={this.handleChange}
-                    placeholder={this.state.currentExercise.length}
+                    placeholder={this.props.currentExercise.length}
                     name="set"
                   />
                 </div>
@@ -84,21 +84,21 @@ class WorkoutSession extends React.Component {
                   <p>Reps</p>
                   <input
                     type="number"
-                    value={this.state.reps}
+                    value={this.props.reps}
                     onChange={this.handleChange}
-                    placeholder={this.state.currentExercise[0].reps}
+                    placeholder={this.props.currentExercise[0].reps}
                     name="reps"
                   />
                 </div>
                 {/* <div className="row">
               <p>Time</p>
-              <input type="number" value={this.state.time} onChange={this.handleChange} placeholder={this.state.currentExercise.length}  name="time"/> 
+              <input type="number" value={this.props.time} onChange={this.handleChange} placeholder={this.props.currentExercise.length}  name="time"/> 
               </div> */}
                 <div className="row">
                   <p>Weight</p>
                   <input
                     type="number"
-                    value={this.state.weight}
+                    value={this.props.weight}
                     onChange={this.handleChange}
                     placeholder="How many KG's ?"
                     name="weight"
