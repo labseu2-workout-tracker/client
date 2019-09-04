@@ -174,7 +174,7 @@ const exercises = (state = initialState, action) => {
         currentNumberBtns.push(i);
       }
 
-     
+      return { ...state, currentButtons: currentNumberBtns, startButton: startNumber, endButton: endNumber };
       
     default:
       return state;
