@@ -40,6 +40,6 @@ export const chooseExercise = (exercise_name) => {
     return{ type: CHOOSE_EXERCISE, current_exercise: exercise_name };
 };
 
-export const finishExercise = (exercise_name) => {  
-  return{ type: FINISH_EXERCISE, current_exercise: exercise_name };
+export const finishExercise = (exercise_id) => {  
+  return{ type: FINISH_EXERCISE, current_exercise: exercise_id };
 };
