@@ -2,7 +2,8 @@ import * as type from "../actions/workoutsActions";
 
 const initialState = {
   workouts: null,
-  workoutDetails: null
+  workoutDetails: null,
+  currentExercise: null,
 };
 
 //  default state
