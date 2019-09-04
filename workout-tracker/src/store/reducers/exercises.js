@@ -158,8 +158,10 @@ const exercises = (state = initialState, action) => {
       return { ...state, currentButtons: currentNumbers, startButton: startButton, endButton: endButton };
 
     case type.GO_BACK:
-      return { ...state, currentButtons: null };
 
+      let startNumber = state.startButton - 5;
+
+      
     default:
       return state;
   }
