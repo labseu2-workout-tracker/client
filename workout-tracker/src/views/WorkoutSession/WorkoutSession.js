@@ -43,7 +43,7 @@ class WorkoutSession extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchWorkoutDetails();
+    // this.props.fetchWorkoutDetails();
   };
 
   chooseExercise = e => {

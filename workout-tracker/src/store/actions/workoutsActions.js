@@ -22,14 +22,10 @@ export const fetchWorkouts = () => dispatch => {
     });
 };
 
-export const fetchWorkoutDetails = () => dispatch => {
+export const startWorkout = (workout_id) => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
   
-  //the one in the get request will be later changed to from the user choosed
-  // workout (workout_id)
-  axiosWithAuth().get(`${workouts}/1`)
-  //Prototype until backend is done 
-  // changed backend on my files to get data back
+  axiosWithAuth().get(`${workouts}/${workout_id}`)
     .then(res => {
     
       dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data });
