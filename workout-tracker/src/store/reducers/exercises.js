@@ -10,7 +10,7 @@ const initialState = {
   currentButtons: null,
   buttonsPerPage: 5,
   startButton: 1,
-  
+  endButton: 5,
 };
 
 const exercises = (state = initialState, action) => {
