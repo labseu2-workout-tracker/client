@@ -8,7 +8,7 @@ const StyledAllExercises = styled.div`
     display: flex;
   }
 
-  .muscle-buttons {
+  .muscle-buttons, .equipment-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -147,10 +147,9 @@ const AllExercises = props => {
               })
             : null}
         </div>
-
         <div className="equipment-buttons">
-        <h1>Equipment</h1>
-        {equipment.map((equipment, index) => (
+          <h1>Equipment</h1>
+          {equipment.map((equipment, index) => (
             <button
               className="button"
               key={index}
@@ -160,7 +159,6 @@ const AllExercises = props => {
             </button>
           ))}
         </div>
-
       </div>
       <button onClick={props.loadMore} className="button">
         Load More
