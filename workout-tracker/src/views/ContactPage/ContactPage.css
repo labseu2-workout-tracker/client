@@ -24,3 +24,54 @@
     max-width: 800px;
   }
   
+  /* Begin Left Contact Page */
+  .form-horizontal {
+    float: left;
+    max-width: 420px;
+    font-family: 'Lato';
+    font-weight: 400;
+  }
+  
+  .form-control, textarea {
+    width: 99%;
+    margin: 1rem;
+    background-color: #6bbdfa;
+    color: #fff;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+  
+  .send-button {
+    margin:1rem;
+    height: 34px;
+    width: 420px;
+    background-color: #6bbdfa;
+    text-transform: capitalize;
+    color: #ffffff;
+    border-radius: 2px;
+    transition: all .2s ease-in-out;
+  }
+.sen-button {
+  padding: 0.8rem 2.5rem;
+  background-color: #6bbdfa;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  color: #ffffff;
+  font-size: 1.4rem;
+  transition: all 0.7s;
+}
+  
+  .send-text {
+    display: block;
+    margin-top: 10px;
+    font: 300 14px 'Viga', sans-serif;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: #ffffff;
+  }
+  
+  /* .button:hover {
+    transform: translate3d(0px, -29px, 0px);
+  } */
+  
