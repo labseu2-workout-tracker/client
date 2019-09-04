@@ -12,7 +12,11 @@ class ExerciseLibrary extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchExercises();
-  }
+  };
+
+  handleChange = e => {
+
+  };
 
   render() {
     if (this.props.singleExercise) {
