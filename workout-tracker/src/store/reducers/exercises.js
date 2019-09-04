@@ -6,6 +6,7 @@ const initialState = {
   singleExercise: null,
   currentMuscleGroup: null,
   indexOfLastExercise: 5,
+  indexOfFirstExercise: 0, 
 };
 
 const exercises = (state = initialState, action) => {
