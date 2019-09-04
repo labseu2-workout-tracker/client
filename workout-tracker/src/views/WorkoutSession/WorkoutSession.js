@@ -34,11 +34,6 @@ class WorkoutSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentExercise: null,
-      set: "",
-      reps: "",
-      time: "",
-      weight: ""
     };
   }
 
