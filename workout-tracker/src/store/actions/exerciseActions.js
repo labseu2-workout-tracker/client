@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export const FETCH_EXERCISES = 'FETCH_EXERCISES';
 export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
-export const PAGINATE = 'PAGINATE';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 export const CLOSE_SINGLE_EXERCISE = 'CLOSE_SINGLE_EXERCISE';
 export const GO_BACK = 'GO_BACK';
@@ -25,10 +24,6 @@ export const fetchExercises = () => dispatch => {
 
 export const showMuscleGroup = (muscleGroup) => {
   return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
-};
-
-export const paginate = (num) => {
-  return { type: PAGINATE, num: num };   
 };
 
 export const showSingleExercise = (exerciseName) => {
