@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchWorkouts } from '../../store/actions/workoutsActions';
+import {fetchWorkouts, startWorkout } from '../../store/actions/workoutsActions';
 import { Link } from 'react-router-dom';
 
 
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps, { fetchWorkouts, })(Workouts);
+export default connect(mapStateToProps, { fetchWorkouts, startWorkout })(Workouts);
