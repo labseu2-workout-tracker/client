@@ -78,7 +78,7 @@ const exercises = (state = initialState, action) => {
 
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
-        exercise => exercise.exercise_name === action.exerciseName
+        exercise => exercise.id === action.exercise_id
       );
       return { ...state, singleExercise: filterExercise };
 
