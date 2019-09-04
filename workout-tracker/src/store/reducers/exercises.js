@@ -165,6 +165,11 @@ const exercises = (state = initialState, action) => {
 
       let currentNumberBtns = [];
 
+      if (startNumber < 6) {
+        startNumber = 1;
+        endNumber = 5;
+      }
+
       
       
     default:
