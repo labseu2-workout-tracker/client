@@ -39,19 +39,6 @@ class WorkoutSession extends React.Component {
     this.props = {};
   }
 
-  finishExercise = () => {
-    // if (this.props.currentExercise[1]) {
-    //   const deleteOneExercise = this.props.currentExercise.filter(
-    //     (exercise, index) => index !== 0
-    //   );
-    //   this.setState({
-    //     currentExercise: deleteOneExercise
-    //   });
-    // } else {
-    //   return
-    // }
-  };
-
   render() {
     return (
       <StyledWorkoutSession>
@@ -118,7 +105,7 @@ class WorkoutSession extends React.Component {
                 );
               })}
           </div>
-        ) : <button onClick={() => this.props.endWorkout(this.props.workoutDetails.id)}>Finish Workout</button>}
+        ) : <button onClick={() => this.props.endWorkout(this.props.workoutId)}>Finish Workout</button>}
       </StyledWorkoutSession>
     );
   }
@@ -128,7 +115,7 @@ const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
     currentExercise: state.workouts.currentExercise,
-    workoutDetails: state.workouts.workoutDetails
+    workoutId: state.workouts.workoutId
   };
 };
 
