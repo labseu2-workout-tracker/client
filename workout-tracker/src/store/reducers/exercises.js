@@ -96,7 +96,12 @@ const exercises = (state = initialState, action) => {
             exercise.equipment === action.equipment
         );
         const indexOfTheLastExercise = 5;
+        const theActualExercises = searchForEquipment.slice(
+          state.indexFirstExercise,
+          indexOfTheLastExercise
+        );
   
+       
        
        
     default:
