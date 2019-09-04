@@ -1,7 +1,10 @@
 import React from "react";
 import Watch from "../../components/Watch/Watch";
 import { connect } from "react-redux";
-import { chooseExercise, finishExercise } from "../../store/actions/workoutsActions";
+import {
+  chooseExercise,
+  finishExercise
+} from "../../store/actions/workoutsActions";
 import styled from "styled-components";
 
 const StyledWorkoutSession = styled.div`
@@ -13,7 +16,7 @@ const StyledWorkoutSession = styled.div`
 
   .exercise-picture {
     width: 50%;
-  };
+  }
 
   .text {
     width: 50%;
@@ -24,7 +27,6 @@ const StyledWorkoutSession = styled.div`
     width: 66%;
   }
 
-
   img {
     width: 100%;
   }
@@ -33,8 +35,7 @@ const StyledWorkoutSession = styled.div`
 class WorkoutSession extends React.Component {
   constructor(props) {
     super(props);
-    this.props = {
-    };
+    this.props = {};
   }
 
   finishExercise = () => {
@@ -42,7 +43,6 @@ class WorkoutSession extends React.Component {
     //   const deleteOneExercise = this.props.currentExercise.filter(
     //     (exercise, index) => index !== 0
     //   );
-
     //   this.setState({
     //     currentExercise: deleteOneExercise
     //   });
@@ -64,7 +64,7 @@ class WorkoutSession extends React.Component {
                 />
               </div>
               <div className="text">
-              <p>{this.props.currentExercise[0].exercise_name}</p>
+                <p>{this.props.currentExercise[0].exercise_name}</p>
                 <div className="row">
                   <p>Sets to complete:</p>
                   <p>{this.props.currentExercise.length}</p>
@@ -73,18 +73,26 @@ class WorkoutSession extends React.Component {
                   <p>Reps for exercise:</p>
                   <p>{this.props.currentExercise[0].reps}</p>
                 </div>
-              <button onClick={() => this.props.finishExercise(this.props.currentExercise[0].id)}>finish Exercise</button>
+                <button
+                  onClick={() =>
+                    this.props.finishExercise(this.props.currentExercise[0].id)
+                  }
+                >
+                  finish Exercise
+                </button>
               </div>
             </div>
-          ) : <p>HELLOOOOO</p>}
+          ) : (
+            <p>No choosed exercise</p>
+          )}
           <Watch />
         </div>
 
-        <p>Choose exercise:</p>
         {/* Display Exercises(but without duplicates) */}
-        {this.props.allExercises
-          ?
-            this.props.allExercises
+        {this.props.allExercises ? (
+          <div>
+            <p>Choose exercise:</p>
+            {this.props.allExercises
               .reduce((acc, current) => {
                 const x = acc.find(
                   item => item.exercise_name === current.exercise_name
@@ -98,13 +106,18 @@ class WorkoutSession extends React.Component {
               .map((exercise, index) => {
                 return (
                   <div key={index}>
-                    <p onClick={() => this.props.chooseExercise(exercise.exercise_name)}>
+                    <p
+                      onClick={() =>
+                        this.props.chooseExercise(exercise.exercise_name)
+                      }
+                    >
                       {exercise.exercise_name}
                     </p>
                   </div>
                 );
-              })
-          : null}
+              })}
+          </div>
+        ) : <button>Finish Workout</button>}
       </StyledWorkoutSession>
     );
   }
@@ -113,7 +126,7 @@ class WorkoutSession extends React.Component {
 const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
-    currentExercise: state.workouts.currentExercise,
+    currentExercise: state.workouts.currentExercise
   };
 };
 
