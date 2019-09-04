@@ -168,8 +168,8 @@ class Settings extends React.Component {
       email: this.state.email ? this.state.email : this.props.settings[0].email,
       username: this.state.username ? this.state.username : this.props.settings[0].username,
       // password: this.state.password,
-      weight: this.state.weight,
-      height: this.state.height,
+      weight: this.state.weight ? this.state.height : 1,
+      height: this.state.height ? this.state.height : 1,
       gender: this.state.gender ? this.state.gender : null,
       // user_level: this.state.user_level ? this.state.user_level : null,
       email_notification:
@@ -263,6 +263,8 @@ class Settings extends React.Component {
                           <span className="text">Height:</span>
                           <span className="data">
                             <input
+                            min="1"
+                            type="number"
                               className="update-input"
                               value={this.state.height}
                               onChange={this.handleChange}
