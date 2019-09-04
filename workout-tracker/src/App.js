@@ -216,6 +216,7 @@ class App extends Component {
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    
             <Route path={'/Workouts'} component={Workouts} /> 
+            <Route path={'/Workout_session'} component={WorkoutSession} />             
             <Route path={'/About'} component={About} />  
             <Redirect to='/Dashboard' />       
           </Switch>
