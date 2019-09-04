@@ -117,8 +117,8 @@ const AllExercises = props => {
 
     
 
-      <div className="buttons-exercises">
-        <div className="muscle-buttons">
+      <div className="container-1">
+        <div className="box-1">
           <h1>Muscles</h1>
           {muscles.map((muscleGroup, index) => (
             <button
@@ -130,7 +130,7 @@ const AllExercises = props => {
             </button>
           ))}
         </div>
-        <div className="exercises">
+        <div className="box-2">
           {props.exercises
             ? props.exercises.map((exercise, index) => {
                 return (
@@ -155,7 +155,7 @@ const AllExercises = props => {
               })
             : null}
         </div>
-        <div className="equipment-buttons">
+        <div className="box-3">
           <h1>Equipment</h1>
           {equipment.map((equipment, index) => (
             <button
@@ -168,9 +168,9 @@ const AllExercises = props => {
           ))}
         </div>
       </div>
-      <button onClick={props.loadMore} className="button">
+      {/* <button onClick={props.loadMore} className="button">
         Load More
-      </button>
+      </button> */}
     </div>
   );
 };
