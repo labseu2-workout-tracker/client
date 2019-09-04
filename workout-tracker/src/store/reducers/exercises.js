@@ -94,15 +94,16 @@ const exercises = (state = initialState, action) => {
       let searchForEquipment = state.currentMuscleGroup.filter(
         exercise => exercise.equipment === action.equipment
       );
-      const indexOfTheLastExercise = 5;
+      const theIndexLastExercise = 5;
       const theActualExercises = searchForEquipment.slice(
         state.indexFirstExercise,
-        indexOfTheLastExercise
+        theIndexLastExercise
       );
       return {
         ...state,
         exercises: theActualExercises,
-        indexOfLastExercise: indexOfTheLastExercise
+        currentMuscleGroup: searchForEquipment,
+        indexOfLastExercise: theIndexLastExercise
       };
 
     default:
