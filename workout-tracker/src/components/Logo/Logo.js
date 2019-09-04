@@ -2,7 +2,7 @@ import React from 'react';
 import logoImage from '../../assets/images/logo-svg-white.svg'
 import './Logo.css';
 
-const logo = props => <div><img className="image"  src={logoImage} alt="logo" /></div>
+const logo = props => <div className="logo-container"><img className="image"  src={logoImage} alt="logo" /></div>
 
 export default logo;
 

@@ -9,3 +9,7 @@
   width: 10rem;
   height: 3rem;
 }
+
+.logo-container {
+  flex: 1;
+}
