@@ -143,7 +143,8 @@ class WorkoutSession extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    workoutDetails: state.workouts.workoutDetails
+    workoutDetails: state.workouts.workoutDetails,
+    currentExercise: state.workouts.chooseExercise,
   };
 };
 
