@@ -6,6 +6,7 @@ export const SHOW_SINGLE_EXERCISE = "SHOW_SINGLE_EXERCISE";
 export const CLOSE_SINGLE_EXERCISE = "CLOSE_SINGLE_EXERCISE";
 export const LOAD_MORE = "LOAD_MORE";
 export const SEARCH_EXERCISE = "SEARCH_EXERCISE";
+export const SHOW_EQUIPMENT = "SHOW_EQUIPMENT";
 
 const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
 // adress get's changed later
