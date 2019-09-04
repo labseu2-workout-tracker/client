@@ -67,7 +67,7 @@
     left: 50%;
     height: 36px;
     padding: 10px;
-    background:rgba(19, 123, 207, 0.4);
+    background:#137bcf66;
     border-radius: 40px;
     transform: translate(-50%, -50%);
     
@@ -89,7 +89,7 @@ background:#c7a06e;
     height: 40px;
     border-radius: 50%; 
     display:flex;
-    background: #0e6de9;
+    background: #6bbdfa;
     justify-content:center; 
     align-items:center;
     transition: 0.4s;
@@ -145,7 +145,7 @@ background:#c7a06e;
     flex:1;
     order:2;
     padding-top: 3rem;
-    width:80%;
+    width:70%;
     height: 50px;
     margin: 2rem;
     border:none;
@@ -191,7 +191,7 @@ background:#c7a06e;
     border-radius: 2rem;
     margin-bottom: 3rem;
     text-transform: capitalize;
-    color: #eee;
+    color: #ffffff;
     font-size: 1.4rem;
     transition: all 0.7s;
   }
@@ -211,7 +211,7 @@ background:#c7a06e;
     border-radius: 2rem;
     margin-bottom: 3rem;
     text-transform: capitalize;
-    color: #eee;
+    color: #ffffff;
     font-size: 1.4rem;
     transition: all 0.7s;
   }
