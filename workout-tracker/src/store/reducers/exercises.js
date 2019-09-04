@@ -91,19 +91,20 @@ const exercises = (state = initialState, action) => {
       return { ...state, exercises: filterSearchedExercise };
 
     case type.SHOW_EQUIPMENT:
-        let searchForEquipment = state.currentMuscleGroup.filter(
-          exercise =>
-            exercise.equipment === action.equipment
-        );
-        const indexOfTheLastExercise = 5;
-        const theActualExercises = searchForEquipment.slice(
-          state.indexFirstExercise,
-          indexOfTheLastExercise
-        );
-  
-       
-       
-       
+      let searchForEquipment = state.currentMuscleGroup.filter(
+        exercise => exercise.equipment === action.equipment
+      );
+      const indexOfTheLastExercise = 5;
+      const theActualExercises = searchForEquipment.slice(
+        state.indexFirstExercise,
+        indexOfTheLastExercise
+      );
+      return {
+        ...state,
+        exercises: theActualExercises,
+        indexOfLastExercise: indexOfTheLastExercise
+      };
+
     default:
       return state;
   }
