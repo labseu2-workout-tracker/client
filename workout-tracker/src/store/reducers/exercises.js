@@ -163,6 +163,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.GO_BACK:
+        let endNumber = state.endButton;
    
       startNumber = state.startButton - 5;
   
