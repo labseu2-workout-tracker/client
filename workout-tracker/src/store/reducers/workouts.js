@@ -23,8 +23,9 @@ const workouts = (state = initialState, action) => {
 
     case type.CHOOSE_EXERCISE:
       const filterCurrentExercise = state.workoutDetails.exercises.filter(
-        exercise => exercise.exercise_name === action.currentExercise
+        exercise => exercise.exercise_name === action.current_exercise
       );
+      debugger
       return {
         ...state,
         currentExercise: filterCurrentExercise

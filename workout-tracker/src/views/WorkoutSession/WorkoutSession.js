@@ -38,17 +38,17 @@ class WorkoutSession extends React.Component {
   }
 
   finishExercise = () => {
-    if (this.props.currentExercise[1]) {
-      const deleteOneExercise = this.props.currentExercise.filter(
-        (exercise, index) => index !== 0
-      );
+    // if (this.props.currentExercise[1]) {
+    //   const deleteOneExercise = this.props.currentExercise.filter(
+    //     (exercise, index) => index !== 0
+    //   );
 
-      this.setState({
-        currentExercise: deleteOneExercise
-      });
-    } else {
-      return
-    }
+    //   this.setState({
+    //     currentExercise: deleteOneExercise
+    //   });
+    // } else {
+    //   return
+    // }
   };
 
   render() {
@@ -113,7 +113,7 @@ class WorkoutSession extends React.Component {
 const mapStateToProps = state => {
   return {
     workoutDetails: state.workouts.workoutDetails,
-    currentExercise: state.workouts.chooseExercise,
+    currentExercise: state.workouts.currentExercise,
   };
 };
 
