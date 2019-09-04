@@ -6,7 +6,7 @@ const initialState = {
   singleExercise: null,
   currentMuscleGroup: null,
   indexOfLastExercise: 5,
-  indexOfFirstExercise: 0, 
+  indexFirstExercise: 0, 
 };
 
 const exercises = (state = initialState, action) => {
@@ -22,7 +22,6 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === "Chest"
       );
 
-      const indexFirstExercise = 0;
       const indexLastExercise = state.indexOfLastExercise;
 
       const currentExercises = filterOnlyGroupChest.slice(
