@@ -22,8 +22,8 @@ export const fetchSettings = () => dispatch => {
   
   export const updateSettings = updatedSettings => dispatch => {
   debugger
-  return axios
-    .put(`${settings}/${userId}`, updatedSettings)
+  axiosWithAuth()
+    .put(settings, updatedSettings)
     .then(res => {
 debugger
          dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data });
