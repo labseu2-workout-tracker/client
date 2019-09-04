@@ -38,6 +38,7 @@ class ExerciseLibrary extends React.Component {
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
         searchName={this.state.searchName}
+        handleChange={this.handleChange}
       />
     );
   }
