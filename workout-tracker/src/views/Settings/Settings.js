@@ -154,7 +154,6 @@ class Settings extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state.gender, this.state.user_level)
   };
 
   startUpdate = () => {
@@ -164,18 +163,21 @@ class Settings extends React.Component {
   };
 
   changeSettings = () => {
+    
     const updatedSettings = {
-      email: this.state.email,
-      username: this.state.username,
+      email: this.state.email ? this.state.email : this.props.settings[0].email,
+      username: this.state.username ? this.state.username : this.props.settings[0].username,
       // password: this.state.password,
-      weight: Number(this.state.weight),
-      height: Number(this.state.height),
-      gender: this.state.gender ? this.state.gender : "Male",
-      user_level: this.state.user_level ? this.state.user_level : "Beginner",
+      weight: this.state.weight,
+      height: this.state.height,
+      gender: this.state.gender ? this.state.gender : null,
+      // user_level: this.state.user_level ? this.state.user_level : null,
       email_notification:
         this.state.email_notification === "true" ? true : false,
       push_notification: this.state.push_notification === "true" ? true : false
     };
+
+    debugger
 
     this.props.updateSettings(updatedSettings);
 
@@ -244,6 +246,8 @@ class Settings extends React.Component {
                           <span className="text">Weight:</span>
                           <span className="data">
                             <input
+                            min="1"
+                            type="number"
                               className="update-input"
                               value={this.state.weight}
                               onChange={this.handleChange}

@@ -12,6 +12,7 @@ export const fetchSettings = () => dispatch => {
   axiosWithAuth()
   .get(`${settings}`)
   .then(res => {
+    debugger
       dispatch({ type: FETCH_SETTINGS, settings: res.data.user });
     })
     .catch(err => {
