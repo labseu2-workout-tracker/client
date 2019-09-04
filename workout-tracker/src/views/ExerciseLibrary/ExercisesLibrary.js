@@ -1,14 +1,21 @@
 import React from "react";
 import AllExercises from "../../components/Exercises/AllExercises";
 import SingleExercise from "../../components/Exercises/SingleExercise";
-import { fetchExercises, showMuscleGroup, showSingleExercise, closeSingleExercise, loadMore, searchExercise} from "../../store/actions/exerciseActions";
+import {
+  fetchExercises,
+  showMuscleGroup,
+  showSingleExercise,
+  closeSingleExercise,
+  loadMore,
+  searchExercise
+} from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    searchName: '',
+      searchName: ""
     };
   }
 
@@ -16,28 +23,28 @@ class ExerciseLibrary extends React.Component {
     this.props.fetchExercises();
   };
 
-  handleChange = (e) => {
-
+  handleChange = e => {
     this.setState({
-      searchName: e.target.value,
+      searchName: e.target.value
     });
   };
 
   searchForName = () => {
     this.props.searchExercise(this.state.searchName);
-  
+
     this.setState({
-      searchName: '',
+      searchName: ""
     });
-    };
+  };
 
   render() {
     if (this.props.singleExercise) {
       return (
-        <SingleExercise 
-        exercise={this.props.singleExercise[0]}
-        closeExercise={this.props.closeSingleExercise} />
-       )
+        <SingleExercise
+          exercise={this.props.singleExercise[0]}
+          closeExercise={this.props.closeSingleExercise}
+        />
+      );
     }
     return (
       <AllExercises
@@ -56,11 +63,18 @@ class ExerciseLibrary extends React.Component {
 const mapStateToProps = state => {
   return {
     exercises: state.exercises.exercises,
-    singleExercise: state.exercises.singleExercise,
+    singleExercise: state.exercises.singleExercise
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchExercises, showMuscleGroup, showSingleExercise, closeSingleExercise, loadMore, searchExercise }
+  {
+    fetchExercises,
+    showMuscleGroup,
+    showSingleExercise,
+    closeSingleExercise,
+    loadMore,
+    searchExercise
+  }
 )(ExerciseLibrary);

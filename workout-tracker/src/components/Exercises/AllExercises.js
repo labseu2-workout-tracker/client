@@ -84,8 +84,15 @@ const AllExercises = props => {
 
   return (
     <StyledAllExercises className="all-exercise">
-       <input type="text" value={this.props.searchName} onChange={props.handleChange} placeholder="Search" />
-       <button className="button" onClick={this.searchForName} >Search</button>
+      <input
+        type="text"
+        value={this.props.searchName}
+        onChange={props.handleChange}
+        placeholder="Search"
+      />
+      <button className="button" onClick={this.searchForName}>
+        Search
+      </button>
       <div className="buttons-exercises">
         <div className="muscle-buttons">
           {muscles.map((muscleGroup, index) => (
@@ -103,7 +110,7 @@ const AllExercises = props => {
             ? props.exercises.map((exercise, index) => {
                 return (
                   <div
-                  onClick={() => props.showSingleExercise(exercise.id)}
+                    onClick={() => props.showSingleExercise(exercise.id)}
                     className="exercise"
                     key={index}
                   >
@@ -124,9 +131,9 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
-        <button
-        onClick={props.loadMore} className="button">Load More</button>
-  
+      <button onClick={props.loadMore} className="button">
+        Load More
+      </button>
     </StyledAllExercises>
   );
 };

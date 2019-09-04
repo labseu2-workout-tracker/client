@@ -58,8 +58,7 @@ const exercises = (state = initialState, action) => {
       let searchMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === state.currentMuscleGroup
       );
-      let indexOfTheLastExercise =
-        state.indexOfLastExercise + 5;
+      let indexOfTheLastExercise = state.indexOfLastExercise + 5;
 
       if (indexOfTheLastExercise > searchMuscleGroup.length) {
         indexOfTheLastExercise = searchMuscleGroup.length;
@@ -85,11 +84,14 @@ const exercises = (state = initialState, action) => {
     case type.CLOSE_SINGLE_EXERCISE:
       return { ...state, singleExercise: null };
 
-      case types.SEARCH_EXERCISE:
-          const filterSearchedExercise = state.copyOfExercises.filter(exercise =>
-            exercise.exercise_name.toLowerCase().startsWith(action.exercise.toLowerCase()));
-         
-            return { ...state, exercises: filterSearchedExercise};
+    case types.SEARCH_EXERCISE:
+      const filterSearchedExercise = state.copyOfExercises.filter(exercise =>
+        exercise.exercise_name
+          .toLowerCase()
+          .startsWith(action.exercise.toLowerCase())
+      );
+
+      return { ...state, exercises: filterSearchedExercise };
 
     default:
       return state;
