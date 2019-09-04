@@ -6,7 +6,7 @@ const initialState = {
   singleExercise: null,
   currentMuscleGroup: null,
   indexOfLastExercise: 5,
-  indexFirstExercise: 0, 
+  indexFirstExercise: 0
 };
 
 const exercises = (state = initialState, action) => {
@@ -25,10 +25,10 @@ const exercises = (state = initialState, action) => {
       const indexLastExercise = state.indexOfLastExercise;
 
       const currentExercises = filterOnlyGroupChest.slice(
-        indexFirstExercise,
+        state.indexFirstExercise,
         indexLastExercise
       );
-     
+
       return {
         ...state,
         exercises: currentExercises,
@@ -40,14 +40,13 @@ const exercises = (state = initialState, action) => {
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
-      const indexOfFirstExercise = 0;
       const indexOfLastExercise = 5;
-     
+
       const theCurrentExercises = searchResultForMuscleGroup.slice(
-        indexOfFirstExercise,
+        state.indexFirstExercise,
         indexOfLastExercise
       );
-     
+
       return {
         ...state,
         exercises: theCurrentExercises,
@@ -55,24 +54,27 @@ const exercises = (state = initialState, action) => {
         indexOfLastExercise: indexOfLastExercise
       };
 
-      case type.LOAD_MORE:
-          let searchMuscleGroup = state.copyOfExercises.filter(
-            exercise => exercise.muscle === state.currentMuscleGroup
-          );
-          const indexOfTheFirstExercise = 0;
-          let indexOfTheLastExercise = state.indexOfLastExercise + state.indexOfLastExercise;
-         
-          if(indexOfTheLastExercise > searchMuscleGroup.length) {
-            indexOfTheLastExercise = searchMuscleGroup.length;
-          }
+    case type.LOAD_MORE:
+      let searchMuscleGroup = state.copyOfExercises.filter(
+        exercise => exercise.muscle === state.currentMuscleGroup
+      );
+      let indexOfTheLastExercise =
+        state.indexOfLastExercise + state.indexOfLastExercise;
 
-          const actualExercises = searchMuscleGroup.slice(
-            indexOfTheFirstExercise,
-            indexOfTheLastExercise
-          );
+      if (indexOfTheLastExercise > searchMuscleGroup.length) {
+        indexOfTheLastExercise = searchMuscleGroup.length;
+      }
 
-          return { ...state, exercises: actualExercises, indexOfLastExercise: indexOfTheLastExercise  };
-         
+      const actualExercises = searchMuscleGroup.slice(
+        state.indexFirstExercise,
+        indexOfTheLastExercise
+      );
+
+      return {
+        ...state,
+        exercises: actualExercises,
+        indexOfLastExercise: indexOfTheLastExercise
+      };
 
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
