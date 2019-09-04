@@ -33,7 +33,7 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
-        currentMuscleGroup: "Chest"
+        currentMuscleGroup: filterOnlyGroupChest
       };
 
     case type.SHOW_MUSCLE_GROUP:
@@ -50,21 +50,18 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: theCurrentExercises,
-        currentMuscleGroup: action.muscleGroup,
+        currentMuscleGroup: searchResultForMuscleGroup,
         indexOfLastExercise: indexOfLastExercise
       };
 
     case type.LOAD_MORE:
-      let searchMuscleGroup = state.copyOfExercises.filter(
-        exercise => exercise.muscle === state.currentMuscleGroup
-      );
       let indexOfTheLastExercise = state.indexOfLastExercise + 5;
 
-      if (indexOfTheLastExercise > searchMuscleGroup.length) {
-        indexOfTheLastExercise = searchMuscleGroup.length;
+      if (indexOfTheLastExercise > state.currentMuscleGroup.length) {
+        indexOfTheLastExercise = state.currentMuscleGroup.length;
       }
 
-      const actualExercises = searchMuscleGroup.slice(
+      const actualExercises = state.currentMuscleGroup.slice(
         state.indexFirstExercise,
         indexOfTheLastExercise
       );
@@ -76,7 +73,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.SHOW_SINGLE_EXERCISE:
-      const filterExercise = state.exercises.filter(
+      const filterExercise = state.currentMuscleGroup.filter(
         exercise => exercise.id === action.exercise_id
       );
       return { ...state, singleExercise: filterExercise };
@@ -93,6 +90,8 @@ const exercises = (state = initialState, action) => {
 
       return { ...state, exercises: filterSearchedExercise };
 
+    case type.SHOW_EQUIPMENT:
+     
     default:
       return state;
   }
