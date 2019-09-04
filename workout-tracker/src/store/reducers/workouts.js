@@ -39,8 +39,8 @@ const workouts = (state = initialState, action) => {
       };
 
       case type.FINISH_EXERCISE:
-          const deleteExercise = state.allExercises.filter(
-            exercise => exercise.id === action.exercise_id
+          const deleteExercise = state.currentExercise.filter(
+            exercise => exercise.id !== action.exercise_id
           );
           debugger
           return {

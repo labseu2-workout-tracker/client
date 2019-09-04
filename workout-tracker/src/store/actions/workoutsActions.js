@@ -41,5 +41,6 @@ export const chooseExercise = (exercise_name) => {
 };
 
 export const finishExercise = (exercise_id) => {  
-  return{ type: FINISH_EXERCISE, current_exercise: exercise_id };
+  debugger
+  return{ type: FINISH_EXERCISE, exercise_id: exercise_id };
 };
