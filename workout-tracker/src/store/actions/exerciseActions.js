@@ -5,6 +5,7 @@ export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 export const CLOSE_SINGLE_EXERCISE = 'CLOSE_SINGLE_EXERCISE';
 export const LOAD_MORE = 'LOAD_MORE';
+export const SEARCH_EXERCISE = 'SEARCH_EXERCISE';
 
 
 const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
