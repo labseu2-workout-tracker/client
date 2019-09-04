@@ -1,0 +1,66 @@
+.buttons-exercises {
+  display: flex;
+}
+
+.muscle-buttons,
+.equipment-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.button {
+  width: 10rem;
+}
+.number {
+  width: 3rem;
+}
+
+.exercises {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
+    .p {
+          width: 30%;
+       padding: 0;
+         }
+
+.exercise {
+  /* width: 10rem; */
+  border: 0.1rem black solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* height: 14rem; */
+}
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.img {
+  width: 10%;
+  /* height: 5rem; */
+}
+.search{
+    margin:"3rem";
+     /* p={{ b: "0.5rem" }}> */
+    background:rgb(255, 255, 255, .4);
+    border-radius:3rem 3rem; 
+}
+.search-icon{
+    size:"20px";
+    cursor:"pointer";
+    position:"absolute";
+    top:"50%";
+    right:"1rem";
+    transform:"translateY(-50%)";
+}

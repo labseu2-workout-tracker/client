@@ -1,65 +1,65 @@
 import React from "react";
-import styled from "styled-components";
+import './AllExercises.css'
 
-const StyledAllExercises = styled.div`
-  margin-top: 1.4rem;
+// const StyledAllExercises = styled.div`
+//   margin-top: 1.4rem;
 
-  .buttons-exercises {
-    display: flex;
-  }
+//   .buttons-exercises {
+//     display: flex;
+//   }
 
-  .muscle-buttons, .equipment-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-  }
+//   .muscle-buttons, .equipment-buttons {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-items: center;
+//     width: 25%;
+//   }
 
-  .button {
-    width: 10rem;
-  }
-  .number {
-    width: 3rem;
-  }
+//   .button {
+//     width: 10rem;
+//   }
+//   .number {
+//     width: 3rem;
+//   }
 
-  .exercises {
-    display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-  }
+//   .exercises {
+//     display: flex;
+//     /* flex-wrap: wrap; */
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 75%;
+//   }
 
-  .exercise {
-    /* width: 10rem; */
-    border: 0.1rem black solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+//   .exercise {
+//     /* width: 10rem; */
+//     border: 0.1rem black solid;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
 
-    p {
-      width: 30%;
-      padding: 0;
-    }
-    /* height: 14rem; */
+//     p {
+//       width: 30%;
+//       padding: 0;
+//     }
+//     /* height: 14rem; */
 
-    .column {
-      display: flex;
-      flex-direction: column;
-    }
+//     .column {
+//       display: flex;
+//       flex-direction: column;
+//     }
 
-    &:hover {
-      cursor: pointer;
-    }
-  }
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
 
-  img {
-    width: 10%;
-    /* height: 5rem; */
-  }
-`;
+//   img {
+//     width: 10%;
+//     /* height: 5rem; */
+//   }
+// `;
 
 const AllExercises = props => {
   const muscles = [
@@ -99,16 +99,17 @@ const AllExercises = props => {
   ];
 
   return (
-    <StyledAllExercises className="all-exercise">
+    <div className="all-exercise">
       <input
+      className="search"
         type="text"
         value={props.searchName}
         onChange={props.handleChange}
         placeholder="Search"
+
       />
-      <button className="button" onClick={props.searchForName}>
-        Search
-      </button>
+      <i class="fas fa-search" onClick={props.searchForName}></i>
+
       <div className="buttons-exercises">
         <div className="muscle-buttons">
           <h1>Muscles</h1>
@@ -131,8 +132,8 @@ const AllExercises = props => {
                     className="exercise"
                     key={index}
                   >
-                    <img src={exercise.picture_one} alt="exercise" />
-                    <img src={exercise.picture_two} alt="exercise" />
+                    <img className="img" src={exercise.picture_one} alt="exercise" />
+                    <img className="img" src={exercise.picture_two} alt="exercise" />
                     <div className="column">
                       <p>{exercise.exercise_name}</p>
                       <p>
@@ -163,7 +164,7 @@ const AllExercises = props => {
       <button onClick={props.loadMore} className="button">
         Load More
       </button>
-    </StyledAllExercises>
+    </div>
   );
 };
 
