@@ -34,10 +34,6 @@ const StyledWorkoutSession = styled.div`
 `;
 
 class WorkoutSession extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props = {};
-  }
 
   render() {
     return (
