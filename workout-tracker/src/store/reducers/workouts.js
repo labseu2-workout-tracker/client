@@ -21,6 +21,11 @@ const workouts = (state = initialState, action) => {
         workoutDetails: action.workoutDetails
       };
 
+      case type.CHOOSE_EXERCISE:
+          return {
+              ...state,
+              currentExercise:
+            };
     default:
       return state;
   }
