@@ -95,6 +95,7 @@ const AllExercises = props => {
       </button>
       <div className="buttons-exercises">
         <div className="muscle-buttons">
+          <h1>Muscles</h1>
           {muscles.map((muscleGroup, index) => (
             <button
               className="button"
