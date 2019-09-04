@@ -182,3 +182,22 @@ background:#c7a06e;
     
   }
   
+  .box-1 .btn {
+    padding: 0.8rem 2.5rem;
+    background-color: #6bbdfa;
+    border-radius: 2rem;
+    margin-bottom: 3rem;
+    text-transform: capitalize;
+    color: #eee;
+    font-size: 1.4rem;
+    transition: all 0.7s;
+  }
+  .box-1 .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+  }
+  .box-1 .btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+    background-color: #c7a06e; 
+  }

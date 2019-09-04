@@ -122,7 +122,7 @@ const AllExercises = props => {
           <h1>Muscles</h1>
           {muscles.map((muscleGroup, index) => (
             <button
-              className="button"
+              className="btn"
               key={index}
               onClick={props.showMuscleGroup}
             >
