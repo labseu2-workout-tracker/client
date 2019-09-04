@@ -21,7 +21,7 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === "Chest"
       );
 
-      const indexFirstExercise = 1;
+      const indexFirstExercise = 0;
       const indexLastExercise = state.exercisesPerPage;
 
       const currentExercises = filterOnlyGroupChest.slice(
@@ -40,7 +40,7 @@ const exercises = (state = initialState, action) => {
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
-      const indexOfFirstExercise = 1;
+      const indexOfFirstExercise = 0;
       const indexOfLastExercise = 5;
      
       const theCurrentExercises = searchResultForMuscleGroup.slice(
@@ -59,7 +59,7 @@ const exercises = (state = initialState, action) => {
           let searchMuscleGroup = state.copyOfExercises.filter(
             exercise => exercise.muscle === state.currentMuscleGroup
           );
-          const indexOfTheFirstExercise = 1;
+          const indexOfTheFirstExercise = 0;
           let indexOfTheLastExercise = state.exercisesPerPage + state.exercisesPerPage;
          
           if(indexOfTheLastExercise > searchMuscleGroup.length) {
