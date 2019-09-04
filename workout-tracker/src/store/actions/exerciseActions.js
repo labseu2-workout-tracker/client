@@ -42,3 +42,7 @@ export const loadMore = () => {
 export const searchExercise = exercise => {
   return { type: SEARCH_EXERCISE, exercise: exercise };
 };
+
+export const showEquipment = equipment => {
+  return { type: SHOW_EQUIPMENT, equipment: equipment };
+};
