@@ -117,7 +117,7 @@ class WorkoutSession extends React.Component {
                 );
               })}
           </div>
-        ) : <button onClick={()}>Finish Workout</button>}
+        ) : <button onClick={() => this.props.endWorkout(this.props.workoutDetails.id)}>Finish Workout</button>}
       </StyledWorkoutSession>
     );
   }
