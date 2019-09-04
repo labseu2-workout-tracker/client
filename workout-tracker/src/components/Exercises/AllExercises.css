@@ -143,6 +143,7 @@ background:#c7a06e;
   .box-2{
     flex:1;
     order:2;
+
     padding-top: 3rem;
     width:70%;
     height: 50px;
@@ -158,24 +159,26 @@ background:#c7a06e;
       width: 10rem;
       height: 10rem;
       border: 14px solid #6bbdfa;
-      margin-left: -30px;
-      margin-right:-30px;
+      margin-left: -40px;
+      margin-right:-40px;
+      z-index: 999;
 
   }
   .column {
     display: flex;
+    align-content: space-between;
     flex-direction: row;
     padding: 2rem;
-    width: 40rem;
-    height: 4rem;
+    width: 25rem;
+    height: 2rem;
     background-color: #6bbdfa;
-    z-index: 999;
     align-items:center;
   }
 
 .column p{
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
+    width: 20rem;
     
 }
   
@@ -183,7 +186,7 @@ background:#c7a06e;
     flex:1;
     order: 3;
     margin: 2rem;
-    height: 70px;
+    height: 60px;
     display: flex;
     flex-direction: column;
     
