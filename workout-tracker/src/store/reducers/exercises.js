@@ -54,6 +54,10 @@ const exercises = (state = initialState, action) => {
         currentMuscleGroup: action.muscleGroup
       };
 
+      case type.SHOW_SINGLE_EXERCISE:
+      
+      return { ...state, currentExercises:  };
+
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
         exercise => exercise.exercise_name === action.exerciseName
