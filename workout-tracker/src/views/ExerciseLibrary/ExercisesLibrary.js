@@ -7,7 +7,8 @@ import {
   showSingleExercise,
   closeSingleExercise,
   loadMore,
-  searchExercise
+  searchExercise,
+  showEquipment
 } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
@@ -76,6 +77,7 @@ export default connect(
     showSingleExercise,
     closeSingleExercise,
     loadMore,
-    searchExercise
+    searchExercise,
+    showEquipment
   }
 )(ExerciseLibrary);
