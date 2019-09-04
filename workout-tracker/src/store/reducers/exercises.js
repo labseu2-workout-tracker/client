@@ -145,6 +145,8 @@ const exercises = (state = initialState, action) => {
           
           startButton += 5;
           
+          endButton += 5;
+          
     
             return { ...state, currentButtons: actualButtons };
 
