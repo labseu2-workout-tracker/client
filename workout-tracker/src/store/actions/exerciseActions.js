@@ -2,9 +2,10 @@ import axios from 'axios';
 
 export const FETCH_EXERCISES = 'FETCH_EXERCISES';
 export const SHOW_MUSCLE_GROUP = 'SHOW_MUSCLE_GROUP';
-export const PAGINATE = 'PAGINATE';
 export const SHOW_SINGLE_EXERCISE = 'SHOW_SINGLE_EXERCISE';
 export const CLOSE_SINGLE_EXERCISE = 'CLOSE_SINGLE_EXERCISE';
+export const LOAD_MORE = 'LOAD_MORE';
+
 
 const exercises = `${process.env.REACT_APP_BASE_URL}/exercises`;
 // adress get's changed later
@@ -24,14 +25,14 @@ export const showMuscleGroup = (muscleGroup) => {
   return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
 };
 
-export const paginate = (num) => {
-  return { type: PAGINATE, num: num };   
-};
-
-export const showSingleExercise = (exerciseName) => {
-  return { type: SHOW_SINGLE_EXERCISE, exerciseName: exerciseName }; 
+export const showSingleExercise = (exercise_id) => {
+  return { type: SHOW_SINGLE_EXERCISE, exercise_id: exercise_id }; 
 };
 
 export const closeSingleExercise = () => {
   return { type: CLOSE_SINGLE_EXERCISE}; 
+};
+
+export const loadMore = () => {
+  return { type: LOAD_MORE}; 
 };

@@ -2,7 +2,63 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledAllExercises = styled.div`
-  margin-top: 3rem;
+  margin-top: 1.4rem;
+
+  .buttons-exercises {
+    display: flex;
+  }
+
+  .muscle-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+  }
+
+  .button {
+    width: 10rem;
+  }
+  .number {
+    width: 3rem;
+  }
+
+  .exercises {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+  }
+
+  .exercise {
+    /* width: 10rem; */
+    border: 0.1rem black solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    p {
+      width: 30%;
+      padding: 0;
+    }
+    /* height: 14rem; */
+
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  img {
+    width: 10%;
+    /* height: 5rem; */
+  }
 `;
 
 const AllExercises = props => {
@@ -28,33 +84,47 @@ const AllExercises = props => {
 
   return (
     <StyledAllExercises className="all-exercise">
-      <div className="muscle-groups">
-        {muscles.map((muscleGroup, index) => (
-          <button key={index} onClick={props.showMuscleGroup}>
-            {muscleGroup}
-          </button>
-        ))}
+      <div className="buttons-exercises">
+        <div className="muscle-buttons">
+          {muscles.map((muscleGroup, index) => (
+            <button
+              className="button"
+              key={index}
+              onClick={props.showMuscleGroup}
+            >
+              {muscleGroup}
+            </button>
+          ))}
+        </div>
+        <div className="exercises">
+          {props.exercises
+            ? props.exercises.map((exercise, index) => {
+                return (
+                  <div
+                  onClick={() => props.showSingleExercise(exercise.id)}
+                    className="exercise"
+                    key={index}
+                  >
+                    <img src={exercise.picture_one} alt="exercise" />
+                    <img src={exercise.picture_two} alt="exercise" />
+                    <div className="column">
+                      <p>{exercise.exercise_name}</p>
+                      <p>
+                        Muscle Targeted: <span>{exercise.muscle}</span>
+                      </p>
+                      <p>
+                        Equipment Type: <span>{exercise.equipment}</span>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
-      {props.exercises
-        ? props.exercises.map((exercise, index) => {
-            return (
-              <div key={index}>
-                <p onClick={props.showSingleExercise}>
-                  {exercise.exercise_name}
-                </p>
-              </div>
-            );
-          })
-        : null}
-      {props.pageNumbers
-        ? props.pageNumbers.map((num, index) => {
-            return (
-              <button key={index} onClick={props.paginate}>
-                {num}
-              </button>
-            );
-          })
-        : null}
+        <button
+        onClick={props.loadMore} className="button">Load More</button>
+  
     </StyledAllExercises>
   );
 };

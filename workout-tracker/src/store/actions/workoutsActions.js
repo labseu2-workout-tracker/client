@@ -14,6 +14,7 @@ export const fetchWorkouts = () => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
   axiosWithAuth().get(workouts)
     .then(res => {
+     
       dispatch({ type: FETCH_WORKOUTS, workouts: res.data });
     })
     .catch(err => {
@@ -30,8 +31,8 @@ export const fetchWorkoutDetails = () => dispatch => {
   //Prototype until backend is done 
   // changed backend on my files to get data back
     .then(res => {
-      debugger
-      dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data });
+    
+      dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)

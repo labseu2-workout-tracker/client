@@ -1,7 +1,7 @@
 import React from "react";
 import AllExercises from "../../components/Exercises/AllExercises";
 import SingleExercise from "../../components/Exercises/SingleExercise";
-import { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise } from "../../store/actions/exerciseActions";
+import { fetchExercises, showMuscleGroup, showSingleExercise, closeSingleExercise, loadMore} from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
@@ -26,9 +26,8 @@ class ExerciseLibrary extends React.Component {
       <AllExercises
         exercises={this.props.exercises}
         showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
-        pageNumbers={this.props.pageNumbers}
-        paginate={e => this.props.paginate(e.target.textContent)}
-        showSingleExercise={(e) => this.props.showSingleExercise(e.target.textContent)}
+        showSingleExercise={this.props.showSingleExercise}
+        loadMore={this.props.loadMore}
       />
     );
   }
@@ -38,11 +37,10 @@ const mapStateToProps = state => {
   return {
     exercises: state.exercises.exercises,
     singleExercise: state.exercises.singleExercise,
-    pageNumbers: state.exercises.pageNumbers,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchExercises, showMuscleGroup, paginate, showSingleExercise, closeSingleExercise }
+  { fetchExercises, showMuscleGroup, showSingleExercise, closeSingleExercise, loadMore }
 )(ExerciseLibrary);

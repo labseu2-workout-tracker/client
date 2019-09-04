@@ -47,9 +47,9 @@ class WorkoutSession extends React.Component {
   };
 
   chooseExercise = e => {
-    const filterCurrentExercise = [
-      this.props.workoutDetails
-    ][0].exercises.filter(
+    const filterCurrentExercise =
+      this.props.workoutDetails.exercises
+      .filter(
       exercise => exercise.exercise_name === e.target.textContent
     );
 
@@ -135,9 +135,8 @@ class WorkoutSession extends React.Component {
         <p>Choose exercise:</p>
         {/* Display Exercises(but without duplicates) */}
         {this.props.workoutDetails
-          ? [
-            this.props.workoutDetails
-          ][0].exercises
+          ?
+            this.props.workoutDetails.exercises
               .reduce((acc, current) => {
                 const x = acc.find(
                   item => item.exercise_name === current.exercise_name

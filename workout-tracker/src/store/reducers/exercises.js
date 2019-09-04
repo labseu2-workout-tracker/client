@@ -5,8 +5,8 @@ const initialState = {
   copyOfExercises: null,
   singleExercise: null,
   currentMuscleGroup: null,
-  postsPerPage: 10,
-  pageNumbers: null
+  indexOfLastExercise: 5,
+  indexFirstExercise: 0
 };
 
 const exercises = (state = initialState, action) => {
@@ -18,102 +18,72 @@ const exercises = (state = initialState, action) => {
         }
         return exercise;
       });
-
-      const indexLastPost = state.postsPerPage;
-
-      const indexFirstPost = indexLastPost - state.postsPerPage;
-
-      const currentPosts = changeRatingOfExercise.slice(
-        indexFirstPost,
-        indexLastPost
+      const filterOnlyGroupChest = changeRatingOfExercise.filter(
+        exercise => exercise.muscle === "Chest"
       );
 
-      const totalExercises = changeRatingOfExercise.length;
+      const indexLastExercise = state.indexOfLastExercise;
 
-      let ButtonNumber = [];
-
-      for (let i = 1; i <= Math.ceil(totalExercises / state.postsPerPage); i++) {
-        ButtonNumber.push(i);
-      }
+      const currentExercises = filterOnlyGroupChest.slice(
+        state.indexFirstExercise,
+        indexLastExercise
+      );
 
       return {
         ...state,
-        exercises: currentPosts,
-        pageNumbers: ButtonNumber,
-        copyOfExercises: changeRatingOfExercise
+        exercises: currentExercises,
+        copyOfExercises: changeRatingOfExercise,
+        currentMuscleGroup: "Chest"
       };
 
     case type.SHOW_MUSCLE_GROUP:
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
+      const indexOfLastExercise = 5;
 
-      const indexOfLastPost = state.postsPerPage;
-
-      const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
-
-      const currentExercises = searchResultForMuscleGroup.slice(
-        indexOfFirstPost,
-        indexOfLastPost
+      const theCurrentExercises = searchResultForMuscleGroup.slice(
+        state.indexFirstExercise,
+        indexOfLastExercise
       );
-
-      const totalPosts = searchResultForMuscleGroup.length;
-
-      let pageNumbers = [];
-
-      for (let i = 1; i <= Math.ceil(totalPosts / state.postsPerPage); i++) {
-        pageNumbers.push(i);
-      }
 
       return {
         ...state,
-        exercises: currentExercises,
-        pageNumbers: pageNumbers,
-        currentMuscleGroup: action.muscleGroup
+        exercises: theCurrentExercises,
+        currentMuscleGroup: action.muscleGroup,
+        indexOfLastExercise: indexOfLastExercise
       };
 
-    case type.PAGINATE:
-      
-      if(state.currentMuscleGroup) {
-        let searchForMuscleGroup = state.copyOfExercises.filter(
-          exercise => exercise.muscle === state.currentMuscleGroup);
-     
-          const indexOfTheLastPost = action.num * state.postsPerPage;
-    
-          const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
-    
-          const theCurrentExercises = searchForMuscleGroup.slice(
-            indexOfTheFirstPost,
-            indexOfTheLastPost
-          );
-    
-          return { ...state, exercises: theCurrentExercises };
-      } else {
-        let searchForMuscleGroup = state.copyOfExercises;
+    case type.LOAD_MORE:
+      let searchMuscleGroup = state.copyOfExercises.filter(
+        exercise => exercise.muscle === state.currentMuscleGroup
+      );
+      let indexOfTheLastExercise =
+        state.indexOfLastExercise + 5;
 
-        const indexOfTheLastPost = action.num * state.postsPerPage;
-
-        const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
-  
-        const theCurrentExercises = searchForMuscleGroup.slice(
-          indexOfTheFirstPost,
-          indexOfTheLastPost
-        );
-  
-        return { ...state, exercises: theCurrentExercises }
+      if (indexOfTheLastExercise > searchMuscleGroup.length) {
+        indexOfTheLastExercise = searchMuscleGroup.length;
       }
 
+      const actualExercises = searchMuscleGroup.slice(
+        state.indexFirstExercise,
+        indexOfTheLastExercise
+      );
+
+      return {
+        ...state,
+        exercises: actualExercises,
+        indexOfLastExercise: indexOfTheLastExercise
+      };
 
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
-        exercise => exercise.exercise_name === action.exerciseName
+        exercise => exercise.id === action.exercise_id
       );
-
       return { ...state, singleExercise: filterExercise };
 
-      case type.CLOSE_SINGLE_EXERCISE:
-  
-        return { ...state, singleExercise: null };
+    case type.CLOSE_SINGLE_EXERCISE:
+      return { ...state, singleExercise: null };
 
     default:
       return state;
