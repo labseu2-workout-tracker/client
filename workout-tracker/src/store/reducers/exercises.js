@@ -9,6 +9,8 @@ const initialState = {
   pageNumbers: null,
   currentButtons: null,
   buttonsPerPage: 5,
+  startButton: 1,
+  
 };
 
 const exercises = (state = initialState, action) => {
@@ -133,7 +135,23 @@ const exercises = (state = initialState, action) => {
 
         case type.GO_FORWARD:
 
-            
+          let startButton = 1;
+
+          let endButton = 5;
+          
+          let numberButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+          
+          let currentNumbers = [];
+          
+          startButton += 10;
+          endButton += 10;
+          
+          if(endButton > numberButtons[numberButtons.length - 1]) {
+          endButton = numberButtons[numberButtons.length - 1];
+          } 
+          for(let i = startButton; i <= endButton; i++) {
+            currentNumbers.push(i);
+          }
     
             return { ...state, currentButtons: actualButtons };
 
