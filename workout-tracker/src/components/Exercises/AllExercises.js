@@ -86,11 +86,11 @@ const AllExercises = props => {
     <StyledAllExercises className="all-exercise">
       <input
         type="text"
-        value={this.props.searchName}
+        value={props.searchName}
         onChange={props.handleChange}
         placeholder="Search"
       />
-      <button className="button" onClick={this.searchForName}>
+      <button className="button" onClick={props.searchForName}>
         Search
       </button>
       <div className="buttons-exercises">
