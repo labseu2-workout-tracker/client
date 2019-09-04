@@ -12,7 +12,6 @@ export const fetchSettings = () => dispatch => {
   axiosWithAuth()
   .get(`${settings}`)
   .then(res => {
-    debugger
       dispatch({ type: FETCH_SETTINGS, settings: res.data.user });
     })
     .catch(err => {
@@ -21,12 +20,10 @@ export const fetchSettings = () => dispatch => {
   };
   
   export const updateSettings = updatedSettings => dispatch => {
-  debugger
   axiosWithAuth()
     .put(settings, updatedSettings)
     .then(res => {
-debugger
-         dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data });
+         dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data.user });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
