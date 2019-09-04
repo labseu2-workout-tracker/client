@@ -149,6 +149,7 @@ const AllExercises = props => {
         </div>
 
         <div className="equipment-buttons">
+        <h1>Equipment</h1>
           
         </div>
 
