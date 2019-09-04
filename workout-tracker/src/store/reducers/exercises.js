@@ -137,7 +137,9 @@ const exercises = (state = initialState, action) => {
 
           let startButton = state.startButton;
 
-        
+          let endButton = state.endButton;
+          
+          
     
             return { ...state, currentButtons: actualButtons };
 
