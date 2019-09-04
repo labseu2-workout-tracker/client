@@ -25,8 +25,8 @@ export const showMuscleGroup = (muscleGroup) => {
   return { type: SHOW_MUSCLE_GROUP, muscleGroup: muscleGroup };   
 };
 
-export const showSingleExercise = (exerciseName) => {
-  return { type: SHOW_SINGLE_EXERCISE, exerciseName: exerciseName }; 
+export const showSingleExercise = (exercise_id) => {
+  return { type: SHOW_SINGLE_EXERCISE, exercise_id: exercise_id }; 
 };
 
 export const closeSingleExercise = () => {
