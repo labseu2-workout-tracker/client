@@ -8,7 +8,7 @@ const StyledAllExercises = styled.div`
     display: flex;
   }
 
-  .muscle-buttons {
+  .muscle-buttons, .equipment-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -82,10 +82,36 @@ const AllExercises = props => {
     "Abductors"
   ];
 
+  const equipment = [
+    "Bands",
+    "Foam Roll",
+    "Barbell",
+    "Kettlebells",
+    "Body Only",
+    "Machine",
+    "Cable",
+    "Medicine Ball,",
+    "Dumbbell",
+    "None",
+    "E-Z Curl Bar",
+    "Other",
+    "Exercise Ball"
+  ];
+
   return (
     <StyledAllExercises className="all-exercise">
+      <input
+        type="text"
+        value={props.searchName}
+        onChange={props.handleChange}
+        placeholder="Search"
+      />
+      <button className="button" onClick={props.searchForName}>
+        Search
+      </button>
       <div className="buttons-exercises">
         <div className="muscle-buttons">
+          <h1>Muscles</h1>
           {muscles.map((muscleGroup, index) => (
             <button
               className="button"
@@ -101,7 +127,7 @@ const AllExercises = props => {
             ? props.exercises.map((exercise, index) => {
                 return (
                   <div
-                  onClick={() => props.showSingleExercise(exercise.id)}
+                    onClick={() => props.showSingleExercise(exercise.id)}
                     className="exercise"
                     key={index}
                   >
@@ -121,10 +147,22 @@ const AllExercises = props => {
               })
             : null}
         </div>
+        <div className="equipment-buttons">
+          <h1>Equipment</h1>
+          {equipment.map((equipment, index) => (
+            <button
+              className="button"
+              key={index}
+              onClick={props.showEquipment}
+            >
+              {equipment}
+            </button>
+          ))}
+        </div>
       </div>
-        <button
-        onClick={props.loadMore} className="button">Load More</button>
-  
+      <button onClick={props.loadMore} className="button">
+        Load More
+      </button>
     </StyledAllExercises>
   );
 };
