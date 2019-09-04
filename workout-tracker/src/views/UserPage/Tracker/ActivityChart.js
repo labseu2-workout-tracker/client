@@ -11,8 +11,8 @@ import styled from 'styled-components';
 // create array based on visits and days of current month
 
 const Pie = styled.div`
-width: 40%;
 border: 1px solid black;
+width: 45%;
 `;
 
 class PieChart extends React.Component {

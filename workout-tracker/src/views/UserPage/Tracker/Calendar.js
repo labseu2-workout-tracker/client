@@ -6,8 +6,6 @@ import styled from 'styled-components';
 const Div = styled.div`
   width: 40%;
   border: 1px solid red;
-  display: flex;
-  justify-content: end;
 `;
 
 class Calendar extends React.Component {
