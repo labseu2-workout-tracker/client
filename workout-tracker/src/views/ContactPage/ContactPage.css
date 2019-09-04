@@ -121,3 +121,48 @@
     text-decoration: none;
   }
   
+/* Social Media Icons */
+.soci-media-list {
+    position: relative;
+    font-size: 2.2rem;
+    text-align: center;
+    align-content: space-between;
+    width: 100%;
+  }
+  
+  .soci-media-list li a {
+    color: rgb(152, 26, 26);
+  }
+  
+  .soci-media-list li {
+    position: relative; 
+    top: 0;
+    left: -20px;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 20px auto;
+    line-height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #6bbdfa;
+    cursor: pointer; 
+    white-space: inherit;
+    transition: all .3s ease-in-out;
+  }
+  
+  .soci-media-list li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+  }
+  
+
+  

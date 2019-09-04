@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+
 import { connect } from "react-redux";
 import './ContactPage.css'
 // import { fetchSettings } from "../../store/actions/settingActions.js"
@@ -16,6 +16,7 @@ class ContactPage extends React.Component {
       email: this.props.settings ? this.props.settings[0].email : "",
       phone: "",
       message: ""
+      
     };
   }
 
