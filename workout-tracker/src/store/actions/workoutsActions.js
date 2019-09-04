@@ -5,6 +5,7 @@ import { axiosWithAuth } from '../axiosWithAuth';
 export const FETCH_WORKOUTS = 'FETCH_WORKOUTS';
 export const FETCH_WORKOUT_DETAILS = 'FETCH_WORKOUT_DETAILS';
 export const CHOOSE_EXERCISE = 'CHOOSE_EXERCISE';
+export const FINISH_EXERCISE = 'FINISH_EXERCISE';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
