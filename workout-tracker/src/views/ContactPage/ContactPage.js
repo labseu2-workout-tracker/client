@@ -43,65 +43,8 @@ class ContactPage extends React.Component {
 
   render() {
     return (
-      <StyledContactPage>
-        <h2>Contact Us</h2>
-        <p className="question">
-          Have a question about a product, feedback, or business inquiry for
-          Workout Tracker?
-        </p>
-
-        <div className="row">
-          <div className="column column-start">
-            <p>First Name</p>
-            <input
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              placeholder="John"
-            />
-          </div>
-          <div className="column column-end">
-            <p>Last Name</p>
-            <input
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-              placeholder="Doe"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="column column-start">
-            <p>Email *</p>
-            <input
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeholder="JohnDoe@gmail.com"
-            />
-          </div>
-          <div className="column column-end">
-            <p>Phone</p>
-            <input
-              name="phone"
-              value={this.state.phone}
-              onChange={this.handleChange}
-              placeholder="ex: +49 1729149128"
-            />
-          </div>
-        </div>
-        <div className="column">
-          <p>Message *</p>
-          <input
-            className="messageInput"
-            name="message"
-            value={this.state.message}
-            onChange={this.handleChange}
-            placeholder="Message"
-          />
-        </div>
-        <button onClick={this.sendMessage}>Send</button>
-      </StyledContactPage>
+     
+        
     );
   }
 }
