@@ -5,7 +5,7 @@ const initialState = {
   copyOfExercises: null,
   singleExercise: null,
   currentMuscleGroup: null,
-  exercisesPerPage: 5, 
+  indexOfLastExercise: 5,
 };
 
 const exercises = (state = initialState, action) => {
@@ -22,7 +22,7 @@ const exercises = (state = initialState, action) => {
       );
 
       const indexFirstExercise = 0;
-      const indexLastExercise = state.exercisesPerPage;
+      const indexLastExercise = state.indexOfLastExercise;
 
       const currentExercises = filterOnlyGroupChest.slice(
         indexFirstExercise,
@@ -52,7 +52,7 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: theCurrentExercises,
         currentMuscleGroup: action.muscleGroup,
-        exercisesPerPage: indexOfLastExercise
+        indexOfLastExercise: indexOfLastExercise
       };
 
       case type.LOAD_MORE:
@@ -60,7 +60,7 @@ const exercises = (state = initialState, action) => {
             exercise => exercise.muscle === state.currentMuscleGroup
           );
           const indexOfTheFirstExercise = 0;
-          let indexOfTheLastExercise = state.exercisesPerPage + state.exercisesPerPage;
+          let indexOfTheLastExercise = state.indexOfLastExercise + state.indexOfLastExercise;
          
           if(indexOfTheLastExercise > searchMuscleGroup.length) {
             indexOfTheLastExercise = searchMuscleGroup.length;
@@ -71,7 +71,7 @@ const exercises = (state = initialState, action) => {
             indexOfTheLastExercise
           );
 
-          return { ...state, exercises: actualExercises, exercisesPerPage: indexOfTheLastExercise  };
+          return { ...state, exercises: actualExercises, indexOfLastExercise: indexOfTheLastExercise  };
          
 
     case type.SHOW_SINGLE_EXERCISE:
