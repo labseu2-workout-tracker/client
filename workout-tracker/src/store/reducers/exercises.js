@@ -60,27 +60,6 @@ const exercises = (state = initialState, action) => {
     case type.CLOSE_SINGLE_EXERCISE:
       return { ...state, singleExercise: null };
 
-    case type.GO_FORWARD:
-      let startButton = state.startButton + 5;
-      let endButton = state.endButton + 5;
-      let currentNumbers = [];
-      if (endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
-        endButton = state.pageNumbers[state.pageNumbers.length - 1];
-
-        if (startButton >= endButton) {
-          startButton -= 5;
-        }
-      }
-      for (let i = startButton; i <= endButton; i++) {
-        currentNumbers.push(i);
-      }
-      return {
-        ...state,
-        currentButtons: currentNumbers,
-        startButton: startButton,
-        endButton: endButton
-      };
-
     default:
       return state;
   }
