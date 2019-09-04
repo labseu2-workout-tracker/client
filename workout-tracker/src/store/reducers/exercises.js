@@ -61,6 +61,10 @@ const exercises = (state = initialState, action) => {
           const indexOfTheFirstExercise = 1;
           const indexOfTheLastExercise = state.exercisesPerPage + state.exercisesPerPage;
          
+          if(indexOfTheLastExercise > searchMuscleGroup.length) {
+            indexOfTheLastExercise = searchMuscleGroup.length;
+          }
+          
           const actualExercises = searchMuscleGroup.slice(
             indexOfTheFirstExercise,
             indexOfTheLastExercise
