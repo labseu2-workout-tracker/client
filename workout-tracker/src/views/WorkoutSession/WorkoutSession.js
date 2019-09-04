@@ -35,6 +35,12 @@ const StyledWorkoutSession = styled.div`
 `;
 
 class WorkoutSession extends React.Component {
+
+  endWorkout = () => {
+    this.props.endWorkout(this.props.workoutId);
+
+    setTimeout(() => this.props.history.push('/dashboard/history'), 2500);
+  };
   render() {
     return (
       <StyledWorkoutSession>
@@ -112,13 +118,12 @@ class WorkoutSession extends React.Component {
                 })}
             </div>
           ) : (
-            <Link
-              to="/dashboard/history"
+            <p
               className="button"
-              onClick={() => this.props.endWorkout(this.props.workoutId)}
+              onClick={this.endWorkout}
             >
               Finish Workout
-            </Link>
+            </p>
           )}
         </div>
 
