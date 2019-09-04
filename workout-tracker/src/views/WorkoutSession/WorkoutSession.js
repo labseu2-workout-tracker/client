@@ -117,7 +117,7 @@ class WorkoutSession extends React.Component {
                 );
               })}
           </div>
-        ) : <button onClick={this.props.endWorkout}>Finish Workout</button>}
+        ) : <button onClick={()}>Finish Workout</button>}
       </StyledWorkoutSession>
     );
   }
@@ -126,7 +126,8 @@ class WorkoutSession extends React.Component {
 const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
-    currentExercise: state.workouts.currentExercise
+    currentExercise: state.workouts.currentExercise,
+    workoutDetails: state.workouts.workoutDetails
   };
 };
 
