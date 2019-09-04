@@ -39,22 +39,12 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === action.muscleGroup
       );
       const indexOfLastPost = state.exercisesPerPage;
-      const indexOfFirstPost = indexOfLastPost - state.exercisesPerPage;
+     
       const currentExercises = searchResultForMuscleGroup.slice(
         indexOfFirstPost,
         indexOfLastPost
       );
-      const totalPosts = searchResultForMuscleGroup.length;
-      let pageNumbers = [];
-      for (let i = 1; i <= Math.ceil(totalPosts / state.exercisesPerPage); i++) {
-        pageNumbers.push(i);
-      }
-      const indexOfLastButton = state.buttonsPerPage;
-      const indexOfFirstButton = indexOfLastButton - state.buttonsPerPage;
-      const theCurrentButtons = pageNumbers.slice(
-        indexOfFirstButton,
-        indexOfLastButton
-      );
+     
 
       return {
         ...state,
