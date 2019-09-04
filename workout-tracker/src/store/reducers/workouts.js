@@ -26,7 +26,8 @@ const workouts = (state = initialState, action) => {
 
     return {
         ...state,
-        allExercises: addId
+        allExercises: addId,
+        workoutDetails: action.workoutDetails
       };
 
     case type.CHOOSE_EXERCISE:

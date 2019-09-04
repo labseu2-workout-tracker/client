@@ -54,7 +54,7 @@ export const finishExercise = (exercise_id) => {
 
 export const endWorkout = (workout_id) => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
-
+debugger
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
         debugger
