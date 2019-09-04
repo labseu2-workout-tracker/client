@@ -7,7 +7,9 @@ import { connect } from "react-redux";
 class ExerciseLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    searchName: '',
+    };
   }
 
   componentDidMount = () => {
@@ -17,7 +19,7 @@ class ExerciseLibrary extends React.Component {
   handleChange = (e) => {
 
     this.setState({
-      searchForName: e.target.value,
+      searchName: e.target.value,
     });
   };
 
