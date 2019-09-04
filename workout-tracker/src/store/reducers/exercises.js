@@ -95,7 +95,9 @@ const exercises = (state = initialState, action) => {
           exercise =>
             exercise.equipment === action.equipment
         );
+        const indexOfTheLastExercise = 5;
   
+       
        
     default:
       return state;
