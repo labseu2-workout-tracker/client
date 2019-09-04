@@ -53,7 +53,8 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: theCurrentExercises,
         arrayOfCurrentExercises: searchResultForMuscleGroup,
-        indexOfLastExercise: indexOfLastExercise
+        indexOfLastExercise: indexOfLastExercise,
+        currentMuscleGroup: action.muscleGroup
       };
 
     case type.LOAD_MORE:
@@ -93,8 +94,10 @@ const exercises = (state = initialState, action) => {
       return { ...state, exercises: filterSearchedExercise };
 
     case type.SHOW_EQUIPMENT:
-      let searchForEquipment = state.arrayOfCurrentExercises.filter(
+      let searchForEquipment = state.copyOfExercises.filter(
         exercise => exercise.equipment === action.equipment
+        &&
+        exercise.muscle === state.currentMuscleGroup
       );
       const theIndexLastExercise = 5;
       const theActualExercises = searchForEquipment.slice(
