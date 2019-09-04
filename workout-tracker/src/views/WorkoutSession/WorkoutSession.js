@@ -72,7 +72,7 @@ class WorkoutSession extends React.Component {
                   <p>Reps for exercise:</p>
                   <p>{this.props.currentExercise[0].reps}</p>
                 </div>
-              <button onClick={() => this.props.finishExercise(this.props.currentExercise[0].exercise_name)}>finish Exercise</button>
+              <button onClick={() => this.props.finishExercise(this.props.currentExercise[0].id)}>finish Exercise</button>
               </div>
             </div>
           ) : null}
@@ -83,7 +83,7 @@ class WorkoutSession extends React.Component {
         {/* Display Exercises(but without duplicates) */}
         {this.props.allExercises
           ?
-            this.props.allExercises.exercises
+            this.props.allExercises
               .reduce((acc, current) => {
                 const x = acc.find(
                   item => item.exercise_name === current.exercise_name
