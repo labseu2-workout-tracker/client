@@ -86,7 +86,10 @@ const exercises = (state = initialState, action) => {
       return { ...state, singleExercise: null };
 
       case types.SEARCH_EXERCISE:
+          const filterSearchedExercise = state.copyOfExercises.filter(exercise =>
+            exercise.exercise_name.toLowerCase().startsWith(action.exercise.toLowerCase()));
          
+        
 
     default:
       return state;
