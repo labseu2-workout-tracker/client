@@ -76,7 +76,20 @@ class WorkoutSession extends React.Component {
           <Watch />
         </div>
 
-        {/* Display Exercises(but without duplicates) */}
+<div className="exercise-text-and-names">
+
+{this.props.currentExercise ? (
+            <div className="picture-text">
+              <div className="exercise-picture">
+                <p>{this.props.currentExercise[0].description}</p>                
+              </div>
+            </div>
+          ) : (
+            <p>No choosed exercise</p>
+          )}
+
+        {/* Display Exercises(but without duplicates) => filter all duplicates with reduce
+         method and map over result to display exercise names with onClick */}
         {this.props.allExercises ? (
           <div>
             <p>Choose exercise:</p>
@@ -84,12 +97,12 @@ class WorkoutSession extends React.Component {
               .reduce((acc, current) => {
                 const x = acc.find(
                   item => item.exercise_name === current.exercise_name
-                );
-                if (!x) {
-                  return acc.concat([current]);
-                } else {
-                  return acc;
-                }
+                  );
+                  if (!x) {
+                    return acc.concat([current]);
+                  } else {
+                    return acc;
+                  }
               }, [])
               .map((exercise, index) => {
                 return (
@@ -98,7 +111,7 @@ class WorkoutSession extends React.Component {
                       onClick={() =>
                         this.props.chooseExercise(exercise.exercise_name)
                       }
-                    >
+                      >
                       {exercise.exercise_name}
                     </p>
                   </div>
@@ -106,6 +119,7 @@ class WorkoutSession extends React.Component {
               })}
           </div>
         ) : <button onClick={() => this.props.endWorkout(this.props.workoutId)}>Finish Workout</button>}
+</div>
       </StyledWorkoutSession>
     );
   }
