@@ -147,6 +147,11 @@ const AllExercises = props => {
               })
             : null}
         </div>
+
+        <div className="equipment-buttons">
+          
+        </div>
+
       </div>
       <button onClick={props.loadMore} className="button">
         Load More
