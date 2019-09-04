@@ -37,3 +37,7 @@ export const closeSingleExercise = () => {
 export const loadMore = () => {
   return { type: LOAD_MORE}; 
 };
+
+export const searchExercise = (exercise) => {
+  return { type: SEARCH_EXERCISE, exercise: exercise };   
+}
