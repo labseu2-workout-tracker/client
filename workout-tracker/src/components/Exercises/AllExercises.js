@@ -122,23 +122,7 @@ const AllExercises = props => {
             : null}
         </div>
       </div>
-      <p onClick={props.goBack}>{`<`}</p>              
-      {props.currentButtons
-        ? props.currentButtons.map((num, index) => {
-            return (
-              <div className="number-buttons">
-              <button
-                className="button number"
-                key={index}
-                onClick={props.paginate}
-              >
-                {num}
-              </button>
-              </div>
-            );
-          })
-          : null}
-          <p onClick={props.goForward}> > </p>
+  
     </StyledAllExercises>
   );
 };
