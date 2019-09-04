@@ -89,7 +89,6 @@ const StyledSettings = styled.div`
   }
 
   .info li:hover {
-    transform: scale(1.1);
     background: #6bbdfa;
   }
 
