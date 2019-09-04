@@ -14,7 +14,7 @@ const DashboardNavItem = () => [
     <li className="dashboard-list-item"
     
     key={item.id} >
-      <NavLink>{item.icon}</NavLink>
+      <NavLink to={item.link}>{item.icon}</NavLink>
       <NavLink className="dashboard-items" to={item.link}><span>{item.text}</span></NavLink>   
     </li>
   )

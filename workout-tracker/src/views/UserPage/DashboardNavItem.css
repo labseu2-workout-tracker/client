@@ -15,12 +15,12 @@
   width: 100%;
   list-style-type: none;
   text-align: left;
-  border-bottom: 2px solid #f2f2f2;
+  margin-left: 0.5rem;
 }
-.dashboard-items:hover {
+.dashboard-list-item:hover {
   border-bottom: 2px solid orange;
 }
-.dashboard-items.active {
+.dashboard-list-item.active {
   background: #0086c9;
 }
 
