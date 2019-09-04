@@ -27,7 +27,7 @@ const workouts = (state = initialState, action) => {
     return {
         ...state,
         allExercises: addId,
-        workoutId: action.workoutId
+        workoutId: action.workout_id
       };
 
     case type.CHOOSE_EXERCISE:

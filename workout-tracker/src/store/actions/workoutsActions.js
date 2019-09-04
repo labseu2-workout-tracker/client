@@ -30,7 +30,7 @@ export const fetchWorkoutDetails = (workout_id) => dispatch => {
   
   axiosWithAuth().get(`${workouts}/${workout_id}`)
     .then(res => {
-      dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data });
+      dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data, workout_id: workout_id });
     
       return axiosWithAuth().post(`${workouts}/${workout_id}/start`)
       .then(res => {
