@@ -64,6 +64,7 @@ class WorkoutSession extends React.Component {
                 />
               </div>
               <div className="text">
+              <p>{this.props.currentExercise[0].exercise_name}</p>
                 <div className="row">
                   <p>Sets to complete:</p>
                   <p>{this.props.currentExercise.length}</p>

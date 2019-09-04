@@ -16,9 +16,16 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.FETCH_WORKOUT_DETAILS:
-      return {
+    const addId = action.workoutDetails.exercises.map((exercise, index) => {
+      const copyOfData = Object.assign({}, exercise);
+        copyOfData.id = index;
+
+        return copyOfData;
+    });
+
+    return {
         ...state,
-        allExercises: action.workoutDetails.exercises,
+        allExercises: addId
       };
 
     case type.CHOOSE_EXERCISE:
