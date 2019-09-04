@@ -164,5 +164,28 @@
     transition: all .2s ease-in-out;
   }
   
-
+  .soci-media-list li:hover {
+    background-color: #fff; 
+  }
+  
+  .soci-media-list li:hover:after {
+    opacity: 1;  
+    transform: scale(1.12);
+    transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65);
+  }
+  
+  .social-media-list li:hover a {
+    color: rgb(225, 215, 215);
+  }
+  
+  .copyright {
+    font: 200 14px 'Oswald', sans-serif;
+    color: #6bbdfa;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  hr {
+    border-color: rgb(107, 189, 250, .8); ;
+  }
   
