@@ -81,7 +81,7 @@ class Login extends Component {
           </div>
           <Input
             id="email"
-            label="email"
+            label="Email"
             type="email"
             control="input"
             onChange={this.inputChangeHandler}
@@ -92,7 +92,7 @@ class Login extends Component {
           />
           <Input
             id="password"
-            label="password"
+            label="Password"
             type="password"
             control="input"
             onChange={this.inputChangeHandler}
