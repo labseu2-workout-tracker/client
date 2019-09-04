@@ -65,13 +65,12 @@ class WorkoutSession extends React.Component {
               </div>
               <div className="inputs">
                 <div className="row">
-                  <p>Sets to complete</p>
+                  <p>Sets to complete:</p>
+                  <p>{this.props.currentExercise[0].sets}</p>
                 </div>
                 <div className="row">
-                  <p>Reps</p>
-                </div>
-                <div className="row">
-                  <p>Weight</p>
+                  <p>Reps for exercise:</p>
+                  <p>{this.props.currentExercise[0].reps}</p>
                 </div>
                 <button onClick={this.finishExercise}>End Exercise</button>
               </div>
