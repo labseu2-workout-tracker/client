@@ -24,7 +24,7 @@ class Workouts  extends React.Component {
           <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={() => this.startWorkout(workout.id)} to='Workout_session' className='btn'>
+          <Link onClick={() => this.props.startWorkout(workout.id)} to='Workout_session' className='btn'>
                 Start Workout
               </Link>
         </div> 

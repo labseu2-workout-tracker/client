@@ -27,7 +27,7 @@ export const startWorkout = (workout_id) => dispatch => {
   
   axiosWithAuth().get(`${workouts}/${workout_id}`)
     .then(res => {
-    
+    debugger
       dispatch({ type: FETCH_WORKOUT_DETAILS, workoutDetails: res.data.data });
     })
     .catch(err => {
