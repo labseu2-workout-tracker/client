@@ -158,7 +158,10 @@ background:#c7a06e;
       border-radius: 50%;
       width: 10rem;
       height: 10rem;
-      border: 10px solid aquamarine;
+      border: 14px solid #6bbdfa;
+      margin-left: -30px;
+      margin-right:-30px;
+
   }
   .column {
     display: flex;
@@ -166,7 +169,7 @@ background:#c7a06e;
     padding: 2rem;
     width: 40rem;
     height: 4rem;
-    background-color: aquamarine;
+    background-color: #6bbdfa;
     z-index: 999;
   }
 
