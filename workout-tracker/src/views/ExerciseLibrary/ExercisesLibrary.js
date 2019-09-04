@@ -23,6 +23,10 @@ class ExerciseLibrary extends React.Component {
     });
   };
 
+  searchForName = () => {
+
+  };
+
   render() {
     if (this.props.singleExercise) {
       return (
