@@ -10,7 +10,7 @@ const initialState = {
   currentButtons: null,
   buttonsPerPage: 5,
   startButton: 1,
-  endButton: 5,
+  endButton: 5
 };
 
 const exercises = (state = initialState, action) => {
@@ -23,8 +23,9 @@ const exercises = (state = initialState, action) => {
         return exercise;
       });
 
-      const filterOnlyGroupChest = changeRatingOfExercise.filter(exercise =>
-         exercise.muscle === "Chest");
+      const filterOnlyGroupChest = changeRatingOfExercise.filter(
+        exercise => exercise.muscle === "Chest"
+      );
 
       const indexLastPost = state.postsPerPage;
 
@@ -39,7 +40,11 @@ const exercises = (state = initialState, action) => {
 
       let ButtonNumber = [];
 
-      for (let i = 1; i <= Math.ceil(totalExercises / state.postsPerPage); i++) {
+      for (
+        let i = 1;
+        i <= Math.ceil(totalExercises / state.postsPerPage);
+        i++
+      ) {
         ButtonNumber.push(i);
       }
 
@@ -91,36 +96,35 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.PAGINATE:
-      
-      if(state.currentMuscleGroup) {
+      if (state.currentMuscleGroup) {
         let searchForMuscleGroup = state.copyOfExercises.filter(
-          exercise => exercise.muscle === state.currentMuscleGroup);
-     
-          const indexOfTheLastPost = action.num * state.postsPerPage;
-    
-          const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
-    
-          const theCurrentExercises = searchForMuscleGroup.slice(
-            indexOfTheFirstPost,
-            indexOfTheLastPost
-          );
-    
-          return { ...state, exercises: theCurrentExercises };
+          exercise => exercise.muscle === state.currentMuscleGroup
+        );
+
+        const indexOfTheLastPost = action.num * state.postsPerPage;
+
+        const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
+
+        const theCurrentExercises = searchForMuscleGroup.slice(
+          indexOfTheFirstPost,
+          indexOfTheLastPost
+        );
+
+        return { ...state, exercises: theCurrentExercises };
       } else {
         let searchForMuscleGroup = state.copyOfExercises;
 
         const indexOfTheLastPost = action.num * state.postsPerPage;
 
         const indexOfTheFirstPost = indexOfTheLastPost - state.postsPerPage;
-  
+
         const theCurrentExercises = searchForMuscleGroup.slice(
           indexOfTheFirstPost,
           indexOfTheLastPost
         );
-  
-        return { ...state, exercises: theCurrentExercises }
-      }
 
+        return { ...state, exercises: theCurrentExercises };
+      }
 
     case type.SHOW_SINGLE_EXERCISE:
       const filterExercise = state.exercises.filter(
@@ -129,35 +133,35 @@ const exercises = (state = initialState, action) => {
 
       return { ...state, singleExercise: filterExercise };
 
-      case type.CLOSE_SINGLE_EXERCISE:
-  
-        return { ...state, singleExercise: null };
+    case type.CLOSE_SINGLE_EXERCISE:
+      return { ...state, singleExercise: null };
 
-        case type.GO_FORWARD:
+    case type.GO_FORWARD:
+      let startButton = state.startButton;
 
-          let startButton = state.startButton;
+      let endButton = state.endButton;
 
-          let endButton = state.endButton;
-          
-          // let state.pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-          
-          let currentNumbers = [];
-          
-          startButton += 5;
-          
-          endButton += 5;
-          
-          if(endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
-            endButton = state.pageNumbers[state.pageNumbers.length - 1];
-            } 
-           
-    
-            return { ...state, currentButtons: actualButtons };
+      // let state.pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-            case type.GO_BACK:
-        
-                return { ...state, currentButtons: null };
-    
+      let currentNumbers = [];
+
+      startButton += 5;
+
+      endButton += 5;
+
+      if (endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
+        endButton = state.pageNumbers[state.pageNumbers.length - 1];
+      }
+
+      for (let i = startButton; i <= endButton; i++) {
+        currentNumbers.push(i);
+      }
+
+      return { ...state, currentButtons: actualButtons };
+
+    case type.GO_BACK:
+      return { ...state, currentButtons: null };
+
     default:
       return state;
   }
