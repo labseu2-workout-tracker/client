@@ -82,6 +82,22 @@ const AllExercises = props => {
     "Abductors"
   ];
 
+  const equipment = [
+    "Bands",
+    "Foam Roll",
+    "Barbell",
+    "Kettlebells",
+    "Body Only",
+    "Machine",
+    "Cable",
+    "Medicine Ball,",
+    "Dumbbell",
+    "None",
+    "E-Z Curl Bar",
+    "Other",
+    "Exercise Ball"
+  ];
+
   return (
     <StyledAllExercises className="all-exercise">
       <input
