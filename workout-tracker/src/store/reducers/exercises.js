@@ -41,7 +41,7 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === action.muscleGroup
       );
       const indexOfFirstExercise = 1;
-      const indexOfLastExercise = state.exercisesPerPage;
+      const indexOfLastExercise = 5;
      
       const theCurrentExercises = searchResultForMuscleGroup.slice(
         indexOfFirstExercise,
@@ -51,7 +51,8 @@ const exercises = (state = initialState, action) => {
       return {
         ...state,
         exercises: theCurrentExercises,
-        currentMuscleGroup: action.muscleGroup
+        currentMuscleGroup: action.muscleGroup,
+        exercisesPerPage: indexOfLastExercise
       };
 
       case type.LOAD_MORE:
@@ -64,7 +65,7 @@ const exercises = (state = initialState, action) => {
           if(indexOfTheLastExercise > searchMuscleGroup.length) {
             indexOfTheLastExercise = searchMuscleGroup.length;
           }
-          
+
           const actualExercises = searchMuscleGroup.slice(
             indexOfTheFirstExercise,
             indexOfTheLastExercise
