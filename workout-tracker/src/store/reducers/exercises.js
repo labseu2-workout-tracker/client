@@ -143,6 +143,7 @@ const exercises = (state = initialState, action) => {
           
           let currentNumbers = [];
           
+          startButton += 5;
           
     
             return { ...state, currentButtons: actualButtons };
