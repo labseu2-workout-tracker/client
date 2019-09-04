@@ -161,6 +161,9 @@ const exercises = (state = initialState, action) => {
 
       let startNumber = state.startButton - 5;
 
+      let endNumber = state.endButton - 5;
+
+     
       
     default:
       return state;
