@@ -170,7 +170,11 @@ const exercises = (state = initialState, action) => {
         endNumber = 5;
       }
 
-      
+      for (let i = startNumber; i <= endNumber; i++) {
+        currentNumberBtns.push(i);
+      }
+
+     
       
     default:
       return state;
