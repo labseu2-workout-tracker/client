@@ -14,17 +14,17 @@ class Workouts  extends React.Component {
   render() {
     return(
       <>
-          <h1 className="coolstuff">Choose from our Workouts</h1>
-      <div className="land-wrapper">
+          <h1 className='coolstuff'>Choose from our Workouts</h1>
+      <div className='land-wrapper'>
     
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
       {this.props.workouts ? (this.props.workouts.map(workout =>{
-        return <div className="workout-card"> 
-          <img src={workout.image_url} alt="workout" className="workout-img"/>
+        return <div className='workout-card'> 
+          <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={this.startWorkout} to="#" className="btn">
+          <Link onClick={this.startWorkout} to='Workout_session' className='btn'>
                 Start Workout
               </Link>
         </div> 
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps, {fetchWorkouts})(Workouts);
+export default connect(mapStateToProps, { fetchWorkouts, })(Workouts);
