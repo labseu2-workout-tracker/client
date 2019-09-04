@@ -81,35 +81,6 @@ const exercises = (state = initialState, action) => {
         endButton: endButton
       };
 
-    case type.GO_BACK:
-      let endNumber = state.endButton;
-      let startNumber = state.startButton;
-      if (endNumber === state.pageNumbers[state.pageNumbers.length - 1]
-        && endNumber % 5 !== 0) {
-        while (endNumber % 5 !== 0) {
-          endNumber--;
-        }
-        startNumber = endNumber - 4;
-      } else {
-        startNumber = state.startButton - 5;
-
-        endNumber = state.endButton - 5;
-      }
-      let currentNumberBtns = [];
-      if (startNumber < 6) {
-        startNumber = 1;
-        endNumber = 5;
-      }
-      for (let i = startNumber; i <= endNumber; i++) {
-        currentNumberBtns.push(i);
-      }
-      return {
-        ...state,
-        currentButtons: currentNumberBtns,
-        startButton: startNumber,
-        endButton: endNumber
-      };
-
     default:
       return state;
   }
