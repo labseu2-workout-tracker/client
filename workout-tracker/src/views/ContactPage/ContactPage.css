@@ -7,3 +7,13 @@
     overflow: hidden;
     padding-bottom: 200px;
   }
+  .section-header {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    font: 300 60px 'Viga', sans-serif;
+    letter-spacing: 6px;
+    color: #6bbdfa;
+    margin-bottom: 25px;
+  }
