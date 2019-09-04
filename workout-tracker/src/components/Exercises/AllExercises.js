@@ -150,7 +150,15 @@ const AllExercises = props => {
 
         <div className="equipment-buttons">
         <h1>Equipment</h1>
-          
+        {equipment.map((equipment, index) => (
+            <button
+              className="button"
+              key={index}
+              onClick={props.showEquipment}
+            >
+              {equipment}
+            </button>
+          ))}
         </div>
 
       </div>
