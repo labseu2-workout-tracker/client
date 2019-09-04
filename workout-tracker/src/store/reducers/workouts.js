@@ -25,11 +25,13 @@ const workouts = (state = initialState, action) => {
       const filterCurrentExercise = state.workoutDetails.exercises.filter(
         exercise => exercise.exercise_name === action.current_exercise
       );
-      debugger
       return {
         ...state,
         currentExercise: filterCurrentExercise
       };
+
+      case type.FINISH_EXERCISE:
+          
 
     default:
       return state;
