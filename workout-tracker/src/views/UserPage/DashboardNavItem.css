@@ -16,12 +16,23 @@
   list-style-type: none;
   text-align: left;
   margin-left: 0.5rem;
+  font-size: 1.1rem;
+  color: #0086c9;
+}
+.dashboard-items:active,
+.dashboard-items.active {
+  color: #fab83f;
+  font-weight: bold;
 }
 .dashboard-list-item:hover {
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #0086c9;
 }
+.dashboard-list-item:active {
+  border-bottom: 2px solid #0086c9;
+}
+
 .dashboard-list-item.active {
-  background: #0086c9;
+  border-bottom: 2px solid #0086c9;
 }
 
 /* a {
