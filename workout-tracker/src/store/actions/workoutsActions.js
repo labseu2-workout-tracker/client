@@ -1,5 +1,5 @@
 import { axiosWithAuth } from '../axiosWithAuth';
-import axios from 'axios';
+// import axiosWithAuth from 'axios';
 
 // actions
 export const FETCH_WORKOUTS = 'FETCH_WORKOUTS';
