@@ -45,7 +45,39 @@ class ContactPage extends React.Component {
     return (
      <>
      <section className="contact">
-
+     <h1 className="section-header">Contact Us</h1>
+      
+      <div className="contact-wrapper">
+        <form className="form-horizontal" >
+           
+          <div className="form-group" id="POST">
+            <div className="col-sm-12">
+              <input type="text" className="form-control" id="name" placeholder="First Name:" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="text" className="form-control" id="name" placeholder="Last Name:" name="lastName" value={this.state.lastName} onChange={this.handleChange}  />
+            </div>
+          </div>
+    
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="email" className="form-control" id="email" placeholder="Email:" name="email" value={this.state.email} onChange={this.handleChange} />
+            </div>
+          </div>
+    
+          <textarea className="form-control" rows="10" placeholder="Message:" name="message" value={this.state.message} onChange={this.handleChange} />
+          
+          <button className="send-button" id="submit" type="submit" value="SEND" onClick={this.sendMessage}> <h3 className="send-text">Send</h3>
+          </button>
+          
+        </form>
+        
+        
+         
+        
+      </div>
      </section>
      </>
         
