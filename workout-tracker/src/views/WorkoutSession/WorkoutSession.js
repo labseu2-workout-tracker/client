@@ -1,12 +1,13 @@
-import React from 'react';
-import Watch from '../../components/Watch/Watch';
-import { connect } from 'react-redux';
+import React from "react";
+import Watch from "../../components/Watch/Watch";
+import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 import {
   chooseExercise,
   finishExercise,
   endWorkout
-} from '../../store/actions/workoutsActions';
-import styled from 'styled-components';
+} from "../../store/actions/workoutsActions";
+import styled from "styled-components";
 
 const StyledWorkoutSession = styled.div`
   /* font-size: 1rem; */
@@ -34,26 +35,25 @@ const StyledWorkoutSession = styled.div`
 `;
 
 class WorkoutSession extends React.Component {
-
   render() {
     return (
       <StyledWorkoutSession>
-        <div className='top'>
+        <div className="top">
           {this.props.currentExercise ? (
-            <div className='picture-text'>
-              <div className='exercise-picture'>
+            <div className="picture-text">
+              <div className="exercise-picture">
                 <img
                   src={this.props.currentExercise[0].picture_one}
-                  alt='Exercise explanation'
+                  alt="Exercise explanation"
                 />
               </div>
-              <div className='text'>
+              <div className="text">
                 <p>{this.props.currentExercise[0].exercise_name}</p>
-                <div className='row'>
+                <div className="row">
                   <p>Sets to complete:</p>
                   <p>{this.props.currentExercise.length}</p>
                 </div>
-                <div className='row'>
+                <div className="row">
                   <p>Reps for exercise:</p>
                   <p>{this.props.currentExercise[0].reps}</p>
                 </div>
@@ -72,59 +72,69 @@ class WorkoutSession extends React.Component {
           <Watch />
         </div>
 
-<div className='exercise-text-and-names'>
-
-{this.props.currentExercise ? (
-              <div className='description'>
-                <p>{this.props.currentExercise[0].description}</p>                
+        <div className="exercise-text-and-names">
+          {this.props.currentExercise ? (
+            <div className="description">
+              <p>{this.props.currentExercise[0].description}</p>
             </div>
           ) : (
             <p>No choosed exercise</p>
           )}
 
-        {/* Display Exercises(but without duplicates) => filter all duplicates with reduce
+          {/* Display Exercises(but without duplicates) => filter all duplicates with reduce
          method and map over result to display exercise names with onClick */}
-        {this.props.allExercises ? (
-          <div>
-            <p>Choose exercise:</p>
-            {this.props.allExercises
-              .reduce((acc, current) => {
-                const x = acc.find(
-                  item => item.exercise_name === current.exercise_name
+          {this.props.allExercises ? (
+            <div>
+              <p>Choose exercise:</p>
+              {this.props.allExercises
+                .reduce((acc, current) => {
+                  const x = acc.find(
+                    item => item.exercise_name === current.exercise_name
                   );
                   if (!x) {
                     return acc.concat([current]);
                   } else {
                     return acc;
                   }
-              }, [])
-              .map((exercise, index) => {
-                return (
-                  <div key={index}>
-                    <p
-                      onClick={() =>
-                        this.props.chooseExercise(exercise.exercise_name)
-                      }
+                }, [])
+                .map((exercise, index) => {
+                  return (
+                    <div key={index}>
+                      <p
+                        onClick={() =>
+                          this.props.chooseExercise(exercise.exercise_name)
+                        }
                       >
-                      {exercise.exercise_name}
-                    </p>
-                  </div>
-                );
-              })}
-          </div>
-        ) : <Link to='/dashboard/history' onClick={() => this.props.endWorkout(this.props.workoutId)}>Finish Workout</button>}
-</div>
+                        {exercise.exercise_name}
+                      </p>
+                    </div>
+                  );
+                })}
+            </div>
+          ) : (
+            <Link
+              to="/dashboard/history"
+              className="button"
+              onClick={() => this.props.endWorkout(this.props.workoutId)}
+            >
+              Finish Workout
+            </Link>
+          )}
+        </div>
 
-{this.props.currentExercise ? (
-    <div className='video'>
-      <video width='320' height='240' controls>
-        <source src={this.props.currentExercise[0].video} type='video/mp4' />
-        Your browser does not support the video tag.
-      </video>               
-  </div>
-) : (
-  <p>No choosed exercise</p>
-)}
+        {this.props.currentExercise ? (
+          <div className="video">
+            <video width="320" height="240" controls>
+              <source
+                src={this.props.currentExercise[0].video}
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <p>No choosed exercise</p>
+        )}
       </StyledWorkoutSession>
     );
   }
