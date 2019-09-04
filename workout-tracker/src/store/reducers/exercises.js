@@ -137,15 +137,11 @@ const exercises = (state = initialState, action) => {
       return { ...state, singleExercise: null };
 
     case type.GO_FORWARD:
-      let startButton = state.startButton;
+      let startButton = state.startButton + 5;
 
-      let endButton = state.endButton;
+      let endButton = state.endButton + 5;
 
       let currentNumbers = [];
-
-      startButton += 5;
-
-      endButton += 5;
 
       if (endButton > state.pageNumbers[state.pageNumbers.length - 1]) {
         endButton = state.pageNumbers[state.pageNumbers.length - 1];
