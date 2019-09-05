@@ -7,6 +7,21 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%); */
   }
+  .exer-1 {
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #c7d9eef9;
+    text-align:center;
+    margin: 12.5rem auto;
+    font-family: 'Viga', sans-serif;
+    height: 100%;
+    width:45%;
+    display:flex;
+    align-content: center;
+    border: 2px solid #c7d9eef9;
+    border-radius: 0 0 2rem 2rem;
+    
+  }
   .exer-img {
     width: 65%;
     height: 20rem;
