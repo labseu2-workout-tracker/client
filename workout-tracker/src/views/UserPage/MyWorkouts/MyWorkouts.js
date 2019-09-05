@@ -29,7 +29,7 @@ class WorkoutView extends React.Component {
                 Delete Workout
               </p>
         </div> 
-      })) : null}
+      })) : <h1>You choosed no Workouts so far</h1>}
     </div>
             </div>;
   }
