@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails } from '../../../store/actions/workoutsActions';
+import {Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledWorkoutView = styled.div``;

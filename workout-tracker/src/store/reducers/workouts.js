@@ -5,7 +5,7 @@ const initialState = {
   workoutId: null,
   allExercises: null,
   currentExercise: null,
-  myWorkout: null,
+  myWorkout: null
 };
 
 //  default state
@@ -18,18 +18,18 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.FETCH_WORKOUT_DETAILS:
-    const addId = action.workoutDetails.exercises.map((exercise, index) => {
-      const copyOfData = Object.assign({}, exercise);
+      const addId = action.workoutDetails.exercises.map((exercise, index) => {
+        const copyOfData = Object.assign({}, exercise);
         copyOfData.id = index;
 
         return copyOfData;
-    });
+      });
 
-    return {
+      return {
         ...state,
         allExercises: addId,
         workoutId: action.workout_id,
-        myWorkout: action.workoutDetails,
+        myWorkout: action.workoutDetails
       };
 
     case type.CHOOSE_EXERCISE:
@@ -41,20 +41,30 @@ const workouts = (state = initialState, action) => {
         currentExercise: filterCurrentExercise
       };
 
-      case type.FINISH_EXERCISE:
-          const deleteExerciseFromCurrent = state.currentExercise.filter(
-            exercise => exercise.id !== action.exercise_id
-          );
+    case type.FINISH_EXERCISE:
+      const deleteExerciseFromCurrent = state.currentExercise.filter(
+        exercise => exercise.id !== action.exercise_id
+      );
 
-          const deleteExerciseAll = state.allExercises.filter(
-            exercise => exercise.id !== action.exercise_id
-          );
+      const deleteExerciseAll = state.allExercises.filter(
+        exercise => exercise.id !== action.exercise_id
+      );
 
-          return {
-            ...state,
-            allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
-            currentExercise: state.currentExercise.length > 1 ? deleteExerciseFromCurrent : null,
-          };  
+      return {
+        ...state,
+        allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
+        currentExercise:
+          state.currentExercise.length > 1 ? deleteExerciseFromCurrent : null
+      };
+
+    case type.ADD_WORKOUT:
+      const filterWorkout = state.workouts.filter(
+        exercise => exercise.exercise_name === action.current_exercise
+      );
+      return {
+        ...state,
+        currentExercise: filterCurrentExercise
+      };
 
     default:
       return state;
