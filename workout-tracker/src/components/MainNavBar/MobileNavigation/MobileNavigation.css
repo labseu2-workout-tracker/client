@@ -11,6 +11,8 @@
   transform: translateX(-100%);
   z-index: 200;
   padding: 3rem 2rem;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 
 .mobile-nav.open {
@@ -26,4 +28,9 @@
 
 .mobile-nav__items.mobile {
   flex-direction: column;
+}
+
+.close-button {
+  text-align: right;
+  margin-bottom: 3rem;
 }
