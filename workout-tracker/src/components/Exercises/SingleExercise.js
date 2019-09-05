@@ -1,5 +1,6 @@
 import React from "react";
 // import ExerciseRating from "./ExerciseRating";
+import './SingleExcercise.css';
 
 const SingleExercise = props => {
   return (
