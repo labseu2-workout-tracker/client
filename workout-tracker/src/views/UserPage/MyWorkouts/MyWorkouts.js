@@ -1,6 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import styled from "styled-components";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchWorkoutDetails } from '../../../store/actions/workoutsActions';
+import styled from 'styled-components';
 
 const StyledWorkoutView = styled.div``;
 
@@ -37,4 +38,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(WorkoutView);
+export default connect(mapStateToProps, { fetchWorkoutDetails })(WorkoutView);
