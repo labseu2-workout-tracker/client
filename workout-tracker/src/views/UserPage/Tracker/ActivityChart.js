@@ -157,7 +157,7 @@ class PieChart extends React.Component {
             labels: this.state.labels,
             datasets: [
               {
-                data: this.state.data,
+                data: this.state.data[0] ? this.state.data : [0, 0, 0, 0, 0],
                 backgroundColor: this.state.backgroundColor,
                 hoverBackgroundColor: this.state.hoverBackgroundColor
               }
