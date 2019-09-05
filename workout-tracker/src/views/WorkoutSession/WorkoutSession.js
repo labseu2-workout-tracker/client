@@ -71,7 +71,7 @@ class WorkoutSession extends React.Component {
                     this.props.finishExercise(this.props.currentExercise[0].id)
                   }
                 >
-                  finish Exercise
+                  Next Exercise
                 </button>
               </div>
             </div>
