@@ -18,10 +18,8 @@
 .dashboard-component {
   margin: auto;
   padding: 24px 0px;
-  overflow-y: auto;
-  height: 94%;
   flex: 7;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 94%;
 }
 .nav-items {
@@ -41,7 +39,13 @@ img {
 }
 
 @media (max-width: 768px) {
+  .dashboard-container {
+    position: relative;
+  }
   .dash-sidebar-container {
     display: none;
+  }
+  .dashboard-component {
+    width: 100%;
   }
 }
