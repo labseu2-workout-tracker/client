@@ -17,7 +17,7 @@ const settings = (state = initialState, action) => {
       
         return {
           ...state,
-          settings: action.updatedSettings,
+          settings: [ action.updatedSettings ],
         };
 
     default:

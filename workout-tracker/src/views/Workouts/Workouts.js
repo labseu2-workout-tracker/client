@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchWorkouts } from '../../store/actions/workoutsActions';
+import {fetchWorkouts, fetchWorkoutDetails, addWorkout } from '../../store/actions/workoutsActions';
 import { Link } from 'react-router-dom';
 
 
@@ -10,22 +10,26 @@ class Workouts  extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
   }
+
   render() {
     return(
       <>
-          <h1 className="coolstuff">Choose from our Workouts</h1>
-      <div className="land-wrapper">
+          <h1 className='coolstuff'>Choose from our Workouts</h1>
+      <div className='land-wrapper'>
     
       {/* array- mappin over each workout */}
       {/* check if null or not then return  */}
-      {this.props.workouts ? (this.props.workouts.map(workout =>{
-        return <div className="workout-card"> 
-          <img src={workout.image_url} alt="workout" className="workout-img"/>
+      {this.props.workouts ? (this.props.workouts.map((workout, index) =>{
+        return <div key={index} className='workout-card'> 
+          <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link to="#" className="btn">
-                Add Workout
+          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
+                Start Workout
               </Link>
+              <p onClick={() => this.props.addWorkout(workout.id)} className='btn'>
+                Add Workout
+              </p>
         </div> 
       })) : null}
     </div>
@@ -41,4 +45,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps, {fetchWorkouts})(Workouts);
+export default connect(mapStateToProps, { fetchWorkouts, fetchWorkoutDetails, addWorkout })(Workouts);
