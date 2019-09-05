@@ -74,7 +74,8 @@ const workouts = (state = initialState, action) => {
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout, 
+        myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout,
+        addedWorkout: true,
       };
 
       case type.DELETE_WORKOUT:
@@ -86,6 +87,13 @@ const workouts = (state = initialState, action) => {
       return {
         ...state,
         myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null,
+      };
+
+      case type.CLOSE_WINDOW:
+
+      return {
+        ...state,
+       addedWorkout: false,
       };
 
     default:
