@@ -73,7 +73,7 @@ class WorkoutSession extends React.Component {
               </div>
             </div>
           ) : (
-            <p>No choosed exercise</p>
+            <p>You Finished the Workout</p>
           )}
           <Watch />
         </div>
@@ -83,9 +83,7 @@ class WorkoutSession extends React.Component {
             <div className="description">
               <p>{this.props.currentExercise[0].description}</p>
             </div>
-          ) : (
-            <p>No choosed exercise</p>
-          )}
+          ) : null}
 
           {/* Display Exercises(but without duplicates) => filter all duplicates with reduce
          method and map over result to display exercise names with onClick */}
@@ -137,9 +135,7 @@ class WorkoutSession extends React.Component {
               Your browser does not support the video tag.
             </video>
           </div>
-        ) : (
-          <p>No choosed exercise</p>
-        )}
+        ) : null}
       </StyledWorkoutSession>
     );
   }
