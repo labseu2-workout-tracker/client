@@ -15,7 +15,6 @@ class WorkoutView extends React.Component {
           <h1>
             My Workouts
             </h1>
-
             <div className='land-wrapper'>
       {this.props.myWorkouts ? (this.props.myWorkouts.map((workout, index) =>{
         return <div key={index} className='workout-card'> 
