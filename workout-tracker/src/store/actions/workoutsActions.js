@@ -34,13 +34,13 @@ export const fetchWorkoutDetails = (workout_id) => dispatch => {
     
       return axiosWithAuth().post(`${workouts}/${workout_id}/start`)
       .then(res => {
-        debugger
+        
         dispatch({ type: START_WORKOUT });
       });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
-   debugger
+   
     });
 };
 
@@ -54,14 +54,14 @@ export const finishExercise = (exercise_id) => {
 
 export const endWorkout = (workout_id) => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
-debugger
+
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
-        debugger
+        
         dispatch({ type: END_WORKOUT });
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
-   debugger
+   
     });
 };

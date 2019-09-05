@@ -5,6 +5,7 @@ const initialState = {
   workoutId: null,
   allExercises: null,
   currentExercise: null,
+  myWorkout: null,
 };
 
 //  default state
@@ -27,14 +28,14 @@ const workouts = (state = initialState, action) => {
     return {
         ...state,
         allExercises: addId,
-        workoutId: action.workout_id
+        workoutId: action.workout_id,
+        myWorkout: action.workoutDetails,
       };
 
     case type.CHOOSE_EXERCISE:
       const filterCurrentExercise = state.allExercises.filter(
         exercise => exercise.exercise_name === action.current_exercise
       );
-      debugger
       return {
         ...state,
         currentExercise: filterCurrentExercise
