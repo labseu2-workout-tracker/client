@@ -40,7 +40,7 @@ class PieChart extends React.Component {
         axiosWithAuth()
           .get("http://localhost:5000/workouts/history/")
           .then(res => {
-            debugger;
+            
 
             function startAndEndOfWeek(date) {
               var now = date ? new Date(date) : new Date();
@@ -116,7 +116,7 @@ class PieChart extends React.Component {
             return axiosWithAuth()
               .get("http://localhost:5000/workouts")
               .then(res => {
-                debugger;
+                
 
                 for (let j = 0; j < res.data.length; j++) {
                   hashTable[res.data[j].workout_name] = 0;
