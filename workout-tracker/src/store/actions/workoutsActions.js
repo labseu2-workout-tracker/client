@@ -69,5 +69,5 @@ export const endWorkout = (workout_id) => dispatch => {
 
 export const addWorkout = (workout_id) => {
   debugger
- return { type: FETCH_WORKOUT_DETAILS, workout_id: workout_id };
+ return { type: ADD_WORKOUT, workout_id: workout_id };
 };

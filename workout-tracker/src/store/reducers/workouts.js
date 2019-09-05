@@ -59,7 +59,7 @@ const workouts = (state = initialState, action) => {
 
     case type.ADD_WORKOUT:
       const filterWorkout = state.workouts.filter(
-        workout => workout.workout_id === action.workout_id
+        workout => workout.id === action.workout_id
       );
 
       debugger
