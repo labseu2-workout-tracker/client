@@ -33,7 +33,7 @@ function loadFromLocalStorage() {
 
 const persistedState = loadFromLocalStorage();
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer,persistedState, applyMiddleware(thunk, logger));
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 
