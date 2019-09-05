@@ -3,7 +3,6 @@
   position: fixed;
   bottom: 0;
   height: 94%;
-  overflow-x: hidden;
   z-index: -1;
 }
 
@@ -22,6 +21,8 @@
   overflow-y: auto;
   height: 94%;
   flex: 7;
+  overflow-y: scroll;
+  height: 94%;
 }
 .nav-items {
   padding: 24px 0;

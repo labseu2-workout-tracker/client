@@ -15,7 +15,7 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.FETCH_WORKOUT_DETAILS:
-      return {
+    return {
         ...state,
         workoutDetails: action.workoutDetails
       };
