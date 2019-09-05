@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkoutDetails } from '../../../store/actions/workoutsActions';
+import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import {Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -25,8 +25,11 @@ class WorkoutView extends React.Component {
           <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
                 Start Workout
               </Link>
+              <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>
+                Delete Workout
+              </p>
         </div> 
-      })) : null}
+      })) : <h1>You choosed no Workouts so far</h1>}
     </div>
             </div>;
   }
@@ -38,4 +41,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkoutDetails })(WorkoutView);
+export default connect(mapStateToProps, { fetchWorkoutDetails, deleteWorkout })(WorkoutView);

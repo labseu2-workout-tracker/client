@@ -9,6 +9,7 @@ export const CHOOSE_EXERCISE = 'CHOOSE_EXERCISE';
 export const FINISH_EXERCISE = 'FINISH_EXERCISE';
 export const END_WORKOUT = 'END_WORKOUT';
 export const ADD_WORKOUT = 'ADD_WORKOUT';
+export const DELETE_WORKOUT = 'DELETE_WORKOUT';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
@@ -65,4 +66,8 @@ export const endWorkout = (workout_id) => dispatch => {
 
 export const addWorkout = (workout_id) => {
  return { type: ADD_WORKOUT, workout_id: workout_id };
+};
+
+export const deleteWorkout = (workout_id) => {
+  return { type: DELETE_WORKOUT, workout_id: workout_id };
 };
