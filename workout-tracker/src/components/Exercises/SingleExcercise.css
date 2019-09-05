@@ -48,3 +48,25 @@
     color:#ffffff;
 
   }
+  .para{
+    display:flex;
+    align-content: space-between;
+    width: 80%;
+    font-size: .8rem;
+}
+.last-img{
+    display: flex;
+    align-content: space-between;
+    width: 80%;
+
+
+}
+.last-img img{
+    display: flex;
+    align-content: space-between;
+    height: 60%;
+    width: 50%;
+    border-radius: 50%;
+    border: 1rem solid #c7d9eef9;;
+
+}
