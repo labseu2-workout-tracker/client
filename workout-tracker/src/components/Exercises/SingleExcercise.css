@@ -37,3 +37,14 @@
     margin:.5rem;
 
   }
+  .description{
+    /* font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Montserrat', sans-serif; */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    text-align: start;
+  
+    /* color:#6bbdfa; */
+    color:#ffffff;
+
+  }
