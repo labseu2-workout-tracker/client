@@ -15,6 +15,7 @@
   font-size: 1.75rem;
   margin: 0.5rem 0;
   width: 90%;
+  padding-left: 0;
 }
 
 .navigation-item.mobile a {
