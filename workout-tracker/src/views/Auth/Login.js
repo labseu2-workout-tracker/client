@@ -71,7 +71,7 @@ class NormalLoginForm extends React.Component {
         <StyledForm onSubmit={this.handleSubmit}>
           {loginError && typeof loginError === "string" && (
             <Alert
-              style={{ marginBottom: '1rem' }}
+              style={{ marginBottom: "1rem" }}
               message="Failed Login"
               description={loginError}
               type="error"
