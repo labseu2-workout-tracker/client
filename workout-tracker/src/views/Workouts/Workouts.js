@@ -16,9 +16,9 @@ class Workouts  extends React.Component {
 
   render() {
     return(
-      <>
+      <StyledAddWorkout>
 
-      <div className={this.props.contact ? 'added-workout' : 'off'}>
+      <div className={this.props.addedWorkout ? 'added-workout' : 'off'}>
           <div className="close">
             <i
             onClick={this.props.closeWindow}
@@ -48,7 +48,7 @@ class Workouts  extends React.Component {
         </div> 
       })) : null}
     </div>
-    </>
+    </StyledAddWorkout>
     )
   }
 }
@@ -56,8 +56,8 @@ class Workouts  extends React.Component {
  
 const mapStateToProps = state => {
   return{
-    workouts:state.workouts.workouts,
-
+    workouts: state.workouts.workouts,
+    addedWorkout: state.workout.addedWorkout,
   }
 }
 export default connect(mapStateToProps, { fetchWorkouts, fetchWorkoutDetails, addWorkout })(Workouts);
