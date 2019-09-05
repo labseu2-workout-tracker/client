@@ -10,7 +10,7 @@ const StyledSettings = styled.div`
   .user-data {
     margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
-   
+
     text-align: center;
   }
 
@@ -34,45 +34,45 @@ const StyledSettings = styled.div`
     transition: 0.5s;
 
     @media (max-width: 700px) {
-      flex-direction: column; 
-      height: 8rem;   
+      flex-direction: column;
+      height: 8rem;
     }
   }
 
   .info li:nth-child(1) {
-    background: rgba(107,189,250, .5);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(2) {
-    background: rgba(107,189,250, .5);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(3) {
-    background: rgba(107,189,250, .5);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(4) {
-    background: rgba(107,189,250, .6);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(5) {
-    background: rgba(107,189,250, .6);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(6) {
-    background: rgba(107,189,250, .6);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(7) {
-    background: rgba(107,189,250, .7);
+    background: rgba(107, 189, 250, 0.7);
   }
 
   .info li:nth-child(8) {
-    background: rgba(107,189,250, .8);
+    background: rgba(107, 189, 250, 0.8);
   }
 
   .info li:nth-child(9) {
-    background: rgba(107,189,250, .9);
+    background: rgba(107, 189, 250, 0.9);
   }
 
   .info li span:nth-child(1) {
@@ -111,7 +111,7 @@ const StyledSettings = styled.div`
     width: 20rem;
     box-sizing: border-box;
     display: inline-block;
-    padding: 10px 25px ;
+    padding: 10px 25px;
 
     @media (max-width: 350px) {
       width: 80%;
@@ -132,7 +132,7 @@ class Settings extends React.Component {
       wantUpdate: false,
       email: this.props.settings ? this.props.settings[0].email : "",
       username: this.props.settings ? this.props.settings[0].username : "",
-      password: this.props.settings ? this.props.settings[0].password : "",
+      // password: this.props.settings ? this.props.settings[0].password : "",
       weight: this.props.settings ? this.props.settings[0].weight : "",
       height: this.props.settings ? this.props.settings[0].height : "",
       gender: this.props.settings ? this.props.settings[0].gender : "",
@@ -154,7 +154,6 @@ class Settings extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state.gender, this.state.user_level)
   };
 
   startUpdate = () => {
@@ -165,17 +164,29 @@ class Settings extends React.Component {
 
   changeSettings = () => {
     const updatedSettings = {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-      weight: Number(this.state.weight),
-      height: Number(this.state.height),
-      gender: this.state.gender ? this.state.gender : "Male",
+      email: this.state.email ? this.state.email : this.props.settings[0].email,
+      username: this.state.username
+        ? this.state.username
+        : this.props.settings[0].username,
+      // password: this.state.password,
+      weight: Number(this.state.weight)
+        ? Number(this.state.weight)
+        : this.props.settings[0].weight
+        ? this.props.settings[0].weight
+        : 1,
+      height: Number(this.state.height)
+        ? Number(this.state.height)
+        : this.props.settings[0].height
+        ? this.props.settings[0].height
+        : 1,
+      gender: this.state.gender ? this.state.gender : "male",
       user_level: this.state.user_level ? this.state.user_level : "Beginner",
       email_notification:
         this.state.email_notification === "true" ? true : false,
       push_notification: this.state.push_notification === "true" ? true : false
     };
+
+    debugger;
 
     this.props.updateSettings(updatedSettings);
 
@@ -224,7 +235,7 @@ class Settings extends React.Component {
                             <i className="fa fa-user"></i>
                           </span>
                         </li>
-                        <li>
+                        {/* <li>
                           <span className="text">Password:</span>
                           <span className="data">
                             <input
@@ -239,11 +250,13 @@ class Settings extends React.Component {
                           <span className="icon">
                             <i className="fa fa-key"></i>
                           </span>
-                        </li>
+                        </li> */}
                         <li>
                           <span className="text">Weight:</span>
                           <span className="data">
                             <input
+                              min="1"
+                              type="number"
                               className="update-input"
                               value={this.state.weight}
                               onChange={this.handleChange}
@@ -259,6 +272,8 @@ class Settings extends React.Component {
                           <span className="text">Height:</span>
                           <span className="data">
                             <input
+                              min="1"
+                              type="number"
                               className="update-input"
                               value={this.state.height}
                               onChange={this.handleChange}
@@ -298,9 +313,9 @@ class Settings extends React.Component {
                               value={this.state.gender}
                               onChange={this.handleChange}
                             >
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                              <option value="Other">Other</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                              <option value="other">Other</option>
                             </select>
                           </span>
                           <span className="icon">
@@ -317,8 +332,8 @@ class Settings extends React.Component {
                               onChange={this.handleChange}
                               name="email_notification"
                             >
-                              <option value="male">False</option>
-                              <option value="female">True</option>
+                              <option value="false">False</option>
+                              <option value="true">True</option>
                             </select>
                           </span>
                           <span className="icon">
