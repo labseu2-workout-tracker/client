@@ -14,6 +14,9 @@ class Workouts  extends React.Component {
   render() {
     return(
       <>
+      <div className="added-workout">
+        
+      </div>
           <h1 className='coolstuff'>Choose from our Workouts</h1>
       <div className='land-wrapper'>
     
