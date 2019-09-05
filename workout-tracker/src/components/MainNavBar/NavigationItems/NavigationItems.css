@@ -14,11 +14,12 @@
 .navigation-item.mobile {
   font-size: 1.75rem;
   margin: 0.5rem 0;
-  width: 30%;
+  width: 90%;
+  padding-left: 0;
 }
 
 .navigation-item.mobile a {
-  color: #3b0062;
+  color: #0086c9;
 }
 
 .navigation-item a:hover,
