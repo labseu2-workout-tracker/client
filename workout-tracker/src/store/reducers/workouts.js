@@ -57,7 +57,7 @@ const workouts = (state = initialState, action) => {
         ...state,
         allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
         currentExercise:
-          state.currentExercise.length > 1 ? deleteExerciseFromCurrent : (deleteExerciseAll[0] ? deleteExerciseAll[0] : null)
+          state.currentExercise.length > 1 ? deleteExerciseFromCurrent : (deleteExerciseAll[0] ? [deleteExerciseAll[0]] : null)
       };
 
     case type.ADD_WORKOUT:
