@@ -57,6 +57,10 @@
   padding-left: 0;
 }
 
+.mobile-nav.open .navigation-item:nth-of-type(3) {
+  display: none;
+}
+
 .mobile-nav.open .navigation-item button {
   color: #0086c9;
   text-align: left;
