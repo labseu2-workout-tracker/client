@@ -95,7 +95,7 @@ class SessionHistory extends React.Component {
                     </p>
                     <p>
                       <strong>Duration : </strong>
-                      {diff(startingPoint, endPoint)} minutes.
+                      {diff(startingPoint, endPoint) === null ? 'No sessions' : diff(startingPoint, endPoint)} minutes.
                     </p>
                   </li>
                 </ol>
