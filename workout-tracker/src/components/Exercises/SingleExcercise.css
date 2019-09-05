@@ -7,3 +7,12 @@
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%); */
   }
+  .exer-img {
+    width: 65%;
+    height: 20rem;
+    object-fit: cover;
+    margin-top: -10rem;
+    border-radius:20% 20% 0 0;
+    border: .7rem solid #c7d9eef9;
+
+  }
