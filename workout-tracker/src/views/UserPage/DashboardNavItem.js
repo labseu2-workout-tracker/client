@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import "./DashboardNavItem.css"
 
 const dashItems = [
-  {id: "workouts", text: 'My Workouts', link: "/dashboard/myworkouts", icon: <i class="fas fa-dumbbell"></i>},
-  {id: "tracker", text: 'Tracker', link: "/dashboard/tracker", icon: <i class="fas fa-chart-line"></i>},
-  {id: "history", text: 'History', link: "/dashboard/history", icon: <i class="fas fa-list"></i>},
-  {id: "notifications", text: 'Notifications', link: "/dashboard/notifications", icon:<i class="fas fa-bell"></i>},
-  {id: "settings", text: 'Settings', link: "/dashboard/settings", icon: <i class="fas fa-cog"></i>},
+  {id: "workouts", text: 'My Workouts', link: "/dashboard/myworkouts", icon: <i className="fas fa-dumbbell"></i>},
+  {id: "tracker", text: 'Tracker', link: "/dashboard/tracker", icon: <i className="fas fa-chart-line"></i>},
+  {id: "history", text: 'History', link: "/dashboard/history", icon: <i className="fas fa-list"></i>},
+  {id: "notifications", text: 'Notifications', link: "/dashboard/notifications", icon:<i className="fas fa-bell"></i>},
+  {id: "settings", text: 'Settings', link: "/dashboard/settings", icon: <i className="fas fa-cog"></i>},
 ]
 const DashboardNavItem = () => [
   ...dashItems.map(item => (

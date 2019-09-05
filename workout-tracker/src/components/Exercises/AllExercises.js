@@ -111,7 +111,7 @@ const AllExercises = props => {
         placeholder="Search" >
         </input>
         <button href="http" className=" search-btn">
-          <i class="fas fa-search" onClick={props.searchForName}></i>
+          <i className="fas fa-search" onClick={props.searchForName}></i>
         </button>
 
      </div>
