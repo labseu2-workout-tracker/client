@@ -76,6 +76,17 @@ const workouts = (state = initialState, action) => {
         myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout, 
       };
 
+      case type.DELETE_WORKOUT:
+
+      const filterMyWorkouts = state.myWorkouts.filter(
+        workout => workout.id === action.workout_id
+      );
+
+
+      return {
+        
+      };
+
     default:
       return state;
   }
