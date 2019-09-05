@@ -35,13 +35,11 @@ export const fetchWorkoutDetails = (workout_id) => dispatch => {
     
       return axiosWithAuth().post(`${workouts}/${workout_id}/start`)
       .then(res => {
-        
         dispatch({ type: START_WORKOUT });
       });
     })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
-   
     });
 };
 
@@ -58,16 +56,13 @@ export const endWorkout = (workout_id) => dispatch => {
 
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
-        
         dispatch({ type: END_WORKOUT });
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
-   
     });
 };
 
 export const addWorkout = (workout_id) => {
-  debugger
  return { type: ADD_WORKOUT, workout_id: workout_id };
 };

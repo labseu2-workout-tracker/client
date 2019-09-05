@@ -25,11 +25,14 @@ const workouts = (state = initialState, action) => {
         return copyOfData;
       });
 
+      const addFirstExercise = [addId[0]];
+    
       return {
         ...state,
         allExercises: addId,
         workoutId: action.workout_id,
-        myWorkout: action.workoutDetails
+        myWorkout: action.workoutDetails,
+        currentExercise: addFirstExercise,
       };
 
     case type.CHOOSE_EXERCISE:
