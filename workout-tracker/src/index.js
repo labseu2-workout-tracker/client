@@ -11,6 +11,15 @@ import App from './App';
 
 import './index.css';
 
+function saveToLocalStorage(state) {
+  try {
+          const serializedState = JSON.stringify(state);
+          localStorage.setItem('state', serializedState);
+  } catch (e) {
+          console.log(e)
+  }
+}
+
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
