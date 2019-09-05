@@ -31,6 +31,8 @@ function loadFromLocalStorage() {
   }
 }
 
+const persistedState = loadFromLocalStorage();
+
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
