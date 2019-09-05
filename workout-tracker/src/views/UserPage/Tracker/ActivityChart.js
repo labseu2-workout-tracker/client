@@ -56,7 +56,7 @@ import { Pie } from 'react-chartjs-2';
 
 function PieChart() {
   const data = {
-    labels: ['Red', 'Green', 'Yellow'],
+    labels: ['Chest', 'Bicep', 'Tricep'],
     datasets: [
       {
         data: [300, 50, 100],
