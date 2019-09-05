@@ -32,6 +32,10 @@ const StyledWorkoutSession = styled.div`
   img {
     width: 100%;
   }
+
+  .exercise {
+    cursor: pointer;
+  }
 `;
 
 class WorkoutSession extends React.Component {
@@ -105,6 +109,7 @@ class WorkoutSession extends React.Component {
                   return (
                     <div key={index}>
                       <p
+                      className="exercise"
                         onClick={() =>
                           this.props.chooseExercise(exercise.exercise_name)
                         }
