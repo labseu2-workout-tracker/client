@@ -1,21 +1,21 @@
-import React, { Component, Fragment } from "react";
-import Settings from "./views/Settings/Settings";
-import ContactPage from "./views/ContactPage/ContactPage";
-import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import UserPage from "./views/UserPage/UserPage";
-import About from "./views/AboutUs/AboutUs";
-import LandingPage from "./views/LandingPage/LandingPage";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import WorkoutSession from "./views/WorkoutSession/WorkoutSession";
+import React, { Component, Fragment } from 'react';
+import Settings from './views/Settings/Settings';
+import ContactPage from './views/ContactPage/ContactPage';
+import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
+import UserPage from './views/UserPage/UserPage';
+import About from './views/AboutUs/AboutUs'
+import LandingPage from './views/LandingPage/LandingPage';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import WorkoutSession from './views/WorkoutSession/WorkoutSession';
 import PrivateRoute from "./auth/PrivateRoute";
-import Auth from "./auth/auth";
-import SignupPage from "./views/Auth/Signup";
-import LoginPage from "./views/Auth/Login";
-import MainNavBar from "./components/MainNavBar/MainNavBar";
-import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
-import Toolbar from "./components/Toolbar/Toolbar";
-import Layout from "./components/Layout/Layout";
-import Backdrop from "./components/Backdrop/Backdrop";
+import Auth from './auth/auth';
+import SignupPage from './views/Auth/Signup';
+import LoginPage from './views/Auth/Login';
+import MainNavBar from './components/MainNavBar/MainNavBar';
+import MobileNavigation from './components/MainNavBar/MobileNavigation/MobileNavigation'
+import Toolbar from './components/Toolbar/Toolbar';
+import Layout from './components/Layout/Layout';
+import Backdrop from './components/Backdrop/Backdrop';
 
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
