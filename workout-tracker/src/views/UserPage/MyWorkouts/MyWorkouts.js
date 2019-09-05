@@ -4,7 +4,8 @@ import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/worko
 import {Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledWorkoutView = styled.div``;
+const StyledWorkoutView = styled.div`
+`;
 
 class WorkoutView extends React.Component {
   constructor(props) {

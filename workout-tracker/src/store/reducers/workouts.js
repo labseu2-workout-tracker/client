@@ -5,7 +5,8 @@ const initialState = {
   workoutId: null,
   allExercises: null,
   currentExercise: null,
-  myWorkouts: null
+  myWorkouts: null,
+  addedWorkout: false,
 };
 
 //  default state
