@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import Button from '../../Button/Button'
-=======
 import { NavLink } from 'react-router-dom';
->>>>>>> 7bf9b309ac6f43627fa18d0f22a9c4ee90c06845
 import NavigationItems from '../NavigationItems/NavigationItems';
 import './MobileNavigation.css';
 
