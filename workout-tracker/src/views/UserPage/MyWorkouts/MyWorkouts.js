@@ -22,7 +22,7 @@ class WorkoutView extends React.Component {
           <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={() => this.fetchWorkoutDetails(workout.id)} to='/Workout_session' className='btn'>
+          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='/Workout_session' className='btn'>
                 Start Workout
               </Link>
               <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>
