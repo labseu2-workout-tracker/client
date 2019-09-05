@@ -35,6 +35,8 @@ const persistedState = loadFromLocalStorage();
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
+store.subscribe(() => saveToLocalStorage(store.getState()));
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
