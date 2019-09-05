@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkoutDetails } from '../../../store/actions/workoutsActions';
+import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import {Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkoutDetails })(WorkoutView);
+export default connect(mapStateToProps, { fetchWorkoutDetails, deleteWorkout })(WorkoutView);
