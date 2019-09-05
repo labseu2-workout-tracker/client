@@ -67,3 +67,7 @@ export const endWorkout = (workout_id) => dispatch => {
 export const addWorkout = (workout_id) => {
  return { type: ADD_WORKOUT, workout_id: workout_id };
 };
+
+export const deleteWorkout = (workout_id) => {
+  return { type: DELETE_WORKOUT, workout_id: workout_id };
+};
