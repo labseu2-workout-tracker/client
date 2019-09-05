@@ -10,6 +10,7 @@ export const FINISH_EXERCISE = 'FINISH_EXERCISE';
 export const END_WORKOUT = 'END_WORKOUT';
 export const ADD_WORKOUT = 'ADD_WORKOUT';
 export const DELETE_WORKOUT = 'DELETE_WORKOUT';
+export const ADDED_WORKOUT = 'ADDED_WORKOUT';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
