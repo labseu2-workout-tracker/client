@@ -25,6 +25,9 @@ class WorkoutView extends React.Component {
           <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
                 Start Workout
               </Link>
+              <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>
+                Delete Workout
+              </p>
         </div> 
       })) : null}
     </div>
