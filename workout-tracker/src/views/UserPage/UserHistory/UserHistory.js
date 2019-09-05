@@ -40,7 +40,6 @@ class SessionHistory extends React.Component {
     let session = this.state.session.workoutHistory;
     let workouts = this.state.workouts;
 
-    console.log(session)
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
@@ -53,8 +52,8 @@ class SessionHistory extends React.Component {
               const date2 = session.session_end;
 
               // Extract starting point
-              const startingPoint = date1 === null ? '00' : date1.slice(11, 17)
-              const endPoint = date2 === null ? '00' : date2.slice(11, 17)
+              const startingPoint = date1 === null ? '00:00:00' : date1.slice(11, 17)
+              const endPoint = date2 === null ? '00:00:00' : date2.slice(11, 17)
 
               function diff(start, end) {
                 start = start.split(":");
@@ -89,7 +88,7 @@ class SessionHistory extends React.Component {
                     <p>
                       <strong>Workout Name : </strong>
                       {workouts === undefined
-                        ? console.log("Wait")
+                        ? <h2>Loadin workouts...</h2>
                         : workouts.map(item => {
                             if (session.workout_id === item.id) {
                               return item.workout_name;
