@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {fetchWorkouts, fetchWorkoutDetails, addWorkout } from '../../store/actions/workoutsActions';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledAddWorkout = styled.div``;
 
 
 class Workouts  extends React.Component {
@@ -14,9 +17,18 @@ class Workouts  extends React.Component {
   render() {
     return(
       <>
-      <div className="added-workout">
-        
-      </div>
+
+      <div className={this.props.contact ? 'added-workout' : 'off'}>
+          <div className="close">
+            <i
+            onClick={this.props.closeWindow}
+            className="fa fa-times" />
+            </div>
+          <h1>You added a workout to your workout gallery</h1>
+        </div>
+
+
+
           <h1 className='coolstuff'>Choose from our Workouts</h1>
       <div className='land-wrapper'>
     
