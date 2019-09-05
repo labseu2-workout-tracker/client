@@ -1,1 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300i,400,500|Roboto+Condensed&display=swap');
+
+.rating {
+    width: 100%;
+    height: 2rem;
+    /* object-fit: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%); */
+  }
