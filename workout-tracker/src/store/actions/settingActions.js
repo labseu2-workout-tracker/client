@@ -27,6 +27,5 @@ export const fetchSettings = () => dispatch => {
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
-    debugger
     });
 };

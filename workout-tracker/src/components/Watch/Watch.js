@@ -1,6 +1,31 @@
-import React from "react";
-import Timer from "react-timer";
-import styled from "styled-components";
+import React from 'react';
+
+import styled from 'styled-components';
+import Stopwatch from 'rc-stopwatch';
+ 
+const styles = {
+  container: {
+    width: '300px'
+  },
+  startBtn: {
+    backgroundColor: '#daaeee',
+    color: '#333'
+  },
+  btn: {
+    fontFamily: 'monospace'
+  },
+  title: {
+    textAlign: 'center',
+    color: '#0086C9'
+  },
+  timeText: {
+    fontSize: '19pt',
+    fontWeight: 'bold'
+  },
+  btnWrapper: {
+    flexDirection: 'column'
+  },
+};
 
 const StyledWatch = styled.div``;
 
@@ -11,33 +36,37 @@ class Watch extends React.Component {
   }
 
   componentDidMount = () => {
-    const buttons = document.querySelectorAll("button");
-    var searchText = "pause";
+    // const buttons = document.querySelectorAll('button');
+    // var searchText = 'pause';
 
-    for (var i = 0; i < buttons.length; i++) {
-      if (buttons[i].textContent == searchText) {
-        buttons[i].textContent = "stop";
-        buttons[i].click();
-        break;
-      }
-    }
+    // for (var i = 0; i < buttons.length; i++) {
+    //   if (buttons[i].textContent == searchText) {
+    //     buttons[i].textContent = 'stop';
+    //     buttons[i].click();
+    //     break;
+    //   }
+    // }
   };
 
   finishExercise = () => {
-    const buttons = document.querySelectorAll("button");
-    // const time = document.querySelector('.seconds').textContent;
+    // const buttons = document.querySelectorAll('button');
+    // // const time = document.querySelector('.seconds').textContent;
 
-    buttons[3].click();
-    // time variable is actual time (in milliseconds)
+    // buttons[3].click();
+    // // time variable is actual time (in milliseconds)
   };
   render() {
-    const OPTIONS = { delay: 100 };
+    
     return (
-      <StyledWatch>
-        <h3>Timer</h3>
-        <Timer options={OPTIONS} />
-        <button onClick={this.finishExercise}>Finish</button>
-      </StyledWatch>
+      <div>
+      <h1 style={styles.title}>Timer</h1>
+      <Stopwatch
+        buttonClass='button'
+        timeTextStyle={styles.timeText}
+        buttonContainerStyle={styles.btnWrapper}
+        onTimeChange={obj => console.log(obj)}
+      />
+      </div>
     );
   }
 }
