@@ -2,11 +2,13 @@ import { combineReducers } from 'redux';
 import exercises from './exercises';
 import workouts from './workouts';
 import settings from './settings';
+import authentication from './authentication';
 
 const appReducer = combineReducers({
   exercises: exercises,
   workouts: workouts,
   settings: settings,
+  authentication,
 });
 
 const rootReducer = (state, action) => {
