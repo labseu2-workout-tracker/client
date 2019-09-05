@@ -1,6 +1,5 @@
 import React from "react";
 import Watch from "../../components/Watch/Watch";
-import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {
   chooseExercise,
