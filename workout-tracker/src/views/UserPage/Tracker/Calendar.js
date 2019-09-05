@@ -1,22 +1,29 @@
 import React from 'react';
 import ReactCalendar from 'react-calendar';
+import styled from 'styled-components';
 // If we want to style calendar ourself import from 'react-calendar/dist/entry.nostyle'
+
+const Div = styled.div`
+  width: 50%;
+`;
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {};
   }
 
   getCurrentDay = day => {
-console.log(day)
+    console.log(day);
   };
 
-  render() { 
-    return ( 
-      <ReactCalendar onChange={this.getCurrentDay} /> 
-     );
+  render() {
+    return (
+      <Div>
+        <ReactCalendar onChange={this.getCurrentDay} />
+      </Div>
+    );
   }
 }
- 
+
 export default Calendar;
