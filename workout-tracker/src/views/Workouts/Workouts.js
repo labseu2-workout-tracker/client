@@ -3,12 +3,47 @@ import { connect } from "react-redux";
 import {
   fetchWorkouts,
   fetchWorkoutDetails,
-  addWorkout
+  addWorkout,
+  addedWorkout
 } from "../../store/actions/workoutsActions";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledAddWorkout = styled.div``;
+const StyledWorkouts = styled.div`
+text-align: center;
+
+.off {
+display: none;
+}
+
+.added-workout {
+  background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
+
+top: 50%;
+left: 50%;
+position: fixed;
+transform: translate(-50%, -50%);
+width: 50%;
+height: 50%;
+border-radius: .5rem;
+}
+
+.close {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+i {
+  font-size: 3rem;
+  transition: .6s ease-in-out;
+
+  &:hover{
+    color: red;
+  }
+}
+
+`;
 
 class Workouts extends React.Component {
   componentDidMount() {
@@ -17,7 +52,7 @@ class Workouts extends React.Component {
 
   render() {
     return (
-      <StyledAddWorkout>
+      <StyledWorkouts>
         <div className={this.props.addedWorkout ? "added-workout" : "off"}>
           <div className="close">
             <i onClick={this.props.closeWindow} className="fa fa-times" />
@@ -56,7 +91,7 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
-      </StyledAddWorkout>
+      </StyledWorkouts>
     );
   }
 }
@@ -69,5 +104,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchWorkouts, fetchWorkoutDetails, addWorkout }
+  { fetchWorkouts, fetchWorkoutDetails, addWorkout, addedWorkout }
 )(Workouts);
