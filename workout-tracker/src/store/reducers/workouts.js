@@ -84,7 +84,8 @@ const workouts = (state = initialState, action) => {
 
 
       return {
-        
+        ...state,
+        myWorkouts: state.MyWorkouts[1] ? null : filterMyWorkouts,
       };
 
     default:
