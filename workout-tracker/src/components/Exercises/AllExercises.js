@@ -99,6 +99,7 @@ const AllExercises = props => {
   ];
 
   return (
+    <>
     <div className="all-exercise">
 
      <div className="search">
@@ -114,8 +115,6 @@ const AllExercises = props => {
         </button>
 
      </div>
-
-    
 
       <div className="container-1">
         <div className="box-1">
@@ -157,7 +156,7 @@ const AllExercises = props => {
             : null}
         </div>
         <div className="box-3">
-          <h1>Equipment</h1>
+          <h1 >Equipment</h1>
           {equipment.map((equipment, index) => (
             <button
               className="btn"
@@ -169,10 +168,14 @@ const AllExercises = props => {
           ))}
         </div>
       </div>
-      {/* <button onClick={props.loadMore} className="button">
-        Load More
-      </button> */}
+      {/* <div className="butto">
+        <button onClick={props.loadMore} className="new-button">
+          Load More
+        </button>
+    </div> */}
     </div>
+
+    </>
   );
 };
 
