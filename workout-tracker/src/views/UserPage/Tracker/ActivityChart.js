@@ -9,7 +9,7 @@ class PieChart extends React.Component {
       labels: ["Red", "Green", "Yellow"],
       data: [2],
       backgroundColor: [
-        "#FF6384",
+        "#5d5d5d",
         "#91b029",
         "#FFCE56",
         "#fb0091",
@@ -19,7 +19,7 @@ class PieChart extends React.Component {
         "#edaaaa"
       ],
       hoverBackgroundColor: [
-        "#FF6384",
+        "#5d5d5d",
         "#91b029",
         "#FFCE56",
         "#fb0091",
@@ -81,7 +81,7 @@ class PieChart extends React.Component {
             let daysInWeek = [];
 
             Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1; // getMonth() is zero-based
+              let mm = this.getMonth() + 1;
               let dd = this.getDate();
 
               return [

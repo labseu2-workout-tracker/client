@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 import './NavigationItems.css';
 
 const navItems = [
-  { id: 'workouts', text: 'Workouts', link: '/workouts', auth: true },
-  { id: 'exercise', text: 'Exercises', link: '/exercises', auth: true },
-  { id: 'dashboard', text: 'Dashboard', link: '/dashboard', auth: true },
-  { id: 'contact', text: 'Contact', link: '/contact', auth: false },
-  { id: 'about', text: 'About', link: '/about', auth: false },
-  { id: 'login', text: 'Login', link: '/login', auth: false },
-  { id: 'signup', text: 'Signup', link: '/signup', auth: false },
+  { id: 'workouts', text: 'Workouts', link: '/workouts', auth: true, mobile: true },
+  { id: 'exercise', text: 'Exercises', link: '/exercises', auth: true, mobile: true },
+  { id: 'dashboard', text: 'Dashboard', link: '/dashboard/myworkouts', auth: true, mobile: false },
+  { id: 'contact', text: 'Contact', link: '/contact', auth: false, mobile: true },
+  { id: 'about', text: 'About', link: '/about', auth: false, mobile: true },
+  { id: 'login', text: 'Login', link: '/login', auth: false, mobile: true },
+  { id: 'signup', text: 'Signup', link: '/signup', auth: false, mobile: true },
 ];
 
 const navigationItems = props => [
@@ -23,12 +23,7 @@ const navigationItems = props => [
         {item.text}
       </NavLink>
     </li>
-  )),
-  props.isAuth && (
-    <li className="navigation-item" key="logout">
-      <button onClick={props.onLogout}>Logout</button>
-    </li>
-  )
+  ))
 ]
 
 export default navigationItems;
