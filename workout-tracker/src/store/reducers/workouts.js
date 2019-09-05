@@ -58,14 +58,19 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.ADD_WORKOUT:
+      let mergeWorkouts;
+
       const filterWorkout = state.workouts.filter(
         workout => workout.id === action.workout_id
       );
 
-      debugger
+      if(state.myWorkouts) {
+      mergeWorkouts = state.myWorkouts.concat(filterWorkout);
+      }
+
       return {
         ...state,
-        myWorkouts: filterWorkout
+        myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout, 
       };
 
     default:
