@@ -11,6 +11,12 @@ class WorkoutView extends React.Component {
     super(props);
     this.state = {};
   }
+
+  fetchWorkoutDetails = (workout_id) => {
+this.props.fetchWorkoutDetails(workout_id);
+
+this.props.history.push('Workout_session');
+  };
   render() {
     return <div>
           <h1>
@@ -22,9 +28,9 @@ class WorkoutView extends React.Component {
           <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
+          <p onClick={() => this.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
                 Start Workout
-              </Link>
+              </p>
               <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>
                 Delete Workout
               </p>

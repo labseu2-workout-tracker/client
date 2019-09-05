@@ -39,6 +39,11 @@ const StyledWorkoutSession = styled.div`
 
 class WorkoutSession extends React.Component {
 
+  componentDidMount = () => {
+ const buttons = document.querySelectorAll('button');
+ console.log(buttons)
+  }
+
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId);
 
