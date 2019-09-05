@@ -38,16 +38,15 @@ const StyledWorkoutSession = styled.div`
 `;
 
 class WorkoutSession extends React.Component {
-
   componentDidMount = () => {
- const buttons = document.querySelectorAll('button');
- console.log(buttons)
-  }
+    const startButton = document.querySelector(".btn-start");
+    startButton.click();
+  };
 
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId);
 
-    setTimeout(() => this.props.history.push('/dashboard/history'), 2500);
+    setTimeout(() => this.props.history.push("/dashboard/history"), 2500);
   };
   render() {
     return (
@@ -113,7 +112,7 @@ class WorkoutSession extends React.Component {
                   return (
                     <div key={index}>
                       <p
-                      className="exercise"
+                        className="exercise"
                         onClick={() =>
                           this.props.chooseExercise(exercise.exercise_name)
                         }
@@ -125,10 +124,7 @@ class WorkoutSession extends React.Component {
                 })}
             </div>
           ) : (
-            <p
-              className="button"
-              onClick={this.endWorkout}
-            >
+            <p className="button" onClick={this.endWorkout}>
               Finish Workout
             </p>
           )}
