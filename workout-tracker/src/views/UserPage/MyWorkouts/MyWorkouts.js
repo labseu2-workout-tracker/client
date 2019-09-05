@@ -34,7 +34,7 @@ class WorkoutView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    // currentWorkout: state.currentWorkout.currentWorkout
+    myWorkouts: state.workouts.myWorkouts
   };
 };
 
