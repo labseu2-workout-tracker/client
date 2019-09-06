@@ -193,13 +193,7 @@ class WorkoutSession extends React.Component {
                       title="Sets to complete"
                       prefix={<Icon type="unordered-list" />}
                       style={{ cursor: "default" }}
-                      value={
-                        this.props.allExercises.filter(
-                          workout =>
-                            workout.exercise_name ===
-                            this.props.currentExercise[0].exercise_name
-                        ).length
-                      }
+                      value={this.props.currentExercise.length}
                     />,
                     <Statistic
                       title={
