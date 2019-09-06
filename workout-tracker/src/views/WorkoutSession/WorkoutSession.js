@@ -118,7 +118,7 @@ class WorkoutSession extends React.Component {
         </Row>
         {this.props.currentExercise ? (
           <>
-            <Row type="flex" justify="center" align="middle">
+            <Row type="flex" justify="center" align="top">
               <Col md={7}>
                 {this.props.allExercises ? (
                   <div>
