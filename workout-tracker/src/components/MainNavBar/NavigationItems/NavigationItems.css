@@ -46,14 +46,36 @@
   color: #fab83f;
 }
 
-.mobile-nav.open .navigation-item button {
-  color: red;
-  font-size: 26.25px;
+.mobile-nav.open .navigation-item {
+  color: #0086c9;
   margin-top: 7.5px;
   width: 30%;
   text-align: left;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  padding-left: 0;
 }
 
+.mobile-nav.open .navigation-item:nth-of-type(3) {
+  display: none;
+}
+
+.mobile-nav.open .navigation-item button {
+  color: #0086c9;
+  text-align: left;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  padding-left: 0;
+}
+.mobile-nav.open .navigation-item button:hover {
+  color: #fab83f;
+}
+
+.navigation-item:last-of-type {
+  padding-left: 0;
+}
 .mobile-nav.open {
   width: 30%;
 }
