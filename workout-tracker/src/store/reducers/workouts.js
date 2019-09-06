@@ -36,8 +36,8 @@ const workouts = (state = initialState, action) => {
         return copyOfData;
       });
 
-      const addFirstExercise = [addId[0]];
-    
+      const addFirstExercise = addId.filter(workout => workout.exercise_name === addId[0].exercise_name);
+
       return {
         ...state,
         allExercises: addId,
@@ -50,6 +50,7 @@ const workouts = (state = initialState, action) => {
       const filterCurrentExercise = state.allExercises.filter(
         exercise => exercise.exercise_name === action.current_exercise
       );
+      debugger
       return {
         ...state,
         currentExercise: filterCurrentExercise
@@ -59,11 +60,11 @@ const workouts = (state = initialState, action) => {
       const deleteExerciseFromCurrent = state.currentExercise.filter(
         exercise => exercise.id !== action.exercise_id
       );
-
+debugger
       const deleteExerciseAll = state.allExercises.filter(
         exercise => exercise.id !== action.exercise_id
       );
-
+      debugger
       return {
         ...state,
         allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
