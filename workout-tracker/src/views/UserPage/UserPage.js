@@ -26,11 +26,11 @@ const UserPage = (props) => {
       </aside>
       <div className='dashboard-component'>
         <Switch>
-          <Route path={'/dashboard/myworkouts'} component={MyWorkouts} />
-          <Route path={'/dashboard/tracker'} component={UserTracker} />
-          <Route path={'/dashboard/history'} component={UserHistory} />
-          <Route path={'/dashboard/notifications'} component={UserNotifications} />
-          <Route path={'/dashboard/settings'} component={Settings} />
+          <Route path={'/Dashboard/myworkouts'} component={MyWorkouts} />
+          <Route path={'/Dashboard/tracker'} component={UserTracker} />
+          <Route path={'/Dashboard/history'} component={UserHistory} />
+          <Route path={'/Dashboard/notifications'} component={UserNotifications} />
+          <Route path={'/Dashboard/settings'} component={Settings} />
         </Switch>
       </div>
     </div>

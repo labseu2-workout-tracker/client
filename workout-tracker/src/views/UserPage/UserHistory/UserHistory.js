@@ -16,7 +16,7 @@ class SessionHistory extends React.Component {
   componentDidMount() {
     if (localStorage.token) {
       axios
-        .get("http://localhost:5000/workouts/history/", {
+        .get(`${process.env.REACT_APP_BASE_URL}/workoutshistory/`, {
           headers: { Authorization: bearer }
         })
         .then(res => this.setState({ session: res.data }))
@@ -25,7 +25,7 @@ class SessionHistory extends React.Component {
         });
 
       axios
-        .get("http://localhost:5000/workouts/", {
+        .get(`${process.env.REACT_APP_BASE_URL}/workouts`, {
           headers: { Authorization: bearer }
         })
         .then(res => this.setState({ workouts: res.data }))
