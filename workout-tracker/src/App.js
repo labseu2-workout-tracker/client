@@ -27,7 +27,7 @@ class App extends Component {
   };
 
   logoutHandler = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     this.props.history.replace("/login");
   };
 
