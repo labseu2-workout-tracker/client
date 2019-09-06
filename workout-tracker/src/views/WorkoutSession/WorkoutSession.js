@@ -2,6 +2,18 @@ import React from "react";
 import Watch from "../../components/Watch/Watch";
 import { connect } from "react-redux";
 import {
+  PageHeader,
+  Statistic,
+  Row,
+  Col,
+  Card,
+  Icon,
+  List,
+  Button,
+  Modal,
+  Carousel
+} from "antd";
+import {
   chooseExercise,
   finishExercise,
   endWorkout
@@ -9,7 +21,11 @@ import {
 import styled from "styled-components";
 
 const StyledWorkoutSession = styled.div`
-  /* font-size: 1rem; */
+  /* font-size: .8rem; */
+
+  line-height: 1;
+
+  margin: 0 auto;
 
   .top {
     display: flex;
@@ -35,6 +51,17 @@ const StyledWorkoutSession = styled.div`
   .exercise {
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 768px) {
+    .carousel {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .cover {
+      display: none;
+    }
+  }
 `;
 
 class WorkoutSession extends React.Component {
@@ -45,100 +72,200 @@ class WorkoutSession extends React.Component {
 
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId);
+  }
+  
+  state = {
+    visible: false
+  };
 
-    setTimeout(() => this.props.history.push("/dashboard/history"), 2500);
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleCancel = e => {
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleOk = e => {
+    this.setState({
+      visible: false
+    });
+  };
+
+  componentWillUnmount() {
+    this.setState({ initial: 0 });
+  }
+
+  endWorkout = () => {
+    this.props.endWorkout(this.props.workoutId);
   };
   render() {
     return (
       <StyledWorkoutSession>
-        <div className="top">
-          {this.props.currentExercise ? (
-            <div className="picture-text">
-              <div className="exercise-picture">
-                <img
-                  src={this.props.currentExercise[0].picture_one}
-                  alt="Exercise explanation"
-                />
-              </div>
-              <div className="text">
-                <p>{this.props.currentExercise[0].exercise_name}</p>
-                <div className="row">
-                  <p>Sets to complete:</p>
-                  <p>{this.props.currentExercise.length}</p>
-                </div>
-                <div className="row">
-                  <p>Reps for exercise:</p>
-                  <p>{this.props.currentExercise[0].reps}</p>
-                </div>
-                <button
-                  onClick={() =>
-                    this.props.finishExercise(this.props.currentExercise[0].id)
-                  }
-                >
-                  Next Exercise
-                </button>
-              </div>
-            </div>
-          ) : (
-            <p>You Finished the Workout</p>
-          )}
+        <Row type="flex" justify="space-around">
+          <Col span={12}></Col>
+          <Col span={12}></Col>
+          <PageHeader
+            onBack={() => window.history.back()}
+            title={this.props.myWorkout.workout_name}
+          />
           <Watch />
-        </div>
-
-        <div className="exercise-text-and-names">
-          {this.props.currentExercise ? (
-            <div className="description">
-              <p>{this.props.currentExercise[0].description}</p>
-            </div>
-          ) : null}
-
-          {/* Display Exercises(but without duplicates) => filter all duplicates with reduce
-         method and map over result to display exercise names with onClick */}
-          {this.props.allExercises ? (
-            <div>
-              <p>Choose exercise:</p>
-              {this.props.allExercises
-                .reduce((acc, current) => {
-                  const x = acc.find(
-                    item => item.exercise_name === current.exercise_name
-                  );
-                  if (!x) {
-                    return acc.concat([current]);
-                  } else {
-                    return acc;
+        </Row>
+        {this.props.currentExercise ? (
+          <>
+            <Row type="flex" justify="center" align="middle">
+              <Col md={7}>
+                {this.props.allExercises ? (
+                  <div>
+                    {/* {} */}
+                    <List
+                      size="small"
+                      header={<h3>Choose Exercises</h3>}
+                      bordered
+                      dataSource={this.props.allExercises
+                        .reduce((acc, current) => {
+                          const x = acc.find(
+                            item => item.exercise_name === current.exercise_name
+                          );
+                          if (!x) {
+                            return acc.concat([current]);
+                          } else {
+                            return acc;
+                          }
+                        }, [])
+                        .map(exercise => exercise.exercise_name)}
+                      renderItem={item => (
+                        <List.Item
+                          onClick={() => this.props.chooseExercise(item)}
+                        >
+                          {<a>{item}</a>}
+                        </List.Item>
+                      )}
+                    />
+                  </div>
+                ) : (
+                  <p className="button" onClick={this.endWorkout}>
+                    Finish Workout
+                  </p>
+                )}
+              </Col>
+              <Col sm={7}>
+                <Card
+                  cover={
+                    <>
+                      <div className="carousel">
+                        <Carousel
+                          dots={false}
+                          effect="fade"
+                          autoplay
+                          autoplaySpeed={1000}
+                        >
+                          <div>
+                            <img
+                              alt="Exercise explanation"
+                              src={this.props.currentExercise[0].picture_one}
+                            />
+                          </div>
+                          <div>
+                            <img
+                              alt="Exercise explanation"
+                              src={this.props.currentExercise[0].picture_two}
+                            />
+                          </div>
+                        </Carousel>
+                      </div>
+                      <div className="cover">
+                        <img
+                          alt="Exercise explanation"
+                          src={this.props.currentExercise[0].picture_one}
+                        />
+                      </div>
+                    </>
                   }
-                }, [])
-                .map((exercise, index) => {
-                  return (
-                    <div key={index}>
-                      <p
-                        className="exercise"
-                        onClick={() =>
-                          this.props.chooseExercise(exercise.exercise_name)
-                        }
-                      >
-                        {exercise.exercise_name}
-                      </p>
-                    </div>
-                  );
-                })}
-            </div>
-          ) : (
-            <p className="button" onClick={this.endWorkout}>
-              Finish Workout
-            </p>
-          )}
-        </div>
+                  title={this.props.currentExercise[0].exercise_name}
+                  actions={[
+                    <Statistic
+                      title="Sets to complete"
+                      prefix={<Icon type="unordered-list" />}
+                      style={{ cursor: "default" }}
+                      value={this.props.currentExercise.length}
+                    />,
+                    <Statistic
+                      title={
+                        this.props.currentExercise[0].reps
+                          ? "Repetitions"
+                          : "Duration"
+                      }
+                      prefix={
+                        this.props.currentExercise[0].reps && (
+                          <Icon type="sync" spin />
+                        )
+                      }
+                      value={
+                        this.props.currentExercise[0].reps ||
+                        this.props.currentExercise[0].duration
+                      }
+                      style={{ cursor: "default" }}
+                    />,
+                    <Statistic
+                      title="Next Exercise"
+                      prefix={
+                        <Icon
+                          onClick={() =>
+                            this.props.finishExercise(
+                              this.props.currentExercise[0].id
+                            )
+                          }
+                          type="double-right"
+                        />
+                      }
+                      style={{ cursor: "default" }}
+                      value=" "
+                    />
+                  ]}
+                >
+                  <Card.Meta
+                    description={`Equipment Needed: ${this.props.currentExercise[0].equipment}`}
+                  />
+                </Card>
+              </Col>
+              <Col md={7}>
+                <Card bordered={false} style={{ lineHeight: 1.2 }}>
+                  {this.props.currentExercise[0].description}
+                  {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
+                </Card>
+              </Col>
+            </Row>
+          </>
+        ) : (
+          <p>You Finished the Workout</p>
+        )}
 
         {this.props.currentExercise ? (
-          <div className="video">
-            <video width="320" height="240" controls>
-              <source
-                src={this.props.currentExercise[0].video}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+          <div style={{ marginTop: "1rem" }}>
+            <Button type="primary" onClick={this.showModal}>
+              Video Instruction
+            </Button>
+            <Modal
+              title={this.props.currentExercise[0].exercise_name}
+              visible={this.state.visible}
+              onCancel={this.handleCancel}
+              onOk={this.handleOk}
+            >
+              <div className="video">
+                <video width="100%" height="auto" autoPlay controls>
+                  <source
+                    src={this.props.currentExercise[0].video}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </Modal>
           </div>
         ) : null}
       </StyledWorkoutSession>
@@ -150,7 +277,8 @@ const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
     currentExercise: state.workouts.currentExercise,
-    workoutId: state.workouts.workoutId
+    workoutId: state.workouts.workoutId,
+    myWorkout: state.workouts.myWorkout
   };
 };
 
