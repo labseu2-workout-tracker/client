@@ -1,170 +1,38 @@
-import React, { Component, Fragment } from 'react';
-import Settings from './views/Settings/Settings';
-import ContactPage from './views/ContactPage/ContactPage';
-import ExercisesLibrary from './views/ExerciseLibrary/ExercisesLibrary';
-import UserPage from './views/UserPage/UserPage';
-import About from './views/AboutUs/AboutUs'
-import LandingPage from './views/LandingPage/LandingPage';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
-import WorkoutSession from './views/WorkoutSession/WorkoutSession';
-import SignupPage from './views/Auth/Signup';
-import LoginPage from './views/Auth/Login';
-import MainNavBar from './components/MainNavBar/MainNavBar';
-import MobileNavigation from './components/MainNavBar/MobileNavigation/MobileNavigation'
-import Toolbar from './components/Toolbar/Toolbar';
-import Layout from './components/Layout/Layout';
-import Backdrop from './components/Backdrop/Backdrop';
+import React, { Component, Fragment } from "react";
+import Settings from "./views/Settings/Settings";
+import ContactPage from "./views/ContactPage/ContactPage";
+import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
+import UserPage from "./views/UserPage/UserPage";
+import About from "./views/AboutUs/AboutUs";
+import LandingPage from "./views/LandingPage/LandingPage";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import WorkoutSession from "./views/WorkoutSession/WorkoutSession";
+import PrivateRoute from "./auth/PrivateRoute";
+import Auth from "./auth/auth";
+import SignupPage from "./views/Auth/Signup";
+import LoginPage from "./views/Auth/Login";
+import MainNavBar from "./components/MainNavBar/MainNavBar";
+import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
+import Toolbar from "./components/Toolbar/Toolbar";
+import Layout from "./components/Layout/Layout";
+import Backdrop from "./components/Backdrop/Backdrop";
 
-import './App.css';
-import Workouts from './views/Workouts/Workouts';
+import "./App.css";
+import Workouts from "./views/Workouts/Workouts";
 
 class App extends Component {
-  state ={ 
-    isAuth: false,
-    token: null,
-    userId: null,
-    authLoading: false,
-    error: null,
+  state = {
     showMobileNav: false,
     showBackdrop: false
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const expiryDate = localStorage.getItem('expiryDate');
-    if (!token || !expiryDate) {
-      return;
-    }
-    if (new Date(expiryDate) <= new Date()) {
-      this.logoutHandler();
-      return;
-    }
-    const userId = localStorage.getItem('userId');
-    const remainingMilliseconds =
-      new Date(expiryDate).getTime() - new Date().getTime();
-    this.setState({ isAuth: true, token: token, userId: userId });
-    this.setAutoLogout(remainingMilliseconds);
-  }
+  };
 
   logoutHandler = () => {
-    this.setState({ isAuth: false, token: null });
     localStorage.clear();
-    this.props.history.replace('/');
-  };
-
-  signupHandler = (event, authData) => {
-    event.preventDefault();
-    this.setState({ authLoading: true });
-    fetch(`${process.env.REACT_APP_BASE_URL}/auth/signup`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: authData.signupForm.email.value,
-        password: authData.signupForm.password.value,
-        username: authData.signupForm.username.value
-      })
-    })
-      .then(res => {
-        if (res.status === 422) {
-          throw new Error(
-            "Validation failed. Make sure the email address isn't used yet!"
-          );
-        }
-        if (res.status !== 200 && res.status !== 201) {
-          console.log('Error!');
-          throw new Error('Creating a user failed!');
-        }
-        return res.json();
-      })
-      .then(resData => {
-        console.log(resData);
-        this.setState({
-          isAuth: true,
-          token: resData.token,
-          authLoading: false,
-          userId: resData.userId
-
-         });
-         localStorage.setItem('token', resData.token);
-        localStorage.setItem('userId', resData.userId);
-        const remainingMilliseconds = 60 * 60 * 1000;
-        const expiryDate = new Date(
-          new Date().getTime() + remainingMilliseconds
-        );
-        localStorage.setItem('expiryDate', expiryDate.toISOString());
-        this.setAutoLogout(remainingMilliseconds);
-        this.props.history.replace('/workouts');
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          isAuth: false,
-          authLoading: false,
-          error: err
-        });
-      });
-  };
-
-  loginHandler = (event, authData) => {
-    event.preventDefault();
-    this.setState({ authLoading: true });
-    fetch(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: authData.email,
-        password: authData.password
-      })
-    })
-      .then(res => {
-        if (res.status === 422) {
-          throw new Error('Validation failed.');
-        }
-        if (res.status !== 200 && res.status !== 201) {
-          console.log('Error!');
-          throw new Error('Could not authenticate you!');
-        }
-        return res.json();
-      })
-      .then(resData => {
-        console.log(resData);
-        this.setState({
-          isAuth: true,
-          token: resData.token,
-          authLoading: false,
-          userId: resData.userId
-        });
-        localStorage.setItem('token', resData.token);
-        localStorage.setItem('userId', resData.userId);
-        const remainingMilliseconds = 60 * 60 * 1000;
-        const expiryDate = new Date(
-          new Date().getTime() + remainingMilliseconds
-        );
-        localStorage.setItem('expiryDate', expiryDate.toISOString());
-        this.setAutoLogout(remainingMilliseconds);
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          isAuth: false,
-          authLoading: false,
-          error: err
-        });
-      });
-  };
-
-  setAutoLogout = milliseconds => {
-    setTimeout(() => {
-      this.logoutHandler();
-    }, milliseconds);
+    this.props.history.replace("/login");
   };
 
   mobileNavHandler = isOpen => {
-    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen});
+    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
   };
 
   backdropClickHandler = () => {
@@ -173,62 +41,35 @@ class App extends Component {
 
   render() {
     let routes = (
-      <Switch>
-        <Route exact path="/"
-        component={LandingPage}
-        />
-        <Route path="/about"
-        component={About}
-        />
-        <Route exact path="/contact"
-        component={ContactPage}
-        />        
-         <Route
-          path="/login"
-          render={props => (
-            <LoginPage
-              {...props}
-              onLogin={this.loginHandler}
-              loading={this.state.authLoading}
-            />
-          )}
-        />
-        <Route
-          path="/signup"
-          render={props => (
-            <SignupPage
-              {...props}
-              onSignup={this.signupHandler}
-              loading={this.state.authLoading}
-            />
-          )}
-        />
-      </Switch>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/about" component={About} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route path="/login" render={props => <LoginPage {...props} />} />
+          <Route path="/signup" render={props => <SignupPage {...props} />} />
+          <PrivateRoute path={"/Dashboard"} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/myworkouts'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/settings'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/tracker'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/history'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/notifications'} component={UserPage} />
+          <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
+          <PrivateRoute path={"/Settings"} component={Settings} />
+          <PrivateRoute path={"/Workouts"} component={Workouts} />
+          <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
+          <Redirect to="/" />
+        </Switch>
+      </div>
     );
-    if (this.state.isAuth) {
-      routes = (
-        <div className="App">
-          <Switch>
-            <Route path={'/Workouts'} component={Workouts} /> 
-            <Route path={'/Dashboard/myworkouts'} component={UserPage} />
-            <Route path={'/Dashboard/settings'} component={UserPage} />
-            <Route path={'/Dashboard/tracker'} component={UserPage} />
-            <Route path={'/Dashboard/history'} component={UserPage} />
-            <Route path={'/Dashboard/notifications'} component={UserPage} />
-            <Route path={'/Exercises'} component={ExercisesLibrary} />
-            <Route path={'/Settings'} component={Settings} />
-            <Route path={'/Contact'} component={ContactPage} />    
-            <Route path={'/Workout_session'} component={WorkoutSession} />             
-            <Route path={'/About'} component={About} />  
-            <Redirect to='/dashboard/myworkouts' />       
-          </Switch>
-        </div>
-      )
-    }
+
     return (
       <Fragment>
         {this.state.showBackdrop && (
-          <Backdrop onClick={this.backdropClickHandler} open={this.state.showMobileNav}/>
+          <Backdrop
+            onClick={this.backdropClickHandler}
+            open={this.state.showMobileNav}
+          />
         )}
         <Layout
           header={
@@ -236,7 +77,7 @@ class App extends Component {
               <MainNavBar
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
                 onLogout={this.logoutHandler}
-                isAuth={this.state.isAuth}
+                isAuth={Auth.isAuthenticated()}
               />
             </Toolbar>
           }
@@ -246,7 +87,7 @@ class App extends Component {
               mobile
               onChooseItem={this.mobileNavHandler.bind(this, false)}
               onLogout={this.logoutHandler}
-              isAuth={this.state.isAuth}
+              isAuth={Auth.isAuthenticated()}
             />
           }
         />
