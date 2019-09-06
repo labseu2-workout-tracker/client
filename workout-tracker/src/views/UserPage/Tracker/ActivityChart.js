@@ -38,7 +38,7 @@ class PieChart extends React.Component {
         res.data.map(workout => workoutNames.push(workout.workout_name));
 
         axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/history`)
+          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
             
 

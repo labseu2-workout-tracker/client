@@ -9,19 +9,20 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       session: {},
-      workouts: undefined
+      workouts: undefined,
+      err: {}
     };
   }
 
   componentDidMount() {
     if (localStorage.token) {
       axios
-        .get(`${process.env.REACT_APP_BASE_URL}/workoutshistory/`, {
+        .get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`, {
           headers: { Authorization: bearer }
         })
         .then(res => this.setState({ session: res.data }))
         .catch(err => {
-          console.log(err);
+          this.setState({err:{err}});
         });
 
       axios
@@ -30,7 +31,7 @@ class SessionHistory extends React.Component {
         })
         .then(res => this.setState({ workouts: res.data }))
         .catch(err => {
-          console.log(err);
+          this.setState({err:{err}});
         });
     }
   }
@@ -38,6 +39,7 @@ class SessionHistory extends React.Component {
   render() {
     let session = this.state.session.workoutHistory;
     let workouts = this.state.workouts;
+
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
@@ -50,8 +52,8 @@ class SessionHistory extends React.Component {
               const date2 = session.session_end;
 
               // Extract starting point
-              const startingPoint = date1.slice(11, 17);
-              const endPoint = date2.slice(11, 17);
+              const startingPoint = date1 === null ? '00:00:00' : date1.slice(11, 17)
+              const endPoint = date2 === null ? '00:00:00' : date2.slice(11, 17)
 
               function diff(start, end) {
                 start = start.split(":");
@@ -86,7 +88,7 @@ class SessionHistory extends React.Component {
                     <p>
                       <strong>Workout Name : </strong>
                       {workouts === undefined
-                        ? console.log("Wait")
+                        ? <h2>Loadin workouts...</h2>
                         : workouts.map(item => {
                             if (session.workout_id === item.id) {
                               return item.workout_name;
@@ -95,7 +97,7 @@ class SessionHistory extends React.Component {
                     </p>
                     <p>
                       <strong>Duration : </strong>
-                      {diff(startingPoint, endPoint)} minutes.
+                      {diff(startingPoint, endPoint) === null ? 'No sessions' : diff(startingPoint, endPoint)} minutes.
                     </p>
                   </li>
                 </ol>
