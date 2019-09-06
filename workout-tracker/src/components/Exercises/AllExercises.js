@@ -123,21 +123,16 @@ const AllExercises = props => {
     //     </div>
 
     <Layout>
-      <Header className="header">
+      <Header className="header"
+       style={{ backgroundColor: "white" }}>
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-        style={{ lineHeight: '64px' }}
-      >
+      
         <Search
                 placeholder="input search text"
                 enterButton="Search"
-                style={{ width: "40%", marginTop: "1rem" }}
+                style={{ width: "60%", marginTop: ".35rem" }}
                 onSearch={props.searchForName}
               />
-      </Menu>
     </Header>
       <Layout>
         <Sider width={200} style={{ background: "#fff" }}>
