@@ -42,18 +42,24 @@ const AllExercises = props => {
   ];
 
   return (
-    <>
-      <div className="all-exercise">
+    <div>
+     <Layout>
+      <Sider>Sider</Sider>
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
+      </Layout>
     
 
-        <div>
+        
           <Search
             placeholder="input search text"
             enterButton="Search"
             style={{ width: "40%", marginTop: "1rem" }}
             onSearch={props.searchForName}
           />
-        </div>
+        
 
         <div className="container-1">
           <div className="box-1">
