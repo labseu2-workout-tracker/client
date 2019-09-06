@@ -33,12 +33,12 @@ class PieChart extends React.Component {
   componentDidMount = () => {
     let workoutNames = [];
     axiosWithAuth()
-      .get("http://localhost:5000/workouts")
+      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
       .then(res => {
         res.data.map(workout => workoutNames.push(workout.workout_name));
 
         axiosWithAuth()
-          .get("http://localhost:5000/workouts/history/")
+          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
             
 
@@ -114,7 +114,7 @@ class PieChart extends React.Component {
             let hashTable = {};
 
             return axiosWithAuth()
-              .get("http://localhost:5000/workouts")
+              .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
               .then(res => {
                 
 

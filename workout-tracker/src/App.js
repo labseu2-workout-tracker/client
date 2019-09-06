@@ -49,16 +49,20 @@ class App extends Component {
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
           <PrivateRoute path={"/Dashboard"} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/myworkouts'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/settings'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/tracker'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/history'} component={UserPage} />
+          <PrivateRoute path={'/Dashboard/notifications'} component={UserPage} />
           <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
           <PrivateRoute path={"/Settings"} component={Settings} />
-          <PrivateRoute path={"/Contact"} component={ContactPage} />
           <PrivateRoute path={"/Workouts"} component={Workouts} />
           <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
-          <PrivateRoute path={"/About"} component={About} />
           <Redirect to="/" />
         </Switch>
       </div>
     );
+
     return (
       <Fragment>
         {this.state.showBackdrop && (
