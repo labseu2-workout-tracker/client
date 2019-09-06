@@ -23,13 +23,11 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === 'Chest'
       );
 
-      const indexLastExercise = state.indexOfLastExercise;
-
       const currentExercises = filterOnlyGroupChest.slice(
-        state.indexFirstExercise,
-        indexLastExercise
+        0,
+        5
       );
-
+debugger
       return {
         ...state,
         exercises: currentExercises,
