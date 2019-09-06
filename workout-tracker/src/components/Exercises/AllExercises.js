@@ -1,5 +1,10 @@
 import React from 'react';
-import './AllExercises.css'
+import { Input } from 'antd';
+
+const { Search } = Input;
+
+// import './AllExercises.css';
+
 // import ExerciseRating from './ExerciseRating';
 
 // const StyledAllExercises = styled.div`
