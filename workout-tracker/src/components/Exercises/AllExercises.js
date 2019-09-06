@@ -210,18 +210,32 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-                    <Row>
-                      <Col span={8}>
-                        <img
-                          className="img"
-                          src={exercise.picture_one}
-                          alt="exercise"
-                        />
-                      </Col>
-                      <Col span={8}>col-8</Col>
-                      <Col span={8}>col-8</Col>
-                    </Row>
-
+                    <div
+                    key={index} 
+                    style={{ margin: "1rem" }}>
+                      <h6 style={{ fontSize: "1.5" }}>
+                        {exercise.exercise_name}
+                      </h6>
+                      <Row>
+                        <Col span={8}>
+                          <img
+                            className="img"
+                            src={exercise.picture_one}
+                            alt="exercise"
+                          />
+                        </Col>
+                        <Col span={8}>
+                          <p>{exercise.muscle}</p>
+                        </Col>
+                        <Col span={8}>
+                          <img
+                            className="img"
+                            src={exercise.picture_two}
+                            alt="exercise"
+                          />
+                        </Col>
+                      </Row>
+                    </div>
                     // <p>{exercise.exercise_name}</p>
                     //    <p>
                     //      Muscle Targeted: <span>{exercise.muscle}</span>
