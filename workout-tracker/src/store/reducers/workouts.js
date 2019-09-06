@@ -19,7 +19,7 @@ const removeDuplicates = (arr,comp) => {
   
   return unique
   };
-  
+
 const workouts = (state = initialState, action) => {
   switch (action.type) {
     case type.FETCH_WORKOUTS:
@@ -78,14 +78,15 @@ const workouts = (state = initialState, action) => {
         workout => workout.id === action.workout_id
       );
 
-      if(state.myWorkouts) {
-      mergeWorkouts = state.myWorkouts.concat(filterWorkout);
+      if (state.myWorkouts) {
+        mergeWorkouts = state.myWorkouts
+          .concat(filterWorkout)
       }
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout,
-        addedWorkout: true,
+        myWorkouts: state.myWorkouts ? removeDuplicates(mergeWorkouts, 'id') : filterWorkout,
+        addedWorkout: true
       };
 
       case type.DELETE_WORKOUT:
