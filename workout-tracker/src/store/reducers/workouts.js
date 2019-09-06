@@ -6,19 +6,19 @@ const initialState = {
   allExercises: null,
   currentExercise: null,
   myWorkouts: null,
-  addedWorkout: false,
+  addedWorkout: false
 };
 
-const removeDuplicates = (arr,comp) => {
+const removeDuplicates = (arr, comp) => {
+  const unique = arr
+    .map(workout => workout[comp])
+    .map((workout, index, array) => array.indexOf(workout) === index && index)
 
-  const unique =  arr.map(workout=> workout[comp]). 
-  
-  map((workout,index,array) =>array.indexOf(workout) === index && index) 
-  
-  .filter((workout)=> arr[workout]).map(workout=> arr[workout]);
-  
-  return unique
-  };
+    .filter(workout => arr[workout])
+    .map(workout => arr[workout]);
+
+  return unique;
+};
 
 const workouts = (state = initialState, action) => {
   switch (action.type) {
@@ -36,21 +36,23 @@ const workouts = (state = initialState, action) => {
         return copyOfData;
       });
 
-      const addFirstExercise = addId.filter(workout => workout.exercise_name === addId[0].exercise_name);
+      const addFirstExercise = addId.filter(
+        workout => workout.exercise_name === addId[0].exercise_name
+      );
 
       return {
         ...state,
         allExercises: addId,
         workoutId: action.workout_id,
         myWorkout: action.workoutDetails,
-        currentExercise: addFirstExercise,
+        currentExercise: addFirstExercise
       };
 
     case type.CHOOSE_EXERCISE:
       const filterCurrentExercise = state.allExercises.filter(
         exercise => exercise.exercise_name === action.current_exercise
       );
-      debugger
+      debugger;
       return {
         ...state,
         currentExercise: filterCurrentExercise
@@ -60,16 +62,23 @@ const workouts = (state = initialState, action) => {
       const deleteExerciseFromCurrent = state.currentExercise.filter(
         exercise => exercise.id !== action.exercise_id
       );
-debugger
+ 
       const deleteExerciseAll = state.allExercises.filter(
         exercise => exercise.id !== action.exercise_id
       );
-      debugger
+ 
       return {
         ...state,
         allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
         currentExercise:
-          state.currentExercise.length > 1 ? deleteExerciseFromCurrent : (deleteExerciseAll[0] ? [deleteExerciseAll[0]] : null)
+          state.currentExercise.length > 1
+            ? deleteExerciseFromCurrent
+            : deleteExerciseAll[0]
+            ? deleteExerciseAll.filter(
+                workout =>
+                  workout.exercise_name === deleteExerciseAll[0].exercise_name
+              )
+            : null
       };
 
     case type.ADD_WORKOUT:
@@ -80,32 +89,31 @@ debugger
       );
 
       if (state.myWorkouts) {
-        mergeWorkouts = state.myWorkouts
-          .concat(filterWorkout)
+        mergeWorkouts = state.myWorkouts.concat(filterWorkout);
       }
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts ? removeDuplicates(mergeWorkouts, 'id') : filterWorkout,
+        myWorkouts: state.myWorkouts
+          ? removeDuplicates(mergeWorkouts, "id")
+          : filterWorkout,
         addedWorkout: true
       };
 
-      case type.DELETE_WORKOUT:
-
+    case type.DELETE_WORKOUT:
       const filterMyWorkouts = state.myWorkouts.filter(
         workout => workout.id !== action.workout_id
       );
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null,
+        myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null
       };
 
-      case type.CLOSE_WINDOW:
-
+    case type.CLOSE_WINDOW:
       return {
         ...state,
-       addedWorkout: false,
+        addedWorkout: false
       };
 
     default:
