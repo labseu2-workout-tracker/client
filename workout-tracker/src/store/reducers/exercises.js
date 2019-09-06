@@ -68,7 +68,7 @@ const exercises = (state = initialState, action) => {
         state.indexFirstExercise,
         indexOfTheLastExercise
       );
-const test = arrayOfCurrentExercises;
+const test = state.arrayOfCurrentExercises;
 debugger
       return {
         ...state,
