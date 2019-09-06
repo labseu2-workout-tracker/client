@@ -102,7 +102,7 @@ const AllExercises = props => {
     <>
     <div className="all-exercise">
 
-     <div className="search">
+     {/* <div className="search">
      <input 
      className="search-txt"
         type="text"
@@ -114,7 +114,7 @@ const AllExercises = props => {
           <i class="fas fa-search" onClick={props.searchForName}></i>
         </button>
 
-     </div>
+     </div> */}
 
       <div className="container-1">
         <div className="box-1">

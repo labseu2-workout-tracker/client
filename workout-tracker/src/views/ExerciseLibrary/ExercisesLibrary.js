@@ -53,9 +53,9 @@ class ExerciseLibrary extends React.Component {
         showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
-        searchName={this.state.searchName}
-        handleChange={this.handleChange}
-        searchForName={this.searchForName}
+        // searchName={this.state.searchName}
+        // handleChange={this.handleChange}
+        // searchForName={this.searchForName}
         showEquipment={e => this.props.showEquipment(e.target.textContent)}
       />
     );
