@@ -36,9 +36,6 @@ function hasErrors(fieldsError) {
 }
 
 class NormalLoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     // To disabled submit button at the beginning.
