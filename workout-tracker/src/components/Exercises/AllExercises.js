@@ -8,16 +8,12 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-  Pagination
+  
 } from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const { Search } = Input;
-
-function showTotal(total) {
-  return `Total ${total} items`;
-}
 
 const AllExercises = props => {
   const muscles = [
