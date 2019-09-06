@@ -123,19 +123,18 @@ const AllExercises = props => {
     //     </div>
 
     <Layout>
-      <Header className="header"
-       style={{ backgroundColor: "white" }}>
-      <div className="logo" />
-      
+      <Header className="header" style={{ backgroundColor: "white" }}>
+        <div className="logo" />
+
         <Search
-                placeholder="input search text"
-                enterButton="Search"
-                style={{ width: "60%", marginTop: ".35rem" }}
-                onSearch={props.searchForName}
-              />
-    </Header>
+          placeholder="input search text"
+          enterButton="Search"
+          style={{ width: "60%", marginTop: ".35rem" }}
+          onSearch={props.searchForName}
+        />
+      </Header>
       <Layout>
-        <Sider width={200} style={{ background: "#fff" }}>
+        <Sider width={"35%"} style={{ background: "#fff" }}>
           <Menu
             mode="inline"
             defaultSelectedKeys={["1"]}
@@ -146,7 +145,7 @@ const AllExercises = props => {
               key="sub1"
               title={
                 <span>
-  <i className="fa fa-dumbbell"></i>
+                  <i className="fa fa-running"></i>
                   Muscles
                 </span>
               }
@@ -167,7 +166,7 @@ const AllExercises = props => {
               key="sub2"
               title={
                 <span>
-                  <Icon type="muscles" />
+                  <i className="fa fa-dumbbell"></i>
                   Equipment
                 </span>
               }
