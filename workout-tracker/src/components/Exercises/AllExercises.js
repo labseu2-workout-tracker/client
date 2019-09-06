@@ -234,15 +234,12 @@ const AllExercises = props => {
                         </Col>
                       </Row>
                     </div>
-                    
                   );
                 })
               : null}
-              <div className='butto'>
-    //         <button onClick={props.loadMore} className='new-button'>
-    //           Load More
-    //         </button>
-    //     </div>
+            <Button type="primary" onClick={props.loadMore}>
+              Load More
+            </Button>
           </Content>
         </Layout>
       </Layout>
@@ -252,44 +249,43 @@ const AllExercises = props => {
 
 export default AllExercises;
 
-
 // <p>{exercise.exercise_name}</p>
-                    //    <p>
-                    //      Muscle Targeted: <span>{exercise.muscle}</span>
-                    //    </p>
-                    //    <p>
-                    //    Equipment Type: <span>{exercise.equipment}</span>
-                    //    </p>
+//    <p>
+//      Muscle Targeted: <span>{exercise.muscle}</span>
+//    </p>
+//    <p>
+//    Equipment Type: <span>{exercise.equipment}</span>
+//    </p>
 
-                    // <div
-                    //   onClick={() => props.showSingleExercise(exercise.id)}
-                    //   className="exercise"
-                    //   key={index}
-                    // >
-                    //   <img
-                    //     className="img"
-                    //     src={exercise.picture_one}
-                    //     alt="exercise"
-                    //   />
+// <div
+//   onClick={() => props.showSingleExercise(exercise.id)}
+//   className="exercise"
+//   key={index}
+// >
+//   <img
+//     className="img"
+//     src={exercise.picture_one}
+//     alt="exercise"
+//   />
 
-                    //   <div className="column">
-                    //     <p>{exercise.exercise_name}</p>
-                    //     <p>
-                    //       Muscle Targeted: <span>{exercise.muscle}</span>
-                    //     </p>
-                    //     <p>
-                    //       Equipment Type: <span>{exercise.equipment}</span>
-                    //     </p>
-                    //   </div>
-                    //   <img
-                    //     className="img"
-                    //     src={exercise.picture_two}
-                    //     alt="exercise"
-                    //   />
-                    //   {/* <ExerciseRating
-                    //         className='img'
-                    //         exerciseRating={Number(
-                    //          exercise.exercise_ratings.split('.').join('')
-                    //         )}
-                    //       /> */}
-                    // </div>
+//   <div className="column">
+//     <p>{exercise.exercise_name}</p>
+//     <p>
+//       Muscle Targeted: <span>{exercise.muscle}</span>
+//     </p>
+//     <p>
+//       Equipment Type: <span>{exercise.equipment}</span>
+//     </p>
+//   </div>
+//   <img
+//     className="img"
+//     src={exercise.picture_two}
+//     alt="exercise"
+//   />
+//   {/* <ExerciseRating
+//         className='img'
+//         exerciseRating={Number(
+//          exercise.exercise_ratings.split('.').join('')
+//         )}
+//       /> */}
+// </div>
