@@ -133,11 +133,12 @@ const AllExercises = props => {
                   return (
                     <div 
                     onClick={() => props.showSingleExercise(exercise.id)}
-                    key={index} style={{ margin: '1rem' }}>
+                    key={index} style={{ margin: '1rem' }}
+                    >
                       <h6 style={{ fontSize: '2rem' }}>
                         {exercise.exercise_name}
                       </h6>
-                      <Row>
+                      <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Col span={8}>
                           <img
                             className='img'
