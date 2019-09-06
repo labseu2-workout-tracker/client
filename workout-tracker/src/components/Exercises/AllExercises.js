@@ -71,16 +71,10 @@ const AllExercises = props => {
           <div className="box-1">
             <h1>Muscles</h1>
             {muscles.map((muscleGroup, index) => (
-              // <button
-              //   className="btn"
-              //   key={index}
-              //   onClick={props.showMuscleGroup}
-              // >
-              //   {muscleGroup}
-              // </button>
+           
 
 
-<Button type="primary"  key={index}
+<Button type="primary"   key={index}
                 onClick={props.showMuscleGroup}>{muscleGroup}</Button>
             ))}
           </div>
