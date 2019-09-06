@@ -139,25 +139,27 @@ const AllExercises = props => {
                         {exercise.exercise_name}
                       </h6>
                       <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Col span={8}>
+                        <Col span={8} style={{ width: '33,3%' }}>
                           <img
+                          style={{ width: '100%',
+                        height: '6rem' }}
                             className='img'
                             src={exercise.picture_one}
                             alt='exercise'
                           />
                         </Col>
-                        <Col span={8}>
+                        <Col span={8} style={{ width: '33,3%' }}>
                           <p>{exercise.muscle}</p>
                           <p>{exercise.equipment}</p>
                         </Col>
-                        <Col span={8}>
+                        <Col span={8} style={{ width: '33,3%' }}>
                           {/* <img
                             className='img'
                             src={exercise.picture_two}
                             alt='exercise'
                           /> */}
                           <ExerciseRating
-                          style={{height: '1rem'}}
+                          // style={{height: '1rem'}}
                           exerciseRating={Number(exercise.exercise_ratings.split('.').join(''))}/>
                         </Col>
                       </Row>

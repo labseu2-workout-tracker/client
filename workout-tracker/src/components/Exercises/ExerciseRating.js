@@ -14,16 +14,16 @@ class ExerciseRating extends React.Component {
             endAngle: 135,
             dataLabels: {
               name: {
-                fontSize: '10px',
+                fontSize: '16px',
                 color: undefined,
                 offsetY: 120
               },
               value: {
                 offsetY: 76,
-                fontSize: '15px',
+                fontSize: '22px',
                 color: undefined,
                 formatter: function (val) {
-                  return val + '%';
+                  return val + "%";
                 }
               }
             }
@@ -53,8 +53,8 @@ class ExerciseRating extends React.Component {
     return (
       
 
-      <div id='chart' style={{width: '50%'}}>
-        <ReactApexChart options={this.state.options} series={this.state.series} type='radialBar' height='250' />
+      <div id="chart">
+        <ReactApexChart options={this.state.options} series={this.state.series} type="radialBar" height="350" />
       </div>
 
 
