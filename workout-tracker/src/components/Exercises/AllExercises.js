@@ -1,5 +1,5 @@
 import React from 'react';
-import './AllExercises.css';
+// import './AllExercises.css';
 import { Input } from 'antd';
 
 const { Search } = Input;
@@ -63,7 +63,8 @@ const AllExercises = props => {
     <Search
       placeholder="input search text"
       enterButton="Search"
-      size="large"
+      style={{ width: '40%',
+    marginTop: '1rem' }}
       onSearch={value => console.log(value)}
     />
   </div>
