@@ -193,13 +193,7 @@ class WorkoutSession extends React.Component {
                       title="Sets to complete"
                       prefix={<Icon type="unordered-list" />}
                       style={{ cursor: "default" }}
-                      value={
-                        this.props.allExercises.filter(
-                          workout =>
-                            workout.exercise_name ===
-                            this.props.currentExercise[0].exercise_name
-                        ).length
-                      }
+                      value={this.props.currentExercise.length}
                     />,
                     <Statistic
                       title={
@@ -264,22 +258,24 @@ class WorkoutSession extends React.Component {
             End Workout
           </Button>
         )}
-        <Modal
-          title={this.props.currentExercise[0].exercise_name}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onOk={this.handleOk}
-        >
-          <div className="video">
-            <video width="100%" height="auto" autoPlay controls>
-              <source
-                src={this.props.currentExercise[0].video}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </Modal>
+        {this.props.currentExercise ? (
+          <Modal
+            title={this.props.currentExercise[0].exercise_name}
+            visible={this.state.visible}
+            onCancel={this.handleCancel}
+            onOk={this.handleOk}
+          >
+            <div className="video">
+              <video width="100%" height="auto" autoPlay controls>
+                <source
+                  src={this.props.currentExercise[0].video}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Modal>
+        ) : null}
       </StyledWorkoutSession>
     );
   }
