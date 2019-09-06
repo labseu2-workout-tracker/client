@@ -164,27 +164,11 @@ const AllExercises = props => {
                 </Menu.Item>
               ))}
             </SubMenu>
-            <SubMenu
-              key="sub3"
-              title={
-                <span>
-                  <Icon type="notification" />
-                  subnav 3
-                </span>
-              }
-            >
-              <Menu.Item key="9">option9</Menu.Item>
-              <Menu.Item key="10">option10</Menu.Item>
-              <Menu.Item key="11">option11</Menu.Item>
-              <Menu.Item key="12">option12</Menu.Item>
-            </SubMenu>
           </Menu>
         </Sider>
         <Layout style={{ padding: "0 24px 24px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>Exercises</Breadcrumb.Item>
           </Breadcrumb>
           <Content
             style={{
@@ -194,7 +178,7 @@ const AllExercises = props => {
               minHeight: 280
             }}
           >
-            Content
+            
           </Content>
         </Layout>
       </Layout>
