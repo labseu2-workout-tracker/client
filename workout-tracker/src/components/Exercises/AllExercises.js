@@ -44,19 +44,7 @@ const AllExercises = props => {
   return (
     <>
       <div className="all-exercise">
-        {/* <div className='search'>
-     <input 
-     className='search-txt'
-        type='text'
-        value={props.searchName}
-        onChange={props.handleChange}
-        placeholder='Search' >
-        </input>
-        <button href='http' className=' search-btn'>
-          <i class='fas fa-search' onClick={props.searchForName}></i>
-        </button>
-
-     </div> */}
+    
 
         <div>
           <Search
