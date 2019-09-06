@@ -211,6 +211,10 @@ class App extends Component {
           <Switch>
             <Route path={'/Workouts'} component={Workouts} /> 
             <Route path={'/Dashboard/myworkouts'} component={UserPage} />
+            <Route path={'/Dashboard/settings'} component={UserPage} />
+            <Route path={'/Dashboard/tracker'} component={UserPage} />
+            <Route path={'/Dashboard/history'} component={UserPage} />
+            <Route path={'/Dashboard/notifications'} component={UserPage} />
             <Route path={'/Exercises'} component={ExercisesLibrary} />
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    

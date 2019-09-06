@@ -9,7 +9,17 @@ const initialState = {
   addedWorkout: false,
 };
 
-//  default state
+const removeDuplicates = (arr,comp) => {
+
+  const unique =  arr.map(workout=> workout[comp]). 
+  
+  map((workout,index,array) =>array.indexOf(workout) === index && index) 
+  
+  .filter((workout)=> arr[workout]).map(workout=> arr[workout]);
+  
+  return unique
+  };
+
 const workouts = (state = initialState, action) => {
   switch (action.type) {
     case type.FETCH_WORKOUTS:
@@ -68,14 +78,15 @@ const workouts = (state = initialState, action) => {
         workout => workout.id === action.workout_id
       );
 
-      if(state.myWorkouts) {
-      mergeWorkouts = state.myWorkouts.concat(filterWorkout);
+      if (state.myWorkouts) {
+        mergeWorkouts = state.myWorkouts
+          .concat(filterWorkout)
       }
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts ? mergeWorkouts : filterWorkout,
-        addedWorkout: true,
+        myWorkouts: state.myWorkouts ? removeDuplicates(mergeWorkouts, 'id') : filterWorkout,
+        addedWorkout: true
       };
 
       case type.DELETE_WORKOUT:
