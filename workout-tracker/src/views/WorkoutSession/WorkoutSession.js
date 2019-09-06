@@ -73,8 +73,8 @@ class WorkoutSession extends React.Component {
 
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId);
-  }
-  
+  };
+
   state = {
     visible: false
   };
@@ -102,7 +102,7 @@ class WorkoutSession extends React.Component {
   }
 
   endWorkout = () => {
-    this.props.endWorkout(this.props.workoutId);
+    this.props.endWorkout(this.props.workoutId, this.props.history);
   };
   render() {
     return (
@@ -253,7 +253,9 @@ class WorkoutSession extends React.Component {
             </Row>
           </>
         ) : (
-          <p>You Finished the Workout</p>
+          <Button type="primary" onClick={this.endWorkout}>
+            End Workout
+          </Button>
         )}
 
         {this.props.currentExercise ? (
