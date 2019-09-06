@@ -147,6 +147,7 @@ const AllExercises = props => {
                         </Col>
                         <Col span={8}>
                           <p>{exercise.muscle}</p>
+                          <p>{exercise.equipment}</p>
                         </Col>
                         <Col span={8}>
                           <img
