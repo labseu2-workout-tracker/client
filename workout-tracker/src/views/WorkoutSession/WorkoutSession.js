@@ -11,7 +11,8 @@ import {
   List,
   Button,
   Modal,
-  Carousel
+  Carousel,
+  Alert
 } from "antd";
 import {
   chooseExercise,
@@ -142,7 +143,7 @@ class WorkoutSession extends React.Component {
                         <List.Item
                           onClick={() => this.props.chooseExercise(item)}
                         >
-                          {<a>{item}</a>}
+                          {<Button>{item}</Button>}
                         </List.Item>
                       )}
                     />
@@ -192,7 +193,13 @@ class WorkoutSession extends React.Component {
                       title="Sets to complete"
                       prefix={<Icon type="unordered-list" />}
                       style={{ cursor: "default" }}
-                      value={this.props.currentExercise.length}
+                      value={
+                        this.props.allExercises.filter(
+                          workout =>
+                            workout.exercise_name ===
+                            this.props.currentExercise[0].exercise_name
+                        ).length
+                      }
                     />,
                     <Statistic
                       title={
@@ -235,7 +242,11 @@ class WorkoutSession extends React.Component {
               </Col>
               <Col md={7}>
                 <Card bordered={false} style={{ lineHeight: 1.2 }}>
-                  {this.props.currentExercise[0].description}
+                  <Alert
+                    message="Instructions"
+                    description={this.props.currentExercise[0].description}
+                    type="info"
+                  />
                   {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
                 </Card>
               </Col>
