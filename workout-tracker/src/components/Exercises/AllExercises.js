@@ -3,6 +3,7 @@ import React from "react";
 import { Input, Button, Layout } from "antd";
 
 const { Search } = Input;
+const { Header, Footer, Sider, Content } = Layout;
 
 const AllExercises = props => {
   const muscles = [
