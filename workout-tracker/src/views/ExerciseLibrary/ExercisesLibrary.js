@@ -13,12 +13,6 @@ import {
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchName: ""
-    };
-  }
 
   componentDidMount = () => {
     this.props.fetchExercises();
