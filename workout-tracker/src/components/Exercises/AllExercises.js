@@ -210,7 +210,9 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-                    <div key={index} style={{ margin: "1rem" }}>
+                    <div 
+                    onClick={() => props.showSingleExercise(exercise.id)}
+                    key={index} style={{ margin: "1rem" }}>
                       <h6 style={{ fontSize: "1.5" }}>
                         {exercise.exercise_name}
                       </h6>
