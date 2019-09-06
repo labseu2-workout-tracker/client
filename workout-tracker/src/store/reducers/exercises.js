@@ -33,7 +33,8 @@ debugger
         exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
-        currentMuscleGroup: 'Chest'
+        currentMuscleGroup: 'Chest',
+        indexOfLastExercise: 5
       };
 
     case type.SHOW_MUSCLE_GROUP:
