@@ -20,7 +20,7 @@ class Signup extends Component {
         value: '',
         valid: false,
         touched: false,
-        validators: [required, length({ min: 8 })]
+        validators: [required, length({ min: 6 })]
       },
       username: {
         value: '',
