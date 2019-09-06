@@ -1,5 +1,5 @@
 import React from 'react';
-// import './AllExercises.css';
+import ExerciseRating from '../../components/Exercises/ExerciseRating';
 import {
   Input,
   Row,
