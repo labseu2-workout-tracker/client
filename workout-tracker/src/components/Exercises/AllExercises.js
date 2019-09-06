@@ -143,7 +143,12 @@ const AllExercises = props => {
               }
             >
               {muscles.map((muscleGroup, index) => (
-                <Menu.Item key={index} onClick={(value) => props.showMuscleGroup(value.item.props.children)}>
+                <Menu.Item
+                  key={index}
+                  onClick={value =>
+                    props.showMuscleGroup(value.item.props.children)
+                  }
+                >
                   {muscleGroup}
                 </Menu.Item>
               ))}
@@ -159,7 +164,12 @@ const AllExercises = props => {
               }
             >
               {equipment.map((equipment, index) => (
-                <Menu.Item key={index} onClick={props.showEquipment}>
+                <Menu.Item
+                  key={index}
+                  onClick={value =>
+                    props.showEquipment(value.item.props.children)
+                  }
+                >
                   {equipment}
                 </Menu.Item>
               ))}
@@ -178,48 +188,44 @@ const AllExercises = props => {
               minHeight: 280
             }}
           >
-            
             {props.exercises
-                  ? props.exercises.map((exercise, index) => {
-                      return (
-                        <div
-                          onClick={() => props.showSingleExercise(exercise.id)}
-                          className="exercise"
-                          key={index}
-                        >
-                          <img
-                            className="img"
-                            src={exercise.picture_one}
-                            alt="exercise"
-                          />
+              ? props.exercises.map((exercise, index) => {
+                  return (
+                    <div
+                      onClick={() => props.showSingleExercise(exercise.id)}
+                      className="exercise"
+                      key={index}
+                    >
+                      <img
+                        className="img"
+                        src={exercise.picture_one}
+                        alt="exercise"
+                      />
 
-                          <div className="column">
-                            <p>{exercise.exercise_name}</p>
-                            <p>
-                              Muscle Targeted: <span>{exercise.muscle}</span>
-                            </p>
-                            <p>
-                              Equipment Type: <span>{exercise.equipment}</span>
-                            </p>
-                          </div>
-                          <img
-                            className="img"
-                            src={exercise.picture_two}
-                            alt="exercise"
-                          />
-                          {/* <ExerciseRating
+                      <div className="column">
+                        <p>{exercise.exercise_name}</p>
+                        <p>
+                          Muscle Targeted: <span>{exercise.muscle}</span>
+                        </p>
+                        <p>
+                          Equipment Type: <span>{exercise.equipment}</span>
+                        </p>
+                      </div>
+                      <img
+                        className="img"
+                        src={exercise.picture_two}
+                        alt="exercise"
+                      />
+                      {/* <ExerciseRating
                             className='img'
                             exerciseRating={Number(
                              exercise.exercise_ratings.split('.').join('')
                             )}
                           /> */}
-                        </div>
-                      );
-                    })
-                  : null}
-
-
-
+                    </div>
+                  );
+                })
+              : null}
           </Content>
         </Layout>
       </Layout>
