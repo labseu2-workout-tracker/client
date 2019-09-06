@@ -241,6 +241,13 @@ class WorkoutSession extends React.Component {
                 </Card>
               </Col>
               <Col md={7}>
+                {this.props.currentExercise ? (
+                  <div style={{ marginTop: "1rem" }}>
+                    <Button type="primary" onClick={this.showModal}>
+                      Video Instruction
+                    </Button>
+                  </div>
+                ) : null}
                 <Card bordered={false} style={{ lineHeight: 1.2 }}>
                   <Alert
                     message="Instructions"
@@ -257,30 +264,22 @@ class WorkoutSession extends React.Component {
             End Workout
           </Button>
         )}
-
-        {this.props.currentExercise ? (
-          <div style={{ marginTop: "1rem" }}>
-            <Button type="primary" onClick={this.showModal}>
-              Video Instruction
-            </Button>
-            <Modal
-              title={this.props.currentExercise[0].exercise_name}
-              visible={this.state.visible}
-              onCancel={this.handleCancel}
-              onOk={this.handleOk}
-            >
-              <div className="video">
-                <video width="100%" height="auto" autoPlay controls>
-                  <source
-                    src={this.props.currentExercise[0].video}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </Modal>
+        <Modal
+          title={this.props.currentExercise[0].exercise_name}
+          visible={this.state.visible}
+          onCancel={this.handleCancel}
+          onOk={this.handleOk}
+        >
+          <div className="video">
+            <video width="100%" height="auto" autoPlay controls>
+              <source
+                src={this.props.currentExercise[0].video}
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        ) : null}
+        </Modal>
       </StyledWorkoutSession>
     );
   }
