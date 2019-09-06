@@ -1,6 +1,6 @@
 import React from "react";
 // import './AllExercises.css';
-import { Input, Button } from "antd";
+import { Input, Button, Layout } from "antd";
 
 const { Search } = Input;
 
