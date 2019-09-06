@@ -5,6 +5,9 @@ import { Input, Button, Layout, Menu, Breadcrumb, Icon } from "antd";
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const { Search } = Input;
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+});
 
 const AllExercises = props => {
   const muscles = [
@@ -167,7 +170,7 @@ const AllExercises = props => {
               key="sub2"
               title={
                 <span>
-                  <Icon type="laptop" />
+                  <Icon type="muscles" />
                   Equipment
                 </span>
               }
