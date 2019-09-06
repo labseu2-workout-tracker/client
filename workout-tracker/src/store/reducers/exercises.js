@@ -60,12 +60,15 @@ debugger
 
       if (indexOfTheLastExercise > state.arrayOfCurrentExercises.length) {
         indexOfTheLastExercise = state.arrayOfCurrentExercises.length;
+      debugger
+      console.log('hey')
       }
 
       const actualExercises = state.arrayOfCurrentExercises.slice(
         state.indexFirstExercise,
         indexOfTheLastExercise
       );
+      debugger
 
       return {
         ...state,
