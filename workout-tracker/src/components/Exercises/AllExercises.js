@@ -1,6 +1,6 @@
 import React from 'react';
-import './AllExercises.css';
-import ExerciseRating from './ExerciseRating';
+import './AllExercises.css'
+// import ExerciseRating from './ExerciseRating';
 
 // const StyledAllExercises = styled.div`
 //   margin-top: 1.4rem;
@@ -62,7 +62,7 @@ import ExerciseRating from './ExerciseRating';
 //   }
 // `;
 
-const AllExercises = (props) => {
+const AllExercises = props => {
   const muscles = [
     'Neck',
     'Lats',
@@ -101,115 +101,86 @@ const AllExercises = (props) => {
 
   return (
     <>
-<<<<<<< HEAD
-    <div className="all-exercise">
+    <div className='all-exercise'>
 
-     {/* <div className="search">
+     {/* <div className='search'>
      <input 
-     className="search-txt"
-        type="text"
+     className='search-txt'
+        type='text'
         value={props.searchName}
         onChange={props.handleChange}
-        placeholder="Search" >
+        placeholder='Search' >
         </input>
-        <button href="http" className=" search-btn">
-          <i class="fas fa-search" onClick={props.searchForName}></i>
+        <button href='http' className=' search-btn'>
+          <i class='fas fa-search' onClick={props.searchForName}></i>
         </button>
 
      </div> */}
 
-      <div className="container-1">
-        <div className="box-1">
+      <div className='container-1'>
+        <div className='box-1'>
           <h1>Muscles</h1>
           {muscles.map((muscleGroup, index) => (
             <button
-              className="btn"
+              className='btn'
               key={index}
               onClick={props.showMuscleGroup}
             >
               {muscleGroup}
             </button>
           ))}
-=======
-      <div className="all-exercise">
-        <div className="search">
-          <input
-            className="search-txt"
-            type="text"
-            value={props.searchName}
-            onChange={props.handleChange}
-            placeholder="Search"
-          ></input>
-          <button href="http" className=" search-btn">
-            <i class="fas fa-search" onClick={props.searchForName}></i>
-          </button>
->>>>>>> d7546394382cd26cb4ca9b0c860a4e89e7c6d6f0
         </div>
-
-        <div className="container-1">
-          <div className="box-1">
-            <h1>Muscles</h1>
-            {muscles.map((muscleGroup, index) => (
-              <button
-                className="btn"
-                key={index}
-                onClick={props.showMuscleGroup}
-              >
-                {muscleGroup}
-              </button>
-            ))}
-          </div>
-          <div className="box-2">
-            {props.exercises
-              ? props.exercises.map((exercise, index) => {
-                  return (
-                    <div
-                      onClick={() => props.showSingleExercise(exercise.id)}
-                      className="exercise"
-                      key={index}
-                    >
-                      <img
-                        className="img"
-                        src={exercise.picture_one}
-                        alt="exercise"
-                      />
-
-                      <div className="column">
-                        <p>{exercise.exercise_name}</p>
-                        <p>
-                          Muscle Targeted: <span>{exercise.muscle}</span>
-                        </p>
-                        <p>
-                          Equipment Type: <span>{exercise.equipment}</span>
-                        </p>
-                      </div>
-                      <img className="img" src={exercise.picture_two} alt="exercise" />
-                      {/* <ExerciseRating
-                        className="img"
+        <div className='box-2'>
+          {props.exercises
+            ? props.exercises.map((exercise, index) => {
+                return (
+                  <div
+                    onClick={() => props.showSingleExercise(exercise.id)}
+                    className='exercise'
+                    key={index}
+                  >
+                    <img className='img' src={exercise.picture_one} alt='exercise' />
+                
+                    <div className='column'>
+                      <p>{exercise.exercise_name}</p>
+                      <p>
+                        Muscle Targeted: <span>{exercise.muscle}</span>
+                      </p>
+                      <p>
+                        Equipment Type: <span>{exercise.equipment}</span>
+                      </p>
+                    </div>
+                    <img className='img' src={exercise.picture_two} alt='exercise' />
+                     {/* <ExerciseRating
+                        className='img'
                         exerciseRating={Number(
                          exercise.exercise_ratings.split('.').join('')
                         )}
                       /> */}
-                    </div>
-                  );
-                })
-              : null}
-          </div>
-          <div className="box-3">
-            <h1>Equipment</h1>
-            {equipment.map((equipment, index) => (
-              <button className="btn" key={index} onClick={props.showEquipment}>
-                {equipment}
-              </button>
-            ))}
-          </div>
+                  </div>
+                );
+              })
+            : null}
         </div>
-        {/* <div className="butto">
-        <button onClick={props.loadMore} className="new-button">
+        <div className='box-3'>
+          <h1 >Equipment</h1>
+          {equipment.map((equipment, index) => (
+            <button
+              className='btn'
+              key={index}
+              onClick={props.showEquipment}
+            >
+              {equipment}
+            </button>
+          ))}
+        </div>
+      </div>
+      {/* <div className='butto'>
+        <button onClick={props.loadMore} className='new-button'>
           Load More
         </button>
     </div> */}
-      </div>
+    </div>
     </>
   );
 };
