@@ -64,8 +64,8 @@ const AllExercises = props => {
       placeholder="input search text"
       enterButton="Search"
       style={{ width: '40%',
-    marginTop: '1rem' }}
-      onSearch={value => console.log(value)}
+       marginTop: '1rem' }}
+      onSearch={props.searchForName}
     />
   </div>
 
