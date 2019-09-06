@@ -16,7 +16,7 @@ const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
 // action dispatcher
 export const fetchWorkouts = () => dispatch => {
-
+  
   // type LOADING needs to be added (also for the redux state) 
   axiosWithAuth().get(workouts)
     .then(res => {
@@ -53,12 +53,13 @@ export const finishExercise = (exercise_id) => {
   return{ type: FINISH_EXERCISE, exercise_id: exercise_id };
 };
 
-export const endWorkout = (workout_id) => dispatch => {
+export const endWorkout = (workout_id, history) => dispatch => {
   // type LOADING needs to be added (also for the redux state) 
 
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
         dispatch({ type: END_WORKOUT });
+        history.push("/Dashboard/history");
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)

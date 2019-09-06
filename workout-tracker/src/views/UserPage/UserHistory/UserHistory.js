@@ -93,6 +93,7 @@ class SessionHistory extends React.Component {
                             if (session.workout_id === item.id) {
                               return item.workout_name;
                             }
+                            return null
                           })}
                     </p>
                     <p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Alert, Form, Icon, Input, Button, Checkbox } from "antd";
+import { Alert, Form, Icon, Input, Button } from "antd";
 import styled from "styled-components";
 
 import { doSignUp } from "../../store/actions/authenticationActions";
@@ -36,9 +36,6 @@ function hasErrors(fieldsError) {
 }
 
 class NormalSignUpForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     // To disabled submit button at the beginning.
