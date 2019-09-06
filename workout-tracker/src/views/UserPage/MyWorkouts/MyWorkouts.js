@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import {Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledWorkoutView = styled.div``;
 
 class WorkoutView extends React.Component {
   constructor(props) {
@@ -22,7 +19,7 @@ class WorkoutView extends React.Component {
           <img src={workout.image_url} alt='workout' className='workout-img'/>
           <h1>{workout.workout_name}</h1>
           <p>{workout.workout_description}</p>
-          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='Workout_session' className='btn'>
+          <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='/Workout_session' className='btn'>
                 Start Workout
               </Link>
               <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>

@@ -1,76 +1,172 @@
-import React from 'react';
-// import ReactApexChart from 'react-apexcharts';
-import styled from 'styled-components';
-import { Pie } from 'react-chartjs-2';
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import { axiosWithAuth } from "../../../store/axiosWithAuth";
 
-// var today = new Date();
-// var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+class PieChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      labels: ["Red", "Green", "Yellow"],
+      data: [2],
+      backgroundColor: [
+        "#5d5d5d",
+        "#91b029",
+        "#FFCE56",
+        "#fb0091",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
+      ],
+      hoverBackgroundColor: [
+        "#5d5d5d",
+        "#91b029",
+        "#FFCE56",
+        "#fb0091",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
+      ]
+    };
+  }
+  componentDidMount = () => {
+    let workoutNames = [];
+    axiosWithAuth()
+      .get("http://localhost:5000/workouts")
+      .then(res => {
+        res.data.map(workout => workoutNames.push(workout.workout_name));
 
-// For the data set we must create an array
-// get the sport visits for current month from user from our database
-// visit is 100 else is 0 points
-// create array based on visits and days of current month
+        axiosWithAuth()
+          .get("http://localhost:5000/workouts/history/")
+          .then(res => {
+            
 
-// class PieChart extends React.Component {
+            function startAndEndOfWeek(date) {
+              var now = date ? new Date(date) : new Date();
 
-//   constructor(props) {
-//     super(props);
+              now.setHours(0, 0, 0, 0);
 
-//     this.state = {
-//       options: {
-//         labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-//         theme: {
-//           monochrome: {
-//             enabled: true
-//           }
-//         },
-//         title: {
-//           text: "Workout Chart"
-//         },
-//         responsive: [{
-//           breakpoint: 480,
-//           options: {
-//             chart: {
-//               width: 200
-//             },
-//             legend: {
-//               position: 'bottom'
-//             }
-//           }
-//         }]
-//       },
-//       series: [25, 15, 44, 55, 41, 17],
-//     }
-//   }
+              var monday = new Date(now);
+              monday.setDate(monday.getDate() - monday.getDay() + 1);
 
-//   render() {
-//     return (
+              var sunday = new Date(now);
+              sunday.setDate(sunday.getDate() - sunday.getDay() + 7);
 
-//       <Pie id="chart">
-//         <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width="100%" />
-//       </Pie>
+              return [monday, sunday];
+            }
 
-//     );
-//   }
-// }
+            let startAndEndWeek = startAndEndOfWeek(new Date());
 
-function PieChart() {
-  const data = {
-    labels: ['Chest', 'Bicep', 'Tricep'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-      }
-    ]
+            Date.prototype.addDays = function(days) {
+              let date = new Date(this.valueOf());
+              date.setDate(date.getDate() + days);
+              return date;
+            };
+
+            function getDates(startDate, stopDate) {
+              let dateArray = new Array();
+              let currentDate = startDate;
+              while (currentDate <= stopDate) {
+                dateArray.push(new Date(currentDate));
+                currentDate = currentDate.addDays(1);
+              }
+              return dateArray;
+            }
+
+            let allDaysInWeek = Object.values(
+              getDates(startAndEndWeek[0], startAndEndWeek[1])
+            );
+
+            let daysInWeek = [];
+
+            Date.prototype.yyyymmdd = function() {
+              let mm = this.getMonth() + 1;
+              let dd = this.getDate();
+
+              return [
+                this.getFullYear(),
+                (mm > 9 ? "" : "0") + mm,
+                (dd > 9 ? "" : "0") + dd
+              ].join("");
+            };
+
+            for (let i = 0; i < allDaysInWeek.length; i++) {
+              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            }
+
+            let userHistory = [...res.data.workoutHistory];
+            let resultOfWeek = [];
+
+            for (let j = 0; j < daysInWeek.length; j++) {
+              for (let i = 0; i < userHistory.length; i++) {
+                if (
+                  userHistory[i].session_start
+                    .match(/.{1,10}/g)[0]
+                    .split("-")
+                    .join("") === daysInWeek[j]
+                ) {
+                  resultOfWeek.push(userHistory[i]);
+                }
+              }
+            }
+
+            let hashTable = {};
+
+            return axiosWithAuth()
+              .get("http://localhost:5000/workouts")
+              .then(res => {
+                
+
+                for (let j = 0; j < res.data.length; j++) {
+                  hashTable[res.data[j].workout_name] = 0;
+                }
+
+                for (let i = 0; i < resultOfWeek.length; i++) {
+                  for (let j = 0; j < res.data.length; j++) {
+                    if (resultOfWeek[i].workout_id === res.data[j].id) {
+                      if (hashTable[res.data[j].workout_name]) {
+                        hashTable[res.data[j].workout_name] += 1;
+                      } else {
+                        hashTable[res.data[j].workout_name] = 1;
+                      }
+                    }
+                  }
+                }
+
+                let valuesForDataset = [];
+
+                for (let value in hashTable) {
+                  valuesForDataset.push(hashTable[value]);
+                }
+
+                this.setState({
+                  data: valuesForDataset,
+                  labels: workoutNames
+                });
+              });
+          });
+      });
   };
 
-  return (
-    <div style={{ position: 'relative', width: '60%', height: '50%' }}>
-      <Pie data={data} />
-    </div>
-  );
+  render() {
+    return (
+      <div style={{ position: "relative", width: "60%", height: "50%" }}>
+        <Pie
+          data={{
+            labels: this.state.labels,
+            datasets: [
+              {
+                data: this.state.data[0] ? this.state.data : [0, 0, 0, 0, 0],
+                backgroundColor: this.state.backgroundColor,
+                hoverBackgroundColor: this.state.hoverBackgroundColor
+              }
+            ]
+          }}
+        />
+      </div>
+    );
+  }
 }
 
 export default PieChart;

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import styled from 'styled-components';
 import Stopwatch from 'rc-stopwatch';
  
 const styles = {
@@ -27,8 +25,6 @@ const styles = {
   },
 };
 
-const StyledWatch = styled.div``;
-
 class Watch extends React.Component {
   constructor(props) {
     super(props);
@@ -36,25 +32,9 @@ class Watch extends React.Component {
   }
 
   componentDidMount = () => {
-    // const buttons = document.querySelectorAll('button');
-    // var searchText = 'pause';
-
-    // for (var i = 0; i < buttons.length; i++) {
-    //   if (buttons[i].textContent == searchText) {
-    //     buttons[i].textContent = 'stop';
-    //     buttons[i].click();
-    //     break;
-    //   }
-    // }
+   
   };
 
-  finishExercise = () => {
-    // const buttons = document.querySelectorAll('button');
-    // // const time = document.querySelector('.seconds').textContent;
-
-    // buttons[3].click();
-    // // time variable is actual time (in milliseconds)
-  };
   render() {
     
     return (
@@ -64,7 +44,7 @@ class Watch extends React.Component {
         buttonClass='button'
         timeTextStyle={styles.timeText}
         buttonContainerStyle={styles.btnWrapper}
-        onTimeChange={obj => console.log(obj)}
+        // onTimeChange={obj => console.log(obj)}
       />
       </div>
     );
