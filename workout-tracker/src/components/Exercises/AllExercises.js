@@ -1,7 +1,15 @@
 import React from "react";
 // import './AllExercises.css';
-import { Input, Row,
-  Col, Button, Layout, Menu, Breadcrumb, Pagination } from "antd";
+import {
+  Input,
+  Row,
+  Col,
+  Button,
+  Layout,
+  Menu,
+  Breadcrumb,
+  Pagination
+} from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -206,15 +214,25 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-                    <Row type="flex" justify="space-around">
-                      <img
-                        className="img"
-                        src={exercise.picture_one}
-                        alt="exercise"
-                      />
-                      <Col span={12}></Col>
-                      <Col span={12}></Col>
+                    <Row>
+                      <Col span={8}>
+                        <img
+                          className="img"
+                          src={exercise.picture_one}
+                          alt="exercise"
+                        />
+                      </Col>
+                      <Col span={8}>col-8</Col>
+                      <Col span={8}>col-8</Col>
                     </Row>
+
+                    // <p>{exercise.exercise_name}</p>
+                    //    <p>
+                    //      Muscle Targeted: <span>{exercise.muscle}</span>
+                    //    </p>
+                    //    <p>
+                    //    Equipment Type: <span>{exercise.equipment}</span>
+                    //    </p>
 
                     // <div
                     //   onClick={() => props.showSingleExercise(exercise.id)}
