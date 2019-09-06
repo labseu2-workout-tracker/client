@@ -10,6 +10,7 @@ export const FINISH_EXERCISE = 'FINISH_EXERCISE';
 export const END_WORKOUT = 'END_WORKOUT';
 export const ADD_WORKOUT = 'ADD_WORKOUT';
 export const DELETE_WORKOUT = 'DELETE_WORKOUT';
+export const CLOSE_WINDOW = 'CLOSE_WINDOW';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
@@ -70,4 +71,8 @@ export const addWorkout = (workout_id) => {
 
 export const deleteWorkout = (workout_id) => {
   return { type: DELETE_WORKOUT, workout_id: workout_id };
+};
+
+export const closeWindow = () => {
+  return { type: CLOSE_WINDOW };
 };

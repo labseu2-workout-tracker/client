@@ -97,7 +97,7 @@ class App extends Component {
         );
         localStorage.setItem('expiryDate', expiryDate.toISOString());
         this.setAutoLogout(remainingMilliseconds);
-        this.props.history.replace('/dashboard');
+        this.props.history.replace('/workouts');
       })
       .catch(err => {
         console.log(err);
@@ -211,14 +211,14 @@ class App extends Component {
       routes = (
         <div className="App">
           <Switch>
-            <Route path={'/Dashboard'} component={UserPage} />
+            <Route path={'/Workouts'} component={Workouts} /> 
+            <Route path={'/Dashboard/myworkouts'} component={UserPage} />
             <Route path={'/Exercises'} component={ExercisesLibrary} />
             <Route path={'/Settings'} component={Settings} />
             <Route path={'/Contact'} component={ContactPage} />    
-            <Route path={'/Workouts'} component={Workouts} /> 
             <Route path={'/Workout_session'} component={WorkoutSession} />             
             <Route path={'/About'} component={About} />  
-            <Redirect to='/Dashboard' />       
+            <Redirect to='/dashboard/myworkouts' />       
           </Switch>
         </div>
       )
