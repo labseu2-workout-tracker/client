@@ -238,6 +238,11 @@ const AllExercises = props => {
                   );
                 })
               : null}
+              <div className='butto'>
+    //         <button onClick={props.loadMore} className='new-button'>
+    //           Load More
+    //         </button>
+    //     </div>
           </Content>
         </Layout>
       </Layout>
