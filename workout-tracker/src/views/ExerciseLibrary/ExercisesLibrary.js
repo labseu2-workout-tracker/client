@@ -30,7 +30,7 @@ class ExerciseLibrary extends React.Component {
     return (
       <AllExercises
         exercises={this.props.exercises}
-        showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
+        showMuscleGroup={this.props.showMuscleGroup}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
         searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
