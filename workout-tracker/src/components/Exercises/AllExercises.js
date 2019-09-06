@@ -41,7 +41,7 @@ const AllExercises = props => {
     'Other',
     'Exercise Ball'
   ];
-  
+
   return (
     <Layout>
       <Header className='header' style={{ backgroundColor: 'white' }}>
@@ -162,9 +162,12 @@ const AllExercises = props => {
                   );
                 })
               : null}
-            <Button type='primary' onClick={props.loadMore}>
-              Load More
-            </Button>
+            {props.indexOfLastExercise ===
+            props.arrayOfCurrentExercises.length ? null : (
+              <Button type='primary' onClick={props.loadMore}>
+                Load More
+              </Button>
+            )}
           </Content>
         </Layout>
       </Layout>
