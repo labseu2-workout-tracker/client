@@ -36,7 +36,7 @@ class ExerciseLibrary extends React.Component {
         searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
         showEquipment={this.props.showEquipment}
         indexOfLastExercise={this.props.indexOfLastExercise}
-        
+        arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
       />
     );
   }
