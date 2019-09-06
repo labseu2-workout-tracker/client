@@ -1,71 +1,8 @@
 import React from 'react';
+import './AllExercises.css';
 import { Input } from 'antd';
 
 const { Search } = Input;
-
-// import './AllExercises.css';
-
-// import ExerciseRating from './ExerciseRating';
-
-// const StyledAllExercises = styled.div`
-//   margin-top: 1.4rem;
-
-//   .buttons-exercises {
-//     display: flex;
-//   }
-
-//   .muscle-buttons, .equipment-buttons {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: center;
-//     width: 25%;
-//   }
-
-//   .button {
-//     width: 10rem;
-//   }
-//   .number {
-//     width: 3rem;
-//   }
-
-//   .exercises {
-//     display: flex;
-//     /* flex-wrap: wrap; */
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     width: 75%;
-//   }
-
-//   .exercise {
-//     /* width: 10rem; */
-//     border: 0.1rem black solid;
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-
-//     p {
-//       width: 30%;
-//       padding: 0;
-//     }
-//     /* height: 14rem; */
-
-//     .column {
-//       display: flex;
-//       flex-direction: column;
-//     }
-
-//     &:hover {
-//       cursor: pointer;
-//     }
-//   }
-
-//   img {
-//     width: 10%;
-//     /* height: 5rem; */
-//   }
-// `;
 
 const AllExercises = props => {
   const muscles = [
@@ -121,6 +58,15 @@ const AllExercises = props => {
         </button>
 
      </div> */}
+
+<div>
+    <Search
+      placeholder="input search text"
+      enterButton="Search"
+      size="large"
+      onSearch={value => console.log(value)}
+    />
+  </div>
 
       <div className='container-1'>
         <div className='box-1'>
