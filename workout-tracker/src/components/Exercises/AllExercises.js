@@ -4,9 +4,7 @@ import { Input, Button, Layout, Menu, Breadcrumb, Icon } from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
-
-// const { Search } = Input;
-// const { Header, Footer, Sider, Content } = Layout;
+const { Search } = Input;
 
 const AllExercises = props => {
   const muscles = [
@@ -133,7 +131,12 @@ const AllExercises = props => {
         defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
-        
+        <Search
+                placeholder="input search text"
+                enterButton="Search"
+                style={{ width: "40%", marginTop: "1rem" }}
+                onSearch={props.searchForName}
+              />
       </Menu>
     </Header>
       <Layout>
