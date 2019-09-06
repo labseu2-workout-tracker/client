@@ -1,6 +1,6 @@
-import React from "react";
-import AllExercises from "../../components/Exercises/AllExercises";
-import SingleExercise from "../../components/Exercises/SingleExercise";
+import React from 'react';
+import AllExercises from '../../components/Exercises/AllExercises';
+import SingleExercise from '../../components/Exercises/SingleExercise';
 import {
   fetchExercises,
   showMuscleGroup,
@@ -9,8 +9,8 @@ import {
   loadMore,
   searchExercise,
   showEquipment
-} from "../../store/actions/exerciseActions";
-import { connect } from "react-redux";
+} from '../../store/actions/exerciseActions';
+import { connect } from 'react-redux';
 
 class ExerciseLibrary extends React.Component {
 
