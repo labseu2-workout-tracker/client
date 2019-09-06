@@ -1,6 +1,6 @@
 import React from "react";
 // import './AllExercises.css';
-import { Input, Button, Layout, Menu, Breadcrumb, Icon } from "antd";
+import { Input, Button, Layout, Menu, Breadcrumb, Pagination  } from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -147,6 +147,7 @@ const AllExercises = props => {
                 <span>
                   <i className="fa fa-running"></i>
                   Muscles
+                  <i className="fa fa-running"></i>
                 </span>
               }
             >
@@ -168,6 +169,7 @@ const AllExercises = props => {
                 <span>
                   <i className="fa fa-dumbbell"></i>
                   Equipment
+                  <i className="fa fa-dumbbell"></i>
                 </span>
               }
             >
