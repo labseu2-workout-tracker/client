@@ -150,11 +150,14 @@ const AllExercises = props => {
                           <p>{exercise.equipment}</p>
                         </Col>
                         <Col span={8}>
-                          <img
+                          {/* <img
                             className='img'
                             src={exercise.picture_two}
                             alt='exercise'
-                          />
+                          /> */}
+                          <ExerciseRating
+                          style={{height: '1rem'}}
+                          exerciseRating={Number(exercise.exercise_ratings.split('.').join(''))}/>
                         </Col>
                       </Row>
                     </div>
