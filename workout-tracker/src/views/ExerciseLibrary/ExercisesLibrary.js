@@ -43,7 +43,9 @@ class ExerciseLibrary extends React.Component {
 const mapStateToProps = state => {
   return {
     exercises: state.exercises.exercises,
-    singleExercise: state.exercises.singleExercise
+    singleExercise: state.exercises.singleExercise,
+    indexOfLastExercise: state.exercises.indexOfLastExercise,
+    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises
   };
 };
 

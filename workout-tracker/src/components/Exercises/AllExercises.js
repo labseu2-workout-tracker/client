@@ -41,7 +41,7 @@ const AllExercises = props => {
     'Other',
     'Exercise Ball'
   ];
-
+  
   return (
     <Layout>
       <Header className='header' style={{ backgroundColor: 'white' }}>
