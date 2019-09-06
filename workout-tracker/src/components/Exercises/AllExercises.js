@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import './AllExercises.css';
 import {
   Input,
@@ -8,7 +8,7 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-} from "antd";
+} from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -16,68 +16,68 @@ const { Search } = Input;
 
 const AllExercises = props => {
   const muscles = [
-    "Neck",
-    "Lats",
-    "Middle Back",
-    "Lower Back",
-    "Shoulders",
-    "Chest",
-    "Forearms",
-    "Hamstrings",
-    "Calves",
-    "Biceps",
-    "Triceps",
-    "Traps",
-    "Abdominals",
-    "Glutes",
-    "Quadriceps",
-    "Adductors",
-    "Abductors"
+    'Neck',
+    'Lats',
+    'Middle Back',
+    'Lower Back',
+    'Shoulders',
+    'Chest',
+    'Forearms',
+    'Hamstrings',
+    'Calves',
+    'Biceps',
+    'Triceps',
+    'Traps',
+    'Abdominals',
+    'Glutes',
+    'Quadriceps',
+    'Adductors',
+    'Abductors'
   ];
 
   const equipment = [
-    "Bands",
-    "Foam Roll",
-    "Barbell",
-    "Kettlebells",
-    "Body Only",
-    "Machine",
-    "Cable",
-    "Medicine Ball",
-    "Dumbbell",
-    "None",
-    "E-Z Curl Bar",
-    "Other",
-    "Exercise Ball"
+    'Bands',
+    'Foam Roll',
+    'Barbell',
+    'Kettlebells',
+    'Body Only',
+    'Machine',
+    'Cable',
+    'Medicine Ball',
+    'Dumbbell',
+    'None',
+    'E-Z Curl Bar',
+    'Other',
+    'Exercise Ball'
   ];
 
   return (
     <Layout>
-      <Header className="header" style={{ backgroundColor: "white" }}>
-        <div className="logo" />
+      <Header className='header' style={{ backgroundColor: 'white' }}>
+        <div className='logo' />
 
         <Search
-          placeholder="input search text"
-          enterButton="Search"
-          style={{ width: "60%", marginTop: ".35rem" }}
+          placeholder='input search text'
+          enterButton='Search'
+          style={{ width: '60%', marginTop: '.35rem' }}
           onSearch={props.searchForName}
         />
       </Header>
       <Layout>
-        <Sider width={"35%"} style={{ background: "#fff" }}>
+        <Sider width={'35%'} style={{ background: '#fff' }}>
           <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            style={{ height: "100%", borderRight: 0 }}
+            mode='inline'
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%', borderRight: 0 }}
           >
             <SubMenu
-              key="sub1"
+              key='sub1'
               title={
                 <span>
-                  <i className="fa fa-running"></i>
+                  <i className='fa fa-running'></i>
                   Muscles
-                  <i className="fa fa-running"></i>
+                  <i className='fa fa-running'></i>
                 </span>
               }
             >
@@ -94,12 +94,12 @@ const AllExercises = props => {
             </SubMenu>
 
             <SubMenu
-              key="sub2"
+              key='sub2'
               title={
                 <span>
-                  <i className="fa fa-dumbbell"></i>
+                  <i className='fa fa-dumbbell'></i>
                   Equipment
-                  <i className="fa fa-dumbbell"></i>
+                  <i className='fa fa-dumbbell'></i>
                 </span>
               }
             >
@@ -116,13 +116,13 @@ const AllExercises = props => {
             </SubMenu>
           </Menu>
         </Sider>
-        <Layout style={{ padding: "0 24px 24px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
+        <Layout style={{ padding: '0 24px 24px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Exercises</Breadcrumb.Item>
           </Breadcrumb>
           <Content
             style={{
-              background: "#fff",
+              background: '#fff',
               padding: 24,
               margin: 0,
               minHeight: 280
@@ -133,16 +133,16 @@ const AllExercises = props => {
                   return (
                     <div 
                     onClick={() => props.showSingleExercise(exercise.id)}
-                    key={index} style={{ margin: "1rem" }}>
-                      <h6 style={{ fontSize: "2rem" }}>
+                    key={index} style={{ margin: '1rem' }}>
+                      <h6 style={{ fontSize: '2rem' }}>
                         {exercise.exercise_name}
                       </h6>
                       <Row>
                         <Col span={8}>
                           <img
-                            className="img"
+                            className='img'
                             src={exercise.picture_one}
-                            alt="exercise"
+                            alt='exercise'
                           />
                         </Col>
                         <Col span={8}>
@@ -150,9 +150,9 @@ const AllExercises = props => {
                         </Col>
                         <Col span={8}>
                           <img
-                            className="img"
+                            className='img'
                             src={exercise.picture_two}
-                            alt="exercise"
+                            alt='exercise'
                           />
                         </Col>
                       </Row>
@@ -160,7 +160,7 @@ const AllExercises = props => {
                   );
                 })
               : null}
-            <Button type="primary" onClick={props.loadMore}>
+            <Button type='primary' onClick={props.loadMore}>
               Load More
             </Button>
           </Content>
