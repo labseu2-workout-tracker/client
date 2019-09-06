@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Input,
-  Row,
-  Col,
-  Button,
-  Layout,
-  Menu,
-  Breadcrumb,
-} from 'antd';
+import { Input, Row, Col, Button, Layout, Menu, Breadcrumb } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -130,18 +122,24 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-                    <div 
-                    onClick={() => props.showSingleExercise(exercise.id)}
-                    key={index} style={{ margin: '1rem' }}
+                    <div
+                      onClick={() => props.showSingleExercise(exercise.id)}
+                      key={index}
+                      style={{ margin: '1rem', cursor: 'pointer' }}
                     >
-                      <h6 style={{ fontSize: '2rem' }}>
+                      <h6 style={{ fontSize: '1.5rem' }}>
                         {exercise.exercise_name}
                       </h6>
-                      <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                      <Row
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
                         <Col span={8} style={{ width: '33,3%' }}>
                           <img
-                          style={{ width: '100%',
-                        height: '6rem' }}
+                            // style={{ width: '13rem', height: '8.7rem' }}
                             className='img'
                             src={exercise.picture_one}
                             alt='exercise'
@@ -153,6 +151,7 @@ const AllExercises = props => {
                         </Col>
                         <Col span={8} style={{ width: '33,3%' }}>
                           <img
+                            // style={{ width: '13rem', height: '8.7rem' }}
                             className='img'
                             src={exercise.picture_two}
                             alt='exercise'
