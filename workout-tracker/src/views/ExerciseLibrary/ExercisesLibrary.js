@@ -24,12 +24,6 @@ class ExerciseLibrary extends React.Component {
     this.props.fetchExercises();
   };
 
-  handleChange = e => {
-    this.setState({
-      searchName: e.target.value
-    });
-  };
-
   render() {
     if (this.props.singleExercise) {
       return (
