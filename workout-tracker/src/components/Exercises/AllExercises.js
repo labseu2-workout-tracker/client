@@ -213,7 +213,7 @@ const AllExercises = props => {
                     <div 
                     onClick={() => props.showSingleExercise(exercise.id)}
                     key={index} style={{ margin: "1rem" }}>
-                      <h6 style={{ fontSize: "1.5" }}>
+                      <h6 style={{ fontSize: "2rem" }}>
                         {exercise.exercise_name}
                       </h6>
                       <Row>
