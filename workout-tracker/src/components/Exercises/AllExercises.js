@@ -127,22 +127,23 @@ const AllExercises = props => {
 <Card
     bodyStyle={{ color: '#0086C9' }}
   
-    // cover={
-    //   <img
-    //     alt="example"
-    //     src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-    //   />
-    // }
+    cover={
+      <img
+        alt="example"
+        src={exercise.picture_one}
+      />
+    }
     actions={[
       <Icon type="setting" key="setting" />,
       <Icon type="edit" key="edit" />,
     ]}
   >
     <Meta
-      avatar={<Avatar
+      // avatar={<Avatar
         
-        style={{ width: '10rem', height: '5rem' }}
-        src={exercise.picture_one} />}
+      //   style={{ width: '10rem', height: '5rem' }}
+      //   src={exercise.picture_one} 
+      //   />}
       title={exercise.exercise_name}
       description="This is the description"
     />
