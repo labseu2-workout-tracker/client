@@ -1,5 +1,16 @@
-import React from 'react';
-import { Input, Row, Col, Button, Layout, Menu, Breadcrumb, Card, Icon, Avatar } from 'antd';
+import React from "react";
+import {
+  Input,
+  Row,
+  Col,
+  Button,
+  Layout,
+  Menu,
+  Breadcrumb,
+  Card,
+  Icon,
+  Avatar
+} from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -8,68 +19,68 @@ const { Meta } = Card;
 
 const AllExercises = props => {
   const muscles = [
-    'Neck',
-    'Lats',
-    'Middle Back',
-    'Lower Back',
-    'Shoulders',
-    'Chest',
-    'Forearms',
-    'Hamstrings',
-    'Calves',
-    'Biceps',
-    'Triceps',
-    'Traps',
-    'Abdominals',
-    'Glutes',
-    'Quadriceps',
-    'Adductors',
-    'Abductors'
+    "Neck",
+    "Lats",
+    "Middle Back",
+    "Lower Back",
+    "Shoulders",
+    "Chest",
+    "Forearms",
+    "Hamstrings",
+    "Calves",
+    "Biceps",
+    "Triceps",
+    "Traps",
+    "Abdominals",
+    "Glutes",
+    "Quadriceps",
+    "Adductors",
+    "Abductors"
   ];
 
   const equipment = [
-    'Bands',
-    'Foam Roll',
-    'Barbell',
-    'Kettlebells',
-    'Body Only',
-    'Machine',
-    'Cable',
-    'Medicine Ball',
-    'Dumbbell',
-    'None',
-    'E-Z Curl Bar',
-    'Other',
-    'Exercise Ball'
+    "Bands",
+    "Foam Roll",
+    "Barbell",
+    "Kettlebells",
+    "Body Only",
+    "Machine",
+    "Cable",
+    "Medicine Ball",
+    "Dumbbell",
+    "None",
+    "E-Z Curl Bar",
+    "Other",
+    "Exercise Ball"
   ];
 
   return (
     <Layout>
-      <Header className='header' style={{ backgroundColor: 'white' }}>
-        <div className='logo' />
+      <Header className="header" style={{ backgroundColor: "white" }}>
+        <div className="logo" />
 
         <Search
-          placeholder='input search text'
-          enterButton='Search'
-          style={{ width: '60%', marginTop: '.35rem' }}
+          placeholder="input search text"
+          enterButton="Search"
+          style={{ width: "60%", marginTop: ".35rem" }}
           onSearch={props.searchForName}
         />
       </Header>
       <Layout>
-        <Sider width={'35%'} style={{ background: '#fff' }}>
+        <Sider width={"35%"} style={{ background: "#fff" }}>
           <Menu
-            mode='inline'
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
+            mode="inline"
+            defaultSelectedKeys={["1"]}
+            defaultOpenKeys={["sub1"]}
+            style={{ height: "100%", borderRight: 0 }}
           >
             <SubMenu
-              key='sub1'
+              key="sub1"
               title={
                 <span>
-                  <i className='fa fa-running'></i>
+                  <i className="fa fa-running"></i>
                   Muscles
-                  <i className='fa fa-running'></i>
+                  <i className="fa fa-running"></i>
                 </span>
               }
             >
@@ -86,12 +97,12 @@ const AllExercises = props => {
             </SubMenu>
 
             <SubMenu
-              key='sub2'
+              key="sub2"
               title={
                 <span>
-                  <i className='fa fa-dumbbell'></i>
+                  <i className="fa fa-dumbbell"></i>
                   Equipment
-                  <i className='fa fa-dumbbell'></i>
+                  <i className="fa fa-dumbbell"></i>
                 </span>
               }
             >
@@ -108,13 +119,10 @@ const AllExercises = props => {
             </SubMenu>
           </Menu>
         </Sider>
-        <Layout style={{ padding: '0 24px 24px', backgroundColor: '#FFF' }}>
-          {/* <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item style={{color: 'white', fontSize: '2.5rem'}}>Exercises</Breadcrumb.Item>
-          </Breadcrumb> */}
+        <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FFF" }}>
           <Content
             style={{
-              background: '#fff',
+              background: "#fff",
               padding: 24,
               margin: 0,
               minHeight: 280
@@ -123,86 +131,53 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-            
-<Card
-  cover={
-    <div>
-    <img
-    alt="example"
-    src={exercise.picture_one}
-    style={{ height: '9rem',
-  width: '50%' }}
-      />
-      <img
-      alt="example"
-      src={exercise.picture_two}
-      style={{ height: '9rem',
-    width: '50%' }}
-        />
-        </div>
-    }
-    actions={[
-      <i className="fa fa-info-circle" onClick={() => props.showSingleExercise(exercise.id)}></i>,
-      <i className="fa fa-plus-square"></i>,
-    ]}
-  >
-    <Meta
-      title={exercise.exercise_name}
-      description="This is the description"
-    />
-  </Card>
-
-         
-                    // <div
-                    //   onClick={() => props.showSingleExercise(exercise.id)}
-                    //   key={index}
-                    //   style={{ margin: '1rem', cursor: 'pointer' }}
-                    //   >
-                    //   <h6 style={{ fontSize: '1.5rem',
-                    // color: '#0086C9' }}>
-                    //     {exercise.exercise_name}
-                    //   </h6>
-                    //   <Row
-                    //     style={{
-                    //       display: 'flex',
-                    //       justifyContent: 'center',
-                    //       alignItems: 'center'
-                    //     }}
-                    //     >
-                    //     <Col span={8} style={{ width: '33,3%' }}>
-                    //       <img
-                    //         // style={{ width: '13rem', height: '8.7rem' }}
-                    //         className='img'
-                    //         src={exercise.picture_one}
-                    //         alt='exercise'
-                    //         />
-                    //     </Col>
-                    //     <Col span={8} style={{ width: '33,3%' }}>
-                    //       <p>{exercise.muscle}</p>
-                    //       <p>{exercise.equipment}</p>
-                    //     </Col>
-                    //     <Col span={8} style={{ width: '33,3%' }}>
-                    //       <img
-                    //         // style={{ width: '13rem', height: '8.7rem' }}
-                    //         className='img'
-                    //         src={exercise.picture_two}
-                    //         alt='exercise'
-                    //       />
-                    //     </Col>
-                    //   </Row>
-                    // </div>
-        
+                    <Card
+                      cover={
+                        <div>
+                          <img
+                            alt="example"
+                            src={exercise.picture_one}
+                            style={{ height: "9rem", width: "50%" }}
+                          />
+                          <img
+                            alt="example"
+                            src={exercise.picture_two}
+                            style={{ height: "9rem", width: "50%" }}
+                          />
+                        </div>
+                      }
+                      actions={[
+                        <i
+                          className="fa fa-info-circle"
+                          onClick={() => props.showSingleExercise(exercise.id)}
+                        ></i>,
+                        <i className="fa fa-plus-square"></i>
+                      ]}
+                    >
+                      <Meta
+                        title={exercise.exercise_name}
+                        description={
+                          <div>
+                            {" "}
+                            <p
+                              style={{ padding: "0" }}
+                            >{`${exercise.muscle} with ${exercise.equipment}`}</p>
+                            {/* <p style={{padding: '0'}}>{exercise.equipment}</p> */}
+                          </div>
+                        }
+                      />
+                    </Card>
                   );
                 })
               : null}
-            <Button type='primary' onClick={props.loadMore}>
+            <Button type="primary" onClick={props.loadMore}>
               Load More
             </Button>
           </Content>
         </Layout>
-        </Layout>
-        </Layout>
-        );
-      };
-      
+      </Layout>
+    </Layout>
+  );
+};
+
 export default AllExercises;
