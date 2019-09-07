@@ -127,7 +127,8 @@ const AllExercises = props => {
                       key={index}
                       style={{ margin: '1rem', cursor: 'pointer' }}
                     >
-                      <h6 style={{ fontSize: '1.5rem' }}>
+                      <h6 style={{ fontSize: '1.5rem',
+                    color: '#0086C9' }}>
                         {exercise.exercise_name}
                       </h6>
                       <Row
