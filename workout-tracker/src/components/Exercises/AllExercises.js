@@ -107,10 +107,10 @@ const AllExercises = props => {
             </SubMenu>
           </Menu>
         </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Exercises</Breadcrumb.Item>
-          </Breadcrumb>
+        <Layout style={{ padding: '0 24px 24px', backgroundColor: '#FFF' }}>
+          {/* <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item style={{color: 'white', fontSize: '2.5rem'}}>Exercises</Breadcrumb.Item>
+          </Breadcrumb> */}
           <Content
             style={{
               background: '#fff',
