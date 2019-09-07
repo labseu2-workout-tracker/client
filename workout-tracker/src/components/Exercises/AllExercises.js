@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Input,
-  Row,
-  Col,
-  Button,
-  Layout,
-  Menu,
-  Breadcrumb,
-  Card,
-  Icon,
-  Avatar
-} from "antd";
+import { Input, Button, Layout, Menu, Card } from "antd";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -132,7 +121,7 @@ const AllExercises = props => {
               ? props.exercises.map((exercise, index) => {
                   return (
                     <Card
-                    key={index}
+                      key={index}
                       cover={
                         <div>
                           <img
