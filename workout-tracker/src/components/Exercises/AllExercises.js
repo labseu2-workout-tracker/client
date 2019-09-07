@@ -124,48 +124,70 @@ const AllExercises = props => {
               ? props.exercises.map((exercise, index) => {
                   return (
             
+<Card
+    bodyStyle={{ color: '#0086C9' }}
+  
+    // cover={
+    //   <img
+    //     alt="example"
+    //     src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+    //   />
+    // }
+    actions={[
+      <Icon type="setting" key="setting" />,
+      <Icon type="edit" key="edit" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar
+        
+        style={{ width: '10rem', height: '5rem' }}
+        src={exercise.picture_one} />}
+      title={exercise.exercise_name}
+      description="This is the description"
+    />
+  </Card>
 
-
-          <Card bordered={false} style={{ lineHeight: 1.2 }}>
-                    <div
-                      onClick={() => props.showSingleExercise(exercise.id)}
-                      key={index}
-                      style={{ margin: '1rem', cursor: 'pointer' }}
-                      >
-                      <h6 style={{ fontSize: '1.5rem',
-                    color: '#0086C9' }}>
-                        {exercise.exercise_name}
-                      </h6>
-                      <Row
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center'
-                        }}
-                        >
-                        <Col span={8} style={{ width: '33,3%' }}>
-                          <img
-                            // style={{ width: '13rem', height: '8.7rem' }}
-                            className='img'
-                            src={exercise.picture_one}
-                            alt='exercise'
-                            />
-                        </Col>
-                        <Col span={8} style={{ width: '33,3%' }}>
-                          <p>{exercise.muscle}</p>
-                          <p>{exercise.equipment}</p>
-                        </Col>
-                        <Col span={8} style={{ width: '33,3%' }}>
-                          <img
-                            // style={{ width: '13rem', height: '8.7rem' }}
-                            className='img'
-                            src={exercise.picture_two}
-                            alt='exercise'
-                          />
-                        </Col>
-                      </Row>
-                    </div>
-            </Card>
+         
+                    // <div
+                    //   onClick={() => props.showSingleExercise(exercise.id)}
+                    //   key={index}
+                    //   style={{ margin: '1rem', cursor: 'pointer' }}
+                    //   >
+                    //   <h6 style={{ fontSize: '1.5rem',
+                    // color: '#0086C9' }}>
+                    //     {exercise.exercise_name}
+                    //   </h6>
+                    //   <Row
+                    //     style={{
+                    //       display: 'flex',
+                    //       justifyContent: 'center',
+                    //       alignItems: 'center'
+                    //     }}
+                    //     >
+                    //     <Col span={8} style={{ width: '33,3%' }}>
+                    //       <img
+                    //         // style={{ width: '13rem', height: '8.7rem' }}
+                    //         className='img'
+                    //         src={exercise.picture_one}
+                    //         alt='exercise'
+                    //         />
+                    //     </Col>
+                    //     <Col span={8} style={{ width: '33,3%' }}>
+                    //       <p>{exercise.muscle}</p>
+                    //       <p>{exercise.equipment}</p>
+                    //     </Col>
+                    //     <Col span={8} style={{ width: '33,3%' }}>
+                    //       <img
+                    //         // style={{ width: '13rem', height: '8.7rem' }}
+                    //         className='img'
+                    //         src={exercise.picture_two}
+                    //         alt='exercise'
+                    //       />
+                    //     </Col>
+                    //   </Row>
+                    // </div>
+        
                   );
                 })
               : null}
