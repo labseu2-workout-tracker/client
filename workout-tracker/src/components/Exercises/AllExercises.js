@@ -125,7 +125,6 @@ const AllExercises = props => {
                   return (
             
 <Card
-  
   cover={
     <div>
     <img
@@ -143,16 +142,11 @@ const AllExercises = props => {
         </div>
     }
     actions={[
-      <Icon type="setting" key="setting" />,
-      <Icon type="edit" key="edit" />,
+      <i className="fa fa-info-circle" onClick={() => props.showSingleExercise(exercise.id)}></i>,
+      <i className="fa fa-plus-square"></i>,
     ]}
   >
     <Meta
-      // avatar={<Avatar
-        
-      //   style={{ width: '10rem', height: '5rem' }}
-      //   src={exercise.picture_one} 
-      //   />}
       title={exercise.exercise_name}
       description="This is the description"
     />
