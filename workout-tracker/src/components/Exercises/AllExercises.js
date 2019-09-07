@@ -132,7 +132,7 @@ const AllExercises = props => {
               ? props.exercises.map((exercise, index) => {
                   return (
                     <Card
-                    kex={index}
+                    key={index}
                       cover={
                         <div>
                           <img
