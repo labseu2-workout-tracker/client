@@ -132,6 +132,7 @@ const AllExercises = props => {
               ? props.exercises.map((exercise, index) => {
                   return (
                     <Card
+                    kex={index}
                       cover={
                         <div>
                           <img
