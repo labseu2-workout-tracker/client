@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Row, Col, Button, Layout, Menu, Breadcrumb } from 'antd';
+import { Input, Row, Col, Button, Layout, Menu, Breadcrumb, Card } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -122,11 +122,21 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
+                  // <Alert
+                  //   message="Instructions"
+                  //   description={this.props.currentExercise[0].description}
+                  //   type="info"
+                  // />
+                  {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
+
+
+
+          <Card bordered={false} style={{ lineHeight: 1.2 }}>
                     <div
                       onClick={() => props.showSingleExercise(exercise.id)}
                       key={index}
                       style={{ margin: '1rem', cursor: 'pointer' }}
-                    >
+                      >
                       <h6 style={{ fontSize: '1.5rem',
                     color: '#0086C9' }}>
                         {exercise.exercise_name}
@@ -137,14 +147,14 @@ const AllExercises = props => {
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}
-                      >
+                        >
                         <Col span={8} style={{ width: '33,3%' }}>
                           <img
                             // style={{ width: '13rem', height: '8.7rem' }}
                             className='img'
                             src={exercise.picture_one}
                             alt='exercise'
-                          />
+                            />
                         </Col>
                         <Col span={8} style={{ width: '33,3%' }}>
                           <p>{exercise.muscle}</p>
@@ -160,6 +170,7 @@ const AllExercises = props => {
                         </Col>
                       </Row>
                     </div>
+            </Card>
                   );
                 })
               : null}
@@ -168,9 +179,9 @@ const AllExercises = props => {
             </Button>
           </Content>
         </Layout>
-      </Layout>
-    </Layout>
-  );
-};
-
+        </Layout>
+        </Layout>
+        );
+      };
+      
 export default AllExercises;
