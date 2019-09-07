@@ -125,13 +125,22 @@ const AllExercises = props => {
                   return (
             
 <Card
-    bodyStyle={{ color: '#0086C9' }}
   
-    cover={
-      <img
-        alt="example"
-        src={exercise.picture_one}
+  cover={
+    <div>
+    <img
+    alt="example"
+    src={exercise.picture_one}
+    style={{ height: '9rem',
+  width: '50%' }}
       />
+      <img
+      alt="example"
+      src={exercise.picture_two}
+      style={{ height: '9rem',
+    width: '50%' }}
+        />
+        </div>
     }
     actions={[
       <Icon type="setting" key="setting" />,
