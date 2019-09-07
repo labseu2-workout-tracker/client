@@ -1,9 +1,10 @@
 import React from 'react';
-import { Input, Row, Col, Button, Layout, Menu, Breadcrumb, Card } from 'antd';
+import { Input, Row, Col, Button, Layout, Menu, Breadcrumb, Card, Icon, Avatar } from 'antd';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const { Search } = Input;
+const { Meta } = Card;
 
 const AllExercises = props => {
   const muscles = [
@@ -122,13 +123,7 @@ const AllExercises = props => {
             {props.exercises
               ? props.exercises.map((exercise, index) => {
                   return (
-                  // <Alert
-                  //   message="Instructions"
-                  //   description={this.props.currentExercise[0].description}
-                  //   type="info"
-                  // />
-                  {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
-
+            
 
 
           <Card bordered={false} style={{ lineHeight: 1.2 }}>
