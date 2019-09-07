@@ -152,7 +152,6 @@ const AllExercises = props => {
                             <p
                               style={{ padding: "0" }}
                             >{`${exercise.muscle} with ${exercise.equipment}`}</p>
-                            {/* <p style={{padding: '0'}}>{exercise.equipment}</p> */}
                           </div>
                         }
                       />
