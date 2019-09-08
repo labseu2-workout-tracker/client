@@ -192,6 +192,51 @@ class Settings extends React.Component {
     // console.log(checkAll);
   };
 
+  handleChange = e => {
+        this.setState({
+          [e.target.name]: e.target.value
+        });
+      };
+    
+      startUpdate = () => {
+        this.setState({
+          wantUpdate: true
+        });
+      };
+    
+      changeSettings = () => {
+        const updatedSettings = {
+          email: this.state.email ? this.state.email : this.props.settings[0].email,
+          username: this.state.username
+            ? this.state.username
+            : this.props.settings[0].username,
+          // password: this.state.password,
+          weight: Number(this.state.weight)
+            ? Number(this.state.weight)
+            : this.props.settings[0].weight
+            ? this.props.settings[0].weight
+            : 1,
+          height: Number(this.state.height)
+            ? Number(this.state.height)
+            : this.props.settings[0].height
+            ? this.props.settings[0].height
+            : 1,
+          gender: this.state.gender ? this.state.gender : "male",
+          user_level: this.state.user_level ? this.state.user_level : "Beginner",
+          email_notification:
+            this.state.email_notification === "true" ? true : false,
+          push_notification: this.state.push_notification === "true" ? true : false
+        };
+    
+        debugger;
+    
+        this.props.updateSettings(updatedSettings);
+    
+        this.setState({
+          wantUpdate: false
+        });
+      };
+
   render() {
     return (
       <StyledSettings>
