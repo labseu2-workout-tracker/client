@@ -5,19 +5,7 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
-import { Checkbox, Form,
-  Select,
-  InputNumber,
-  Switch,
-  Radio,
-  Slider,
-  Button,
-  Upload,
-  Icon,
-  Rate,
-  Checkbox,
-  Row,
-  Col, } from "antd";
+import { Checkbox  } from "antd";
 
 const StyledSettings = styled.div`
   
@@ -145,8 +133,6 @@ display: none;
 
 const CheckboxGroup = Checkbox.Group;
 
-const { Option } = Select;
-
 const plainOptions = [
   "Email",
   "Username",
@@ -190,31 +176,7 @@ class Settings extends React.Component {
     // console.log(checkAll);
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  };
-
-  normFile = e => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
-
   render() {
-
-    const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
-    };
-
     return (
       <StyledSettings>
         <div style={{ borderBottom: "1px solid #E9E9E9" }}>
