@@ -5,7 +5,7 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
-import { Checkbox, Select, Icon, Divider } from "antd";
+import { Checkbox, Select} from "antd";
 
 const StyledSettings = styled.div`
  
