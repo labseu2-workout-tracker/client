@@ -331,6 +331,7 @@ class Settings extends React.Component {
                           </span>
                         </li>
                         </div>
+                        <div className={this.state.checkedList.includes("Gender") ? null : "off"}>
                         <li>
                           <span className="text">Gender:</span>
                           <span className="data">
@@ -349,7 +350,7 @@ class Settings extends React.Component {
                             <i className="fa fa-venus-mars"></i>
                           </span>
                         </li>
-
+</div><div className={this.state.checkedList.includes("Email Notification") ? null : "off"}>
                         <li>
                           <span className="text">Email Notification:</span>
                           <span className="data">
@@ -367,6 +368,8 @@ class Settings extends React.Component {
                             <i className="fa fa-envelope"></i>
                           </span>
                         </li>
+                        </div>
+                        
                         <li>
                           <span className="text">Push Notification:</span>
                           <span className="data">
