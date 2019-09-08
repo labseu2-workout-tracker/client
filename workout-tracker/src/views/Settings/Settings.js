@@ -8,6 +8,8 @@ import styled from "styled-components";
 import { Checkbox, Select, Icon, Divider } from "antd";
 
 const StyledSettings = styled.div`
+ /* color: black; */
+ 
   .user-data {
     margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
@@ -21,7 +23,7 @@ const StyledSettings = styled.div`
     margin: 0 auto 0;
     width: 80%;
     padding: 10px;
-    color: #fff;
+    /* color: #fff; */
     border-radius: 5px;
   }
 
@@ -263,30 +265,6 @@ class Settings extends React.Component {
                   return (
                     <div key={index}>
                       <div className="user-data">
-                        <Select
-                          className={
-                            this.state.checkedList.includes("Email")
-                              ? null
-                              : "off"
-                          }
-                          defaultValue="lucy"
-                          style={{ width: 120 }}
-                          dropdownRender={menu => (
-                            <div>
-                              {menu}
-                              <Divider style={{ margin: "4px 0" }} />
-                              <div
-                                style={{ padding: "8px", cursor: "pointer" }}
-                              >
-                                <Icon type="plus" /> Add item
-                              </div>
-                            </div>
-                          )}
-                        >
-                          <Option value="jack">Jack</Option>
-                          <Option value="lucy">Lucy</Option>
-                        </Select>
-
                         <ul className="info">
                           <div
                             className={
