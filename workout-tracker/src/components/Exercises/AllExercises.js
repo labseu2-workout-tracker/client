@@ -159,9 +159,12 @@ const AllExercises = props => {
                   );
                 })
               : null}
-            <Button type="primary" onClick={props.loadMore}>
-              Load More
-            </Button>
+            {props.indexOfLastExercise ===
+            props.arrayOfCurrentExercises.length ? null : (
+              <Button type='primary' onClick={props.loadMore}>
+                Load More
+              </Button>
+            )}
           </Content>
         </Layout>
       </Layout>

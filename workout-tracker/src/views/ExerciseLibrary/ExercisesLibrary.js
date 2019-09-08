@@ -35,6 +35,8 @@ class ExerciseLibrary extends React.Component {
         loadMore={this.props.loadMore}
         searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
         showEquipment={this.props.showEquipment}
+        indexOfLastExercise={this.props.indexOfLastExercise}
+        arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
       />
     );
   }
@@ -43,7 +45,9 @@ class ExerciseLibrary extends React.Component {
 const mapStateToProps = state => {
   return {
     exercises: state.exercises.exercises,
-    singleExercise: state.exercises.singleExercise
+    singleExercise: state.exercises.singleExercise,
+    indexOfLastExercise: state.exercises.indexOfLastExercise,
+    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises
   };
 };
 
