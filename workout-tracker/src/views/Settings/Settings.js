@@ -5,12 +5,21 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
-import { Checkbox } from "antd";
+import { Checkbox, Form,
+  Select,
+  InputNumber,
+  Switch,
+  Radio,
+  Slider,
+  Button,
+  Upload,
+  Icon,
+  Rate,
+  Checkbox,
+  Row,
+  Col, } from "antd";
 
 const StyledSettings = styled.div`
-  .off {
-  display: none;
-  }
   
   .user-data {
     margin: 1rem 2rem 0 2rem;
@@ -128,9 +137,15 @@ const StyledSettings = styled.div`
   .icon {
     width: 15%;
   }
+
+.off {
+display: none;
+}
 `;
 
 const CheckboxGroup = Checkbox.Group;
+
+const { Option } = Select;
 
 const plainOptions = [
   "Email",
@@ -163,7 +178,7 @@ class Settings extends React.Component {
       checkAll: checkedList.length === plainOptions.length
     });
 
-    console.log(checkedList.includes("Email"));
+    console.log(this.state.checkedList.includes("Email"));
   };
 
   onCheckAllChange = e => {
@@ -175,9 +190,33 @@ class Settings extends React.Component {
     // console.log(checkAll);
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  };
+
+  normFile = e => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
   render() {
+
+    const { getFieldDecorator } = this.props.form;
+    const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
+    };
+
     return (
-      <div>
+      <StyledSettings>
         <div style={{ borderBottom: "1px solid #E9E9E9" }}>
           <Checkbox
             indeterminate={this.state.indeterminate}
@@ -194,14 +233,14 @@ class Settings extends React.Component {
           onChange={this.onChange}
         />
 
-        <StyledSettings>
+        <div>
           {this.props.settings
             ? this.props.settings.map((setting, index) => {
                 return (
                   <div key={index}>
                     <div className="user-data">
-                      <ul className="info">
-                        <li className={this.state.checkedList.includes("Email") ? null : "off"}>
+                      <ul className={this.state.checkedList.includes("Email") ? null : "off"}>
+                        <li >
                           <span className="text">Email:</span>
                           <span className="data">
                             <input
@@ -362,8 +401,8 @@ class Settings extends React.Component {
           <button className="button" onClick={this.changeSettings}>
             Change
           </button>
-        </StyledSettings>
-      </div>
+        </div>
+      </StyledSettings>
     );
   }
 }
