@@ -128,24 +128,8 @@ const StyledSettings = styled.div`
 
 const CheckboxGroup = Checkbox.Group;
 
-email: this.props.settings ? this.props.settings[0].email : "",
-//       username: this.props.settings ? this.props.settings[0].username : "",
-//       // password: this.props.settings ? this.props.settings[0].password : "",
-//       weight: this.props.settings ? this.props.settings[0].weight : "",
-//       height: this.props.settings ? this.props.settings[0].height : "",
-//       gender: this.props.settings ? this.props.settings[0].gender : "",
-//       user_level: this.props.settings ? this.props.settings[0].user_level : "",
-//       email_notification: this.props.settings
-//         ? this.props.settings[0].email_notification
-//         : "",
-//       push_notification: this.props.settings
-//         ? this.props.settings[0].push_notification
-//         : ""
-
-
-
-const plainOptions = ["Apple", "Pear", "Orange"];
-const defaultCheckedList = ["Apple", "Orange"];
+const plainOptions = ["Email", "Username", "Weight", "Height", "Gender", "User Level", "Email Notification", "Push Notification"];
+const defaultCheckedList = ["Email"];
 
 class Settings extends React.Component {
   state = {
