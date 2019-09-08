@@ -114,9 +114,7 @@ class PieChart extends React.Component {
 
             let hashTable = {};
 
-            return axiosWithAuth()
-              .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-              .then(res => {
+           
                 for (let j = 0; j < res.data.length; j++) {
                   hashTable[res.data[j].workout_name] = 0;
                 }
@@ -143,7 +141,7 @@ class PieChart extends React.Component {
                   data: valuesForDataset,
                   labels: workoutNames
                 });
-              });
+              
           });
       });
   };
