@@ -490,7 +490,7 @@ class Settings extends React.Component {
                   );
                 })
               : null}
-            <button className="button" onClick={this.changeSettings}>
+            <button className={this.state.checkedList[0] ? "button" : "off"} onClick={this.changeSettings}>
               Change
             </button>
           </div>
