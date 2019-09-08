@@ -40,19 +40,16 @@ class PieChart extends React.Component {
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            
+            let weekMap = [6, 0, 1, 2, 3, 4, 5];
 
             function startAndEndOfWeek(date) {
-              var now = date ? new Date(date) : new Date();
-
+              let now = new Date(date);
               now.setHours(0, 0, 0, 0);
-
-              var monday = new Date(now);
-              monday.setDate(monday.getDate() - monday.getDay() + 1);
-
-              var sunday = new Date(now);
-              sunday.setDate(sunday.getDate() - sunday.getDay() + 7);
-
+              let monday = new Date(now);
+              monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
+              let sunday = new Date(now);
+              sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
+              sunday.setHours(23, 59, 59, 999);
               return [monday, sunday];
             }
 
@@ -116,8 +113,6 @@ class PieChart extends React.Component {
             return axiosWithAuth()
               .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
               .then(res => {
-                
-
                 for (let j = 0; j < res.data.length; j++) {
                   hashTable[res.data[j].workout_name] = 0;
                 }
