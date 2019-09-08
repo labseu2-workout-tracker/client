@@ -369,7 +369,7 @@ class Settings extends React.Component {
                           </span>
                         </li>
                         </div>
-                        
+                        <div className={this.state.checkedList.includes("Push Notification") ? null : "off"}>
                         <li>
                           <span className="text">Push Notification:</span>
                           <span className="data">
@@ -387,6 +387,7 @@ class Settings extends React.Component {
                             <i className="fa fa-bell"></i>
                           </span>
                         </li>
+                        </div>
                       </ul>
                     </div>
                   </div>
