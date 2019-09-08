@@ -113,19 +113,18 @@ class PieChart extends React.Component {
             }
 
             let hashTable = {};
-
-           
-                for (let j = 0; j < res.data.length; j++) {
-                  hashTable[res.data[j].workout_name] = 0;
+         
+                for (let j = 0; j < workouts.length; j++) {
+                  hashTable[workouts[j].workout_name] = 0;
                 }
 
                 for (let i = 0; i < resultOfWeek.length; i++) {
-                  for (let j = 0; j < res.data.length; j++) {
-                    if (resultOfWeek[i].workout_id === res.data[j].id) {
-                      if (hashTable[res.data[j].workout_name]) {
-                        hashTable[res.data[j].workout_name] += 1;
+                  for (let j = 0; j < workouts.length; j++) {
+                    if (resultOfWeek[i].workout_id === workouts[j].id) {
+                      if (hashTable[workouts[j].workout_name]) {
+                        hashTable[workouts[j].workout_name] += 1;
                       } else {
-                        hashTable[res.data[j].workout_name] = 1;
+                        hashTable[workouts[j].workout_name] = 1;
                       }
                     }
                   }
