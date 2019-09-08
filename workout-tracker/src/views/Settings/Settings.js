@@ -143,7 +143,10 @@ const plainOptions = [
   "Email Notification",
   "Push Notification"
 ];
+
 const defaultCheckedList = [];
+
+const { Option } = Select;
 
 class Settings extends React.Component {
   state = {
