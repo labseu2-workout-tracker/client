@@ -5,7 +5,7 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
-import { Checkbox  } from "antd";
+import { Checkbox, Select, Icon, Divider } from "antd";
 
 const StyledSettings = styled.div`
   
@@ -167,7 +167,7 @@ class Settings extends React.Component {
       checkAll: checkedList.length === plainOptions.length
     });
 
-    console.log(this.state.checkedList.includes("Email"));
+    console.log(  Option );
   };
 
   onCheckAllChange = e => {
@@ -204,8 +204,28 @@ class Settings extends React.Component {
                 return (
                   <div key={index}>
                     <div className="user-data">
-                      {/* <ul className={this.state.checkedList.includes("Email") ? null : "off"}>
-                        <li >
+
+                    <Select
+                    className={this.state.checkedList.includes("Email") ? null : "off"}
+    defaultValue="lucy"
+    style={{ width: 120 }}
+    dropdownRender={menu => (
+      <div>
+        {menu}
+        <Divider style={{ margin: '4px 0' }} />
+        <div style={{ padding: '8px', cursor: 'pointer' }}>
+          <Icon type="plus" /> Add item
+        </div>
+      </div>
+    )}
+  >
+    <Option value="jack">Jack</Option>
+    <Option value="lucy">Lucy</Option>
+  </Select>
+
+                       <ul className="info">
+                         <div className={this.state.checkedList.includes("Email") ? null : "off"}>
+                        <li>
                           <span className="text">Email:</span>
                           <span className="data">
                             <input
@@ -220,6 +240,8 @@ class Settings extends React.Component {
                             <i className="fa fa-envelope"></i>
                           </span>
                         </li>
+                        </div>
+                        <div className={this.state.checkedList.includes("Username") ? null : "off"}>
                         <li>
                           <span className="text">Username:</span>
                           <span className="data">
@@ -235,6 +257,7 @@ class Settings extends React.Component {
                             <i className="fa fa-user"></i>
                           </span>
                         </li>
+                        </div>
                         {/* <li>
                           <span className="text">Password:</span>
                           <span className="data">
@@ -357,7 +380,7 @@ class Settings extends React.Component {
                             <i className="fa fa-bell"></i>
                           </span>
                         </li>
-                      </ul> */}
+                      </ul>
                     </div>
                   </div>
                 );
