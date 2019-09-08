@@ -274,6 +274,7 @@ class Settings extends React.Component {
                             <i className="fa fa-key"></i>
                           </span>
                         </li> */}
+                        <div className={this.state.checkedList.includes("Weight") ? null : "off"}>
                         <li>
                           <span className="text">Weight:</span>
                           <span className="data">
@@ -291,6 +292,7 @@ class Settings extends React.Component {
                             <i className="fa fa-balance-scale"></i>
                           </span>
                         </li>
+                        </div><div className={this.state.checkedList.includes("Height") ? null : "off"}>
                         <li>
                           <span className="text">Height:</span>
                           <span className="data">
@@ -308,7 +310,8 @@ class Settings extends React.Component {
                             <i className="fa fa-arrow-circle-up"></i>
                           </span>
                         </li>
-
+</div>
+<div className={this.state.checkedList.includes("User Level") ? null : "off"}>
                         <li>
                           <span className="text">Level:</span>
                           <span className="data">
@@ -327,6 +330,7 @@ class Settings extends React.Component {
                             <i className="fa fa-graduation-cap"></i>
                           </span>
                         </li>
+                        </div>
                         <li>
                           <span className="text">Gender:</span>
                           <span className="data">
