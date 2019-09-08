@@ -5,6 +5,7 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
+import { Checkbox } from "antd";
 
 const StyledSettings = styled.div`
   .user-data {
@@ -125,353 +126,424 @@ const StyledSettings = styled.div`
   }
 `;
 
+const CheckboxGroup = Checkbox.Group;
+
+email: this.props.settings ? this.props.settings[0].email : "",
+//       username: this.props.settings ? this.props.settings[0].username : "",
+//       // password: this.props.settings ? this.props.settings[0].password : "",
+//       weight: this.props.settings ? this.props.settings[0].weight : "",
+//       height: this.props.settings ? this.props.settings[0].height : "",
+//       gender: this.props.settings ? this.props.settings[0].gender : "",
+//       user_level: this.props.settings ? this.props.settings[0].user_level : "",
+//       email_notification: this.props.settings
+//         ? this.props.settings[0].email_notification
+//         : "",
+//       push_notification: this.props.settings
+//         ? this.props.settings[0].push_notification
+//         : ""
+
+
+
+const plainOptions = ["Apple", "Pear", "Orange"];
+const defaultCheckedList = ["Apple", "Orange"];
+
 class Settings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      wantUpdate: false,
-      email: this.props.settings ? this.props.settings[0].email : "",
-      username: this.props.settings ? this.props.settings[0].username : "",
-      // password: this.props.settings ? this.props.settings[0].password : "",
-      weight: this.props.settings ? this.props.settings[0].weight : "",
-      height: this.props.settings ? this.props.settings[0].height : "",
-      gender: this.props.settings ? this.props.settings[0].gender : "",
-      user_level: this.props.settings ? this.props.settings[0].user_level : "",
-      email_notification: this.props.settings
-        ? this.props.settings[0].email_notification
-        : "",
-      push_notification: this.props.settings
-        ? this.props.settings[0].push_notification
-        : ""
-    };
-  }
-
-  componentDidMount = () => {
-    this.props.fetchSettings();
+  state = {
+    checkedList: defaultCheckedList,
+    indeterminate: true,
+    checkAll: false
   };
 
-  handleChange = e => {
+  onChange = checkedList => {
     this.setState({
-      [e.target.name]: e.target.value
+      checkedList,
+      indeterminate:
+        !!checkedList.length && checkedList.length < plainOptions.length,
+      checkAll: checkedList.length === plainOptions.length
     });
+
+    console.log(checkedList.includes("Apple"));
   };
 
-  startUpdate = () => {
+  onCheckAllChange = e => {
     this.setState({
-      wantUpdate: true
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked
     });
-  };
-
-  changeSettings = () => {
-    const updatedSettings = {
-      email: this.state.email ? this.state.email : this.props.settings[0].email,
-      username: this.state.username
-        ? this.state.username
-        : this.props.settings[0].username,
-      // password: this.state.password,
-      weight: Number(this.state.weight)
-        ? Number(this.state.weight)
-        : this.props.settings[0].weight
-        ? this.props.settings[0].weight
-        : 1,
-      height: Number(this.state.height)
-        ? Number(this.state.height)
-        : this.props.settings[0].height
-        ? this.props.settings[0].height
-        : 1,
-      gender: this.state.gender ? this.state.gender : "male",
-      user_level: this.state.user_level ? this.state.user_level : "Beginner",
-      email_notification:
-        this.state.email_notification === "true" ? true : false,
-      push_notification: this.state.push_notification === "true" ? true : false
-    };
-
-    debugger;
-
-    this.props.updateSettings(updatedSettings);
-
-    this.setState({
-      wantUpdate: false
-    });
+    // console.log(checkAll);
   };
 
   render() {
-    if (this.state.wantUpdate) {
-      return (
-        <StyledSettings>
-          {this.props.settings
-            ? this.props.settings.map((setting, index) => {
-                return (
-                  <div key={index}>
-                    <div className="user-data">
-                      <ul className="info">
-                        <li>
-                          <span className="text">Email:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.email}
-                              onChange={this.handleChange}
-                              placeholder={setting.email}
-                              name="email"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-envelope"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Username:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.username}
-                              onChange={this.handleChange}
-                              placeholder={setting.username}
-                              name="username"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-user"></i>
-                          </span>
-                        </li>
-                        {/* <li>
-                          <span className="text">Password:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.password}
-                              onChange={this.handleChange}
-                              placeholder={setting.password}
-                              name="password"
-                              type="password"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-key"></i>
-                          </span>
-                        </li> */}
-                        <li>
-                          <span className="text">Weight:</span>
-                          <span className="data">
-                            <input
-                              min="1"
-                              type="number"
-                              className="update-input"
-                              value={this.state.weight}
-                              onChange={this.handleChange}
-                              placeholder={setting.weight}
-                              name="weight"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-balance-scale"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Height:</span>
-                          <span className="data">
-                            <input
-                              min="1"
-                              type="number"
-                              className="update-input"
-                              value={this.state.height}
-                              onChange={this.handleChange}
-                              placeholder={setting.height}
-                              name="height"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-arrow-circle-up"></i>
-                          </span>
-                        </li>
-
-                        <li>
-                          <span className="text">Level:</span>
-                          <span className="data">
-                            <select
-                              className="update-input"
-                              value={this.state.user_level}
-                              onChange={this.handleChange}
-                              name="user_level"
-                            >
-                              <option value="Beginner">Beginner</option>
-                              <option value="Intermediate">Intermediate</option>
-                              <option value="Expert">Expert</option>
-                            </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-graduation-cap"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Gender:</span>
-                          <span className="data">
-                            <select
-                              name="gender"
-                              className="update-input"
-                              value={this.state.gender}
-                              onChange={this.handleChange}
-                            >
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                              <option value="other">Other</option>
-                            </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-venus-mars"></i>
-                          </span>
-                        </li>
-
-                        <li>
-                          <span className="text">Email Notification:</span>
-                          <span className="data">
-                            <select
-                              className="update-input"
-                              value={this.state.email_notification}
-                              onChange={this.handleChange}
-                              name="email_notification"
-                            >
-                              <option value="false">False</option>
-                              <option value="true">True</option>
-                            </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-envelope"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Push Notification:</span>
-                          <span className="data">
-                            <select
-                              className="update-input"
-                              value={this.state.push_notification}
-                              onChange={this.handleChange}
-                              name="push_notification"
-                            >
-                              <option value="male">False</option>
-                              <option value="female">True</option>
-                            </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-bell"></i>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                );
-              })
-            : null}
-          <button className="button" onClick={this.changeSettings}>
-            Change
-          </button>
-        </StyledSettings>
-      );
-    }
-    return this.props.settings
-      ? this.props.settings.map((setting, index) => {
-          return (
-            <StyledSettings key={index}>
-              <div className="user-data">
-                <ul className="info">
-                  <li>
-                    <span className="text">Email:</span>
-                    <span className="data">
-                      <p>{setting.email ? setting.email : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Username:</span>
-                    <span className="data">
-                      <p>
-                        {setting.username ? setting.username : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-user"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Weight:</span>
-                    <span className="data">
-                      <p>
-                        {setting.weight === 0
-                          ? "Not specified"
-                          : setting.weight}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-balance-scale"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Height:</span>
-                    <span className="data">
-                      <p>
-                        {setting.height === 0
-                          ? "Not specified"
-                          : setting.height}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-arrow-circle-up"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Gender:</span>
-                    <span className="data">
-                      <p>{setting.gender ? setting.gender : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-venus-mars"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Level:</span>
-                    <span className="data">
-                      <p>
-                        {setting.user_level
-                          ? setting.user_level
-                          : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-graduation-cap"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Email Notification:</span>
-                    <span className="data">
-                      <p>{setting.email_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Push Notification:</span>
-                    <span className="data">
-                      <p>{setting.push_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-bell"></i>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <button className="button" onClick={this.startUpdate}>
-                Update
-              </button>
-            </StyledSettings>
-          );
-        })
-      : null;
+    return (
+      <div>
+        <div style={{ borderBottom: "1px solid #E9E9E9" }}>
+          <Checkbox
+            indeterminate={this.state.indeterminate}
+            onChange={this.onCheckAllChange}
+            checked={this.state.checkAll}
+          >
+            Check all
+          </Checkbox>
+        </div>
+        <br />
+        <CheckboxGroup
+          options={plainOptions}
+          value={this.state.checkedList}
+          onChange={this.onChange}
+        />
+      </div>
+    );
   }
 }
+
+// class Settings extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       wantUpdate: false,
+//       email: this.props.settings ? this.props.settings[0].email : "",
+//       username: this.props.settings ? this.props.settings[0].username : "",
+//       // password: this.props.settings ? this.props.settings[0].password : "",
+//       weight: this.props.settings ? this.props.settings[0].weight : "",
+//       height: this.props.settings ? this.props.settings[0].height : "",
+//       gender: this.props.settings ? this.props.settings[0].gender : "",
+//       user_level: this.props.settings ? this.props.settings[0].user_level : "",
+//       email_notification: this.props.settings
+//         ? this.props.settings[0].email_notification
+//         : "",
+//       push_notification: this.props.settings
+//         ? this.props.settings[0].push_notification
+//         : ""
+//     };
+//   }
+
+//   componentDidMount = () => {
+//     this.props.fetchSettings();
+//   };
+
+//   handleChange = e => {
+//     this.setState({
+//       [e.target.name]: e.target.value
+//     });
+//   };
+
+//   startUpdate = () => {
+//     this.setState({
+//       wantUpdate: true
+//     });
+//   };
+
+//   changeSettings = () => {
+//     const updatedSettings = {
+//       email: this.state.email ? this.state.email : this.props.settings[0].email,
+//       username: this.state.username
+//         ? this.state.username
+//         : this.props.settings[0].username,
+//       // password: this.state.password,
+//       weight: Number(this.state.weight)
+//         ? Number(this.state.weight)
+//         : this.props.settings[0].weight
+//         ? this.props.settings[0].weight
+//         : 1,
+//       height: Number(this.state.height)
+//         ? Number(this.state.height)
+//         : this.props.settings[0].height
+//         ? this.props.settings[0].height
+//         : 1,
+//       gender: this.state.gender ? this.state.gender : "male",
+//       user_level: this.state.user_level ? this.state.user_level : "Beginner",
+//       email_notification:
+//         this.state.email_notification === "true" ? true : false,
+//       push_notification: this.state.push_notification === "true" ? true : false
+//     };
+
+//     debugger;
+
+//     this.props.updateSettings(updatedSettings);
+
+//     this.setState({
+//       wantUpdate: false
+//     });
+//   };
+
+//   render() {
+//     if (this.state.wantUpdate) {
+//       return (
+//         <StyledSettings>
+//           {this.props.settings
+//             ? this.props.settings.map((setting, index) => {
+//                 return (
+//                   <div key={index}>
+//                     <div className="user-data">
+//                       <ul className="info">
+//                         <li>
+//                           <span className="text">Email:</span>
+//                           <span className="data">
+//                             <input
+//                               className="update-input"
+//                               value={this.state.email}
+//                               onChange={this.handleChange}
+//                               placeholder={setting.email}
+//                               name="email"
+//                             />
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-envelope"></i>
+//                           </span>
+//                         </li>
+//                         <li>
+//                           <span className="text">Username:</span>
+//                           <span className="data">
+//                             <input
+//                               className="update-input"
+//                               value={this.state.username}
+//                               onChange={this.handleChange}
+//                               placeholder={setting.username}
+//                               name="username"
+//                             />
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-user"></i>
+//                           </span>
+//                         </li>
+//                         {/* <li>
+//                           <span className="text">Password:</span>
+//                           <span className="data">
+//                             <input
+//                               className="update-input"
+//                               value={this.state.password}
+//                               onChange={this.handleChange}
+//                               placeholder={setting.password}
+//                               name="password"
+//                               type="password"
+//                             />
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-key"></i>
+//                           </span>
+//                         </li> */}
+//                         <li>
+//                           <span className="text">Weight:</span>
+//                           <span className="data">
+//                             <input
+//                               min="1"
+//                               type="number"
+//                               className="update-input"
+//                               value={this.state.weight}
+//                               onChange={this.handleChange}
+//                               placeholder={setting.weight}
+//                               name="weight"
+//                             />
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-balance-scale"></i>
+//                           </span>
+//                         </li>
+//                         <li>
+//                           <span className="text">Height:</span>
+//                           <span className="data">
+//                             <input
+//                               min="1"
+//                               type="number"
+//                               className="update-input"
+//                               value={this.state.height}
+//                               onChange={this.handleChange}
+//                               placeholder={setting.height}
+//                               name="height"
+//                             />
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-arrow-circle-up"></i>
+//                           </span>
+//                         </li>
+
+//                         <li>
+//                           <span className="text">Level:</span>
+//                           <span className="data">
+//                             <select
+//                               className="update-input"
+//                               value={this.state.user_level}
+//                               onChange={this.handleChange}
+//                               name="user_level"
+//                             >
+//                               <option value="Beginner">Beginner</option>
+//                               <option value="Intermediate">Intermediate</option>
+//                               <option value="Expert">Expert</option>
+//                             </select>
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-graduation-cap"></i>
+//                           </span>
+//                         </li>
+//                         <li>
+//                           <span className="text">Gender:</span>
+//                           <span className="data">
+//                             <select
+//                               name="gender"
+//                               className="update-input"
+//                               value={this.state.gender}
+//                               onChange={this.handleChange}
+//                             >
+//                               <option value="male">Male</option>
+//                               <option value="female">Female</option>
+//                               <option value="other">Other</option>
+//                             </select>
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-venus-mars"></i>
+//                           </span>
+//                         </li>
+
+//                         <li>
+//                           <span className="text">Email Notification:</span>
+//                           <span className="data">
+//                             <select
+//                               className="update-input"
+//                               value={this.state.email_notification}
+//                               onChange={this.handleChange}
+//                               name="email_notification"
+//                             >
+//                               <option value="false">False</option>
+//                               <option value="true">True</option>
+//                             </select>
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-envelope"></i>
+//                           </span>
+//                         </li>
+//                         <li>
+//                           <span className="text">Push Notification:</span>
+//                           <span className="data">
+//                             <select
+//                               className="update-input"
+//                               value={this.state.push_notification}
+//                               onChange={this.handleChange}
+//                               name="push_notification"
+//                             >
+//                               <option value="male">False</option>
+//                               <option value="female">True</option>
+//                             </select>
+//                           </span>
+//                           <span className="icon">
+//                             <i className="fa fa-bell"></i>
+//                           </span>
+//                         </li>
+//                       </ul>
+//                     </div>
+//                   </div>
+//                 );
+//               })
+//             : null}
+//           <button className="button" onClick={this.changeSettings}>
+//             Change
+//           </button>
+//         </StyledSettings>
+//       );
+//     }
+//     return this.props.settings
+//       ? this.props.settings.map((setting, index) => {
+//           return (
+//             <StyledSettings key={index}>
+//               <div className="user-data">
+//                 <ul className="info">
+//                   <li>
+//                     <span className="text">Email:</span>
+//                     <span className="data">
+//                       <p>{setting.email ? setting.email : "Not specified"}</p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-envelope"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Username:</span>
+//                     <span className="data">
+//                       <p>
+//                         {setting.username ? setting.username : "Not specified"}
+//                       </p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-user"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Weight:</span>
+//                     <span className="data">
+//                       <p>
+//                         {setting.weight === 0
+//                           ? "Not specified"
+//                           : setting.weight}
+//                       </p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-balance-scale"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Height:</span>
+//                     <span className="data">
+//                       <p>
+//                         {setting.height === 0
+//                           ? "Not specified"
+//                           : setting.height}
+//                       </p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-arrow-circle-up"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Gender:</span>
+//                     <span className="data">
+//                       <p>{setting.gender ? setting.gender : "Not specified"}</p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-venus-mars"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Level:</span>
+//                     <span className="data">
+//                       <p>
+//                         {setting.user_level
+//                           ? setting.user_level
+//                           : "Not specified"}
+//                       </p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-graduation-cap"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Email Notification:</span>
+//                     <span className="data">
+//                       <p>{setting.email_notification.toString()}</p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-envelope"></i>
+//                     </span>
+//                   </li>
+//                   <li>
+//                     <span className="text">Push Notification:</span>
+//                     <span className="data">
+//                       <p>{setting.push_notification.toString()}</p>
+//                     </span>
+//                     <span className="icon">
+//                       <i className="fa fa-bell"></i>
+//                     </span>
+//                   </li>
+//                 </ul>
+//               </div>
+//               <button className="button" onClick={this.startUpdate}>
+//                 Update
+//               </button>
+//             </StyledSettings>
+//           );
+//         })
+//       : null;
+//   }
+// }
 
 const mapStateToProps = state => {
   return {
