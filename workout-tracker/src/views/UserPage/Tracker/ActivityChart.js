@@ -36,10 +36,10 @@ class PieChart extends React.Component {
     axiosWithAuth()
       .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
       .then(res => {
-        res.data.map(workout =>{
-           workoutNames.push(workout.workout_name);
+        res.data.map(workout => {
+          workoutNames.push(workout.workout_name);
           workouts.push(workout);
-          });
+        });
 
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
@@ -113,34 +113,33 @@ class PieChart extends React.Component {
             }
 
             let hashTable = {};
-         
-                for (let j = 0; j < workouts.length; j++) {
-                  hashTable[workouts[j].workout_name] = 0;
-                }
 
-                for (let i = 0; i < resultOfWeek.length; i++) {
-                  for (let j = 0; j < workouts.length; j++) {
-                    if (resultOfWeek[i].workout_id === workouts[j].id) {
-                      if (hashTable[workouts[j].workout_name]) {
-                        hashTable[workouts[j].workout_name] += 1;
-                      } else {
-                        hashTable[workouts[j].workout_name] = 1;
-                      }
-                    }
+            for (let j = 0; j < workouts.length; j++) {
+              hashTable[workouts[j].workout_name] = 0;
+            }
+
+            for (let i = 0; i < resultOfWeek.length; i++) {
+              for (let j = 0; j < workouts.length; j++) {
+                if (resultOfWeek[i].workout_id === workouts[j].id) {
+                  if (hashTable[workouts[j].workout_name]) {
+                    hashTable[workouts[j].workout_name] += 1;
+                  } else {
+                    hashTable[workouts[j].workout_name] = 1;
                   }
                 }
+              }
+            }
 
-                let valuesForDataset = [];
+            let valuesForDataset = [];
 
-                for (let value in hashTable) {
-                  valuesForDataset.push(hashTable[value]);
-                }
+            for (let value in hashTable) {
+              valuesForDataset.push(hashTable[value]);
+            }
 
-                this.setState({
-                  data: valuesForDataset,
-                  labels: workoutNames
-                });
-              
+            this.setState({
+              data: valuesForDataset,
+              labels: workoutNames
+            });
           });
       });
   };
