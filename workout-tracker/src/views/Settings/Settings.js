@@ -201,7 +201,7 @@ class Settings extends React.Component {
                 return (
                   <div key={index}>
                     <div className="user-data">
-                      <ul className={this.state.checkedList.includes("Email") ? null : "off"}>
+                      {/* <ul className={this.state.checkedList.includes("Email") ? null : "off"}>
                         <li >
                           <span className="text">Email:</span>
                           <span className="data">
@@ -354,7 +354,7 @@ class Settings extends React.Component {
                             <i className="fa fa-bell"></i>
                           </span>
                         </li>
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 );
