@@ -22,6 +22,11 @@ const StyledAllExercises = styled.div`
     flex-direction: column;
   }
 
+  .dropdowns {
+  display: flex;
+  justify-content: space-between;
+  }
+
   .images {
     display: flex;
     align-content: row;
@@ -52,8 +57,8 @@ const StyledAllExercises = styled.div`
       font-size: 1rem;
     }
 
-
   }
+
 
 
 `;
