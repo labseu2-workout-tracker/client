@@ -6,17 +6,6 @@ import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
 
-
-  showEquipment = equipment => {
-    this.props.showEquipment(equipment);
-
-    const muscleButton = document.querySelector(".muscles");
-    const equipmentButton = document.querySelector(".equipment");
-    equipmentButton.click();
-
-    setTimeout(() => muscleButton.click(), 1000);
-  };
-
   render() {
     if (this.props.singleExercise) {
       return (
