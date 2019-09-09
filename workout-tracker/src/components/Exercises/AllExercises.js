@@ -52,21 +52,7 @@ const StyledAllExercises = styled.div`
       font-size: 1rem;
     }
 
-    .ant-menu {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      text-align: left;
 
-      li {
-        padding: 0;
-      }
-
-      .ant-menu-item-selected {
-        padding: 0;
-        font-size: 0.8rem;
-      }
-    }
   }
 
 
