@@ -40,16 +40,15 @@ const StyledAllExercises = styled.div`
     font-weight: bold;
   }
 
-  .down-one,
-  .down-two {
-    margin: 0.5rem;
-  }
-
   .first-picture,
   .second-picture {
     width: 30%;
     height: 15rem;
     padding: 1rem;
+  }
+
+  i {
+    font-size: 2rem;
   }
 
   @media (max-width: 768px) {
@@ -85,9 +84,9 @@ const StyledAllExercises = styled.div`
       padding: 1rem;
     }
 
-    .ant-card-meta-title {
+    /* .ant-card-meta-title {
       font-size: 1rem;
-    }
+    } */
   }
 `;
 
