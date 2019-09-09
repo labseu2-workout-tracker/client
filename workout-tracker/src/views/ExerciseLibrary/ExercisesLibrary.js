@@ -5,12 +5,6 @@ import { closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-  componentDidMount = () => {
-    this.props.fetchExercises();
-
-    // console.log(screen.width)
-  };
-
   showMuscleGroup = exercise_name => {
     this.props.showMuscleGroup(exercise_name);
 
