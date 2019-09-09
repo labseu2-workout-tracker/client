@@ -56,6 +56,10 @@ const StyledAllExercises = styled.div`
     margin: 1rem;
   }
 
+  .down-hidden {
+    display: none;
+  }
+
   @media (max-width: 768px) {
   .first-picture,
   .second-picture {
