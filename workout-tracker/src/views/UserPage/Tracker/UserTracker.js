@@ -3,7 +3,9 @@ import React from 'react';
 // import { Calendar } from 'antd';
 // import 'antd/dist/antd.css';
 import WeeklyChart from './WeeklyChart';
+import MonthlyChart from './MonthlyChart';
 import styled from 'styled-components';
+import { Menu } from 'antd';
 
 const Div = styled.div`
   display: flex;
@@ -15,6 +17,7 @@ const Div = styled.div`
 const UserTracker = () => {
   return (
       <Div>
+        <MonthlyChart/>
         <WeeklyChart />
       </Div>
   );
