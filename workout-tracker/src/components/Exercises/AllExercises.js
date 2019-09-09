@@ -193,7 +193,9 @@ class AllExercises extends React.Component {
                         this.props.showEquipment(value.item.props.children)
                       }
                     >
-                     
+                      {equipment.map((equipment, index) => (
+                        <Menu.Item key={index}>{equipment}</Menu.Item>
+                      ))}
                     </Menu>
                   }
                 >
