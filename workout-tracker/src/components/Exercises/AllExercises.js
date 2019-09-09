@@ -60,6 +60,10 @@ const StyledAllExercises = styled.div`
     display: none;
   }
 
+  .load-more {
+    font-size: 1.5rem;
+  }
+
   @media (max-width: 768px) {
     .first-picture,
     .second-picture {
