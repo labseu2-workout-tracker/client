@@ -19,11 +19,13 @@ const StyledAllExercises = styled.div`
   .header {
     display: flex;
     flex-direction: column;
+    background-color: white;
+    height: 7rem;
   }
 
   .search {
-    width: 60%; 
-    margin-top: .35rem;
+    width: 60%;
+    margin-top: 0.35rem;
   }
 
   .dropdowns {
@@ -108,10 +110,7 @@ class AllExercises extends React.Component {
     return (
       <StyledAllExercises>
         <Layout>
-          <Header
-            className="header"
-            
-          >
+          <Header className="header">
             <Search
               placeholder="input search text"
               enterButton="Search"
