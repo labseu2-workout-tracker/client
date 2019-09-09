@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Layout, Menu, Card, Icon } from "antd";
+import { Input, Button, Layout, Menu, Card, Icon, Dropdown } from "antd";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import {
@@ -22,9 +22,21 @@ const StyledAllExercises = styled.div`
     flex-direction: column;
   }
 
+  .images {
+    display: flex;
+    align-content: row;
+  }
+
   .first-picture {
     width: 50%;
     height: 9rem;
+    padding: 1rem;
+  }
+
+  .second-picture {
+    width: 50%;
+    height: 9rem;
+    padding: 1rem;
   }
 
   @media (max-width: 768px) {
@@ -39,6 +51,29 @@ const StyledAllExercises = styled.div`
     .ant-card-meta-title {
       font-size: 1rem;
     }
+
+    .ant-menu {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      text-align: left;
+
+      li {
+        padding: 0;
+      }
+
+      .ant-menu-item-selected {
+        padding: 0;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .dropdown {
+    margin-right: 3rem;
+  }
+
+  .dropdown-two {
+    background-color: #a6e3e9;
   }
 `;
 
@@ -55,21 +90,21 @@ class AllExercises extends React.Component {
   showMuscleGroup = exercise_name => {
     this.props.showMuscleGroup(exercise_name);
 
-    const muscleButton = document.querySelector(".muscles");
-    const equipmentButton = document.querySelector(".equipment");
-    muscleButton.click();
+    // const muscleButton = document.querySelector(".muscles");
+    // const equipmentButton = document.querySelector(".equipment");
+    // muscleButton.click();
 
-    setTimeout(() => equipmentButton.click(), 1000);
+    // setTimeout(() => equipmentButton.click(), 1000);
   };
 
   showEquipment = equipment => {
     this.props.showEquipment(equipment);
 
-    const muscleButton = document.querySelector(".muscles");
-    const equipmentButton = document.querySelector(".equipment");
-    equipmentButton.click();
+    // const muscleButton = document.querySelector(".muscles");
+    // const equipmentButton = document.querySelector(".equipment");
+    // equipmentButton.click();
 
-    setTimeout(() => muscleButton.click(), 1000);
+    // setTimeout(() => muscleButton.click(), 1000);
   };
 
   render() {
@@ -112,7 +147,9 @@ class AllExercises extends React.Component {
     return (
       <StyledAllExercises>
         <Layout>
-          <Header className="header" style={{ backgroundColor: "white" }}>
+          <Header className="header" style={{ backgroundColor: "white", display: "flex",
+        flexDirection: "column",
+        height: "7rem" }}>
             <Search
               placeholder="input search text"
               enterButton="Search"
@@ -121,7 +158,7 @@ class AllExercises extends React.Component {
                 this.props.searchExercise(exercise_name)
               }
             />
-            <Button
+            {/* <Button
               type="primary"
               // onClick={}
             >
@@ -137,66 +174,21 @@ class AllExercises extends React.Component {
               Equipments
               <Icon type="down" />
               <Icon type="up" />
-            </Button>
+            </Button> */}
+
           </Header>
           <Layout>
-            {/* <Sider width={"35%"} style={{ background: "#fff" }}>
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              style={{ height: "100%", borderRight: 0 }}
-            >
-              <SubMenu
-                key="sub1"
-                title={
-                  <span className="muscles">
-                    <i className="fa fa-running"></i>
-                    Muscles
-                    <i className="fa fa-running"></i>
-                  </span>
-                }
-              >
-                {muscles.map((muscleGroup, index) => (
-                  <Menu.Item
-                    key={index}
-                    onClick={value =>
-                      this.props.showMuscleGroup(value.item.this.props.children)
-                    }
-                  >
-                    {muscleGroup}
-                  </Menu.Item>
-                ))}
-              </SubMenu>
 
-              <SubMenu
-                key="sub2"
-                title={
-                  <span className="equipment">
-                    <i className="fa fa-dumbbell"></i>
-                    Equipment
-                    <i className="fa fa-dumbbell"></i>
-                  </span>
-                }
-              >
-                {equipment.map((equipment, index) => (
-                  <Menu.Item
-                    key={index}
-                    onClick={value =>
-                      this.props.showEquipment(value.item.this.props.children)
-                    }
-                  >
-                    {equipment}
-                  </Menu.Item>
-                ))}
-              </SubMenu>
-            </Menu>
-          </Sider> */}
-            <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FFF" }}>
+            <Layout
+              style={{
+                // padding: "0 24px 24px",
+                backgroundColor: "#FFF"
+              }}
+            >
               <Content
                 style={{
                   background: "#fff",
-                  padding: 24,
+                  // padding: 24,
                   margin: 0,
                   minHeight: 280
                 }}
@@ -208,17 +200,18 @@ class AllExercises extends React.Component {
                           key={index}
                           cover={
                             <div>
-                              <img
-                                className="first-picture"
-                                alt="example"
-                                src={exercise.picture_one}
-                              />
-                              <img
-                                className="second-picture"
-                                alt="example"
-                                src={exercise.picture_two}
-                                style={{ height: "9rem", width: "50%" }}
-                              />
+                              <div className="images">
+                                <img
+                                  className="first-picture"
+                                  alt="example"
+                                  src={exercise.picture_one}
+                                />
+                                <img
+                                  className="second-picture"
+                                  alt="example"
+                                  src={exercise.picture_two}
+                                />
+                              </div>
                             </div>
                           }
                           actions={[
