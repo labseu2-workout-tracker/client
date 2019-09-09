@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
@@ -13,7 +13,6 @@ import SignupPage from "./views/Auth/Signup";
 import LoginPage from "./views/Auth/Login";
 import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
-import Toolbar from "./components/Toolbar/Toolbar";
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 
@@ -68,7 +67,7 @@ class App extends Component {
     );
 
     return (
-      <Fragment>
+      <>
         {this.state.showBackdrop && (
           <Backdrop
             onClick={this.backdropClickHandler}
@@ -94,7 +93,7 @@ class App extends Component {
           }
         routes = {routes}
         />
-      </Fragment>
+      </>
     );
   }
 }
