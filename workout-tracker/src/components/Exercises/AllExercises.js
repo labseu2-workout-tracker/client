@@ -70,9 +70,6 @@ const StyledAllExercises = styled.div`
   }
 
 
-  .dropdown-two {
-    background-color: #a6e3e9;
-  }
 `;
 
 class AllExercises extends React.Component {
