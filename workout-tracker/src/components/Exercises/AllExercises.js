@@ -87,10 +87,6 @@ class AllExercises extends React.Component {
     this.props.fetchExercises();
   };
 
-
-
-
-
   render() {
     const muscles = [
       "Neck",
