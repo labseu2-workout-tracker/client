@@ -147,9 +147,15 @@ class AllExercises extends React.Component {
     return (
       <StyledAllExercises>
         <Layout>
-          <Header className="header" style={{ backgroundColor: "white", display: "flex",
-        flexDirection: "column",
-        height: "7rem" }}>
+          <Header
+            className="header"
+            style={{
+              backgroundColor: "white",
+              display: "flex",
+              flexDirection: "column",
+              height: "7rem"
+            }}
+          >
             <Search
               placeholder="input search text"
               enterButton="Search"
@@ -158,21 +164,16 @@ class AllExercises extends React.Component {
                 this.props.searchExercise(exercise_name)
               }
             />
-            
-
           </Header>
           <Layout>
-
             <Layout
               style={{
-              
                 backgroundColor: "#FFF"
               }}
             >
               <Content
                 style={{
                   background: "#fff",
-                  // padding: 24,
                   margin: 0,
                   minHeight: 280
                 }}
