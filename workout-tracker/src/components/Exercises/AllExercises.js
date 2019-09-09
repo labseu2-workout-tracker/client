@@ -33,43 +33,48 @@ const StyledAllExercises = styled.div`
   }
 `;
 
-const AllExercises = props => {
-  const muscles = [
-    "Neck",
-    "Lats",
-    "Middle Back",
-    "Lower Back",
-    "Shoulders",
-    "Chest",
-    "Forearms",
-    "Hamstrings",
-    "Calves",
-    "Biceps",
-    "Triceps",
-    "Traps",
-    "Abdominals",
-    "Glutes",
-    "Quadriceps",
-    "Adductors",
-    "Abductors"
-  ];
-
-  const equipment = [
-    "Bands",
-    "Foam Roll",
-    "Barbell",
-    "Kettlebells",
-    "Body Only",
-    "Machine",
-    "Cable",
-    "Medicine Ball",
-    "Dumbbell",
-    "None",
-    "E-Z Curl Bar",
-    "Other",
-    "Exercise Ball"
-  ];
-
+class AllExercises extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+  render() { 
+    const muscles = [
+      "Neck",
+      "Lats",
+      "Middle Back",
+      "Lower Back",
+      "Shoulders",
+      "Chest",
+      "Forearms",
+      "Hamstrings",
+      "Calves",
+      "Biceps",
+      "Triceps",
+      "Traps",
+      "Abdominals",
+      "Glutes",
+      "Quadriceps",
+      "Adductors",
+      "Abductors"
+    ];
+  
+    const equipment = [
+      "Bands",
+      "Foam Roll",
+      "Barbell",
+      "Kettlebells",
+      "Body Only",
+      "Machine",
+      "Cable",
+      "Medicine Ball",
+      "Dumbbell",
+      "None",
+      "E-Z Curl Bar",
+      "Other",
+      "Exercise Ball"
+    ];
+    
   return (
     <StyledAllExercises>
       <Layout>
@@ -218,6 +223,7 @@ const AllExercises = props => {
       </Layout>
     </StyledAllExercises>
   );
+  }
 };
 
 export default AllExercises;
