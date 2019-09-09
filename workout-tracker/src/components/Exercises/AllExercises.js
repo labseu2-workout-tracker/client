@@ -40,10 +40,9 @@ const StyledAllExercises = styled.div`
     font-weight: bold;
   }
 
-  /* .down {
-    width: 5em;
-    height: 5em;
-  } */
+  .down-one, .down-two {
+    margin: .5rem;
+  }
 
   .first-picture,
   .second-picture {
@@ -147,9 +146,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
-                  <Icon type="down-circle" className="down-one" />
+                  <Icon type="down-circle" className="down" />
                   <Button type="primary">Muscles</Button>
-                  <Icon type="down-circle" className="down-two" />
+                  <Icon type="down-circle" className="down" />
                 </a>
               </Dropdown>
               <Dropdown
@@ -166,9 +165,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
-                  <Icon type="down-circle" className="down-one" />
+                  <Icon type="down-circle" className="down" />
                   <Button type="primary">Equipment</Button>
-                  <Icon type="down-circle" className="down-two" />
+                  <Icon type="down-circle" className="down" />
                 </a>
               </Dropdown>
             </div>
