@@ -2,6 +2,15 @@ import React from "react";
 import { Input, Button, Layout, Menu, Card, Icon } from "antd";
 import styled from "styled-components";
 import { connect } from 'react-redux';
+import {
+  fetchExercises,
+  showMuscleGroup,
+  showSingleExercise,
+  closeSingleExercise,
+  loadMore,
+  searchExercise,
+  showEquipment
+} from '../../store/actions/exerciseActions';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
