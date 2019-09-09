@@ -176,7 +176,11 @@ class AllExercises extends React.Component {
                 }
               >
              
-               
+             {muscles.map((muscleGroup, index) => (
+                  <Menu.Item key={index}>{muscleGroup}</Menu.Item>
+                ))}
+              </Menu>
+            }  
             >
             <a className="ant-dropdown-link dropdown-two">
               Muscles <Icon type="down" />
