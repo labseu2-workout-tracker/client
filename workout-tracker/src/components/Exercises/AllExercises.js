@@ -24,34 +24,26 @@ const StyledAllExercises = styled.div`
 
   .dropdowns {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  font-weight: bold;
   }
 
-  .images {
-    display: flex;
-    align-content: row;
-  }
 
-  .first-picture {
-    width: 50%;
-    height: 9rem;
+  .first-picture, .second-picture {
+    width: 40%;
+    height: 13rem;
     padding: 1rem;
   }
 
-  .second-picture {
-    width: 50%;
-    height: 9rem;
-    padding: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .first-picture {
+  @media (max-width: 576px) {
+    /* .first-picture {
       width: 100%;
     }
 
     .second-picture {
       display: none;
-    }
+    } */
 
     .ant-card-meta-title {
       font-size: 1rem;
