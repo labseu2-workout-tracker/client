@@ -140,6 +140,7 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
+                  <Icon type="down-circle" />
                   <Button type="primary">Muscles</Button>
                   <Icon type="down-circle" />
                 </a>
@@ -158,8 +159,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
+                  <Icon type="down-circle" />
                   <Button type="primary">Equipment</Button>
-                  <Icon type="down-circle"/>
+                  <Icon type="down-circle" />
                 </a>
               </Dropdown>
             </div>
