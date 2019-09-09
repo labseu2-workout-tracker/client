@@ -20,7 +20,7 @@ class ExerciseLibrary extends React.Component {
        
         
       
-        loadMore={this.props.loadMore}
+       
         showEquipment={this.showEquipment}
         indexOfLastExercise={this.props.indexOfLastExercise}
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
