@@ -36,7 +36,12 @@ const StyledAllExercises = styled.div`
   }
 
   @media (max-width: 576px) {
-   
+    .first-picture, .second-picture {
+    width: 50%;
+    height: 9rem;
+    padding: 1rem;
+  }
+
 
     .ant-card-meta-title {
       font-size: 1rem;
