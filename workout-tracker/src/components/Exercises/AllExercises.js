@@ -167,7 +167,11 @@ class AllExercises extends React.Component {
             
             <div style={{display: "flex", flexDirection: "row", width: "100%"
           }}>
-          
+            <Dropdown
+      >
+                </Dropdown>
+                
+              
                 </div>
             
           </Header>
