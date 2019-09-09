@@ -23,34 +23,31 @@ const StyledAllExercises = styled.div`
   }
 
   .dropdowns {
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.5rem;
-  font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
-  .first-picture, .second-picture {
+  .first-picture,
+  .second-picture {
     width: 40%;
     height: 13rem;
     padding: 1rem;
   }
 
   @media (max-width: 576px) {
-    .first-picture, .second-picture {
-    width: 50%;
-    height: 9rem;
-    padding: 1rem;
-  }
-
+    .first-picture,
+    .second-picture {
+      width: 50%;
+      height: 9rem;
+      padding: 1rem;
+    }
 
     .ant-card-meta-title {
       font-size: 1rem;
     }
-
   }
-
-
-
 `;
 
 class AllExercises extends React.Component {
@@ -121,9 +118,7 @@ class AllExercises extends React.Component {
               }
             />
 
-            <div
-              className="dropdowns"
-            >
+            <div className="dropdowns">
               <Dropdown
                 overlay={
                   <Menu
