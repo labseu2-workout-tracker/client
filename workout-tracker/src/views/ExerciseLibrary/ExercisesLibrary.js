@@ -21,7 +21,7 @@ class ExerciseLibrary extends React.Component {
         
       
        
-        showEquipment={this.showEquipment}
+       
         indexOfLastExercise={this.props.indexOfLastExercise}
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
       />
