@@ -7,7 +7,14 @@ const { Header, Content, Sider } = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 
-const StyledAllExercises = styled.div``;
+const StyledAllExercises = styled.div`
+  
+    .ant-card-meta-title {
+    @media (max-width: 768px) {
+    font-size: 1rem;
+    }
+    }
+`;
 
 const AllExercises = props => {
   const muscles = [
@@ -134,6 +141,7 @@ const AllExercises = props => {
                               style={{ height: "9rem", width: "50%" }}
                             />
                             <img
+                            className="second_picture"
                               alt="example"
                               src={exercise.picture_two}
                               style={{ height: "9rem", width: "50%" }}
