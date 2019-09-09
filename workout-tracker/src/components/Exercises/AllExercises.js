@@ -66,7 +66,7 @@ const AllExercises = props => {
             <SubMenu
               key="sub1"
               title={
-                <span>
+                <span className="muscles">
                   <i className="fa fa-running"></i>
                   Muscles
                   <i className="fa fa-running"></i>
@@ -88,7 +88,7 @@ const AllExercises = props => {
             <SubMenu
               key="sub2"
               title={
-                <span>
+                <span className="equipment">
                   <i className="fa fa-dumbbell"></i>
                   Equipment
                   <i className="fa fa-dumbbell"></i>

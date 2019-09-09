@@ -18,6 +18,16 @@ class ExerciseLibrary extends React.Component {
     this.props.fetchExercises();
   };
 
+  showMuscleGroup = exercise_name => {
+    this.props.showMuscleGroup(exercise_name);
+
+    const muscleButton = document.querySelector(".muscles");
+    const equipmentButton = document.querySelector(".equipment");
+    muscleButton.click();
+    setTimeout(() => equipmentButton.click() ,1000)
+    // equipmentButton.click();
+  }
+
   render() {
     if (this.props.singleExercise) {
       return (
@@ -30,7 +40,7 @@ class ExerciseLibrary extends React.Component {
     return (
       <AllExercises
         exercises={this.props.exercises}
-        showMuscleGroup={this.props.showMuscleGroup}
+        showMuscleGroup={this.showMuscleGroup}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
         searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
