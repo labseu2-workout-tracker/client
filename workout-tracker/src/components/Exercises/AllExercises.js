@@ -54,10 +54,12 @@ const StyledAllExercises = styled.div`
   .down {
     font-size: 1rem;
     margin: 1rem;
+    color: #22A0D6;
   }
 
   .down-hidden {
     display: none;
+    color: #22A0D6;
   }
 
   .load-more {
@@ -183,11 +185,11 @@ class AllExercises extends React.Component {
                   </Menu>
                 }
               >
-                <a className="ant-dropdown-link">
+                <div className="ant-dropdown-link">
                   <i className="fa fa-arrow-down down down-hidden" />
                   <Button type="primary">Muscles</Button>
                   <i className="fa fa-arrow-down down" />
-                </a>
+                </div>
               </Dropdown>
               <Dropdown
                 overlay={
@@ -202,11 +204,11 @@ class AllExercises extends React.Component {
                   </Menu>
                 }
               >
-                <a className="ant-dropdown-link">
+                <div className="ant-dropdown-link">
                   <i className="fa fa-arrow-down down down" />
                   <Button type="primary">Equipment</Button>
                   <i className="fa fa-arrow-down down down-hidden" />
-                </a>
+                </div>
               </Dropdown>
             </div>
           </Header>
