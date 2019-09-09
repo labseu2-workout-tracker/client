@@ -5,7 +5,6 @@ import { closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-
   render() {
     if (this.props.singleExercise) {
       return (
@@ -15,17 +14,7 @@ class ExerciseLibrary extends React.Component {
         />
       );
     }
-    return (
-      <AllExercises
-       
-        
-      
-       
-       
-        
-        arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
-      />
-    );
+    return <AllExercises />;
   }
 }
 
