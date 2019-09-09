@@ -22,7 +22,7 @@ class ExerciseLibrary extends React.Component {
       
        
        
-        indexOfLastExercise={this.props.indexOfLastExercise}
+        
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
       />
     );
