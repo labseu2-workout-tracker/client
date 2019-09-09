@@ -164,32 +164,32 @@ class AllExercises extends React.Component {
                 this.props.searchExercise(exercise_name)
               }
             />
-            
-            <div style={{display: "flex", flexDirection: "row", width: "100%"
-          }}>
-            <Dropdown
-            className="dropdown"
-            overlay={
-              <Menu
-                onClick={value =>
-                  this.props.showMuscleGroup(value.item.props.children)
+
+            <div
+              style={{ display: "flex", flexDirection: "row", width: "100%" }}
+            >
+              <Dropdown
+                className="dropdown"
+                overlay={
+                  <Menu
+                    onClick={value =>
+                      this.props.showMuscleGroup(value.item.props.children)
+                    }
+                  >
+                    {muscles.map((muscleGroup, index) => (
+                      <Menu.Item key={index}>{muscleGroup}</Menu.Item>
+                    ))}
+                  </Menu>
                 }
               >
-             
-             {muscles.map((muscleGroup, index) => (
-                  <Menu.Item key={index}>{muscleGroup}</Menu.Item>
-                ))}
-              </Menu>
-            }  
+                <a className="ant-dropdown-link dropdown-two">
+                  Muscles <Icon type="down" />
+                </a>
+              </Dropdown>
+              <Dropdown
             >
-            <a className="ant-dropdown-link dropdown-two">
-              Muscles <Icon type="down" />
-            </a>
                 </Dropdown>
-                
-              
-                </div>
-            
+            </div>
           </Header>
           <Layout>
             <Layout
