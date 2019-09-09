@@ -47,18 +47,31 @@ const StyledAllExercises = styled.div`
 
   .first-picture,
   .second-picture {
+    width: 30%;
+    height: 15rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+  .first-picture,
+  .second-picture {
     width: 40%;
     height: 15rem;
     padding: 1rem;
   }
+}
 
   @media (max-width: 576px) {
     .header {
       height: 12rem;
     }
+    
+    .search-container {
+      width: 100%;
+    }
 
     .search {
-      width: 100%;
+      width: 90%;
     }
 
     .dropdowns {
