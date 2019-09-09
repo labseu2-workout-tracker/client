@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Layout, Menu, Card } from "antd";
+import { Input, Button, Layout, Menu, Card, Icon } from "antd";
 import styled from "styled-components";
 
 const { SubMenu } = Menu;
@@ -8,17 +8,29 @@ const { Search } = Input;
 const { Meta } = Card;
 
 const StyledAllExercises = styled.div`
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
   
-    @media (max-width: 768px) {
+  .first-picture {
+    width: 50%;
+    height: 9rem;
+  }
+
+  @media (max-width: 768px) {
+    .first-picture {
+      width: 100%;
+    }
+
     .second-picture {
       display: none;
     }
 
     .ant-card-meta-title {
-    font-size: 1rem;
+      font-size: 1rem;
     }
-
-    }
+  }
 `;
 
 const AllExercises = props => {
@@ -62,7 +74,6 @@ const AllExercises = props => {
     <StyledAllExercises>
       <Layout>
         <Header className="header" style={{ backgroundColor: "white" }}>
-          <div className="logo" />
 
           <Search
             placeholder="input search text"
@@ -70,9 +81,24 @@ const AllExercises = props => {
             style={{ width: "60%", marginTop: ".35rem" }}
             onSearch={props.searchForName}
           />
+          <Button type="primary" 
+          // onClick={}
+          >
+            Muscles
+            <Icon type="down" />
+            <Icon type="up" />
+          </Button>
+
+          <Button type="primary" 
+          // onClick={}
+          >
+            Equipments
+            <Icon type="down" />
+            <Icon type="up" />
+          </Button>
         </Header>
         <Layout>
-          <Sider width={"35%"} style={{ background: "#fff" }}>
+          {/* <Sider width={"35%"} style={{ background: "#fff" }}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}
@@ -123,7 +149,7 @@ const AllExercises = props => {
                 ))}
               </SubMenu>
             </Menu>
-          </Sider>
+          </Sider> */}
           <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FFF" }}>
             <Content
               style={{
@@ -141,13 +167,12 @@ const AllExercises = props => {
                         cover={
                           <div>
                             <img
-                            className="first-picture"
+                              className="first-picture"
                               alt="example"
                               src={exercise.picture_one}
-                              style={{ height: "9rem", width: "50%" }}
                             />
                             <img
-                            className="second-picture"
+                              className="second-picture"
                               alt="example"
                               src={exercise.picture_two}
                               style={{ height: "9rem", width: "50%" }}

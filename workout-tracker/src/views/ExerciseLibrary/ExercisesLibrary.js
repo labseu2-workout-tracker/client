@@ -16,6 +16,8 @@ class ExerciseLibrary extends React.Component {
 
   componentDidMount = () => {
     this.props.fetchExercises();
+
+    // console.log(screen.width)
   };
 
   showMuscleGroup = exercise_name => {
