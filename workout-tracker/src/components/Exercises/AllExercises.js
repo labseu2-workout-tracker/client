@@ -87,15 +87,7 @@ class AllExercises extends React.Component {
     this.props.fetchExercises();
   };
 
-  showMuscleGroup = exercise_name => {
-    this.props.showMuscleGroup(exercise_name);
 
-    // const muscleButton = document.querySelector(".muscles");
-    // const equipmentButton = document.querySelector(".equipment");
-    // muscleButton.click();
-
-    // setTimeout(() => equipmentButton.click(), 1000);
-  };
 
 
 
