@@ -112,6 +112,7 @@ class AllExercises extends React.Component {
               placeholder="input search text"
               enterButton="Search"
               style={{ width: "60%", marginTop: ".35rem" }}
+              className="search"
               onSearch={exercise_name =>
                 this.props.searchExercise(exercise_name)
               }
