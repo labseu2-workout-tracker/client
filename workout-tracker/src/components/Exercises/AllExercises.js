@@ -1,6 +1,7 @@
 import React from "react";
 import { Input, Button, Layout, Menu, Card, Icon } from "antd";
 import styled from "styled-components";
+import { connect } from 'react-redux';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -84,7 +85,7 @@ class AllExercises extends React.Component {
             placeholder="input search text"
             enterButton="Search"
             style={{ width: "60%", marginTop: ".35rem" }}
-            onSearch={props.searchForName}
+            onSearch={this.props.searchForName}
           />
           <Button type="primary" 
           // onClick={}
@@ -124,7 +125,7 @@ class AllExercises extends React.Component {
                   <Menu.Item
                     key={index}
                     onClick={value =>
-                      props.showMuscleGroup(value.item.props.children)
+                      this.props.showMuscleGroup(value.item.this.props.children)
                     }
                   >
                     {muscleGroup}
@@ -146,7 +147,7 @@ class AllExercises extends React.Component {
                   <Menu.Item
                     key={index}
                     onClick={value =>
-                      props.showEquipment(value.item.props.children)
+                      this.props.showEquipment(value.item.this.props.children)
                     }
                   >
                     {equipment}
@@ -164,8 +165,8 @@ class AllExercises extends React.Component {
                 minHeight: 280
               }}
             >
-              {props.exercises
-                ? props.exercises.map((exercise, index) => {
+              {this.props.exercises
+                ? this.props.exercises.map((exercise, index) => {
                     return (
                       <Card
                         key={index}
@@ -188,7 +189,7 @@ class AllExercises extends React.Component {
                           <i
                             className="fa fa-info-circle"
                             onClick={() =>
-                              props.showSingleExercise(exercise.id)
+                              this.props.showSingleExercise(exercise.id)
                             }
                           ></i>,
                           <i className="fa fa-plus-square"></i>
@@ -209,10 +210,10 @@ class AllExercises extends React.Component {
                     );
                   })
                 : null}
-              {props.arrayOfCurrentExercises ? (
-                props.indexOfLastExercise ===
-                props.arrayOfCurrentExercises.length ? null : (
-                  <Button type="primary" onClick={props.loadMore}>
+              {this.props.arrayOfCurrentExercises ? (
+                this.props.indexOfLastExercise ===
+                this.props.arrayOfCurrentExercises.length ? null : (
+                  <Button type="primary" onClick={this.props.loadMore}>
                     Load More
                   </Button>
                 )
