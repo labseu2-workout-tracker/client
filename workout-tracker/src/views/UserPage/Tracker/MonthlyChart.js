@@ -4,6 +4,12 @@ import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
 const StyledMonthlyChart = styled.div`
+
+#SvgjsText1101 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
 .apexcharts-legend {
 text-align: left;
 }
