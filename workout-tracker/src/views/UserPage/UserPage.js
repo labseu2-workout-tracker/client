@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React  from "react";
 import { Route, Switch } from "react-router";
 
 
@@ -9,18 +9,12 @@ import UserHistory from './UserHistory/UserHistory';
 import UserNotifications from './UserNotifications/UserNotifications';
 import Settings from '../Settings/Settings';
 import DashboardNavItem from "./DashboardNavItem";
-import logo from '../../assets/images/beFit-logo2.png'
-import styled from 'styled-components';
 
 import './UserPage.css'
 
 import { Layout } from 'antd';
 
 const { Sider, Content } = Layout;
-
-// const StyledLayout = styled(Layout)`
-
-// `
 
 const UserPage = (props) => {
   return (
