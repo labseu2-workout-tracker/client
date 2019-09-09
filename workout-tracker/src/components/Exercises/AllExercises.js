@@ -110,12 +110,7 @@ class AllExercises extends React.Component {
         <Layout>
           <Header
             className="header"
-            style={{
-              backgroundColor: "white",
-              display: "flex",
-              flexDirection: "column",
-              height: "7rem"
-            }}
+            
           >
             <Search
               placeholder="input search text"
