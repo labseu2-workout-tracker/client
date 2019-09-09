@@ -40,8 +40,9 @@ const StyledAllExercises = styled.div`
     font-weight: bold;
   }
 
-  .down-one, .down-two {
-    margin: .5rem;
+  .down-one,
+  .down-two {
+    margin: 0.5rem;
   }
 
   .first-picture,
@@ -52,15 +53,22 @@ const StyledAllExercises = styled.div`
   }
 
   @media (max-width: 576px) {
+    .header {
+      height: 13rem;
+    }
+
+    .search {
+      width: 90%;
+    }
+    .dropdowns {
+      flex-direction: column;
+    }
+
     .first-picture,
     .second-picture {
       width: 50%;
       height: 10rem;
       padding: 1rem;
-    }
-
-    .dropdowns {
-      flex-direction: column;
     }
 
     .ant-card-meta-title {
