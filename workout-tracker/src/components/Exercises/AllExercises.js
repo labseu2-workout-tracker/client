@@ -158,23 +158,7 @@ class AllExercises extends React.Component {
                 this.props.searchExercise(exercise_name)
               }
             />
-            {/* <Button
-              type="primary"
-              // onClick={}
-            >
-              Muscles
-              <Icon type="down" />
-              <Icon type="up" />
-            </Button>
-
-            <Button
-              type="primary"
-              // onClick={}
-            >
-              Equipments
-              <Icon type="down" />
-              <Icon type="up" />
-            </Button> */}
+            
 
           </Header>
           <Layout>
