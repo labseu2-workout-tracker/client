@@ -24,9 +24,14 @@ class ExerciseLibrary extends React.Component {
     const muscleButton = document.querySelector(".muscles");
     const equipmentButton = document.querySelector(".equipment");
     muscleButton.click();
+
     setTimeout(() => equipmentButton.click() ,1000)
-    // equipmentButton.click();
+
   }
+
+  showEquipment = equipment => {
+
+  };
 
   render() {
     if (this.props.singleExercise) {
@@ -44,7 +49,7 @@ class ExerciseLibrary extends React.Component {
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
         searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
-        showEquipment={this.props.showEquipment}
+        showEquipment={this.showEquipment}
         indexOfLastExercise={this.props.indexOfLastExercise}
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
       />
