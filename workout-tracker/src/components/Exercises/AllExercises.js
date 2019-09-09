@@ -221,3 +221,16 @@ const AllExercises = props => {
 };
 
 export default AllExercises;
+
+
+class AllExercises extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+  render() { 
+    return (  );
+  }
+}
+ 
+export default AllExercises;
