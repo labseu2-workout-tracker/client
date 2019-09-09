@@ -6,7 +6,6 @@ import {
   fetchExercises,
   showMuscleGroup,
   showSingleExercise,
-  closeSingleExercise,
   loadMore,
   searchExercise,
   showEquipment
