@@ -172,6 +172,7 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
+                <i className="fa fa-arrow-down down down-hidden"/>
                   <Button type="primary">Muscles</Button>
                   <i className="fa fa-arrow-down down"/>
                 </a>
@@ -192,6 +193,7 @@ class AllExercises extends React.Component {
                 <a className="ant-dropdown-link">
                   <i className="fa fa-arrow-down down down"/>
                   <Button type="primary">Equipment</Button>
+                  <i className="fa fa-arrow-down down down-hidden"/>
                 </a>
               </Dropdown>
             </div>
