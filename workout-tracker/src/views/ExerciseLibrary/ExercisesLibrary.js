@@ -5,15 +5,7 @@ import { closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-  showMuscleGroup = exercise_name => {
-    this.props.showMuscleGroup(exercise_name);
 
-    const muscleButton = document.querySelector(".muscles");
-    const equipmentButton = document.querySelector(".equipment");
-    muscleButton.click();
-
-    setTimeout(() => equipmentButton.click(), 1000);
-  };
 
   showEquipment = equipment => {
     this.props.showEquipment(equipment);
