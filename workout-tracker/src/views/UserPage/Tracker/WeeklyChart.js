@@ -135,7 +135,6 @@ class PieChart extends React.Component {
               valuesForDataset.push(hashTable[value]);
             }
 
-           console.log(valuesForDataset)
             this.setState({
               data: valuesForDataset,
               labels: workoutNames

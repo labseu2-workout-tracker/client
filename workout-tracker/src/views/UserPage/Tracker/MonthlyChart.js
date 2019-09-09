@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const StyledMonthlyChart = styled.div`
 .apexcharts-legend {
-  
+text-align: left;
 }
 `;
 
@@ -154,14 +154,14 @@ class MonthlyChart extends React.Component {
 
   render() {
     return (
-      <div id="chart">
+      <StyledMonthlyChart id="chart">
         <ReactApexChart
           options={{ ...this.state.options, labels: this.state.labels }}
           series={this.state.series}
           type="pie"
           width="500px"
         />
-      </div>
+      </StyledMonthlyChart>
     );
   }
 }
