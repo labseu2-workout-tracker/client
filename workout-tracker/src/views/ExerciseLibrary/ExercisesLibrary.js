@@ -17,7 +17,7 @@ class ExerciseLibrary extends React.Component {
     }
     return (
       <AllExercises
-        exercises={this.props.exercises}
+       
         showMuscleGroup={this.showMuscleGroup}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
