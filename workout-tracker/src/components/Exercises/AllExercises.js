@@ -7,6 +7,10 @@ const { Header, Content, Sider } = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 
+const StyledAllExercises = styled.div`
+
+`;
+
 const AllExercises = props => {
   const muscles = [
     "Neck",
