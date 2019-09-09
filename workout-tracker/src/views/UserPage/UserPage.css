@@ -1,26 +1,17 @@
-.dashboard-container {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  height: 94%;
+.content.ant-layout-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
 }
 
-.dash-sidebar-container {
-  min-width: 10rem;
-  padding: 24px 24px;
-  display: flex;
-  flex-direction: column;
-  background-color: #f2f2f2;
-  flex: 1;
+.ant-layout-sider.ant-layout-sider-dark {
+  min-height: 100vh;
 }
 
-.dashboard-component {
-  margin: auto;
-  padding: 24px 0px;
-  flex: 7;
-  overflow-y: auto;
-  height: 94%;
+.ant-layout-content {
+  min-height: 100vh;
 }
+
 .nav-items {
   padding: 24px 0;
 }
@@ -29,14 +20,13 @@
   flex-grow: 1;
 }
 
-.grey-logo {
+/* .grey-logo {
   margin: 0 auto;
   width: 70%;
 }
 img {
   width: 100%;
-}
-
+} */
 @media (max-width: 768px) {
   .dashboard-container {
     position: relative;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Route, Switch } from "react-router";
 
 
@@ -10,21 +10,28 @@ import UserNotifications from './UserNotifications/UserNotifications';
 import Settings from '../Settings/Settings';
 import DashboardNavItem from "./DashboardNavItem";
 import logo from '../../assets/images/beFit-logo2.png'
+import styled from 'styled-components';
+
 import './UserPage.css'
+
+import { Layout } from 'antd';
+
+const { Sider, Content } = Layout;
+
+// const StyledLayout = styled(Layout)`
+
+// `
 
 const UserPage = (props) => {
   return (
-    <div className="dashboard-container">
-      <aside className='dash-sidebar-container'>
+    <Layout>
+      <Sider>
         <div className="nav-items">
           <DashboardNavItem />
         </div>
         <div className="empty-div" />
-        <div className="grey-logo">
-          <img src={logo} alt="" />
-        </div>
-      </aside>
-      <div className='dashboard-component'>
+      </Sider>
+      <Content>
         <Switch>
           <Route path={'/Dashboard/myworkouts'} component={MyWorkouts} />
           <Route path={'/Dashboard/tracker'} component={UserTracker} />
@@ -32,8 +39,8 @@ const UserPage = (props) => {
           <Route path={'/Dashboard/notifications'} component={UserNotifications} />
           <Route path={'/Dashboard/settings'} component={Settings} />
         </Switch>
-      </div>
-    </div>
+      </Content>
+    </Layout>
   );
 };
 
