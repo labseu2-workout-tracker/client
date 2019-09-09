@@ -218,7 +218,8 @@ class AllExercises extends React.Component {
                   : null}
                 {this.props.arrayOfCurrentExercises ? (
                   this.props.indexOfLastExercise ===
-                  this.props.arrayOfCurrentExercises.length ? null : (
+                    this.props.arrayOfCurrentExercises.length ||
+                  this.props.arrayOfCurrentExercises.length < 5 ? null : (
                     <Button type="primary" onClick={this.props.loadMore}>
                       Load More
                     </Button>
