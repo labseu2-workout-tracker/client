@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button, Layout, Menu, Card, Icon } from "antd";
 import styled from "styled-components";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import {
   fetchExercises,
   showMuscleGroup,
@@ -9,7 +9,7 @@ import {
   loadMore,
   searchExercise,
   showEquipment
-} from '../../store/actions/exerciseActions';
+} from "../../store/actions/exerciseActions";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -21,7 +21,7 @@ const StyledAllExercises = styled.div`
     display: flex;
     flex-direction: column;
   }
-  
+
   .first-picture {
     width: 50%;
     height: 9rem;
@@ -45,7 +45,7 @@ const StyledAllExercises = styled.div`
 class AllExercises extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {};
   }
 
   componentDidMount = () => {
@@ -72,7 +72,7 @@ class AllExercises extends React.Component {
     setTimeout(() => muscleButton.click(), 1000);
   };
 
-  render() { 
+  render() {
     const muscles = [
       "Neck",
       "Lats",
@@ -92,7 +92,7 @@ class AllExercises extends React.Component {
       "Adductors",
       "Abductors"
     ];
-  
+
     const equipment = [
       "Bands",
       "Foam Roll",
@@ -109,35 +109,38 @@ class AllExercises extends React.Component {
       "Exercise Ball"
     ];
 
-  return (
-    <StyledAllExercises>
-      <Layout>
-        <Header className="header" style={{ backgroundColor: "white" }}>
-
-          <Search
-            placeholder="input search text"
-            enterButton="Search"
-            style={{ width: "60%", marginTop: ".35rem" }}
-            onSearch={exercise_name => this.props.searchExercise(exercise_name)}
-          />
-          <Button type="primary" 
-          // onClick={}
-          >
-            Muscles
-            <Icon type="down" />
-            <Icon type="up" />
-          </Button>
-
-          <Button type="primary" 
-          // onClick={}
-          >
-            Equipments
-            <Icon type="down" />
-            <Icon type="up" />
-          </Button>
-        </Header>
+    return (
+      <StyledAllExercises>
         <Layout>
-          {/* <Sider width={"35%"} style={{ background: "#fff" }}>
+          <Header className="header" style={{ backgroundColor: "white" }}>
+            <Search
+              placeholder="input search text"
+              enterButton="Search"
+              style={{ width: "60%", marginTop: ".35rem" }}
+              onSearch={exercise_name =>
+                this.props.searchExercise(exercise_name)
+              }
+            />
+            <Button
+              type="primary"
+              // onClick={}
+            >
+              Muscles
+              <Icon type="down" />
+              <Icon type="up" />
+            </Button>
+
+            <Button
+              type="primary"
+              // onClick={}
+            >
+              Equipments
+              <Icon type="down" />
+              <Icon type="up" />
+            </Button>
+          </Header>
+          <Layout>
+            {/* <Sider width={"35%"} style={{ background: "#fff" }}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}
@@ -189,76 +192,76 @@ class AllExercises extends React.Component {
               </SubMenu>
             </Menu>
           </Sider> */}
-          <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FFF" }}>
-            <Content
-              style={{
-                background: "#fff",
-                padding: 24,
-                margin: 0,
-                minHeight: 280
-              }}
-            >
-              {this.props.exercises
-                ? this.props.exercises.map((exercise, index) => {
-                    return (
-                      <Card
-                        key={index}
-                        cover={
-                          <div>
-                            <img
-                              className="first-picture"
-                              alt="example"
-                              src={exercise.picture_one}
-                            />
-                            <img
-                              className="second-picture"
-                              alt="example"
-                              src={exercise.picture_two}
-                              style={{ height: "9rem", width: "50%" }}
-                            />
-                          </div>
-                        }
-                        actions={[
-                          <i
-                            className="fa fa-info-circle"
-                            onClick={() =>
-                              this.props.showSingleExercise(exercise.id)
-                            }
-                          ></i>,
-                          <i className="fa fa-plus-square"></i>
-                        ]}
-                      >
-                        <Meta
-                          title={exercise.exercise_name}
-                          description={
+            <Layout style={{ padding: "0 24px 24px", backgroundColor: "#FFF" }}>
+              <Content
+                style={{
+                  background: "#fff",
+                  padding: 24,
+                  margin: 0,
+                  minHeight: 280
+                }}
+              >
+                {this.props.exercises
+                  ? this.props.exercises.map((exercise, index) => {
+                      return (
+                        <Card
+                          key={index}
+                          cover={
                             <div>
-                              {" "}
-                              <p
-                                style={{ padding: "0" }}
-                              >{`${exercise.muscle} with ${exercise.equipment}`}</p>
+                              <img
+                                className="first-picture"
+                                alt="example"
+                                src={exercise.picture_one}
+                              />
+                              <img
+                                className="second-picture"
+                                alt="example"
+                                src={exercise.picture_two}
+                                style={{ height: "9rem", width: "50%" }}
+                              />
                             </div>
                           }
-                        />
-                      </Card>
-                    );
-                  })
-                : null}
-              {this.props.arrayOfCurrentExercises ? (
-                this.props.indexOfLastExercise ===
-                this.props.arrayOfCurrentExercises.length ? null : (
-                  <Button type="primary" onClick={this.props.loadMore}>
-                    Load More
-                  </Button>
-                )
-              ) : null}
-            </Content>
+                          actions={[
+                            <i
+                              className="fa fa-info-circle"
+                              onClick={() =>
+                                this.props.showSingleExercise(exercise.id)
+                              }
+                            ></i>,
+                            <i className="fa fa-plus-square"></i>
+                          ]}
+                        >
+                          <Meta
+                            title={exercise.exercise_name}
+                            description={
+                              <div>
+                                {" "}
+                                <p
+                                  style={{ padding: "0" }}
+                                >{`${exercise.muscle} with ${exercise.equipment}`}</p>
+                              </div>
+                            }
+                          />
+                        </Card>
+                      );
+                    })
+                  : null}
+                {this.props.arrayOfCurrentExercises ? (
+                  this.props.indexOfLastExercise ===
+                  this.props.arrayOfCurrentExercises.length ? null : (
+                    <Button type="primary" onClick={this.props.loadMore}>
+                      Load More
+                    </Button>
+                  )
+                ) : null}
+              </Content>
+            </Layout>
           </Layout>
         </Layout>
-      </Layout>
-    </StyledAllExercises>
-  );
+      </StyledAllExercises>
+    );
   }
-};
+}
 
 const mapStateToProps = state => {
   return {

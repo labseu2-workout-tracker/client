@@ -21,9 +21,6 @@ class ExerciseLibrary extends React.Component {
         showMuscleGroup={this.showMuscleGroup}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
-        searchForName={exercise_name =>
-          this.props.searchExercise(exercise_name)
-        }
         showEquipment={this.showEquipment}
         indexOfLastExercise={this.props.indexOfLastExercise}
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
