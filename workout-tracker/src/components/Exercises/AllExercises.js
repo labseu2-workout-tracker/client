@@ -29,7 +29,6 @@ const StyledAllExercises = styled.div`
   font-weight: bold;
   }
 
-
   .first-picture, .second-picture {
     width: 40%;
     height: 13rem;
@@ -37,13 +36,7 @@ const StyledAllExercises = styled.div`
   }
 
   @media (max-width: 576px) {
-    /* .first-picture {
-      width: 100%;
-    }
-
-    .second-picture {
-      display: none;
-    } */
+   
 
     .ant-card-meta-title {
       font-size: 1rem;
