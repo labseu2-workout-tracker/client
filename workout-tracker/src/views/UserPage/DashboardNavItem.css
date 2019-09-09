@@ -42,7 +42,9 @@ i:hover {
   text-align: left;
   border-left: 11px solid white;
 }
-.dashboard-items {
+.dashboard-items,
+.dashboard-items:hover,
+.dashboard-items.active {
   padding: 10px 0;
   width: 100%;
   list-style-type: none;
@@ -50,6 +52,7 @@ i:hover {
   margin-left: 0.5rem;
   font-size: 1.1rem;
   color: #696969;
+  color: inherit;
 }
 .dashboard-items.active {
   color: #2d2d2d;
