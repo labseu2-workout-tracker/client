@@ -9,9 +9,13 @@ const { Meta } = Card;
 
 const StyledAllExercises = styled.div`
   
-    .ant-card-meta-title {
     @media (max-width: 768px) {
+    .ant-card-meta-title {
     font-size: 1rem;
+    }
+
+    .second-picture {
+      display: none;
     }
     }
 `;
