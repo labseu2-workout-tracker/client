@@ -235,4 +235,14 @@ class AllExercises extends React.Component {
   }
 };
 
-export default AllExercises;
+export default connect(
+  mapStateToProps,
+  {
+    fetchExercises,
+    showMuscleGroup,
+    showSingleExercise,
+    loadMore,
+    searchExercise,
+    showEquipment
+  }
+)(AllExercises);
