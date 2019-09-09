@@ -23,6 +23,11 @@ const StyledAllExercises = styled.div`
     height: 7rem;
   }
 
+  .search-container {
+    display: flex;
+    justify-content: center;
+  }
+
   .search {
     width: 60%;
     margin-top: 0.35rem;
@@ -144,7 +149,7 @@ class AllExercises extends React.Component {
                 <a className="ant-dropdown-link">
                   <Icon type="down-circle" />
                   <Button type="primary">Muscles</Button>
-                  <Icon type="down-circle" />
+                  <Icon type="down-circle" className="down-two" />
                 </a>
               </Dropdown>
               <Dropdown
@@ -163,7 +168,7 @@ class AllExercises extends React.Component {
                 <a className="ant-dropdown-link">
                   <Icon type="down-circle" />
                   <Button type="primary">Equipment</Button>
-                  <Icon type="down-circle" />
+                  <Icon type="down-circle" className="down-two" />
                 </a>
               </Dropdown>
             </div>
