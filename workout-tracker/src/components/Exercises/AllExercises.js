@@ -74,7 +74,7 @@ class AllExercises extends React.Component {
       "Other",
       "Exercise Ball"
     ];
-    
+
   return (
     <StyledAllExercises>
       <Layout>
@@ -226,17 +226,4 @@ class AllExercises extends React.Component {
   }
 };
 
-export default AllExercises;
-
-
-class AllExercises extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
-  render() { 
-    return (  );
-  }
-}
- 
 export default AllExercises;
