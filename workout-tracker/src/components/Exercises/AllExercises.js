@@ -154,7 +154,7 @@ class AllExercises extends React.Component {
               >
                 <a className="ant-dropdown-link">
                 <Button type="primary">Equipment</Button>
-                  <Icon type="down" />
+                  <Icon type="down" className="down" />
                 </a>
               </Dropdown>
             </div>
