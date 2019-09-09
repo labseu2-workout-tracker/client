@@ -38,7 +38,7 @@ const StyledAllExercises = styled.div`
   .first-picture,
   .second-picture {
     width: 40%;
-    height: 13rem;
+    height: 15rem;
     padding: 1rem;
   }
 
@@ -46,7 +46,7 @@ const StyledAllExercises = styled.div`
     .first-picture,
     .second-picture {
       width: 50%;
-      height: 9rem;
+      height: 10rem;
       padding: 1rem;
     }
 
