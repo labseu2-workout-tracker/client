@@ -1,19 +1,10 @@
-import React from 'react';
-import AllExercises from '../../components/Exercises/AllExercises';
-import SingleExercise from '../../components/Exercises/SingleExercise';
-import {
-  fetchExercises,
-  showMuscleGroup,
-  showSingleExercise,
-  closeSingleExercise,
-  loadMore,
-  searchExercise,
-  showEquipment
-} from '../../store/actions/exerciseActions';
-import { connect } from 'react-redux';
+import React from "react";
+import AllExercises from "../../components/Exercises/AllExercises";
+import SingleExercise from "../../components/Exercises/SingleExercise";
+import { closeSingleExercise } from "../../store/actions/exerciseActions";
+import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-
   componentDidMount = () => {
     this.props.fetchExercises();
 
@@ -27,9 +18,8 @@ class ExerciseLibrary extends React.Component {
     const equipmentButton = document.querySelector(".equipment");
     muscleButton.click();
 
-    setTimeout(() => equipmentButton.click() ,1000)
-
-  }
+    setTimeout(() => equipmentButton.click(), 1000);
+  };
 
   showEquipment = equipment => {
     this.props.showEquipment(equipment);
@@ -38,7 +28,7 @@ class ExerciseLibrary extends React.Component {
     const equipmentButton = document.querySelector(".equipment");
     equipmentButton.click();
 
-    setTimeout(() => muscleButton.click() ,1000)
+    setTimeout(() => muscleButton.click(), 1000);
   };
 
   render() {
@@ -56,7 +46,9 @@ class ExerciseLibrary extends React.Component {
         showMuscleGroup={this.showMuscleGroup}
         showSingleExercise={this.props.showSingleExercise}
         loadMore={this.props.loadMore}
-        searchForName={(exercise_name) => this.props.searchExercise(exercise_name)}
+        searchForName={exercise_name =>
+          this.props.searchExercise(exercise_name)
+        }
         showEquipment={this.showEquipment}
         indexOfLastExercise={this.props.indexOfLastExercise}
         arrayOfCurrentExercises={this.props.arrayOfCurrentExercises}
@@ -77,6 +69,6 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    closeSingleExercise,
+    closeSingleExercise
   }
 )(ExerciseLibrary);
