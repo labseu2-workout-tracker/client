@@ -128,22 +128,20 @@ class MonthlyChart extends React.Component {
             }
 
             let valuesForDataset = [];
-            debugger;
+
             let copyOfOptions = this.state.options;
 
             for (let value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
             copyOfOptions.labels = workoutNames;
-            debugger;
+
             this.setState({
               labels: workoutNames,
               series: valuesForDataset
             });
           });
       });
-
-    console.log(this.state.options);
   };
 
   render() {
