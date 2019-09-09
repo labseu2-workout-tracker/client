@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Layout, Menu, Card, Icon, Dropdown } from "antd";
+import { Input, Button, Layout, Menu, Card, Dropdown } from "antd";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import {
