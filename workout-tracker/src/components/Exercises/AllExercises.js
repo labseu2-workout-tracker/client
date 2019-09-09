@@ -86,6 +86,12 @@ const StyledAllExercises = styled.div`
       flex-direction: column;
     }
 
+    
+
+    .down-hidden {
+    display: inline;
+  }
+
     .first-picture,
     .second-picture {
       width: 50%;
