@@ -61,19 +61,19 @@ const StyledAllExercises = styled.div`
   }
 
   @media (max-width: 768px) {
-  .first-picture,
-  .second-picture {
-    width: 40%;
-    height: 15rem;
-    padding: 1rem;
+    .first-picture,
+    .second-picture {
+      width: 40%;
+      height: 15rem;
+      padding: 1rem;
+    }
   }
-}
 
   @media (max-width: 576px) {
     .header {
       height: 12rem;
     }
-    
+
     .search-container {
       width: 100%;
     }
@@ -87,12 +87,12 @@ const StyledAllExercises = styled.div`
     }
 
     .down {
-      margin: .5rem;
+      margin: 0.5rem;
     }
 
     .down-hidden {
-    display: inline;
-  }
+      display: inline;
+    }
 
     .first-picture,
     .second-picture {
@@ -184,9 +184,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
-                <i className="fa fa-arrow-down down down-hidden"/>
+                  <i className="fa fa-arrow-down down down-hidden" />
                   <Button type="primary">Muscles</Button>
-                  <i className="fa fa-arrow-down down"/>
+                  <i className="fa fa-arrow-down down" />
                 </a>
               </Dropdown>
               <Dropdown
@@ -203,9 +203,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <a className="ant-dropdown-link">
-                  <i className="fa fa-arrow-down down down"/>
+                  <i className="fa fa-arrow-down down down" />
                   <Button type="primary">Equipment</Button>
-                  <i className="fa fa-arrow-down down down-hidden"/>
+                  <i className="fa fa-arrow-down down down-hidden" />
                 </a>
               </Dropdown>
             </div>
@@ -223,54 +223,56 @@ class AllExercises extends React.Component {
                   minHeight: 280
                 }}
               >
-                {this.props.exercises[0]
-                  ? this.props.exercises.map((exercise, index) => {
-                      return (
-                        <Card
-                          key={index}
-                          cover={
+                {this.props.exercises[0] ? (
+                  this.props.exercises.map((exercise, index) => {
+                    return (
+                      <Card
+                        key={index}
+                        cover={
+                          <div>
+                            <div className="images">
+                              <img
+                                className="first-picture"
+                                alt="example"
+                                src={exercise.picture_one}
+                              />
+                              <img
+                                className="second-picture"
+                                alt="example"
+                                src={exercise.picture_two}
+                              />
+                            </div>
+                          </div>
+                        }
+                        actions={[
+                          <i
+                            className="fa fa-info-circle"
+                            onClick={() =>
+                              this.props.showSingleExercise(exercise.id)
+                            }
+                          />,
+                          <i className="fa fa-plus-square" />
+                        ]}
+                      >
+                        <Meta
+                          title={exercise.exercise_name}
+                          description={
                             <div>
-                              <div className="images">
-                                <img
-                                  className="first-picture"
-                                  alt="example"
-                                  src={exercise.picture_one}
-                                />
-                                <img
-                                  className="second-picture"
-                                  alt="example"
-                                  src={exercise.picture_two}
-                                />
-                              </div>
+                              {" "}
+                              <p
+                                style={{ padding: "0" }}
+                              >{`${exercise.muscle} with ${exercise.equipment}`}</p>
                             </div>
                           }
-                          actions={[
-                            <i
-                              className="fa fa-info-circle"
-                              onClick={() =>
-                                this.props.showSingleExercise(exercise.id)
-                              }
-                            />,
-                            <i className="fa fa-plus-square"/>
-                          ]}
-                        >
-                          <Meta
-                            title={exercise.exercise_name}
-                            description={
-                              <div>
-                                {" "}
-                                <p
-                                  style={{ padding: "0" }}
-                                >{`${exercise.muscle} with ${exercise.equipment}`}</p>
-                              </div>
-                            }
-                          />
-                        </Card>
-                      );
-                    })
-                  : (<Card>
-                   <h1>No Search Results</h1>
-                  </Card>) }
+                        />
+                      </Card>
+                    );
+                  })
+                ) : (
+                  <Card>
+                    <h1>No Search Results</h1>
+                  </Card>
+                )}
                 {this.props.arrayOfCurrentExercises ? (
                   this.props.indexOfLastExercise ===
                     this.props.arrayOfCurrentExercises.length ||
