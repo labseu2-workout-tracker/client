@@ -54,12 +54,13 @@ const StyledAllExercises = styled.div`
 
   @media (max-width: 576px) {
     .header {
-      height: 13rem;
+      height: 12rem;
     }
 
     .search {
-      width: 90%;
+      width: 100%;
     }
+
     .dropdowns {
       flex-direction: column;
     }
