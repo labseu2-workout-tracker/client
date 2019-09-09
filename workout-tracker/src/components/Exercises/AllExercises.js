@@ -169,6 +169,14 @@ class AllExercises extends React.Component {
           }}>
             <Dropdown
             className="dropdown"
+            overlay={
+              <Menu
+                onClick={value =>
+                  this.props.showMuscleGroup(value.item.props.children)
+                }
+              >
+             
+               
             >
             <a className="ant-dropdown-link dropdown-two">
               Muscles <Icon type="down" />
