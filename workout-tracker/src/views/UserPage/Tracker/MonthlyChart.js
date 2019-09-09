@@ -1,6 +1,7 @@
 import React from "react";
-import { axiosWithAuth } from '../../../store/axiosWithAuth';
+import { axiosWithAuth } from "../../../store/axiosWithAuth";
 import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
 class MonthlyChart extends React.Component {
   constructor(props) {
