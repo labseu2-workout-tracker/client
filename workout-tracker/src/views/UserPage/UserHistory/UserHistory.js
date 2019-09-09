@@ -29,7 +29,10 @@ class SessionHistory extends React.Component {
         .get(`${process.env.REACT_APP_BASE_URL}/workouts`, {
           headers: { Authorization: bearer }
         })
-        .then(res => this.setState({ workouts: res.data }))
+        .then(res => {
+          console.log(res.data)
+          this.setState({ workouts: res.data })
+        })
         .catch(err => {
           this.setState({err:{err}});
         });
@@ -80,12 +83,7 @@ class SessionHistory extends React.Component {
               return (
                 <ol key={session.id}>
                   <li>
-                    <h4>Session Number : {session.id}</h4>
-                    <p>
-                      <strong>Session Start : </strong>
-                      {session.session_start.slice(0, 10)}
-                    </p>
-                    <p>
+                  <h4>
                       <strong>Workout Name : </strong>
                       {workouts === undefined
                         ? <h2>Loadin workouts...</h2>
@@ -95,6 +93,10 @@ class SessionHistory extends React.Component {
                             }
                             return null
                           })}
+                    </h4>
+                    <p>
+                      <strong>Session Start : </strong>
+                      {session.session_start.slice(0, 10)}
                     </p>
                     <p>
                       <strong>Duration : </strong>
