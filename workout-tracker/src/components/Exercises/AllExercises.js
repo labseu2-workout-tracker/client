@@ -146,10 +146,9 @@ class AllExercises extends React.Component {
             />
 
             <div
-              style={{ display: "flex", flexDirection: "row", width: "100%" }}
+              className="dropdowns"
             >
               <Dropdown
-                className="dropdown"
                 overlay={
                   <Menu
                     onClick={value =>
