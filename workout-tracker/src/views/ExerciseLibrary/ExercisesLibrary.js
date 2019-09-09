@@ -77,12 +77,6 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    fetchExercises,
-    showMuscleGroup,
-    showSingleExercise,
     closeSingleExercise,
-    loadMore,
-    searchExercise,
-    showEquipment
   }
 )(ExerciseLibrary);
