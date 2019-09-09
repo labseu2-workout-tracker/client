@@ -187,7 +187,15 @@ class AllExercises extends React.Component {
                 </a>
               </Dropdown>
               <Dropdown
-                 
+                  overlay={
+                    <Menu
+                      onClick={value =>
+                        this.props.showEquipment(value.item.props.children)
+                      }
+                    >
+                     
+                    </Menu>
+                  }
                 >
                   <a className="ant-dropdown-link dropdown-two">
                     Equipment <Icon type="down" />
