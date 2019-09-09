@@ -2,7 +2,7 @@ import React from 'react';
 // import Calendar from './Calendar';
 // import { Calendar } from 'antd';
 // import 'antd/dist/antd.css';
-import PieChart from './ActivityChart';
+import WeeklyChart from './WeeklyChart';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -15,7 +15,7 @@ const Div = styled.div`
 const UserTracker = () => {
   return (
       <Div>
-        <PieChart />
+        <WeeklyChart />
       </Div>
   );
 };
