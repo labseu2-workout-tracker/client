@@ -187,22 +187,22 @@ class AllExercises extends React.Component {
                 </a>
               </Dropdown>
               <Dropdown
-                  overlay={
-                    <Menu
-                      onClick={value =>
-                        this.props.showEquipment(value.item.props.children)
-                      }
-                    >
-                      {equipment.map((equipment, index) => (
-                        <Menu.Item key={index}>{equipment}</Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                >
-                  <a className="ant-dropdown-link dropdown-two">
-                    Equipment <Icon type="down" />
-                  </a>
-                </Dropdown>
+                overlay={
+                  <Menu
+                    onClick={value =>
+                      this.props.showEquipment(value.item.props.children)
+                    }
+                  >
+                    {equipment.map((equipment, index) => (
+                      <Menu.Item key={index}>{equipment}</Menu.Item>
+                    ))}
+                  </Menu>
+                }
+              >
+                <a className="ant-dropdown-link dropdown-two">
+                  Equipment <Icon type="down" />
+                </a>
+              </Dropdown>
             </div>
           </Header>
           <Layout>
