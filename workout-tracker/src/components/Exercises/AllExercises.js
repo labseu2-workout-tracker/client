@@ -192,7 +192,6 @@ class AllExercises extends React.Component {
                 <a className="ant-dropdown-link">
                   <i className="fa fa-arrow-down down down"/>
                   <Button type="primary">Equipment</Button>
-                  {/* <Icon type="down-circle" className="down" /> */}
                 </a>
               </Dropdown>
             </div>
