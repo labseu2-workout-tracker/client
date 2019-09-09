@@ -100,10 +100,6 @@ const StyledAllExercises = styled.div`
       height: 10rem;
       padding: 1rem;
     }
-
-    /* .ant-card-meta-title {
-      font-size: 1rem;
-    } */
   }
 `;
 
@@ -278,9 +274,10 @@ class AllExercises extends React.Component {
                     this.props.arrayOfCurrentExercises.length ||
                   this.props.arrayOfCurrentExercises.length < 5 ? null : (
                     <Button
-                    className="load-more" 
-                    type="primary"
-                      onClick={this.props.loadMore}>
+                      className="load-more"
+                      type="primary"
+                      onClick={this.props.loadMore}
+                    >
                       Load More
                     </Button>
                   )
