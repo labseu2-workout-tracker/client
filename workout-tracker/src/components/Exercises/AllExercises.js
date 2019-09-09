@@ -21,6 +21,11 @@ const StyledAllExercises = styled.div`
     flex-direction: column;
   }
 
+  .search {
+    width: 60%; 
+    margin-top: .35rem;
+  }
+
   .dropdowns {
     display: flex;
     justify-content: space-around;
