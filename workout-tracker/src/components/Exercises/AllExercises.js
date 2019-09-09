@@ -10,13 +10,14 @@ const { Meta } = Card;
 const StyledAllExercises = styled.div`
   
     @media (max-width: 768px) {
+    .second-picture {
+      display: none;
+    }
+
     .ant-card-meta-title {
     font-size: 1rem;
     }
 
-    .second-picture {
-      display: none;
-    }
     }
 `;
 
@@ -140,12 +141,13 @@ const AllExercises = props => {
                         cover={
                           <div>
                             <img
+                            className="first-picture"
                               alt="example"
                               src={exercise.picture_one}
                               style={{ height: "9rem", width: "50%" }}
                             />
                             <img
-                            className="second_picture"
+                            className="second-picture"
                               alt="example"
                               src={exercise.picture_two}
                               style={{ height: "9rem", width: "50%" }}
