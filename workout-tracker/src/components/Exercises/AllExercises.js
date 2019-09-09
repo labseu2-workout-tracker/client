@@ -159,12 +159,12 @@ const AllExercises = props => {
                   );
                 })
               : null}
-            {props.indexOfLastExercise ===
+            {props.arrayOfCurrentExercises ? (props.indexOfLastExercise ===
             props.arrayOfCurrentExercises.length ? null : (
               <Button type='primary' onClick={props.loadMore}>
                 Load More
               </Button>
-            )}
+            )) : null}
           </Content>
         </Layout>
       </Layout>

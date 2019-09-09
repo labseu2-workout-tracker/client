@@ -147,7 +147,7 @@ class PieChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "60%", height: "50%" }}>
-        <h2>weekly Results</h2>
+        <h2>Weekly Results</h2>
         <Pie
           data={{
             labels: this.state.labels,
