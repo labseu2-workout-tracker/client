@@ -117,14 +117,14 @@ class AllExercises extends React.Component {
         <Layout>
           <Header className="header">
             <div className="search-container">
-            <Search
-              placeholder="input search text"
-              enterButton="Search"
-              className="search"
-              onSearch={exercise_name =>
-                this.props.searchExercise(exercise_name)
-              }
-            />
+              <Search
+                placeholder="input search text"
+                enterButton="Search"
+                className="search"
+                onSearch={exercise_name =>
+                  this.props.searchExercise(exercise_name)
+                }
+              />
             </div>
 
             <div className="dropdowns">
