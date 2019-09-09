@@ -164,6 +164,12 @@ class AllExercises extends React.Component {
                 this.props.searchExercise(exercise_name)
               }
             />
+            
+            <div style={{display: "flex", flexDirection: "row", width: "100%"
+          }}>
+          
+                </div>
+            
           </Header>
           <Layout>
             <Layout
