@@ -186,8 +186,6 @@ class Settings extends React.Component {
       push_notification: this.state.push_notification === "true" ? true : false
     };
 
-    debugger;
-
     this.props.updateSettings(updatedSettings);
 
     this.setState({
