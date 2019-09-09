@@ -7,7 +7,7 @@ class PieChart extends React.Component {
     super(props);
     this.state = {
       labels: ["Red", "Green", "Yellow"],
-      data: [2],
+      data: [],
       backgroundColor: [
         "#5d5d5d",
         "#91b029",
@@ -78,9 +78,8 @@ class PieChart extends React.Component {
             let allDaysInWeek = Object.values(
               getDates(startAndEndWeek[0], startAndEndWeek[1])
             );
-
             let daysInWeek = [];
-
+            
             Date.prototype.yyyymmdd = function() {
               let mm = this.getMonth() + 1;
               let dd = this.getDate();
@@ -91,14 +90,14 @@ class PieChart extends React.Component {
                 (dd > 9 ? "" : "0") + dd
               ].join("");
             };
-
+            
             for (let i = 0; i < allDaysInWeek.length; i++) {
               daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
             }
-
+            
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
-
+            
             for (let j = 0; j < daysInWeek.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
@@ -113,11 +112,11 @@ class PieChart extends React.Component {
             }
 
             let hashTable = {};
-
+            
             for (let j = 0; j < workouts.length; j++) {
               hashTable[workouts[j].workout_name] = 0;
             }
-
+            
             for (let i = 0; i < resultOfWeek.length; i++) {
               for (let j = 0; j < workouts.length; j++) {
                 if (resultOfWeek[i].workout_id === workouts[j].id) {
@@ -129,13 +128,14 @@ class PieChart extends React.Component {
                 }
               }
             }
-
+            
             let valuesForDataset = [];
-
+            
             for (let value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 
+           console.log(valuesForDataset)
             this.setState({
               data: valuesForDataset,
               labels: workoutNames
@@ -147,12 +147,13 @@ class PieChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "60%", height: "50%" }}>
+        <h2>weekly Results</h2>
         <Pie
           data={{
             labels: this.state.labels,
             datasets: [
               {
-                data: this.state.data[0] ? this.state.data : [0, 0, 0, 0, 0],
+                data: this.state.data,
                 backgroundColor: this.state.backgroundColor,
                 hoverBackgroundColor: this.state.hoverBackgroundColor
               }
