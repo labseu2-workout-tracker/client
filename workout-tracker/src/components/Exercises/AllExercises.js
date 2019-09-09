@@ -169,7 +169,10 @@ class AllExercises extends React.Component {
           }}>
             <Dropdown
             className="dropdown"
-          >
+            >
+            <a className="ant-dropdown-link dropdown-two">
+              Muscles <Icon type="down" />
+            </a>
                 </Dropdown>
                 
               
