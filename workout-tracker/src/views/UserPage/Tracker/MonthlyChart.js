@@ -3,6 +3,12 @@ import { axiosWithAuth } from "../../../store/axiosWithAuth";
 import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
+const StyledMonthlyChart = styled.div`
+.apexcharts-legend {
+  
+}
+`;
+
 class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
