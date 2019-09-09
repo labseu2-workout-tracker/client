@@ -48,6 +48,10 @@ const StyledAllExercises = styled.div`
       padding: 1rem;
     }
 
+    .dropdowns {
+      flex-direction: column;
+    }
+
     .ant-card-meta-title {
       font-size: 1rem;
     }
