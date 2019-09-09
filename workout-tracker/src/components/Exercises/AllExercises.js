@@ -86,7 +86,9 @@ const StyledAllExercises = styled.div`
       flex-direction: column;
     }
 
-    
+    .down {
+      margin: .5rem;
+    }
 
     .down-hidden {
     display: inline;
