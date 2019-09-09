@@ -22,7 +22,7 @@ class MonthlyChart extends React.Component {
           }
         },
         title: {
-          text: "Number of leads"
+          text: "Monthly Results"
         },
         responsive: [
           {

@@ -17,8 +17,8 @@ const Div = styled.div`
 const UserTracker = () => {
   return (
       <Div>
-        <MonthlyChart/>
         <WeeklyChart />
+        <MonthlyChart/>
       </Div>
   );
 };
