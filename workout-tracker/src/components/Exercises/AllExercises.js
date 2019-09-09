@@ -11,8 +11,7 @@ import {
   showEquipment
 } from "../../store/actions/exerciseActions";
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 const { Search } = Input;
 const { Meta } = Card;
 
