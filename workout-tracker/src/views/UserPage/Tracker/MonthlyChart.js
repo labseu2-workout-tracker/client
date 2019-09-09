@@ -1,4 +1,5 @@
 import React from "react";
+import { axiosWithAuth } from '../../../store/axiosWithAuth';
 import ReactApexChart from "react-apexcharts";
 
 class MonthlyChart extends React.Component {
