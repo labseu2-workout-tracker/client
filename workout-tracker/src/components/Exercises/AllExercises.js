@@ -235,6 +235,14 @@ class AllExercises extends React.Component {
   }
 };
 
+const mapStateToProps = state => {
+  return {
+    exercises: state.exercises.exercises,
+    indexOfLastExercise: state.exercises.indexOfLastExercise,
+    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises
+  };
+};
+
 export default connect(
   mapStateToProps,
   {
