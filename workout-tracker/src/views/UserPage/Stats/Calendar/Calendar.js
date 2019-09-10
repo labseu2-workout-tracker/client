@@ -83,11 +83,7 @@ class TheCalendar extends React.Component {
                 }
               }
             }
-            let hashTable = {};
 
-            for (let j = 0; j < workouts.length; j++) {
-              hashTable[workouts[j].workout_name] = 0;
-            }
             let theResult = [];
 
             for (let i = 0; i < resultOfWeek.length; i++) {
@@ -97,11 +93,6 @@ class TheCalendar extends React.Component {
                     ...resultOfWeek[i],
                     workout_name: workouts[j].workout_name
                   });
-                  if (hashTable[workouts[j].workout_name]) {
-                    hashTable[workouts[j].workout_name] += 1;
-                  } else {
-                    hashTable[workouts[j].workout_name] = 1;
-                  }
                 }
               }
             }
@@ -116,7 +107,13 @@ class TheCalendar extends React.Component {
 
   getListData = value => {
     let listData;
-    console.log(value._d)
+    console.log(value._d.toString().match(/.{}/g))
+  //   const monthNames = ["January", "February", "March", "April", "May", "June",
+  //   "July", "August", "September", "October", "November", "December"
+  // ];
+  
+  // const d = new Date();
+  // monthNames[d.getMonth()].match(/.{3}/g)[0];
     for (let i = 0; i < this.state.result.length; i++) {
       switch (value.date()) {
         case this.state.result[i].day:
