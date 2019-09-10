@@ -5,7 +5,7 @@ import { Row, Col } from "antd";
 
 const StyledStats = styled.div``;
 
-class Stats extends Component {
+class Stats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
