@@ -25,10 +25,10 @@ class Stats extends React.Component {
             <ChartContainer />
           </Col>
           <Col className="column" span={12}>
-          <Calendar/>
+            <UserHistory />
           </Col>
         </Row>
-            <UserHistory />
+          <Calendar/>
       </StyledStats>
     );
   }
