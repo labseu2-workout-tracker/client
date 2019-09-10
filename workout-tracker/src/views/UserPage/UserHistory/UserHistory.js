@@ -6,6 +6,14 @@ import { connect } from "react-redux";
 import { Pagination } from 'antd';
 
 class SessionHistory extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      minValue: 0,
+      maxValue: 9
+    };
+  }
+ 
   componentDidMount() {
     this.props.fetchWorkoutsHistory();
 
