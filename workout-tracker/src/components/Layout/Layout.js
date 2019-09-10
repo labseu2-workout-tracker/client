@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
-
+import "antd/dist/antd.css";
+import { Layout } from "antd";
 import './Layout.css';
 
-const layout = props => (
+const { Header, Content } = Layout;
+
+const MainLayout = props => (
   <Fragment>
-    <header className="main-header">{props.header}</header>
+    <Header className="main-header">{props.header}</Header>
     {props.mobileNav}
-    {/* <main className="content">{props.children}</main> */}
+    <Content className="content">{props.routes}</Content>
   </Fragment>
 );
 
-export default layout;
+export default MainLayout;

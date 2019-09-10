@@ -14,11 +14,15 @@ import LoginPage from "./views/Auth/Login";
 import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import Toolbar from "./components/Toolbar/Toolbar";
-import Layout from "./components/Layout/Layout";
+import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
+
+
 
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
+
+
 
 class App extends Component {
   state = {
@@ -71,15 +75,13 @@ class App extends Component {
             open={this.state.showMobileNav}
           />
         )}
-        <Layout
+        <MainLayout
           header={
-            <Toolbar>
               <MainNavBar
                 onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
                 onLogout={this.logoutHandler}
                 isAuth={Auth.isAuthenticated()}
               />
-            </Toolbar>
           }
           mobileNav={
             <MobileNavigation
@@ -90,8 +92,8 @@ class App extends Component {
               isAuth={Auth.isAuthenticated()}
             />
           }
+        routes = {routes}
         />
-        {routes}
       </Fragment>
     );
   }
