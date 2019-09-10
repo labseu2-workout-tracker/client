@@ -7,7 +7,7 @@ class PieChart extends React.Component {
     super(props);
     this.state = {
       labels: ["Red", "Green", "Yellow"],
-      data: [2],
+      data: [],
       backgroundColor: [
         "#5d5d5d",
         "#91b029",
@@ -32,27 +32,28 @@ class PieChart extends React.Component {
   }
   componentDidMount = () => {
     let workoutNames = [];
+    let workouts = [];
     axiosWithAuth()
       .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
       .then(res => {
-        res.data.map(workout => workoutNames.push(workout.workout_name));
+        res.data.map(workout => {
+          workoutNames.push(workout.workout_name);
+          workouts.push(workout);
+        });
 
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            
+            let weekMap = [6, 0, 1, 2, 3, 4, 5];
 
             function startAndEndOfWeek(date) {
-              var now = date ? new Date(date) : new Date();
-
+              let now = new Date(date);
               now.setHours(0, 0, 0, 0);
-
-              var monday = new Date(now);
-              monday.setDate(monday.getDate() - monday.getDay() + 1);
-
-              var sunday = new Date(now);
-              sunday.setDate(sunday.getDate() - sunday.getDay() + 7);
-
+              let monday = new Date(now);
+              monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
+              let sunday = new Date(now);
+              sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
+              sunday.setHours(23, 59, 59, 999);
               return [monday, sunday];
             }
 
@@ -77,7 +78,6 @@ class PieChart extends React.Component {
             let allDaysInWeek = Object.values(
               getDates(startAndEndWeek[0], startAndEndWeek[1])
             );
-
             let daysInWeek = [];
 
             Date.prototype.yyyymmdd = function() {
@@ -113,38 +113,33 @@ class PieChart extends React.Component {
 
             let hashTable = {};
 
-            return axiosWithAuth()
-              .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-              .then(res => {
-                
+            for (let j = 0; j < workouts.length; j++) {
+              hashTable[workouts[j].workout_name] = 0;
+            }
 
-                for (let j = 0; j < res.data.length; j++) {
-                  hashTable[res.data[j].workout_name] = 0;
-                }
-
-                for (let i = 0; i < resultOfWeek.length; i++) {
-                  for (let j = 0; j < res.data.length; j++) {
-                    if (resultOfWeek[i].workout_id === res.data[j].id) {
-                      if (hashTable[res.data[j].workout_name]) {
-                        hashTable[res.data[j].workout_name] += 1;
-                      } else {
-                        hashTable[res.data[j].workout_name] = 1;
-                      }
-                    }
+            for (let i = 0; i < resultOfWeek.length; i++) {
+              for (let j = 0; j < workouts.length; j++) {
+                if (resultOfWeek[i].workout_id === workouts[j].id) {
+                  if (hashTable[workouts[j].workout_name]) {
+                    hashTable[workouts[j].workout_name] += 1;
+                  } else {
+                    hashTable[workouts[j].workout_name] = 1;
                   }
                 }
+              }
+            }
 
-                let valuesForDataset = [];
+            let valuesForDataset = [];
 
-                for (let value in hashTable) {
-                  valuesForDataset.push(hashTable[value]);
-                }
+            for (let value in hashTable) {
+              valuesForDataset.push(hashTable[value]);
+            }
 
-                this.setState({
-                  data: valuesForDataset,
-                  labels: workoutNames
-                });
-              });
+            console.log(valuesForDataset);
+            this.setState({
+              data: valuesForDataset,
+              labels: workoutNames
+            });
           });
       });
   };
@@ -152,12 +147,13 @@ class PieChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "60%", height: "50%" }}>
+        <h2>Weekly Results</h2>
         <Pie
           data={{
             labels: this.state.labels,
             datasets: [
               {
-                data: this.state.data[0] ? this.state.data : [0, 0, 0, 0, 0],
+                data: this.state.data,
                 backgroundColor: this.state.backgroundColor,
                 hoverBackgroundColor: this.state.hoverBackgroundColor
               }

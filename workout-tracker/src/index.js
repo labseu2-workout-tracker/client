@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
-
+import logger from 'redux-logger';
 import thunk from "redux-thunk";
 import rootReducer from "./store/reducers";
 import App from "./App";
@@ -32,7 +32,7 @@ function loadFromLocalStorage() {
 
 const persistedState = loadFromLocalStorage();
 
-const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+const store = createStore(rootReducer, persistedState, applyMiddleware(logger, thunk));
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 
