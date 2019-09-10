@@ -1,56 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
-import {fetchWorkoutsHistory} from '../../../store/actions/historyActions';
+import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
+import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { connect } from "react-redux";
 
-
-
-var bearer = "Bearer " + localStorage.token;
-
 class SessionHistory extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      session: {},
-      workouts: undefined,
-      err: {}
-    };
-  }
-
   componentDidMount() {
-    this.props.fetchWorkoutsHistory()
+    this.props.fetchWorkoutsHistory();
 
-      axios
-        .get(`${process.env.REACT_APP_BASE_URL}/workouts`, {
-          headers: { Authorization: bearer }
-        })
-        .then(res => {
-          return this.setState({ workouts: res.data });
-        })
-        .catch(err => {
-          this.setState({ err: { err } });
-        });
-       
-    
+    this.props.fetchWorkouts();
   }
 
   render() {
     let session = this.props.history;
-    let workouts = this.state.workouts;
-    
+    let workouts = this.props.workouts;
+    console.log(session)
+
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
         <List>
-          {session  ?  (
+          {session[0] ? (
             session.map(session => {
               const date1 = session.session_start;
               const date2 = session.session_end;
 
               // Extract starting point
-              const startingPoint = date1 === null ? '00:00:00' : date1.slice(11, 17)
-              const endPoint = date2 === null ? '00:00:00' : date2.slice(11, 17)
+              const startingPoint =
+                date1 === null ? "00:00:00" : date1.slice(11, 17);
+              const endPoint =
+                date2 === null ? "00:00:00" : date2.slice(11, 17);
+
+              function pluralize(hours) {
+                return hours <= 1 ? "hour" : "hours";
+              }
 
               function diff(start, end) {
                 start = start.split(":");
@@ -63,78 +46,63 @@ class SessionHistory extends React.Component {
                 var minutes = Math.floor(diff / 1000 / 60);
 
                 // If using time pickers with 24 hours format, add the below line get exact hours
-                if (hours < 0) hours = hours + 24;
-
-                return (
-                  (hours <= 9 ? "0" : "") +
-                  hours +
-                  ":" +
-                  (minutes <= 9 ? "0" : "") +
-                  minutes
-                );
+                if (hours <= 0) {
+                  return `${minutes} minutes`;
+                }
+                return `${hours} ${pluralize(hours)} ${minutes} minutes`;
               }
 
               return (
                 <ol key={session.id}>
                   <li>
-                    <h4>Session Number : {session.id}</h4>
                     <p>
-                      <strong>Session Start : </strong>
+                      <strong>Session Started : </strong>
                       {session.session_start.slice(0, 10)}
                     </p>
                     <p>
                       <strong>Workout Name : </strong>
-                      {workouts === undefined
-                        ? <h2>Loadin workouts...</h2>
-                        : workouts.map(item => {
-                            if (session.workout_id === item.id) {
-                              return item.workout_name;
-                            }
-                            return null
-                          })}
+                      {workouts === undefined ? (
+                        <h2>Loadin workouts...</h2>
+                      ) : (
+                        workouts.map(item => {
+                          if (session.workout_id === item.id) {
+                            return item.workout_name;
+                          }
+                          return null;
+                        })
+                      )}
                     </p>
                     <p>
                       <strong>Duration : </strong>
-                      {diff(startingPoint, endPoint) === null ? 'No sessions' : diff(startingPoint, endPoint)} minutes.
+                      {diff(startingPoint, endPoint)}
                     </p>
                   </li>
                 </ol>
               );
             })
-          ) : (
-            <p>Your history is empty for now!</p>
-          )}
+          ) : (<p>You have no workout history at the moment</p>)
+          
+          }
         </List>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = state => {
- return {
-   history: state.history.history
-  }
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts
+  };
 };
 
-export default connect (
-  mapStateToProps, {
-    fetchWorkoutsHistory
+export default connect(
+  mapStateToProps,
+  {
+    fetchWorkoutsHistory,
+    fetchWorkouts
   }
 )(SessionHistory);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const List = styled.div`
   width: 500px;

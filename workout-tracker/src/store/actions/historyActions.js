@@ -7,7 +7,7 @@ export const fetchWorkoutsHistory = () => dispatch => {
     // type LOADING needs to be added (also for the redux state) 
     axiosWithAuth().get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`)
       .then(res => {
-          debugger
+  
         dispatch({ type: FETCH_WORKOUTS_HISTORY, session: res.data.workoutHistory });
       })
       .catch(err => {
