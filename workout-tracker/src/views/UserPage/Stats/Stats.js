@@ -1,6 +1,7 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
 import UserHistory from "./UserHistory/UserHistory";
+import Calendar from "./Calendar/Calendar";
 import styled from "styled-components";
 import { Row, Col } from "antd";
 
@@ -24,9 +25,10 @@ class Stats extends React.Component {
             <ChartContainer />
           </Col>
           <Col className="column" span={12}>
-            <UserHistory />
+          <Calendar/>
           </Col>
         </Row>
+            <UserHistory />
       </StyledStats>
     );
   }
