@@ -41,7 +41,7 @@ class SessionHistory extends React.Component {
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
-        <List>
+        <StyledUserHistory>
           {history[0] ? (
             <div>
               {history
@@ -115,7 +115,7 @@ class SessionHistory extends React.Component {
           ) : (
             <p>You have no workout history at the moment</p>
           )}
-        </List>
+        </StyledUserHistory>
       </div>
     );
   }
@@ -136,9 +136,9 @@ export default connect(
   }
 )(SessionHistory);
 
-const List = styled.div`
-  width: 500px;
-  margin: 0 auto;
+const StyledUserHistory = styled.div`
+  width: 100%;
+  /* margin: 0 auto; */
 
   ol {
     padding: 10px;

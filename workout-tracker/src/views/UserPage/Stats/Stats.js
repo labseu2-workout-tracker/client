@@ -4,7 +4,12 @@ import UserHistory from "./UserHistory/UserHistory";
 import styled from "styled-components";
 import { Row, Col } from "antd";
 
-const StyledStats = styled.div``;
+const StyledStats = styled.div`
+
+.column {
+  width: 50%;
+}
+`;
 
 class Stats extends React.Component {
   constructor(props) {
@@ -15,10 +20,10 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <Row>
-          <Col span={12}>
+          <Col className="column" span={12}>
             <ChartContainer />
           </Col>
-          <Col span={12}>
+          <Col className="column" span={12}>
             <UserHistory />
           </Col>
         </Row>
