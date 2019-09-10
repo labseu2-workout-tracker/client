@@ -1,4 +1,4 @@
-import * as type from "../actions/exerciseActions";
+import * as type from '../actions/exerciseActions';
 
 const initialState = {
   exercises: null,
@@ -14,28 +14,24 @@ const exercises = (state = initialState, action) => {
   switch (action.type) {
     case type.FETCH_EXERCISES:
       const changeRatingOfExercise = action.exercises.map(exercise => {
-        if (exercise.exercise_ratings === "n/a") {
-          exercise.exercise_ratings = "5.0";
+        if (exercise.exercise_ratings === 'n/a') {
+          exercise.exercise_ratings = '5.0';
         }
         return exercise;
       });
       const filterOnlyGroupChest = changeRatingOfExercise.filter(
-        exercise => exercise.muscle === "Chest"
+        exercise => exercise.muscle === 'Chest'
       );
 
-      const indexLastExercise = state.indexOfLastExercise;
-
-      const currentExercises = filterOnlyGroupChest.slice(
-        state.indexFirstExercise,
-        indexLastExercise
-      );
+      const currentExercises = filterOnlyGroupChest.slice(0, 5);
 
       return {
         ...state,
         exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
-        currentMuscleGroup: "Chest"
+        currentMuscleGroup: 'Chest',
+        indexOfLastExercise: 5
       };
 
     case type.SHOW_MUSCLE_GROUP:
@@ -95,9 +91,9 @@ const exercises = (state = initialState, action) => {
 
     case type.SHOW_EQUIPMENT:
       let searchForEquipment = state.copyOfExercises.filter(
-        exercise => exercise.equipment === action.equipment
-        &&
-        exercise.muscle === state.currentMuscleGroup
+        exercise =>
+          exercise.equipment === action.equipment &&
+          exercise.muscle === state.currentMuscleGroup
       );
       const theIndexLastExercise = 5;
       const theActualExercises = searchForEquipment.slice(
