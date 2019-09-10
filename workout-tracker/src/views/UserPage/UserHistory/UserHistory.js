@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
+import {connect} from 'react-redux'
+
+
+
 
 var bearer = "Bearer " + localStorage.token;
 
