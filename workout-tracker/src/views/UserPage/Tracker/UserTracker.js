@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 // import Calendar from './Calendar';
 // import { Calendar } from 'antd';
 // import 'antd/dist/antd.css';
-import WeeklyChart from './WeeklyChart';
-import MonthlyChart from './MonthlyChart';
-import YearlyChart from './YearlyChart';
-import styled from 'styled-components';
-import { Select } from 'antd';
+import WeeklyChart from "./WeeklyChart";
+import MonthlyChart from "./MonthlyChart";
+import YearlyChart from "./YearlyChart";
+import styled from "styled-components";
+import { Select } from "antd";
 
 const { Option } = Select;
 
@@ -23,11 +23,20 @@ function handleChange(value) {
 
 const UserTracker = () => {
   return (
-      <StyledUserTracker>
-        <WeeklyChart />
-        <MonthlyChart/>
-        <YearlyChart/>
-      </StyledUserTracker>
+    <StyledUserTracker>
+      <Select
+        defaultValue="weekly"
+        style={{ width: 120 }}
+        onChange={handleChange}
+      >
+        <Option value="weekly">Weekly</Option>
+        <Option value="monthly">Monthly</Option>
+        <Option value="yearly">Yearly</Option>
+      </Select>
+      <WeeklyChart />
+      <MonthlyChart />
+      <YearlyChart />
+    </StyledUserTracker>
   );
 };
 
