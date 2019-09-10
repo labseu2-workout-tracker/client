@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
-import {connect} from 'react-redux'
+import {fetchWorkoutsHistory} from '../../../store/actions/historyActions';
+import { connect } from "react-redux";
 
 
 
-
-var bearer = 'Bearer ' + localStorage.token;
+var bearer = "Bearer " + localStorage.token;
 
 class SessionHistory extends React.Component {
   constructor(props) {
@@ -19,17 +19,7 @@ class SessionHistory extends React.Component {
   }
 
   componentDidMount() {
-    if (localStorage.token) {
-      axios
-        .get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`, {
-          headers: { Authorization: bearer }
-        })
-        .then(res => {
-          return this.setState({ session: res.data });
-        })
-        .catch(err => {
-          this.setState({ err: { err } });
-        });
+    this.props.fetchWorkoutsHistory()
 
       axios
         .get(`${process.env.REACT_APP_BASE_URL}/workouts`, {
@@ -41,37 +31,30 @@ class SessionHistory extends React.Component {
         .catch(err => {
           this.setState({ err: { err } });
         });
-    }
+       
+    
   }
 
   render() {
-    let session = this.state.session.workoutHistory;
+    let session = this.props.history;
     let workouts = this.state.workouts;
-
+    
     return (
       <div>
-        <h2>Your Workout History</h2>
+        <h2>Here you can check out the work you have done!</h2>
         <List>
-          {session === undefined ? (
-            // add spiner
-            <p>You have no workout history at the moment</p>
-          ) : (
+          {session  ?  (
             session.map(session => {
               const date1 = session.session_start;
               const date2 = session.session_end;
-              // Extract starting point
-              const startingPoint =
-                date1 === null ? '00:00:00' : date1.slice(11, 17);
-              const endPoint =
-                date2 === null ? '00:00:00' : date2.slice(11, 17);
 
-              function pluralize(hours) {
-                return hours <= 1 ? 'hour' : 'hours';
-              }
+              // Extract starting point
+              const startingPoint = date1 === null ? '00:00:00' : date1.slice(11, 17)
+              const endPoint = date2 === null ? '00:00:00' : date2.slice(11, 17)
 
               function diff(start, end) {
-                start = start.split(':');
-                end = end.split(':');
+                start = start.split(":");
+                end = end.split(":");
                 var startDate = new Date(0, 0, 0, start[0], start[1], 0);
                 var endDate = new Date(0, 0, 0, end[0], end[1], 0);
                 var diff = endDate.getTime() - startDate.getTime();
@@ -81,15 +64,25 @@ class SessionHistory extends React.Component {
 
                 // If using time pickers with 24 hours format, add the below line get exact hours
                 if (hours < 0) hours = hours + 24;
-                if (hours <= 0) {
-                  return `${minutes} minutes`;
-                }
-                return `${hours} ${pluralize(hours)} ${minutes} minutes`;
+
+                return (
+                  (hours <= 9 ? "0" : "") +
+                  hours +
+                  ":" +
+                  (minutes <= 9 ? "0" : "") +
+                  minutes
+                );
               }
+
               return (
                 <ol key={session.id}>
                   <li>
-                  <h4>
+                    <h4>Session Number : {session.id}</h4>
+                    <p>
+                      <strong>Session Start : </strong>
+                      {session.session_start.slice(0, 10)}
+                    </p>
+                    <p>
                       <strong>Workout Name : </strong>
                       {workouts === undefined
                         ? <h2>Loadin workouts...</h2>
@@ -99,19 +92,17 @@ class SessionHistory extends React.Component {
                             }
                             return null
                           })}
-                    </h4>
-                    <p>
-                      <strong>Session Start : </strong>
-                      {session.session_start.slice(0, 10)}
                     </p>
                     <p>
                       <strong>Duration : </strong>
-                      {diff(startingPoint, endPoint)}
+                      {diff(startingPoint, endPoint) === null ? 'No sessions' : diff(startingPoint, endPoint)} minutes.
                     </p>
                   </li>
                 </ol>
               );
             })
+          ) : (
+            <p>Your history is empty for now!</p>
           )}
         </List>
       </div>
@@ -119,7 +110,31 @@ class SessionHistory extends React.Component {
   }
 }
 
-export default SessionHistory;
+
+const mapStateToProps = state => {
+ return {
+   history: state.history.history
+  }
+};
+
+export default connect (
+  mapStateToProps, {
+    fetchWorkoutsHistory
+  }
+)(SessionHistory);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const List = styled.div`
   width: 500px;
@@ -144,7 +159,7 @@ const List = styled.div`
     position: relative;
   }
   h4:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
