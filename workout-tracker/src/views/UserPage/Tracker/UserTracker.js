@@ -17,18 +17,27 @@ const StyledUserTracker = styled.div`
   /* border: 1px solid black; */
 `;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+class UserTracker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      weekly: true,
+      monthly: false,
+      yearly: false,
+    }
+  }
+  handleChange = (value) => {
+            console.log(`selected ${value}`);
+          }
 
-const UserTracker = () => {
-  return (
-    <StyledUserTracker>
+  render() { 
+    return ( 
+      <StyledUserTracker>
       <Select
         defaultValue="weekly"
         style={{ width: 120 }}
         onChange={handleChange}
-      >
+        >
         <Option value="weekly">Weekly</Option>
         <Option value="monthly">Monthly</Option>
         <Option value="yearly">Yearly</Option>
@@ -37,7 +46,8 @@ const UserTracker = () => {
       <MonthlyChart />
       <YearlyChart />
     </StyledUserTracker>
-  );
-};
-
+     );
+  }
+}
+ 
 export default UserTracker;
