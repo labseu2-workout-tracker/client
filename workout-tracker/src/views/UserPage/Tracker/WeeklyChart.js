@@ -2,7 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../store/axiosWithAuth";
 
-class PieChart extends React.Component {
+class WeeklyChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -164,4 +164,4 @@ class PieChart extends React.Component {
   }
 }
 
-export default PieChart;
+export default WeeklyChart;
