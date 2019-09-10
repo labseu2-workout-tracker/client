@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
 
 import ProfileImage from "./ProfileImage";
-import UserTracker from "./Tracker/UserTracker";
+import UserTracker from "./Tracker/Charts/ChartContainer";
 import MyWorkouts from "./MyWorkouts/MyWorkouts";
 import UserHistory from "./UserHistory/UserHistory";
 import UserNotifications from "./UserNotifications/UserNotifications";

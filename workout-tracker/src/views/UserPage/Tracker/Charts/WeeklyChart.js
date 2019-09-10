@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { axiosWithAuth } from "../../../store/axiosWithAuth";
+import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 
 class WeeklyChart extends React.Component {
   constructor(props) {
