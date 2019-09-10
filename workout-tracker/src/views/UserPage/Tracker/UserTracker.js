@@ -17,6 +17,10 @@ const StyledUserTracker = styled.div`
   /* border: 1px solid black; */
 `;
 
+function handleChange(value) {
+  console.log(`selected ${value}`);
+}
+
 const UserTracker = () => {
   return (
       <StyledUserTracker>
