@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
 import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { connect } from "react-redux";
+import { Pagination } from 'antd';
 
 class SessionHistory extends React.Component {
   componentDidMount() {
