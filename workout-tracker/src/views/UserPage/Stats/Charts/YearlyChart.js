@@ -5,8 +5,8 @@ import styled from "styled-components";
 
 const StyledYearlyChart = styled.div`
 
+  height: 1000px;
 .apexcharts-title-text{
-  height: 500px;
 }
 `;
 
@@ -144,9 +144,13 @@ class YearlyChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <StyledYearlyChart
+      style={{ position: "relative", width: "100%", height: "1000px" }}
+      >
         <h2>Yearly Results</h2>
         <Doughnut
+      style={{ position: "relative", width: "100%", height: "1000px" }}
+
           data={{
             labels: this.state.labels,
             datasets: [
@@ -158,7 +162,7 @@ class YearlyChart extends React.Component {
             ]
           }}
         />
-      </div>
+      </StyledYearlyChart>
     );
   }
 }
