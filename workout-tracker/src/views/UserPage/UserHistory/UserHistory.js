@@ -24,12 +24,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 9
+        maxValue: 5
       });
     } else {
       this.setState({
         minValue: this.state.maxValue,
-        maxValue: value * 9
+        maxValue: value * 5
       });
     }
   };
@@ -42,8 +42,8 @@ class SessionHistory extends React.Component {
       <div>
         <h2>Here you can check out the work you have done!</h2>
         <List>
-          {history[0] ? (
-            history.slice(this.state.minValue, this.state.maxValue).map(session => {
+          {history[0] ? (<div>
+            {history.slice(this.state.minValue, this.state.maxValue).map(session => {
               const date1 = session.session_start;
               const date2 = session.session_end;
 
@@ -101,7 +101,7 @@ class SessionHistory extends React.Component {
                   </li>
                 </ol>
               );
-            })
+            })}</div>
           ) : (
             <p>You have no workout history at the moment</p>
           )}
