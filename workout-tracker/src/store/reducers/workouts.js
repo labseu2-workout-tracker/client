@@ -52,7 +52,6 @@ const workouts = (state = initialState, action) => {
       const filterCurrentExercise = state.allExercises.filter(
         exercise => exercise.exercise_name === action.current_exercise
       );
-      debugger;
       return {
         ...state,
         currentExercise: filterCurrentExercise

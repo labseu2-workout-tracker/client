@@ -266,15 +266,13 @@ class WorkoutSession extends React.Component {
             onCancel={this.handleCancel}
             onOk={this.handleOk}
           >
-            <div className="video">
-              <video width="100%" height="auto" autoPlay controls>
-                <source
-                  src={this.props.currentExercise[0].video}
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+            {this.state.visible && <video width="100%" height="auto" autoPlay controls>
+              <source
+                src={this.props.currentExercise[0].video}
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>}
           </Modal>
         ) : null}
       </StyledWorkoutSession>
