@@ -1,5 +1,6 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
+import UserHistory from "./UserHistory/UserHistory";
 import styled from "styled-components";
 import { Row, Col } from "antd";
 
@@ -17,7 +18,9 @@ class Stats extends React.Component {
           <Col span={12}>
             <ChartContainer />
           </Col>
-          <Col span={12}>col-12</Col>
+          <Col span={12}>
+            <UserHistory />
+          </Col>
         </Row>
       </StyledStats>
     );
