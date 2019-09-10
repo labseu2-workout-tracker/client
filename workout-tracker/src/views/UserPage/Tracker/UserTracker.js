@@ -6,6 +6,9 @@ import WeeklyChart from './WeeklyChart';
 import MonthlyChart from './MonthlyChart';
 import YearlyChart from './YearlyChart';
 import styled from 'styled-components';
+import { Select } from 'antd';
+
+const { Option } = Select;
 
 const StyledUserTracker = styled.div`
   display: flex;
