@@ -65,11 +65,11 @@ class YearlyChart extends React.Component {
               return dateArray;
             }
 
-            let allDaysInWeek = Object.values(
+            let allDaysInYear = Object.values(
               getDates(first_day_year, last_day_year)
             );
          
-            let daysInWeek = [];
+            let daysInYear = [];
 
             Date.prototype.yyyymmdd = function() {
               let mm = this.getMonth() + 1;
@@ -82,20 +82,20 @@ class YearlyChart extends React.Component {
               ].join("");
             };
 
-            for (let i = 0; i < allDaysInWeek.length; i++) {
-              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            for (let i = 0; i < allDaysInYear.length; i++) {
+              daysInYear.push(allDaysInYear[i].yyyymmdd().toString());
             }
 
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInWeek.length; j++) {
+            for (let j = 0; j < daysInYear.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInWeek[j]
+                    .join("") === daysInYear[j]
                 ) {
                   resultOfWeek.push(userHistory[i]);
                 }
