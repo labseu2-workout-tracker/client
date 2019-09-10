@@ -89,8 +89,8 @@ class MonthlyChart extends React.Component {
               return dateArray;
             }
 
-            let allDaysInWeek = Object.values(getDates(firstDay, lastDay));
-            let daysInWeek = [];
+            let allDaysInMonth = Object.values(getDates(firstDay, lastDay));
+            let daysInMonth = [];
 
             Date.prototype.yyyymmdd = function() {
               let mm = this.getMonth() + 1;
@@ -103,20 +103,20 @@ class MonthlyChart extends React.Component {
               ].join("");
             };
 
-            for (let i = 0; i < allDaysInWeek.length; i++) {
-              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            for (let i = 0; i < allDaysInMonth.length; i++) {
+              daysInMonth.push(allDaysInMonth[i].yyyymmdd().toString());
             }
 
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInWeek.length; j++) {
+            for (let j = 0; j < daysInMonth.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInWeek[j]
+                    .join("") === daysInMonth[j]
                 ) {
                   resultOfWeek.push(userHistory[i]);
                 }
