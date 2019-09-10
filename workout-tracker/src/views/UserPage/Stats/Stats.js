@@ -1,26 +1,27 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
 import styled from "styled-components";
-import { Row, Col } from 'antd';
+import { Row, Col } from "antd";
 
-const StyledStats = styled.div`
-`;
+const StyledStats = styled.div``;
 
 class Stats extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = {};
   }
-  render() { 
-    return ( 
+  render() {
+    return (
       <StyledStats>
- <Row>
-      <Col span={12}>col-12</Col>
-      <Col span={12}>col-12</Col>
-    </Row>
+        <Row>
+          <Col span={12}>
+            <ChartContainer />
+          </Col>
+          <Col span={12}>col-12</Col>
+        </Row>
       </StyledStats>
-     );
+    );
   }
 }
- 
+
 export default Stats;
