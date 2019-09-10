@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
 
 import ProfileImage from "./ProfileImage";
-import UserTracker from "./Stats/Charts/ChartContainer";
+import Stats from "./Stats/Stats";
 import MyWorkouts from "./MyWorkouts/MyWorkouts";
 import UserHistory from "./UserHistory/UserHistory";
 import UserNotifications from "./UserNotifications/UserNotifications";
@@ -44,7 +44,7 @@ const UserPage = props => {
       <Content>
         <Switch>
           <Route path={"/Dashboard/myworkouts"} component={MyWorkouts} />
-          <Route path={"/Dashboard/tracker"} component={UserTracker} />
+          <Route path={"/Dashboard/stats"} component={Stats} />
           <Route path={"/Dashboard/history"} component={UserHistory} />
           <Route
             path={"/Dashboard/notifications"}
