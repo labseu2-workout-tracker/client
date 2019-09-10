@@ -3,7 +3,27 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge } from "antd";
 import styled from "styled-components";
 
-
+const StyledTheCalendar = styled.div`
+  .events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .events .ant-badge-status {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+  .notes-month {
+    text-align: center;
+    font-size: 28px;
+  }
+  .notes-month section {
+    font-size: 28px;
+  }
+`;
 
 class TheCalendar extends React.Component {
   constructor(props) {
