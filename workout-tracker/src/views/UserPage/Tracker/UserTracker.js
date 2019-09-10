@@ -4,6 +4,7 @@ import React from 'react';
 // import 'antd/dist/antd.css';
 import WeeklyChart from './WeeklyChart';
 import MonthlyChart from './MonthlyChart';
+import YearlyChart from './YearlyChart';
 import styled from 'styled-components';
 import { Menu } from 'antd';
 
@@ -19,6 +20,7 @@ const UserTracker = () => {
       <Div>
         <WeeklyChart />
         <MonthlyChart/>
+        <YearlyChart/>
       </Div>
   );
 };
