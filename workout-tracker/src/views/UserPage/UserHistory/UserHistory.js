@@ -43,7 +43,7 @@ class SessionHistory extends React.Component {
         <h2>Here you can check out the work you have done!</h2>
         <List>
           {history[0] ? (
-            history.map(session => {
+            history.slice(this.state.minValue, this.state.maxValue).map(session => {
               const date1 = session.session_start;
               const date2 = session.session_end;
 
