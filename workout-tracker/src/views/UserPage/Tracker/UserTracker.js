@@ -7,7 +7,7 @@ import MonthlyChart from './MonthlyChart';
 import YearlyChart from './YearlyChart';
 import styled from 'styled-components';
 
-const Div = styled.div`
+const StyledUserTracker = styled.div`
   display: flex;
   margin-top: 20px;
   height: 400px;
@@ -16,11 +16,11 @@ const Div = styled.div`
 
 const UserTracker = () => {
   return (
-      <Div>
+      <StyledUserTracker>
         <WeeklyChart />
         <MonthlyChart/>
         <YearlyChart/>
-      </Div>
+      </StyledUserTracker>
   );
 };
 
