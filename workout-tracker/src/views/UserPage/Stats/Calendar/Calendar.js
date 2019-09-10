@@ -97,7 +97,6 @@ class TheCalendar extends React.Component {
               }
             }
 
-            console.log(theResult);
             this.setState({
               result: theResult
             });
@@ -107,21 +106,38 @@ class TheCalendar extends React.Component {
 
   getListData = value => {
     let listData;
-    console.log(value._d.toString().match(/.{}/g))
-  //   const monthNames = ["January", "February", "March", "April", "May", "June",
-  //   "July", "August", "September", "October", "November", "December"
-  // ];
-  
-  // const d = new Date();
-  // monthNames[d.getMonth()].match(/.{3}/g)[0];
+    let lettersOfMonth = value._d.toString();
+    const lettersOfTheMonth =
+      lettersOfMonth[4] + lettersOfMonth[5] + lettersOfMonth[6];
+
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    const d = new Date();
+    const lettersCurrentMonth = monthNames[d.getMonth()].match(/.{3}/g)[0];
+
     for (let i = 0; i < this.state.result.length; i++) {
-      switch (value.date()) {
-        case this.state.result[i].day:
-          listData = [
-            { type: "success", content: this.state.result[i].workout_name }
-          ];
-          break;
-        default:
+      if (lettersOfTheMonth === lettersCurrentMonth) {
+        switch (value.date()) {
+          case this.state.result[i].day:
+            listData = [
+              { type: "success", content: this.state.result[i].workout_name }
+            ];
+            break;
+          default:
+        }
       }
     }
     return listData || [];
@@ -130,9 +146,7 @@ class TheCalendar extends React.Component {
   dateCellRender = value => {
     const listData = this.getListData(value);
     return (
-      <ul className="events"
-      style={{listStyle: "none"}}
-      >
+      <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
           <li key={item.content}>
             <Badge status={item.type} text={item.content} />
