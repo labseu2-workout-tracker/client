@@ -3,6 +3,13 @@ import { Doughnut } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 
+const StyledYearlyChart = styled.div`
+
+.apexcharts-title-text{
+  height: 500px;
+}
+`;
+
 class YearlyChart extends React.Component {
   constructor(props) {
     super(props);
