@@ -6,7 +6,6 @@ import WeeklyChart from './WeeklyChart';
 import MonthlyChart from './MonthlyChart';
 import YearlyChart from './YearlyChart';
 import styled from 'styled-components';
-import { Menu } from 'antd';
 
 const Div = styled.div`
   display: flex;
