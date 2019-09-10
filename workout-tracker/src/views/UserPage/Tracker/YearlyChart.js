@@ -68,7 +68,7 @@ class YearlyChart extends React.Component {
             let allDaysInWeek = Object.values(
               getDates(first_day_year, last_day_year)
             );
-            debugger
+         
             let daysInWeek = [];
 
             Date.prototype.yyyymmdd = function() {
