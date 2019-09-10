@@ -1,6 +1,7 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
 import styled from "styled-components";
+import { Row, Col } from 'antd';
 
 const StyledStats = styled.div`
 `;
