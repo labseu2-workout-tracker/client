@@ -20,6 +20,20 @@ class SessionHistory extends React.Component {
     this.props.fetchWorkouts();
   }
 
+  handleChange = value => {
+    if (value <= 1) {
+      this.setState({
+        minValue: 0,
+        maxValue: 9
+      });
+    } else {
+      this.setState({
+        minValue: this.state.maxValue,
+        maxValue: value * 9
+      });
+    }
+  };
+
   render() {
     let history = this.props.history;
     let workouts = this.props.workouts;
