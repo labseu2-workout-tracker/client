@@ -14,7 +14,10 @@ class Stats extends Component {
   render() { 
     return ( 
       <StyledStats>
-
+ <Row>
+      <Col span={12}>col-12</Col>
+      <Col span={12}>col-12</Col>
+    </Row>
       </StyledStats>
      );
   }
