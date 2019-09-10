@@ -12,9 +12,9 @@ const { Option } = Select;
 
 const StyledChartContainer = styled.div`
   display: flex;
-  margin-top: 20px;
-  height: 400px;
-  /* border: 1px solid black; */
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 
   .off {
     display: none;
@@ -49,15 +49,6 @@ class ChartContainer extends React.Component {
   render() {
     return (
       <StyledChartContainer>
-        <Select
-          defaultValue="weekly"
-          style={{ width: 120 }}
-          onChange={this.handleChange}
-        >
-          <Option value="weekly">Weekly</Option>
-          <Option value="monthly">Monthly</Option>
-          <Option value="yearly">Yearly</Option>
-        </Select>
         <div className={this.state.weekly ? "weekly" : "off"}>
         <WeeklyChart />
         </div>
@@ -67,6 +58,15 @@ class ChartContainer extends React.Component {
         <div className={this.state.yearly ? "yearly" : "off"}>
         <YearlyChart />
         </div>
+        <Select
+          defaultValue="weekly"
+          style={{ width: 120 }}
+          onChange={this.handleChange}
+        >
+          <Option value="weekly">Weekly</Option>
+          <Option value="monthly">Monthly</Option>
+          <Option value="yearly">Yearly</Option>
+        </Select>
       </StyledChartContainer>
     );
   }

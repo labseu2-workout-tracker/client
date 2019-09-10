@@ -145,7 +145,7 @@ class WeeklyChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "60%", height: "50%" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
         <h2>Weekly Results</h2>
         <Pie
           data={{

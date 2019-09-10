@@ -5,14 +5,16 @@ import styled from "styled-components";
 
 const StyledMonthlyChart = styled.div`
 
-#SvgjsText1101 {
-  font-weight: bold;
-  font-size: 1.5rem;
-}
+  .apexcharts-title-text {
+    font-weight: bold;
+    font-size: 1rem;
+  }
 
-.apexcharts-legend {
-text-align: left;
-}
+  .apexcharts-legend {
+    text-align: left;
+    font-weight: bold;
+    font-size: 2rem;
+  }
 `;
 
 class MonthlyChart extends React.Component {
@@ -37,19 +39,19 @@ class MonthlyChart extends React.Component {
         title: {
           text: "Monthly Results"
         },
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200
-              },
-              legend: {
-                position: "bottom"
-              }
-            }
-          }
-        ]
+        // responsive: [
+        //   {
+        //     breakpoint: 480,
+        //     options: {
+        //       chart: {
+        //         width: 200
+        //       },
+        //       legend: {
+        //         position: "bottom"
+        //       }
+        //     }
+        //   }
+        // ]
       },
       series: [25, 15, 44, 55, 41, 17]
     };
@@ -165,7 +167,7 @@ class MonthlyChart extends React.Component {
           options={{ ...this.state.options, labels: this.state.labels }}
           series={this.state.series}
           type="pie"
-          width="500px"
+          width="100%"
         />
       </StyledMonthlyChart>
     );
