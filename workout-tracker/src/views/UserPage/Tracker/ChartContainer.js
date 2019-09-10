@@ -10,7 +10,7 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-const StyledUserTracker = styled.div`
+const StyledChartContainer = styled.div`
   display: flex;
   margin-top: 20px;
   height: 400px;
@@ -25,7 +25,7 @@ const StyledUserTracker = styled.div`
   }
 `;
 
-class UserTracker extends React.Component {
+class ChartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +48,7 @@ class UserTracker extends React.Component {
 
   render() {
     return (
-      <StyledUserTracker>
+      <StyledChartContainer>
         <Select
           defaultValue="weekly"
           style={{ width: 120 }}
@@ -67,9 +67,9 @@ class UserTracker extends React.Component {
         <div className={this.state.yearly ? "yearly" : "off"}>
         <YearlyChart />
         </div>
-      </StyledUserTracker>
+      </StyledChartContainer>
     );
   }
 }
 
-export default UserTracker;
+export default ChartContainer;
