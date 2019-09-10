@@ -96,7 +96,6 @@ class TheCalendar extends React.Component {
                 }
               }
             }
-
             this.setState({
               result: theResult
             });

@@ -145,12 +145,10 @@ class YearlyChart extends React.Component {
   render() {
     return (
       <StyledYearlyChart
-      style={{ position: "relative", width: "100%", height: "1000px" }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
       >
         <h2>Yearly Results</h2>
         <Doughnut
-      style={{ position: "relative", width: "100%", height: "1000px" }}
-
           data={{
             labels: this.state.labels,
             datasets: [
