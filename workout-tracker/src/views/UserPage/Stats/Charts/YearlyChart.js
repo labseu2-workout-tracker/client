@@ -1,6 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import styled from "styled-components";
 
 class YearlyChart extends React.Component {
   constructor(props) {
