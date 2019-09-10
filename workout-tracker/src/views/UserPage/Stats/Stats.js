@@ -1,4 +1,5 @@
 import React from "react";
+import ChartContainer from "./Charts/ChartContainer";
 import styled from "styled-components";
 
 const StyledStats = styled.div`
@@ -10,7 +11,11 @@ class Stats extends Component {
     this.state = {  }
   }
   render() { 
-    return (  );
+    return ( 
+      <StyledStats>
+
+      </StyledStats>
+     );
   }
 }
  
