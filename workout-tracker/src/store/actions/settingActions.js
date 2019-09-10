@@ -19,8 +19,8 @@ export const fetchSettings = () => dispatch => {
     });
   };
   
-  export const updateSettings = updatedSettings => dispatch => {
-  axiosWithAuth()
+  export const updateSettings = updatedSettings => dispatch => {  
+    axiosWithAuth()
     .put(settings, updatedSettings)
     .then(res => {
          dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data.user });

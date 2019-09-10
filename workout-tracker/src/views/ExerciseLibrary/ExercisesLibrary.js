@@ -1,43 +1,10 @@
 import React from "react";
 import AllExercises from "../../components/Exercises/AllExercises";
 import SingleExercise from "../../components/Exercises/SingleExercise";
-import {
-  fetchExercises,
-  showMuscleGroup,
-  showSingleExercise,
-  closeSingleExercise,
-  loadMore,
-  searchExercise,
-  showEquipment
-} from "../../store/actions/exerciseActions";
+import { closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchName: ""
-    };
-  }
-
-  componentDidMount = () => {
-    this.props.fetchExercises();
-  };
-
-  handleChange = e => {
-    this.setState({
-      searchName: e.target.value
-    });
-  };
-
-  searchForName = () => {
-    this.props.searchExercise(this.state.searchName);
-
-    this.setState({
-      searchName: ""
-    });
-  };
-
   render() {
     if (this.props.singleExercise) {
       return (
@@ -47,37 +14,19 @@ class ExerciseLibrary extends React.Component {
         />
       );
     }
-    return (
-      <AllExercises
-        exercises={this.props.exercises}
-        showMuscleGroup={e => this.props.showMuscleGroup(e.target.textContent)}
-        showSingleExercise={this.props.showSingleExercise}
-        loadMore={this.props.loadMore}
-        // searchName={this.state.searchName}
-        // handleChange={this.handleChange}
-        // searchForName={this.searchForName}
-        showEquipment={e => this.props.showEquipment(e.target.textContent)}
-      />
-    );
+    return <AllExercises />;
   }
 }
 
 const mapStateToProps = state => {
   return {
-    exercises: state.exercises.exercises,
-    singleExercise: state.exercises.singleExercise
+    singleExercise: state.exercises.singleExercise,
   };
 };
 
 export default connect(
   mapStateToProps,
   {
-    fetchExercises,
-    showMuscleGroup,
-    showSingleExercise,
-    closeSingleExercise,
-    loadMore,
-    searchExercise,
-    showEquipment
+    closeSingleExercise
   }
 )(ExerciseLibrary);
