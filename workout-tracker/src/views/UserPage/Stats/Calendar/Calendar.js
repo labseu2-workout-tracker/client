@@ -196,10 +196,12 @@ class TheCalendar extends React.Component {
 
   render() {
     return (
-      <Calendar
-        dateCellRender={this.dateCellRender}
-        monthCellRender={this.monthCellRender}
-      />
+      <StyledTheCalendar>
+        <Calendar
+          dateCellRender={this.dateCellRender}
+          monthCellRender={this.monthCellRender}
+        />
+      </StyledTheCalendar>
     );
   }
 }
