@@ -207,7 +207,7 @@ class WorkoutCalendar extends React.Component {
         {listData.map(item => (
           <li key={item.content}>
             {/* <Badge status={item.type} className="status" /> */}
-            <div>
+            <div className="status">
                 <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Basic Modal"
