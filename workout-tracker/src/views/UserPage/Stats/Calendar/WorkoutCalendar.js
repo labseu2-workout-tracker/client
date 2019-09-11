@@ -43,7 +43,8 @@ const StyledWorkoutCalendar = styled.div`
 
   .fa-info-circle {
     color: green;
-    /* font-size: 1.5rem; */
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
   }
 
   /* @media (max-width: 950px) {
@@ -64,7 +65,13 @@ const StyledWorkoutCalendar = styled.div`
     .status-text {
       display: none;
     }
-  } */
+} */
+
+  @media (max-width: 600px) {
+    .fa-info-circle {
+      font-size: 1rem;
+    }
+  }
 `;
 
 class WorkoutCalendar extends React.Component {
