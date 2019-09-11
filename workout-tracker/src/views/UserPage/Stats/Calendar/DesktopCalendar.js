@@ -218,6 +218,7 @@ class DesktopCalendar extends React.Component {
         <Calendar
           dateCellRender={this.dateCellRender}
           monthCellRender={this.monthCellRender}
+          onSelect={this.showDate}
         />
       </StyledDesktopCalendar>
     );
