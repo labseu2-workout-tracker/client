@@ -144,7 +144,7 @@ class DesktopCalendar extends React.Component {
             }
             this.setState({
               result: theResult,
-              history: res.data.workoutHistory,
+              history: res.data.workoutHistory
             });
           });
       });
@@ -247,11 +247,16 @@ class DesktopCalendar extends React.Component {
   handleOk = e => {
     console.log(e);
     this.setState({
-      visible: false,
+      visible: false
     });
   };
 
-
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
 
   render() {
     return (
