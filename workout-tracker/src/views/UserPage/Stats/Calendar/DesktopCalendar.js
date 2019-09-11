@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge, Modul, Button } from "antd";
+import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 
 const StyledDesktopCalendar = styled.div`
@@ -53,7 +53,7 @@ class DesktopCalendar extends React.Component {
     this.state = {
       result: "",
       history: null,
-      visible: false
+      visible: false,
     };
   }
 
@@ -179,7 +179,7 @@ class DesktopCalendar extends React.Component {
         switch (value.date()) {
           case this.state.result[i].day:
             listData = [
-              { type: "success", content: this.state.result[i].workout_name }
+              { type: "success", content: this.state.result[i].workout_name, index: i }
             ];
             break;
           default:
@@ -194,8 +194,23 @@ class DesktopCalendar extends React.Component {
     return (
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type} className="status" />
+          <li key={item.content} onClick={() => this.saveIndex(item.index)}>
+            {/* <Badge status={item.type} className="status" /> */}
+            <div>
+        <Button type="primary" onClick={this.showModal} className={`modal${item.index}`}>
+          Open Modal
+        </Button>
+        <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </div>
             <Badge
               status={item.type}
               text={item.content}
@@ -223,7 +238,7 @@ class DesktopCalendar extends React.Component {
     ) : null;
   };
 
-  showWorkoutsForDate = value => {
+  showWorkoutsForDate = (value) => {
     const formatDate = date => {
       var d = new Date(date),
         month = "" + (d.getMonth() + 1),
@@ -241,8 +256,21 @@ class DesktopCalendar extends React.Component {
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
-    console.log(filterWorkoutsForDate);
+    // console.log(filterWorkoutsForDate);
+    console.log(value)
   };
+  
+  saveIndex = (index) => {
+  let modul = document.querySelector(`.modal${index}`);
+
+  modul.click();
+};
+
+showModal = () => {
+  this.setState({
+    visible: true,
+  });
+};
 
   handleOk = e => {
     console.log(e);
