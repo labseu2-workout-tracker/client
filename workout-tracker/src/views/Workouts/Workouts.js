@@ -79,9 +79,9 @@ class Workouts extends React.Component {
                     >
                       Start Workout
                     </Link>                   
-                    <Button
+                    <p
                       className="btn"                    
-                    onClick={() => this.addWorkout(workout.id)}>Add Workout</Button>
+                    onClick={() => this.addWorkout(workout.id)}>Add Workout</p>
                   </div>
                 );
               })
