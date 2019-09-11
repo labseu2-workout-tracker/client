@@ -119,7 +119,6 @@ class TheCalendar extends React.Component {
                 }
               }
             }
-            console.log(theResult)
             this.setState({
               result: theResult
             });

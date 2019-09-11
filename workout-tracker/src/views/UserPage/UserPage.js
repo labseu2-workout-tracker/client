@@ -20,7 +20,7 @@ const { Sider, Content } = Layout;
 const UserPage = props => {
   const { fetchSettings } = props;
   useEffect(() => {
-    props.fetchSettings();
+    fetchSettings();
   }, []);
 
   return (
