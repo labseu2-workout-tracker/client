@@ -1,7 +1,7 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Polar } from "react-chartjs-2";
-import styled from "styled-components";
+
 
 const StyledMonthlyChart = styled.div`
   width: 100%;
