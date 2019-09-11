@@ -7,7 +7,7 @@ import {
 } from "../../store/actions/workoutsActions";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { message, Button } from 'antd';
+import { message } from 'antd';
 
 const StyledWorkouts = styled.div`
 text-align: center;
