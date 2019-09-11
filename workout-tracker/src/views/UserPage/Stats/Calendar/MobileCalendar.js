@@ -1,8 +1,10 @@
 import React from "react";
 import { Calendar } from "antd";
+import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 
-const StyledMobileCalendar = styled.div``;
+const StyledMobileCalendar = styled.div`
+`;
 
 class MobileCalendar extends React.Component {
   constructor(props) {
@@ -10,6 +12,10 @@ class MobileCalendar extends React.Component {
     this.state = {};
   }
 
+  componentDidMount = () => {
+
+  };
+  
   showDate = value => {
     function formatDate(date) {
       var d = new Date(date),
