@@ -215,8 +215,8 @@ class WorkoutCalendar extends React.Component {
                 onCancel={this.handleCancel}
               >
                 {this.state.workoutsForDate
-                  ? this.state.workoutsForDate.map((workout, index) => (
-                      <p key={index}>{workout.workout_id}</p>
+                  ? this.state.workoutsForDate.map((workoutName, index) => (
+                      <p key={index}>{workoutName}</p>
                     ))
                   : null}
               </Modal>
@@ -266,7 +266,7 @@ class WorkoutCalendar extends React.Component {
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
-    workoutsForDay = [];
+    let workoutsForDay = [];
 
     axiosWithAuth()
       .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
@@ -274,16 +274,14 @@ class WorkoutCalendar extends React.Component {
         for (let i = 0; i < res.data.length; i++) {
           for (let j = 0; j < filterWorkoutsForDate.length; j++) {
             if (res.data[i].id === filterWorkoutsForDate[j].workout_id) {
-            w
+              workoutsForDay.push(res.data[i].workout_name);
             }
           }
         }
+        this.setState({
+          workoutsForDate: workoutsForDay
+        });
       });
-
-    console.log(filterWorkoutsForDate);
-    this.setState({
-      workoutsForDate: filterWorkoutsForDate
-    });
   };
 
   showModal = () => {
