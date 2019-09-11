@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge } from "antd";
+import { Calendar, Badge, Modul, Button } from "antd";
 import styled from "styled-components";
 
 const StyledDesktopCalendar = styled.div`
