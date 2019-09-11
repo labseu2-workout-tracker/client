@@ -48,46 +48,42 @@ class TheCalendar extends React.Component {
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            let date = new Date();
-            let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-            let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            let year = new Date().getFullYear();
+            let first_day_year = new Date(year, 0, 1);
+            let last_day_year = new Date(year, 11, 31);
 
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
-            };
-
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
               }
-              return dateArray;
-            }
-
-            let allDaysInMonth = Object.values(getDates(firstDay, lastDay));
-            let daysInMonth = [];
-
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
-
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
+              return a;
             };
+            
+            let daylist = getDaysArray(
+              first_day_year,
+              last_day_year
+            );
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            for (let i = 0; i < allDaysInMonth.length; i++) {
-              daysInMonth.push(allDaysInMonth[i].yyyymmdd().toString());
+            let daysInYear = [];
+
+            function formatDate(date) {
+              var d = new Date(date),
+                  month = '' + (d.getMonth() + 1),
+                  day = '' + d.getDate(),
+                  year = d.getFullYear();
+          
+              if (month.length < 2) 
+                  month = '0' + month;
+              if (day.length < 2) 
+                  day = '0' + day;
+          
+              return [year, month, day].join('-');
+          }
+          
+            for (let i = 0; i < daylist.length; i++) {
+              daysInYear.push(formatDate(daylist[i]).split("-").join(""));
             }
-
-            let userHistory = [...res.data.workoutHistory];
-            let resultOfWeek = [];
 
             for (let j = 0; j < daysInMonth.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
