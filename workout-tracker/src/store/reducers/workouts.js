@@ -107,12 +107,6 @@ const workouts = (state = initialState, action) => {
         myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null
       };
 
-    case type.CLOSE_WINDOW:
-      return {
-        ...state,
-        addedWorkout: false
-      };
-
     default:
       return state;
   }
