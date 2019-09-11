@@ -2,17 +2,17 @@ import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
-import uuid from 'uuidv4'
+import uuid from "uuidv4";
 
 const StyledWorkoutCalendar = styled.div`
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+    height: 60px;
+  }
 
-.ant-fullcalendar-fullscreen .ant-fullcalendar-month, .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-height: 60px;
-}
-
-.ant-radio-button-wrapper {
-  display: none;
-}
+  .ant-radio-button-wrapper {
+    display: none;
+  }
 
   .events {
     list-style: none;
@@ -37,7 +37,6 @@ height: 60px;
   } */
 
   .fa-info-circle {
-    margin: 1rem 0 0 1.4rem;
     color: green;
     font-size: 1.5rem;
   }
@@ -198,7 +197,7 @@ class WorkoutCalendar extends React.Component {
             listData = [
               {
                 type: "success",
-                content: this.state.result[i].workout_name,
+                content: this.state.result[i].workout_name
               }
             ];
             break;
@@ -213,7 +212,7 @@ class WorkoutCalendar extends React.Component {
     const listData = this.getListData(value);
     return (
       <ul className="events" style={{ listStyle: "none" }}>
-        {listData.map((item) => (
+        {listData.map(item => (
           <li key={uuid()}>
             <div>
               <i onClick={this.showModal} className="fa fa-info-circle" />
@@ -228,7 +227,7 @@ class WorkoutCalendar extends React.Component {
                 ]}
               >
                 {this.state.workoutsForDate
-                  ? this.state.workoutsForDate.map((workoutName) => (
+                  ? this.state.workoutsForDate.map(workoutName => (
                       <p key={uuid()}>{workoutName}</p>
                     ))
                   : null}
