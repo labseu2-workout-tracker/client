@@ -24,28 +24,31 @@ class MonthlyChart extends React.Component {
     super(props);
 
     this.state = {
-      labels: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
+      labels: ["Red", "Green", "Yellow"],
+      data: [],
+      backgroundColor: [
+        "#f6f078",
+        "#01d28e",
+        "#434982",
+        "#730068",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
       ],
-      options: {
-        theme: {
-          monochrome: {
-            enabled: true
-          }
-        },
-        title: {
-          text: "Monthly Results"
-        }
-      
-      },
-      series: [25, 15, 44, 55, 41, 17]
+      hoverBackgroundColor: [
+        "#f6f078",
+        "#01d28e",
+        "#434982",
+        "#730068",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
+      ]
     };
   }
+
 
   componentDidMount = () => {
     let workoutNames = [];
