@@ -72,7 +72,3 @@ export const addWorkout = (workout_id) => {
 export const deleteWorkout = (workout_id) => {
   return { type: DELETE_WORKOUT, workout_id: workout_id };
 };
-
-export const closeWindow = () => {
-  return { type: CLOSE_WINDOW };
-};
