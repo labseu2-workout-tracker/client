@@ -4,10 +4,9 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 
 const StyledYearlyChart = styled.div`
-
   height: 1000px;
-.apexcharts-title-text{
-}
+  .apexcharts-title-text {
+  }
 `;
 
 class YearlyChart extends React.Component {
@@ -54,30 +53,41 @@ class YearlyChart extends React.Component {
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
             let year = new Date().getFullYear();
-
             let first_day_year = new Date(year, 0, 1);
             let last_day_year = new Date(year, 11, 31);
 
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
-            };
+            // Date.prototype.addDays = function(days) {
+            //   let date = new Date(this.valueOf());
+            //   date.setDate(date.getDate() + days);
+            //   return date;
+            // };
 
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
+            // function getDates(startDate, stopDate) {
+            //   let dateArray = new Array();
+            //   let currentDate = startDate;
+            //   while (currentDate <= stopDate) {
+            //     dateArray.push(new Date(currentDate));
+            //     currentDate = currentDate.addDays(1);
+            //   }
+            //   return dateArray;
+            // }
+
+            // let allDaysInYear = Object.values(
+            //   getDates(first_day_year, last_day_year)
+            // ); console.log(allDaysInYear)
+
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
               }
-              return dateArray;
-            }
-
-            let allDaysInYear = Object.values(
-              getDates(first_day_year, last_day_year)
+              return a;
+            };
+            var daylist = getDaysArray(
+              first_day_year,
+              last_day_year
             );
-         
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+
             let daysInYear = [];
 
             Date.prototype.yyyymmdd = function() {
@@ -91,8 +101,8 @@ class YearlyChart extends React.Component {
               ].join("");
             };
 
-            for (let i = 0; i < allDaysInYear.length; i++) {
-              daysInYear.push(allDaysInYear[i].yyyymmdd().toString());
+            for (let i = 0; i < daylist.length; i++) {
+              daysInYear.push(daylist[i].yyyymmdd().toString());
             }
 
             let userHistory = [...res.data.workoutHistory];
@@ -146,7 +156,7 @@ class YearlyChart extends React.Component {
   render() {
     return (
       <StyledYearlyChart
-      style={{ position: "relative", width: "100%", height: "100%" }}
+        style={{ position: "relative", width: "100%", height: "100%" }}
       >
         <h2>Yearly Results</h2>
         <Doughnut
