@@ -60,28 +60,6 @@ class WeeklyChart extends React.Component {
 
             let startAndEndWeek = startAndEndOfWeek(new Date());
 
-            // Date.prototype.addDays = function(days) {
-            //   let date = new Date(this.valueOf());
-            //   date.setDate(date.getDate() + days);
-            //   return date;
-            // };
-
-            // function getDates(startDate, stopDate) {
-            //   let dateArray = new Array();
-            //   let currentDate = startDate;
-            //   while (currentDate <= stopDate) {
-            //     dateArray.push(new Date(currentDate));
-            //     currentDate = currentDate.addDays(1);
-            //   }
-            //   return dateArray;
-            // }
-
-            // let allDaysInWeek = Object.values(
-            //   getDates(startAndEndWeek[0], startAndEndWeek[1])
-            // );
-
-            // console.log(allDaysInWeek)
-
             var getDaysArray = function(s, e) {
               for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
                 a.push(new Date(d));
