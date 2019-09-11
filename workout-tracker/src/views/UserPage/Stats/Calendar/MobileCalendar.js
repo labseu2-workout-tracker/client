@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledMobileCalendar = styled.div``;
 
-class MobileCalendar extends Component {
+class MobileCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
