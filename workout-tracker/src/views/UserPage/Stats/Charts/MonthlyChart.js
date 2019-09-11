@@ -2,9 +2,6 @@ import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Polar } from "react-chartjs-2";
 
-
-
-
 class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
@@ -142,7 +139,7 @@ class MonthlyChart extends React.Component {
     return (
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
         <h2>Monthly Results</h2>
-        <Pie
+        <Polar
           data={{
             labels: this.state.labels,
             datasets: [
