@@ -6,7 +6,6 @@ const initialState = {
   allExercises: null,
   currentExercise: null,
   myWorkouts: null,
-  addedWorkout: false
 };
 
 const removeDuplicates = (arr, comp) => {
@@ -96,7 +95,6 @@ const workouts = (state = initialState, action) => {
         myWorkouts: state.myWorkouts
           ? removeDuplicates(mergeWorkouts, "id")
           : filterWorkout,
-        addedWorkout: true
       };
 
     case type.DELETE_WORKOUT:
