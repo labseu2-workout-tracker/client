@@ -266,6 +266,9 @@ class WorkoutCalendar extends React.Component {
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
+    .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
+      .then(res => {})
+
     this.setState({
       workoutsForDate: filterWorkoutsForDate
     });
@@ -277,13 +280,13 @@ class WorkoutCalendar extends React.Component {
     });
   };
 
-  handleOk = e => {
+  handleOk = () => {
     this.setState({
       visible: false
     });
   };
 
-  handleCancel = e => {
+  handleCancel = () => {
     this.setState({
       visible: false
     });
