@@ -62,7 +62,7 @@ class YearlyChart extends React.Component {
               }
               return a;
             };
-            
+
             let daylist = getDaysArray(
               first_day_year,
               last_day_year
@@ -125,7 +125,7 @@ class YearlyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 

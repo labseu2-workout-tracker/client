@@ -147,7 +147,7 @@ class MonthlyChart extends React.Component {
 
             let copyOfOptions = this.state.options;
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
             copyOfOptions.labels = workoutNames;

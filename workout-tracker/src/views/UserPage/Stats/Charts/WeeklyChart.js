@@ -128,7 +128,7 @@ class WeeklyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 
