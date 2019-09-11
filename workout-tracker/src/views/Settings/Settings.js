@@ -200,8 +200,6 @@ class Settings extends React.Component {
         !!checkedList.length && checkedList.length < plainOptions.length,
       checkAll: checkedList.length === plainOptions.length
     });
-
-    console.log(Option);
   };
 
   onCheckAllChange = e => {
@@ -283,7 +281,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 Email: <i className="fa fa-envelope"></i>
                               </p>
@@ -302,7 +300,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 Username: <i className="fa fa-user"></i>
                               </p>
@@ -321,7 +319,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 Weight: <i className="fa fa-balance-scale"></i>
                               </p>
@@ -343,7 +341,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 User Level:{" "}
                                 <i className="fa fa-graduation-cap"></i>
@@ -371,7 +369,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 Email Notifications:{" "}
                                 <i className="fa fa-envelope"></i>
@@ -397,7 +395,7 @@ class Settings extends React.Component {
                                 : "off"
                             }
                           >
-                            <div class="info-wrapper">
+                            <div className="info-wrapper">
                               <p>
                                 Push Notifications:{" "}
                                 <i className="fa fa-bell"></i>
