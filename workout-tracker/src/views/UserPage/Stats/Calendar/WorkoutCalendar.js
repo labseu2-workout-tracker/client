@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge, Modal } from "antd";
+import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 
 const StyledWorkoutCalendar = styled.div`
@@ -211,8 +211,11 @@ class WorkoutCalendar extends React.Component {
               <Modal
                 title="Workout List"
                 visible={this.state.visible}
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}
+                footer={[
+                  <Button type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
               >
                 {this.state.workoutsForDate
                   ? this.state.workoutsForDate.map((workoutName, index) => (
