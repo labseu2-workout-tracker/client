@@ -99,6 +99,7 @@ class WorkoutSession extends React.Component {
 
   componentWillUnmount() {
     this.setState({ initial: 0 });
+    this.props.endWorkout(this.props.workoutId);
   }
 
   endWorkout = () => {
