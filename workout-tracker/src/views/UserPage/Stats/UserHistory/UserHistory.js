@@ -10,7 +10,7 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       minValue: 0,
-      maxValue: 2
+      maxValue: 8
     };
   }
 
@@ -24,12 +24,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 2
+        maxValue: 8
       });
     } else {
       this.setState({
-        minValue: (value * 2) - 2,
-        maxValue: value * 2
+        minValue: value * 8 - 8,
+        maxValue: value * 8
       });
     }
   };
@@ -44,6 +44,7 @@ class SessionHistory extends React.Component {
         <StyledUserHistory>
           {history ? (
             <div>
+            <div className="ordered-list">
               {history
                 .slice(this.state.minValue, this.state.maxValue)
                 .map(session => {
@@ -105,13 +106,14 @@ class SessionHistory extends React.Component {
                     </ol>
                   );
                 })}
+            </div>
               <Pagination
                 defaultCurrent={1}
-                defaultPageSize={2}
+                defaultPageSize={8}
                 onChange={this.handlePagination}
                 total={this.props.history.length}
               />
-            </div>
+              </div>
           ) : (
             <p>You have no workout history at the moment</p>
           )}
@@ -140,8 +142,14 @@ const StyledUserHistory = styled.div`
   width: 100%;
   /* margin: 0 auto; */
 
+.ordered-list {
+    display: flex;
+    flex-wrap: wrap;
+}
   ol {
     padding: 10px;
+    width: 25%;
+    margin: 0;
   }
 
   h2 {
