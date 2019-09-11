@@ -145,8 +145,8 @@ class MonthlyChart extends React.Component {
             copyOfOptions.labels = workoutNames;
 
             this.setState({
-              labels: workoutNames,
-              series: valuesForDataset
+              data: valuesForDataset,
+              labels: workoutNames
             });
           });
       });
