@@ -304,7 +304,8 @@ class WorkoutCalendar extends React.Component {
 
   handleOk = () => {
     this.setState({
-      visible: false
+      visible: false,
+      workoutsForDate: null,
     });
   };
 
