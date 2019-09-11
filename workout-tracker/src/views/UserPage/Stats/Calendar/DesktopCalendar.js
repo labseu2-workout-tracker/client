@@ -47,7 +47,8 @@ class DesktopCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: ""
+      result: null,
+      history: null,
     };
   }
 
@@ -137,7 +138,8 @@ class DesktopCalendar extends React.Component {
               }
             }
             this.setState({
-              result: theResult
+              result: theResult,
+              history: res.data.workoutHistory,
             });
           });
       });
