@@ -5,10 +5,18 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
-import { Checkbox, Select} from "antd";
-
+import {
+  Checkbox,
+  Select,
+  Layout,
+  Input,
+  List,
+  Button,
+  Card,
+  Statistic,
+} from "antd";
+const { Sider, Content } = Layout;
 const StyledSettings = styled.div`
- 
   .user-data {
     margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
@@ -238,77 +246,79 @@ class Settings extends React.Component {
   render() {
     if (this.state.wantUpdate) {
       return (
-        <StyledSettings>
-          <div style={{ borderBottom: "1px solid #E9E9E9" }}>
-            <Checkbox
-              indeterminate={this.state.indeterminate}
-              onChange={this.onCheckAllChange}
-              checked={this.state.checkAll}
-            >
-              Check all
-            </Checkbox>
-          </div>
-          <br />
-          <CheckboxGroup
-            options={plainOptions}
-            value={this.state.checkedList}
-            onChange={this.onChange}
-          />
+        <Layout>
+          <Content>
+            <StyledSettings>
+              <div style={{ borderBottom: "1px solid #E9E9E9" }}>
+                <Checkbox
+                  indeterminate={this.state.indeterminate}
+                  onChange={this.onCheckAllChange}
+                  checked={this.state.checkAll}
+                >
+                  Check all
+                </Checkbox>
+              </div>
+              <br />
+              <CheckboxGroup
+                options={plainOptions}
+                value={this.state.checkedList}
+                onChange={this.onChange}
+              />
 
-          <div>
-            {this.props.settings
-              ? this.props.settings.map((setting, index) => {
-                  return (
-                    <div key={index}>
-                      <div className="user-data">
-                        <ul className="info" style={{color: 'black'}}>
-                          <div
-                            className={
-                              this.state.checkedList.includes("Email")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Email:</span>
-                              <span className="data">
-                                <input
-                                  className="update-input"
-                                  value={this.state.email}
-                                  onChange={this.handleChange}
-                                  placeholder={setting.email}
-                                  name="email"
-                                />
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-envelope"></i>
-                              </span>
-                            </li>
-                          </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes("Username")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Username:</span>
-                              <span className="data">
-                                <input
-                                  className="update-input"
-                                  value={this.state.username}
-                                  onChange={this.handleChange}
-                                  placeholder={setting.username}
-                                  name="username"
-                                />
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-user"></i>
-                              </span>
-                            </li>
-                          </div>
-                          {/* <li>
+              <div>
+                {this.props.settings
+                  ? this.props.settings.map((setting, index) => {
+                      return (
+                        <div key={index}>
+                          <div className="user-data">
+                            <List>
+                              <div
+                                className={
+                                  this.state.checkedList.includes("Email")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <li>
+                                  <span className="text">Email:</span>
+                                  <span className="data">
+                                    <Input
+                                      className="update-input"
+                                      value={this.state.email}
+                                      onChange={this.handleChange}
+                                      placeholder={setting.email}
+                                      name="email"
+                                    />
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-envelope"></i>
+                                  </span>
+                                </li>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes("Username")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">Username:</span>
+                                  <span className="data">
+                                    <Input
+                                      className="update-input"
+                                      value={this.state.username}
+                                      onChange={this.handleChange}
+                                      placeholder={setting.username}
+                                      name="username"
+                                    />
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-user"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              {/* <List>
                           <span className="text">Password:</span>
                           <span className="data">
                             <input
@@ -323,176 +333,185 @@ class Settings extends React.Component {
                           <span className="icon">
                             <i className="fa fa-key"></i>
                           </span>
-                        </li> */}
-                          <div
-                            className={
-                              this.state.checkedList.includes("Weight")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Weight:</span>
-                              <span className="data">
-                                <input
-                                  min="1"
-                                  type="number"
-                                  className="update-input"
-                                  value={this.state.weight}
-                                  onChange={this.handleChange}
-                                  placeholder={setting.weight}
-                                  name="weight"
-                                />
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-balance-scale"></i>
-                              </span>
-                            </li>
+                        </List> */}
+                              <div
+                                className={
+                                  this.state.checkedList.includes("Weight")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">Weight:</span>
+                                  <span className="data">
+                                    <Input
+                                      min="1"
+                                      type="number"
+                                      className="update-input"
+                                      value={this.state.weight}
+                                      onChange={this.handleChange}
+                                      placeholder={setting.weight}
+                                      name="weight"
+                                    />
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-balance-scale"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes("Height")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">Height:</span>
+                                  <span className="data">
+                                    <Input
+                                      min="1"
+                                      type="number"
+                                      className="update-input"
+                                      value={this.state.height}
+                                      onChange={this.handleChange}
+                                      placeholder={setting.height}
+                                      name="height"
+                                    />
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-arrow-circle-up"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes("User Level")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">Level:</span>
+                                  <span className="data">
+                                    <select
+                                      className="update-input"
+                                      value={this.state.user_level}
+                                      onChange={this.handleChange}
+                                      name="user_level"
+                                    >
+                                      <option value="Beginner">Beginner</option>
+                                      <option value="Intermediate">
+                                        Intermediate
+                                      </option>
+                                      <option value="Expert">Expert</option>
+                                    </select>
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-graduation-cap"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes("Gender")
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">Gender:</span>
+                                  <span className="data">
+                                    <select
+                                      name="gender"
+                                      className="update-input"
+                                      value={this.state.gender}
+                                      onChange={this.handleChange}
+                                    >
+                                      <option value="male">Male</option>
+                                      <option value="female">Female</option>
+                                      <option value="other">Other</option>
+                                    </select>
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-venus-mars"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes(
+                                    "Email Notification"
+                                  )
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List>
+                                  <span className="text">
+                                    Email Notification:
+                                  </span>
+                                  <span className="data">
+                                    <select
+                                      className="update-input"
+                                      value={this.state.email_notification}
+                                      onChange={this.handleChange}
+                                      name="email_notification"
+                                    >
+                                      <option value="false">False</option>
+                                      <option value="true">True</option>
+                                    </select>
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-envelope"></i>
+                                  </span>
+                                </List>
+                              </div>
+                              <div
+                                className={
+                                  this.state.checkedList.includes(
+                                    "Push Notification"
+                                  )
+                                    ? null
+                                    : "off"
+                                }
+                              >
+                                <List itemLayout="vertical">
+                                  <span className="text">
+                                    Push Notification:
+                                  </span>
+                                  <span className="data">
+                                    <select
+                                      className="update-input"
+                                      value={this.state.push_notification}
+                                      onChange={this.handleChange}
+                                      name="push_notification"
+                                    >
+                                      <option value="male">False</option>
+                                      <option value="female">True</option>
+                                    </select>
+                                  </span>
+                                  <span className="icon">
+                                    <i className="fa fa-bell"></i>
+                                  </span>
+                                </List>
+                              </div>
+                            </List>
                           </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes("Height")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Height:</span>
-                              <span className="data">
-                                <input
-                                  min="1"
-                                  type="number"
-                                  className="update-input"
-                                  value={this.state.height}
-                                  onChange={this.handleChange}
-                                  placeholder={setting.height}
-                                  name="height"
-                                />
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-arrow-circle-up"></i>
-                              </span>
-                            </li>
-                          </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes("User Level")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Level:</span>
-                              <span className="data">
-                                <select
-                                  className="update-input"
-                                  value={this.state.user_level}
-                                  onChange={this.handleChange}
-                                  name="user_level"
-                                >
-                                  <option value="Beginner">Beginner</option>
-                                  <option value="Intermediate">
-                                    Intermediate
-                                  </option>
-                                  <option value="Expert">Expert</option>
-                                </select>
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-graduation-cap"></i>
-                              </span>
-                            </li>
-                          </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes("Gender")
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Gender:</span>
-                              <span className="data">
-                                <select
-                                  name="gender"
-                                  className="update-input"
-                                  value={this.state.gender}
-                                  onChange={this.handleChange}
-                                >
-                                  <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                                  <option value="other">Other</option>
-                                </select>
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-venus-mars"></i>
-                              </span>
-                            </li>
-                          </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes(
-                                "Email Notification"
-                              )
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Email Notification:</span>
-                              <span className="data">
-                                <select
-                                  className="update-input"
-                                  value={this.state.email_notification}
-                                  onChange={this.handleChange}
-                                  name="email_notification"
-                                >
-                                  <option value="false">False</option>
-                                  <option value="true">True</option>
-                                </select>
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-envelope"></i>
-                              </span>
-                            </li>
-                          </div>
-                          <div
-                            className={
-                              this.state.checkedList.includes(
-                                "Push Notification"
-                              )
-                                ? null
-                                : "off"
-                            }
-                          >
-                            <li>
-                              <span className="text">Push Notification:</span>
-                              <span className="data">
-                                <select
-                                  className="update-input"
-                                  value={this.state.push_notification}
-                                  onChange={this.handleChange}
-                                  name="push_notification"
-                                >
-                                  <option value="male">False</option>
-                                  <option value="female">True</option>
-                                </select>
-                              </span>
-                              <span className="icon">
-                                <i className="fa fa-bell"></i>
-                              </span>
-                            </li>
-                          </div>
-                        </ul>
-                      </div>
-                    </div>
-                  );
-                })
-              : null}
-            <button className={this.state.checkedList[0] ? "button" : "off"} onClick={this.changeSettings}>
-              Update
-            </button>
-          </div>
-        </StyledSettings>
+                        </div>
+                      );
+                    })
+                  : null}
+                <button
+                  className={this.state.checkedList[0] ? "button" : "off"}
+                  onClick={this.changeSettings}
+                >
+                  Update
+                </button>
+              </div>
+            </StyledSettings>
+          </Content>
+        </Layout>
       );
     }
     return this.props.settings
@@ -500,98 +519,89 @@ class Settings extends React.Component {
           return (
             <StyledSettings key={index}>
               <div className="user-data">
-                <ul className="info">
-                  <li>
-                    <span className="text">Email:</span>
-                    <span className="data">
-                      <p>{setting.email ? setting.email : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Username:</span>
-                    <span className="data">
-                      <p>
-                        {setting.username ? setting.username : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-user"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Weight:</span>
-                    <span className="data">
-                      <p>
-                        {setting.weight === 0
+                <List>
+                  <Button type="primary" color="#1111" onClick={this.startUpdate} >Update Settings</Button>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-envelope"></i>
+                      </span>
+                      <Statistic
+                        title="Email"
+                        value={setting.email ? setting.email : "Not specified"}
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-user"></i>
+                      </span>
+                      <Statistic
+                        title="Username"
+                        value={setting.username ? setting.username : "Not specified"}
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-balance-scale"></i>
+                      </span>
+                      <Statistic
+                        title="Weight"
+                        value={setting.weight === 0
                           ? "Not specified"
                           : setting.weight}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-balance-scale"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Height:</span>
-                    <span className="data">
-                      <p>
-                        {setting.height === 0
-                          ? "Not specified"
-                          : setting.height}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-arrow-circle-up"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Gender:</span>
-                    <span className="data">
-                      <p>{setting.gender ? setting.gender : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-venus-mars"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Level:</span>
-                    <span className="data">
-                      <p>
-                        {setting.user_level
-                          ? setting.user_level
-                          : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-graduation-cap"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Email Notification:</span>
-                    <span className="data">
-                      <p>{setting.email_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Push Notification:</span>
-                    <span className="data">
-                      <p>{setting.push_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-bell"></i>
-                    </span>
-                  </li>
-                </ul>
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-graduation-cap"></i>
+                      </span>
+                      <Statistic
+                        title="User Level"
+                        value={
+                          setting.user_level
+                            ? setting.user_level
+                            : "Not specified"
+                        }
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-envelope"></i>
+                      </span>
+                      <Statistic
+                        title="Email Notification"
+                        value={setting.email_notification.toString()}
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "#1111", padding: "1rem" }}>
+                    <Card>
+                      <span className="icon">
+                        <i className="fa fa-bell"></i>
+                      </span>
+                      <Statistic
+                        title="Push Notification"
+                        value={setting.push_notification.toString()}
+                        valueStyle={{ color: "#fffff" }}
+                      />
+                    </Card>
+                  </div>
+
+                </List>
               </div>
-              <button className="button" onClick={this.startUpdate}>
-                Update
-              </button>
             </StyledSettings>
           );
         })
