@@ -51,7 +51,7 @@ class Workouts extends React.Component {
   }
 
   addWorkout = (workout_id) => {
-    message.success('This is a success message');
+    message.success('Workout got added!');
 
     this.props.addWorkout(workout_id);
   };
