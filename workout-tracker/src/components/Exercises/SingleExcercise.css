@@ -35,9 +35,10 @@
 
     color: #fe0000;
     margin:.5rem;
-    position: relative;
-    left: 37em;
-
+    position: absolute;
+    right: 5px;
+    font-size: 25px;
+ 
   }
   .description{
     /* font-family: 'Roboto Condensed', sans-serif;
@@ -52,8 +53,9 @@
     /* color:#ffffff; */
 
   }
-  .para{
+  .div-para{
     display:flex;
+    flex-direction: row;
     align-content: space-between;
     width: 100%;
     font-size: .8rem;

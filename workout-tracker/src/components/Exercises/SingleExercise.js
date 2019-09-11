@@ -9,12 +9,15 @@ const SingleExercise = (props) => {
   return (
     <>
       <Content style={{ margin: '24px 16px 0' }}> Content
+      <div onClick={props.closeExercise}>
+                <i className="fa fa-window-close x" />
+              </div>
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
           <div className="">
             <div className="">
-              <div onClick={props.closeExercise}>
+              {/* <div onClick={props.closeExercise}>
                 <i className="fa fa-window-close x" />
-              </div>
+              </div> */}
               <video className="" controls>
                 <source src={props.exercise.video} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -24,7 +27,7 @@ const SingleExercise = (props) => {
               <div className="description">
                 <i className="fas fa-running"></i> {props.exercise.description}
               </div>
-              <div className="para">
+              <div className="div-para">
                 <p> Level: {props.exercise.difficulty}</p>
                 <p> Type: {props.exercise.type}</p>
                 <p>Target: {props.exercise.muscle}</p>
