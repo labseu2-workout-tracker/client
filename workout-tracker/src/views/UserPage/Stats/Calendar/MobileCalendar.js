@@ -13,9 +13,13 @@ class MobileCalendar extends React.Component {
   }
 
   componentDidMount = () => {
-
+    axiosWithAuth()
+    .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
+    .then(res => this.setState({
+      history: res.data,
+    }));
   };
-  
+
   showDate = value => {
     function formatDate(date) {
       var d = new Date(date),
