@@ -50,17 +50,13 @@ class Workouts extends React.Component {
     this.props.fetchWorkouts();
   }
 
-  addWorkout = (workout_id) => {
-    message.success('Workout got added!');
-
-  };
-  
-  notification = (type, workout_id) => {
+  addWorkout = (type, workout_id, workout_name) => {
     notification[type]({
-      message: 'Notification Title',
+      message: 'Successful!',
       description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      `The workout ${workout_name} got added to your list.`,
     });
+
     this.props.addWorkout(workout_id);
   };
   
@@ -89,7 +85,7 @@ class Workouts extends React.Component {
                     </Link>                   
                     <p
                       className="btn"                    
-                    onClick={() => this.addWorkout(workout.id)}>Add Workout</p>
+                    onClick={() => this.addWorkout("success", workout.id, workout.workout_name)}>Add Workout</p>
                   </div>
                 );
               })
