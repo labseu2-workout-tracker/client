@@ -88,13 +88,13 @@ class TheCalendar extends React.Component {
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInMonth.length; j++) {
+            for (let j = 0; j < daysInYear.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInMonth[j]
+                    .join("") === daysInYear[j]
                 ) {
                   resultOfWeek.push({
                     ...userHistory[i],
