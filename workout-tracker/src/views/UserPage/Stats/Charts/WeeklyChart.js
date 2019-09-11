@@ -96,19 +96,22 @@ class WeeklyChart extends React.Component {
 
             let daysInWeek = [];
 
-            // Date.prototype.yyyymmdd = function() {
-            //   let mm = this.getMonth() + 1;
-            //   let dd = this.getDate();
-
-            //   return [
-            //     this.getFullYear(),
-            //     (mm > 9 ? "" : "0") + mm,
-            //     (dd > 9 ? "" : "0") + dd
-            //   ].join("");
-            // };
-
-            for (let i = 0; i < allDaysInWeek.length; i++) {
-              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            function formatDate(date) {
+              var d = new Date(date),
+                  month = '' + (d.getMonth() + 1),
+                  day = '' + d.getDate(),
+                  year = d.getFullYear();
+          
+              if (month.length < 2) 
+                  month = '0' + month;
+              if (day.length < 2) 
+                  day = '0' + day;
+          
+              return [year, month, day].join('-');
+          }
+          
+            for (let i = 0; i < daylist.length; i++) {
+              daysInWeek.push(formatDate(daylist[i]).split("-").join(""));
             }
 
             let userHistory = [...res.data.workoutHistory];
