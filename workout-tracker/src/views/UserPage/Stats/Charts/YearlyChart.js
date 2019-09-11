@@ -62,6 +62,7 @@ class YearlyChart extends React.Component {
               }
               return a;
             };
+            
             let daylist = getDaysArray(
               first_day_year,
               last_day_year

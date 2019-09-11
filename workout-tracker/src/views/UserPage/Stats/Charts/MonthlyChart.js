@@ -76,38 +76,37 @@ class MonthlyChart extends React.Component {
             let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
             let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
+              }
+              return a;
             };
 
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
-              }
-              return dateArray;
-            }
+            let daylist = getDaysArray(
+              firstDay,
+              lastDay
+            );
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            let allDaysInMonth = Object.values(getDates(firstDay, lastDay));
             let daysInMonth = [];
 
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
-
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
-            };
-
-            for (let i = 0; i < allDaysInMonth.length; i++) {
-              daysInMonth.push(allDaysInMonth[i].yyyymmdd().toString());
+            function formatDate(date) {
+              var d = new Date(date),
+                  month = '' + (d.getMonth() + 1),
+                  day = '' + d.getDate(),
+                  year = d.getFullYear();
+          
+              if (month.length < 2) 
+                  month = '0' + month;
+              if (day.length < 2) 
+                  day = '0' + day;
+          
+              return [year, month, day].join('-');
+          }
+          
+            for (let i = 0; i < daylist.length; i++) {
+              daysInMonth.push(formatDate(daylist[i]).split("-").join(""));
             }
 
             let userHistory = [...res.data.workoutHistory];
