@@ -4,8 +4,7 @@ import "./DashboardNavItem.css"
 
 const dashItems = [
   {id: "workouts", text: 'My Workouts', link: "/dashboard/myworkouts", icon: <i className="fas fa-dumbbell"></i>},
-  {id: "tracker", text: 'Tracker', link: "/dashboard/tracker", icon: <i className="fas fa-chart-line"></i>},
-  {id: "history", text: 'History', link: "/dashboard/history", icon: <i className="fas fa-list"></i>},
+  {id: "stats", text: 'Stats', link: "/dashboard/stats", icon: <i className="fas fa-chart-line"></i>},
   {id: "notifications", text: 'Notifications', link: "/dashboard/notifications", icon:<i className="fas fa-bell"></i>},
   {id: "settings", text: 'Settings', link: "/dashboard/settings", icon: <i className="fas fa-cog"></i>},
 ]
