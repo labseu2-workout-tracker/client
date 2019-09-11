@@ -85,6 +85,9 @@ class TheCalendar extends React.Component {
               daysInYear.push(formatDate(daylist[i]).split("-").join(""));
             }
 
+            let userHistory = [...res.data.workoutHistory];
+            let resultOfWeek = [];
+
             for (let j = 0; j < daysInMonth.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
