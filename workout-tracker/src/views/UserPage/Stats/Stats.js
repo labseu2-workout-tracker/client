@@ -1,8 +1,7 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
 import UserHistory from "./UserHistory/UserHistory";
-import DesktopCalendar from "./Calendar/DesktopCalendar";
-import MobileCalendar from "./Calendar/MobileCalendar";
+import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { Row } from "antd";
 
@@ -19,8 +18,7 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <Row>
-          <DesktopCalendar />
-          <MobileCalendar/>
+          <WorkoutCalendar />
         </Row>
         <Row>
           <ChartContainer />
