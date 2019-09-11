@@ -3,10 +3,6 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge } from "antd";
 import styled from "styled-components";
 
-const yeah = () => {
-  console.log(yeah);
-};
-
 const StyledTheCalendar = styled.div`
 
   .events {
