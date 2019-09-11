@@ -53,6 +53,7 @@ class DesktopCalendar extends React.Component {
     this.state = {
       result: "",
       history: null,
+      visible: false
     };
   }
 
