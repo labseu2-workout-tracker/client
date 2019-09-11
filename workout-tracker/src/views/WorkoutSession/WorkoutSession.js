@@ -113,7 +113,7 @@ class WorkoutSession extends React.Component {
           <Col span={12}></Col>
           <PageHeader
             onBack={() => window.history.back()}
-            title={this.props.myWorkout.workout_name}
+            title={this.props.myWorkout ? this.props.myWorkout.workout_name : null}
           />
           <Watch />
         </Row>

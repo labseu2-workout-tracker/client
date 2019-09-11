@@ -42,7 +42,7 @@ class SessionHistory extends React.Component {
       <div>
         <h2>Here you can check out the work you have done!</h2>
         <StyledUserHistory>
-          {history[0] ? (
+          {history ? (
             <div>
               {history
                 .slice(this.state.minValue, this.state.maxValue)
