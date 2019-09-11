@@ -110,7 +110,27 @@ const StyledAllExercises = styled.div`
 `;
 
 class AllExercises extends React.Component {
+  state = { visible: false };
 
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
   componentDidMount = () => {
     this.props.fetchExercises();
   };
