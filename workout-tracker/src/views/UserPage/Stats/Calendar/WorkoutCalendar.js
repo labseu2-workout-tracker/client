@@ -43,7 +43,7 @@ const StyledWorkoutCalendar = styled.div`
 
   .fa-info-circle {
     color: green;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 
   /* @media (max-width: 950px) {
