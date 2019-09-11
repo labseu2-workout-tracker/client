@@ -4,7 +4,6 @@ import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
 const StyledMonthlyChart = styled.div`
-
   .apexcharts-title-text {
     font-weight: bold;
     font-size: 1rem;
@@ -38,7 +37,7 @@ class MonthlyChart extends React.Component {
         },
         title: {
           text: "Monthly Results"
-        },
+        }
         // responsive: [
         //   {
         //     breakpoint: 480,
@@ -83,30 +82,29 @@ class MonthlyChart extends React.Component {
               return a;
             };
 
-            let daylist = getDaysArray(
-              firstDay,
-              lastDay
-            );
+            let daylist = getDaysArray(firstDay, lastDay);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
             let daysInMonth = [];
 
             function formatDate(date) {
               var d = new Date(date),
-                  month = '' + (d.getMonth() + 1),
-                  day = '' + d.getDate(),
-                  year = d.getFullYear();
-          
-              if (month.length < 2) 
-                  month = '0' + month;
-              if (day.length < 2) 
-                  day = '0' + day;
-          
-              return [year, month, day].join('-');
-          }
-          
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
+            }
+
             for (let i = 0; i < daylist.length; i++) {
-              daysInMonth.push(formatDate(daylist[i]).split("-").join(""));
+              daysInMonth.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
