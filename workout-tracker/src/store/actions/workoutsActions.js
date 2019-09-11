@@ -59,7 +59,7 @@ export const endWorkout = (workout_id, history) => dispatch => {
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
         dispatch({ type: END_WORKOUT });
-        history.push("/Dashboard/stats");
+        history.push("/dashboard/stats");
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
