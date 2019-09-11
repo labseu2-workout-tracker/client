@@ -13,9 +13,11 @@ class MobileCalendar extends Component {
   onPanelChange = (value, mode) => {
     console.log(value, mode);
   };
-  
+
   render() {
-    return <StyledMobileCalendar></StyledMobileCalendar>;
+    return <StyledMobileCalendar>
+      <Calendar fullscreen={false} onPanelChange={this.onPanelChange} />
+    </StyledMobileCalendar>;
   }
 }
 
