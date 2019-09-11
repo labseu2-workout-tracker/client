@@ -86,8 +86,7 @@ class Workouts extends React.Component {
                       className="btn"
                     >
                       Start Workout
-                    </Link>
-                    
+                    </Link>                   
                     <Button
                       className="btn"                    
                     onClick={() => this.addWorkout(workout.id)}>Add Workout</Button>
@@ -104,7 +103,6 @@ class Workouts extends React.Component {
 const mapStateToProps = state => {
   return {
     workouts: state.workouts.workouts,
-    addedWorkout: state.workouts.addedWorkout
   };
 };
 export default connect(
