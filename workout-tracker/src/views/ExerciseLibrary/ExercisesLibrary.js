@@ -6,14 +6,14 @@ import { connect } from "react-redux";
 
 class ExerciseLibrary extends React.Component {
   render() {
-    if (this.props.singleExercise) {
-      return (
-        <SingleExercise
-          exercise={this.props.singleExercise[0]}
-          closeExercise={this.props.closeSingleExercise}
-        />
-      );
-    }
+    // if (this.props.singleExercise) {
+    //   return (
+    //     <SingleExercise
+    //       exercise={this.props.singleExercise[0]}
+    //       closeExercise={this.props.closeSingleExercise}
+    //     />
+    //   );
+    // }
     return <AllExercises />;
   }
 }

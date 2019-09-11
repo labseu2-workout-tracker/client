@@ -112,7 +112,8 @@ const StyledAllExercises = styled.div`
 class AllExercises extends React.Component {
   state = { visible: false };
 
-  showModal = () => {
+  showModal = (id) => {
+    this.props.showSingleExercise(id)
     this.setState({
       visible: true,
     });
@@ -279,7 +280,7 @@ class AllExercises extends React.Component {
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
                             >
-                              {this.props.singleExercise[0].exercise_name}
+                              {this.props.singleExercise ? (<p>{this.props.singleExercise[0].exercise_name}</p>) : null}
                             </Modal>
                           </div>,
                           <i className="fa fa-plus-square" />
