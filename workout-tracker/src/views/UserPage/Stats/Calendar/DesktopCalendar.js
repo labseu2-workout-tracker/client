@@ -28,7 +28,11 @@ const StyledDesktopCalendar = styled.div`
 
   @media (max-width: 950px) {
     .status {
-      display: block;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
 
       .ant-badge-status-dot {
         margin-top: 0.5rem;
