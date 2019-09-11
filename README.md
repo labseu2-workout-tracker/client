@@ -5,7 +5,7 @@
 #Table of Content
 
 - Front-End Dependencies
- - react
+ - reacty
  - react router
  - dotenv
  - redux
