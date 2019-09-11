@@ -42,6 +42,7 @@ class TheCalendar extends React.Component {
         res.data.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
+          return workout;
         });
 
         axiosWithAuth()
