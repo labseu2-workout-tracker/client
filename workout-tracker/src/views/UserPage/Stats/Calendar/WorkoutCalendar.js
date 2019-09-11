@@ -189,7 +189,6 @@ class WorkoutCalendar extends React.Component {
               {
                 type: "success",
                 content: this.state.result[i].workout_name,
-                index: i
               }
             ];
             break;
@@ -204,8 +203,8 @@ class WorkoutCalendar extends React.Component {
     const listData = this.getListData(value);
     return (
       <ul className="events" style={{ listStyle: "none" }}>
-        {listData.map(item => (
-          <li key={item.content}>
+        {listData.map((item, index) => (
+          <li key={index}>
             <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
