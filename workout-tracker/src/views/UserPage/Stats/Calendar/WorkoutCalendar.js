@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 
-const StyledDesktopCalendar = styled.div`
+const StyledWorkoutCalendar = styled.div`
   .events {
     list-style: none;
     margin: 0;
@@ -24,6 +24,12 @@ const StyledDesktopCalendar = styled.div`
 
   .status {
     display: none;
+  }
+
+  .fa-info-circle {
+    margin: 1rem 0 0 1.4rem; 
+    color: green;
+    font-size: 1.5rem;
   }
 
   @media (max-width: 950px) {
@@ -47,7 +53,7 @@ const StyledDesktopCalendar = styled.div`
   }
 `;
 
-class DesktopCalendar extends React.Component {
+class WorkoutCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -202,9 +208,7 @@ class DesktopCalendar extends React.Component {
           <li key={item.content}>
             {/* <Badge status={item.type} className="status" /> */}
             <div>
-              <Button type="primary" onClick={this.showModal}>
-                <i className="fa fa-info-circle" />
-              </Button>
+                <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Basic Modal"
                 visible={this.state.visible}
@@ -292,15 +296,15 @@ class DesktopCalendar extends React.Component {
 
   render() {
     return (
-      <StyledDesktopCalendar>
+      <StyledWorkoutCalendar>
         <Calendar
           dateCellRender={this.dateCellRender}
           monthCellRender={this.monthCellRender}
           onSelect={this.showWorkoutsForDate}
         />
-      </StyledDesktopCalendar>
+      </StyledWorkoutCalendar>
     );
   }
 }
 
-export default DesktopCalendar;
+export default WorkoutCalendar;
