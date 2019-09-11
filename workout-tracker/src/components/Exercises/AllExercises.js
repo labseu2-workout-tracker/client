@@ -1,7 +1,7 @@
-import React from "react";
-import { Input, Button, Layout, Menu, Card, Dropdown, Modal } from "antd";
-import styled from "styled-components";
-import { connect } from "react-redux";
+import React from 'react';
+import { Input, Button, Layout, Menu, Card, Dropdown, Modal } from 'antd';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 import {
   fetchExercises,
   showMuscleGroup,
@@ -9,7 +9,7 @@ import {
   loadMore,
   searchExercise,
   showEquipment
-} from "../../store/actions/exerciseActions";
+} from '../../store/actions/exerciseActions';
 
 const { Header, Content } = Layout;
 const { Search } = Input;
@@ -54,12 +54,12 @@ const StyledAllExercises = styled.div`
   .down {
     font-size: 1rem;
     margin: 1rem;
-    color: #22A0D6;
+    color: #22a0d6;
   }
 
   .down-hidden {
     display: none;
-    color: #22A0D6;
+    color: #22a0d6;
   }
 
   .load-more {
@@ -121,39 +121,39 @@ class AllExercises extends React.Component {
 
   render() {
     const muscles = [
-      "Neck",
-      "Lats",
-      "Middle Back",
-      "Lower Back",
-      "Shoulders",
-      "Chest",
-      "Forearms",
-      "Hamstrings",
-      "Calves",
-      "Biceps",
-      "Triceps",
-      "Traps",
-      "Abdominals",
-      "Glutes",
-      "Quadriceps",
-      "Adductors",
-      "Abductors"
+      'Neck',
+      'Lats',
+      'Middle Back',
+      'Lower Back',
+      'Shoulders',
+      'Chest',
+      'Forearms',
+      'Hamstrings',
+      'Calves',
+      'Biceps',
+      'Triceps',
+      'Traps',
+      'Abdominals',
+      'Glutes',
+      'Quadriceps',
+      'Adductors',
+      'Abductors'
     ];
 
     const equipment = [
-      "Bands",
-      "Foam Roll",
-      "Barbell",
-      "Kettlebells",
-      "Body Only",
-      "Machine",
-      "Cable",
-      "Medicine Ball",
-      "Dumbbell",
-      "None",
-      "E-Z Curl Bar",
-      "Other",
-      "Exercise Ball"
+      'Bands',
+      'Foam Roll',
+      'Barbell',
+      'Kettlebells',
+      'Body Only',
+      'Machine',
+      'Cable',
+      'Medicine Ball',
+      'Dumbbell',
+      'None',
+      'E-Z Curl Bar',
+      'Other',
+      'Exercise Ball'
     ];
 
     return (
@@ -165,7 +165,7 @@ class AllExercises extends React.Component {
                 placeholder="input search text"
                 enterButton="Search"
                 className="search"
-                onSearch={exercise_name =>
+                onSearch={(exercise_name) =>
                   this.props.searchExercise(exercise_name)
                 }
               />
@@ -175,7 +175,7 @@ class AllExercises extends React.Component {
               <Dropdown
                 overlay={
                   <Menu
-                    onClick={value =>
+                    onClick={(value) =>
                       this.props.showMuscleGroup(value.item.props.children)
                     }
                   >
@@ -194,7 +194,7 @@ class AllExercises extends React.Component {
               <Dropdown
                 overlay={
                   <Menu
-                    onClick={value =>
+                    onClick={(value) =>
                       this.props.showEquipment(value.item.props.children)
                     }
                   >
@@ -215,12 +215,12 @@ class AllExercises extends React.Component {
           <Layout>
             <Layout
               style={{
-                backgroundColor: "#FFF"
+                backgroundColor: '#FFF'
               }}
             >
               <Content
                 style={{
-                  background: "#fff",
+                  background: '#fff',
                   margin: 0,
                   minHeight: 280
                 }}
@@ -253,7 +253,19 @@ class AllExercises extends React.Component {
                               this.props.showSingleExercise(exercise.id)
                             }
                           />,
-                          
+                          <div>
+                            <Button type="primary" onClick={this.showModal}>
+                              Open Modal
+                            </Button>
+                            <Modal
+                              title="Basic Modal"
+                              visible={this.state.visible}
+                              onOk={this.handleOk}
+                              onCancel={this.handleCancel}
+                            >
+
+                            </Modal>
+                          </div>,
                           <i className="fa fa-plus-square" />
                         ]}
                       >
@@ -261,9 +273,9 @@ class AllExercises extends React.Component {
                           title={exercise.exercise_name}
                           description={
                             <div>
-                              {" "}
+                              {' '}
                               <p
-                                style={{ padding: "0" }}
+                                style={{ padding: '0' }}
                               >{`${exercise.muscle} with ${exercise.equipment}`}</p>
                             </div>
                           }
@@ -298,7 +310,7 @@ class AllExercises extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     exercises: state.exercises.exercises,
     indexOfLastExercise: state.exercises.indexOfLastExercise,
