@@ -13,7 +13,9 @@ class MobileCalendar extends Component {
      }
   }
   render() { 
-    return ( 
+    return ( <StyledMobileCalendar>
+      
+    </StyledMobileCalendar>
 
      );
   }
