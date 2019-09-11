@@ -28,13 +28,13 @@ const StyledDesktopCalendar = styled.div`
 
   @media (max-width: 950px) {
     .status {
-    display: block;
-    
-    .ant-badge-status-dot {
-    margin-top: .5rem;
-    width: 20px;
-    height: 20px;
-    }
+      display: block;
+
+      .ant-badge-status-dot {
+        margin-top: 0.5rem;
+        width: 20px;
+        height: 20px;
+      }
     }
 
     .status-text {
@@ -188,8 +188,12 @@ class DesktopCalendar extends React.Component {
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
           <li key={item.content}>
-            <Badge status={item.type} className="status" />            
-            <Badge status={item.type} text={item.content} className="status-text" />
+            <Badge status={item.type} className="status" />
+            <Badge
+              status={item.type}
+              text={item.content}
+              className="status-text"
+            />
           </li>
         ))}
       </ul>
@@ -212,13 +216,34 @@ class DesktopCalendar extends React.Component {
     ) : null;
   };
 
+  showWorkoutsForDate = value => {
+    const formatDate = date => {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    };
+
+    // const filterWorkoutsForDate = this.state.history.filter(
+    //   workout =>
+    //     workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
+    // );
+
+    console.log(formatDate(value._d));
+  };
+
   render() {
     return (
       <StyledDesktopCalendar>
         <Calendar
           dateCellRender={this.dateCellRender}
           monthCellRender={this.monthCellRender}
-          onSelect={this.showDate}
+          onSelect={this.showWorkoutsForDate}
         />
       </StyledDesktopCalendar>
     );
