@@ -4,11 +4,9 @@ import { Route, Switch } from "react-router";
 import ProfileImage from "./ProfileImage";
 import Stats from "./Stats/Stats";
 import MyWorkouts from "./MyWorkouts/MyWorkouts";
-// import UserHistory from "./Stats/UserHistory/UserHistory";
 import UserNotifications from "./UserNotifications/UserNotifications";
 import Settings from "../Settings/Settings";
 import DashboardNavItem from "./DashboardNavItem";
-import logo from "../../assets/images/beFit-logo2.png";
 import { connect } from "react-redux";
 import { fetchSettings } from "../../store/actions/settingActions";
 import { Layout } from "antd";
@@ -47,7 +45,6 @@ const UserPage = props => {
         <Switch>
           <Route path={"/Dashboard/myworkouts"} component={MyWorkouts} />
           <Route path={"/Dashboard/tracker"} component={Stats} />
-          {/* <Route path={"/Dashboard/history"} component={UserHistory} /> */}
           <Route
             path={"/Dashboard/notifications"}
             component={UserNotifications}
