@@ -254,7 +254,7 @@ class AllExercises extends React.Component {
                             }
                           />,
                           <div>
-                            <Button type="primary" onClick={this.showModal}>
+                            <Button type="primary" onClick={() => this.showModal(exercise.id) }>
                               Open Modal
                             </Button>
                             <Modal
@@ -263,7 +263,7 @@ class AllExercises extends React.Component {
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
                             >
-
+                              {this.props.singleExercise[0].exercise_name}
                             </Modal>
                           </div>,
                           <i className="fa fa-plus-square" />
@@ -314,7 +314,8 @@ const mapStateToProps = (state) => {
   return {
     exercises: state.exercises.exercises,
     indexOfLastExercise: state.exercises.indexOfLastExercise,
-    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises
+    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises,
+    singleExercise: state.exercises.singleExercise,
   };
 };
 
