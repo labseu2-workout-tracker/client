@@ -154,14 +154,21 @@ class MonthlyChart extends React.Component {
 
   render() {
     return (
-      <StyledMonthlyChart id="chart">
-        <Polar
-          options={{ ...this.state.options, labels: this.state.labels }}
-          series={this.state.series}
-          type="pie"
-          width="100%"
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <h2>Monthly Results</h2>
+        <Pie
+          data={{
+            labels: this.state.labels,
+            datasets: [
+              {
+                data: this.state.data,
+                backgroundColor: this.state.backgroundColor,
+                hoverBackgroundColor: this.state.hoverBackgroundColor
+              }
+            ]
+          }}
         />
-      </StyledMonthlyChart>
+      </div>
     );
   }
 }
