@@ -25,6 +25,22 @@ const StyledDesktopCalendar = styled.div`
   .status {
     display: none;
   }
+
+  @media (max-width: 950px) {
+    .status {
+    display: block;
+    
+    .ant-badge-status-dot {
+    margin-top: .5rem;
+    width: 20px;
+    height: 20px;
+    }
+    }
+
+    .status-text {
+      display: none;
+    }
+  }
 `;
 
 class DesktopCalendar extends React.Component {
