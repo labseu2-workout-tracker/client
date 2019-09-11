@@ -9,6 +9,11 @@ class MobileCalendar extends Component {
     super(props);
     this.state = {};
   }
+
+  onPanelChange = (value, mode) => {
+    console.log(value, mode);
+  };
+  
   render() {
     return <StyledMobileCalendar></StyledMobileCalendar>;
   }
