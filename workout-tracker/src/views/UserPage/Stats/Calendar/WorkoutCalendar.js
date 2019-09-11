@@ -2,6 +2,7 @@ import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
+import uuid from 'uuidv4'
 
 const StyledWorkoutCalendar = styled.div`
   .events {
