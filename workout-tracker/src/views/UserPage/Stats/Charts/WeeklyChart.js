@@ -66,30 +66,30 @@ class WeeklyChart extends React.Component {
               }
               return a;
             };
-            let daylist = getDaysArray(
-      startAndEndWeek[0], startAndEndWeek[1]
-            );
+            let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
-            console.log(daylist)
+            console.log(daylist);
 
             let daysInWeek = [];
 
             function formatDate(date) {
               var d = new Date(date),
-                  month = '' + (d.getMonth() + 1),
-                  day = '' + d.getDate(),
-                  year = d.getFullYear();
-          
-              if (month.length < 2) 
-                  month = '0' + month;
-              if (day.length < 2) 
-                  day = '0' + day;
-          
-              return [year, month, day].join('-');
-          }
-          
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
+            }
+
             for (let i = 0; i < daylist.length; i++) {
-              daysInWeek.push(formatDate(daylist[i]).split("-").join(""));
+              daysInWeek.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
