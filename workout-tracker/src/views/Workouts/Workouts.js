@@ -45,15 +45,18 @@ i {
 }
 `;
 
-const success = () => {
-  message.success('This is a success message');
-};
 
 class Workouts extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
   }
 
+  addWorkout = (workout_id) => {
+    message.success('This is a success message');
+
+    this.props.addWorkout(workout_id);
+  };
+  
   render() {
     return (
       <StyledWorkouts>
@@ -84,12 +87,10 @@ class Workouts extends React.Component {
                     >
                       Start Workout
                     </Link>
-                    <p
-                      onClick={() => this.props.addWorkout(workout.id)}
-                      className="btn"
-                    >
-                      Add Workout
-                    </p>
+                    
+                    <Button
+                      className="btn"                    
+                    onClick={() => this.addWorkout(workout.id)}>Add Workout</Button>
                   </div>
                 );
               })
