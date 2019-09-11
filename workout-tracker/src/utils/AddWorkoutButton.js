@@ -1,11 +1,12 @@
 import React from 'react';
-import './Add.css'
-import { Button } from 'antd'
+import { Button, Tooltip } from 'antd'
 import styled from "styled-components";
 
 const AddWorkoutButton = () => {
   return (
-   <Button type = "primary" size = "large" shape="circle" icon="plus" style = {myStyle}></Button>
+    <Tooltip Tooltip title = "Add new workout">
+         <Button type = "primary" size = "large" shape="circle" icon="plus" style = {myStyle}></Button>
+    </Tooltip>
   )
 }
 
