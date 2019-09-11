@@ -9,14 +9,16 @@ const StyledMobileCalendar = styled.div`
 class MobileCalendar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      history: null,
+    };
   }
 
   componentDidMount = () => {
     axiosWithAuth()
     .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
     .then(res => this.setState({
-      history: res.data,
+      history: res.data.workoutHistory,
     }));
   };
 
@@ -32,7 +34,7 @@ class MobileCalendar extends React.Component {
 
       return [year, month, day].join("-");
     }
-    console.log(formatDate(value._d));
+    console.log(formatDate(value._d), this.state.history);
   };
 
   render() {
