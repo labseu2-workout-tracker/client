@@ -282,7 +282,13 @@ class AllExercises extends React.Component {
                             >
                               {this.props.singleExercise ? (<div>
                                 <p>{this.props.singleExercise[0].exercise_name}</p>
-
+                                <div className="div-para">
+                <p> Level: {this.propsprops.exercise.difficulty}</p>
+                <p> Type: {props.exercise.type}</p>
+                <p>Target: {props.exercise.muscle}</p>
+                <p> Equipment: {props.exercise.equipment}</p>
+              </div>
+                                </div>
                                
                                ) : null}
                             </Modal>
