@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge, Modal, Button } from "antd";
+import { Calendar, Badge, Modal } from "antd";
 import styled from "styled-components";
 
 const StyledWorkoutCalendar = styled.div`
@@ -206,11 +206,10 @@ class WorkoutCalendar extends React.Component {
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
           <li key={item.content}>
-            {/* <Badge status={item.type} className="status" /> */}
             <div className="status">
                 <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
-                title="Basic Modal"
+                title="Workout List"
                 visible={this.state.visible}
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}
@@ -267,8 +266,6 @@ class WorkoutCalendar extends React.Component {
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
-    // console.log(filterWorkoutsForDate);
-    console.log(value);
     this.setState({
       workoutsForDate: filterWorkoutsForDate
     });
@@ -281,14 +278,12 @@ class WorkoutCalendar extends React.Component {
   };
 
   handleOk = e => {
-    console.log(e);
     this.setState({
       visible: false
     });
   };
 
   handleCancel = e => {
-    console.log(e);
     this.setState({
       visible: false
     });
