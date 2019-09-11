@@ -244,6 +244,15 @@ class DesktopCalendar extends React.Component {
     console.log(filterWorkoutsForDate);
   };
 
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+
+
   render() {
     return (
       <StyledDesktopCalendar>
