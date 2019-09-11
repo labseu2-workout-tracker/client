@@ -204,22 +204,23 @@ class WorkoutCalendar extends React.Component {
     const listData = this.getListData(value);
     return (
       <ul className="events" style={{ listStyle: "none" }}>
-        {listData.map((item, index) => (
-          <li key={index}>
+        {listData.map((item) => (
+          <li key={uuid()}>
             <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Workout List"
                 visible={this.state.visible}
+                onCancel={this.handleCancel}
                 footer={[
-                  <Button type="primary" onClick={this.handleOk}>
+                  <Button key={uuid()} type="primary" onClick={this.handleOk}>
                     OK
                   </Button>
                 ]}
               >
                 {this.state.workoutsForDate
-                  ? this.state.workoutsForDate.map((workoutName, index) => (
-                      <p key={index}>{workoutName}</p>
+                  ? this.state.workoutsForDate.map((workoutName) => (
+                      <p key={uuid()}>{workoutName}</p>
                     ))
                   : null}
               </Modal>
