@@ -3,21 +3,7 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Polar } from "react-chartjs-2";
 
 
-const StyledMonthlyChart = styled.div`
-  width: 100%;
-  height: 100%;
 
-  .apexcharts-title-text {
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  .apexcharts-legend {
-    text-align: left;
-    font-weight: bold;
-    font-size: 2rem;
-  }
-`;
 
 class MonthlyChart extends React.Component {
   constructor(props) {
