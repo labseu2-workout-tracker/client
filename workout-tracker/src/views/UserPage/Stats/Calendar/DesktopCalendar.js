@@ -21,6 +21,10 @@ const StyledDesktopCalendar = styled.div`
   .notes-month section {
     font-size: 28px;
   }
+
+  .status {
+    display: none;
+  }
 `;
 
 class DesktopCalendar extends React.Component {
@@ -168,7 +172,8 @@ class DesktopCalendar extends React.Component {
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
           <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
+            <Badge status={item.type} className="status" />            
+            <Badge status={item.type} text={item.content} className="status-text" />
           </li>
         ))}
       </ul>
