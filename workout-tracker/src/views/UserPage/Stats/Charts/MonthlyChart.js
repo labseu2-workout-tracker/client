@@ -4,6 +4,9 @@ import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
 const StyledMonthlyChart = styled.div`
+  width: 100%;
+  height: 100%;
+  
   .apexcharts-title-text {
     font-weight: bold;
     font-size: 1rem;

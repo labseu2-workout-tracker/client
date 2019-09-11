@@ -5,6 +5,15 @@ import styled from "styled-components";
 import uuid from 'uuidv4'
 
 const StyledWorkoutCalendar = styled.div`
+
+.ant-fullcalendar-fullscreen .ant-fullcalendar-month, .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+height: 60px;
+}
+
+.ant-radio-button-wrapper {
+  display: none;
+}
+
   .events {
     list-style: none;
     margin: 0;
@@ -23,9 +32,9 @@ const StyledWorkoutCalendar = styled.div`
     font-size: 28px;
   }
 
-  .status {
+  /* .status {
     display: none;
-  }
+  } */
 
   .fa-info-circle {
     margin: 1rem 0 0 1.4rem;
@@ -33,7 +42,7 @@ const StyledWorkoutCalendar = styled.div`
     font-size: 1.5rem;
   }
 
-  @media (max-width: 950px) {
+  /* @media (max-width: 950px) {
     .status {
       display: flex;
       width: 100%;
@@ -51,7 +60,7 @@ const StyledWorkoutCalendar = styled.div`
     .status-text {
       display: none;
     }
-  }
+  } */
 `;
 
 class WorkoutCalendar extends React.Component {
@@ -206,7 +215,7 @@ class WorkoutCalendar extends React.Component {
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map((item) => (
           <li key={uuid()}>
-            <div className="status">
+            <div>
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Workout List"
@@ -225,11 +234,11 @@ class WorkoutCalendar extends React.Component {
                   : null}
               </Modal>
             </div>
-            <Badge
+            {/* <Badge
               status={item.type}
               text={item.content}
               className="status-text"
-            />
+            /> */}
           </li>
         ))}
       </ul>
