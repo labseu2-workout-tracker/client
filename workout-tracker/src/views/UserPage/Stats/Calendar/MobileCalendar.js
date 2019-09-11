@@ -36,7 +36,7 @@ class MobileCalendar extends React.Component {
       return [year, month, day].join("-");
     };
 
-    const filterWorkoutsForDate = this.state.history.filter(
+    const matchWorkoutsWithDate = this.state.history.filter(
       workout =>
       workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
       );

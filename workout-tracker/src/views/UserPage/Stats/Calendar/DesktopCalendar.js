@@ -47,7 +47,7 @@ class DesktopCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: null,
+      result: "",
       history: null,
     };
   }
@@ -231,12 +231,12 @@ class DesktopCalendar extends React.Component {
       return [year, month, day].join("-");
     };
 
-    // const filterWorkoutsForDate = this.state.history.filter(
-    //   workout =>
-    //     workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
-    // );
+    const filterWorkoutsForDate = this.state.history.filter(
+      workout =>
+        workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
+    );
 
-    console.log(formatDate(value._d));
+    console.log(filterWorkoutsForDate);
   };
 
   render() {
