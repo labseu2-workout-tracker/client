@@ -1,18 +1,13 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import {
-  Calendar,
-  //  Badge,
-  Modal,
-  Button
-} from "antd";
+import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
 
 const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 60px;
+    height: 80px;
   }
 
   .ant-radio-button-wrapper {
@@ -37,9 +32,9 @@ const StyledWorkoutCalendar = styled.div`
     font-size: 28px;
   }
 
-  /* .status {
+  .status {
     display: none;
-  } */
+  }
 
   .fa-info-circle {
     color: green;
@@ -47,7 +42,12 @@ const StyledWorkoutCalendar = styled.div`
     margin-top: 0.5rem;
   }
 
-  /* @media (max-width: 950px) {
+  @media (max-width: 1300px) {
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+      height: 60px;
+    }
+
     .status {
       display: flex;
       width: 100%;
@@ -65,7 +65,7 @@ const StyledWorkoutCalendar = styled.div`
     .status-text {
       display: none;
     }
-} */
+  }
 
   @media (max-width: 600px) {
     .fa-info-circle {
@@ -226,7 +226,7 @@ class WorkoutCalendar extends React.Component {
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
           <li key={uuid()}>
-            <div>
+            <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Workout List"
@@ -245,11 +245,11 @@ class WorkoutCalendar extends React.Component {
                   : null}
               </Modal>
             </div>
-            {/* <Badge
+            <Badge
               status={item.type}
               text={item.content}
               className="status-text"
-            /> */}
+            />
           </li>
         ))}
       </ul>
