@@ -41,19 +41,7 @@ class MonthlyChart extends React.Component {
         title: {
           text: "Monthly Results"
         }
-        // responsive: [
-        //   {
-        //     breakpoint: 480,
-        //     options: {
-        //       chart: {
-        //         width: 200
-        //       },
-        //       legend: {
-        //         position: "bottom"
-        //       }
-        //     }
-        //   }
-        // ]
+      
       },
       series: [25, 15, 44, 55, 41, 17]
     };
@@ -164,7 +152,7 @@ class MonthlyChart extends React.Component {
   render() {
     return (
       <StyledMonthlyChart id="chart">
-        <ReactApexChart
+        <Polar
           options={{ ...this.state.options, labels: this.state.labels }}
           series={this.state.series}
           type="pie"
