@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
@@ -66,7 +66,7 @@ class App extends Component {
     );
 
     return (
-      <Fragment>
+      <>
         {this.state.showBackdrop && (
           <Backdrop
             onClick={this.backdropClickHandler}
@@ -92,7 +92,7 @@ class App extends Component {
           }
           routes={routes}
         />
-      </Fragment>
+      </>
     );
   }
 }

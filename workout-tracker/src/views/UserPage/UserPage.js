@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
-
 import ProfileImage from "./ProfileImage";
 import Stats from "./Stats/Stats";
 import MyWorkouts from "./MyWorkouts/MyWorkouts";
