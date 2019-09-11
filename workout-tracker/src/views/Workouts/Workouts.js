@@ -4,7 +4,6 @@ import {
   fetchWorkouts,
   fetchWorkoutDetails,
   addWorkout,
-  closeWindow
 } from "../../store/actions/workoutsActions";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -100,5 +99,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchWorkouts, fetchWorkoutDetails, addWorkout, closeWindow }
+  { fetchWorkouts, fetchWorkoutDetails, addWorkout }
 )(Workouts);
