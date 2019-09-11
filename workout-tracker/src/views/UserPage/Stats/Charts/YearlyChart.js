@@ -56,26 +56,6 @@ class YearlyChart extends React.Component {
             let first_day_year = new Date(year, 0, 1);
             let last_day_year = new Date(year, 11, 31);
 
-            // Date.prototype.addDays = function(days) {
-            //   let date = new Date(this.valueOf());
-            //   date.setDate(date.getDate() + days);
-            //   return date;
-            // };
-
-            // function getDates(startDate, stopDate) {
-            //   let dateArray = new Array();
-            //   let currentDate = startDate;
-            //   while (currentDate <= stopDate) {
-            //     dateArray.push(new Date(currentDate));
-            //     currentDate = currentDate.addDays(1);
-            //   }
-            //   return dateArray;
-            // }
-
-            // let allDaysInYear = Object.values(
-            //   getDates(first_day_year, last_day_year)
-            // ); console.log(allDaysInYear)
-
             var getDaysArray = function(s, e) {
               for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
                 a.push(new Date(d));
@@ -90,19 +70,22 @@ class YearlyChart extends React.Component {
 
             let daysInYear = [];
 
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
-
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
-            };
-
+            function formatDate(date) {
+              var d = new Date(date),
+                  month = '' + (d.getMonth() + 1),
+                  day = '' + d.getDate(),
+                  year = d.getFullYear();
+          
+              if (month.length < 2) 
+                  month = '0' + month;
+              if (day.length < 2) 
+                  day = '0' + day;
+          
+              return [year, month, day].join('-');
+          }
+          
             for (let i = 0; i < daylist.length; i++) {
-              daysInYear.push(daylist[i].yyyymmdd().toString());
+              daysInYear.push(formatDate(daylist[i]).split("-").join(""));
             }
 
             let userHistory = [...res.data.workoutHistory];
