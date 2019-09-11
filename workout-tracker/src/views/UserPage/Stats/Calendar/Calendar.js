@@ -3,18 +3,16 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge } from "antd";
 import styled from "styled-components";
 
-const StyledTheCalendar = styled.div`
+const StyledDesktopCalendar = styled.div`
   .events {
     list-style: none;
     margin: 0;
     padding: 0;
   }
   .events .ant-badge-status {
-    /* overflow: hidden; */
-    /* white-space: nowrap; */
     width: 100%;
-    /* text-overflow: ellipsis; */
-    font-size: 12px;
+    text-overflow: ellipsis;
+    font-size: 8px;
   }
   .notes-month {
     text-align: center;
@@ -23,13 +21,9 @@ const StyledTheCalendar = styled.div`
   .notes-month section {
     font-size: 28px;
   }
-
-  .ant-fullcalendar-date {
-    height: 2rem;
-  }
 `;
 
-class TheCalendar extends React.Component {
+class DesktopCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -199,14 +193,14 @@ class TheCalendar extends React.Component {
 
   render() {
     return (
-      <StyledTheCalendar>
+      <StyledDesktopCalendar>
         <Calendar
           dateCellRender={this.dateCellRender}
           monthCellRender={this.monthCellRender}
         />
-      </StyledTheCalendar>
+      </StyledDesktopCalendar>
     );
   }
 }
 
-export default TheCalendar;
+export default DesktopCalendar;

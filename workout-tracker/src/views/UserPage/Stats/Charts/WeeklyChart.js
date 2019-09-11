@@ -68,7 +68,6 @@ class WeeklyChart extends React.Component {
             };
             let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
-            console.log(daylist);
 
             let daysInWeek = [];
 

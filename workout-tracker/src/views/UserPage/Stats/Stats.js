@@ -5,7 +5,9 @@ import Calendar from "./Calendar/Calendar";
 import styled from "styled-components";
 import { Row } from "antd";
 
-const StyledStats = styled.div``;
+const StyledStats = styled.div`
+overflow: hidden;
+`;
 
 class Stats extends React.Component {
   constructor(props) {
