@@ -44,7 +44,7 @@ const UserPage = props => {
       <Content>
         <Switch>
           <Route path={"/Dashboard/myworkouts"} component={MyWorkouts} />
-          <Route path={"/Dashboard/tracker"} component={Stats} />
+          <Route path={"/Dashboard/stats"} component={Stats} />
           <Route
             path={"/Dashboard/notifications"}
             component={UserNotifications}
