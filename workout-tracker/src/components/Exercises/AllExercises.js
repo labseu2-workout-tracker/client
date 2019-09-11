@@ -280,17 +280,21 @@ class AllExercises extends React.Component {
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
                             >
-                              {this.props.singleExercise ? (<p>{this.props.singleExercise[0].exercise_name}</p>) : null}
+                              {this.props.singleExercise ? (<div>
+                                <p>{this.props.singleExercise[0].exercise_name}</p>
+
+                               
+                               ) : null}
                             </Modal>
                           </div>,
                           <i className="fa fa-plus-square" />
                         ]}
                       >
                         <Meta
-                          title={exercise.exercise_name}
+                          title={exercise.exercise_name}pageHeader
                           description={
                             <div>
-                              {' '}
+                              {' hehehehehehee'}
                               <p
                                 style={{ padding: '0' }}
                               >{`${exercise.muscle} with ${exercise.equipment}`}</p>
