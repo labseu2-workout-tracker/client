@@ -60,13 +60,6 @@ class Workouts extends React.Component {
   render() {
     return (
       <StyledWorkouts>
-        <div className={this.props.addedWorkout ? "added-workout" : "off"}>
-          <div className="close">
-            <i onClick={this.props.closeWindow} className="fa fa-times" />
-          </div>
-          <h1>You added a workout to your workout gallery</h1>
-        </div>
-
         <h1 className="coolstuff">Choose from our Workouts</h1>
         <div className="land-wrapper">
           {this.props.workouts
