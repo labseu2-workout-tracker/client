@@ -53,15 +53,15 @@ class Workouts extends React.Component {
   addWorkout = (workout_id) => {
     message.success('Workout got added!');
 
-    this.props.addWorkout(workout_id);
   };
-
-  notification = type => {
+  
+  notification = (type, workout_id) => {
     notification[type]({
       message: 'Notification Title',
       description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
     });
+    this.props.addWorkout(workout_id);
   };
   
   render() {
