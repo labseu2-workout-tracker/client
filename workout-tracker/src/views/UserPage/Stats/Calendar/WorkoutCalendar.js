@@ -27,7 +27,7 @@ const StyledWorkoutCalendar = styled.div`
   }
 
   .fa-info-circle {
-    margin: 1rem 0 0 1.4rem; 
+    margin: 1rem 0 0 1.4rem;
     color: green;
     font-size: 1.5rem;
   }
@@ -207,7 +207,7 @@ class WorkoutCalendar extends React.Component {
         {listData.map(item => (
           <li key={item.content}>
             <div className="status">
-                <i onClick={this.showModal} className="fa fa-info-circle" />
+              <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 title="Workout List"
                 visible={this.state.visible}
@@ -266,9 +266,21 @@ class WorkoutCalendar extends React.Component {
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
-    .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {})
+    workoutsForDay = [];
 
+    axiosWithAuth()
+      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
+      .then(res => {
+        for (let i = 0; i < res.data.length; i++) {
+          for (let j = 0; j < filterWorkoutsForDate.length; j++) {
+            if (res.data[i].id === filterWorkoutsForDate[j].workout_id) {
+            w
+            }
+          }
+        }
+      });
+
+    console.log(filterWorkoutsForDate);
     this.setState({
       workoutsForDate: filterWorkoutsForDate
     });
