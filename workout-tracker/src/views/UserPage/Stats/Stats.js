@@ -3,7 +3,7 @@ import ChartContainer from "./Charts/ChartContainer";
 import UserHistory from "./UserHistory/UserHistory";
 import Calendar from "./Calendar/Calendar";
 import styled from "styled-components";
-import { Row, Col } from "antd";
+import { Row } from "antd";
 
 const StyledStats = styled.div`
   .column {

@@ -4,6 +4,8 @@ import { Calendar, Badge } from "antd";
 import styled from "styled-components";
 
 const StyledTheCalendar = styled.div`
+  height: 50rem;
+  
   .events {
     list-style: none;
     margin: 0;
