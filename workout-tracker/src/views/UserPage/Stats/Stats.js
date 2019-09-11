@@ -6,10 +6,9 @@ import styled from "styled-components";
 import { Row, Col } from "antd";
 
 const StyledStats = styled.div`
-
-.column {
-  width: 50%;
-}
+  .column {
+    width: 50%;
+  }
 `;
 
 class Stats extends React.Component {
@@ -21,14 +20,14 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <Row>
-          <Col className="column" span={12}>
-            <ChartContainer />
-          </Col>
-          <Col className="column" span={12}>
-            <UserHistory />
-          </Col>
+          <Calendar />
         </Row>
-          <Calendar/>
+        <Row>
+          <ChartContainer />
+        </Row>
+        <Row>
+          <UserHistory />
+        </Row>
       </StyledStats>
     );
   }
