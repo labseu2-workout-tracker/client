@@ -12,16 +12,15 @@ class SessionHistory extends React.Component {
   }
 
   render() {
-    let session = this.props.history;
+    let history = this.props.history;
     let workouts = this.props.workouts;
-    console.log(session)
 
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
         <List>
-          {session[0] ? (
-            session.map(session => {
+          {history[0] ? (
+            history.map(session => {
               const date1 = session.session_start;
               const date2 = session.session_end;
 
@@ -80,9 +79,9 @@ class SessionHistory extends React.Component {
                 </ol>
               );
             })
-          ) : (<p>You have no workout history at the moment</p>)
-          
-          }
+          ) : (
+            <p>You have no workout history at the moment</p>
+          )}
         </List>
       </div>
     );

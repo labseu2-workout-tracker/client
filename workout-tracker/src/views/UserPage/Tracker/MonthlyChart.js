@@ -1,35 +1,60 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../store/axiosWithAuth";
+import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
-class PieChart extends React.Component {
+const StyledMonthlyChart = styled.div`
+
+#SvgjsText1101 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.apexcharts-legend {
+text-align: left;
+}
+`;
+
+class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      labels: ["Red", "Green", "Yellow"],
-      data: [],
-      backgroundColor: [
-        "#5d5d5d",
-        "#91b029",
-        "#FFCE56",
-        "#fb0091",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
+      labels: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
       ],
-      hoverBackgroundColor: [
-        "#5d5d5d",
-        "#91b029",
-        "#FFCE56",
-        "#fb0091",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
-      ]
+      options: {
+        theme: {
+          monochrome: {
+            enabled: true
+          }
+        },
+        title: {
+          text: "Monthly Results"
+        },
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: "bottom"
+              }
+            }
+          }
+        ]
+      },
+      series: [25, 15, 44, 55, 41, 17]
     };
   }
+
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
@@ -44,20 +69,9 @@ class PieChart extends React.Component {
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            let weekMap = [6, 0, 1, 2, 3, 4, 5];
-
-            function startAndEndOfWeek(date) {
-              let now = new Date(date);
-              now.setHours(0, 0, 0, 0);
-              let monday = new Date(now);
-              monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
-              let sunday = new Date(now);
-              sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
-              sunday.setHours(23, 59, 59, 999);
-              return [monday, sunday];
-            }
-
-            let startAndEndWeek = startAndEndOfWeek(new Date());
+            let date = new Date();
+            let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
             Date.prototype.addDays = function(days) {
               let date = new Date(this.valueOf());
@@ -75,10 +89,8 @@ class PieChart extends React.Component {
               return dateArray;
             }
 
-            let allDaysInWeek = Object.values(
-              getDates(startAndEndWeek[0], startAndEndWeek[1])
-            );
-            let daysInWeek = [];
+            let allDaysInMonth = Object.values(getDates(firstDay, lastDay));
+            let daysInMonth = [];
 
             Date.prototype.yyyymmdd = function() {
               let mm = this.getMonth() + 1;
@@ -91,20 +103,20 @@ class PieChart extends React.Component {
               ].join("");
             };
 
-            for (let i = 0; i < allDaysInWeek.length; i++) {
-              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            for (let i = 0; i < allDaysInMonth.length; i++) {
+              daysInMonth.push(allDaysInMonth[i].yyyymmdd().toString());
             }
 
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInWeek.length; j++) {
+            for (let j = 0; j < daysInMonth.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInWeek[j]
+                    .join("") === daysInMonth[j]
                 ) {
                   resultOfWeek.push(userHistory[i]);
                 }
@@ -131,14 +143,16 @@ class PieChart extends React.Component {
 
             let valuesForDataset = [];
 
+            let copyOfOptions = this.state.options;
+
             for (let value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
+            copyOfOptions.labels = workoutNames;
 
-            console.log(valuesForDataset);
             this.setState({
-              data: valuesForDataset,
-              labels: workoutNames
+              labels: workoutNames,
+              series: valuesForDataset
             });
           });
       });
@@ -146,23 +160,16 @@ class PieChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "60%", height: "50%" }}>
-        <h2>Weekly Results</h2>
-        <Pie
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                data: this.state.data,
-                backgroundColor: this.state.backgroundColor,
-                hoverBackgroundColor: this.state.hoverBackgroundColor
-              }
-            ]
-          }}
+      <StyledMonthlyChart id="chart">
+        <ReactApexChart
+          options={{ ...this.state.options, labels: this.state.labels }}
+          series={this.state.series}
+          type="pie"
+          width="500px"
         />
-      </div>
+      </StyledMonthlyChart>
     );
   }
 }
 
-export default PieChart;
+export default MonthlyChart;

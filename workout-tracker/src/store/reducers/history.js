@@ -7,7 +7,7 @@ const initialState = {
 
 const history = (state = initialState, action) => {
   switch (action.type) {
-      case type.FETCH_WORKOUTS_HISTORY:
+    case type.FETCH_WORKOUTS_HISTORY:
           return {
         ...state,
         history: action.session
