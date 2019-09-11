@@ -110,10 +110,6 @@ const StyledAllExercises = styled.div`
 `;
 
 class AllExercises extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   componentDidMount = () => {
     this.props.fetchExercises();
