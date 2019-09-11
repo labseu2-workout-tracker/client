@@ -56,8 +56,8 @@ class YearlyChart extends React.Component {
             let first_day_year = new Date(year, 0, 1);
             let last_day_year = new Date(year, 11, 31);
 
-            let getDaysArray = function(s, e) {
-              for (let a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
                 a.push(new Date(d));
               }
               return a;
@@ -71,7 +71,7 @@ class YearlyChart extends React.Component {
             let daysInYear = [];
 
             function formatDate(date) {
-              let d = new Date(date),
+              var d = new Date(date),
                   month = '' + (d.getMonth() + 1),
                   day = '' + d.getDate(),
                   year = d.getFullYear();
