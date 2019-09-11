@@ -10,7 +10,7 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       minValue: 0,
-      maxValue: 8
+      maxValue: 6
     };
   }
 
@@ -24,12 +24,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 8
+        maxValue: 6
       });
     } else {
       this.setState({
-        minValue: value * 8 - 8,
-        maxValue: value * 8
+        minValue: value * 6 - 6,
+        maxValue: value * 6
       });
     }
   };
@@ -109,7 +109,7 @@ class SessionHistory extends React.Component {
               </div>
               <Pagination
                 defaultCurrent={1}
-                defaultPageSize={8}
+                defaultPageSize={6}
                 onChange={this.handlePagination}
                 total={this.props.history.length}
               />
@@ -148,7 +148,7 @@ const StyledUserHistory = styled.div`
   }
   ol {
     padding: 10px;
-    width: 25%;
+    width: 30%;
     margin: 0;
   }
 
