@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Layout, Menu, Card, Dropdown } from "antd";
+import { Input, Button, Layout, Menu, Card, Dropdown, Modal } from "antd";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import {
@@ -253,6 +253,7 @@ class AllExercises extends React.Component {
                               this.props.showSingleExercise(exercise.id)
                             }
                           />,
+                          
                           <i className="fa fa-plus-square" />
                         ]}
                       >
