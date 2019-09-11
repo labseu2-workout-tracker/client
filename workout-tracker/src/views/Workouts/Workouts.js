@@ -43,8 +43,11 @@ i {
     color: red;
   }
 }
-
 `;
+
+const success = () => {
+  message.success('This is a success message');
+};
 
 class Workouts extends React.Component {
   componentDidMount() {
