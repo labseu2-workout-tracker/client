@@ -1,6 +1,11 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge, Modal, Button } from "antd";
+import {
+  Calendar,
+  //  Badge,
+  Modal,
+  Button
+} from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
 
@@ -305,7 +310,7 @@ class WorkoutCalendar extends React.Component {
   handleOk = () => {
     this.setState({
       visible: false,
-      workoutsForDate: null,
+      workoutsForDate: null
     });
   };
 
