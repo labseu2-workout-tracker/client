@@ -3,19 +3,22 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge } from "antd";
 import styled from "styled-components";
 
+const yeah = () => {
+  console.log(yeah);
+};
+
 const StyledTheCalendar = styled.div`
-  height: 50rem;
-  
+
   .events {
     list-style: none;
     margin: 0;
     padding: 0;
   }
   .events .ant-badge-status {
-    overflow: hidden;
-    white-space: nowrap;
+    /* overflow: hidden; */
+    /* white-space: nowrap; */
     width: 100%;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
     font-size: 12px;
   }
   .notes-month {
@@ -24,6 +27,10 @@ const StyledTheCalendar = styled.div`
   }
   .notes-month section {
     font-size: 28px;
+  }
+
+  .ant-fullcalendar-date {
+    height: 2rem;
   }
 `;
 
@@ -34,6 +41,7 @@ class TheCalendar extends React.Component {
       result: ""
     };
   }
+  
 
   componentDidMount = () => {
     let workoutNames = [];
@@ -125,8 +133,9 @@ class TheCalendar extends React.Component {
               result: theResult
             });
           });
-      });
+      });   
   };
+
 
   getListData = value => {
     let listData;

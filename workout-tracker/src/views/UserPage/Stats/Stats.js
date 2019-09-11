@@ -6,9 +6,7 @@ import styled from "styled-components";
 import { Row } from "antd";
 
 const StyledStats = styled.div`
-  .column {
-    width: 50%;
-  }
+
 `;
 
 class Stats extends React.Component {
