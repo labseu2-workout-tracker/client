@@ -190,6 +190,13 @@ class MonthlyChart extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts
+  };
+};
+
 export default connect(
   mapStateToProps,
   { fetchWorkouts, fetchWorkoutsHistory }
