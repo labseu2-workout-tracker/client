@@ -40,7 +40,6 @@ class SessionHistory extends React.Component {
 
     return (
       <Card className="history" title="WorkoutHistory">
-        <h2>Here you can check out the work you have done!</h2>
         <StyledUserHistory>
           {history ? (
             <div>
@@ -107,12 +106,14 @@ class SessionHistory extends React.Component {
                     );
                   })}
               </div>
+              <div className="pagination">
               <Pagination
                 defaultCurrent={1}
                 defaultPageSize={6}
                 onChange={this.handlePagination}
                 total={this.props.history.length}
               />
+              </div>
             </div>
           ) : (
             <p>You have no workout history at the moment</p>
@@ -179,4 +180,11 @@ const StyledUserHistory = styled.div`
     font-size: 0.9rem;
     padding: 10px;
   }
+
+  /* .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  } */
 `;
