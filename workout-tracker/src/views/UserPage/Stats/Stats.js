@@ -6,7 +6,7 @@ import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
-import { Row, Card } from "antd";
+import { Row, Col, Card } from "antd";
 
 const StyledStats = styled.div`
   overflow: hidden;
@@ -20,15 +20,24 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
-        <Card style={{ width: 750 }}>
-          <WeeklyChart />
-        </Card>
-        <Card style={{ width: 750 }}>
-          <MonthlyChart />
-        </Card>
-        <Card style={{ width: 750 }}>
-          <YearlyChart />
-        </Card>
+        <Row>
+          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+            <Card style={{ width: "30%" }}>
+              <WeeklyChart />
+            </Card>
+          </Col>
+          <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+            <Card style={{ width: "30%" }}>
+              <MonthlyChart />
+            </Card>
+          </Col>
+          <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+            <Card style={{ width: "30%" }}>
+              <YearlyChart />
+            </Card>
+          </Col>
+        </Row>
+        ,
         <Row>
           <WorkoutCalendar />
         </Row>
