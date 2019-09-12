@@ -145,7 +145,7 @@ class WeeklyChart extends React.Component {
     return (
       <Card
         style={{
-          width: "30%"
+          width: "30%",
         }}
         hoverable
         className="chart chart-one"

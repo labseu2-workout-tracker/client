@@ -61,7 +61,6 @@ class Stats extends React.Component {
 
           <MonthlyChart />
 
-          <YearlyChart />
         </div>
 
         <div>
@@ -71,6 +70,7 @@ class Stats extends React.Component {
         <div>
           <UserHistory />
         </div>
+          <YearlyChart />
       </StyledStats>
     );
   }
