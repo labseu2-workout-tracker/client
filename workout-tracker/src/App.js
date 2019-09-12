@@ -20,7 +20,8 @@ import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
 import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
-
+import 'antd/dist/antd.css';
+import { Button } from 'antd';
 
 
 class App extends Component {
@@ -57,10 +58,10 @@ class App extends Component {
         </div>
         <ul className="nav-items">
           <DashboardNavItem isAuth={Auth.isAuthenticated()}/>
-          <li className="dashboard-list-item" key="logout">
-            <button onClick={this.logoutHandler}>Logout</button>
-          </li>
         </ul>
+        <div style={{paddingLeft: "10px"}}>
+          <Button  type="danger" onClick={this.logoutHandler}>Logout</Button>
+        </div>
       </>
     )
     let routes = (
