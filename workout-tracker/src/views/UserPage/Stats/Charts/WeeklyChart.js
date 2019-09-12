@@ -173,7 +173,12 @@ class WeeklyChart extends React.Component {
           </Card>
         }
       >
-        <Meta title="Weekly Result" description="www.instagram.com" />
+        <Meta
+          title="Weekly Result"
+          description={`You made ${this.state.data.reduce(
+            (accumulator, currentValue) => accumulator + currentValue, 0
+          )} this week.`}
+        />
       </Card>
     );
   }

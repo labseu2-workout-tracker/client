@@ -11,7 +11,8 @@ import { Row, Col, Card } from "antd";
 const StyledStats = styled.div`
   overflow: hidden;
 
-  .chart, .calendar {
+  .chart,
+  .calendar {
     width: 100%;
     border: 0;
     display: flex;
@@ -38,15 +39,15 @@ class Stats extends React.Component {
       <StyledStats>
         <Row>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <WeeklyChart/>
+            <WeeklyChart />
           </Col>
 
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-           <MonthlyChart />
+            <MonthlyChart />
           </Col>
 
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <YearlyChart/>
+            <YearlyChart />
           </Col>
         </Row>
 
