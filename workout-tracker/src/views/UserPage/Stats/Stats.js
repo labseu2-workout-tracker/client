@@ -70,7 +70,10 @@ class Stats extends React.Component {
         <div>
           <WorkoutCalendar />
         </div>
+        <div>
         <MonthlyGraph />
+        <YearlyChart/>
+        </div>
         <div>
           <UserHistory />
         </div>
