@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import UserPage from "./views/UserPage/UserPage";
+import Dashboard from "./views/UserPage/Dashboard";
 import About from "./views/AboutUs/AboutUs";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
@@ -15,7 +15,7 @@ import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
-import ProfileCard from './views/UserPage/ProfileImage'
+import ProfileCard from './components/MainNavBar/SideNavigation/ProfileImage'
 import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
@@ -71,12 +71,7 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage} />
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
-          <PrivateRoute path={"/Dashboard"} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/myworkouts'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/settings'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/tracker'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/history'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/notifications'} component={UserPage} />
+          <PrivateRoute path={"/Dashboard"} component={Dashboard} />
           <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
           <PrivateRoute path={"/Settings"} component={Settings} />
           <PrivateRoute path={"/Workouts"} component={Workouts} />
