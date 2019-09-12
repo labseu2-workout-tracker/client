@@ -14,14 +14,14 @@ const StyledChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 70%;
 
   .off {
     display: none;
   }
 
   .weekly , .monthly, .yearly {
-  width: 100%;
+  width: 70%;
   }
 `;
 

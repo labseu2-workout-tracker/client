@@ -142,6 +142,7 @@ export default connect(
 const StyledUserHistory = styled.div`
   width: 50%;
   margin: 0 auto; 
+ 
   ol {
     padding: 10px;
   }
@@ -156,6 +157,7 @@ const StyledUserHistory = styled.div`
     font-size: 1.5rem;
     color: black;
     border: 1px solid gray;
+    border-radius:10px;
   }
   h4 {
     position: relative;
