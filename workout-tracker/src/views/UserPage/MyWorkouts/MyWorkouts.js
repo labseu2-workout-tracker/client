@@ -45,4 +45,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkoutDetails, deleteWorkout })(WorkoutView);
+export default connect(
+  mapStateToProps,
+  { fetchWorkoutDetails, deleteWorkout }
+)(WorkoutView);
