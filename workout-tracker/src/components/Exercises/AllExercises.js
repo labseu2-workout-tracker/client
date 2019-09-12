@@ -233,13 +233,16 @@ class AllExercises extends React.Component {
           <Layout>
             <Layout
               style={{
-                backgroundColor: '#fff'
+                backgroundColor: '#fff',
+
               }}
             >
               <Content
                 style={{
                   margin: '2rem',
-                  minHeight: 280,                 
+                  minHeight: 280,
+                  display:'flex',
+                  flexFlow: 'row wrap'                
 
                 }}
               >
@@ -278,7 +281,7 @@ class AllExercises extends React.Component {
                             <i className="fa fa-info-circle" />
                             </Button>
                             <Modal
-                              title={this.props.singleExercise[0].exercise_name}
+                              title={this.props.showSingleExercise ? this.props.singleExercise[0].exercise_name : null}
                               visible={this.state.visible} 
                               // {this.props.singleExercise[0].closeExercise}
                               onOk={this.handleOk}
