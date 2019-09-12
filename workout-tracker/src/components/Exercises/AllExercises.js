@@ -299,12 +299,7 @@ class AllExercises extends React.Component {
                                       title= {this.props.singleExercise[0].exercise_name}
                                       description="www.instagram.com"
                                     />
-                                  </Card>
-                                  ,
-                                  <p>
-                                   
-                                  </p>
-                                  <div className="card">
+                                    <div>
                                     <p>
                                       {' '}
                                       Level:{' '}
@@ -324,6 +319,10 @@ class AllExercises extends React.Component {
                                       {this.props.singleExercise[0].equipment}
                                     </p>
                                   </div>
+                                  </Card>
+                                  ,
+
+                                  
                                 </div>
                               ) : null}
                             </Modal>
