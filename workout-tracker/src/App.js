@@ -16,8 +16,6 @@ import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNav
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 
-
-
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
 
@@ -43,8 +41,27 @@ class App extends Component {
   };
 
   render() {
+    let sider = (
+      let sider = (
+        <>
+          <div>
+            <Logo />
+            <ProfileCard
+              weight={10}
+              // {this.props.settings[0].weight ? this.props.settings[0].weight : 10}
+              workouts={10}
+              username={'Tigran'}
+              // {this.props.settings[0].username}
+            />
+          </div>
+          <ul className="nav-items">
+            <NavigationItems onLogout={this.logoutHandler} isAuth={Auth.isAuthenticated()}/>
+          </ul>
+        </>
+      )
+    )
     let routes = (
-      <div className="App">
+      <>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/about" component={About} />
@@ -63,7 +80,7 @@ class App extends Component {
           <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
           <Redirect to="/" />
         </Switch>
-      </div>
+      </>
     );
 
     return (
@@ -91,6 +108,7 @@ class App extends Component {
               isAuth={Auth.isAuthenticated()}
             />
           }
+        sider = {sider}
         routes = {routes}
         />
       </>
