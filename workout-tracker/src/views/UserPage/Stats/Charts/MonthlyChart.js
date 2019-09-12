@@ -1,59 +1,34 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import ReactApexChart from "react-apexcharts";
-import styled from "styled-components";
-
-const StyledMonthlyChart = styled.div`
-
-  .apexcharts-title-text {
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  .apexcharts-legend {
-    text-align: left;
-    font-weight: bold;
-    font-size: 2rem;
-  }
-`;
+import { Polar } from "react-chartjs-2";
 
 class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      labels: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
+      labels: ["Red", "Green", "Yellow"],
+      data: [1, 5, 6, 7],
+      backgroundColor: [
+        "#f6f078",
+        "#01d28e",
+        "#434982",
+        "#730068",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
       ],
-      options: {
-        theme: {
-          monochrome: {
-            enabled: true
-          }
-        },
-        title: {
-          text: "Monthly Results"
-        },
-        // responsive: [
-        //   {
-        //     breakpoint: 480,
-        //     options: {
-        //       chart: {
-        //         width: 200
-        //       },
-        //       legend: {
-        //         position: "bottom"
-        //       }
-        //     }
-        //   }
-        // ]
-      },
-      series: [25, 15, 44, 55, 41, 17]
+      hoverBackgroundColor: [
+        "#f6f078",
+        "#01d28e",
+        "#434982",
+        "#730068",
+        "#a6e3e9",
+        "##36A2EB",
+        "#51dacf",
+        "#edaaaa"
+      ]
     };
   }
 
@@ -76,38 +51,36 @@ class MonthlyChart extends React.Component {
             let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
             let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
+              }
+              return a;
             };
 
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
-              }
-              return dateArray;
-            }
+            let daylist = getDaysArray(firstDay, lastDay);
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            let allDaysInMonth = Object.values(getDates(firstDay, lastDay));
             let daysInMonth = [];
 
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
+            function formatDate(date) {
+              var d = new Date(date),
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
 
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
-            };
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
 
-            for (let i = 0; i < allDaysInMonth.length; i++) {
-              daysInMonth.push(allDaysInMonth[i].yyyymmdd().toString());
+              return [year, month, day].join("-");
+            }
+
+            for (let i = 0; i < daylist.length; i++) {
+              daysInMonth.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
@@ -146,16 +119,13 @@ class MonthlyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            let copyOfOptions = this.state.options;
-
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
-            copyOfOptions.labels = workoutNames;
 
             this.setState({
-              labels: workoutNames,
-              series: valuesForDataset
+              data: valuesForDataset,
+              labels: workoutNames
             });
           });
       });
@@ -163,14 +133,19 @@ class MonthlyChart extends React.Component {
 
   render() {
     return (
-      <StyledMonthlyChart id="chart">
-        <ReactApexChart
-          options={{ ...this.state.options, labels: this.state.labels }}
-          series={this.state.series}
-          type="pie"
-          width="100%"
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <h2>Monthly Results</h2>
+        <Polar
+          data={{datasets: [{
+            data: this.state.data,
+            backgroundColor: this.state.backgroundColor,
+            hoverBackgroundColor: this.state.hoverBackgroundColor,
+            label: "Monthly Results",
+          }],
+            labels: this.state.labels,
+          }}
         />
-      </StyledMonthlyChart>
+      </div>
     );
   }
 }

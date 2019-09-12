@@ -68,7 +68,6 @@ class WeeklyChart extends React.Component {
             };
             let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
-            console.log(daylist);
 
             let daysInWeek = [];
 
@@ -128,7 +127,7 @@ class WeeklyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 

@@ -7,9 +7,10 @@
 
 .image {
   width: 10rem;
-  height: 3rem;
+  height: auto;
 }
 
 .logo-container {
   flex: 1;
+  text-align: center;
 }

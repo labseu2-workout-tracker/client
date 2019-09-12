@@ -10,7 +10,6 @@ export const FINISH_EXERCISE = 'FINISH_EXERCISE';
 export const END_WORKOUT = 'END_WORKOUT';
 export const ADD_WORKOUT = 'ADD_WORKOUT';
 export const DELETE_WORKOUT = 'DELETE_WORKOUT';
-export const CLOSE_WINDOW = 'CLOSE_WINDOW';
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
@@ -59,7 +58,7 @@ export const endWorkout = (workout_id, history) => dispatch => {
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
         dispatch({ type: END_WORKOUT });
-        history.push("/Dashboard/history");
+        history.push("/dashboard/stats");
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)
@@ -72,8 +71,4 @@ export const addWorkout = (workout_id) => {
 
 export const deleteWorkout = (workout_id) => {
   return { type: DELETE_WORKOUT, workout_id: workout_id };
-};
-
-export const closeWindow = () => {
-  return { type: CLOSE_WINDOW };
 };

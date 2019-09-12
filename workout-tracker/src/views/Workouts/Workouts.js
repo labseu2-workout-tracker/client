@@ -1,65 +1,69 @@
 import React from "react";
+import AddWorkoutButton from "../../utils/AddWorkoutButton";
 import { connect } from "react-redux";
 import {
   fetchWorkouts,
   fetchWorkoutDetails,
-  addWorkout,
-  closeWindow
+  addWorkout
 } from "../../store/actions/workoutsActions";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { notification } from "antd";
 
 const StyledWorkouts = styled.div`
-text-align: center;
+  text-align: center;
 
-.off {
-display: none;
-}
-
-.added-workout {
-  background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
-
-top: 50%;
-left: 50%;
-position: fixed;
-transform: translate(-50%, -50%);
-width: 50%;
-height: 50%;
-border-radius: .5rem;
-}
-
-.close {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-i {
-  font-size: 3rem;
-  transition: .6s ease-in-out;
-
-  &:hover{
-    color: red;
+  .off {
+    display: none;
   }
-}
 
+  .added-workout {
+    background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
+
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border-radius: 0.5rem;
+  }
+
+  .close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  i {
+    font-size: 3rem;
+    transition: 0.6s ease-in-out;
+
+    &:hover {
+      color: red;
+    }
+  }
 `;
+
 
 class Workouts extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
   }
 
+  addWorkout = (type, workout_id, workout_name) => {
+    notification[type]({
+      message: "Successful!",
+      description: `The workout ${workout_name} got added to your list.`
+    });
+
+    this.props.addWorkout(workout_id);
+  };
+
+  
   render() {
     return (
       <StyledWorkouts>
-        <div className={this.props.addedWorkout ? "added-workout" : "off"}>
-          <div className="close">
-            <i onClick={this.props.closeWindow} className="fa fa-times" />
-          </div>
-          <h1>You added a workout to your workout gallery</h1>
-        </div>
-
         <h1 className="coolstuff">Choose from our Workouts</h1>
         <div className="land-wrapper">
           {this.props.workouts
@@ -81,8 +85,14 @@ class Workouts extends React.Component {
                       Start Workout
                     </Link>
                     <p
-                      onClick={() => this.props.addWorkout(workout.id)}
                       className="btn"
+                      onClick={() =>
+                        this.addWorkout(
+                          "success",
+                          workout.id,
+                          workout.workout_name
+                        )
+                      }
                     >
                       Add Workout
                     </p>
@@ -91,6 +101,7 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
+        <AddWorkoutButton />
       </StyledWorkouts>
     );
   }
@@ -98,11 +109,10 @@ class Workouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    workouts: state.workouts.workouts,
-    addedWorkout: state.workouts.addedWorkout
+    workouts: state.workouts.workouts
   };
 };
 export default connect(
   mapStateToProps,
-  { fetchWorkouts, fetchWorkoutDetails, addWorkout, closeWindow }
+  { fetchWorkouts, fetchWorkoutDetails, addWorkout }
 )(Workouts);

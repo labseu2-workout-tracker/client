@@ -203,9 +203,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <div className="ant-dropdown-link">
-                  <i className="fa fa-arrow-down down down-hidden" />
+                  <i className="fa fa-chevron-down down down-hidden" />
                   <Button type="primary">Muscles</Button>
-                  <i className="fa fa-arrow-down down" />
+                  <i className="fa fa-chevron-down down" />
                 </div>
               </Dropdown>
               <Dropdown
@@ -222,9 +222,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <div className="ant-dropdown-link">
-                  <i className="fa fa-arrow-down down down" />
+                  <i className="fa fa-chevron-down down down" />
                   <Button type="primary">Equipment</Button>
-                  <i className="fa fa-arrow-down down down-hidden" />
+                  <i className="fa fa-chevron-down down down-hidden" />
                 </div>
               </Dropdown>
             </div>
@@ -242,7 +242,7 @@ class AllExercises extends React.Component {
                   minHeight: 280
                 }}
               >
-                {this.props.exercises ? (
+                {this.props.exercises && this.props.exercises.length > 0 ? (
                   this.props.exercises.map((exercise, index) => {
                     return (
                       <Card

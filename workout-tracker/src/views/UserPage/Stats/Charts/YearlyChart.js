@@ -62,30 +62,30 @@ class YearlyChart extends React.Component {
               }
               return a;
             };
-            let daylist = getDaysArray(
-              first_day_year,
-              last_day_year
-            );
+
+            let daylist = getDaysArray(first_day_year, last_day_year);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
             let daysInYear = [];
 
             function formatDate(date) {
               var d = new Date(date),
-                  month = '' + (d.getMonth() + 1),
-                  day = '' + d.getDate(),
-                  year = d.getFullYear();
-          
-              if (month.length < 2) 
-                  month = '0' + month;
-              if (day.length < 2) 
-                  day = '0' + day;
-          
-              return [year, month, day].join('-');
-          }
-          
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
+            }
+
             for (let i = 0; i < daylist.length; i++) {
-              daysInYear.push(formatDate(daylist[i]).split("-").join(""));
+              daysInYear.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
@@ -124,7 +124,7 @@ class YearlyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 
