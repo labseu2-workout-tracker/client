@@ -9,9 +9,9 @@ const SingleExercise = (props) => {
   return (
     <>
       <Content style={{ margin: '24px 16px 0' }}> Content
-      <div onClick={props.closeExercise}>
+      {/* <div onClick={props.closeExercise}>
                 <i className="fa fa-window-close x" />
-              </div>
+              </div> */}
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
           <div className="">
             <div className="">

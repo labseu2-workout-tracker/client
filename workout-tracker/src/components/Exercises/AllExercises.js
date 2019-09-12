@@ -113,23 +113,23 @@ class AllExercises extends React.Component {
   state = { visible: false };
 
   showModal = (id) => {
-    this.props.showSingleExercise(id)
+    this.props.showSingleExercise(id);
     this.setState({
-      visible: true,
+      visible: true
     });
   };
 
-  handleOk = e => {
+  handleOk = (e) => {
     console.log(e);
     this.setState({
-      visible: false,
+      visible: false
     });
   };
 
-  handleCancel = e => {
+  handleCancel = (e) => {
     console.log(e);
     this.setState({
-      visible: false,
+      visible: false
     });
   };
   componentDidMount = () => {
@@ -271,7 +271,10 @@ class AllExercises extends React.Component {
                             }
                           />,
                           <div>
-                            <Button type="primary" onClick={() => this.showModal(exercise.id) }>
+                            <Button
+                              type="primary"
+                              onClick={() => this.showModal(exercise.id)}
+                            >
                               Open Modal
                             </Button>
                             <Modal
@@ -280,24 +283,43 @@ class AllExercises extends React.Component {
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
                             >
-                              {this.props.singleExercise ? (<div>
-                                <p>{this.props.singleExercise[0].exercise_name}</p>
-                                <div className="div-para">
-                <p> Level: {this.propsprops.exercise.difficulty}</p>
-                <p> Type: {props.exercise.type}</p>
-                <p>Target: {props.exercise.muscle}</p>
-                <p> Equipment: {props.exercise.equipment}</p>
-              </div>
+                              {this.props.singleExercise ? (
+                                <div>
+
+                                  ,
+                                  <p>
+                                   
+                                  </p>
+                                  <div className="card">
+                                    <p>
+                                      {' '}
+                                      Level:{' '}
+                                      {this.props.singleExercise[0].difficulty}
+                                    </p>
+                                    <p>
+                                      {' '}
+                                      Type: {this.props.singleExercise[0].type}
+                                    </p>
+                                    <p>
+                                      Target:{' '}
+                                      {this.props.singleExercise[0].muscle}
+                                    </p>
+                                    <p>
+                                      {' '}
+                                      Equipment:{' '}
+                                      {this.props.singleExercise[0].equipment}
+                                    </p>
+                                  </div>
                                 </div>
-                               
-                               ) : null}
+                              ) : null}
                             </Modal>
                           </div>,
                           <i className="fa fa-plus-square" />
                         ]}
                       >
                         <Meta
-                          title={exercise.exercise_name}pageHeader
+                          title={exercise.exercise_name}
+                          pageHeader
                           description={
                             <div>
                               {' hehehehehehee'}
@@ -342,7 +364,7 @@ const mapStateToProps = (state) => {
     exercises: state.exercises.exercises,
     indexOfLastExercise: state.exercises.indexOfLastExercise,
     arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises,
-    singleExercise: state.exercises.singleExercise,
+    singleExercise: state.exercises.singleExercise
   };
 };
 
