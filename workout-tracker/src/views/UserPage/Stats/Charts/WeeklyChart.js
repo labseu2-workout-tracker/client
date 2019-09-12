@@ -41,9 +41,7 @@ class WeeklyChart extends React.Component {
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
+
         res.data.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
@@ -144,7 +142,6 @@ class WeeklyChart extends React.Component {
               labels: workoutNames
             });
           });
-      });
   };
 
   render() {
