@@ -225,7 +225,7 @@ class AllExercises extends React.Component {
                   minHeight: 280
                 }}
               >
-                {this.props.exercises[0] ? (
+                {this.props.exercises && this.props.exercises.length > 0 ? (
                   this.props.exercises.map((exercise, index) => {
                     return (
                       <Card
