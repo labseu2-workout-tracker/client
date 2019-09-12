@@ -59,7 +59,7 @@ class Stats extends React.Component {
           </Col>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
             <Card 
-            
+            className="chart chart-three"
             title="Yearly Result" 
             style={{ backgroundColor: "#E94340" }}
             >
