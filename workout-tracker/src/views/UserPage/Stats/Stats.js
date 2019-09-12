@@ -8,7 +8,7 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 
 const StyledStats = styled.div`
-  padding: 1.5rem 3.0rem;
+  padding: 1.5rem 3rem;
 
   .chart-row {
     display: flex;
@@ -23,14 +23,14 @@ const StyledStats = styled.div`
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 0 .1rem .4rem 0 rgba(0, 0, 0, 0.14);
-    margin-top: 3.0rem;
-    border-radius: .6rem;
+    box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+    margin-top: 3rem;
+    border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
   }
 
-  .calendar {
+  .calendar, .history {
     color: rgba(0, 0, 0, 0.87);
     width: 100%;
     border: 0;
@@ -40,9 +40,9 @@ const StyledStats = styled.div`
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: .1rem .4rem .1rem .4rem rgba(0, 0, 0, 0.14);
+    box-shadow: 0.1rem 0.4rem 0.1rem 0.4rem rgba(0, 0, 0, 0.14);
     padding: 3rem;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
   }
@@ -58,18 +58,15 @@ class Stats extends React.Component {
       <StyledStats>
         <div className="chart-row">
           <WeeklyChart />
-          
+
           <MonthlyChart />
-        
+
           <YearlyChart />
-          
         </div>
 
         <div>
-        <WorkoutCalendar />
-      
-          </div>
-       
+          <WorkoutCalendar />
+        </div>
 
         <div>
           <UserHistory />
