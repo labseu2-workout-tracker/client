@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Empty } from 'antd';
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { connect } from "react-redux";
@@ -38,11 +39,13 @@ class SessionHistory extends React.Component {
     let history = this.props.history;
     let workouts = this.props.workouts;
 
+    console.log(history)
+
     return (
       <div>
         <h2>Here you can check out the work you have done!</h2>
         <StyledUserHistory>
-          {history ? (
+          {history.length !== 0 ? (
             <div>
               {history
                 .slice(this.state.minValue, this.state.maxValue)
@@ -112,9 +115,7 @@ class SessionHistory extends React.Component {
                 total={this.props.history.length}
               />
             </div>
-          ) : (
-            <p>You have no workout history at the moment</p>
-          )}
+          ) : <Empty description={'No Data!'} />}
         </StyledUserHistory>
       </div>
     );
@@ -136,10 +137,11 @@ export default connect(
   }
 )(SessionHistory);
 
-const StyledUserHistory = styled.div`
-  width: 100%;
-  /* margin: 0 auto; */
 
+
+const StyledUserHistory = styled.div`
+  width: 50%;
+  margin: 0 auto; 
   ol {
     padding: 10px;
   }
