@@ -30,7 +30,7 @@ const StyledAllExercises = styled.div`
   }
 
   .search {
-    width: 60%;
+    width: 64%;
     margin-top: 0.35rem;
   }
 
