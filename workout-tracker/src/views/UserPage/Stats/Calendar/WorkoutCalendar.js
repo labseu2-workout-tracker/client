@@ -83,12 +83,10 @@ class WorkoutCalendar extends React.Component {
     super(props);
     this.state = {
       result: "",
-      history: null,
       visible: false,
       workoutsForDate: ""
     };
   }
-
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
@@ -173,7 +171,6 @@ class WorkoutCalendar extends React.Component {
     }
     this.setState({
       result: theResult,
-      history: userHistory
     });
   };
 
@@ -298,6 +295,7 @@ class WorkoutCalendar extends React.Component {
         }
       }
     }
+
     this.setState({
       workoutsForDate: workoutsForDay
     });
