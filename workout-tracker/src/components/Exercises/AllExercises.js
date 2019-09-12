@@ -297,7 +297,10 @@ class AllExercises extends React.Component {
                                   >
                                     <Meta
                                       title= {this.props.singleExercise[0].exercise_name}
-                                      description="www.instagram.com"
+                                      description={<div className="description">
+                                      <i className="fas fa-running"></i> 
+                                      {this.props.singleExercise[0].description}
+                                    </div>}
                                     />
                                     <div className="div-para">
                                     <p>
