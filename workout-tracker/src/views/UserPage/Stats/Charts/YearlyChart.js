@@ -4,12 +4,6 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 import { Card } from "antd";
 
-const StyledYearlyChart = styled.div`
-  height: 1000px;
-  .apexcharts-title-text {
-  }
-`;
-
 class YearlyChart extends React.Component {
   constructor(props) {
     super(props);
