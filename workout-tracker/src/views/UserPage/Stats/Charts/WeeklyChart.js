@@ -39,18 +39,17 @@ class WeeklyChart extends React.Component {
     };
   }
   componentDidMount = () => {
+   this.props.fetchWorkouts();
+   this.props.fetchWorkoutsHistory();
     let workoutNames = [];
     let workouts = [];
 
-        res.data.map(workout => {
+        this.props.workouts.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
           return workout;
         });
 
-        axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-          .then(res => {
             let weekMap = [6, 0, 1, 2, 3, 4, 5];
 
             function startAndEndOfWeek(date) {
@@ -97,7 +96,7 @@ class WeeklyChart extends React.Component {
               );
             }
 
-            let userHistory = [...res.data.workoutHistory];
+            let userHistory = this.props.history;
             let resultOfWeek = [];
 
             for (let j = 0; j < daysInWeek.length; j++) {
@@ -141,7 +140,6 @@ class WeeklyChart extends React.Component {
               data: valuesForDataset,
               labels: workoutNames
             });
-          });
   };
 
   render() {
