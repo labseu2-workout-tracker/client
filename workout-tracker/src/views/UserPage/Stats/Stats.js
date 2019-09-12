@@ -27,6 +27,18 @@ const StyledStats = styled.div`
     flex-direction: column;
   }
 
+  .chart-one {
+    background-color: #E94340;
+  }
+
+  .chart-one {
+    background-color: #E94340;
+  }
+
+  .chart-one {
+    background-color: #E94340;
+  }
+
 
 `;
 
