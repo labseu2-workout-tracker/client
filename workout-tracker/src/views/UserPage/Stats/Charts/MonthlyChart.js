@@ -137,26 +137,34 @@ class MonthlyChart extends React.Component {
   render() {
     return (
       <Card
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#FC940C"
-        }}
+        hoverable
+        className="chart chart-two"
+        cover={
+          <Card
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#FC940C"
+            }}
+          >
+            <Doughnut
+              data={{
+                datasets: [
+                  {
+                    data: this.state.data,
+                    backgroundColor: this.state.backgroundColor,
+                    hoverBackgroundColor: this.state.hoverBackgroundColor,
+                    label: "Monthly Results"
+                  }
+                ],
+                labels: this.state.labels
+              }}
+            />
+          </Card>
+        }
       >
-        <Doughnut
-          data={{
-            datasets: [
-              {
-                data: this.state.data,
-                backgroundColor: this.state.backgroundColor,
-                hoverBackgroundColor: this.state.hoverBackgroundColor,
-                label: "Monthly Results"
-              }
-            ],
-            labels: this.state.labels
-          }}
-        />
+        <Meta title="Monthly Result" description="www.instagram.com" />
       </Card>
     );
   }
