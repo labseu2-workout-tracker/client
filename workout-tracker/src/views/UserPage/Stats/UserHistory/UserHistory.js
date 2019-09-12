@@ -78,6 +78,8 @@ class SessionHistory extends React.Component {
                     }
 
                     return (
+                      <Card className="history" title="WorkoutHistory">
+</Card>
                       <ol key={session.id}>
                         <li>
                           <p>
@@ -107,12 +109,12 @@ class SessionHistory extends React.Component {
                   })}
               </div>
               <div className="pagination">
-              <Pagination
-                defaultCurrent={1}
-                defaultPageSize={6}
-                onChange={this.handlePagination}
-                total={this.props.history.length}
-              />
+                <Pagination
+                  defaultCurrent={1}
+                  defaultPageSize={6}
+                  onChange={this.handlePagination}
+                  total={this.props.history.length}
+                />
               </div>
             </div>
           ) : (
@@ -141,11 +143,12 @@ export default connect(
 
 const StyledUserHistory = styled.div`
   width: 100%;
-  /* margin: 0 auto; */
 
   .ordered-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
   ol {
     padding: 10px;
@@ -181,10 +184,10 @@ const StyledUserHistory = styled.div`
     padding: 10px;
   }
 
-  /* .pagination {
+  .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-  } */
+  }
 `;
