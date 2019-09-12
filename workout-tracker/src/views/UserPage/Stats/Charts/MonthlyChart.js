@@ -51,9 +51,9 @@ class MonthlyChart extends React.Component {
           return workout;
         });
 
-        axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-          .then(res => {
+        // axiosWithAuth()
+        //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
+        //   .then(res => {
             let date = new Date();
             let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
             let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -134,7 +134,7 @@ class MonthlyChart extends React.Component {
               data: valuesForDataset,
               labels: workoutNames
             });
-          });
+          // });
       // });
   };
 
