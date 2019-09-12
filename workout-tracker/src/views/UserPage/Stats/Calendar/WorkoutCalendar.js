@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
@@ -241,8 +242,8 @@ class WorkoutCalendar extends React.Component {
                 ]}
               >
                 {this.state.workoutsForDate
-                  ? this.state.workoutsForDate.map(workoutName => (
-                      <p key={uuid()}>{workoutName}</p>
+                  ? this.state.workoutsForDate.map((workoutName, index) => (
+                      <p key={index}>{workoutName}</p>
                     ))
                   : null}
               </Modal>
