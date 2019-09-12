@@ -134,7 +134,6 @@ class MonthlyChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        <h2>Monthly Results</h2>
         <Polar
           data={{datasets: [{
             data: this.state.data,
