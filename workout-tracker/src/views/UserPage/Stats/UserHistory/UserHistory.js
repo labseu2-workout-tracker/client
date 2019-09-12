@@ -78,33 +78,37 @@ class SessionHistory extends React.Component {
                     }
 
                     return (
-                      <Card className="history" title="WorkoutHistory">
-</Card>
-                      <ol key={session.id}>
-                        <li>
-                          <p>
-                            <strong>Session Started : </strong>
-                            {session.session_start.slice(0, 10)}
-                          </p>
-                          <p>
-                            <strong>Workout Name : </strong>
-                            {workouts === undefined ? (
-                              <h2>Loadin workouts...</h2>
-                            ) : (
-                              workouts.map(item => {
-                                if (session.workout_id === item.id) {
-                                  return item.workout_name;
-                                }
-                                return null;
-                              })
-                            )}
-                          </p>
-                          <p>
-                            <strong>Duration : </strong>
-                            {diff(startingPoint, endPoint)}
-                          </p>
-                        </li>
-                      </ol>
+                      <Card
+                        className="session-card"
+                        title={
+                          workouts === undefined ? (
+                            <h2>Loadin workouts...</h2>
+                          ) : (
+                            workouts.map(item => {
+                              if (session.workout_id === item.id) {
+                                return item.workout_name;
+                              }
+                              return null;
+                            })
+                          )
+                        }
+                      >
+                        <ol key={session.id}>
+                          <li>
+                            <p>
+                              <strong>Date of Session: </strong>
+                              {session.session_start.slice(0, 10)}
+                            </p>
+                            <p>
+                              <strong>Workout Name : </strong>
+                            </p>
+                            <p>
+                              <strong>Duration : </strong>
+                              {diff(startingPoint, endPoint)}
+                            </p>
+                          </li>
+                        </ol>
+                      </Card>
                     );
                   })}
               </div>
@@ -143,6 +147,10 @@ export default connect(
 
 const StyledUserHistory = styled.div`
   width: 100%;
+  .session-card {
+    margin: 1rem;
+    border-radius: .6rem;
+  }
 
   .ordered-list {
     display: flex;
@@ -150,9 +158,10 @@ const StyledUserHistory = styled.div`
     justify-content: center;
     align-items: center;
   }
+
   ol {
     padding: 10px;
-    width: 30%;
+    width: 100%;
     margin: 0;
   }
 
