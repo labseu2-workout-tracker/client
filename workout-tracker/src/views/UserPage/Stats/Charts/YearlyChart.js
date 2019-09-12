@@ -42,7 +42,7 @@ class YearlyChart extends React.Component {
     let workoutNames = [];
     let workouts = [];
 
-        res.data.map(workout => {
+        this.props.workouts.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
           return workout;
@@ -84,7 +84,7 @@ class YearlyChart extends React.Component {
               );
             }
 
-            let userHistory = [...res.data.workoutHistory];
+            let userHistory = this.props.history;
             let resultOfWeek = [];
 
             for (let j = 0; j < daysInYear.length; j++) {
