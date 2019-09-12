@@ -101,7 +101,22 @@ class WorkoutSession extends React.Component {
             style={{ marginTop: 16 }}
             type="inner"
           >
-
+            <div style={{ background: '#ECECEC', padding: '30px' }}>
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Card //Instructions bar
+                  title="Instructions" bordered={false}>
+                    Card content
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card  // Excercise List
+                  title="Excercise List" bordered={false}>
+                    Card content
+                  </Card>
+                </Col>
+              </Row>
+            </div>
           </Card>
         </Card>
         , ,
