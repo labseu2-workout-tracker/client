@@ -55,7 +55,7 @@ class Stats extends React.Component {
             <Card
             className="chart chart-one"
             title="Weekly Result" 
-            style={{ backgroundColor: "#11B8CC" }}
+            // style={{ backgroundColor: "#11B8CC" }}
             >
               <WeeklyChart />
             </Card>
@@ -64,7 +64,7 @@ class Stats extends React.Component {
             <Card 
             className="chart chart-two"
             title="Monthly Result" 
-            style={{ backgroundColor: "#FC940C" }}
+            // style={{ backgroundColor: "#FC940C" }}
             >
               <MonthlyChart />
             </Card>
@@ -73,7 +73,7 @@ class Stats extends React.Component {
             <Card 
             className="chart chart-three"
             title="Yearly Result" 
-            style={{ backgroundColor: "#E94340" }}
+            // style={{ backgroundColor: "#E94340" }}
             >
               <YearlyChart />
             </Card>
