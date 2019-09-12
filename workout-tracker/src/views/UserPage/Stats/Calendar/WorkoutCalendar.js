@@ -90,12 +90,13 @@ class WorkoutCalendar extends React.Component {
   }
 
   componentDidMount = () => {
+this.props.fetchWorkouts();
     let workoutNames = [];
     let workouts = [];
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
-        res.data.map(workout => {
+    // axiosWithAuth()
+    //   .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
+    //   .then(res => {
+        this.props.workouts.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
           return workout;
@@ -179,7 +180,7 @@ class WorkoutCalendar extends React.Component {
               history: res.data.workoutHistory
             });
           });
-      });
+      // });
   };
 
   getListData = value => {
