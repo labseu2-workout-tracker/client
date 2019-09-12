@@ -1,6 +1,6 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Polar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 class MonthlyChart extends React.Component {
   constructor(props) {
@@ -134,7 +134,7 @@ class MonthlyChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        <Polar
+        <Doughnut
           data={{datasets: [{
             data: this.state.data,
             backgroundColor: this.state.backgroundColor,

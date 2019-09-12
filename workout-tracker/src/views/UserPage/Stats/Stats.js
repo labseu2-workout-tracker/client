@@ -22,17 +22,26 @@ class Stats extends React.Component {
       <StyledStats>
         <Row>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Card style={{ width: "30%" }}>
+            <Card
+            title="Weekly Result" 
+            style={{ backgroundColor: "#11B8CC" }}
+            >
               <WeeklyChart />
             </Card>
           </Col>
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Card style={{ width: "30%" }}>
+            <Card 
+            title="Monthly Result" 
+            style={{ backgroundColor: "#FC940C" }}
+            >
               <MonthlyChart />
             </Card>
           </Col>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Card style={{ width: "30%" }}>
+            <Card 
+            title="Yearly Result" 
+            style={{ backgroundColor: "#E94340" }}
+            >
               <YearlyChart />
             </Card>
           </Col>

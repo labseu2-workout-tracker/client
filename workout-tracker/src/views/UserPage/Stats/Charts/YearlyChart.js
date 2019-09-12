@@ -1,5 +1,5 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 
@@ -141,7 +141,7 @@ class YearlyChart extends React.Component {
       <StyledYearlyChart
         style={{ position: "relative", width: "100%", height: "100%" }}
       >
-        <Doughnut
+        <Pie
           data={{
             labels: this.state.labels,
             datasets: [
