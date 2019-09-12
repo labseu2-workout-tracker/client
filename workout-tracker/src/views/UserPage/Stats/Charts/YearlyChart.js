@@ -36,8 +36,6 @@ class YearlyChart extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.props.fetchWorkouts();
-    this.props.fetchWorkoutsHistory();
     let workoutNames = [];
     let workouts = [];
 

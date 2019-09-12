@@ -38,7 +38,6 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
-
     let workoutNames = [];
     let workouts = [];
 

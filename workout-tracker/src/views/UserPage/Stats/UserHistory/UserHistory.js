@@ -15,9 +15,7 @@ class SessionHistory extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchWorkoutsHistory();
 
-    this.props.fetchWorkouts();
   }
 
   handlePagination = value => {
