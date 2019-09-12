@@ -148,7 +148,9 @@ export default connect(
 
 const StyledUserHistory = styled.div`
   width: 100%;
+  
   .session-card {
+    width: 30%;
     margin: 1rem;
     border-radius: 0.6rem;
   }
