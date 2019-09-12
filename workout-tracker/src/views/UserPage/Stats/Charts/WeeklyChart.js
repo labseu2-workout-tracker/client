@@ -185,9 +185,9 @@ class WeeklyChart extends React.Component {
             this.state.data.reduce(
               (accumulator, currentValue) => accumulator + currentValue,
               0
-            ) > 1
-              ? "workouts"
-              : "workout"
+            ) === 1
+              ? "workout"
+              : "workouts"
           } this week.`}
         />
       </Card>
