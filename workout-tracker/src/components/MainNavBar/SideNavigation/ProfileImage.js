@@ -1,21 +1,29 @@
 import React from 'react';
+import { connect } from "react-redux";
 import styled from 'styled-components';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 
-const ProfileImage = ({username, image, weight, workouts}) => {
-    return (
-        <StyledImage>
-            <div>
-                <Avatar size={64} icon="user" />
-                <p>{username}</p>
-            </div>
-            <section>
-              <span>Weight: {weight} kgs.</span>
-              <span>Workouts: {workouts}</span>
-            </section>
-        </StyledImage>
-    )
+import { fetchSettings } from "../../../store/actions/settingActions"
+
+class ProfileImage extends React.Component {
+    componentDidMount = () => {
+        this.props.fetchSettings()
+    }
+    render() {
+        return (
+            <StyledImage>
+                <div>
+                    <Avatar size={64} icon="user" />
+                    <p>{this.props.settings[0].username}</p>
+                </div>
+                <section>
+                    <span>Weight: {this.props.settings[0].weigth} kgs.</span>
+                    <span>Workouts: {'10'}</span>
+                </section>
+            </StyledImage>
+        )
+    }
 }
 
 const StyledImage = styled.div`
@@ -48,5 +56,10 @@ const StyledImage = styled.div`
         }
     }
 `
+const mapStateToProps = state => {
+    return {
+      settings: state.settings.settings
+    };
+  };
 
-export default ProfileImage;
+export default connect(mapStateToProps, { fetchSettings })(ProfileImage);
