@@ -28,14 +28,14 @@ const StyledStats = styled.div`
   }
 
   .chart-one {
-    background-color: #E94340;
+    background-color: #11B8CC;
   }
 
-  .chart-one {
-    background-color: #E94340;
+  .chart-two {
+    background-color: #FC940C;
   }
 
-  .chart-one {
+  .chart-three {
     background-color: #E94340;
   }
 
