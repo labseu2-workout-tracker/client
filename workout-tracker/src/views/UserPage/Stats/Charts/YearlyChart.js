@@ -5,6 +5,7 @@ import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { Card } from "antd";
 import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
 const { Meta } = Card;
 
@@ -193,59 +194,80 @@ const { Meta } = Card;
 //   { fetchWorkouts, fetchWorkoutsHistory }
 // )(YearlyChart);
 
+const StyledMonthlyChart = styled.div`
+  border-radius: 0.6rem;
+
+  .apexcharts-toolbar {
+    display: none;
+  }
+
+  #SvgjsSvg1858 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 class LineChart extends React.Component {
-    
   constructor(props) {
     super(props);
 
     this.state = {
-      options: {
-        chart: {
-              zoom: {
-                  enabled: false
-              }
-          },
-          dataLabels: {
-              enabled: false
-          },
-          stroke: {
-              curve: 'straight'
-          },
-          title: {
-              text: 'Monthly Results',
-              align: 'left'
-          },
-          grid: {
-              row: {
-                  colors: [
-                    '#f3f3f3',
-                    //  'transparent'
-                    ], // takes an array which will be repeated on columns
-                  opacity: 0.5
-              },
-          },
-          xaxis: {
-              categories: ["Chest and Shoulder Smackdown", "Chest and Shoulder Smackdown", "Chest and Shoulder Smackdown", "Chest and Shoulder Smackdown"],
-          }
+      chart: {
+        zoom: {
+          enabled: false
+        }
       },
-      series: [{
-          name: "Desktops",
-          data: [1, 2, 1, 0,]
-      }],
-    }
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      title: {
+        text: "Monthly Results",
+        align: "center"
+      },
+      grid: {
+        row: {
+          colors: [
+            "#f3f3f3"
+            //  'transparent'
+          ], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      categories: [
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown"
+      ],
+      name: "Desktops",
+      data: [1, 2, 1, 0]
+    };
   }
 
   render() {
-
     return (
-      <div id="chart" style={{backgroundColor: "#FC940C"}}>
-        <ReactApexChart options={this.state.options} series={this.state.series} type="line" height="350" />
-      </div>
-    )
+      <StyledMonthlyChart style={{ backgroundColor: "#FC940C" }}>
+        <ReactApexChart
+          options={{
+            chart: this.state.chart,
+            dataLabels: this.state.dataLabels,
+            stroke: this.state.stroke,
+            title: this.state.title,
+            grid: this.state.grid,
+            xaxis: { categories: this.state.categories }
+          }}
+          series={[{ name: this.state.name, data: this.state.data }]}
+          type="line"
+          height="350"
+        />
+      </StyledMonthlyChart>
+    );
   }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -258,4 +280,3 @@ export default connect(
   mapStateToProps,
   { fetchWorkouts, fetchWorkoutsHistory }
 )(LineChart);
-
