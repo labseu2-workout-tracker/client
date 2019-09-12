@@ -88,17 +88,22 @@ class Stats extends React.Component {
           </Col>
 
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Card className="chart chart-three" title="Yearly Result">
-              <YearlyChart />
+            <Card
+              hoverable
+              className="chart chart-three"
+              cover={<YearlyChart />}
+            >
+              <Meta title="Yearly Result" description="www.instagram.com" />
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Card className="calendar" title="Calendar">
             <WorkoutCalendar />
           </Card>
         </Row>
-        <Row></Row>
+
         <Row>
           <UserHistory />
         </Row>

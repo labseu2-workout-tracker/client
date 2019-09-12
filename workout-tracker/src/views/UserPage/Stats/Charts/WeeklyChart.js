@@ -12,12 +12,7 @@ class WeeklyChart extends React.Component {
       labels: ["Red", "Green", "Yellow"],
       data: [],
       backgroundColor: [
-        "#f6f6f6",
-        "#eae9e9",
-        "#d4d7dd",
-        "#420000",
-        "#ffe6eb",
-        "#FFFFFF",
+        "#f6f078",
         "#01d28e",
         "#434982",
         "#730068",
@@ -149,12 +144,8 @@ class WeeklyChart extends React.Component {
 
   render() {
     return (
-      // <div style={{ position: "relative", width: "100%", height: "100%" }}>
-
         <Card
-            // title="Weekly Result" 
             style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#11B8CC" }}
-            // style={{ backgroundColor: "#11B8CC" }}
             >
               <Pie
                 data={{
@@ -170,7 +161,6 @@ class WeeklyChart extends React.Component {
               />
              
             </Card>
-      // </div>
     );
   }
 }
