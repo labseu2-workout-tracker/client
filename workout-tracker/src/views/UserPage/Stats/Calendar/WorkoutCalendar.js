@@ -83,7 +83,8 @@ class WorkoutCalendar extends React.Component {
     super(props);
     this.state = {
       result: "",
-      visible: false
+      visible: false,
+      workoutsForDate: null,
     };
   }
   componentDidMount = () => {
@@ -233,8 +234,8 @@ class WorkoutCalendar extends React.Component {
                   </Button>
                 ]}
               >
-                {this.props.workouts
-                  ? this.props.workouts.map((workoutName) => (
+                {this.state.workoutsForDate
+                  ? this.state.workoutsForDate.map(workoutName => (
                       <p key={uuid()}>{workoutName}</p>
                     ))
                   : null}
