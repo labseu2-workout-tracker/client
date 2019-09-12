@@ -14,10 +14,6 @@ class SessionHistory extends React.Component {
     };
   }
 
-  componentDidMount() {
-
-  }
-
   handlePagination = value => {
     if (value <= 1) {
       this.setState({
