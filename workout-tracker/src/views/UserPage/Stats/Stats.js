@@ -34,11 +34,11 @@ const StyledStats = styled.div`
   }
 
   .chart-two {
-    background-color: #FC940C;
+    background-color: #FFF;
   }
 
   .chart-three {
-    background-color: #E94340;
+    background-color: #FFF;
   }
 
   .calendar {
@@ -77,19 +77,10 @@ class Stats extends React.Component {
           <Card
     hoverable
     className="chart chart-one"
-    // style={{ width: 240 }}
     cover={<WeeklyChart/>}
   >
     <Meta title="Weekly Result" description="www.instagram.com" />
   </Card>
-            
-            
-            {/* <Card
-            title="Weekly Result" 
-            // style={{ backgroundColor: "#11B8CC" }}
-            >
-              <WeeklyChart />
-            </Card> */}
           </Col>
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
             <Card 
