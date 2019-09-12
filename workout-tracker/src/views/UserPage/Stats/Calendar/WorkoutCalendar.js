@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
+import { connect } from "react-redux";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
