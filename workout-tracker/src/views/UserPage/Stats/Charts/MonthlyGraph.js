@@ -7,7 +7,17 @@ import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
 const StyledMonthlyGraph = styled.div`
+  width: 100%;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+  margin-top: 3rem;
   border-radius: 0.6rem;
+  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,13 +51,14 @@ class MonthlyGraph extends React.Component {
         curve: "straight"
       },
       title: {
-        text: "Monthly Results",
+        // text: "Monthly Results",
         align: "center"
       },
       grid: {
         row: {
           colors: [
-            "#f3f3f3"
+            // "#f3f3f3",
+            // "#FC940C"
             //  'transparent'
           ], // takes an array which will be repeated on columns
           opacity: 0.5
@@ -160,7 +171,9 @@ class MonthlyGraph extends React.Component {
 
   render() {
     return (
-      <StyledMonthlyGraph style={{ backgroundColor: "#FC940C" }}>
+      <StyledMonthlyGraph 
+      style={{ backgroundColor: "#FC940C" }}
+      >
         <ReactApexChart
           options={{
             chart: this.state.chart,
@@ -168,12 +181,14 @@ class MonthlyGraph extends React.Component {
             stroke: this.state.stroke,
             title: this.state.title,
             grid: this.state.grid,
-            xaxis: { categories: this.state.categories }
+            xaxis: { categories: this.state.categories },
+            colors:['#FFFFFF']
           }}
           series={[{ name: this.state.name, data: this.state.data }]}
           type="line"
           height="350"
           width="700"
+          color="black"
         />
       </StyledMonthlyGraph>
     );
