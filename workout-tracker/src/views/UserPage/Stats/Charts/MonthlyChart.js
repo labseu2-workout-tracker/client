@@ -169,7 +169,7 @@ class MonthlyChart extends React.Component {
       >
         <Meta
           title="Monthly Result"
-          description={<div><i class="fa fa-fire"></i> {`You made ${this.state.data.reduce(
+          description={<div><i className="fa fa-fire"></i> {`You made ${this.state.data.reduce(
             (accumulator, currentValue) => accumulator + currentValue,
             0
           )} ${
