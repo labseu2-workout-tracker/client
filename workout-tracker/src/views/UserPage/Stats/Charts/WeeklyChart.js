@@ -144,23 +144,27 @@ class WeeklyChart extends React.Component {
 
   render() {
     return (
-        <Card
-            style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#11B8CC" }}
-            >
-              <Pie
-                data={{
-                  labels: this.state.labels,
-                  datasets: [
-                    {
-                      data: this.state.data,
-                      backgroundColor: this.state.backgroundColor,
-                      hoverBackgroundColor: this.state.hoverBackgroundColor
-                    }
-                  ]
-                }}
-              />
-             
-            </Card>
+      <Card
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#11B8CC"
+        }}
+      >
+        <Pie
+          data={{
+            labels: this.state.labels,
+            datasets: [
+              {
+                data: this.state.data,
+                backgroundColor: this.state.backgroundColor,
+                hoverBackgroundColor: this.state.hoverBackgroundColor
+              }
+            ]
+          }}
+        />
+      </Card>
     );
   }
 }
