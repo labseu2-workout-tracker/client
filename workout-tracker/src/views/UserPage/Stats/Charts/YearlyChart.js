@@ -185,4 +185,8 @@ class YearlyChart extends React.Component {
   }
 }
 
-export default YearlyChart;
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(YearlyChart);
+
