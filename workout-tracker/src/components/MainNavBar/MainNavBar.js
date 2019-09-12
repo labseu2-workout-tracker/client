@@ -17,12 +17,8 @@ const MainNavBar = (props) => (
     </div>
     <div className="spacer" />
     <ul className="main-nav__items">
+      {props.isAuth }
       <NavigationItems isAuth={props.isAuth} onLogout={props.onLogout} />
-      {props.isAuth && (
-    <li className="navigation-item" key="logout">
-      <button onClick={props.onLogout}>Logout</button>
-    </li>
-  )}
     </ul>
   </nav>
 );

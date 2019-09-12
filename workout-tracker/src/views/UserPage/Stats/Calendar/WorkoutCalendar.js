@@ -1,13 +1,18 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Calendar, Badge } from "antd";
+import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
+import uuid from "uuidv4";
 
-const yeah = () => {
-  console.log(yeah);
-};
+const StyledWorkoutCalendar = styled.div`
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+    height: 80px;
+  }
 
-const StyledTheCalendar = styled.div`
+  .ant-radio-button-wrapper {
+    display: none;
+  }
 
   .events {
     list-style: none;
@@ -15,11 +20,9 @@ const StyledTheCalendar = styled.div`
     padding: 0;
   }
   .events .ant-badge-status {
-    /* overflow: hidden; */
-    /* white-space: nowrap; */
     width: 100%;
-    /* text-overflow: ellipsis; */
-    font-size: 12px;
+    text-overflow: ellipsis;
+    font-size: 8px;
   }
   .notes-month {
     text-align: center;
@@ -29,19 +32,58 @@ const StyledTheCalendar = styled.div`
     font-size: 28px;
   }
 
-  .ant-fullcalendar-date {
-    height: 2rem;
+  .status {
+    display: none;
+  }
+
+  .fa-info-circle {
+    color: green;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 1300px) {
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+      height: 60px;
+    }
+
+    .status {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .ant-badge-status-dot {
+        margin-top: 0.5rem;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .status-text {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .fa-info-circle {
+      font-size: 1rem;
+    }
   }
 `;
 
-class TheCalendar extends React.Component {
+class WorkoutCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: ""
+      result: "",
+      history: null,
+      visible: false,
+      workoutsForDate: ""
     };
   }
-  
 
   componentDidMount = () => {
     let workoutNames = [];
@@ -68,31 +110,30 @@ class TheCalendar extends React.Component {
               }
               return a;
             };
-            
-            let daylist = getDaysArray(
-              first_day_year,
-              last_day_year
-            );
+
+            let daylist = getDaysArray(first_day_year, last_day_year);
             daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
             let daysInYear = [];
 
             function formatDate(date) {
               var d = new Date(date),
-                  month = '' + (d.getMonth() + 1),
-                  day = '' + d.getDate(),
-                  year = d.getFullYear();
-          
-              if (month.length < 2) 
-                  month = '0' + month;
-              if (day.length < 2) 
-                  day = '0' + day;
-          
-              return [year, month, day].join('-');
-          }
-          
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
+            }
+
             for (let i = 0; i < daylist.length; i++) {
-              daysInYear.push(formatDate(daylist[i]).split("-").join(""));
+              daysInYear.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
@@ -130,12 +171,12 @@ class TheCalendar extends React.Component {
               }
             }
             this.setState({
-              result: theResult
+              result: theResult,
+              history: res.data.workoutHistory
             });
           });
-      });   
+      });
   };
-
 
   getListData = value => {
     let listData;
@@ -166,7 +207,10 @@ class TheCalendar extends React.Component {
         switch (value.date()) {
           case this.state.result[i].day:
             listData = [
-              { type: "success", content: this.state.result[i].workout_name }
+              {
+                type: "success",
+                content: this.state.result[i].workout_name
+              }
             ];
             break;
           default:
@@ -181,8 +225,31 @@ class TheCalendar extends React.Component {
     return (
       <ul className="events" style={{ listStyle: "none" }}>
         {listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
+          <li key={uuid()}>
+            <div className="status">
+              <i onClick={this.showModal} className="fa fa-info-circle" />
+              <Modal
+                title="Workout List"
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                footer={[
+                  <Button key={uuid()} type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
+              >
+                {this.state.workoutsForDate
+                  ? this.state.workoutsForDate.map(workoutName => (
+                      <p key={uuid()}>{workoutName}</p>
+                    ))
+                  : null}
+              </Modal>
+            </div>
+            <Badge
+              status={item.type}
+              text={item.content}
+              className="status-text"
+            />
           </li>
         ))}
       </ul>
@@ -205,16 +272,72 @@ class TheCalendar extends React.Component {
     ) : null;
   };
 
+  showWorkoutsForDate = value => {
+    const formatDate = date => {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    };
+
+    const filterWorkoutsForDate = this.state.history.filter(
+      workout =>
+        workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
+    );
+
+    let workoutsForDay = [];
+
+    axiosWithAuth()
+      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
+      .then(res => {
+        for (let i = 0; i < res.data.length; i++) {
+          for (let j = 0; j < filterWorkoutsForDate.length; j++) {
+            if (res.data[i].id === filterWorkoutsForDate[j].workout_id) {
+              workoutsForDay.push(res.data[i].workout_name);
+            }
+          }
+        }
+        this.setState({
+          workoutsForDate: workoutsForDay
+        });
+      });
+  };
+
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = () => {
+    this.setState({
+      visible: false,
+      workoutsForDate: null
+    });
+  };
+
+  handleCancel = () => {
+    this.setState({
+      visible: false
+    });
+  };
+
   render() {
     return (
-      <StyledTheCalendar>
+      <StyledWorkoutCalendar>
         <Calendar
           dateCellRender={this.dateCellRender}
           monthCellRender={this.monthCellRender}
+          onSelect={this.showWorkoutsForDate}
         />
-      </StyledTheCalendar>
+      </StyledWorkoutCalendar>
     );
   }
 }
 
-export default TheCalendar;
+export default WorkoutCalendar;

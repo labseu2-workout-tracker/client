@@ -1,7 +1,7 @@
-import React from "react";
-import { Input, Button, Layout, Menu, Card, Dropdown } from "antd";
-import styled from "styled-components";
-import { connect } from "react-redux";
+import React from 'react';
+import { Input, Button, Layout, Menu, Card, Dropdown, Modal } from 'antd';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 import {
   fetchExercises,
   showMuscleGroup,
@@ -9,7 +9,8 @@ import {
   loadMore,
   searchExercise,
   showEquipment
-} from "../../store/actions/exerciseActions";
+} from '../../store/actions/exerciseActions';
+import './SingleExcercise.css';
 
 const { Header, Content } = Layout;
 const { Search } = Input;
@@ -29,7 +30,7 @@ const StyledAllExercises = styled.div`
   }
 
   .search {
-    width: 60%;
+    width: 64%;
     margin-top: 0.35rem;
   }
 
@@ -54,12 +55,12 @@ const StyledAllExercises = styled.div`
   .down {
     font-size: 1rem;
     margin: 1rem;
-    color: #22A0D6;
+    color: #22a0d6;
   }
 
   .down-hidden {
     display: none;
-    color: #22A0D6;
+    color: #22a0d6;
   }
 
   .load-more {
@@ -110,50 +111,67 @@ const StyledAllExercises = styled.div`
 `;
 
 class AllExercises extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = { visible: false };
 
+  showModal = (id) => {
+    this.props.showSingleExercise(id);
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false
+    });
+  };
   componentDidMount = () => {
     this.props.fetchExercises();
   };
 
   render() {
     const muscles = [
-      "Neck",
-      "Lats",
-      "Middle Back",
-      "Lower Back",
-      "Shoulders",
-      "Chest",
-      "Forearms",
-      "Hamstrings",
-      "Calves",
-      "Biceps",
-      "Triceps",
-      "Traps",
-      "Abdominals",
-      "Glutes",
-      "Quadriceps",
-      "Adductors",
-      "Abductors"
+      'Neck',
+      'Lats',
+      'Middle Back',
+      'Lower Back',
+      'Shoulders',
+      'Chest',
+      'Forearms',
+      'Hamstrings',
+      'Calves',
+      'Biceps',
+      'Triceps',
+      'Traps',
+      'Abdominals',
+      'Glutes',
+      'Quadriceps',
+      'Adductors',
+      'Abductors'
     ];
 
     const equipment = [
-      "Bands",
-      "Foam Roll",
-      "Barbell",
-      "Kettlebells",
-      "Body Only",
-      "Machine",
-      "Cable",
-      "Medicine Ball",
-      "Dumbbell",
-      "None",
-      "E-Z Curl Bar",
-      "Other",
-      "Exercise Ball"
+      'Bands',
+      'Foam Roll',
+      'Barbell',
+      'Kettlebells',
+      'Body Only',
+      'Machine',
+      'Cable',
+      'Medicine Ball',
+      'Dumbbell',
+      'None',
+      'E-Z Curl Bar',
+      'Other',
+      'Exercise Ball'
     ];
 
     return (
@@ -165,7 +183,7 @@ class AllExercises extends React.Component {
                 placeholder="input search text"
                 enterButton="Search"
                 className="search"
-                onSearch={exercise_name =>
+                onSearch={(exercise_name) =>
                   this.props.searchExercise(exercise_name)
                 }
               />
@@ -175,7 +193,7 @@ class AllExercises extends React.Component {
               <Dropdown
                 overlay={
                   <Menu
-                    onClick={value =>
+                    onClick={(value) =>
                       this.props.showMuscleGroup(value.item.props.children)
                     }
                   >
@@ -186,15 +204,15 @@ class AllExercises extends React.Component {
                 }
               >
                 <div className="ant-dropdown-link">
-                  <i className="fa fa-arrow-down down down-hidden" />
+                  <i className="fa fa-chevron-down down down-hidden" />
                   <Button type="primary">Muscles</Button>
-                  <i className="fa fa-arrow-down down" />
+                  <i className="fa fa-chevron-down down" />
                 </div>
               </Dropdown>
               <Dropdown
                 overlay={
                   <Menu
-                    onClick={value =>
+                    onClick={(value) =>
                       this.props.showEquipment(value.item.props.children)
                     }
                   >
@@ -205,9 +223,9 @@ class AllExercises extends React.Component {
                 }
               >
                 <div className="ant-dropdown-link">
-                  <i className="fa fa-arrow-down down down" />
+                  <i className="fa fa-chevron-down down down" />
                   <Button type="primary">Equipment</Button>
-                  <i className="fa fa-arrow-down down down-hidden" />
+                  <i className="fa fa-chevron-down down down-hidden" />
                 </div>
               </Dropdown>
             </div>
@@ -215,20 +233,28 @@ class AllExercises extends React.Component {
           <Layout>
             <Layout
               style={{
-                backgroundColor: "#FFF"
+                backgroundColor: '#fff',
+
               }}
             >
               <Content
                 style={{
-                  background: "#fff",
-                  margin: 0,
-                  minHeight: 280
+                  margin: '2rem',
+                  minHeight: 280,
+                  display:'flex',
+                  flexFlow: 'row wrap'                
+
                 }}
               >
-                {this.props.exercises ? (
+                {this.props.exercises && this.props.exercises.length > 0 ? (
                   this.props.exercises.map((exercise, index) => {
                     return (
                       <Card
+                      style={{
+                        alignContent:'center',
+                        textAlign:'center',
+                        paddingTop:'3rem'
+                      }}
                         key={index}
                         cover={
                           <div>
@@ -247,22 +273,77 @@ class AllExercises extends React.Component {
                           </div>
                         }
                         actions={[
-                          <i
-                            className="fa fa-info-circle"
-                            onClick={() =>
-                              this.props.showSingleExercise(exercise.id)
-                            }
-                          />,
+                          <div>
+                            <Button
+                              shape="circle" 
+                              onClick={() => this.showModal(exercise.id)}
+                            >
+                            <i className="fa fa-info-circle" />
+                            </Button>
+                            <Modal
+                              title={this.props.singleExercise ? this.props.singleExercise[0].exercise_name : null}
+                              visible={this.state.visible} 
+                              // {this.props.singleExercise[0].closeExercise}
+                              onOk={this.handleOk}
+                              onCancel={this.handleCancel}
+                            >
+                              {this.props.singleExercise ? (
+                                <div>
+                                  <Card
+                                    hoverable
+                                    style={{ width: "100%" }}
+                                    cover={
+                                      <video className=""controls autoplay>
+                                      <source src={this.props.singleExercise[0].video} type="video/mp4" />
+                                      Your browser does not support the video tag.
+                                    </video>
+                                    }
+                                  >
+                                    <Meta
+                                      title= {this.props.singleExercise[0].exercise_name}
+                                      description={<div className="description">
+                                      {this.props.singleExercise[0].description}
+                                    </div>}
+                                    />
+                                    <div className="div-para">
+                                    <p>
+                                      {' '}
+                                      Level:{' '}
+                                      {this.props.singleExercise[0].difficulty}
+                                    </p>
+                                    <p>
+                                      {' '}
+                                      Type: {this.props.singleExercise[0].type}
+                                    </p>
+                                    <p>
+                                      Target:{' '}
+                                      {this.props.singleExercise[0].muscle}
+                                    </p>
+                                    <p>
+                                      {' '}
+                                      Equipment:{' '}
+                                      {this.props.singleExercise[0].equipment}
+                                    </p>
+                                  </div>
+                                  </Card>
+                                  ,
+
+                                  
+                                </div>
+                              ) : null}
+                            </Modal>
+                          </div>,
                           <i className="fa fa-plus-square" />
                         ]}
                       >
                         <Meta
                           title={exercise.exercise_name}
+                          pageHeader
                           description={
                             <div>
-                              {" "}
+                              {' '}
                               <p
-                                style={{ padding: "0" }}
+                                style={{ padding: '0' }}
                               >{`${exercise.muscle} with ${exercise.equipment}`}</p>
                             </div>
                           }
@@ -297,11 +378,12 @@ class AllExercises extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     exercises: state.exercises.exercises,
     indexOfLastExercise: state.exercises.indexOfLastExercise,
-    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises
+    arrayOfCurrentExercises: state.exercises.arrayOfCurrentExercises,
+    singleExercise: state.exercises.singleExercise
   };
 };
 

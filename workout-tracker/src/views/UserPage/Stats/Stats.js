@@ -1,12 +1,12 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
 import UserHistory from "./UserHistory/UserHistory";
-import Calendar from "./Calendar/Calendar";
+import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { Row } from "antd";
 
 const StyledStats = styled.div`
-
+overflow: hidden;
 `;
 
 class Stats extends React.Component {
@@ -18,7 +18,7 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <Row>
-          <Calendar />
+          <WorkoutCalendar />
         </Row>
         <Row>
           <ChartContainer />
