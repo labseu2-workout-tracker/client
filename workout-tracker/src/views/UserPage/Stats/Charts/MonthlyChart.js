@@ -190,4 +190,8 @@ class MonthlyChart extends React.Component {
   }
 }
 
-export default MonthlyChart;
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(MonthlyChart);
+
