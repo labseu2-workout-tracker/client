@@ -11,7 +11,12 @@ class WeeklyChart extends React.Component {
       labels: ["Red", "Green", "Yellow"],
       data: [],
       backgroundColor: [
-        "#f6f078",
+        "#f6f6f6",
+        "#eae9e9",
+        "#d4d7dd",
+        "#420000",
+        "#ffe6eb",
+        "#FFFFFF",
         "#01d28e",
         "#434982",
         "#730068",

@@ -39,6 +39,10 @@ const StyledStats = styled.div`
     background-color: #E94340;
   }
 
+  .calendar {
+    background-color: #FFF;
+  }
+
 
 `;
 
@@ -79,7 +83,7 @@ class Stats extends React.Component {
         </Row>
         <Row>
         <Card
-            className="chart chart-one"
+            className="calendar"
             title="Weekly Result" 
             >
           <WorkoutCalendar />
