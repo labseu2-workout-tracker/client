@@ -1,6 +1,8 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { Pie, Chart } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+
+Chart.defaults.global.legend.display = false;
 
 class WeeklyChart extends React.Component {
   constructor(props) {
@@ -142,7 +144,6 @@ class WeeklyChart extends React.Component {
   render() {
     return (
       <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        <h2>Weekly Results</h2>
         <Pie
           data={{
             labels: this.state.labels,

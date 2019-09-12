@@ -17,7 +17,7 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
-        <Card style={{ width: 300 }}>
+        <Card style={{ width: 750 }}>
           <ChartContainer />
         </Card>
         <Row>
