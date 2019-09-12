@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Row, Card } from "antd";
 
 const StyledStats = styled.div`
-overflow: hidden;
+  overflow: hidden;
 `;
 
 class Stats extends React.Component {
@@ -17,12 +17,13 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
+        <Card style={{ width: 300 }}>
+          <ChartContainer />
+        </Card>
         <Row>
           <WorkoutCalendar />
         </Row>
-        <Row>
-          <ChartContainer />
-        </Row>
+        <Row></Row>
         <Row>
           <UserHistory />
         </Row>
