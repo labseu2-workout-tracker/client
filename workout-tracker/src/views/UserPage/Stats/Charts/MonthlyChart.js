@@ -38,8 +38,6 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchWorkouts();
-    this.props.fetchWorkoutsHistory();
 
     let workoutNames = [];
     let workouts = [];
@@ -146,7 +144,7 @@ class MonthlyChart extends React.Component {
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#FC940C"
+              backgroundColor: "#E94340"
             }}
           >
             <Doughnut

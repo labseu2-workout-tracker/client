@@ -8,6 +8,8 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import MonthlyGraph from "./Charts/MonthlyGraph";
 import YearlyGraph from "./Charts/YearlyGraph";
 import styled from "styled-components";
+import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
+import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 
 const StyledStats = styled.div`
   padding: 1.5rem 3rem;
@@ -56,6 +58,10 @@ class Stats extends React.Component {
     super(props);
     this.state = {};
   }
+
+  componentDidMount = () => {
+
+  };
   render() {
     return (
       <StyledStats>

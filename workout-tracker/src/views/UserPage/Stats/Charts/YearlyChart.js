@@ -143,7 +143,7 @@ class YearlyChart extends React.Component {
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#E94340"
+              backgroundColor: "#FC940C"
             }}
           >
             <Pie
