@@ -8,44 +8,10 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { Row, Col, Card } from "antd";
 
-const { Meta } = Card;
-
 const StyledStats = styled.div`
   overflow: hidden;
 
-  .chart {
-    width: 100%;
-    border: 0;
-    display: flex;
-    position: relative;
-    font-size: 0.875rem;
-    min-width: 0;
-    word-wrap: break-word;
-    background: #fff;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    margin-top: 30px;
-    border-radius: 6px;
-    margin-bottom: 30px;
-    flex-direction: column;
-  }
-
-  .chart-one {
-    background-color: #fff;
-  }
-
-  .chart-two {
-    background-color: #fff;
-  }
-
-  .chart-three {
-    background-color: #fff;
-  }
-
-  .calendar {
-    background-color: #fff;
-  }
-
-  .calendar {
+  .chart, .calendar {
     width: 100%;
     border: 0;
     display: flex;
