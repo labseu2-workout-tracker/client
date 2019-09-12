@@ -264,12 +264,6 @@ class AllExercises extends React.Component {
                           </div>
                         }
                         actions={[
-                          // <i
-                          //   className="fa fa-info-circle"
-                          //   onClick={() =>
-                          //     this.props.showSingleExercise(exercise.id)
-                          //   }
-                          // />,
                           <div>
                             <Button
                               shape="circle" 
@@ -279,7 +273,8 @@ class AllExercises extends React.Component {
                             </Button>
                             <Modal
                               title={this.props.singleExercise[0].exercise_name}
-                              visible={this.state.visible}
+                              visible={this.state.visible} 
+                              // {this.props.singleExercise[0].closeExercise}
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
                             >
@@ -289,7 +284,7 @@ class AllExercises extends React.Component {
                                     hoverable
                                     style={{ width: "100%" }}
                                     cover={
-                                      <video className=""controls loop autoplay>
+                                      <video className=""controls autoplay>
                                       <source src={this.props.singleExercise[0].video} type="video/mp4" />
                                       Your browser does not support the video tag.
                                     </video>
