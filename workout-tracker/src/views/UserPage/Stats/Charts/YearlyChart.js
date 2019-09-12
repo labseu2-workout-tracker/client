@@ -2,6 +2,8 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
+import { Card } from "antd";
+
 
 const StyledYearlyChart = styled.div`
   height: 1000px;
