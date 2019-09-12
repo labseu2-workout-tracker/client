@@ -8,7 +8,7 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 
 const StyledStats = styled.div`
-  padding: 15px 30px;
+  padding: 1.5rem 3.0rem;
 
   .chart-row {
     display: flex;
@@ -23,10 +23,10 @@ const StyledStats = styled.div`
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
-    margin-top: 30px;
-    border-radius: 6px;
-    margin-bottom: 30px;
+    box-shadow: 0 .1rem .4rem 0 rgba(0, 0, 0, 0.14);
+    margin-top: 3.0rem;
+    border-radius: .6rem;
+    margin-bottom: 3rem;
     flex-direction: column;
   }
 
@@ -40,10 +40,10 @@ const StyledStats = styled.div`
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 1px 4px 1px 4px rgba(0, 0, 0, 0.14);
-    padding: 30px;
-    border-radius: 6px;
-    margin-bottom: 30px;
+    box-shadow: .1rem .4rem .1rem .4rem rgba(0, 0, 0, 0.14);
+    padding: 3rem;
+    border-radius: .6rem;
+    margin-bottom: 3rem;
     flex-direction: column;
   }
 `;

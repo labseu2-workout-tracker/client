@@ -11,7 +11,7 @@ import { Card } from "antd";
 const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 80px;
+    height: 90px;
   }
 
   .ant-radio-button-wrapper {
@@ -83,7 +83,7 @@ class WorkoutCalendar extends React.Component {
     super(props);
     this.state = {
       result: "",
-      visible: false,
+      visible: false
     };
   }
   componentDidMount = () => {
@@ -169,7 +169,7 @@ class WorkoutCalendar extends React.Component {
       }
     }
     this.setState({
-      result: theResult,
+      result: theResult
     });
   };
 
@@ -241,6 +241,14 @@ class WorkoutCalendar extends React.Component {
               </Modal>
             </div>
             <Badge
+              style={{
+                borderRadius: ".6rem",
+                textAlign: "center",
+                backgroundColor: "#11B8CC",
+                height: "60px",
+                color: "black",
+                fontWeight: "bold"
+              }}
               status={item.type}
               text={item.content}
               className="status-text"
