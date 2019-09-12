@@ -2,6 +2,8 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Card } from "antd";
+import { connect } from "react-redux";
+
 
 const { Meta } = Card;
 
