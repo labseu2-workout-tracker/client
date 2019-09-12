@@ -15,7 +15,9 @@ import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
-
+import ProfileCard from './views/UserPage/ProfileImage'
+import NavigationItems from './components/MainNavBar/NavigationItems/NavigationItems'
+import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
 
@@ -42,23 +44,21 @@ class App extends Component {
 
   render() {
     let sider = (
-      let sider = (
-        <>
-          <div>
-            <Logo />
-            <ProfileCard
-              weight={10}
-              // {this.props.settings[0].weight ? this.props.settings[0].weight : 10}
-              workouts={10}
-              username={'Tigran'}
-              // {this.props.settings[0].username}
-            />
-          </div>
-          <ul className="nav-items">
-            <NavigationItems onLogout={this.logoutHandler} isAuth={Auth.isAuthenticated()}/>
-          </ul>
-        </>
-      )
+      <>
+        <div>
+          <Logo />
+          <ProfileCard
+            weight={10}
+            // {this.props.settings[0].weight ? this.props.settings[0].weight : 10}
+            workouts={10}
+            username={'Placeholder'}
+            // {this.props.settings[0].username}
+          />
+        </div>
+        <ul className="nav-items">
+          <NavigationItems onLogout={this.logoutHandler} isAuth={Auth.isAuthenticated()}/>
+        </ul>
+      </>
     )
     let routes = (
       <>
