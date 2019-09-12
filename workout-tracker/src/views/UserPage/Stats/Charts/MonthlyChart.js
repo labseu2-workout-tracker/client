@@ -3,6 +3,8 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Doughnut } from "react-chartjs-2";
 import { Card } from "antd";
 
+const { Meta } = Card;
+
 class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
