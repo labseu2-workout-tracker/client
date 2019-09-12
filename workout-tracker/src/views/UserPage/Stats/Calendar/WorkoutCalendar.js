@@ -6,10 +6,10 @@ import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
-
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 80px;
+    height: 50px;
+    width: 50px;
   }
 
   .ant-radio-button-wrapper {
@@ -34,28 +34,28 @@ const StyledWorkoutCalendar = styled.div`
     font-size: 28px;
   }
 
-  .status {
+  /* .status {
     display: none;
-  }
+  } */
 
-  .fa-info-circle {
-    color: green;
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-  }
+  .status {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 
-  @media (max-width: 1300px) {
-    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
-    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-      height: 60px;
+    .fa-info-circle {
+      color: green;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    .status {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
+    @media (max-width: 1300px) {
+      .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+      .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+        height: 60px;
+      }
 
       .ant-badge-status-dot {
         margin-top: 0.5rem;
@@ -64,9 +64,9 @@ const StyledWorkoutCalendar = styled.div`
       }
     }
 
-    .status-text {
+    /* .status-text {
       display: none;
-    }
+    } */
   }
 
   @media (max-width: 600px) {
@@ -247,11 +247,11 @@ class WorkoutCalendar extends React.Component {
                   : null}
               </Modal>
             </div>
-            <Badge
+            {/* <Badge
               status={item.type}
               text={item.content}
               className="status-text"
-            />
+            /> */}
           </li>
         ))}
       </ul>

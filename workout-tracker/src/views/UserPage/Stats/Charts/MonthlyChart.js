@@ -138,6 +138,9 @@ class MonthlyChart extends React.Component {
     return (
       <Card
         hoverable
+        style={{
+          width: "30%",              
+        }}
         className="chart chart-two"
         cover={
           <Card

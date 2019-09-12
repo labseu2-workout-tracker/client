@@ -136,6 +136,9 @@ class YearlyChart extends React.Component {
     return (
       <Card
         hoverable
+        style={{
+          width: "30%",              
+        }}
         className="chart chart-three"
         cover={
           <Card
