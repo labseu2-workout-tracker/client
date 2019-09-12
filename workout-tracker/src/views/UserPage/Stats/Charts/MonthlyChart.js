@@ -1,6 +1,4 @@
 import React from "react";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
 import { Doughnut } from "react-chartjs-2";
 import { Card } from "antd";
@@ -193,7 +191,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
-)(MonthlyChart);
+export default connect(mapStateToProps)(MonthlyChart);

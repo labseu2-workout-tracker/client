@@ -1,7 +1,5 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { Card } from "antd";
 import { connect } from "react-redux";
 
@@ -190,7 +188,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
-)(YearlyChart);
+export default connect(mapStateToProps)(YearlyChart);
