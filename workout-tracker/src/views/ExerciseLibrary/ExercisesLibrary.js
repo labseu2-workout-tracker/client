@@ -9,7 +9,7 @@ class ExerciseLibrary extends React.Component {
     if (this.props.singleExercise) {
       return (
         <SingleExercise
-          exercise={this.props.singleExercise[0]}
+          exercise={this.props.singleExercise && this.props.singleExercise[0]}
           closeExercise={this.props.closeSingleExercise}
         />
       );
