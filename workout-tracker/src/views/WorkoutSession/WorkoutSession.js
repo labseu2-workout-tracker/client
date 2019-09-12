@@ -66,23 +66,42 @@ class WorkoutSession extends React.Component {
   render() {
     return (
       <StyledWorkoutSession>
-        <Card title="Workout Session"
-        style={{
-          fontSize: 14,
-          margin: 10,
-          backgroundColor: 'rgba(13, 40, 90, 0.85)',
-         }} >
-
+        <Card
+          title="Workout Session"
+          style={{
+            fontSize: 14,
+            margin: 10,
+            backgroundColor: 'rgba(13, 40, 90, 0.85)'
+          }}
+        >
           <Card //Top Card with picture / watch  and Details reps etc
             type="inner"
           >
-            Inner Card content
+            <div style={{ background: '#ECECEC', padding: '30px' }}>
+              <Row gutter={16}>
+                <Col span={8}>
+                  <Card title="Image" bordered={false}>
+                    Card content
+                  </Card>
+                </Col>
+                <Col span={8}>
+                  <Card title="stats" bordered={false}>
+                    Card content
+                  </Card>
+                </Col>
+                <Col span={8}>
+                  <Card title="Watch" bordered={false}>
+                    Card content
+                  </Card>
+                </Col>
+              </Row>
+            </div>
           </Card>
-          <Card    //Bottom Card with Exer & Instructions
+          <Card //Bottom Card with Exer & Instructions
             style={{ marginTop: 16 }}
             type="inner"
           >
-            Inner Card content
+
           </Card>
         </Card>
         , ,
