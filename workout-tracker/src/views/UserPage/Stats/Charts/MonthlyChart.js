@@ -2,6 +2,7 @@ import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
+import { connect } from "react-redux";
 import { Doughnut } from "react-chartjs-2";
 import { Card } from "antd";
 
@@ -38,13 +39,13 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
-    
+  this.props.fetchWorkouts();  
     let workoutNames = [];
     let workouts = [];
     // axiosWithAuth()
     //   .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
     //   .then(res => {
-        res.data.map(workout => {
+        this.props.workouts.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
           return workout;
