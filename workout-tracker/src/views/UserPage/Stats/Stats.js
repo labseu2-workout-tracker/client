@@ -72,9 +72,7 @@ class Stats extends React.Component {
       <StyledStats>
         <Row>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
-            <Card hoverable className="chart chart-one" cover={<WeeklyChart />}>
-              <Meta title="Weekly Result" description="www.instagram.com" />
-            </Card>
+            <WeeklyChart/>
           </Col>
 
           <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>

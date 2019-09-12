@@ -3,6 +3,8 @@ import { Pie, Chart } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Card } from "antd";
 
+const { Meta } = Card;
+
 Chart.defaults.global.legend.display = false;
 
 class WeeklyChart extends React.Component {
@@ -145,25 +147,33 @@ class WeeklyChart extends React.Component {
   render() {
     return (
       <Card
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#11B8CC"
-        }}
+        hoverable
+        className="chart chart-one"
+        cover={
+          <Card
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#11B8CC"
+            }}
+          >
+            <Pie
+              data={{
+                labels: this.state.labels,
+                datasets: [
+                  {
+                    data: this.state.data,
+                    backgroundColor: this.state.backgroundColor,
+                    hoverBackgroundColor: this.state.hoverBackgroundColor
+                  }
+                ]
+              }}
+            />
+          </Card>
+        }
       >
-        <Pie
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                data: this.state.data,
-                backgroundColor: this.state.backgroundColor,
-                hoverBackgroundColor: this.state.hoverBackgroundColor
-              }
-            ]
-          }}
-        />
+        <Meta title="Weekly Result" description="www.instagram.com" />
       </Card>
     );
   }
