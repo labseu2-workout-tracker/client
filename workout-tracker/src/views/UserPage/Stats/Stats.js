@@ -89,4 +89,7 @@ class Stats extends React.Component {
   }
 }
 
-export default Stats;
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(Stats);
