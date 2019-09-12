@@ -285,7 +285,21 @@ class AllExercises extends React.Component {
                             >
                               {this.props.singleExercise ? (
                                 <div>
-
+                                  <Card
+                                    hoverable
+                                    style={{ width: 440 }}
+                                    cover={
+                                      <video className="" controls>
+                                      <source src={this.props.singleExercise[0].video} type="video/mp4" />
+                                      Your browser does not support the video tag.
+                                    </video>
+                                    }
+                                  >
+                                    <Meta
+                                      title= {this.props.singleExercise[0].exercise_name}
+                                      description="www.instagram.com"
+                                    />
+                                  </Card>
                                   ,
                                   <p>
                                    
