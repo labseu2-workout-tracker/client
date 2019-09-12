@@ -179,7 +179,7 @@ class YearlyGraph extends React.Component {
       <Card
         hoverable
         style={{
-          width: "100%"
+          width: "50%"
         }}
         className="chart"
         cover={

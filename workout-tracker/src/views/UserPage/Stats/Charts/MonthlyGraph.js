@@ -36,7 +36,7 @@ const StyledMonthlyGraph = styled.div`
   .apex {
     width: 70%;
     height: 30%;
-  } 
+  }
 `;
 
 class MonthlyGraph extends React.Component {
@@ -83,6 +83,7 @@ class MonthlyGraph extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
+
     let workoutNames = [];
     let workouts = [];
 
@@ -92,9 +93,9 @@ class MonthlyGraph extends React.Component {
       return workout;
     });
 
-    let year = new Date().getFullYear();
-    let first_day_year = new Date(year, 0, 1);
-    let last_day_year = new Date(year, 11, 31);
+    let date = new Date();
+    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
     var getDaysArray = function(s, e) {
       for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
@@ -103,10 +104,10 @@ class MonthlyGraph extends React.Component {
       return a;
     };
 
-    let daylist = getDaysArray(first_day_year, last_day_year);
+    let daylist = getDaysArray(firstDay, lastDay);
     daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-    let daysInYear = [];
+    let daysInMonth = [];
 
     function formatDate(date) {
       var d = new Date(date),
@@ -121,7 +122,7 @@ class MonthlyGraph extends React.Component {
     }
 
     for (let i = 0; i < daylist.length; i++) {
-      daysInYear.push(
+      daysInMonth.push(
         formatDate(daylist[i])
           .split("-")
           .join("")
@@ -131,13 +132,13 @@ class MonthlyGraph extends React.Component {
     let userHistory = this.props.history;
     let resultOfWeek = [];
 
-    for (let j = 0; j < daysInYear.length; j++) {
+    for (let j = 0; j < daysInMonth.length; j++) {
       for (let i = 0; i < userHistory.length; i++) {
         if (
           userHistory[i].session_start
             .match(/.{1,10}/g)[0]
             .split("-")
-            .join("") === daysInYear[j]
+            .join("") === daysInMonth[j]
         ) {
           resultOfWeek.push(userHistory[i]);
         }
@@ -179,22 +180,20 @@ class MonthlyGraph extends React.Component {
       <Card
         hoverable
         style={{
-          width: "100%"
+          width: "50%"
         }}
         className="chart"
         cover={
           <Card
-          className="chart-card"
+            className="chart-card"
             style={{
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#FC940C"
+              backgroundColor: "#11B8CC"
             }}
           >
-            <StyledMonthlyGraph 
-            style={{ backgroundColor: "#FC940C" }}
-            >
+            <StyledMonthlyGraph style={{ backgroundColor: "#11B8CC" }}>
               <ReactApexChart
                 options={{
                   chart: this.state.chart,
