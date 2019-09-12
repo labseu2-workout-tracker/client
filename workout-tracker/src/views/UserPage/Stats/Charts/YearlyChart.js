@@ -4,7 +4,6 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import styled from "styled-components";
 import { Card } from "antd";
 
-
 const StyledYearlyChart = styled.div`
   height: 1000px;
   .apexcharts-title-text {
@@ -140,10 +139,29 @@ class YearlyChart extends React.Component {
 
   render() {
     return (
-      <StyledYearlyChart
-        style={{ position: "relative", width: "100%", height: "100%" }}
-      >
-        <Pie
+      // <StyledYearlyChart
+      //   style={{ position: "relative", width: "100%", height: "100%" }}
+      // >
+      //   <Pie
+      //     data={{
+      //       labels: this.state.labels,
+      //       datasets: [
+      //         {
+      //           data: this.state.data,
+      //           backgroundColor: this.state.backgroundColor,
+      //           hoverBackgroundColor: this.state.hoverBackgroundColor
+      //         }
+      //       ]
+      //     }}
+      //   />
+      // </StyledYearlyChart>
+
+<Card
+// title="Weekly Result" 
+style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#11B8CC" }}
+// style={{ backgroundColor: "#11B8CC" }}
+>
+<Pie
           data={{
             labels: this.state.labels,
             datasets: [
@@ -155,7 +173,8 @@ class YearlyChart extends React.Component {
             ]
           }}
         />
-      </StyledYearlyChart>
+ 
+</Card>
     );
   }
 }
