@@ -80,13 +80,7 @@ i:hover {
   color: #696969;
   border-left: 11px solid #001529;
 }
-.dashboard-items,
-.dashboard-items:hover,
-.dashboard-items.active {
-  background-color: #cce6f4;
-  border-radius: 10px 0 0 10px;
-  border-left: 11px solid #0086c9;
-}
+
 .dashboard-items a.active {
   color: #2d2d2d;
   font-weight: bold;

@@ -16,7 +16,6 @@ class MainLayout extends React.Component {
       return this.setState({ isAuth: !this.state.isAuth})
     }
   }
-
   componentWillUnmount = () => {
     if (Auth.isAuthenticated()) {
       return this.setState({ isAuth: !this.state.isAuth})
@@ -37,9 +36,12 @@ class MainLayout extends React.Component {
 
 const StyledContainer = styled.section`
   display: flex;
-  flex-direction: ${(props) => props.isAuth ? "column" : "row"};
+  flex-direction: ${(props) => props.isAuth ? "row" : "column"};
+
   .ant-layout-sider {
     padding: 0.5rem;
+    background-color: #001529;
+
   .ant-layout-content {
     margin: 0;
     padding: 0;
