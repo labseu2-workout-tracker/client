@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
 import ProfileImage from "./ProfileImage";
-import UserTracker from "./Tracker/UserTracker";
+import Stats from "./Stats/Stats";
 import MyWorkouts from "./MyWorkouts/MyWorkouts";
-import UserHistory from "./UserHistory/UserHistory";
 import UserNotifications from "./UserNotifications/UserNotifications";
 import Settings from "../Settings/Settings";
 import DashboardNavItem from "./DashboardNavItem";
-import logo from "../../assets/images/beFit-logo2.png";
 import { connect } from "react-redux";
 import { fetchSettings } from "../../store/actions/settingActions";
 import { Layout } from "antd";
@@ -43,8 +41,7 @@ const UserPage = props => {
       <Content>
         <Switch>
           <Route path={"/Dashboard/myworkouts"} component={MyWorkouts} />
-          <Route path={"/Dashboard/tracker"} component={UserTracker} />
-          <Route path={"/Dashboard/history"} component={UserHistory} />
+          <Route path={"/Dashboard/stats"} component={Stats} />
           <Route
             path={"/Dashboard/notifications"}
             component={UserNotifications}

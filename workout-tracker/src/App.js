@@ -16,12 +16,8 @@ import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNav
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 
-
-
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
-
-
 
 class App extends Component {
   state = {
@@ -52,11 +48,14 @@ class App extends Component {
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
           <PrivateRoute path={"/Dashboard"} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/myworkouts'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/settings'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/tracker'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/history'} component={UserPage} />
-          <PrivateRoute path={'/Dashboard/notifications'} component={UserPage} />
+          <PrivateRoute path={"/Dashboard/myworkouts"} component={UserPage} />
+          <PrivateRoute path={"/Dashboard/settings"} component={UserPage} />
+          <PrivateRoute path={"/Dashboard/tracker"} component={UserPage} />
+          <PrivateRoute path={"/Dashboard/history"} component={UserPage} />
+          <PrivateRoute
+            path={"/Dashboard/notifications"}
+            component={UserPage}
+          />
           <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
           <PrivateRoute path={"/Settings"} component={Settings} />
           <PrivateRoute path={"/Workouts"} component={Workouts} />
@@ -76,11 +75,11 @@ class App extends Component {
         )}
         <MainLayout
           header={
-              <MainNavBar
-                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
-                onLogout={this.logoutHandler}
-                isAuth={Auth.isAuthenticated()}
-              />
+            <MainNavBar
+              onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+              onLogout={this.logoutHandler}
+              isAuth={Auth.isAuthenticated()}
+            />
           }
           mobileNav={
             <MobileNavigation
@@ -91,7 +90,7 @@ class App extends Component {
               isAuth={Auth.isAuthenticated()}
             />
           }
-        routes = {routes}
+          routes={routes}
         />
       </>
     );

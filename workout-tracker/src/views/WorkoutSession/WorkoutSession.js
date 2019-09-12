@@ -113,7 +113,7 @@ class WorkoutSession extends React.Component {
           <Col span={12}></Col>
           <PageHeader
             onBack={() => window.history.back()}
-            title={this.props.myWorkout.workout_name}
+            title={this.props.myWorkout ? this.props.myWorkout.workout_name : null}
           />
           <Watch />
         </Row>
@@ -293,12 +293,3 @@ export default connect(
   mapStateToProps,
   { chooseExercise, finishExercise, endWorkout }
 )(WorkoutSession);
-
-// description: 'Lie back on an incline bench with a dumbbell in each hand atop your thighs. The palms of your hands will be facing each other. Then, using your thighs to help push the dumbbells up, lift the dumbbells one at a time so that you can hold them at shoulder width. Once you have the dumbbells raised to shoulder width, rotate your wrists forward so that the palms of your hands are facing away from you. This will be your starting position. Be sure to keep full control of the dumbbells at all times. Then breathe out and push the dumbbells up with your chest. Lock your arms at the top, hold for a second, and then start slowly lowering the weight. Tip Ideally, lowering the weights should take about twice as long as raising them. Repeat the movement for the prescribed amount of repetitions. When you are done, place the dumbbells back on your thighs and then on the floor. This is the safest manner to release the dumbbells.'
-// duration: null
-// equipment: 'Dumbbell'
-// exercise_name: 'Incline Dumbbell Press'
-// picture_one: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/380/Male/l/380_1.jpg'
-// picture_two: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/380/Male/l/380_2.jpg'
-// reps: 12
-// video: '

@@ -1,8 +1,15 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
-import { axiosWithAuth } from "../../../store/axiosWithAuth";
+import { Doughnut } from "react-chartjs-2";
+import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import styled from "styled-components";
 
-class WeeklyChart extends React.Component {
+const StyledYearlyChart = styled.div`
+  height: 1000px;
+  .apexcharts-title-text {
+  }
+`;
+
+class YearlyChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,72 +46,58 @@ class WeeklyChart extends React.Component {
         res.data.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
+          return workout;
         });
 
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            let weekMap = [6, 0, 1, 2, 3, 4, 5];
+            let year = new Date().getFullYear();
+            let first_day_year = new Date(year, 0, 1);
+            let last_day_year = new Date(year, 11, 31);
 
-            function startAndEndOfWeek(date) {
-              let now = new Date(date);
-              now.setHours(0, 0, 0, 0);
-              let monday = new Date(now);
-              monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
-              let sunday = new Date(now);
-              sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
-              sunday.setHours(23, 59, 59, 999);
-              return [monday, sunday];
-            }
-
-            let startAndEndWeek = startAndEndOfWeek(new Date());
-
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
-            };
-
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
               }
-              return dateArray;
-            }
-
-            let allDaysInWeek = Object.values(
-              getDates(startAndEndWeek[0], startAndEndWeek[1])
-            );
-            let daysInWeek = [];
-
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
-
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
+              return a;
             };
 
-            for (let i = 0; i < allDaysInWeek.length; i++) {
-              daysInWeek.push(allDaysInWeek[i].yyyymmdd().toString());
+            let daylist = getDaysArray(first_day_year, last_day_year);
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+
+            let daysInYear = [];
+
+            function formatDate(date) {
+              var d = new Date(date),
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
+            }
+
+            for (let i = 0; i < daylist.length; i++) {
+              daysInYear.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInWeek.length; j++) {
+            for (let j = 0; j < daysInYear.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInWeek[j]
+                    .join("") === daysInYear[j]
                 ) {
                   resultOfWeek.push(userHistory[i]);
                 }
@@ -131,7 +124,7 @@ class WeeklyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 
@@ -145,9 +138,11 @@ class WeeklyChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "60%", height: "50%" }}>
-        <h2>Weekly Results</h2>
-        <Pie
+      <StyledYearlyChart
+        style={{ position: "relative", width: "100%", height: "100%" }}
+      >
+        <h2>Yearly Results</h2>
+        <Doughnut
           data={{
             labels: this.state.labels,
             datasets: [
@@ -159,9 +154,9 @@ class WeeklyChart extends React.Component {
             ]
           }}
         />
-      </div>
+      </StyledYearlyChart>
     );
   }
 }
 
-export default WeeklyChart;
+export default YearlyChart;
