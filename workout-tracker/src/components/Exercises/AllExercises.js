@@ -281,7 +281,7 @@ class AllExercises extends React.Component {
                             <i className="fa fa-info-circle" />
                             </Button>
                             <Modal
-                              title={this.props.showSingleExercise ? this.props.singleExercise[0].exercise_name : null}
+                              title={this.props.singleExercise ? this.props.singleExercise[0].exercise_name : null}
                               visible={this.state.visible} 
                               // {this.props.singleExercise[0].closeExercise}
                               onOk={this.handleOk}
