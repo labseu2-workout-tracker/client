@@ -1,5 +1,8 @@
 import React from "react";
 import ChartContainer from "./Charts/ChartContainer";
+import WeeklyChart from "./Charts/WeeklyChart";
+import MonthlyChart from "./Charts/MonthlyChart";
+import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
@@ -18,7 +21,13 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <Card style={{ width: 750 }}>
-          <ChartContainer />
+          <WeeklyChart />
+        </Card>
+        <Card style={{ width: 750 }}>
+          <MonthlyChart />
+        </Card>
+        <Card style={{ width: 750 }}>
+          <YearlyChart />
         </Card>
         <Row>
           <WorkoutCalendar />
