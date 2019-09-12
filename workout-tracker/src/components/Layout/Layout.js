@@ -7,28 +7,17 @@ import styled from 'styled-components'
 const { Header, Content, Sider } = Layout;
 
 class MainLayout extends React.Component {
-  state = {
-    isAuth: false
-  }
-  
-  componentDidMount = () => {
-    if (Auth.isAuthenticated()) {
-      return this.setState({ isAuth: !this.state.isAuth})
-    }
-  }
-  componentWillUnmount = () => {
-    if (Auth.isAuthenticated()) {
-      return this.setState({ isAuth: !this.state.isAuth})
-    }
-  }
-
 
   render() {
     return (
       <StyledContainer>
-        {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : <Sider>{this.props.sider}</Sider> }
+        {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : '' }
         {this.props.mobileNav}
+        <div className='content-container'>
+        {Auth.isAuthenticated() ? <Sider>{this.props.sider}</Sider> : '' }
         <Content>{this.props.routes}</Content>
+        </div>
+
       </StyledContainer>
     )
   }
@@ -36,8 +25,12 @@ class MainLayout extends React.Component {
 
 const StyledContainer = styled.section`
   display: flex;
-  flex-direction: ${(props) => props.isAuth ? "row" : "column"};
+  flex-direction: column;
 
+  .content-container{
+    display: flex;
+    flex-direction: row
+  }
   .ant-layout-sider {
     padding: 0.5rem;
     background-color: #001529;

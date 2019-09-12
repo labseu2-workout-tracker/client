@@ -13,13 +13,10 @@ const DashboardNavItem = (props) => [
     <li className="dashboard-list-item"
     
     key={item.id} >
-      <NavLink className="dashboard-items"to={item.link}>{item.icon}</NavLink>
-      <NavLink className="dashboard-items" to={item.link}><span>{item.text}</span></NavLink>   
+      <NavLink to={item.link}>{item.icon}</NavLink>
+      <NavLink to={item.link}><span>{item.text}</span></NavLink>   
     </li>
-  ),
-  <li className="navigation-item" key="logout">
-    <button onClick={props.onLogout}>Logout</button>
-  </li>
+  )
   )
 ]
 

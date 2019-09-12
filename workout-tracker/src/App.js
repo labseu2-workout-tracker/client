@@ -57,7 +57,7 @@ class App extends Component {
         </div>
         <ul className="nav-items">
           <DashboardNavItem isAuth={Auth.isAuthenticated()}/>
-          <li className="navigation-item" key="logout">
+          <li className="dashboard-list-item" key="logout">
             <button onClick={this.logoutHandler}>Logout</button>
           </li>
         </ul>
