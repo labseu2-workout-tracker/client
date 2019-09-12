@@ -94,20 +94,16 @@ class WorkoutCalendar extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
+    
     let workoutNames = [];
     let workouts = [];
-    // axiosWithAuth()
-    //   .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-    //   .then(res => {
+
     this.props.workouts.map(workout => {
       workoutNames.push(workout.workout_name);
       workouts.push(workout);
       return workout;
     });
 
-    // axiosWithAuth()
-    //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-    //   .then(res => {
     let year = new Date().getFullYear();
     let first_day_year = new Date(year, 0, 1);
     let last_day_year = new Date(year, 11, 31);
@@ -144,7 +140,6 @@ class WorkoutCalendar extends React.Component {
       );
     }
 
-    // let userHistory = [...res.data.workoutHistory];
     let userHistory = this.props.history;
     let resultOfWeek = [];
 
@@ -182,8 +177,6 @@ class WorkoutCalendar extends React.Component {
       result: theResult,
       history: userHistory
     });
-    // });
-    // });
   };
 
   getListData = value => {
