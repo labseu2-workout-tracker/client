@@ -278,7 +278,7 @@ class AllExercises extends React.Component {
                               Open Modal
                             </Button>
                             <Modal
-                              title="Basic Modal"
+                              title={this.props.singleExercise[0].exercise_name}
                               visible={this.state.visible}
                               onOk={this.handleOk}
                               onCancel={this.handleCancel}
@@ -287,9 +287,9 @@ class AllExercises extends React.Component {
                                 <div>
                                   <Card
                                     hoverable
-                                    style={{ width: 440 }}
+                                    style={{ width: "100%" }}
                                     cover={
-                                      <video className="" controls>
+                                      <video className=""controls loop autoplay>
                                       <source src={this.props.singleExercise[0].video} type="video/mp4" />
                                       Your browser does not support the video tag.
                                     </video>
@@ -299,7 +299,7 @@ class AllExercises extends React.Component {
                                       title= {this.props.singleExercise[0].exercise_name}
                                       description="www.instagram.com"
                                     />
-                                    <div>
+                                    <div className="div-para">
                                     <p>
                                       {' '}
                                       Level:{' '}
