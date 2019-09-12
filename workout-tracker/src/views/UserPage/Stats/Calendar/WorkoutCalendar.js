@@ -351,6 +351,7 @@ this.props.fetchWorkoutsHistory();
 
 const mapStateToProps = state => {
   return {
+    history: state.history.history,
     workouts: state.workouts.workouts,
   };
 };
