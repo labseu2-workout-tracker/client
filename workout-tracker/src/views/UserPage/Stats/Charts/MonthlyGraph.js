@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
 import styled from "styled-components";
 
+const { Meta } = Card;
+
 const StyledMonthlyGraph = styled.div`
   width: 100%;
   border: 0;
@@ -15,9 +17,7 @@ const StyledMonthlyGraph = styled.div`
   word-wrap: break-word;
   background: #fff;
   box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
-  margin-top: 3rem;
   border-radius: 0.6rem;
-  margin-bottom: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,11 +27,16 @@ const StyledMonthlyGraph = styled.div`
     display: none;
   }
 
-  #SvgjsSvg1858 {
+  /* #SvgjsSvg1858 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
+
+  .apex {
+    width: 70%;
+    height: 30%;
+  } 
 `;
 
 class MonthlyGraph extends React.Component {
@@ -171,26 +176,67 @@ class MonthlyGraph extends React.Component {
 
   render() {
     return (
-      <StyledMonthlyGraph 
-      style={{ backgroundColor: "#FC940C" }}
+      <Card
+        hoverable
+        style={{
+          width: "100%"
+        }}
+        className="chart"
+        cover={
+          <Card
+          className="chart-card"
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#FC940C"
+            }}
+          >
+            <StyledMonthlyGraph 
+            style={{ backgroundColor: "#FC940C" }}
+            >
+              <ReactApexChart
+                options={{
+                  chart: this.state.chart,
+                  dataLabels: this.state.dataLabels,
+                  stroke: this.state.stroke,
+                  title: this.state.title,
+                  grid: this.state.grid,
+                  xaxis: { categories: this.state.categories },
+                  colors: ["#FFFFFF"]
+                }}
+                series={[{ name: this.state.name, data: this.state.data }]}
+                type="line"
+                // height="400"
+                // width="800"
+                // style={{ height: "4000px"}}
+                color="black"
+                className="apex"
+              />
+            </StyledMonthlyGraph>
+          </Card>
+        }
       >
-        <ReactApexChart
-          options={{
-            chart: this.state.chart,
-            dataLabels: this.state.dataLabels,
-            stroke: this.state.stroke,
-            title: this.state.title,
-            grid: this.state.grid,
-            xaxis: { categories: this.state.categories },
-            colors:['#FFFFFF']
-          }}
-          series={[{ name: this.state.name, data: this.state.data }]}
-          type="line"
-          height="350"
-          width="700"
-          color="black"
+        <Meta
+          title="Yearly Result"
+          description={
+            <div>
+              <i className="fa fa-fire"></i>{" "}
+              {` You made ${this.state.data.reduce(
+                (accumulator, currentValue) => accumulator + currentValue,
+                0
+              )} ${
+                this.state.data.reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  0
+                ) === 1
+                  ? "workout"
+                  : "workouts"
+              } this month.`}{" "}
+            </div>
+          }
         />
-      </StyledMonthlyGraph>
+      </Card>
     );
   }
 }
