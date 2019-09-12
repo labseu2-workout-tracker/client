@@ -234,8 +234,8 @@ class WorkoutCalendar extends React.Component {
                 ]}
               >
                 {this.props.workouts
-                  ? this.props.workouts.map((workoutName, index) => (
-                      <p key={index}>{workoutName}</p>
+                  ? this.props.workouts.map((workoutName) => (
+                      <p key={uuid()}>{workoutName}</p>
                     ))
                   : null}
               </Modal>
