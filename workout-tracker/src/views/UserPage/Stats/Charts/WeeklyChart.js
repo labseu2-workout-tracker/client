@@ -1,6 +1,7 @@
 import React from "react";
 import { Pie, Chart } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import { Card } from "antd";
 
 Chart.defaults.global.legend.display = false;
 
