@@ -18,11 +18,11 @@ class ProfileCard extends React.Component {
             <StyledImage>
                 <div>
                     <Avatar size={64} icon="user" />
-                    <p>{this.props.settings[0].username}</p>
+                    <p>{this.props.settings && this.props.settings[0].username}</p>
                 </div>
                 <section>
-                    <span>Weight: {this.props.settings[0].weight} kgs.</span>
-                    <span>Workouts: {this.props.history.length}</span>
+                    <span>Weight: {this.props.settings && this.props.settings[0].weight} kgs.</span>
+                    <span>Workouts: {this.props.history && this.props.history.length}</span>
                 </section>
             </StyledImage>
         )
