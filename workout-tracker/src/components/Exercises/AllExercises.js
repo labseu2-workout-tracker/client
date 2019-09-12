@@ -300,7 +300,7 @@ class AllExercises extends React.Component {
                                     }
                                   >
                                     <Meta
-                                      // title= {this.props.singleExercise[0].exercise_name}
+                                      title= {this.props.singleExercise[0].exercise_name}
                                       description={<div className="description">
                                       {this.props.singleExercise[0].description}
                                     </div>}
