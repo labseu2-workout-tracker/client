@@ -1,7 +1,5 @@
 import React from "react";
 import { Pie, Chart } from "react-chartjs-2";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { Card } from "antd";
 import { connect } from "react-redux";
 
@@ -41,109 +39,109 @@ class WeeklyChart extends React.Component {
     let workoutNames = [];
     let workouts = [];
 
-        this.props.workouts.map(workout => {
-          workoutNames.push(workout.workout_name);
-          workouts.push(workout);
-          return workout;
-        });
+    this.props.workouts.map(workout => {
+      workoutNames.push(workout.workout_name);
+      workouts.push(workout);
+      return workout;
+    });
 
-            let weekMap = [6, 0, 1, 2, 3, 4, 5];
+    let weekMap = [6, 0, 1, 2, 3, 4, 5];
 
-            function startAndEndOfWeek(date) {
-              let now = new Date(date);
-              now.setHours(0, 0, 0, 0);
-              let monday = new Date(now);
-              monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
-              let sunday = new Date(now);
-              sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
-              sunday.setHours(23, 59, 59, 999);
-              return [monday, sunday];
-            }
+    function startAndEndOfWeek(date) {
+      let now = new Date(date);
+      now.setHours(0, 0, 0, 0);
+      let monday = new Date(now);
+      monday.setDate(monday.getDate() - weekMap[monday.getDay()]);
+      let sunday = new Date(now);
+      sunday.setDate(sunday.getDate() - weekMap[sunday.getDay()] + 6);
+      sunday.setHours(23, 59, 59, 999);
+      return [monday, sunday];
+    }
 
-            let startAndEndWeek = startAndEndOfWeek(new Date());
+    let startAndEndWeek = startAndEndOfWeek(new Date());
 
-            var getDaysArray = function(s, e) {
-              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-                a.push(new Date(d));
-              }
-              return a;
-            };
-            let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
-            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+    var getDaysArray = function(s, e) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+        a.push(new Date(d));
+      }
+      return a;
+    };
+    let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
+    daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            let daysInWeek = [];
+    let daysInWeek = [];
 
-            function formatDate(date) {
-              var d = new Date(date),
-                month = "" + (d.getMonth() + 1),
-                day = "" + d.getDate(),
-                year = d.getFullYear();
+    function formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-              if (month.length < 2) month = "0" + month;
-              if (day.length < 2) day = "0" + day;
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-              return [year, month, day].join("-");
-            }
+      return [year, month, day].join("-");
+    }
 
-            for (let i = 0; i < daylist.length; i++) {
-              daysInWeek.push(
-                formatDate(daylist[i])
-                  .split("-")
-                  .join("")
-              );
-            }
+    for (let i = 0; i < daylist.length; i++) {
+      daysInWeek.push(
+        formatDate(daylist[i])
+          .split("-")
+          .join("")
+      );
+    }
 
-            let userHistory = this.props.history;
-            let resultOfWeek = [];
+    let userHistory = this.props.history;
+    let resultOfWeek = [];
 
-            for (let j = 0; j < daysInWeek.length; j++) {
-              for (let i = 0; i < userHistory.length; i++) {
-                if (
-                  userHistory[i].session_start
-                    .match(/.{1,10}/g)[0]
-                    .split("-")
-                    .join("") === daysInWeek[j]
-                ) {
-                  resultOfWeek.push(userHistory[i]);
-                }
-              }
-            }
+    for (let j = 0; j < daysInWeek.length; j++) {
+      for (let i = 0; i < userHistory.length; i++) {
+        if (
+          userHistory[i].session_start
+            .match(/.{1,10}/g)[0]
+            .split("-")
+            .join("") === daysInWeek[j]
+        ) {
+          resultOfWeek.push(userHistory[i]);
+        }
+      }
+    }
 
-            let hashTable = {};
+    let hashTable = {};
 
-            for (let j = 0; j < workouts.length; j++) {
-              hashTable[workouts[j].workout_name] = 0;
-            }
+    for (let j = 0; j < workouts.length; j++) {
+      hashTable[workouts[j].workout_name] = 0;
+    }
 
-            for (let i = 0; i < resultOfWeek.length; i++) {
-              for (let j = 0; j < workouts.length; j++) {
-                if (resultOfWeek[i].workout_id === workouts[j].id) {
-                  if (hashTable[workouts[j].workout_name]) {
-                    hashTable[workouts[j].workout_name] += 1;
-                  } else {
-                    hashTable[workouts[j].workout_name] = 1;
-                  }
-                }
-              }
-            }
+    for (let i = 0; i < resultOfWeek.length; i++) {
+      for (let j = 0; j < workouts.length; j++) {
+        if (resultOfWeek[i].workout_id === workouts[j].id) {
+          if (hashTable[workouts[j].workout_name]) {
+            hashTable[workouts[j].workout_name] += 1;
+          } else {
+            hashTable[workouts[j].workout_name] = 1;
+          }
+        }
+      }
+    }
 
-            let valuesForDataset = [];
+    let valuesForDataset = [];
 
-            for (var value in hashTable) {
-              valuesForDataset.push(hashTable[value]);
-            }
+    for (var value in hashTable) {
+      valuesForDataset.push(hashTable[value]);
+    }
 
-            this.setState({
-              data: valuesForDataset,
-              labels: workoutNames
-            });
+    this.setState({
+      data: valuesForDataset,
+      labels: workoutNames
+    });
   };
 
   render() {
     return (
       <Card
         style={{
-          width: "30%",
+          width: "30%"
         }}
         hoverable
         className="chart chart-one"
@@ -173,17 +171,22 @@ class WeeklyChart extends React.Component {
       >
         <Meta
           title="Weekly Result"
-          description={<div><i className="fa fa-fire"></i> {`You made ${this.state.data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            0
-          )} ${
-            this.state.data.reduce(
-              (accumulator, currentValue) => accumulator + currentValue,
-              0
-            ) === 1
-              ? "workout"
-              : "workouts"
-          } this week.`} </div>}
+          description={
+            <div>
+              <i className="fa fa-fire"></i>{" "}
+              {`You made ${this.state.data.reduce(
+                (accumulator, currentValue) => accumulator + currentValue,
+                0
+              )} ${
+                this.state.data.reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  0
+                ) === 1
+                  ? "workout"
+                  : "workouts"
+              } this week.`}{" "}
+            </div>
+          }
         />
       </Card>
     );
@@ -197,7 +200,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
-)(WeeklyChart);
+export default connect(mapStateToProps)(WeeklyChart);
