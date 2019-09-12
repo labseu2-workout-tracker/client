@@ -1,5 +1,7 @@
 import React from "react";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
+
 import { Doughnut } from "react-chartjs-2";
 import { Card } from "antd";
 
