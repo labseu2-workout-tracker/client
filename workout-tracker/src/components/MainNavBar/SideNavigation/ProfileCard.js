@@ -5,10 +5,13 @@ import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 
 import { fetchSettings } from "../../../store/actions/settingActions"
+import { fetchWorkoutsHistory } from "../../../store/actions/historyActions"
 
-class ProfileImage extends React.Component {
+class ProfileCard extends React.Component {
+
     componentDidMount = () => {
         this.props.fetchSettings()
+        this.props.fetchWorkoutsHistory();
     }
     render() {
         return (
@@ -18,8 +21,8 @@ class ProfileImage extends React.Component {
                     <p>{this.props.settings[0].username}</p>
                 </div>
                 <section>
-                    <span>Weight: {this.props.settings[0].weigth} kgs.</span>
-                    <span>Workouts: {'10'}</span>
+                    <span>Weight: {this.props.settings[0].weight} kgs.</span>
+                    <span>Workouts: {this.props.history.length}</span>
                 </section>
             </StyledImage>
         )
@@ -58,8 +61,9 @@ const StyledImage = styled.div`
 `
 const mapStateToProps = state => {
     return {
-      settings: state.settings.settings
+      settings: state.settings.settings,
+      history: state.history.history
     };
   };
 
-export default connect(mapStateToProps, { fetchSettings })(ProfileImage);
+export default connect(mapStateToProps, { fetchSettings, fetchWorkoutsHistory })(ProfileCard);

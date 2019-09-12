@@ -15,7 +15,7 @@ import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
-import ProfileCard from './components/MainNavBar/SideNavigation/ProfileImage'
+import ProfileCard from './components/MainNavBar/SideNavigation/ProfileCard'
 import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
