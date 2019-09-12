@@ -193,4 +193,7 @@ class WeeklyChart extends React.Component {
   }
 }
 
-export default WeeklyChart;
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(WeeklyChart);
