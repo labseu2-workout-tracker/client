@@ -43,6 +43,22 @@ const StyledStats = styled.div`
     background-color: #FFF;
   }
 
+  .calendar {
+    width: 100%;
+    border: 0;
+    display: flex;
+    position: relative;
+    font-size: .875rem;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #FFF;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    margin-top: 30px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    flex-direction: column;
+  }
+
 
 `;
 
@@ -84,7 +100,7 @@ class Stats extends React.Component {
         <Row>
         <Card
             className="calendar"
-            title="Weekly Result" 
+            title="Calendar" 
             >
           <WorkoutCalendar />
             </Card>
