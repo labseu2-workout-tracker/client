@@ -41,32 +41,30 @@ const StyledWorkoutCalendar = styled.div`
     display: none;
   }
 
-    .fa-info-circle {
-      color: green;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+  .fa-info-circle {
+    color: green;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 1300px) {
+    .status {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+      height: 60px;
     }
 
-    @media (max-width: 1300px) {
-  
-  .status {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-      .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
-      .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-        height: 60px;
-      }
-
-      .ant-badge-status-dot {
-        margin-top: 0.5rem;
-        width: 20px;
-        height: 20px;
-      }
-    
+    .ant-badge-status-dot {
+      margin-top: 0.5rem;
+      width: 20px;
+      height: 20px;
+    }
 
     .status-text {
       display: none;
@@ -94,7 +92,7 @@ class WorkoutCalendar extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
-    
+
     let workoutNames = [];
     let workouts = [];
 
@@ -293,18 +291,16 @@ class WorkoutCalendar extends React.Component {
 
     let workoutsForDay = [];
 
-   
-        for (let i = 0; i < this.props.workouts.length; i++) {
-          for (let j = 0; j < filterWorkoutsForDate.length; j++) {
-            if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
-              workoutsForDay.push(this.props.workouts[i].workout_name);
-            }
-          }
+    for (let i = 0; i < this.props.workouts.length; i++) {
+      for (let j = 0; j < filterWorkoutsForDate.length; j++) {
+        if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
+          workoutsForDay.push(this.props.workouts[i].workout_name);
         }
-        this.setState({
-          workoutsForDate: workoutsForDay
-        });
-      
+      }
+    }
+    this.setState({
+      workoutsForDate: workoutsForDay
+    });
   };
 
   showModal = () => {
