@@ -164,9 +164,13 @@ class MonthlyChart extends React.Component {
           </Card>
         }
       >
-        <Meta title="Monthly Result" description={`You made ${this.state.data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue, 0
-          )} this Month.`} />
+        <Meta
+          title="Monthly Result"
+          description={`You made ${this.state.data.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0
+          )} this Month.`}
+        />
       </Card>
     );
   }

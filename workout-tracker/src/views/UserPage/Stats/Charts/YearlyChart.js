@@ -161,7 +161,13 @@ class YearlyChart extends React.Component {
           </Card>
         }
       >
-        <Meta title="Yearly Result" description="www.instagram.com" />
+        <Meta
+          title="Yearly Result"
+          description={`You made ${this.state.data.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0
+          )} this year.`}
+        />
       </Card>
     );
   }
