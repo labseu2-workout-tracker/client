@@ -8,6 +8,8 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { Row, Col, Card } from "antd";
 
+const { Meta } = Card;
+
 const StyledStats = styled.div`
   overflow: hidden;
   
