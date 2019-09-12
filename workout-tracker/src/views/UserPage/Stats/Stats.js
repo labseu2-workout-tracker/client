@@ -6,7 +6,7 @@ import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
-import { Row, Col, Card } from "antd";
+import { Row, Col } from "antd";
 
 const StyledStats = styled.div`
   overflow: hidden;
@@ -68,9 +68,7 @@ class Stats extends React.Component {
         </Row>
 
         <Row>
-          <Card className="calendar" title="Calendar">
             <WorkoutCalendar />
-          </Card>
         </Row>
 
         <Row>

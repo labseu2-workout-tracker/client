@@ -3,6 +3,7 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
+import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
@@ -329,13 +330,15 @@ class WorkoutCalendar extends React.Component {
 
   render() {
     return (
-      <StyledWorkoutCalendar>
-        <Calendar
-          dateCellRender={this.dateCellRender}
-          monthCellRender={this.monthCellRender}
-          onSelect={this.showWorkoutsForDate}
-        />
-      </StyledWorkoutCalendar>
+      <Card className="calendar" title="Calendar">
+        <StyledWorkoutCalendar>
+          <Calendar
+            dateCellRender={this.dateCellRender}
+            monthCellRender={this.monthCellRender}
+            onSelect={this.showWorkoutsForDate}
+          />
+        </StyledWorkoutCalendar>
+      </Card>
     );
   }
 }
