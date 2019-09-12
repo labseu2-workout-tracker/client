@@ -3,7 +3,7 @@ import ChartContainer from "./Charts/ChartContainer";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
-import { Row } from "antd";
+import { Row, Card } from "antd";
 
 const StyledStats = styled.div`
 overflow: hidden;
