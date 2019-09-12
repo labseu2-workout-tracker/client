@@ -264,18 +264,18 @@ class AllExercises extends React.Component {
                           </div>
                         }
                         actions={[
-                          <i
-                            className="fa fa-info-circle"
-                            onClick={() =>
-                              this.props.showSingleExercise(exercise.id)
-                            }
-                          />,
+                          // <i
+                          //   className="fa fa-info-circle"
+                          //   onClick={() =>
+                          //     this.props.showSingleExercise(exercise.id)
+                          //   }
+                          // />,
                           <div>
                             <Button
-                              type="primary"
+                              shape="circle" 
                               onClick={() => this.showModal(exercise.id)}
                             >
-                              Open Modal
+                            <i className="fa fa-info-circle" />
                             </Button>
                             <Modal
                               title={this.props.singleExercise[0].exercise_name}
@@ -296,7 +296,7 @@ class AllExercises extends React.Component {
                                     }
                                   >
                                     <Meta
-                                      title= {this.props.singleExercise[0].exercise_name}
+                                      // title= {this.props.singleExercise[0].exercise_name}
                                       description={<div className="description">
                                       {this.props.singleExercise[0].description}
                                     </div>}
