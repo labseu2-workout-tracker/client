@@ -39,21 +39,18 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
-  this.props.fetchWorkouts();  
+  this.props.fetchWorkouts();
+  this.props.fetchWorkoutsHistory();
+   
     let workoutNames = [];
     let workouts = [];
-    // axiosWithAuth()
-    //   .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-    //   .then(res => {
+
         this.props.workouts.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
           return workout;
         });
 
-        // axiosWithAuth()
-        //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-        //   .then(res => {
             let date = new Date();
             let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
             let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
@@ -90,7 +87,7 @@ class MonthlyChart extends React.Component {
               );
             }
 
-            let userHistory = [...res.data.workoutHistory];
+            let userHistory = this.props.history;
             let resultOfWeek = [];
 
             for (let j = 0; j < daysInMonth.length; j++) {
@@ -134,8 +131,6 @@ class MonthlyChart extends React.Component {
               data: valuesForDataset,
               labels: workoutNames
             });
-          // });
-      // });
   };
 
   render() {
