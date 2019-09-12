@@ -158,7 +158,7 @@ class YearlyChart extends React.Component {
 
 <Card
 // title="Weekly Result" 
-style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#11B8CC" }}
+style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#E94340" }}
 // style={{ backgroundColor: "#11B8CC" }}
 >
 <Pie
