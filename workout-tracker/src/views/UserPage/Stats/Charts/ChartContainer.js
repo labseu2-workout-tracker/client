@@ -10,22 +10,26 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-const StyledUserTracker = styled.div`
-  display: flex;
-  margin-top: 20px;
-  height: 400px;
-  /* border: 1px solid black; */
+const StyledChartContainer = styled.div`
+  .select {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+  }
 
   .off {
     display: none;
   }
 
-  .weekly , .monthly, .yearly {
-  width: 100%;
+  .weekly,
+  .monthly,
+  .yearly {
+    width: 100%;
   }
 `;
 
-class UserTracker extends React.Component {
+class ChartContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,36 +44,38 @@ class UserTracker extends React.Component {
       monthly: false,
       yearly: false
     });
-    
+
     this.setState({
-      [value]: true,
+      [value]: true
     });
   };
 
   render() {
     return (
-      <StyledUserTracker>
-        <Select
-          defaultValue="weekly"
-          style={{ width: 120 }}
-          onChange={this.handleChange}
-        >
-          <Option value="weekly">Weekly</Option>
-          <Option value="monthly">Monthly</Option>
-          <Option value="yearly">Yearly</Option>
-        </Select>
+      <StyledChartContainer>
+        <div className="select">
+          <Select
+            defaultValue="weekly"
+            style={{ width: 120, marginRight:" 2rem" }}
+            onChange={this.handleChange}
+          >
+            <Option value="weekly">Weekly</Option>
+            <Option value="monthly">Monthly</Option>
+            <Option value="yearly">Yearly</Option>
+          </Select>
+        </div>
         <div className={this.state.weekly ? "weekly" : "off"}>
-        <WeeklyChart />
+          <WeeklyChart />
         </div>
         <div className={this.state.monthly ? "monthly" : "off"}>
-        <MonthlyChart />
+          <MonthlyChart />
         </div>
         <div className={this.state.yearly ? "yearly" : "off"}>
-        <YearlyChart />
+          <YearlyChart />
         </div>
-      </StyledUserTracker>
+      </StyledChartContainer>
     );
   }
 }
 
-export default UserTracker;
+export default ChartContainer;

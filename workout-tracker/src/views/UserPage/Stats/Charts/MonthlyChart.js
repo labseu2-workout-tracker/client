@@ -1,13 +1,14 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
-import { axiosWithAuth } from "../../../store/axiosWithAuth";
+import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import { Polar } from "react-chartjs-2";
 
-class YearlyChart extends React.Component {
+class MonthlyChart extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       labels: ["Red", "Green", "Yellow"],
-      data: [],
+      data: [1, 5, 6, 7],
       backgroundColor: [
         "#f6f078",
         "#01d28e",
@@ -30,6 +31,7 @@ class YearlyChart extends React.Component {
       ]
     };
   }
+
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
@@ -39,63 +41,58 @@ class YearlyChart extends React.Component {
         res.data.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
+          return workout;
         });
 
         axiosWithAuth()
           .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
           .then(res => {
-            let year = new Date().getFullYear();
+            let date = new Date();
+            let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-            let first_day_year = new Date(year, 0, 1);
-            let last_day_year = new Date(year, 11, 31);
-
-            Date.prototype.addDays = function(days) {
-              let date = new Date(this.valueOf());
-              date.setDate(date.getDate() + days);
-              return date;
+            var getDaysArray = function(s, e) {
+              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+                a.push(new Date(d));
+              }
+              return a;
             };
 
-            function getDates(startDate, stopDate) {
-              let dateArray = new Array();
-              let currentDate = startDate;
-              while (currentDate <= stopDate) {
-                dateArray.push(new Date(currentDate));
-                currentDate = currentDate.addDays(1);
-              }
-              return dateArray;
+            let daylist = getDaysArray(firstDay, lastDay);
+            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+
+            let daysInMonth = [];
+
+            function formatDate(date) {
+              var d = new Date(date),
+                month = "" + (d.getMonth() + 1),
+                day = "" + d.getDate(),
+                year = d.getFullYear();
+
+              if (month.length < 2) month = "0" + month;
+              if (day.length < 2) day = "0" + day;
+
+              return [year, month, day].join("-");
             }
 
-            let allDaysInYear = Object.values(
-              getDates(first_day_year, last_day_year)
-            );
-         
-            let daysInYear = [];
-
-            Date.prototype.yyyymmdd = function() {
-              let mm = this.getMonth() + 1;
-              let dd = this.getDate();
-
-              return [
-                this.getFullYear(),
-                (mm > 9 ? "" : "0") + mm,
-                (dd > 9 ? "" : "0") + dd
-              ].join("");
-            };
-
-            for (let i = 0; i < allDaysInYear.length; i++) {
-              daysInYear.push(allDaysInYear[i].yyyymmdd().toString());
+            for (let i = 0; i < daylist.length; i++) {
+              daysInMonth.push(
+                formatDate(daylist[i])
+                  .split("-")
+                  .join("")
+              );
             }
 
             let userHistory = [...res.data.workoutHistory];
             let resultOfWeek = [];
 
-            for (let j = 0; j < daysInYear.length; j++) {
+            for (let j = 0; j < daysInMonth.length; j++) {
               for (let i = 0; i < userHistory.length; i++) {
                 if (
                   userHistory[i].session_start
                     .match(/.{1,10}/g)[0]
                     .split("-")
-                    .join("") === daysInYear[j]
+                    .join("") === daysInMonth[j]
                 ) {
                   resultOfWeek.push(userHistory[i]);
                 }
@@ -122,7 +119,7 @@ class YearlyChart extends React.Component {
 
             let valuesForDataset = [];
 
-            for (let value in hashTable) {
+            for (var value in hashTable) {
               valuesForDataset.push(hashTable[value]);
             }
 
@@ -136,18 +133,16 @@ class YearlyChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "60%", height: "50%" }}>
-        <h2>Yearly Results</h2>
-        <Doughnut
-          data={{
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+        <h2>Monthly Results</h2>
+        <Polar
+          data={{datasets: [{
+            data: this.state.data,
+            backgroundColor: this.state.backgroundColor,
+            hoverBackgroundColor: this.state.hoverBackgroundColor,
+            label: "Monthly Results",
+          }],
             labels: this.state.labels,
-            datasets: [
-              {
-                data: this.state.data,
-                backgroundColor: this.state.backgroundColor,
-                hoverBackgroundColor: this.state.hoverBackgroundColor
-              }
-            ]
           }}
         />
       </div>
@@ -155,4 +150,4 @@ class YearlyChart extends React.Component {
   }
 }
 
-export default YearlyChart;
+export default MonthlyChart;

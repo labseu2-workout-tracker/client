@@ -92,11 +92,11 @@ class App extends Component {
         )}
         <MainLayout
           header={
-              <MainNavBar
-                onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
-                onLogout={this.logoutHandler}
-                isAuth={Auth.isAuthenticated()}
-              />
+            <MainNavBar
+              onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
+              onLogout={this.logoutHandler}
+              isAuth={Auth.isAuthenticated()}
+            />
           }
           mobileNav={
             <MobileNavigation
