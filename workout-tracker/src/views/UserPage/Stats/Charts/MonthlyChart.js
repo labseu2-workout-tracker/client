@@ -133,18 +133,38 @@ class MonthlyChart extends React.Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        <Doughnut
-          data={{datasets: [{
-            data: this.state.data,
-            backgroundColor: this.state.backgroundColor,
-            hoverBackgroundColor: this.state.hoverBackgroundColor,
-            label: "Monthly Results",
-          }],
-            labels: this.state.labels,
-          }}
-        />
-      </div>
+      // <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      //   <Doughnut
+      //     data={{datasets: [{
+      //       data: this.state.data,
+      //       backgroundColor: this.state.backgroundColor,
+      //       hoverBackgroundColor: this.state.hoverBackgroundColor,
+      //       label: "Monthly Results",
+      //     }],
+      //       labels: this.state.labels,
+      //     }}
+      //   />
+      // </div>
+
+<Card
+// title="Weekly Result" 
+style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#11B8CC" }}
+// style={{ backgroundColor: "#11B8CC" }}
+>
+  <Pie
+    data={{
+      labels: this.state.labels,
+      datasets: [
+        {
+          data: this.state.data,
+          backgroundColor: this.state.backgroundColor,
+          hoverBackgroundColor: this.state.hoverBackgroundColor
+        }
+      ]
+    }}
+  />
+ 
+</Card>
     );
   }
 }

@@ -30,7 +30,7 @@ const StyledStats = styled.div`
   }
 
   .chart-one {
-    background-color: #11B8CC;
+    background-color: #FFF;
   }
 
   .chart-two {
