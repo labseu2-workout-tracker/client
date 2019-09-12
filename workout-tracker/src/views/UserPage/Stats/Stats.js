@@ -5,6 +5,7 @@ import MonthlyChart from "./Charts/MonthlyChart";
 import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
+import MonthlyGraph from "./Charts/MonthlyChart";
 import styled from "styled-components";
 
 const StyledStats = styled.div`
@@ -30,7 +31,8 @@ const StyledStats = styled.div`
     flex-direction: column;
   }
 
-  .calendar, .history {
+  .calendar,
+  .history {
     color: rgba(0, 0, 0, 0.87);
     width: 100%;
     border: 0;
@@ -61,16 +63,16 @@ class Stats extends React.Component {
 
           <MonthlyChart />
 
+          <YearlyChart />
         </div>
 
         <div>
           <WorkoutCalendar />
         </div>
-
+        <MonthlyGraph />
         <div>
           <UserHistory />
         </div>
-          <YearlyChart />
       </StyledStats>
     );
   }
