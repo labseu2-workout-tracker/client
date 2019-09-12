@@ -286,27 +286,25 @@ class WorkoutCalendar extends React.Component {
       return [year, month, day].join("-");
     };
 
-    const filterWorkoutsForDate = this.state.history.filter(
+    const filterWorkoutsForDate = this.props.history.filter(
       workout =>
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
     let workoutsForDay = [];
 
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
-        for (let i = 0; i < res.data.length; i++) {
+   
+        for (let i = 0; i < this.props.workouts.length; i++) {
           for (let j = 0; j < filterWorkoutsForDate.length; j++) {
-            if (res.data[i].id === filterWorkoutsForDate[j].workout_id) {
-              workoutsForDay.push(res.data[i].workout_name);
+            if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
+              workoutsForDay.push(this.props.workouts[i].workout_name);
             }
           }
         }
         this.setState({
           workoutsForDate: workoutsForDay
         });
-      });
+      
   };
 
   showModal = () => {
