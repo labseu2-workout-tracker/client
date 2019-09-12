@@ -1,7 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import styled from "styled-components";
 import { Card } from "antd";
 
 class YearlyChart extends React.Component {
