@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
+import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Calendar, Badge, Modal, Button } from "antd";
@@ -102,9 +103,9 @@ this.props.fetchWorkouts();
           return workout;
         });
 
-        axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-          .then(res => {
+        // axiosWithAuth()
+        //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
+        //   .then(res => {
             let year = new Date().getFullYear();
             let first_day_year = new Date(year, 0, 1);
             let last_day_year = new Date(year, 11, 31);
@@ -179,7 +180,7 @@ this.props.fetchWorkouts();
               result: theResult,
               history: res.data.workoutHistory
             });
-          });
+          // });
       // });
   };
 
