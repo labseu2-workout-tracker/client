@@ -1,4 +1,5 @@
 import React from "react";
+import AddWorkoutButton from "../../utils/AddWorkoutButton";
 import { connect } from "react-redux";
 import {
   fetchWorkouts,
@@ -7,7 +8,7 @@ import {
 } from "../../store/actions/workoutsActions";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { notification } from "antd";
+import { notification, Button, Icon } from "antd";
 
 const StyledWorkouts = styled.div`
   text-align: center;
@@ -44,6 +45,7 @@ const StyledWorkouts = styled.div`
   }
 `;
 
+
 class Workouts extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
@@ -58,6 +60,7 @@ class Workouts extends React.Component {
     this.props.addWorkout(workout_id);
   };
 
+  
   render() {
     return (
       <StyledWorkouts>
@@ -98,6 +101,7 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
+        <AddWorkoutButton />
       </StyledWorkouts>
     );
   }
