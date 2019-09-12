@@ -6,6 +6,7 @@ import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import MonthlyGraph from "./Charts/MonthlyGraph";
+import YearlyGraph from "./Charts/YearlyGraph";
 import styled from "styled-components";
 
 const StyledStats = styled.div`
