@@ -6,7 +6,6 @@ import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Card } from "antd";
 import { connect } from "react-redux";
 
-
 const { Meta } = Card;
 
 class YearlyChart extends React.Component {
@@ -38,11 +37,10 @@ class YearlyChart extends React.Component {
     };
   }
   componentDidMount = () => {
+    this.props.fetchWorkouts();
     let workoutNames = [];
     let workouts = [];
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
+
         res.data.map(workout => {
           workoutNames.push(workout.workout_name);
           workouts.push(workout);
@@ -133,7 +131,6 @@ class YearlyChart extends React.Component {
               labels: workoutNames
             });
           });
-      });
   };
 
   render() {
