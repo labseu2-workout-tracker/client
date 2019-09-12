@@ -35,14 +35,15 @@ i:hover {
   color: #0086c9;
 } */
 
-.dashboard-list-item {
+/* .dashboard-list-item {
   padding: 10px 0;
   width: 100%;
   list-style-type: none;
   text-align: left;
   border-left: 11px solid white;
-}
-.dashboard-items,
+} */
+
+/* .dashboard-items,
 .dashboard-items:hover,
 .dashboard-items.active {
   padding: 10px 0;
@@ -53,8 +54,9 @@ i:hover {
   font-size: 1.1rem;
   color: #696969;
   color: inherit;
-}
-.dashboard-items.active {
+} */
+
+/* .dashboard-items a.active {
   color: #2d2d2d;
   font-weight: bold;
 }
@@ -63,4 +65,49 @@ i:hover {
   background-color: #cce6f4;
   border-radius: 10px 0 0 10px;
   border-left: 11px solid #0086c9;
+} */
+
+.nav-items {
+  padding: 1rem, 0.5rem;
+}
+
+.dashboard-list-item {
+  display: flex;
+  padding: 15px 2px;
+  list-style-type: none;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #696969;
+  border-left: 11px solid #001529;
+}
+.dashboard-items,
+.dashboard-items:hover,
+.dashboard-items.active {
+  background-color: #cce6f4;
+  border-radius: 10px 0 0 10px;
+  border-left: 11px solid #0086c9;
+}
+.dashboard-items a.active {
+  color: #2d2d2d;
+  font-weight: bold;
+}
+.dashboard-list-item:hover,
+.dashboard-list-item.active {
+  background-color: #cce6f4;
+  border-radius: 10px 0 0 10px;
+  border-left: 11px solid #0086c9;
+}
+
+.dashbaord-list-item a,
+.dashbaord-list-item a:hover {
+  color: #696969;
+  font-weight: bold;
+}
+
+.dashbaord-list-item a.active {
+  color: white;
+}
+
+.dashbaord-list-item a:last-of-type {
+  padding-left: 0.75rem;
 }

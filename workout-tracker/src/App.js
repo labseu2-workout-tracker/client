@@ -16,10 +16,10 @@ import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNav
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 import ProfileCard from './views/UserPage/ProfileImage'
-import NavigationItems from './components/MainNavBar/NavigationItems/NavigationItems'
 import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
+import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
 
 
 
@@ -56,7 +56,7 @@ class App extends Component {
           />
         </div>
         <ul className="nav-items">
-          <NavigationItems onLogout={this.logoutHandler} isAuth={Auth.isAuthenticated()}/>
+          <DashboardNavItem onLogout={this.logoutHandler} isAuth={Auth.isAuthenticated()}/>
         </ul>
       </>
     )

@@ -8,7 +8,7 @@ const dashItems = [
   {id: "exercise", text: 'Exercises', link: "/exercises", icon: <i className="fas fa-list"></i>},
   {id: "settings", text: 'Settings', link: "/settings", icon: <i className="fas fa-cog"></i>},
 ]
-const DashboardNavItem = () => [
+const DashboardNavItem = (props) => [
   ...dashItems.map(item => (
     <li className="dashboard-list-item"
     
@@ -16,7 +16,10 @@ const DashboardNavItem = () => [
       <NavLink className="dashboard-items"to={item.link}>{item.icon}</NavLink>
       <NavLink className="dashboard-items" to={item.link}><span>{item.text}</span></NavLink>   
     </li>
-  )
+  ),
+  <li className="navigation-item" key="logout">
+    <button onClick={props.onLogout}>Logout</button>
+  </li>
   )
 ]
 
