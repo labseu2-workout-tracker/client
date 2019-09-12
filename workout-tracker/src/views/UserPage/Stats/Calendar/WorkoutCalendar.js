@@ -11,8 +11,7 @@ import { Card } from "antd";
 const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 50px;
-    width: 50px;
+    height: 80px;
   }
 
   .ant-radio-button-wrapper {
@@ -33,20 +32,14 @@ const StyledWorkoutCalendar = styled.div`
     text-align: center;
     font-size: 28px;
   }
+
   .notes-month section {
     font-size: 28px;
   }
 
-  /* .status {
-    display: none;
-  } */
-
   .status {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+    display: none;
+  }
 
     .fa-info-circle {
       color: green;
@@ -55,6 +48,14 @@ const StyledWorkoutCalendar = styled.div`
     }
 
     @media (max-width: 1300px) {
+  
+  .status {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
       .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
       .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
         height: 60px;
@@ -65,11 +66,11 @@ const StyledWorkoutCalendar = styled.div`
         width: 20px;
         height: 20px;
       }
-    }
+    
 
-    /* .status-text {
+    .status-text {
       display: none;
-    } */
+    }
   }
 
   @media (max-width: 600px) {
@@ -91,98 +92,98 @@ class WorkoutCalendar extends React.Component {
   }
 
   componentDidMount = () => {
-this.props.fetchWorkouts();
-this.props.fetchWorkoutsHistory();
+    this.props.fetchWorkouts();
+    this.props.fetchWorkoutsHistory();
     let workoutNames = [];
     let workouts = [];
     // axiosWithAuth()
     //   .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
     //   .then(res => {
-        this.props.workouts.map(workout => {
-          workoutNames.push(workout.workout_name);
-          workouts.push(workout);
-          return workout;
-        });
+    this.props.workouts.map(workout => {
+      workoutNames.push(workout.workout_name);
+      workouts.push(workout);
+      return workout;
+    });
 
-        // axiosWithAuth()
-        //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-        //   .then(res => {
-            let year = new Date().getFullYear();
-            let first_day_year = new Date(year, 0, 1);
-            let last_day_year = new Date(year, 11, 31);
+    // axiosWithAuth()
+    //   .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
+    //   .then(res => {
+    let year = new Date().getFullYear();
+    let first_day_year = new Date(year, 0, 1);
+    let last_day_year = new Date(year, 11, 31);
 
-            var getDaysArray = function(s, e) {
-              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-                a.push(new Date(d));
-              }
-              return a;
-            };
+    var getDaysArray = function(s, e) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+        a.push(new Date(d));
+      }
+      return a;
+    };
 
-            let daylist = getDaysArray(first_day_year, last_day_year);
-            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+    let daylist = getDaysArray(first_day_year, last_day_year);
+    daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            let daysInYear = [];
+    let daysInYear = [];
 
-            function formatDate(date) {
-              var d = new Date(date),
-                month = "" + (d.getMonth() + 1),
-                day = "" + d.getDate(),
-                year = d.getFullYear();
+    function formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-              if (month.length < 2) month = "0" + month;
-              if (day.length < 2) day = "0" + day;
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-              return [year, month, day].join("-");
-            }
+      return [year, month, day].join("-");
+    }
 
-            for (let i = 0; i < daylist.length; i++) {
-              daysInYear.push(
-                formatDate(daylist[i])
-                  .split("-")
-                  .join("")
-              );
-            }
+    for (let i = 0; i < daylist.length; i++) {
+      daysInYear.push(
+        formatDate(daylist[i])
+          .split("-")
+          .join("")
+      );
+    }
 
-            let userHistory = [...res.data.workoutHistory];
-            let resultOfWeek = [];
+    // let userHistory = [...res.data.workoutHistory];
+    let userHistory = this.props.history;
+    let resultOfWeek = [];
 
-            for (let j = 0; j < daysInYear.length; j++) {
-              for (let i = 0; i < userHistory.length; i++) {
-                if (
-                  userHistory[i].session_start
-                    .match(/.{1,10}/g)[0]
-                    .split("-")
-                    .join("") === daysInYear[j]
-                ) {
-                  resultOfWeek.push({
-                    ...userHistory[i],
-                    day: Number(
-                      userHistory[i].session_start[8] +
-                        userHistory[i].session_start[9]
-                    )
-                  });
-                }
-              }
-            }
+    for (let j = 0; j < daysInYear.length; j++) {
+      for (let i = 0; i < userHistory.length; i++) {
+        if (
+          userHistory[i].session_start
+            .match(/.{1,10}/g)[0]
+            .split("-")
+            .join("") === daysInYear[j]
+        ) {
+          resultOfWeek.push({
+            ...userHistory[i],
+            day: Number(
+              userHistory[i].session_start[8] + userHistory[i].session_start[9]
+            )
+          });
+        }
+      }
+    }
 
-            let theResult = [];
+    let theResult = [];
 
-            for (let i = 0; i < resultOfWeek.length; i++) {
-              for (let j = 0; j < workouts.length; j++) {
-                if (resultOfWeek[i].workout_id === workouts[j].id) {
-                  theResult.push({
-                    ...resultOfWeek[i],
-                    workout_name: workouts[j].workout_name
-                  });
-                }
-              }
-            }
-            this.setState({
-              result: theResult,
-              history: res.data.workoutHistory
-            });
-          // });
-      // });
+    for (let i = 0; i < resultOfWeek.length; i++) {
+      for (let j = 0; j < workouts.length; j++) {
+        if (resultOfWeek[i].workout_id === workouts[j].id) {
+          theResult.push({
+            ...resultOfWeek[i],
+            workout_name: workouts[j].workout_name
+          });
+        }
+      }
+    }
+    this.setState({
+      result: theResult,
+      history: userHistory
+    });
+    // });
+    // });
   };
 
   getListData = value => {
@@ -252,11 +253,11 @@ this.props.fetchWorkoutsHistory();
                   : null}
               </Modal>
             </div>
-            {/* <Badge
+            <Badge
               status={item.type}
               text={item.content}
               className="status-text"
-            /> */}
+            />
           </li>
         ))}
       </ul>
@@ -352,8 +353,11 @@ this.props.fetchWorkoutsHistory();
 const mapStateToProps = state => {
   return {
     history: state.history.history,
-    workouts: state.workouts.workouts,
+    workouts: state.workouts.workouts
   };
 };
 
-export default connect(mapStateToProps, { fetchWorkouts })(WorkoutCalendar);
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(WorkoutCalendar);

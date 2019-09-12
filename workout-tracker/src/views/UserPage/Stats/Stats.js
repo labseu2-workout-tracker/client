@@ -32,7 +32,7 @@ const StyledStats = styled.div`
 
   .calendar {
     color: rgba(0, 0, 0, 0.87);
-    width: 50%;
+    width: 100%;
     border: 0;
     display: flex;
     position: relative;
