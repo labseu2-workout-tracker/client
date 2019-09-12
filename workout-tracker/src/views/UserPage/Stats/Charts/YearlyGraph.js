@@ -1,6 +1,4 @@
 import React from "react";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { Card } from "antd";
 import { connect } from "react-redux";
 import ReactApexChart from "react-apexcharts";
@@ -177,7 +175,7 @@ class YearlyGraph extends React.Component {
       <Card
         hoverable
         style={{
-          width: "48%",
+          width: "48%"
           // margin: "1rem"
         }}
         className="chart"
@@ -245,7 +243,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
-)(YearlyGraph);
+export default connect(mapStateToProps)(YearlyGraph);
