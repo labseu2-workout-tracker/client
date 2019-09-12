@@ -6,6 +6,7 @@ import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
+
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
     height: 80px;
