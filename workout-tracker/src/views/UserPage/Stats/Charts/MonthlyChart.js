@@ -1,5 +1,4 @@
 import React from "react";
-import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
