@@ -1,7 +1,7 @@
 import React from "react";
 import { Pie, Chart } from "react-chartjs-2";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
-
+import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Card } from "antd";
 import { connect } from "react-redux";
