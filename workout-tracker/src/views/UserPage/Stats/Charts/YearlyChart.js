@@ -137,7 +137,7 @@ class YearlyChart extends React.Component {
       <Card
         hoverable
         style={{
-          width: "30%",              
+          width: "30%"
         }}
         className="chart chart-three"
         cover={
@@ -169,7 +169,14 @@ class YearlyChart extends React.Component {
           description={`You made ${this.state.data.reduce(
             (accumulator, currentValue) => accumulator + currentValue,
             0
-          )} this year.`}
+          )} ${
+            this.state.data.reduce(
+              (accumulator, currentValue) => accumulator + currentValue,
+              0
+            ) > 1
+              ? "workouts"
+              : "workout"
+          } this year.`}
         />
       </Card>
     );

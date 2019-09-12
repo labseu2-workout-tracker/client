@@ -147,9 +147,9 @@ class WeeklyChart extends React.Component {
   render() {
     return (
       <Card
-      style={{
-              width: "30%",              
-            }}
+        style={{
+          width: "30%"
+        }}
         hoverable
         className="chart chart-one"
         cover={
@@ -179,8 +179,16 @@ class WeeklyChart extends React.Component {
         <Meta
           title="Weekly Result"
           description={`You made ${this.state.data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue, 0
-          )} this week.`}
+            (accumulator, currentValue) => accumulator + currentValue,
+            0
+          )} ${
+            this.state.data.reduce(
+              (accumulator, currentValue) => accumulator + currentValue,
+              0
+            ) > 1
+              ? "workouts"
+              : "workout"
+          } this week.`}
         />
       </Card>
     );
