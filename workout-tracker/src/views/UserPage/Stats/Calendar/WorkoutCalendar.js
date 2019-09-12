@@ -346,4 +346,4 @@ class WorkoutCalendar extends React.Component {
   }
 }
 
-export default WorkoutCalendar;
+export default connect(mapStateToProps, { fetchWorkouts })(WorkoutCalendar);
