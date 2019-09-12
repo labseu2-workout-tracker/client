@@ -10,6 +10,7 @@ import {
   searchExercise,
   showEquipment
 } from '../../store/actions/exerciseActions';
+import './SingleExcercise.css';
 
 const { Header, Content } = Layout;
 const { Search } = Input;
@@ -232,20 +233,24 @@ class AllExercises extends React.Component {
           <Layout>
             <Layout
               style={{
-                backgroundColor: '#FFF'
+                backgroundColor: '#fff'
               }}
             >
               <Content
                 style={{
-                  background: '#fff',
-                  margin: 0,
-                  minHeight: 280
+                  margin: '2rem',
+                  minHeight: 280,
+
                 }}
               >
                 {this.props.exercises && this.props.exercises.length > 0 ? (
                   this.props.exercises.map((exercise, index) => {
                     return (
                       <Card
+                      style={{
+                        alignContent:'center',
+                        textAlign:'center'
+                      }}
                         key={index}
                         cover={
                           <div>

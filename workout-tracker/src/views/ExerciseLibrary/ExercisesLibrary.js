@@ -1,6 +1,6 @@
 import React from "react";
 import AllExercises from "../../components/Exercises/AllExercises";
-import SingleExercise from "../../components/Exercises/SingleExercise";
+// import SingleExercise from "../../components/Exercises/SingleExercise";
 import { closeSingleExercise } from "../../store/actions/exerciseActions";
 import { connect } from "react-redux";
 
