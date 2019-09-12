@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import {Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { Empty } from 'antd';
 // import styled from 'styled-components';
 
 // const StyledWorkoutView = styled.div``;
@@ -10,8 +12,12 @@ class WorkoutView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+
+
   }
   render() {
+   
     return <div>
           <h1>
             My Workouts
@@ -29,7 +35,7 @@ class WorkoutView extends React.Component {
                 Delete Workout
               </p>
         </div> 
-      })) : <h1>You choosed no Workouts so far</h1>}
+      })) : (<Link to='/Workouts'><Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={'Add some workouts'}/></Link>)}
     </div>
             </div>;
   }
