@@ -48,13 +48,7 @@ class App extends Component {
       <>
         <div>
           <Logo />
-          <ProfileCard
-            weight={10}
-            // {this.props.settings[0].weight ? this.props.settings[0].weight : 10}
-            workouts={10}
-            username={'Placeholder'}
-            // {this.props.settings[0].username}
-          />
+          <ProfileCard />
         </div>
         <ul className="nav-items">
           <DashboardNavItem isAuth={Auth.isAuthenticated()}/>
