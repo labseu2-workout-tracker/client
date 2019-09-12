@@ -83,7 +83,7 @@ class WorkoutCalendar extends React.Component {
     this.state = {
       result: "",
       visible: false,
-      workoutsForDate: null,
+      workoutsForDate: null
     };
   }
   componentDidMount = () => {
