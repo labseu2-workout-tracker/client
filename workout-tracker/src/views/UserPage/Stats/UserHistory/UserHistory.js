@@ -79,6 +79,7 @@ class SessionHistory extends React.Component {
 
                     return (
                       <Card
+                      key={session.id}
                         className="session-card"
                         title={
                           workouts === undefined ? (
@@ -93,7 +94,7 @@ class SessionHistory extends React.Component {
                           )
                         }
                       >
-                        <ol key={session.id}>
+                        <ol>
                           <li>
                             <p>
                               <strong>Date of Session: </strong>
@@ -175,6 +176,7 @@ const StyledUserHistory = styled.div`
     font-size: 1.5rem;
     color: black;
     border: 1px solid gray;
+    border-radius: .6rem;
   }
   h4 {
     position: relative;
