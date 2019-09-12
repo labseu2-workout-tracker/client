@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateModalForm from './ModalForm';
-import { Button } from 'antd';
+// import { Button } from 'antd';
+import AddWorkoutButton from '../../utils/AddWorkoutButton'
 
 class WorkoutPage extends React.Component {
   state = {
@@ -20,7 +21,6 @@ class WorkoutPage extends React.Component {
     form.validateFields((err, values) => {
       if (err) {
         return;
-        console.log('why');
       }
 
       console.log('Received values of form: ', values);
@@ -36,9 +36,8 @@ class WorkoutPage extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          New Collection
-        </Button>
+        <AddWorkoutButton modal={this.showModal}/>
+
         <CreateModalForm
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}

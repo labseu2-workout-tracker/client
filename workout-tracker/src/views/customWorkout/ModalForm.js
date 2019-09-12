@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Modal, Form, Input, Button } from 'antd';
+import { Modal, Form, Input, Button, Radio } from 'antd';
 
 const CreateModalForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
@@ -39,8 +39,17 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
                 ]
               })(<Input type="textarea" />)}
             </Form.Item>
+            <Form.Item className="collection-create-form_last-form-item">
+              {getFieldDecorator('modifier')(
+                <Radio.Group>
+                  <Radio value="beginner">beginner</Radio>
+                  <Radio value="intermediate">intermediate</Radio>
+                  <Radio value="expert">expert</Radio>
+                </Radio.Group>,
+              )}
+            </Form.Item>
             <div style={{ textAlign: 'center' }}>
-              <Button type="primary"  onClick={() => onCreate} >
+              <Button type="primary"  onClick={onCreate} >
                 Add exercises
               </Button>
             </div>

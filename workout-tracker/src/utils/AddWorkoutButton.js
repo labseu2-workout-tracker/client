@@ -1,11 +1,10 @@
 import React from 'react';
 import { Button, Tooltip } from 'antd'
-import styled from "styled-components";
 
-const AddWorkoutButton = () => {
+const AddWorkoutButton = (props) => {
   return (
     <Tooltip Tooltip title = "Add new workout">
-         <Button type = "primary" size = "large" shape="circle" icon="plus" style = {myStyle}></Button>
+         <Button type = "primary" size = "large" shape="circle" icon="plus" style = {myStyle} onClick={props.modal}></Button>
     </Tooltip>
   )
 }
