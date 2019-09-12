@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { connect } from "react-redux";
 import { Card, Pagination } from "antd";
 
@@ -132,17 +130,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    fetchWorkoutsHistory,
-    fetchWorkouts
-  }
-)(SessionHistory);
+export default connect(mapStateToProps)(SessionHistory);
 
 const StyledUserHistory = styled.div`
   width: 100%;
-  
+
   .session-card {
     width: 30%;
     margin: 1rem;
