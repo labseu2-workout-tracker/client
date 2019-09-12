@@ -166,7 +166,7 @@ class YearlyChart extends React.Component {
       >
         <Meta
           title="Yearly Result"
-          description={`You made ${this.state.data.reduce(
+          description={<div><i class="fa fa-fire"></i> {` You made ${this.state.data.reduce(
             (accumulator, currentValue) => accumulator + currentValue,
             0
           )} ${
@@ -176,7 +176,7 @@ class YearlyChart extends React.Component {
             ) === 1
               ? "workout"
               : "workouts"
-          } this year.`}
+          } this year.`} </div>}
         />
       </Card>
     );
