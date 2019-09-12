@@ -105,7 +105,6 @@ class WorkoutSession extends React.Component {
     this.props.endWorkout(this.props.workoutId, this.props.history);
   };
   render() {
-
     return (
       <StyledWorkoutSession>
         <Row type="flex" justify="space-around">
@@ -113,7 +112,9 @@ class WorkoutSession extends React.Component {
           <Col span={12}></Col>
           <PageHeader
             onBack={() => window.history.back()}
-            title={this.props.myWorkout ? this.props.myWorkout.workout_name : null}
+            title={
+              this.props.myWorkout ? this.props.myWorkout.workout_name : null
+            }
           />
           <Watch />
         </Row>
@@ -202,14 +203,12 @@ class WorkoutSession extends React.Component {
                           ? "Repetitions"
                           : "Duration"
                       }
-                      prefix={
-                        this.props.currentExercise[0].reps && (
-                          <Icon type="sync" spin />
-                        )
-                      }
+                      prefix={<Icon type="sync" spin />}
                       value={
                         this.props.currentExercise[0].reps ||
-                        this.props.currentExercise[0].duration
+                        (this.props.currentExercise[0].duration
+                          ? this.props.currentExercise[0].duration
+                          : "20seconds")
                       }
                       style={{ cursor: "default" }}
                     />,
@@ -266,13 +265,15 @@ class WorkoutSession extends React.Component {
             onCancel={this.handleCancel}
             onOk={this.handleOk}
           >
-            {this.state.visible && <video width="100%" height="auto" autoPlay controls>
-              <source
-                src={this.props.currentExercise[0].video}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>}
+            {this.state.visible && (
+              <video width="100%" height="auto" autoPlay controls>
+                <source
+                  src={this.props.currentExercise[0].video}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </Modal>
         ) : null}
       </StyledWorkoutSession>
