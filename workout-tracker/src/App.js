@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import Dashboard from "./views/UserPage/Dashboard";
+import Stats from './views/UserPage/Stats/Stats';
 import About from "./views/AboutUs/AboutUs";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
@@ -66,7 +66,7 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage} />
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
-          <PrivateRoute path={"/Dashboard"} component={Dashboard} />
+          <PrivateRoute path={"/Dashboard"} component={Stats} />
           <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
           <PrivateRoute path={"/Settings"} component={Settings} />
           <PrivateRoute path={"/Workouts"} component={Workouts} />
