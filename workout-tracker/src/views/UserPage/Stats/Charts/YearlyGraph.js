@@ -36,7 +36,7 @@ const StyledYearlyGraph = styled.div`
   .apex {
     width: 70%;
     height: 30%;
-  } 
+  }
 `;
 
 class YearlyGraph extends React.Component {
@@ -179,12 +179,13 @@ class YearlyGraph extends React.Component {
       <Card
         hoverable
         style={{
-          width: "50%"
+          width: "45%",
+          // margin: "1rem"
         }}
         className="chart"
         cover={
           <Card
-          className="chart-card"
+            className="chart-card"
             style={{
               position: "relative",
               width: "100%",
@@ -192,9 +193,7 @@ class YearlyGraph extends React.Component {
               backgroundColor: "#FC940C"
             }}
           >
-            <StyledYearlyGraph 
-            style={{ backgroundColor: "#FC940C" }}
-            >
+            <StyledYearlyGraph style={{ backgroundColor: "#FC940C" }}>
               <ReactApexChart
                 options={{
                   chart: this.state.chart,
@@ -232,7 +231,7 @@ class YearlyGraph extends React.Component {
                 ) === 1
                   ? "workout"
                   : "workouts"
-              } this month.`}{" "}
+              } this year.`}{" "}
             </div>
           }
         />

@@ -180,7 +180,8 @@ class MonthlyGraph extends React.Component {
       <Card
         hoverable
         style={{
-          width: "50%"
+          width: "45%",
+          // margin: "1rem"
         }}
         className="chart"
         cover={
@@ -217,7 +218,7 @@ class MonthlyGraph extends React.Component {
         }
       >
         <Meta
-          title="Yearly Result"
+          title="Monthly Result"
           description={
             <div>
               <i className="fa fa-fire"></i>{" "}

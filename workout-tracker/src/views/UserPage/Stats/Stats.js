@@ -70,9 +70,9 @@ class Stats extends React.Component {
         <div>
           <WorkoutCalendar />
         </div>
-        <div>
+        <div className="chart-row">
         <MonthlyGraph />
-        <YearlyChart/>
+        <YearlyGraph/>
         </div>
         <div>
           <UserHistory />
