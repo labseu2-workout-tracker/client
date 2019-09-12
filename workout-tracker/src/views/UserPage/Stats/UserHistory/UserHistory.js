@@ -175,8 +175,6 @@ const StyledUserHistory = styled.div`
     position: relative;
     font-size: 1.5rem;
     color: black;
-    border: 1px solid gray;
-    border-radius: 0.6rem;
   }
   h4 {
     position: relative;

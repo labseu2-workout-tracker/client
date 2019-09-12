@@ -56,9 +56,6 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
-        <div>
-          <WorkoutCalendar />
-        </div>
         <div className="chart-row">
           <WeeklyChart />
 
@@ -67,6 +64,9 @@ class Stats extends React.Component {
           <YearlyChart />
         </div>
 
+        <div>
+          <WorkoutCalendar />
+        </div>
 
         <div>
           <UserHistory />
