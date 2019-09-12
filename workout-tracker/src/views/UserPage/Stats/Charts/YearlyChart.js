@@ -3,6 +3,8 @@ import { Pie } from "react-chartjs-2";
 import { axiosWithAuth } from "../../../../store/axiosWithAuth";
 import { Card } from "antd";
 
+const { Meta } = Card;
+
 class YearlyChart extends React.Component {
   constructor(props) {
     super(props);
@@ -133,25 +135,33 @@ class YearlyChart extends React.Component {
   render() {
     return (
       <Card
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#E94340"
-        }}
+        hoverable
+        className="chart chart-three"
+        cover={
+          <Card
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#E94340"
+            }}
+          >
+            <Pie
+              data={{
+                labels: this.state.labels,
+                datasets: [
+                  {
+                    data: this.state.data,
+                    backgroundColor: this.state.backgroundColor,
+                    hoverBackgroundColor: this.state.hoverBackgroundColor
+                  }
+                ]
+              }}
+            />
+          </Card>
+        }
       >
-        <Pie
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                data: this.state.data,
-                backgroundColor: this.state.backgroundColor,
-                hoverBackgroundColor: this.state.hoverBackgroundColor
-              }
-            ]
-          }}
-        />
+        <Meta title="Yearly Result" description="www.instagram.com" />
       </Card>
     );
   }
