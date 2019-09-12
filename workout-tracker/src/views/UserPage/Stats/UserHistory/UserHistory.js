@@ -39,7 +39,7 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-      <div>
+      <Card className="history" title="WorkoutHistory">
         <h2>Here you can check out the work you have done!</h2>
         <StyledUserHistory>
           {history ? (
@@ -118,7 +118,7 @@ class SessionHistory extends React.Component {
             <p>You have no workout history at the moment</p>
           )}
         </StyledUserHistory>
-      </div>
+      </Card>
     );
   }
 }
