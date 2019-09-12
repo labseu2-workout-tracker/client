@@ -239,7 +239,7 @@ class AllExercises extends React.Component {
               <Content
                 style={{
                   margin: '2rem',
-                  minHeight: 280,
+                  minHeight: 280,                 
 
                 }}
               >
@@ -249,7 +249,8 @@ class AllExercises extends React.Component {
                       <Card
                       style={{
                         alignContent:'center',
-                        textAlign:'center'
+                        textAlign:'center',
+                        paddingTop:'3rem'
                       }}
                         key={index}
                         cover={
