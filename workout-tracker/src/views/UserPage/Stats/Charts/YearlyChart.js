@@ -4,7 +4,6 @@ import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { Card } from "antd";
 import { connect } from "react-redux";
-import styled from "styled-components";
 
 const { Meta } = Card;
 
