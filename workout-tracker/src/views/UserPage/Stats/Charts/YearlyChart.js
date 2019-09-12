@@ -139,29 +139,15 @@ class YearlyChart extends React.Component {
 
   render() {
     return (
-      // <StyledYearlyChart
-      //   style={{ position: "relative", width: "100%", height: "100%" }}
-      // >
-      //   <Pie
-      //     data={{
-      //       labels: this.state.labels,
-      //       datasets: [
-      //         {
-      //           data: this.state.data,
-      //           backgroundColor: this.state.backgroundColor,
-      //           hoverBackgroundColor: this.state.hoverBackgroundColor
-      //         }
-      //       ]
-      //     }}
-      //   />
-      // </StyledYearlyChart>
-
-<Card
-// title="Weekly Result" 
-style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "#E94340" }}
-// style={{ backgroundColor: "#11B8CC" }}
->
-<Pie
+      <Card
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#E94340"
+        }}
+      >
+        <Pie
           data={{
             labels: this.state.labels,
             datasets: [
@@ -173,8 +159,7 @@ style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "
             ]
           }}
         />
- 
-</Card>
+      </Card>
     );
   }
 }
