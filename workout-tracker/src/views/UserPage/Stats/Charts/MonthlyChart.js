@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 
 const { Meta } = Card;
@@ -143,7 +143,7 @@ class MonthlyChart extends React.Component {
               borderTopRightRadius: ".6rem",
             }}
           >
-            <Doughnut
+            <Pie
               data={{
                 datasets: [
                   {
