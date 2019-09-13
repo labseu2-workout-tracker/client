@@ -136,17 +136,7 @@ class MonthlyChart extends React.Component {
         }}
         className="chart chart-two"
         cover={
-          <Card
-          className="chart-card"
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#E94340",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem",
-            }}
-          >
+          <Card className="chart-card">
             <Doughnut
               data={{
                 datasets: [

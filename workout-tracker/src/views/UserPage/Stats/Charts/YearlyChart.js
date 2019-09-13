@@ -136,12 +136,7 @@ class YearlyChart extends React.Component {
         cover={
           <Card
             style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#FC940C",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem",
+              backgroundColor: "#FC940C"
             }}
           >
             <Pie

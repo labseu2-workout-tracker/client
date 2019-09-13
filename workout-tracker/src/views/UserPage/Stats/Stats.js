@@ -22,6 +22,15 @@ const StyledStats = styled.div`
     }
   }
 
+  .chart-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e94340;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+  }
+
   .chart {
     width: 100%;
     border: 0;
