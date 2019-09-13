@@ -1,6 +1,9 @@
 import React from "react";
-import { axiosWithAuth } from "../../../../store/axiosWithAuth";
-import { Polar } from "react-chartjs-2";
+import { connect } from "react-redux";
+import { Doughnut } from "react-chartjs-2";
+import { Card } from "antd";
+
+const { Meta } = Card;
 
 class MonthlyChart extends React.Component {
   constructor(props) {
@@ -35,119 +38,157 @@ class MonthlyChart extends React.Component {
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
-        res.data.map(workout => {
-          workoutNames.push(workout.workout_name);
-          workouts.push(workout);
-          return workout;
-        });
 
-        axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-          .then(res => {
-            let date = new Date();
-            let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-            let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    this.props.workouts.map(workout => {
+      workoutNames.push(workout.workout_name);
+      workouts.push(workout);
+      return workout;
+    });
 
-            var getDaysArray = function(s, e) {
-              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-                a.push(new Date(d));
-              }
-              return a;
-            };
+    let date = new Date();
+    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-            let daylist = getDaysArray(firstDay, lastDay);
-            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+    var getDaysArray = function(s, e) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+        a.push(new Date(d));
+      }
+      return a;
+    };
 
-            let daysInMonth = [];
+    let daylist = getDaysArray(firstDay, lastDay);
+    daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            function formatDate(date) {
-              var d = new Date(date),
-                month = "" + (d.getMonth() + 1),
-                day = "" + d.getDate(),
-                year = d.getFullYear();
+    let daysInMonth = [];
 
-              if (month.length < 2) month = "0" + month;
-              if (day.length < 2) day = "0" + day;
+    function formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-              return [year, month, day].join("-");
-            }
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-            for (let i = 0; i < daylist.length; i++) {
-              daysInMonth.push(
-                formatDate(daylist[i])
-                  .split("-")
-                  .join("")
-              );
-            }
+      return [year, month, day].join("-");
+    }
 
-            let userHistory = [...res.data.workoutHistory];
-            let resultOfWeek = [];
+    for (let i = 0; i < daylist.length; i++) {
+      daysInMonth.push(
+        formatDate(daylist[i])
+          .split("-")
+          .join("")
+      );
+    }
 
-            for (let j = 0; j < daysInMonth.length; j++) {
-              for (let i = 0; i < userHistory.length; i++) {
-                if (
-                  userHistory[i].session_start
-                    .match(/.{1,10}/g)[0]
-                    .split("-")
-                    .join("") === daysInMonth[j]
-                ) {
-                  resultOfWeek.push(userHistory[i]);
-                }
-              }
-            }
+    let userHistory = this.props.history;
+    let resultOfWeek = [];
 
-            let hashTable = {};
+    for (let j = 0; j < daysInMonth.length; j++) {
+      for (let i = 0; i < userHistory.length; i++) {
+        if (
+          userHistory[i].session_start
+            .match(/.{1,10}/g)[0]
+            .split("-")
+            .join("") === daysInMonth[j]
+        ) {
+          resultOfWeek.push(userHistory[i]);
+        }
+      }
+    }
 
-            for (let j = 0; j < workouts.length; j++) {
-              hashTable[workouts[j].workout_name] = 0;
-            }
+    let hashTable = {};
 
-            for (let i = 0; i < resultOfWeek.length; i++) {
-              for (let j = 0; j < workouts.length; j++) {
-                if (resultOfWeek[i].workout_id === workouts[j].id) {
-                  if (hashTable[workouts[j].workout_name]) {
-                    hashTable[workouts[j].workout_name] += 1;
-                  } else {
-                    hashTable[workouts[j].workout_name] = 1;
-                  }
-                }
-              }
-            }
+    for (let j = 0; j < workouts.length; j++) {
+      hashTable[workouts[j].workout_name] = 0;
+    }
 
-            let valuesForDataset = [];
+    for (let i = 0; i < resultOfWeek.length; i++) {
+      for (let j = 0; j < workouts.length; j++) {
+        if (resultOfWeek[i].workout_id === workouts[j].id) {
+          if (hashTable[workouts[j].workout_name]) {
+            hashTable[workouts[j].workout_name] += 1;
+          } else {
+            hashTable[workouts[j].workout_name] = 1;
+          }
+        }
+      }
+    }
 
-            for (var value in hashTable) {
-              valuesForDataset.push(hashTable[value]);
-            }
+    let valuesForDataset = [];
 
-            this.setState({
-              data: valuesForDataset,
-              labels: workoutNames
-            });
-          });
-      });
+    for (var value in hashTable) {
+      valuesForDataset.push(hashTable[value]);
+    }
+
+    this.setState({
+      data: valuesForDataset,
+      labels: workoutNames
+    });
   };
 
   render() {
     return (
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        <h2>Monthly Results</h2>
-        <Polar
-          data={{datasets: [{
-            data: this.state.data,
-            backgroundColor: this.state.backgroundColor,
-            hoverBackgroundColor: this.state.hoverBackgroundColor,
-            label: "Monthly Results",
-          }],
-            labels: this.state.labels,
-          }}
+      <Card
+        hoverable
+        style={{
+          width: "30%"
+        }}
+        className="chart chart-two"
+        cover={
+          <Card
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#E94340"
+            }}
+          >
+            <Doughnut
+              data={{
+                datasets: [
+                  {
+                    data: this.state.data,
+                    backgroundColor: this.state.backgroundColor,
+                    hoverBackgroundColor: this.state.hoverBackgroundColor,
+                    label: "Monthly Results"
+                  }
+                ],
+                labels: this.state.labels
+              }}
+            />
+          </Card>
+        }
+      >
+        <Meta
+          title="Monthly Result"
+          description={
+            <div>
+              <i className="fa fa-fire"></i>{" "}
+              {`You made ${this.state.data.reduce(
+                (accumulator, currentValue) => accumulator + currentValue,
+                0
+              )} ${
+                this.state.data.reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  0
+                ) === 1
+                  ? "workout"
+                  : "workouts"
+              }  this Month.`}{" "}
+            </div>
+          }
         />
-      </div>
+      </Card>
     );
   }
 }
 
-export default MonthlyChart;
+const mapStateToProps = state => {
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts
+  };
+};
+
+export default connect(mapStateToProps)(MonthlyChart);

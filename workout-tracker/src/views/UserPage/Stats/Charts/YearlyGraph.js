@@ -1,38 +1,83 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 import { connect } from "react-redux";
+import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
 const { Meta } = Card;
 
-class YearlyChart extends React.Component {
+const StyledYearlyGraph = styled.div`
+  width: 100%;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+
+  .apexcharts-toolbar {
+    display: none;
+  }
+
+  /* #SvgjsSvg1858 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .apex {
+    width: 70%;
+    height: 30%;
+  }
+`;
+
+class YearlyGraph extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      labels: ["Red", "Green", "Yellow"],
-      data: [],
-      backgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
+      chart: {
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      title: {
+        // text: "Monthly Results",
+        align: "center"
+      },
+      grid: {
+        row: {
+          colors: [
+            // "#f3f3f3",
+            // "#FC940C"
+            //  'transparent'
+          ], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      categories: [
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown"
       ],
-      hoverBackgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
-      ]
+      name: "Desktops",
+      data: [1, 2, 1, 0]
     };
   }
+
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
@@ -121,7 +166,7 @@ class YearlyChart extends React.Component {
 
     this.setState({
       data: valuesForDataset,
-      labels: workoutNames
+      categories: workoutNames
     });
   };
 
@@ -130,11 +175,13 @@ class YearlyChart extends React.Component {
       <Card
         hoverable
         style={{
-          width: "30%"
+          width: "48%"
+          // margin: "1rem"
         }}
-        className="chart chart-three"
+        className="chart"
         cover={
           <Card
+            className="chart-card"
             style={{
               position: "relative",
               width: "100%",
@@ -142,18 +189,26 @@ class YearlyChart extends React.Component {
               backgroundColor: "#FC940C"
             }}
           >
-            <Pie
-              data={{
-                labels: this.state.labels,
-                datasets: [
-                  {
-                    data: this.state.data,
-                    backgroundColor: this.state.backgroundColor,
-                    hoverBackgroundColor: this.state.hoverBackgroundColor
-                  }
-                ]
-              }}
-            />
+            <StyledYearlyGraph style={{ backgroundColor: "#FC940C" }}>
+              <ReactApexChart
+                options={{
+                  chart: this.state.chart,
+                  dataLabels: this.state.dataLabels,
+                  stroke: this.state.stroke,
+                  title: this.state.title,
+                  grid: this.state.grid,
+                  xaxis: { categories: this.state.categories },
+                  colors: ["#FFFFFF"]
+                }}
+                series={[{ name: this.state.name, data: this.state.data }]}
+                type="line"
+                // height="400"
+                // width="800"
+                // style={{ height: "4000px"}}
+                color="black"
+                className="apex"
+              />
+            </StyledYearlyGraph>
           </Card>
         }
       >
@@ -188,4 +243,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(YearlyChart);
+export default connect(mapStateToProps)(YearlyGraph);

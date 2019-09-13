@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { connect } from "react-redux";
-import { Pagination } from "antd";
+import { Card, Pagination } from "antd";
 
 class SessionHistory extends React.Component {
   constructor(props) {
@@ -12,12 +10,6 @@ class SessionHistory extends React.Component {
       minValue: 0,
       maxValue: 6
     };
-  }
-
-  componentDidMount() {
-    this.props.fetchWorkoutsHistory();
-
-    this.props.fetchWorkouts();
   }
 
   handlePagination = value => {
@@ -39,8 +31,7 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-      <div>
-        <h2>Here you can check out the work you have done!</h2>
+      <Card className="history" title="WorkoutHistory">
         <StyledUserHistory>
           {history ? (
             <div>
@@ -79,46 +70,55 @@ class SessionHistory extends React.Component {
                     }
 
                     return (
-                      <ol key={session.id}>
-                        <li>
-                          <p>
-                            <strong>Session Started : </strong>
-                            {session.session_start.slice(0, 10)}
-                          </p>
-                          <p>
-                            <strong>Workout Name : </strong>
-                            {workouts === undefined ? (
-                              <h2>Loadin workouts...</h2>
-                            ) : (
-                              workouts.map(item => {
-                                if (session.workout_id === item.id) {
-                                  return item.workout_name;
-                                }
-                                return null;
-                              })
-                            )}
-                          </p>
-                          <p>
-                            <strong>Duration : </strong>
-                            {diff(startingPoint, endPoint)}
-                          </p>
-                        </li>
-                      </ol>
+                      <Card
+                        key={session.id}
+                        className="session-card"
+                        title={
+                          workouts === undefined ? (
+                            <h2>Loadin workouts...</h2>
+                          ) : (
+                            workouts.map(item => {
+                              if (session.workout_id === item.id) {
+                                return item.workout_name;
+                              }
+                              return null;
+                            })
+                          )
+                        }
+                      >
+                        <ol>
+                          <li>
+                            <p>
+                              <strong>Date of Session: </strong>
+                              {session.session_start.slice(0, 10)}
+                            </p>
+                            <p>
+                              <strong>Workout Name : </strong>
+                            </p>
+                            <p>
+                              <strong>Duration : </strong>
+                              {diff(startingPoint, endPoint)}
+                            </p>
+                          </li>
+                        </ol>
+                      </Card>
                     );
                   })}
               </div>
-              <Pagination
-                defaultCurrent={1}
-                defaultPageSize={6}
-                onChange={this.handlePagination}
-                total={this.props.history.length}
-              />
+              <div className="pagination">
+                <Pagination
+                  defaultCurrent={1}
+                  defaultPageSize={6}
+                  onChange={this.handlePagination}
+                  total={this.props.history.length}
+                />
+              </div>
             </div>
           ) : (
             <p>You have no workout history at the moment</p>
           )}
         </StyledUserHistory>
-      </div>
+      </Card>
     );
   }
 }
@@ -130,25 +130,27 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    fetchWorkoutsHistory,
-    fetchWorkouts
-  }
-)(SessionHistory);
+export default connect(mapStateToProps)(SessionHistory);
 
 const StyledUserHistory = styled.div`
   width: 100%;
-  /* margin: 0 auto; */
+
+  .session-card {
+    width: 30%;
+    margin: 1rem;
+    border-radius: 0.6rem;
+  }
 
   .ordered-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
+
   ol {
     padding: 10px;
-    width: 30%;
+    width: 100%;
     margin: 0;
   }
 
@@ -161,7 +163,6 @@ const StyledUserHistory = styled.div`
     position: relative;
     font-size: 1.5rem;
     color: black;
-    border: 1px solid gray;
   }
   h4 {
     position: relative;
@@ -178,5 +179,12 @@ const StyledUserHistory = styled.div`
   p {
     font-size: 0.9rem;
     padding: 10px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 `;

@@ -1,38 +1,83 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 import { connect } from "react-redux";
+import ReactApexChart from "react-apexcharts";
+import styled from "styled-components";
 
 const { Meta } = Card;
 
-class YearlyChart extends React.Component {
+const StyledMonthlyGraph = styled.div`
+  width: 100%;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+
+  .apexcharts-toolbar {
+    display: none;
+  }
+
+  /* #SvgjsSvg1858 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  .apex {
+    width: 70%;
+    height: 30%;
+  }
+`;
+
+class MonthlyGraph extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      labels: ["Red", "Green", "Yellow"],
-      data: [],
-      backgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
+      chart: {
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      title: {
+        // text: "Monthly Results",
+        align: "center"
+      },
+      grid: {
+        row: {
+          colors: [
+            // "#f3f3f3",
+            // "#FC940C"
+            //  'transparent'
+          ], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      categories: [
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown",
+        "Chest and Shoulder Smackdown"
       ],
-      hoverBackgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
-      ]
+      name: "Desktops",
+      data: [1, 2, 1, 0]
     };
   }
+
   componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
@@ -43,9 +88,9 @@ class YearlyChart extends React.Component {
       return workout;
     });
 
-    let year = new Date().getFullYear();
-    let first_day_year = new Date(year, 0, 1);
-    let last_day_year = new Date(year, 11, 31);
+    let date = new Date();
+    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
     var getDaysArray = function(s, e) {
       for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
@@ -54,10 +99,10 @@ class YearlyChart extends React.Component {
       return a;
     };
 
-    let daylist = getDaysArray(first_day_year, last_day_year);
+    let daylist = getDaysArray(firstDay, lastDay);
     daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-    let daysInYear = [];
+    let daysInMonth = [];
 
     function formatDate(date) {
       var d = new Date(date),
@@ -72,7 +117,7 @@ class YearlyChart extends React.Component {
     }
 
     for (let i = 0; i < daylist.length; i++) {
-      daysInYear.push(
+      daysInMonth.push(
         formatDate(daylist[i])
           .split("-")
           .join("")
@@ -82,13 +127,13 @@ class YearlyChart extends React.Component {
     let userHistory = this.props.history;
     let resultOfWeek = [];
 
-    for (let j = 0; j < daysInYear.length; j++) {
+    for (let j = 0; j < daysInMonth.length; j++) {
       for (let i = 0; i < userHistory.length; i++) {
         if (
           userHistory[i].session_start
             .match(/.{1,10}/g)[0]
             .split("-")
-            .join("") === daysInYear[j]
+            .join("") === daysInMonth[j]
         ) {
           resultOfWeek.push(userHistory[i]);
         }
@@ -121,7 +166,7 @@ class YearlyChart extends React.Component {
 
     this.setState({
       data: valuesForDataset,
-      labels: workoutNames
+      categories: workoutNames
     });
   };
 
@@ -130,35 +175,45 @@ class YearlyChart extends React.Component {
       <Card
         hoverable
         style={{
-          width: "30%"
+          width: "48%"
+          // margin: "1rem"
         }}
-        className="chart chart-three"
+        className="chart"
         cover={
           <Card
+            className="chart-card"
             style={{
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#FC940C"
+              backgroundColor: "#11B8CC"
             }}
           >
-            <Pie
-              data={{
-                labels: this.state.labels,
-                datasets: [
-                  {
-                    data: this.state.data,
-                    backgroundColor: this.state.backgroundColor,
-                    hoverBackgroundColor: this.state.hoverBackgroundColor
-                  }
-                ]
-              }}
-            />
+            <StyledMonthlyGraph style={{ backgroundColor: "#11B8CC" }}>
+              <ReactApexChart
+                options={{
+                  chart: this.state.chart,
+                  dataLabels: this.state.dataLabels,
+                  stroke: this.state.stroke,
+                  title: this.state.title,
+                  grid: this.state.grid,
+                  xaxis: { categories: this.state.categories },
+                  colors: ["#FFFFFF"]
+                }}
+                series={[{ name: this.state.name, data: this.state.data }]}
+                type="line"
+                // height="400"
+                // width="800"
+                // style={{ height: "4000px"}}
+                color="black"
+                className="apex"
+              />
+            </StyledMonthlyGraph>
           </Card>
         }
       >
         <Meta
-          title="Yearly Result"
+          title="Monthly Result"
           description={
             <div>
               <i className="fa fa-fire"></i>{" "}
@@ -172,7 +227,7 @@ class YearlyChart extends React.Component {
                 ) === 1
                   ? "workout"
                   : "workouts"
-              } this year.`}{" "}
+              } this month.`}{" "}
             </div>
           }
         />
@@ -188,4 +243,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(YearlyChart);
+export default connect(mapStateToProps)(MonthlyGraph);
