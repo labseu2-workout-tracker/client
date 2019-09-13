@@ -62,6 +62,11 @@ class Stats extends React.Component {
   componentDidMount = () => {
 
   };
+
+ onChange = (a, b, c) => {
+    console.log(a, b, c);
+  }
+
   render() {
     return (
       <StyledStats>
