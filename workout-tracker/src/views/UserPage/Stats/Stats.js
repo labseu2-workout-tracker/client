@@ -16,6 +16,10 @@ const StyledStats = styled.div`
   .chart-row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
   }
 
   .chart {

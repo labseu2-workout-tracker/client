@@ -137,6 +137,7 @@ class MonthlyChart extends React.Component {
         className="chart chart-two"
         cover={
           <Card
+          className="chart-card"
             style={{
               position: "relative",
               width: "100%",
