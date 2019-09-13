@@ -215,12 +215,6 @@ class Settings extends React.Component {
     });
   };
 
-  startUpdate = () => {
-    this.setState({
-      wantUpdate: true
-    });
-  };
-
   changeSettings = () => {
     const updatedSettings = {
       email: this.state.email ? this.state.email : this.props.settings[0].email,
