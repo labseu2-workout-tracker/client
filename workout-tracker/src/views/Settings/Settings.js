@@ -229,11 +229,7 @@ class Settings extends React.Component {
             
           </div>
           <br />
-          <CheckboxGroup
-            options={plainOptions}
-            value={this.state.checkedList}
-            onChange={this.onChange}
-          />
+          
 
           <div>
             {this.props.settings
