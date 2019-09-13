@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
 import { connect } from "react-redux";
+import { Carousel } from 'antd';
 
 const StyledStats = styled.div`
   padding: 1.5rem 3rem;
