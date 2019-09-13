@@ -14,7 +14,14 @@ class MainLayout extends React.Component {
         {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : '' }
         {this.props.mobileNav}
         <div className='content-container'>
-        {Auth.isAuthenticated() ? <Sider>{this.props.sider}</Sider> : '' }
+        {Auth.isAuthenticated()
+        ? <Sider
+            breakpoint="lg"
+            collapsedWidth="0"
+          >
+            {this.props.sider}
+          </Sider>
+          : '' }
         <Content>{this.props.routes}</Content>
         </div>
 
