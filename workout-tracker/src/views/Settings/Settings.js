@@ -31,9 +31,6 @@ const StyledSettings = styled.div`
     width: 60%;
     margin: 0.5rem auto;
     max-width: 750px;
-    border-radius: 0;
-    border: 0;
-    border-bottom: .05rem solid grey;
   }
   .info-wrapper {
     margin: 0;
@@ -171,6 +168,10 @@ const defaultCheckedList = [];
 
 class Settings extends React.Component {
   state = {
+    checkedList: defaultCheckedList,
+    indeterminate: true,
+    checkAll: false,
+    wantUpdate: false,
     email: this.props.settings ? this.props.settings[0].email : "",
     username: this.props.settings ? this.props.settings[0].username : "",
     // password: this.props.settings ? this.props.settings[0].password : "",
@@ -188,9 +189,32 @@ class Settings extends React.Component {
     this.props.fetchSettings();
   };
 
+  onChange = checkedList => {
+    this.setState({
+      checkedList,
+      indeterminate:
+        !!checkedList.length && checkedList.length < plainOptions.length,
+      checkAll: checkedList.length === plainOptions.length
+    });
+  };
+
+  onCheckAllChange = e => {
+    this.setState({
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked
+    });
+  };
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
+    });
+  };
+
+  startUpdate = () => {
+    this.setState({
+      wantUpdate: true
     });
   };
 
@@ -220,16 +244,24 @@ class Settings extends React.Component {
   };
 
   render() {
-
-    return this.props.settings
-      ? this.props.settings.map((setting, index) => {
-          return (
-            <StyledSettings key={index}>
-               <div style={{ borderBottom: "1px solid #E9E9E9" }}>
-            
+    if (this.state.wantUpdate) {
+      return (
+        <StyledSettings>
+          <div style={{ borderBottom: "1px solid #E9E9E9" }}>
+            <Checkbox
+              indeterminate={this.state.indeterminate}
+              onChange={this.onCheckAllChange}
+              checked={this.state.checkAll}
+            >
+              Check all
+            </Checkbox>
           </div>
           <br />
-          
+          <CheckboxGroup
+            options={plainOptions}
+            value={this.state.checkedList}
+            onChange={this.onChange}
+          />
 
           <div>
             {this.props.settings
@@ -239,7 +271,11 @@ class Settings extends React.Component {
                       <div className="user-data">
                         <List>
                           <div
-                           
+                            className={
+                              this.state.checkedList.includes("Email")
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -254,7 +290,11 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                           
+                            className={
+                              this.state.checkedList.includes("Username")
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -269,7 +309,11 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                            
+                            className={
+                              this.state.checkedList.includes("Weight")
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -287,7 +331,11 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                            
+                            className={
+                              this.state.checkedList.includes("User Level")
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -309,7 +357,13 @@ class Settings extends React.Component {
                           </div>
 
                           <div
-                            
+                            className={
+                              this.state.checkedList.includes(
+                                "Email Notification"
+                              )
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -329,7 +383,13 @@ class Settings extends React.Component {
                             </select>
                           </div>
                           <div
-                            
+                            className={
+                              this.state.checkedList.includes(
+                                "Push Notification"
+                              )
+                                ? null
+                                : "off"
+                            }
                           >
                             <div className="info-wrapper">
                               <p>
@@ -355,13 +415,20 @@ class Settings extends React.Component {
                 })
               : null}
             <Button
-             
+              className={this.state.checkedList[0] ? "button" : "off"}
               onClick={this.changeSettings}
               style={{ background: "#001529" }}
             >
               Update
             </Button>
           </div>
+        </StyledSettings>
+      );
+    }
+    return this.props.settings
+      ? this.props.settings.map((setting, index) => {
+          return (
+            <StyledSettings key={index}>
               <div className="user-data">
                 <List>
                   <Button

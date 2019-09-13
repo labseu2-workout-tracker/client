@@ -5,8 +5,6 @@ import MonthlyChart from "./Charts/MonthlyChart";
 import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
-import MonthlyGraph from "./Charts/MonthlyGraph";
-import YearlyGraph from "./Charts/YearlyGraph";
 import styled from "styled-components";
 import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
@@ -77,10 +75,7 @@ class Stats extends React.Component {
         <div>
           <WorkoutCalendar />
         </div>
-        <div className="chart-row">
-        <MonthlyGraph />
-        <YearlyGraph/>
-        </div>
+
         <div>
           <UserHistory />
         </div>
