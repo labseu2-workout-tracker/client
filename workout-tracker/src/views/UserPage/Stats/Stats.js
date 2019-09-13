@@ -19,7 +19,7 @@ const StyledStats = styled.div`
   }
 
   .chart {
-    width: 50%;
+    width: 100%;
     border: 0;
     display: flex;
     font-size: 0.875rem;
@@ -58,9 +58,7 @@ class Stats extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-
-  };
+  componentDidMount = () => {};
   render() {
     return (
       <StyledStats>
@@ -75,7 +73,6 @@ class Stats extends React.Component {
         <div>
           <WorkoutCalendar />
         </div>
-
         <div>
           <UserHistory />
         </div>

@@ -141,7 +141,9 @@ class MonthlyChart extends React.Component {
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#E94340"
+              backgroundColor: "#E94340",
+              borderTopLeftRadius: ".6rem",
+              borderTopRightRadius: ".6rem",
             }}
           >
             <Doughnut
