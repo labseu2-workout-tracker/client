@@ -140,16 +140,17 @@ class WeeklyChart extends React.Component {
   render() {
     return (
       <Card
-        style={{
-          width: "30%"
-        }}
         hoverable
         className="chart chart-one"
         cover={
           <Card
-          className="chart-card"
             style={{
+              position: "relative",
+              width: "100%",
+              height: "100%",
               backgroundColor: "#11B8CC",
+              borderTopLeftRadius: ".6rem",
+              borderTopRightRadius: ".6rem",
             }}
           >
             <Pie

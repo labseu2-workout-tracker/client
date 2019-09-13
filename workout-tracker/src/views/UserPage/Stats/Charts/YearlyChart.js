@@ -129,14 +129,16 @@ class YearlyChart extends React.Component {
     return (
       <Card
         hoverable
-        style={{
-          width: "30%"
-        }}
         className="chart chart-three"
         cover={
           <Card
             style={{
-              backgroundColor: "#FC940C"
+              position: "relative",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "#FC940C",
+              borderTopLeftRadius: ".6rem",
+              borderTopRightRadius: ".6rem",
             }}
           >
             <Pie

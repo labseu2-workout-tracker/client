@@ -13,26 +13,22 @@ import { connect } from "react-redux";
 const StyledStats = styled.div`
   padding: 1.5rem 3rem;
 
+  @media (max-width: 1000px) {
+      padding: .5rem 2rem;
+    }
   .chart-row {
     display: flex;
     justify-content: space-between;
 
     @media (max-width: 1000px) {
       flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
     }
   }
 
-  .chart-card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #e94340;
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
-  }
-
   .chart {
-    width: 100%;
+    width: 30%;
     border: 0;
     display: flex;
     font-size: 0.875rem;
@@ -44,6 +40,11 @@ const StyledStats = styled.div`
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+
+    @media (max-width: 1000px) {
+      width: 80%;
+      margin: 1rem;
+    }
   }
 
   .calendar,
