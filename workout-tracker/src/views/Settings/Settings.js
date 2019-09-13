@@ -171,10 +171,6 @@ const defaultCheckedList = [];
 
 class Settings extends React.Component {
   state = {
-    checkedList: defaultCheckedList,
-    indeterminate: true,
-    checkAll: false,
-
     email: this.props.settings ? this.props.settings[0].email : "",
     username: this.props.settings ? this.props.settings[0].username : "",
     // password: this.props.settings ? this.props.settings[0].password : "",
