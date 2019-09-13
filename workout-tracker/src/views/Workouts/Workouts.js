@@ -1,5 +1,4 @@
 import React from "react";
-import AddWorkoutButton from "../../utils/AddWorkoutButton";
 import { connect } from "react-redux";
 import {
   fetchWorkouts,
@@ -9,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { notification } from "antd";
+import WorkoutPage from '../customWorkout/WorkoutPage';
 
 const StyledWorkouts = styled.div`
   text-align: center;
@@ -101,7 +101,7 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
-        <AddWorkoutButton />
+        <WorkoutPage />
       </StyledWorkouts>
     );
   }

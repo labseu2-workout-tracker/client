@@ -66,15 +66,22 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage} />
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
-          <PrivateRoute path={"/Dashboard"} component={Stats} />
-          <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
-          <PrivateRoute path={"/Settings"} component={Settings} />
-          <PrivateRoute path={"/Workouts"} component={Workouts} />
-          <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
           <Redirect to="/" />
         </Switch>
       </>
     );
+    if (Auth.isAuthenticated()) {
+      routes = (
+      <Switch>
+        <PrivateRoute path={"/Dashboard"} component={Stats} />
+        <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
+        <PrivateRoute path={"/Settings"} component={Settings} />
+        <PrivateRoute path={"/Workouts"} component={Workouts} />
+        <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
+        <Redirect to="/workouts" />
+      </Switch>
+      )
+    }
 
     return (
       <>

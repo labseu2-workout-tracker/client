@@ -7,15 +7,13 @@ import {
 import styled from "styled-components";
 import {
   Checkbox,
-  Select,
-  Layout,
   Input,
   List,
   Button,
   Card,
   Statistic
 } from "antd";
-const { Sider, Content } = Layout;
+
 const StyledSettings = styled.div`
   .user-data {
     margin: 1rem 2rem 0 2rem;
@@ -167,8 +165,6 @@ const plainOptions = [
 ];
 
 const defaultCheckedList = [];
-
-const { Option } = Select;
 
 class Settings extends React.Component {
   state = {
