@@ -226,13 +226,7 @@ class Settings extends React.Component {
           return (
             <StyledSettings key={index}>
                <div style={{ borderBottom: "1px solid #E9E9E9" }}>
-            <Checkbox
-              indeterminate={this.state.indeterminate}
-              onChange={this.onCheckAllChange}
-              checked={this.state.checkAll}
-            >
-              Check all
-            </Checkbox>
+            
           </div>
           <br />
           <CheckboxGroup
@@ -249,11 +243,7 @@ class Settings extends React.Component {
                       <div className="user-data">
                         <List>
                           <div
-                            className={
-                              this.state.checkedList.includes("Email")
-                                ? null
-                                : "off"
-                            }
+                           
                           >
                             <div className="info-wrapper">
                               <p>
@@ -268,11 +258,7 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                            className={
-                              this.state.checkedList.includes("Username")
-                                ? null
-                                : "off"
-                            }
+                           
                           >
                             <div className="info-wrapper">
                               <p>
@@ -287,11 +273,7 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                            className={
-                              this.state.checkedList.includes("Weight")
-                                ? null
-                                : "off"
-                            }
+                            
                           >
                             <div className="info-wrapper">
                               <p>
@@ -309,11 +291,7 @@ class Settings extends React.Component {
                             />
                           </div>
                           <div
-                            className={
-                              this.state.checkedList.includes("User Level")
-                                ? null
-                                : "off"
-                            }
+                            
                           >
                             <div className="info-wrapper">
                               <p>
@@ -335,13 +313,7 @@ class Settings extends React.Component {
                           </div>
 
                           <div
-                            className={
-                              this.state.checkedList.includes(
-                                "Email Notification"
-                              )
-                                ? null
-                                : "off"
-                            }
+                            
                           >
                             <div className="info-wrapper">
                               <p>
@@ -361,13 +333,7 @@ class Settings extends React.Component {
                             </select>
                           </div>
                           <div
-                            className={
-                              this.state.checkedList.includes(
-                                "Push Notification"
-                              )
-                                ? null
-                                : "off"
-                            }
+                            
                           >
                             <div className="info-wrapper">
                               <p>
@@ -393,7 +359,7 @@ class Settings extends React.Component {
                 })
               : null}
             <Button
-              className={this.state.checkedList[0] ? "button" : "off"}
+             
               onClick={this.changeSettings}
               style={{ background: "#001529" }}
             >
