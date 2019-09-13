@@ -2,7 +2,7 @@ import React from "react";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
-import { Calendar, Badge, Modal, Button } from "antd";
+import { Calendar, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
 import { Card } from "antd";
