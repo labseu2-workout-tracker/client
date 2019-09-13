@@ -26,7 +26,7 @@ const StyledStats = styled.div`
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0.1rem 0.4rem 0.1rem 0.4rem rgba(0, 0, 0, 0.14);
     margin-top: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
