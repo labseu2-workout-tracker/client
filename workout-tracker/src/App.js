@@ -12,13 +12,11 @@ import Auth from "./auth/auth";
 import SignupPage from "./views/Auth/Signup";
 import LoginPage from "./views/Auth/Login";
 import MainNavBar from "./components/MainNavBar/MainNavBar";
-import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import MainLayout from "./components/Layout/Layout";
 import Backdrop from "./components/Backdrop/Backdrop";
 import ProfileCard from './components/MainNavBar/SideNavigation/ProfileCard'
 import Logo from './components/Logo/Logo'
 import "./App.css";
-import Workouts from "./views/Workouts/Workouts";
 import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
 import WorkoutContainer from './views/Workouts/WorkoutsContainer'
 import 'antd/dist/antd.css';
@@ -34,14 +32,6 @@ class App extends Component {
   logoutHandler = () => {
     localStorage.clear();
     this.props.history.replace("/login");
-  };
-
-  mobileNavHandler = isOpen => {
-    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
-  };
-
-  backdropClickHandler = () => {
-    this.setState({ showBackdrop: false, showMobileNav: false, error: null });
   };
 
   render() {
@@ -86,25 +76,10 @@ class App extends Component {
 
     return (
       <>
-        {this.state.showBackdrop && (
-          <Backdrop
-            onClick={this.backdropClickHandler}
-            open={this.state.showMobileNav}
-          />
-        )}
         <MainLayout
           header={
             <MainNavBar
               onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
-              onLogout={this.logoutHandler}
-              isAuth={Auth.isAuthenticated()}
-            />
-          }
-          mobileNav={
-            <MobileNavigation
-              open={this.state.showMobileNav}
-              mobile
-              onChooseItem={this.mobileNavHandler.bind(this, false)}
               onLogout={this.logoutHandler}
               isAuth={Auth.isAuthenticated()}
             />
