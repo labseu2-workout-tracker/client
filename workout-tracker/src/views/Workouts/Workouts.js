@@ -34,15 +34,6 @@ const StyledWorkouts = styled.div`
     display: flex;
     justify-content: flex-end;
   }
-
-  i {
-    font-size: 3rem;
-    transition: 0.6s ease-in-out;
-
-    &:hover {
-      color: red;
-    }
-  }
 `;
 
 
@@ -101,7 +92,7 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
-        <WorkoutPage />
+        <WorkoutPage {...this.props} />
       </StyledWorkouts>
     );
   }
