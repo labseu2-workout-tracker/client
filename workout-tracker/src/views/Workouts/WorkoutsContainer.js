@@ -27,7 +27,7 @@ class WorkoutContainer extends React.Component {
         <Row>
           <PageHeader title="Choose from our pre-made workouts" style={{padding: '0'}}/>
         </Row>
-        <Row type="flex">
+        <Row type="flex" gutter={16}>
           <Workouts />
         </Row>
       </StyledContainer>

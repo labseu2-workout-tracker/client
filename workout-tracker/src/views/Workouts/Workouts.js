@@ -5,7 +5,6 @@ import {
   fetchWorkoutDetails,
   addWorkout
 } from "../../store/actions/workoutsActions";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { notification, Empty } from "antd";
 
@@ -13,7 +12,6 @@ import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 
 const StyledWorkouts = styled.div`
   display: flex;
-  text-align: center;
 
   .ant-card-meta-description {
     white-space: nowrap;
