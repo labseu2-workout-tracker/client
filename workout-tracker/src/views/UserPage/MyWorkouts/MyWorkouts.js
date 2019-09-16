@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import { Link } from 'react-router-dom';
-import WorkoutPage from '../../customWorkout/WorkoutPage'
+import { Card } from 'antd';
+
+const { Meta } = Card;
 // import styled from 'styled-components';
 
 // const StyledWorkoutView = styled.div``;
@@ -32,8 +34,6 @@ class WorkoutView extends React.Component {
           </div>
         })) : <h1>You have no workouts yet</h1>}
       </div>
-      <WorkoutPage /> 
-     
     </div>;
   }
 }

@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { notification } from "antd";
-import WorkoutPage from '../customWorkout/WorkoutPage';
+
 
 const StyledWorkouts = styled.div`
   text-align: center;
@@ -101,7 +101,6 @@ class Workouts extends React.Component {
               })
             : null}
         </div>
-        <WorkoutPage />
       </StyledWorkouts>
     );
   }

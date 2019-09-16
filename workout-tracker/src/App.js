@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import Stats from './views/UserPage/Stats/Stats';
+import Stats from './views/UserPage/Stats/Stats'
 import About from "./views/AboutUs/AboutUs";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
@@ -20,6 +20,7 @@ import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
 import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
+import WorkoutContainer from './views/Workouts/WorkoutsContainer'
 import 'antd/dist/antd.css';
 import { Button } from 'antd';
 
@@ -76,7 +77,7 @@ class App extends Component {
         <PrivateRoute path={"/Dashboard"} component={Stats} />
         <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
         <PrivateRoute path={"/Settings"} component={Settings} />
-        <PrivateRoute path={"/Workouts"} component={Workouts} />
+        <PrivateRoute path={"/Workouts"} component={WorkoutContainer} />
         <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
         <Redirect to="/workouts" />
       </Switch>
