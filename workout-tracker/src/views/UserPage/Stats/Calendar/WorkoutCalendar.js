@@ -224,6 +224,7 @@ class WorkoutCalendar extends React.Component {
             <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
+               maskStyle={{ opacity: ".2"}}
                 title="Workout List"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
@@ -256,6 +257,7 @@ class WorkoutCalendar extends React.Component {
                 {item.content}
               </p>
               <Modal
+                maskStyle={{ opacity: ".2"}}
                 title="Workout List"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
