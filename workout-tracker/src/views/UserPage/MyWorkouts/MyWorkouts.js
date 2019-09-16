@@ -14,37 +14,23 @@ class WorkoutView extends React.Component {
     this.state = {};
   }
   render() {
-    return <div>
-      <h1>
-        My Workouts
-            </h1>
-      <div className='land-wrapper'>
+    return (
+      <>
         {this.props.myWorkouts ? (this.props.myWorkouts.map((workout, index) => {
           return (
             <WorkoutCard
+              key={index}
               image={workout.image_url}
               name={workout.workout_name}
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
               deleteWorkout={() => this.props.deleteWorkout(workout.id)}
-              
+              workout={workout}
             />
           )
-          
-          // <div key={index} className='workout-card'>
-          //   <img src={workout.image_url} alt='workout' className='workout-img' />
-          //   <h1>{workout.workout_name}</h1>
-          //   <p>{workout.workout_description}</p>
-          //   <Link onClick={() => this.props.fetchWorkoutDetails(workout.id)} to='/Workout_session' className='btn'>
-          //     Start Workout
-          //     </Link>
-          //   <p onClick={() => this.props.deleteWorkout(workout.id)} className='btn'>
-          //     Delete Workout
-          //     </p>
-          // </div>
         })) : <h1>You have no workouts yet</h1>}
-      </div>
-    </div>;
+      </>
+    )
   }
 }
 
