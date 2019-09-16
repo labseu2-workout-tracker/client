@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import Auth from "../../auth/auth";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const { Header, Content, Sider } = Layout;
 
 class MainLayout extends React.Component {
-
   render() {
     return (
       <StyledContainer>
-        {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : '' }
+        {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : ""}
         {this.props.mobileNav}
         <div className='content-container'>
         {Auth.isAuthenticated()
@@ -24,19 +23,17 @@ class MainLayout extends React.Component {
           : '' }
         <Content>{this.props.routes}</Content>
         </div>
-
       </StyledContainer>
-    )
+    );
   }
 }
 
 const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
-
-  .content-container{
+  .content-container {
     display: flex;
-    flex-direction: row
+    flex-direction: row;
   }
 
   .ant-layout-sider {
@@ -62,4 +59,3 @@ const StyledContainer = styled.section`
 
 `
 
-export default MainLayout;

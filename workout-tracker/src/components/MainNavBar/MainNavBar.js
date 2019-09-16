@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import Logo from '../Logo/Logo';
 import NavigationItems from './NavigationItems/NavigationItems';
 
-import './MainNavBar.css';
+import "./MainNavBar.css";
 
-const MainNavBar = (props) => (
+const MainNavBar = props => (
   <nav className="main-nav">
     <div className="main-nav__logo">
       <NavLink to="/">
@@ -15,7 +15,7 @@ const MainNavBar = (props) => (
     </div>
     <div className="spacer" />
     <ul className="main-nav__items">
-      {props.isAuth }
+      {props.isAuth}
       <NavigationItems isAuth={props.isAuth} onLogout={props.onLogout} />
     </ul>
   </nav>
