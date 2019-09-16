@@ -53,6 +53,12 @@ const StyledContainer = styled.div`
     margin: 1rem 0;
     justify-content: center;
   }
+  .anticon.anticon-info-circle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 1rem
+  }
 `
 
 export default WorkoutContainer;
