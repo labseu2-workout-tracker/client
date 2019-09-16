@@ -49,4 +49,6 @@ const StyledContainer = styled.section`
   }
 `;
 
+
 export default MainLayout;
+
