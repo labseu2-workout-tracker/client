@@ -30,42 +30,43 @@ class SessionHistory extends React.Component {
     let history = this.props.history;
     let workouts = this.props.workouts;
 
-    console.log(history)
-
     return (
       <Card className="history" title="WorkoutHistory">
         <StyledUserHistory>
-          {history.length !== 0 ? (
+          {history ? (
             <div>
-              {history
-                .slice(this.state.minValue, this.state.maxValue)
-                .map(session => {
-                  const date1 = session.session_start;
-                  const date2 = session.session_end;
+              <div className="ordered-list">
+                {history
+                  .slice(this.state.minValue, this.state.maxValue)
+                  .map(session => {
+                    const date1 = session.session_start;
+                    const date2 = session.session_end;
 
-                  // Extract starting point
-                  const startingPoint =
-                    date1 === null ? "00:00:00" : date1.slice(11, 17);
-                  const endPoint =
-                    date2 === null ? "00:00:00" : date2.slice(11, 17);
+                    // Extract starting point
+                    const startingPoint =
+                      date1 === null ? "00:00:00" : date1.slice(11, 17);
+                    const endPoint =
+                      date2 === null ? "00:00:00" : date2.slice(11, 17);
 
-                  function pluralize(hours) {
-                    return hours <= 1 ? "hour" : "hours";
-                  }
+                    function pluralize(hours) {
+                      return hours <= 1 ? "hour" : "hours";
+                    }
 
-                  function diff(start, end) {
-                    start = start.split(":");
-                    end = end.split(":");
-                    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
-                    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
-                    var diff = endDate.getTime() - startDate.getTime();
-                    var hours = Math.floor(diff / 1000 / 60 / 60);
-                    diff -= hours * 1000 * 60 * 60;
-                    var minutes = Math.floor(diff / 1000 / 60);
+                    function diff(start, end) {
+                      start = start.split(":");
+                      end = end.split(":");
+                      var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+                      var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+                      var diff = endDate.getTime() - startDate.getTime();
+                      var hours = Math.floor(diff / 1000 / 60 / 60);
+                      diff -= hours * 1000 * 60 * 60;
+                      var minutes = Math.floor(diff / 1000 / 60);
 
-                    // If using time pickers with 24 hours format, add the below line get exact hours
-                    if (hours <= 0) {
-                      return `${minutes} minutes`;
+                      // If using time pickers with 24 hours format, add the below line get exact hours
+                      if (hours <= 0) {
+                        return `${minutes} minutes`;
+                      }
+                      return `${hours} ${pluralize(hours)} ${minutes} minutes`;
                     }
 
                     return (
@@ -113,7 +114,9 @@ class SessionHistory extends React.Component {
                 />
               </div>
             </div>
-          ) : <Empty description={'No Data!'} />}
+          ) : (
+            <p>You have no workout history at the moment</p>
+          )}
         </StyledUserHistory>
       </Card>
     );
