@@ -13,7 +13,6 @@ import SignupPage from "./views/Auth/Signup";
 import LoginPage from "./views/Auth/Login";
 import MainNavBar from "./components/MainNavBar/MainNavBar";
 import MainLayout from "./components/Layout/Layout";
-import Backdrop from "./components/Backdrop/Backdrop";
 import ProfileCard from './components/MainNavBar/SideNavigation/ProfileCard'
 import Logo from './components/Logo/Logo'
 import "./App.css";

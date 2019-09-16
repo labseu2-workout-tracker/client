@@ -74,17 +74,17 @@ class WorkoutCard extends React.Component {
       </Card>
     </Col>
     <Modal
-          title={this.props.name}
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          >
-          <div style={{display: 'flex'}}>
-            <img alt="cover" src={this.props.image} style={{width: "15rem", height: "15rem", objectFit: "cover"}}/>
-            <p><span style={{fontWeight: 'bold'}}>Description: </span>{this.props.description}</p>
-          </div>
-          <p>Exercises:</p>
-        </Modal>
+      title={this.props.name}
+      visible={this.state.visible}
+      onOk={this.handleOk}
+      onCancel={this.handleCancel}
+      >
+      <div style={{display: 'flex'}}>
+        <img alt="cover" src={this.props.image} style={{width: "15rem", height: "15rem", objectFit: "cover"}}/>
+        <p><span style={{fontWeight: 'bold'}}>Description: </span>{this.props.description}</p>
+      </div>
+      <p>Exercises:</p>
+    </Modal>
   </>
   )
   }
