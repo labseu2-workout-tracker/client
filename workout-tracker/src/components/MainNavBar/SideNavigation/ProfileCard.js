@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import styled from 'styled-components';
 import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
+import { Link } from 'react-router-dom';
 
 import { fetchSettings } from "../../../store/actions/settingActions"
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions"
@@ -17,11 +18,10 @@ class ProfileCard extends React.Component {
         return (
             <StyledImage>
                 <div>
-                    <Avatar size={64} icon="user" />
-                    <p>{this.props.settings && this.props.settings[0].username}</p>
+                   <Link to='/dashboard'><Avatar size={64} icon="user" />
+                        <p>{this.props.settings && this.props.settings[0].username}</p></Link> 
                 </div>
                 <section>
-                    <span>Weight: {this.props.settings && this.props.settings[0].weight} kgs.</span>
                     <span>Workouts: {this.props.history && this.props.history.length}</span>
                 </section>
             </StyledImage>

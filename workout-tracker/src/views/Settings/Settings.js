@@ -158,8 +158,8 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
   "Email",
   "Username",
-  "Weight",
-  "User Level",
+  // "Weight",
+  // "User Level",
   "Email Notification",
   "Push Notification"
 ];
@@ -308,7 +308,7 @@ class Settings extends React.Component {
                               name="username"
                             />
                           </div>
-                          <div
+                          {/* <div
                             className={
                               this.state.checkedList.includes("Weight")
                                 ? null
@@ -329,8 +329,8 @@ class Settings extends React.Component {
                               placeholder={setting.weight}
                               name="weight"
                             />
-                          </div>
-                          <div
+                          </div> */}
+                          {/* <div
                             className={
                               this.state.checkedList.includes("User Level")
                                 ? null
@@ -354,7 +354,7 @@ class Settings extends React.Component {
                               <option value="Intermediate">Intermediate</option>
                               <option value="Expert">Expert</option>
                             </select>
-                          </div>
+                          </div> */}
 
                           <div
                             className={
@@ -464,7 +464,7 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-balance-scale"></i>
@@ -479,8 +479,8 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  </div> */}
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-graduation-cap"></i>
@@ -495,7 +495,7 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
+                  </div> */}
                   <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
