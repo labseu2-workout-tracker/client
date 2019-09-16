@@ -28,6 +28,7 @@ const StyledStats = styled.div`
   }
 
   .chart {
+    text-align: center;
     width: 30%;
     border: 0;
     display: flex;
@@ -65,6 +66,7 @@ const StyledStats = styled.div`
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+    text-align: center;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
