@@ -93,9 +93,6 @@ class SessionHistory extends React.Component {
                               {session.session_start.slice(0, 10)}
                             </p>
                             <p>
-                              <strong>Workout Name : </strong>
-                            </p>
-                            <p>
                               <strong>Duration : </strong>
                               {diff(startingPoint, endPoint)}
                             </p>
