@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
-import { Card } from 'antd';
+import { Empty, Button } from 'antd';
+
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// const StyledWorkoutView = styled.div``;
+const StyledDiv = styled.div`
+  display: flex;
+`;
 
 class WorkoutView extends React.Component {
   constructor(props) {
@@ -15,8 +18,9 @@ class WorkoutView extends React.Component {
   }
   render() {
     return (
-      <>
-        {this.props.myWorkouts ? (this.props.myWorkouts.map((workout, index) => {
+      <StyledDiv>
+        {this.props.myWorkouts 
+        ? (this.props.myWorkouts.map((workout, index) => {
           return (
             <WorkoutCard
               key={index}
@@ -28,8 +32,21 @@ class WorkoutView extends React.Component {
               workout={workout}
             />
           )
-        })) : <h1>You have no workouts yet</h1>}
-      </>
+        }))
+        : <Empty
+            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+            imageStyle={{ height: 60 }}
+            description={
+              <span > 
+                Customize <a href="#API">Description</a>
+              </span>
+            }
+      >
+        {/* <Button type="primary"> Now</Button> */}
+      </Empty>
+        
+        }
+      </StyledDiv>
     )
   }
 }

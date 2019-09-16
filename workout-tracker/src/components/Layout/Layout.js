@@ -38,19 +38,21 @@ const StyledContainer = styled.section`
     display: flex;
     flex-direction: row
   }
+
   .ant-layout-sider {
     padding: 0.5rem;
     background-color: #001529;
   }
 
   .ant-layout-content {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
+    min-width: 0;
   }
+
   .nav-items {
     padding: 24px 0;
   }
+
   @media (max-width: 992px) {
     .ant-layout-sider {
       position: absolute;
@@ -58,7 +60,6 @@ const StyledContainer = styled.section`
     }
   }
 
-}
 `
 
 export default MainLayout;

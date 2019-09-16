@@ -8,13 +8,23 @@ const ButtonGroup = Button.Group;
 const WorkoutCard = (props) => {
 
   return (
-    <Col span={6}>
+    <Col>
       <Card
         hoverable
         style={{ width: "15.1rem" }}
         cover={<img alt="cover" src={props.image} style={{width: "15rem", height: "15rem", objectFit: "cover"}}/>}
       >
-        <Meta title={props.name} style={{margin: '.5rem 0'}}/>
+        <Meta
+          title={props.name} style={{margin: '.5rem 0'}}
+          description={
+            <ul style={{listStyle: 'none'}}>
+              <li>Difficulty:</li>
+              <li>Exercises:</li>
+              <li>Duration:</li>
+
+            </ul>
+          }
+          />
         <ButtonGroup>
           <Button type="primary" size="small">
             <Link onClick={props.startWorkout} to='/Workout_session'>Start Workout</Link>
