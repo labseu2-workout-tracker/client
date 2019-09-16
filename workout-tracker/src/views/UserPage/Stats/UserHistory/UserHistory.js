@@ -31,7 +31,7 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-      <Card className="history" title="WorkoutHistory">
+      <Card className="history" title="Workout History">
         <StyledUserHistory>
           {history ? (
             <div>
@@ -183,7 +183,7 @@ const StyledUserHistory = styled.div`
   }
   p {
     font-size: 0.9rem;
-    padding: 10px;
+    padding: .5rem;
   }
 
   .pagination {
