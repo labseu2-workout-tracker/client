@@ -137,7 +137,10 @@ const StyledUserHistory = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+.ant-card-body {
+  padding: 0;
 }
   .session-card {
     width: 30%;
