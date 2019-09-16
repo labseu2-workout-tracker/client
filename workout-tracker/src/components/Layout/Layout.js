@@ -14,7 +14,14 @@ class MainLayout extends React.Component {
         {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : '' }
         {this.props.mobileNav}
         <div className='content-container'>
-        {Auth.isAuthenticated() ? <Sider>{this.props.sider}</Sider> : '' }
+        {Auth.isAuthenticated()
+        ? <Sider
+            breakpoint="lg"
+            collapsedWidth="0"
+          >
+            {this.props.sider}
+          </Sider>
+          : '' }
         <Content>{this.props.routes}</Content>
         </div>
 
@@ -47,20 +54,3 @@ const StyledContainer = styled.section`
 `
 
 export default MainLayout;
-
-// import React from 'react';
-// import "antd/dist/antd.css";
-// import { Layout } from "antd";
-// import './Layout.css';
-
-// const { Header, Content } = Layout;
-
-// const MainLayout = props => (
-//   <>
-//     <Header className="main-header">{props.header}</Header>
-//     {props.mobileNav}
-//     <Content className="content">{props.routes}</Content>
-//   </>
-// );
-
-// export default MainLayout;

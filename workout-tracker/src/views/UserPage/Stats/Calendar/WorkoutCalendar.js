@@ -1,13 +1,16 @@
 import React from "react";
-import { axiosWithAuth } from "../../../../store/axiosWithAuth";
+import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
+import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
+import { connect } from "react-redux";
 import { Calendar, Badge, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
+import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 80px;
+    height: 90px;
   }
 
   .ant-radio-button-wrapper {
@@ -28,6 +31,7 @@ const StyledWorkoutCalendar = styled.div`
     text-align: center;
     font-size: 28px;
   }
+
   .notes-month section {
     font-size: 28px;
   }
@@ -39,27 +43,26 @@ const StyledWorkoutCalendar = styled.div`
   .fa-info-circle {
     color: green;
     font-size: 1.5rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 1300px) {
-    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
-    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-      height: 60px;
-    }
-
     .status {
       display: flex;
       width: 100%;
       height: 100%;
       justify-content: center;
       align-items: center;
+    }
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
+    .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+      height: 60px;
+    }
 
-      .ant-badge-status-dot {
-        margin-top: 0.5rem;
-        width: 20px;
-        height: 20px;
-      }
+    .ant-badge-status-dot {
+      margin-top: 0.5rem;
+      width: 20px;
+      height: 20px;
     }
 
     .status-text {
@@ -79,103 +82,95 @@ class WorkoutCalendar extends React.Component {
     super(props);
     this.state = {
       result: "",
-      history: null,
       visible: false,
-      workoutsForDate: ""
+      workoutsForDate: null
     };
   }
-
   componentDidMount = () => {
+    this.props.fetchWorkouts();
+    this.props.fetchWorkoutsHistory();
+
     let workoutNames = [];
     let workouts = [];
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
-        res.data.map(workout => {
-          workoutNames.push(workout.workout_name);
-          workouts.push(workout);
-          return workout;
-        });
 
-        axiosWithAuth()
-          .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
-          .then(res => {
-            let year = new Date().getFullYear();
-            let first_day_year = new Date(year, 0, 1);
-            let last_day_year = new Date(year, 11, 31);
+    this.props.workouts.map(workout => {
+      workoutNames.push(workout.workout_name);
+      workouts.push(workout);
+      return workout;
+    });
 
-            var getDaysArray = function(s, e) {
-              for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-                a.push(new Date(d));
-              }
-              return a;
-            };
+    let year = new Date().getFullYear();
+    let first_day_year = new Date(year, 0, 1);
+    let last_day_year = new Date(year, 11, 31);
 
-            let daylist = getDaysArray(first_day_year, last_day_year);
-            daylist.map(v => v.toISOString().slice(0, 10)).join("");
+    var getDaysArray = function(s, e) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+        a.push(new Date(d));
+      }
+      return a;
+    };
 
-            let daysInYear = [];
+    let daylist = getDaysArray(first_day_year, last_day_year);
+    daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
-            function formatDate(date) {
-              var d = new Date(date),
-                month = "" + (d.getMonth() + 1),
-                day = "" + d.getDate(),
-                year = d.getFullYear();
+    let daysInYear = [];
 
-              if (month.length < 2) month = "0" + month;
-              if (day.length < 2) day = "0" + day;
+    function formatDate(date) {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-              return [year, month, day].join("-");
-            }
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-            for (let i = 0; i < daylist.length; i++) {
-              daysInYear.push(
-                formatDate(daylist[i])
-                  .split("-")
-                  .join("")
-              );
-            }
+      return [year, month, day].join("-");
+    }
 
-            let userHistory = [...res.data.workoutHistory];
-            let resultOfWeek = [];
+    for (let i = 0; i < daylist.length; i++) {
+      daysInYear.push(
+        formatDate(daylist[i])
+          .split("-")
+          .join("")
+      );
+    }
 
-            for (let j = 0; j < daysInYear.length; j++) {
-              for (let i = 0; i < userHistory.length; i++) {
-                if (
-                  userHistory[i].session_start
-                    .match(/.{1,10}/g)[0]
-                    .split("-")
-                    .join("") === daysInYear[j]
-                ) {
-                  resultOfWeek.push({
-                    ...userHistory[i],
-                    day: Number(
-                      userHistory[i].session_start[8] +
-                        userHistory[i].session_start[9]
-                    )
-                  });
-                }
-              }
-            }
+    let userHistory = this.props.history;
+    let resultOfWeek = [];
 
-            let theResult = [];
-
-            for (let i = 0; i < resultOfWeek.length; i++) {
-              for (let j = 0; j < workouts.length; j++) {
-                if (resultOfWeek[i].workout_id === workouts[j].id) {
-                  theResult.push({
-                    ...resultOfWeek[i],
-                    workout_name: workouts[j].workout_name
-                  });
-                }
-              }
-            }
-            this.setState({
-              result: theResult,
-              history: res.data.workoutHistory
-            });
+    for (let j = 0; j < daysInYear.length; j++) {
+      for (let i = 0; i < userHistory.length; i++) {
+        if (
+          userHistory[i].session_start
+            .match(/.{1,10}/g)[0]
+            .split("-")
+            .join("") === daysInYear[j]
+        ) {
+          resultOfWeek.push({
+            ...userHistory[i],
+            day: Number(
+              userHistory[i].session_start[8] + userHistory[i].session_start[9]
+            )
           });
-      });
+        }
+      }
+    }
+
+    let theResult = [];
+
+    for (let i = 0; i < resultOfWeek.length; i++) {
+      for (let j = 0; j < workouts.length; j++) {
+        if (resultOfWeek[i].workout_id === workouts[j].id) {
+          theResult.push({
+            ...resultOfWeek[i],
+            workout_name: workouts[j].workout_name
+          });
+        }
+      }
+    }
+    this.setState({
+      result: theResult
+    });
   };
 
   getListData = value => {
@@ -246,6 +241,14 @@ class WorkoutCalendar extends React.Component {
               </Modal>
             </div>
             <Badge
+              style={{
+                borderRadius: ".6rem",
+                textAlign: "center",
+                backgroundColor: "#11B8CC",
+                height: "60px",
+                color: "black",
+                fontWeight: "bold"
+              }}
               status={item.type}
               text={item.content}
               className="status-text"
@@ -285,27 +288,24 @@ class WorkoutCalendar extends React.Component {
       return [year, month, day].join("-");
     };
 
-    const filterWorkoutsForDate = this.state.history.filter(
+    const filterWorkoutsForDate = this.props.history.filter(
       workout =>
         workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
     );
 
     let workoutsForDay = [];
 
-    axiosWithAuth()
-      .get(`${process.env.REACT_APP_BASE_URL}/workouts`)
-      .then(res => {
-        for (let i = 0; i < res.data.length; i++) {
-          for (let j = 0; j < filterWorkoutsForDate.length; j++) {
-            if (res.data[i].id === filterWorkoutsForDate[j].workout_id) {
-              workoutsForDay.push(res.data[i].workout_name);
-            }
-          }
+    for (let i = 0; i < this.props.workouts.length; i++) {
+      for (let j = 0; j < filterWorkoutsForDate.length; j++) {
+        if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
+          workoutsForDay.push(this.props.workouts[i].workout_name);
         }
-        this.setState({
-          workoutsForDate: workoutsForDay
-        });
-      });
+      }
+    }
+
+    this.setState({
+      workoutsForDate: workoutsForDay
+    });
   };
 
   showModal = () => {
@@ -329,15 +329,27 @@ class WorkoutCalendar extends React.Component {
 
   render() {
     return (
-      <StyledWorkoutCalendar>
-        <Calendar
-          dateCellRender={this.dateCellRender}
-          monthCellRender={this.monthCellRender}
-          onSelect={this.showWorkoutsForDate}
-        />
-      </StyledWorkoutCalendar>
+      <Card className="calendar" title="Calendar">
+        <StyledWorkoutCalendar>
+          <Calendar
+            dateCellRender={this.dateCellRender}
+            monthCellRender={this.monthCellRender}
+            onSelect={this.showWorkoutsForDate}
+          />
+        </StyledWorkoutCalendar>
+      </Card>
     );
   }
 }
 
-export default WorkoutCalendar;
+const mapStateToProps = state => {
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutsHistory }
+)(WorkoutCalendar);
