@@ -2,7 +2,7 @@ import React from "react";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
-import { Calendar, Badge, Modal, Button } from "antd";
+import { Calendar, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
 import { Card } from "antd";
@@ -46,7 +46,7 @@ const StyledWorkoutCalendar = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1150px) {
     .status {
       display: flex;
       width: 100%;
@@ -240,19 +240,38 @@ class WorkoutCalendar extends React.Component {
                   : null}
               </Modal>
             </div>
-            <Badge
-              style={{
-                borderRadius: ".6rem",
-                textAlign: "center",
-                backgroundColor: "#11B8CC",
-                height: "60px",
-                color: "black",
-                fontWeight: "bold"
-              }}
-              status={item.type}
-              text={item.content}
-              className="status-text"
-            />
+            <div className="status-text">
+              <p
+                style={{
+                  fontSize: ".75rem",
+                  padding: "0",
+                  margin: "0",
+                  width: "100%",
+                  height: "3rem",
+                  backgroundColor: "#4CAF50",
+                  fontWeight: "bold"
+                }}
+                onClick={this.showModal}
+              >
+                {item.content}
+              </p>
+              <Modal
+                title="Workout List"
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                footer={[
+                  <Button key={uuid()} type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
+              >
+                {this.state.workoutsForDate
+                  ? this.state.workoutsForDate.map(workoutName => (
+                      <p key={uuid()}>{workoutName}</p>
+                    ))
+                  : null}
+              </Modal>
+            </div>
           </li>
         ))}
       </ul>

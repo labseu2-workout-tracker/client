@@ -5,8 +5,6 @@ import MonthlyChart from "./Charts/MonthlyChart";
 import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
-import MonthlyGraph from "./Charts/MonthlyGraph";
-import YearlyGraph from "./Charts/YearlyGraph";
 import styled from "styled-components";
 import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
@@ -15,24 +13,38 @@ import { connect } from "react-redux";
 const StyledStats = styled.div`
   padding: 1.5rem 3rem;
 
+  @media (max-width: 1000px) {
+      padding: .5rem 2rem;
+    }
   .chart-row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
   }
 
   .chart {
-    width: 50%;
+    width: 30%;
     border: 0;
     display: flex;
     font-size: 0.875rem;
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0.1rem 0.4rem 0.1rem 0.4rem rgba(0, 0, 0, 0.14);
     margin-top: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+
+    @media (max-width: 1000px) {
+      width: 80%;
+      margin: 1rem;
+    }
   }
 
   .calendar,
@@ -60,9 +72,7 @@ class Stats extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-
-  };
+  componentDidMount = () => {};
   render() {
     return (
       <StyledStats>
@@ -76,10 +86,6 @@ class Stats extends React.Component {
 
         <div>
           <WorkoutCalendar />
-        </div>
-        <div className="chart-row">
-        <MonthlyGraph />
-        <YearlyGraph/>
         </div>
         <div>
           <UserHistory />

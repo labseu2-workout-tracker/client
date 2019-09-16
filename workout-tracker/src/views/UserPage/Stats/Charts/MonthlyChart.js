@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 
 const { Meta } = Card;
@@ -131,9 +131,6 @@ class MonthlyChart extends React.Component {
     return (
       <Card
         hoverable
-        style={{
-          width: "30%"
-        }}
         className="chart chart-two"
         cover={
           <Card
@@ -141,10 +138,12 @@ class MonthlyChart extends React.Component {
               position: "relative",
               width: "100%",
               height: "100%",
-              backgroundColor: "#E94340"
+              backgroundColor: "#E94340",
+              borderTopLeftRadius: ".6rem",
+              borderTopRightRadius: ".6rem",
             }}
           >
-            <Doughnut
+            <Pie
               data={{
                 datasets: [
                   {
