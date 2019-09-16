@@ -248,7 +248,7 @@ class WorkoutCalendar extends React.Component {
                   margin: "0",
                   width: "100%",
                   height: "3rem",
-                  backgroundColor: "#4CAF50",
+                  backgroundColor: "#11B8CC",
                   fontWeight: "bold"
                 }}
                 onClick={this.showModal}
