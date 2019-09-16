@@ -14,8 +14,8 @@ const StyledStats = styled.div`
   padding: 1.5rem 3rem;
 
   @media (max-width: 1000px) {
-      padding: .5rem 2rem;
-    }
+    padding: 0.5rem 2rem;
+  }
   .chart-row {
     display: flex;
     justify-content: space-between;
@@ -39,10 +39,11 @@ const StyledStats = styled.div`
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-&:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
 
     @media (max-width: 1000px) {
       width: 80%;
@@ -60,18 +61,17 @@ const StyledStats = styled.div`
     font-size: 0.875rem;
     min-width: 0;
     word-wrap: break-word;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-&:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-} 
-}
-
     padding: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
   }
 `;
 

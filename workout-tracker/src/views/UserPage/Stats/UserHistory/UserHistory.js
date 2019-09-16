@@ -31,8 +31,8 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-      <Card className="history" title="Workout History">
         <StyledUserHistory>
+      <Card className="history" title="Workout History">
           {history ? (
             <div>
               <div className="ordered-list">
@@ -114,8 +114,8 @@ class SessionHistory extends React.Component {
           ) : (
             <p>You have no workout history at the moment</p>
           )}
-        </StyledUserHistory>
       </Card>
+        </StyledUserHistory>
     );
   }
 }
@@ -132,13 +132,20 @@ export default connect(mapStateToProps)(SessionHistory);
 const StyledUserHistory = styled.div`
   width: 100%;
 
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
   .session-card {
     width: 30%;
     margin: 1rem;
     border-radius: 0.6rem;
 
     @media (max-width: 1150px) {
-      width: 90%;
+      width: 60%;
       display: flex;
       flex-direction: column;
       justify-content: center;
