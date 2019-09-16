@@ -1,26 +1,102 @@
-import * as type from '../actions/exerciseActions';
+import * as type from "../actions/exerciseActions";
 
 const initialState = {
   exercises: null,
   copyOfExercises: null,
+  remainingExercises: null,
   singleExercise: null,
   arrayOfCurrentExercises: null,
   currentMuscleGroup: null,
   indexOfLastExercise: 5,
-  indexFirstExercise: 0
+  indexFirstExercise: 0,
+  loading: false,
+  error: null,
+  selectedExercises: []
 };
 
 const exercises = (state = initialState, action) => {
   switch (action.type) {
+    case type.SELECT_MUSCLE:
+      if (state.remainingExercises.length === state.copyOfExercises.length) {
+        return {
+          ...state,
+          remainingExercises: state.remainingExercises.filter(
+            exercise => exercise.muscle === action.payload
+          )
+        };
+      }
+      const exerciseToAdd = state.copyOfExercises.filter(
+        exercise => exercise.muscle === action.payload
+      );
+      return {
+        ...state,
+        remainingExercises: state.remainingExercises.concat(exerciseToAdd)
+      };
+
+    case type.REMOVE_MUSCLE:
+      return {
+        ...state,
+        remainingExercises:
+          state.remainingExercises.filter(
+            exercise => exercise.muscle !== action.payload
+          ).length === 0
+            ? state.copyOfExercises
+            : state.remainingExercises.filter(
+                exercise => exercise.muscle !== action.payload
+              )
+      };
+    case type.SELECT_EQUIPMENT:
+      if (state.remainingExercises.length === state.copyOfExercises.length) {
+        return {
+          ...state,
+          remainingExercises: state.remainingExercises.filter(
+            exercise => exercise.equipment === action.payload
+          )
+        };
+      }
+      const exerciseToAdd2 = state.copyOfExercises.filter(
+        exercise => exercise.equipment === action.payload
+      );
+      return {
+        ...state,
+        remainingExercises: state.remainingExercises.concat(exerciseToAdd2)
+      };
+    case type.REMOVE_EQUIPMENT:
+      return {
+        ...state,
+        remainingExercises: state.remainingExercises.filter(
+          exercise => exercise.equipment !== action.payload
+        ).length === 0
+            ? state.copyOfExercises
+            : state.remainingExercises.filter(
+                exercise => exercise.equipment !== action.payload
+              )
+      };
+    case type.ADD_TO_SELECTED_EXERCISES:
+      return {
+        ...state,
+        selectedExercises: state.selectedExercises.concat(action.payload),
+        remainingExercises: state.remainingExercises.filter(
+          exercise => exercise.id !== action.payload.id
+        )
+      };
+    case type.REMOVE_FROM_SELECTED_EXERCISES:
+      return {
+        ...state,
+        selectedExercises: state.selectedExercises.filter(
+          exercise => exercise.id !== action.payload.id
+        ),
+        remainingExercises: state.remainingExercises.concat(action.payload)
+      };
     case type.FETCH_EXERCISES:
       const changeRatingOfExercise = action.exercises.map(exercise => {
-        if (exercise.exercise_ratings === 'n/a') {
-          exercise.exercise_ratings = '5.0';
+        if (exercise.exercise_ratings === "n/a") {
+          exercise.exercise_ratings = "5.0";
         }
         return exercise;
       });
       const filterOnlyGroupChest = changeRatingOfExercise.filter(
-        exercise => exercise.muscle === 'Chest'
+        exercise => exercise.muscle === "Chest"
       );
 
       const currentExercises = filterOnlyGroupChest.slice(0, 5);
@@ -29,9 +105,25 @@ const exercises = (state = initialState, action) => {
         ...state,
         exercises: currentExercises,
         copyOfExercises: changeRatingOfExercise,
+        remainingExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
-        currentMuscleGroup: 'Chest',
-        indexOfLastExercise: 5
+        currentMuscleGroup: "Chest",
+        indexOfLastExercise: 5,
+        loading: false,
+        selectedExercises: []
+      };
+
+    case type.FETCH_EXERCISES_LOADING:
+      return {
+        ...state,
+        loading: true
+      };
+
+    case type.FETCH_EXERCISES_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
 
     case type.SHOW_MUSCLE_GROUP:
@@ -72,7 +164,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.SHOW_SINGLE_EXERCISE:
-      const filterExercise = state.arrayOfCurrentExercises.filter(
+      const filterExercise = state.remainingExercises.filter(
         exercise => exercise.id === action.exercise_id
       );
       return { ...state, singleExercise: filterExercise };
@@ -87,7 +179,11 @@ const exercises = (state = initialState, action) => {
           .startsWith(action.exercise.toLowerCase())
       );
 
-      return { ...state, exercises: filterSearchedExercise };
+      return {
+        ...state,
+        exercises: filterSearchedExercise,
+        remainingExercises: filterSearchedExercise
+      };
 
     case type.SHOW_EQUIPMENT:
       let searchForEquipment = state.copyOfExercises.filter(
