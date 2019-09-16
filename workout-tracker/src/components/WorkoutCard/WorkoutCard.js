@@ -16,25 +16,33 @@ const WorkoutCard = (props) => {
       >
         <Meta
           title={props.name} style={{margin: '.5rem 0'}}
-          description={
-            <ul style={{listStyle: 'none'}}>
-              <li>Difficulty:</li>
-              <li>Exercises:</li>
-              <li>Duration:</li>
-
-            </ul>
+          description={props.myWorkout
+            ? <ul style={{listStyle: 'none'}}>
+                <li>Difficulty:</li>
+                <li>Exercises:</li>
+                <li>Duration:</li>
+              </ul>
+            : props.description
           }
           />
         <ButtonGroup>
           <Button type="primary" size="small">
             <Link onClick={props.startWorkout} to='/Workout_session'>Start Workout</Link>
           </Button>
-          <Button
-            onClick={props.deleteWorkout}
-            size="small"
-          >
-            Remove
-          </Button>
+          {!props.myWorkout
+          ? <Button
+              onClick={props.addWorkout}
+              size="small"
+            >
+             Add
+            </Button>
+          : <Button
+              onClick={props.deleteWorkout}
+              size="small"
+            >
+              Remove
+            </Button>
+          }
         </ButtonGroup>
       </Card>
     </Col>

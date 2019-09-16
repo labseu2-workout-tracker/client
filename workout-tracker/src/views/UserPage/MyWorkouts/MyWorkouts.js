@@ -29,7 +29,7 @@ class WorkoutView extends React.Component {
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
               deleteWorkout={() => this.props.deleteWorkout(workout.id)}
-              workout={workout}
+              myWorkout={true}
             />
           )
         }))
