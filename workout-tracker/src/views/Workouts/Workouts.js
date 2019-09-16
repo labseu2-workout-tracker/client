@@ -12,8 +12,14 @@ import { notification, Empty } from "antd";
 import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 
 const StyledWorkouts = styled.div`
+  display: flex;
   text-align: center;
 
+  .ant-card-meta-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .off {
     display: none;
   }
@@ -83,14 +89,8 @@ class Workouts extends React.Component {
           : <Empty
               image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
               imageStyle={{ height: 60 }}
-              description={
-                <span > 
-                  Customize <a href="#API">Description</a>
-                </span>
-              }
-        >
-          {/* <Button type="primary"> Now</Button> */}
-        </Empty>
+            >
+            </Empty>
         }
       </StyledWorkouts>
     );
