@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Empty } from 'antd';
 import { connect } from "react-redux";
 import { Card, Pagination } from "antd";
 
@@ -33,7 +34,7 @@ class SessionHistory extends React.Component {
     return (
       <Card className="history" title="WorkoutHistory">
         <StyledUserHistory>
-          {history ? (
+          {history.length !== 0 ? (
             <div>
               <div className="ordered-list">
                 {history
@@ -75,15 +76,15 @@ class SessionHistory extends React.Component {
                         className="session-card"
                         title={
                           workouts === undefined ? (
-                            <h2>Loadin workouts...</h2>
+                            <Loader></Loader>
                           ) : (
-                            workouts.map(item => {
-                              if (session.workout_id === item.id) {
-                                return item.workout_name;
-                              }
-                              return null;
-                            })
-                          )
+                              workouts.map(item => {
+                                if (session.workout_id === item.id) {
+                                  return item.workout_name;
+                                }
+                                return null;
+                              })
+                            )
                         }
                       >
                         <ol>
@@ -115,8 +116,8 @@ class SessionHistory extends React.Component {
               </div>
             </div>
           ) : (
-            <p>You have no workout history at the moment</p>
-          )}
+              <p><Empty description={'No Workouts'} /></p>
+            )}
         </StyledUserHistory>
       </Card>
     );
@@ -131,6 +132,24 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(SessionHistory);
+
+
+const Loader = styled.div`
+border: 16px solid #f3f3f3; /* Light grey */
+border-top: 16px solid #3498db; /* Blue */
+border-radius: 50%;
+width: 120px;
+height: 120px;
+animation: spin 2s linear infinite;
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+`
 
 const StyledUserHistory = styled.div`
   width: 100%;
