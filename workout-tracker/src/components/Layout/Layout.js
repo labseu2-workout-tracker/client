@@ -41,6 +41,7 @@ const StyledContainer = styled.section`
   .ant-layout-sider {
     padding: 0.5rem;
     background-color: #001529;
+  }
 
   .ant-layout-content {
     margin: 0;
@@ -50,6 +51,13 @@ const StyledContainer = styled.section`
   .nav-items {
     padding: 24px 0;
   }
+  @media (max-width: 992px) {
+    .ant-layout-sider {
+      position: absolute;
+      z-index: 1000;
+    }
+  }
+
 }
 `
 
