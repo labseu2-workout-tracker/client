@@ -162,49 +162,7 @@ class WorkoutSession extends React.Component {
                         description={`Equipment Needed: ${this.props.currentExercise[0].equipment}`}
                       />
                     </Card>
-                    {/* title={this.props.currentExercise[0].exercise_name}
-                    actions=
-                    {[
-                      <Statistic
-                        title="Sets to complete"
-                        prefix={<Icon type="unordered-list" />}
-                        style={{ cursor: 'default' }}
-                        value={this.props.currentExercise.length}
-                      />,
-                      <Statistic
-                        title={
-                          this.props.currentExercise[0].reps
-                            ? 'Repetitions'
-                            : 'Duration'
-                        }
-                        prefix={<Icon type="sync" spin />}
-                        value={
-                          this.props.currentExercise[0].reps ||
-                          (this.props.currentExercise[0].duration
-                            ? this.props.currentExercise[0].duration
-                            : '20seconds')
-                        }
-                        style={{ cursor: 'default' }}
-                      />,
-                      <Statistic
-                        title="Next Exercise"
-                        prefix={
-                          <Icon
-                            onClick={() =>
-                              this.props.finishExercise(
-                                this.props.currentExercise[0].id
-                              )
-                            }
-                            type="double-right"
-                          />
-                        }
-                        style={{ cursor: 'default' }}
-                        value=" "
-                      />
-                    ]}
-                    //  <Button type="primary" onClick={this.endWorkout}>
-                    //     End Workout
-                    //   </Button> */}
+                   
                     <Button type="danger" onClick={this.endWorkout}>
                       Finish Workout
                     </Button>
@@ -221,17 +179,17 @@ class WorkoutSession extends React.Component {
             </div>
           </Card>
           <Card //Bottom Card with Exer & Instructions
-            style={{ marginTop: 16 }}
-            type="inner"
+            style={{ marginTop: 16  }}
+            type="outer"
           >
-            <div style={{ background: '#ECECEC', padding: '30px' }}>
-              <Row gutter={16}>
-                <Col span={12}>
+            <div style={{ background: '#ECECEC', padding: '30px', display:'flex', flexDirection:'row'}}>
+              {/* <Row gutter={16}>
+                <Col span={12}> */}
                   <Card //Instructions bar
                     title="Instructions"
                     bordered={false}
                   >
-                    <Card bordered={false} style={{ lineHeight: 1.2 }}>
+                    <Card bordered={false}>
                       <Alert
                         message="Instructions"
                         description={this.props.currentExercise[0].description}
@@ -240,8 +198,8 @@ class WorkoutSession extends React.Component {
                       {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
                     </Card>
                   </Card>
-                </Col>
-                <Col span={12}>
+                {/* </Col> */}
+                {/* <Col span={12}> */}
                   <Card // Excercise List
                     title="Excercise List"
                     bordered={false}
@@ -277,8 +235,8 @@ class WorkoutSession extends React.Component {
                       )}
                     />
                   </Card>
-                </Col>
-              </Row>
+                {/* </Col> */}
+              {/* </Row> */}
             </div>
           </Card>
         </Card>
