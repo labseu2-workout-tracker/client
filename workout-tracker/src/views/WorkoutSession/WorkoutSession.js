@@ -2,7 +2,6 @@ import React from 'react';
 import Watch from '../../components/Watch/Watch';
 import { connect } from 'react-redux';
 import {
-  PageHeader,
   Statistic,
   Row,
   Col,
@@ -11,7 +10,6 @@ import {
   List,
   Button,
   Modal,
-  Carousel,
   Alert
 } from 'antd';
 import {
