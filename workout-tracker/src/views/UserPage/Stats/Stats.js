@@ -1,7 +1,4 @@
 import React from "react";
-// import ChartContainer from "./Charts/ChartContainer";
-import Slider from 'react-animated-slider';
-import 'react-animated-slider/build/horizontal.css';
 import WeeklyChart from "./Charts/WeeklyChart";
 import MonthlyChart from "./Charts/MonthlyChart";
 import YearlyChart from "./Charts/YearlyChart";
@@ -97,6 +94,7 @@ class Stats extends React.Component {
 
   componentDidMount = () => {};
   render() {
+
     return (
       <StyledStats>
         <div className="chart-row">
