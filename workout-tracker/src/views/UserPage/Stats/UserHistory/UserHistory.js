@@ -155,6 +155,14 @@ const StyledUserHistory = styled.div`
       justify-content: center;
       align-items: center;
     }
+
+    @media (max-width: 750px) {
+      width: 85%;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
   }
 
   .ordered-list {

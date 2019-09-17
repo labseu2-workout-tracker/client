@@ -56,6 +56,10 @@ const StyledStats = styled.div`
     }
   }
 
+  .ant-card-head-title {
+   text-align: left;
+  }
+
   .calendar,
   .history {
     color: rgba(0, 0, 0, 0.87);

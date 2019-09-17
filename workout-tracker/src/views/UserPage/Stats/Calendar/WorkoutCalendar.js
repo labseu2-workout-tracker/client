@@ -251,9 +251,7 @@ class WorkoutCalendar extends React.Component {
         {listData.map(item => (
           <li key={uuid()}>
             <div className="status">
-              <i 
-              onClick={this.showModal}
-               className="fa fa-info-circle" />
+              <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
                 maskStyle={{ opacity: ".2" }}
                 title="Workout List"
@@ -273,9 +271,7 @@ class WorkoutCalendar extends React.Component {
               </Modal>
             </div>
             <div className="status-text">
-              <p 
-              onClick={this.showModal}
-              >{item.content}</p>
+              <p onClick={this.showModal}>{item.content}</p>
               <Modal
                 maskStyle={{ opacity: ".2" }}
                 title="Workout List"
@@ -344,7 +340,7 @@ class WorkoutCalendar extends React.Component {
       }
     }
 
-    if(workoutsForDay[0]) {
+    if (workoutsForDay[0]) {
       this.setState({
         workoutsForDate: workoutsForDay
       });
@@ -353,7 +349,6 @@ class WorkoutCalendar extends React.Component {
         workoutsForDate: ["You didnt made a workout this day"]
       });
     }
-
 
     let checkBrowserWidth = window.innerWidth;
     if (checkBrowserWidth < 500 && !this.state.visible) {
