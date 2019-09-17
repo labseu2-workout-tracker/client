@@ -32,9 +32,14 @@ const StyledAllExercises = styled.div`
     flex-direction: column;
     background-color: white;
     height: auto;
-    margin: 0 auto;
+    margin: auto;
     max-width: 1000px;
   }
+  .ant-layout{
+    background-color: white;
+    margin: 0 auto;
+  }
+ 
   .load-button-container {
     margin: 0 auto;
   }
@@ -43,8 +48,8 @@ const StyledAllExercises = styled.div`
   }
   #images {
     position: relative;
-    height: 175px;
-    width: 175px;
+    height: 150px;
+    width: 150px;
     margin: 0 auto;
   }
   .first-picture {
@@ -106,11 +111,7 @@ const StyledAllExercises = styled.div`
     font-weight: bold;
   }
 
-  /* .first-picture {
-    width: 175px;
-    height: 175px;
-    padding: 1rem;
-  } */
+  
 
   i {
     font-size: 2rem;
@@ -130,21 +131,20 @@ const StyledAllExercises = styled.div`
   .load-more {
     font-size: 1.5rem;
   }
-  /* 
+  
   @media (max-width: 768px) {
     .first-picture{
       width: 150px;
       height: 150px;
       padding: 1rem;
-      margin: 0 auto;
+      margin: auto;
     }
-  } */
+  }
 
   @media (max-width: 576px) {
     .header {
       height: 12rem;
-      margin: 0 auto;
-      max-width: 576px;
+      /* margin: 0 auto; */
     }
 
     .search-container {
@@ -167,11 +167,6 @@ const StyledAllExercises = styled.div`
       display: inline;
     }
 
-    /* .first-picture {
-      width: 125px;
-      height: 125px;
-      padding: 1rem;
-    } */
   }
 `;
 
@@ -307,7 +302,7 @@ class AllExercises extends React.Component {
                   display: "flex",
                   flexFlow: "row wrap",
                   maxWidth: "1000px",
-                  margin: "0 auto"
+                  margin: "auto",
                 }}
               >
                 <Row gutter={16} style={{ margin: "0 auto" }}>
@@ -319,8 +314,8 @@ class AllExercises extends React.Component {
                           sm={{ span: 10 }}
                           lg={{ span: 8 }}
                           style={{
-                            margin: "0 auto",
-                            justifyContent: "space-around"
+                            margin: "auto",
+                            
                           }}
                         >
                           <Card
