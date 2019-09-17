@@ -11,7 +11,7 @@ const StyledWorkoutCalendar = styled.div`
   p {
     padding: 0;
   }
-  
+
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
     height: 65px;
@@ -104,7 +104,6 @@ const StyledWorkoutCalendar = styled.div`
       display: none;
     }
   }
-
 `;
 
 class WorkoutCalendar extends React.Component {
@@ -314,38 +313,43 @@ class WorkoutCalendar extends React.Component {
   };
 
   showWorkoutsForDate = value => {
-    // const formatDate = date => {
-    //   var d = new Date(date),
-    //     month = "" + (d.getMonth() + 1),
-    //     day = "" + d.getDate(),
-    //     year = d.getFullYear();
+    const formatDate = date => {
+      var d = new Date(date),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
 
-    //   if (month.length < 2) month = "0" + month;
-    //   if (day.length < 2) day = "0" + day;
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-    //   return [year, month, day].join("-");
-    // };
+      return [year, month, day].join("-");
+    };
 
-    // const filterWorkoutsForDate = this.props.history.filter(
-    //   workout =>
-    //     workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
-    // );
+    const filterWorkoutsForDate = this.props.history.filter(
+      workout =>
+        workout.session_start.match(/.{1,10}/g)[0] === formatDate(value._d)
+    );
 
-    // let workoutsForDay = [];
+    let workoutsForDay = [];
 
-    // for (let i = 0; i < this.props.workouts.length; i++) {
-    //   for (let j = 0; j < filterWorkoutsForDate.length; j++) {
-    //     if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
-    //       workoutsForDay.push(this.props.workouts[i].workout_name);
-    //     }
-    //   }
-    // }
+    for (let i = 0; i < this.props.workouts.length; i++) {
+      for (let j = 0; j < filterWorkoutsForDate.length; j++) {
+        if (this.props.workouts[i].id === filterWorkoutsForDate[j].workout_id) {
+          workoutsForDay.push(this.props.workouts[i].workout_name);
+        }
+      }
+    }
 
-    // this.setState({
-    //   workoutsForDate: workoutsForDay
-    // });
+    this.setState({
+      workoutsForDate: workoutsForDay
+    });
+
     let checkBrowserWidth = window.innerWidth;
-    console.log(w)
+    if (checkBrowserWidth < 500) {
+      this.setState({
+        visible: true
+      });
+    }
   };
 
   showModal = () => {
@@ -369,15 +373,15 @@ class WorkoutCalendar extends React.Component {
 
   render() {
     return (
-        <StyledWorkoutCalendar>
-      <Card className="calendar" title="Calendar">
+      <StyledWorkoutCalendar>
+        <Card className="calendar" title="Calendar">
           <Calendar
             dateCellRender={this.dateCellRender}
             monthCellRender={this.monthCellRender}
             onSelect={this.showWorkoutsForDate}
           />
-      </Card>
-        </StyledWorkoutCalendar>
+        </Card>
+      </StyledWorkoutCalendar>
     );
   }
 }
