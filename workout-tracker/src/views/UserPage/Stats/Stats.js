@@ -57,7 +57,7 @@ const StyledStats = styled.div`
   }
 
   .ant-card-head-title {
-   text-align: left;
+    text-align: left;
   }
 
   .calendar,
@@ -98,7 +98,6 @@ class Stats extends React.Component {
 
   componentDidMount = () => {};
   render() {
-
     return (
       <StyledStats>
         <div className="chart-row">

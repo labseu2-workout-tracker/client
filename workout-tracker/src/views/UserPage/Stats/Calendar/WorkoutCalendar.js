@@ -58,7 +58,7 @@ const StyledWorkoutCalendar = styled.div`
     width: 100%;
     height: 3rem;
     font-weight: bold;
-    padding: 0;
+    padding: .02rem;
   }
 
   .fa-info-circle {
