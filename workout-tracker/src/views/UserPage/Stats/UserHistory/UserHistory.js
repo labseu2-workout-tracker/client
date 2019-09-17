@@ -31,8 +31,8 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-        <StyledUserHistory>
-      <Card className="history" title="Workout History">
+      <StyledUserHistory>
+        <Card className="history" title="Workout History">
           {history ? (
             <div>
               <div className="ordered-list">
@@ -77,21 +77,22 @@ class SessionHistory extends React.Component {
                           workouts === undefined ? (
                             <h2>Loadin workouts...</h2>
                           ) : (
-                            workouts.map(item => {
-                              if (session.workout_id === item.id) {
-                                return item.workout_name;
-                              }
-                              return null;
-                            })
+                            session.session_start.slice(0, 10)
                           )
                         }
                       >
                         <ol>
                           <li>
-                            <p>
-                              <strong>Date of Session: </strong>
-                              {session.session_start.slice(0, 10)}
-                            </p>
+                            {workouts.map(item => {
+                              if (session.workout_id === item.id) {
+                              return (
+                                <p key={session.id}>
+                                  <strong>Workout: </strong>
+                                  {item.workout_name}
+                                </p>
+                              );
+                              }
+                            })}
                             <p>
                               <strong>Duration : </strong>
                               {diff(startingPoint, endPoint)}
@@ -114,8 +115,8 @@ class SessionHistory extends React.Component {
           ) : (
             <p>You have no workout history at the moment</p>
           )}
-      </Card>
-        </StyledUserHistory>
+        </Card>
+      </StyledUserHistory>
     );
   }
 }
@@ -132,16 +133,16 @@ export default connect(mapStateToProps)(SessionHistory);
 const StyledUserHistory = styled.div`
   width: 100%;
 
-.history {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-.ant-card-body {
-  padding: 0;
-}
+  .ant-card-body {
+    padding: 0;
+  }
   .session-card {
     width: 30%;
     margin: 1rem;
@@ -193,7 +194,7 @@ const StyledUserHistory = styled.div`
   }
   p {
     font-size: 0.9rem;
-    padding: .5rem;
+    padding: 0.5rem;
   }
 
   .pagination {

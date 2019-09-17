@@ -191,6 +191,16 @@ class WorkoutCalendar extends React.Component {
     this.setState({
       result: theResult
     });
+
+   const date = document.querySelectorAll(".ant-fullcalendar-value");
+   for(let i = 0; i < date.length; i++) {
+    //  for(let j = 0; j < theResult.length; j++) {
+       date[i].style.backgroundColor = "green";
+       date[i].addEventListener("click", (e) => console.log(e.target));
+      // }
+    }
+
+   console.log(theResult)
   };
 
   getListData = value => {
