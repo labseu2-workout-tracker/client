@@ -15,7 +15,7 @@ const StyledChartContainer = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    width: 100%;
+    width: 70%;
   }
 
   .off {
@@ -25,7 +25,7 @@ const StyledChartContainer = styled.div`
   .weekly,
   .monthly,
   .yearly {
-    width: 100%;
+    width: 70%;
   }
 `;
 
