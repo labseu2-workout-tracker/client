@@ -157,6 +157,9 @@ class WorkoutSession extends React.Component {
                         value=" "
                       />
                     ]}
+                     <Button type="primary" onClick={this.endWorkout}>
+                        End Workout
+                      </Button>
                   </Card>
                 </Col>
                 <Col // Watch
@@ -206,7 +209,30 @@ class WorkoutSession extends React.Component {
                     title="Excercise List"
                     bordered={false}
                   >
-                    Card content
+                     <List
+                      size="small"
+                      header={<h3>Choose Exercises</h3>}
+                      bordered
+                      dataSource={this.props.allExercises
+                        .reduce((acc, current) => {
+                          const x = acc.find(
+                            item => item.exercise_name === current.exercise_name
+                          );
+                          if (!x) {
+                            return acc.concat([current]);
+                          } else {
+                            return acc;
+                          }
+                        }, [])
+                        .map(exercise => exercise.exercise_name)}
+                      renderItem={item => (
+                        <List.Item
+                          onClick={() => this.props.chooseExercise(item)}
+                        >
+                          {<Button>{item}</Button>}
+                        </List.Item>
+                      )}
+                    />
                   </Card>
                 </Col>
               </Row>
