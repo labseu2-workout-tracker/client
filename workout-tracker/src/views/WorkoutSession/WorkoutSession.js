@@ -118,37 +118,6 @@ class WorkoutSession extends React.Component {
                 >
                   <Card title="stats" bordered={false}>
                   <Card
-                  cover={
-                    <>
-                      {/* <div className="">
-                        <Carousel
-                          dots={false}
-                          effect="fade"
-                          autoplay
-                          autoplaySpeed={1000}
-                        >
-                          <div>
-                            <img
-                              alt="Exercise explanation"
-                              src={this.props.currentExercise[0].picture_one}
-                            />
-                          </div>
-                          <div>
-                            <img
-                              alt="Exercise explanation"
-                              src={this.props.currentExercise[0].picture_two}
-                            />
-                          </div>
-                        </Carousel>
-                      </div>
-                      <div className="cover">
-                        <img
-                          alt="Exercise explanation"
-                          src={this.props.currentExercise[0].picture_one}
-                        />
-                      </div> */}
-                    </>
-                  }
                   title={this.props.currentExercise[0].exercise_name}
                   actions={[
                     <Statistic
