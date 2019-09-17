@@ -344,8 +344,8 @@ class WorkoutCalendar extends React.Component {
     // this.setState({
     //   workoutsForDate: workoutsForDay
     // });
-
-    console.log(value._d)
+    let checkBrowserWidth = window.innerWidth;
+    console.log(w)
   };
 
   showModal = () => {
