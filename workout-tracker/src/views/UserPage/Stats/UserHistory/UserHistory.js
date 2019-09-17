@@ -91,7 +91,7 @@ class SessionHistory extends React.Component {
                                   {item.workout_name}
                                 </p>
                               );
-                              }
+                              } return null;
                             })}
                             <p>
                               <strong>Duration : </strong>
