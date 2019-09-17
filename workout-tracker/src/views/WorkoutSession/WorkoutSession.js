@@ -83,11 +83,11 @@ class WorkoutSession extends React.Component {
                   span={8}
                 >
                   <Card
-                  //  style={{ width: 240 }}
+                    //  style={{ width: 240 }}
                     title={this.props.currentExercise[0].exercise_name}
                   >
                     <img
-                     bordered={false}
+                      bordered={false}
                       style={{ width: 200 }}
                       alt="Exercise explanation"
                       src={this.props.currentExercise[0].picture_one}
@@ -117,51 +117,51 @@ class WorkoutSession extends React.Component {
                   span={8}
                 >
                   <Card title="stats" bordered={false}>
-                  <Card
-                  title={this.props.currentExercise[0].exercise_name}
-                  actions={[
-                    <Statistic
-                      title="Sets to complete"
-                      prefix={<Icon type="unordered-list" />}
-                      style={{ cursor: "default" }}
-                      value={this.props.currentExercise.length}
-                    />,
-                    <Statistic
-                      title={
-                        this.props.currentExercise[0].reps
-                          ? "Repetitions"
-                          : "Duration"
-                      }
-                      prefix={<Icon type="sync" spin />}
-                      value={
-                        this.props.currentExercise[0].reps ||
-                        (this.props.currentExercise[0].duration
-                          ? this.props.currentExercise[0].duration
-                          : "20seconds")
-                      }
-                      style={{ cursor: "default" }}
-                    />,
-                    <Statistic
-                      title="Next Exercise"
-                      prefix={
-                        <Icon
-                          onClick={() =>
-                            this.props.finishExercise(
-                              this.props.currentExercise[0].id
-                            )
+                    <Card
+                      title={this.props.currentExercise[0].exercise_name}
+                      actions={[
+                        <Statistic
+                          title="Sets to complete"
+                          prefix={<Icon type="unordered-list" />}
+                          style={{ cursor: 'default' }}
+                          value={this.props.currentExercise.length}
+                        />,
+                        <Statistic
+                          title={
+                            this.props.currentExercise[0].reps
+                              ? 'Repetitions'
+                              : 'Duration'
                           }
-                          type="double-right"
+                          prefix={<Icon type="sync" spin />}
+                          value={
+                            this.props.currentExercise[0].reps ||
+                            (this.props.currentExercise[0].duration
+                              ? this.props.currentExercise[0].duration
+                              : '20seconds')
+                          }
+                          style={{ cursor: 'default' }}
+                        />,
+                        <Statistic
+                          title="Next Exercise"
+                          prefix={
+                            <Icon
+                              onClick={() =>
+                                this.props.finishExercise(
+                                  this.props.currentExercise[0].id
+                                )
+                              }
+                              type="double-right"
+                            />
+                          }
+                          style={{ cursor: 'default' }}
+                          value=" "
                         />
-                      }
-                      style={{ cursor: "default" }}
-                      value=" "
-                    />
-                  ]}
-                >
-                  <Card.Meta
-                    description={`Equipment Needed: ${this.props.currentExercise[0].equipment}`}
-                  />
-                </Card>
+                      ]}
+                    >
+                      <Card.Meta
+                        description={`Equipment Needed: ${this.props.currentExercise[0].equipment}`}
+                      />
+                    </Card>
                     {/* title={this.props.currentExercise[0].exercise_name}
                     actions=
                     {[
@@ -202,9 +202,12 @@ class WorkoutSession extends React.Component {
                         value=" "
                       />
                     ]}
-                     <Button type="primary" onClick={this.endWorkout}>
-                        End Workout
-                      </Button> */}
+                    //  <Button type="primary" onClick={this.endWorkout}>
+                    //     End Workout
+                    //   </Button> */}
+                    <Button type="danger" onClick={this.endWorkout}>
+                      Finish Workout
+                    </Button>
                   </Card>
                 </Col>
                 <Col // Watch
@@ -243,14 +246,14 @@ class WorkoutSession extends React.Component {
                     title="Excercise List"
                     bordered={false}
                   >
-                     <List
+                    <List
                       size="small"
                       header={<h3>Choose Exercises</h3>}
-                      bordered
                       dataSource={this.props.allExercises
                         .reduce((acc, current) => {
                           const x = acc.find(
-                            item => item.exercise_name === current.exercise_name
+                            (item) =>
+                              item.exercise_name === current.exercise_name
                           );
                           if (!x) {
                             return acc.concat([current]);
@@ -258,12 +261,18 @@ class WorkoutSession extends React.Component {
                             return acc;
                           }
                         }, [])
-                        .map(exercise => exercise.exercise_name)}
-                      renderItem={item => (
+                        .map((exercise) => exercise.exercise_name)}
+                      renderItem={(item) => (
                         <List.Item
                           onClick={() => this.props.chooseExercise(item)}
                         >
-                          {<Button>{item}</Button>}
+                          {
+                            <Button
+                            style={{textAlign:"left"}}
+                            type="link" block>
+                              {item}
+                            </Button>
+                          }
                         </List.Item>
                       )}
                     />
