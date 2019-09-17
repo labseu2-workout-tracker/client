@@ -82,25 +82,25 @@ class WorkoutSession extends React.Component {
                 <Col // image and details
                   span={8}
                 >
-                  {/* <Card
-                   style={{ width: 240 }}
+                  <Card
+                  //  style={{ width: 240 }}
                     title={this.props.currentExercise[0].exercise_name}
-                    bordered={false}
                   >
                     <img
-                    
+                     bordered={false}
+                      style={{ width: 200 }}
                       alt="Exercise explanation"
                       src={this.props.currentExercise[0].picture_one}
                     />
                     <div>
                       <img
-                       
+                        style={{ width: 200 }}
                         alt="Exercise explanation"
                         src={this.props.currentExercise[0].picture_two}
                       />
                     </div>
-                  </Card> */}
-                  <Card
+                  </Card>
+                  {/* <Card
                     title={this.props.currentExercise[0].exercise_name}
                     bordered={false}
                     hoverable
@@ -111,13 +111,89 @@ class WorkoutSession extends React.Component {
                         src={this.props.currentExercise[0].picture_one}
                       />
                     }
-                  ></Card>
+                  ></Card> */}
                 </Col>
                 <Col // Stats
                   span={8}
                 >
                   <Card title="stats" bordered={false}>
-                    title={this.props.currentExercise[0].exercise_name}
+                  <Card
+                  cover={
+                    <>
+                      {/* <div className="">
+                        <Carousel
+                          dots={false}
+                          effect="fade"
+                          autoplay
+                          autoplaySpeed={1000}
+                        >
+                          <div>
+                            <img
+                              alt="Exercise explanation"
+                              src={this.props.currentExercise[0].picture_one}
+                            />
+                          </div>
+                          <div>
+                            <img
+                              alt="Exercise explanation"
+                              src={this.props.currentExercise[0].picture_two}
+                            />
+                          </div>
+                        </Carousel>
+                      </div>
+                      <div className="cover">
+                        <img
+                          alt="Exercise explanation"
+                          src={this.props.currentExercise[0].picture_one}
+                        />
+                      </div> */}
+                    </>
+                  }
+                  title={this.props.currentExercise[0].exercise_name}
+                  actions={[
+                    <Statistic
+                      title="Sets to complete"
+                      prefix={<Icon type="unordered-list" />}
+                      style={{ cursor: "default" }}
+                      value={this.props.currentExercise.length}
+                    />,
+                    <Statistic
+                      title={
+                        this.props.currentExercise[0].reps
+                          ? "Repetitions"
+                          : "Duration"
+                      }
+                      prefix={<Icon type="sync" spin />}
+                      value={
+                        this.props.currentExercise[0].reps ||
+                        (this.props.currentExercise[0].duration
+                          ? this.props.currentExercise[0].duration
+                          : "20seconds")
+                      }
+                      style={{ cursor: "default" }}
+                    />,
+                    <Statistic
+                      title="Next Exercise"
+                      prefix={
+                        <Icon
+                          onClick={() =>
+                            this.props.finishExercise(
+                              this.props.currentExercise[0].id
+                            )
+                          }
+                          type="double-right"
+                        />
+                      }
+                      style={{ cursor: "default" }}
+                      value=" "
+                    />
+                  ]}
+                >
+                  <Card.Meta
+                    description={`Equipment Needed: ${this.props.currentExercise[0].equipment}`}
+                  />
+                </Card>
+                    {/* title={this.props.currentExercise[0].exercise_name}
                     actions=
                     {[
                       <Statistic
@@ -159,24 +235,13 @@ class WorkoutSession extends React.Component {
                     ]}
                      <Button type="primary" onClick={this.endWorkout}>
                         End Workout
-                      </Button>
+                      </Button> */}
                   </Card>
                 </Col>
                 <Col // Watch
                   span={8}
                 >
                   <Card title="Watch" bordered={false}>
-                    {/* <div>
-                      <Button type="primary" onClick={this.endWorkout}>
-                        Start
-                      </Button>
-                      <Button type="primary" onClick={this.endWorkout}>
-                        Pause
-                      </Button>
-                      <Button type="primary" onClick={this.endWorkout}>
-                        Stop
-                      </Button>
-                    </div> */}
                     <Watch />
                   </Card>
                 </Col>
