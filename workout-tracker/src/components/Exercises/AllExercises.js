@@ -1,5 +1,15 @@
 import React from "react";
-import { Input, Button, Layout, Menu, Card, Dropdown, Modal, Row, Col } from "antd";
+import {
+  Input,
+  Button,
+  Layout,
+  Menu,
+  Card,
+  Dropdown,
+  Modal,
+  Row,
+  Col
+} from "antd";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import {
@@ -25,11 +35,57 @@ const StyledAllExercises = styled.div`
     margin: 0 auto;
     max-width: 1000px;
   }
-  .load-button-container{
+  .load-button-container {
     margin: 0 auto;
   }
-  .ant-row{
+  .ant-row {
     margin: 0 auto;
+  }
+  #images {
+    position: relative;
+    height: 175px;
+    width: 175px;
+    margin: 0 auto;
+  }
+  .first-picture {
+    height: 150px;
+    width: 150px;
+  }
+  .second-picture {
+    height: 150px;
+    width: 150px;
+  }
+
+  #images img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  @keyframes cf3FadeInOut {
+    0% {
+      opacity: 1;
+    }
+    45% {
+      opacity: 1;
+    }
+    55% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  #images img.second-picture {
+    animation-name: cf3FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-direction: alternate;
   }
 
   .search-container {
@@ -50,11 +106,11 @@ const StyledAllExercises = styled.div`
     font-weight: bold;
   }
 
-  .first-picture {
+  /* .first-picture {
     width: 175px;
     height: 175px;
     padding: 1rem;
-  }
+  } */
 
   i {
     font-size: 2rem;
@@ -74,7 +130,7 @@ const StyledAllExercises = styled.div`
   .load-more {
     font-size: 1.5rem;
   }
-
+  /* 
   @media (max-width: 768px) {
     .first-picture{
       width: 150px;
@@ -82,7 +138,7 @@ const StyledAllExercises = styled.div`
       padding: 1rem;
       margin: 0 auto;
     }
-  }
+  } */
 
   @media (max-width: 576px) {
     .header {
@@ -111,11 +167,11 @@ const StyledAllExercises = styled.div`
       display: inline;
     }
 
-    .first-picture {
+    /* .first-picture {
       width: 125px;
       height: 125px;
       padding: 1rem;
-    }
+    } */
   }
 `;
 
@@ -253,141 +309,160 @@ class AllExercises extends React.Component {
                   maxWidth: "1000px",
                   margin: "0 auto"
                 }}
-              ><Row gutter={16} style={{margin: '0 auto'}}>
-                  
-                {this.props.exercises && this.props.exercises.length > 0 ? (
-                  this.props.exercises.map((exercise, index) => {
-                    return (
-                      <Col xs={{ span: 16 }} sm={{span: 10}} lg={{span: 8}} style={{margin: '0 auto', justifyContent: 'space-around'}}>
-                      <Card
-                        style={{
-                          alignContent: "center",
-                          textAlign: "center",
-                          paddingTop: "3rem",
-                          margin: "1rem"
-                        }}
-                        key={index}
-                        cover={
-                          <div className="images">
-                            <img
-                              className="first-picture"
-                              alt="example"
-                              src={exercise.picture_one}
-                            />
-                          </div>
-                        }
-                        actions={[
-                          <div>
-                            <Button
-                              type="primary"
-                              onClick={() => this.showModal(exercise.id)}
-                            >
-                              More Info
-                            </Button>
-                            <Modal
-                              title={
-                                this.props.singleExercise
-                                  ? this.props.singleExercise[0].exercise_name
-                                  : null
-                              }
-                              visible={this.state.visible}
-                              // {this.props.singleExercise[0].closeExercise}
-                              onOk={this.handleOk}
-                              onCancel={this.handleCancel}
-                            >
-                              {this.props.singleExercise ? (
-                                <div>
-                                  <Card
-                                    hoverable
-                                    style={{ width: "100%" }}
-                                    cover={
-                                      <video className="" controls autoplay>
-                                        <source
-                                          src={
-                                            this.props.singleExercise[0].video
-                                          }
-                                          type="video/mp4"
-                                        />
-                                        Your browser does not support the video
-                                        tag.
-                                      </video>
-                                    }
-                                  >
-                                    <Meta
-                                      title={
-                                        this.props.singleExercise[0]
+              >
+                <Row gutter={16} style={{ margin: "0 auto" }}>
+                  {this.props.exercises && this.props.exercises.length > 0 ? (
+                    this.props.exercises.map((exercise, index) => {
+                      return (
+                        <Col
+                          xs={{ span: 16 }}
+                          sm={{ span: 10 }}
+                          lg={{ span: 8 }}
+                          style={{
+                            margin: "0 auto",
+                            justifyContent: "space-around"
+                          }}
+                        >
+                          <Card
+                            style={{
+                              alignContent: "center",
+                              textAlign: "center",
+                              paddingTop: "3rem",
+                              margin: "1rem"
+                            }}
+                            key={index}
+                            cover={
+                              <div id="images">
+                                <img
+                                  className="first-picture"
+                                  alt="example"
+                                  src={exercise.picture_one}
+                                />
+                                <img
+                                  className="second-picture"
+                                  alt="example"
+                                  src={exercise.picture_two}
+                                />
+                              </div>
+                            }
+                            actions={[
+                              <div>
+                                <Button
+                                  type="primary"
+                                  onClick={() => this.showModal(exercise.id)}
+                                >
+                                  More Info
+                                </Button>
+                                <Modal
+                                  title={
+                                    this.props.singleExercise
+                                      ? this.props.singleExercise[0]
                                           .exercise_name
-                                      }
-                                      description={
-                                        <div className="description">
-                                          {
-                                            this.props.singleExercise[0]
-                                              .description
-                                          }
-                                        </div>
-                                      }
-                                    />
-                                    <div className="div-para">
-                                      <p>
-                                        {" "}
-                                        Level:{" "}
-                                        {
-                                          this.props.singleExercise[0]
-                                            .difficulty
+                                      : null
+                                  }
+                                  visible={this.state.visible}
+                                  // {this.props.singleExercise[0].closeExercise}
+                                  onOk={this.handleOk}
+                                  onCancel={this.handleCancel}
+                                >
+                                  {this.props.singleExercise ? (
+                                    <div>
+                                      <Card
+                                        hoverable
+                                        style={{ width: "100%" }}
+                                        cover={
+                                          <video className="" controls autoplay>
+                                            <source
+                                              src={
+                                                this.props.singleExercise[0]
+                                                  .video
+                                              }
+                                              type="video/mp4"
+                                            />
+                                            Your browser does not support the
+                                            video tag.
+                                          </video>
                                         }
-                                      </p>
-                                      <p>
-                                        {" "}
-                                        Type:{" "}
-                                        {this.props.singleExercise[0].type}
-                                      </p>
-                                      <p>
-                                        Target:{" "}
-                                        {this.props.singleExercise[0].muscle}
-                                      </p>
-                                      <p>
-                                        {" "}
-                                        Equipment:{" "}
-                                        {this.props.singleExercise[0].equipment}
-                                      </p>
+                                      >
+                                        <Meta
+                                          title={
+                                            this.props.singleExercise[0]
+                                              .exercise_name
+                                          }
+                                          description={
+                                            <div className="description">
+                                              {
+                                                this.props.singleExercise[0]
+                                                  .description
+                                              }
+                                            </div>
+                                          }
+                                        />
+                                        <div className="div-para">
+                                          <p>
+                                            {" "}
+                                            Level:{" "}
+                                            {
+                                              this.props.singleExercise[0]
+                                                .difficulty
+                                            }
+                                          </p>
+                                          <p>
+                                            {" "}
+                                            Type:{" "}
+                                            {this.props.singleExercise[0].type}
+                                          </p>
+                                          <p>
+                                            Target:{" "}
+                                            {
+                                              this.props.singleExercise[0]
+                                                .muscle
+                                            }
+                                          </p>
+                                          <p>
+                                            {" "}
+                                            Equipment:{" "}
+                                            {
+                                              this.props.singleExercise[0]
+                                                .equipment
+                                            }
+                                          </p>
+                                        </div>
+                                      </Card>
+                                      ,
                                     </div>
-                                  </Card>
-                                  ,
+                                  ) : null}
+                                </Modal>
+                              </div>
+                            ]}
+                          >
+                            <Meta
+                              title={exercise.exercise_name}
+                              pageHeader
+                              description={
+                                <div>
+                                  {" "}
+                                  <p
+                                    style={{ padding: "0" }}
+                                  >{`${exercise.muscle} with ${exercise.equipment}`}</p>
                                 </div>
-                              ) : null}
-                            </Modal>
-                          </div>
-                        ]}
-                      >
-                        <Meta
-                          title={exercise.exercise_name}
-                          pageHeader
-                          description={
-                            <div>
-                              {" "}
-                              <p
-                                style={{ padding: "0" }}
-                              >{`${exercise.muscle} with ${exercise.equipment}`}</p>
-                            </div>
-                          }
-                        />
-                        </Card>
-                      </Col>
-                    );
-                      })
-                ) : (
-                  <Card>
-                    <h1>No Search Results</h1>
-                  </Card>
-                    )}
-                            
+                              }
+                            />
+                          </Card>
+                        </Col>
+                      );
+                    })
+                  ) : (
+                    <Card>
+                      <h1>No Search Results</h1>
+                    </Card>
+                  )}
                 </Row>
-              
               </Content>
-              <div className='load-button-container'>
-              {this.props.arrayOfCurrentExercises ? (
-                this.props.indexOfLastExercise ===
-                  this.props.arrayOfCurrentExercises.length ||
+              <div className="load-button-container">
+                {this.props.arrayOfCurrentExercises ? (
+                  this.props.indexOfLastExercise ===
+                    this.props.arrayOfCurrentExercises.length ||
                   this.props.arrayOfCurrentExercises.length < 5 ? null : (
                     <Button
                       className="load-more"
@@ -395,11 +470,10 @@ class AllExercises extends React.Component {
                       onClick={this.props.loadMore}
                     >
                       Load More
-                  </Button>
+                    </Button>
                   )
                 ) : null}
               </div>
-            
             </Layout>
           </Layout>
         </Layout>
