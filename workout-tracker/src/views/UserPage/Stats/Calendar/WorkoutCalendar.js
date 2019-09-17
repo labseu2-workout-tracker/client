@@ -8,9 +8,13 @@ import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
+  p {
+    padding: 0;
+  }
+  
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 90px;
+    height: 65px;
   }
 
   .ant-radio-button-wrapper {
@@ -40,6 +44,23 @@ const StyledWorkoutCalendar = styled.div`
     display: none;
   }
 
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+    display: flex;
+  }
+
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-value {
+    order: 1;
+  }
+
+  .status-text {
+    font-size: 0.75rem;
+    margin: 0;
+    width: 100%;
+    height: 3rem;
+    font-weight: bold;
+    padding: 0;
+  }
+
   .fa-info-circle {
     color: green;
     font-size: 1.5rem;
@@ -56,13 +77,11 @@ const StyledWorkoutCalendar = styled.div`
     }
     .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
     .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-      height: 60px;
+      height: 35px;
     }
 
-    .ant-badge-status-dot {
-      margin-top: 0.5rem;
-      width: 20px;
-      height: 20px;
+    .fa-info-circle {
+      margin: 0.25rem 0 0 0;
     }
 
     .status-text {
@@ -75,6 +94,7 @@ const StyledWorkoutCalendar = styled.div`
       font-size: 1rem;
     }
   }
+
 `;
 
 class WorkoutCalendar extends React.Component {
@@ -224,7 +244,7 @@ class WorkoutCalendar extends React.Component {
             <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
-               maskStyle={{ opacity: ".2"}}
+                maskStyle={{ opacity: ".2" }}
                 title="Workout List"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
@@ -242,22 +262,9 @@ class WorkoutCalendar extends React.Component {
               </Modal>
             </div>
             <div className="status-text">
-              <p
-                style={{
-                  fontSize: ".75rem",
-                  padding: "0",
-                  margin: "0",
-                  width: "100%",
-                  height: "3rem",
-                  backgroundColor: "#11B8CC",
-                  fontWeight: "bold"
-                }}
-                onClick={this.showModal}
-              >
-                {item.content}
-              </p>
+              <p onClick={this.showModal}>{item.content}</p>
               <Modal
-                maskStyle={{ opacity: ".2"}}
+                maskStyle={{ opacity: ".2" }}
                 title="Workout List"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
