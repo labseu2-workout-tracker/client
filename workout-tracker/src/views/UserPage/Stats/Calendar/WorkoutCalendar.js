@@ -93,6 +93,16 @@ const StyledWorkoutCalendar = styled.div`
     .fa-info-circle {
       font-size: 1rem;
     }
+
+    .ant-fullcalendar-calendar-body {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .status {
+      display: none;
+    }
   }
 
 `;
