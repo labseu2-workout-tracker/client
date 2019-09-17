@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Empty } from "antd";
 import { connect } from "react-redux";
 import { Card, Pagination } from "antd";
 
@@ -8,7 +9,7 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       minValue: 0,
-      maxValue: 6
+      maxValue: 2
     };
   }
 
@@ -16,12 +17,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 6
+        maxValue: 2
       });
     } else {
       this.setState({
-        minValue: value * 6 - 6,
-        maxValue: value * 6
+        minValue: value * 2 - 2,
+        maxValue: value * 2
       });
     }
   };
@@ -75,7 +76,7 @@ class SessionHistory extends React.Component {
                         className="session-card"
                         title={
                           workouts === undefined ? (
-                            <h2>Loadin workouts...</h2>
+                            <Loader></Loader>
                           ) : (
                             session.session_start.slice(0, 10)
                           )
@@ -85,13 +86,14 @@ class SessionHistory extends React.Component {
                           <li>
                             {workouts.map(item => {
                               if (session.workout_id === item.id) {
-                              return (
-                                <p key={session.id}>
-                                  <strong>Workout: </strong>
-                                  {item.workout_name}
-                                </p>
-                              );
-                              } return null;
+                                return (
+                                  <p key={session.id}>
+                                    <strong>Workout: </strong>
+                                    {item.workout_name}
+                                  </p>
+                                );
+                              }
+                              return null;
                             })}
                             <p>
                               <strong>Duration : </strong>
@@ -113,7 +115,9 @@ class SessionHistory extends React.Component {
               </div>
             </div>
           ) : (
-            <p>You have no workout history at the moment</p>
+            <p>
+              <Empty description={"No Workouts"} />
+            </p>
           )}
         </Card>
       </StyledUserHistory>
@@ -129,6 +133,24 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(SessionHistory);
+
+const Loader = styled.div`
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 const StyledUserHistory = styled.div`
   width: 100%;
