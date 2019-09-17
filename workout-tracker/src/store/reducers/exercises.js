@@ -6,7 +6,7 @@ const initialState = {
   singleExercise: null,
   arrayOfCurrentExercises: null,
   currentMuscleGroup: null,
-  indexOfLastExercise: 6,
+  indexOfLastExercise: 8,
   indexFirstExercise: 0
 };
 
@@ -23,7 +23,7 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === 'Chest'
       );
 
-      const currentExercises = filterOnlyGroupChest.slice(0, 6);
+      const currentExercises = filterOnlyGroupChest.slice(0, 8);
 
       return {
         ...state,
@@ -31,14 +31,14 @@ const exercises = (state = initialState, action) => {
         copyOfExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
         currentMuscleGroup: 'Chest',
-        indexOfLastExercise: 6
+        indexOfLastExercise: 8
       };
 
     case type.SHOW_MUSCLE_GROUP:
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
-      const indexOfLastExercise = 6;
+      const indexOfLastExercise = 8;
 
       const theCurrentExercises = searchResultForMuscleGroup.slice(
         state.indexFirstExercise,
@@ -54,7 +54,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.LOAD_MORE:
-      let indexOfTheLastExercise = state.indexOfLastExercise + 6;
+      let indexOfTheLastExercise = state.indexOfLastExercise + 8;
 
       if (indexOfTheLastExercise > state.arrayOfCurrentExercises.length) {
         indexOfTheLastExercise = state.arrayOfCurrentExercises.length;
@@ -95,7 +95,7 @@ const exercises = (state = initialState, action) => {
           exercise.equipment === action.equipment &&
           exercise.muscle === state.currentMuscleGroup
       );
-      const theIndexLastExercise = 6;
+      const theIndexLastExercise = 8;
       const theActualExercises = searchForEquipment.slice(
         state.indexFirstExercise,
         theIndexLastExercise

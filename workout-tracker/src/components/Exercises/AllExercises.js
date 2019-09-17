@@ -27,6 +27,10 @@ const { Search } = Input;
 const { Meta } = Card;
 
 const StyledAllExercises = styled.div`
+p{
+  text-overflow: ellipsis;
+  overflow: 'hidden';
+}
   .header {
     display: flex;
     flex-direction: column;
@@ -109,6 +113,7 @@ const StyledAllExercises = styled.div`
     justify-content: space-around;
     font-size: 1.5rem;
     font-weight: bold;
+    margin: auto;
   }
 
   
@@ -132,19 +137,18 @@ const StyledAllExercises = styled.div`
     font-size: 1.5rem;
   }
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .first-picture{
       width: 150px;
       height: 150px;
       padding: 1rem;
       margin: auto;
     }
-  }
+  } */
 
   @media (max-width: 576px) {
     .header {
       height: 12rem;
-      /* margin: 0 auto; */
     }
 
     .search-container {
@@ -311,8 +315,9 @@ class AllExercises extends React.Component {
                       return (
                         <Col
                           xs={{ span: 16 }}
-                          sm={{ span: 10 }}
-                          lg={{ span: 8 }}
+                          sm={{ span: 12 }}
+                          md={{ span: 8 }}
+                          lg={{ span: 6}}
                           style={{
                             margin: "auto",
                             
@@ -438,7 +443,7 @@ class AllExercises extends React.Component {
                                 <div>
                                   {" "}
                                   <p
-                                    style={{ padding: "0" }}
+                                    style={{ padding: "0", textOverflow: 'ellipsis' }}
                                   >{`${exercise.muscle} with ${exercise.equipment}`}</p>
                                 </div>
                               }
