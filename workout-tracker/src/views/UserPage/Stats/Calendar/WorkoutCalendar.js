@@ -51,10 +51,6 @@ const StyledWorkoutCalendar = styled.div`
   .ant-fullcalendar-fullscreen .ant-fullcalendar-value {
     order: 1;
   }
-/* 
-  .ant-card .calendar .ant-card-bordered  {
-    padding: 0;
-  } */
 
   .status-text {
     font-size: 0.75rem;
@@ -195,77 +191,6 @@ class WorkoutCalendar extends React.Component {
     this.setState({
       result: theResult
     });
-
-    
-    
-    
-    // functionality for mobile view
-    let date = new Date();
-    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-
-    let listOfDays = getDaysArray(firstDay, lastDay);
-    daylist.map(v => v.toISOString().slice(0, 10)).join("");
-
-    let daysInMonth = [];
-
-    for (let i = 0; i < listOfDays.length; i++) {
-      daysInMonth.push(
-        formatDate(daylist[i])
-          .split("-")
-          .join("")
-      );
-    }
-
-    let resultOfMonth = [];
-
-    for (let j = 0; j < daysInMonth.length; j++) {
-      for (let i = 0; i < userHistory.length; i++) {
-        if (
-          userHistory[i].session_start
-            .match(/.{1,10}/g)[0]
-            .split("-")
-            .join("") === daysInMonth[j]
-        ) {
-          resultOfMonth.push(userHistory[i]);
-        }
-      }
-    }
-
-    let hashTableForMonth = {};
-
-    for (let j = 0; j < workouts.length; j++) {
-      hashTableForMonth[workouts[j].workout_name] = 0;
-    }
-
-    for (let i = 0; i < resultOfMonth.length; i++) {
-      for (let j = 0; j < workouts.length; j++) {
-        if (resultOfMonth[i].workout_id === workouts[j].id) {
-          if (hashTableForMonth[workouts[j].workout_name]) {
-            hashTableForMonth[workouts[j].workout_name] += 1;
-          } else {
-            hashTableForMonth[workouts[j].workout_name] = 1;
-          }
-        }
-      }
-    }
-
-    let valuesForDataset = [];
-
-    for (var value in hashTableForMonth) {
-      valuesForDataset.push(hashTableForMonth[value]);
-    }
-    
-    console.log(valuesForDataset)
-    
-   const calendarDate = document.querySelectorAll(".ant-fullcalendar-value");
-   for(let i = 0; i < date.length; i++) {
-    //  for(let j = 0; j < theResult.length; j++) {
-       date[i].style.backgroundColor = "green";
-       date[i].addEventListener("click", (e) => console.log(e.target));
-      // }
-    }
-
   };
 
   getListData = value => {
