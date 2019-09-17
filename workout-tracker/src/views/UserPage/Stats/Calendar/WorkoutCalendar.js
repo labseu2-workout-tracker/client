@@ -192,6 +192,11 @@ class WorkoutCalendar extends React.Component {
       result: theResult
     });
 
+
+
+
+    // functionality for mobile view
+
    const date = document.querySelectorAll(".ant-fullcalendar-value");
    for(let i = 0; i < date.length; i++) {
     //  for(let j = 0; j < theResult.length; j++) {
