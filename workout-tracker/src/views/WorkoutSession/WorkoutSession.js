@@ -3,13 +3,10 @@ import Watch from '../../components/Watch/Watch';
 import { connect } from 'react-redux';
 import {
   Statistic,
-  Row,
-  Col,
   Card,
   Icon,
   List,
   Button,
-  Modal,
   Alert
 } from 'antd';
 import {
@@ -27,7 +24,7 @@ class WorkoutSession extends React.Component {
     startButton.style.color= "#fff";
     startButton.style.width= "100px";
     const stopButton = document.querySelector(".btn-stop");
-    stopButton.style.backgroundColor= "black";
+    stopButton.style.backgroundColor= "#ff4d4f";
     stopButton.style.color= "#fff";
     stopButton.style.width= "130px";
     const resetButton = document.querySelector(".btn-reset");
