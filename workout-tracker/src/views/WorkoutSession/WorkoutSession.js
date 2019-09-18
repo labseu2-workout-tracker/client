@@ -16,31 +16,20 @@ import {
 } from '../../store/actions/workoutsActions';
 import styled from 'styled-components';
 const StyledWorkoutSession = styled.div`
-.btn{
-margin: 5px;
+.btn1{
+margin: 10px;
 padding: 10px;
-font-size: 20px;
+height:50px;
+font-size: 18px;
 border: 1px solid transparent;
-border-radius: 10px;
+
 }
 `;
 
 class WorkoutSession extends React.Component {
   componentDidMount = () => {
   
-    const startButton = document.querySelector(".btn-start");
-    startButton.style.backgroundColor= "#2bd22b";
-    startButton.style.color= "#fff";
-    startButton.style.width= "100px";
-    const stopButton = document.querySelector(".btn-stop");
-    stopButton.style.backgroundColor= "#ff4d4f";
-    stopButton.style.color= "#fff";
-    stopButton.style.width= "130px";
-    const resetButton = document.querySelector(".btn-reset");
-    resetButton.style.backgroundColor= "black"
-    resetButton.style.width= "100px";
-    resetButton.style.color= "#fff";
-    startButton.click();
+    
     // location.reload();
   };
   endWorkout = () => {
@@ -115,7 +104,7 @@ class WorkoutSession extends React.Component {
                     alt="Exercise explanation"
                     src={this.props.currentExercise[0].picture_one}
                   /> */}
-                  <video autoplay loop playsinline muted controls width="90%" height="auto">
+                  <video autoPlay loop playsinline muted controls width="90%" height="auto">
                     <source
                       alt="Exercise explanation"
                       src={this.props.currentExercise ? this.props.currentExercise[0].video : null}
@@ -183,7 +172,7 @@ class WorkoutSession extends React.Component {
                     justifyContent: 'center'
                   }}
                 >
-                  <Button type="danger" onClick={this.endWorkout}>
+                  <Button className="btn1" type="danger" onClick={this.endWorkout}>
                     Finish Workout
                   </Button>
                 </div>
