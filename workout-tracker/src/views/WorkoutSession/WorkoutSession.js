@@ -174,10 +174,7 @@ class WorkoutSession extends React.Component {
                         title="Next Exercise"
                         prefix={
                           <Icon
-                            onClick={() =>
-                              this.props.finishExercise(
-                                this.props.currentExercise[0].id
-                              )
+                            onClick={this.nextExercise
                             }
                             type="fast-forward"
                           />
