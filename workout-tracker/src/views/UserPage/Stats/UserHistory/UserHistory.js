@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Empty } from 'antd';
+import { Empty } from "antd";
 import { connect } from "react-redux";
 import { Card, Pagination } from "antd";
 
@@ -21,7 +21,7 @@ class SessionHistory extends React.Component {
       });
     } else {
       this.setState({
-        minValue: (value * 2) - 2,
+        minValue: value * 2 - 2,
         maxValue: value * 2
       });
     }
@@ -32,9 +32,9 @@ class SessionHistory extends React.Component {
     let workouts = this.props.workouts;
 
     return (
-      <Card className="history" title="WorkoutHistory">
-        <StyledUserHistory>
-          {history.length !== 0 ? (
+      <StyledUserHistory>
+        <Card className="history" title="Workout History">
+          {history ? (
             <div>
               <div className="ordered-list">
                 {history
@@ -78,24 +78,23 @@ class SessionHistory extends React.Component {
                           workouts === undefined ? (
                             <Loader></Loader>
                           ) : (
-                              workouts.map(item => {
-                                if (session.workout_id === item.id) {
-                                  return item.workout_name;
-                                }
-                                return null;
-                              })
-                            )
+                            session.session_start.slice(0, 10)
+                          )
                         }
                       >
                         <ol>
                           <li>
-                            <p>
-                              <strong>Date of Session: </strong>
-                              {session.session_start.slice(0, 10)}
-                            </p>
-                            <p>
-                              <strong>Workout Name : </strong>
-                            </p>
+                            {workouts.map(item => {
+                              if (session.workout_id === item.id) {
+                                return (
+                                  <p key={session.id}>
+                                    <strong>Workout: </strong>
+                                    {item.workout_name}
+                                  </p>
+                                );
+                              }
+                              return null;
+                            })}
                             <p>
                               <strong>Duration : </strong>
                               {diff(startingPoint, endPoint)}
@@ -116,10 +115,12 @@ class SessionHistory extends React.Component {
               </div>
             </div>
           ) : (
-              <p><Empty description={'No Workouts'} /></p>
-            )}
-        </StyledUserHistory>
-      </Card>
+            <p>
+              <Empty description={"No Workouts"} />
+            </p>
+          )}
+        </Card>
+      </StyledUserHistory>
     );
   }
 }
@@ -133,38 +134,56 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(SessionHistory);
 
-
 const Loader = styled.div`
-border: 8px solid #f3f3f3; /* Light grey */
-border-top: 8px solid #3498db; /* Blue */
-border-radius: 50%;
-width: 50px;
-height: 50px;
-animation: spin 2s linear infinite;
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
 
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-
-
-`
+`;
 
 const StyledUserHistory = styled.div`
   width: 100%;
 
+  .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-card-body {
+    padding: 0;
+  }
   .session-card {
     width: 30%;
     margin: 1rem;
     border-radius: 0.6rem;
 
     @media (max-width: 1150px) {
-      width: 90%;
+      width: 60%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    @media (max-width: 750px) {
+      width: 85%;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
     }
   }
 
@@ -205,7 +224,7 @@ const StyledUserHistory = styled.div`
   }
   p {
     font-size: 0.9rem;
-    padding: 10px;
+    padding: 0.5rem;
   }
 
   .pagination {
