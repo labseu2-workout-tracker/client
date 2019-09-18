@@ -7,19 +7,25 @@
   color: white;
 }
 
+.navigation-item {
+  width: 30%;
+}
+
 .navigation-item.mobile {
   font-size: 1.75rem;
   margin: 0.5rem 0;
+  width: 90%;
+  padding-left: 0;
 }
 
 .navigation-item.mobile a {
-  color: #3b0062;
+  color: #0086c9;
 }
 
 .navigation-item a:hover,
 .navigation-item a:active,
 .navigation-item a.active {
-  color: #fab83f;
+  color: #0086c9;
 }
 
 .navigation-item:last-of-type {
@@ -37,5 +43,39 @@
 
 .navigation-item button:hover,
 .navigation-item button:active {
+  color: #0086c9;
+}
+
+.mobile-nav.open .navigation-item {
+  color: #0086c9;
+  margin-top: 7.5px;
+  width: 30%;
+  text-align: left;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  padding-left: 0;
+}
+
+.mobile-nav.open .navigation-item:nth-of-type(3) {
+  display: none;
+}
+
+.mobile-nav.open .navigation-item button {
+  color: #0086c9;
+  text-align: left;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  padding-left: 0;
+}
+.mobile-nav.open .navigation-item button:hover {
   color: #fab83f;
+}
+
+.navigation-item:last-of-type {
+  padding-left: 0;
+}
+.mobile-nav.open {
+  width: 30%;
 }

@@ -1,12 +1,16 @@
 .logo {
   font-size: 1rem;
   font-weight: bold;
-  border: 1px solid white;
   padding: 0.5rem;
-  color: white;
+  /* color: white; */
 }
 
 .image {
   width: 10rem;
-  height: 6rem;
+  height: auto;
+}
+
+.logo-container {
+  flex: 1;
+  text-align: center;
 }

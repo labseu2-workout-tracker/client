@@ -5,13 +5,35 @@ import {
   updateSettings
 } from "../../store/actions/settingActions";
 import styled from "styled-components";
+import {
+  Checkbox,
+  Input,
+  List,
+  Button,
+  Card,
+  Statistic
+} from "antd";
 
 const StyledSettings = styled.div`
   .user-data {
-    margin: 2rem 2rem 0 2rem;
+    margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
-    background-color: #6bbdfa;
     text-align: center;
+  }
+  .ant-card-bordered {
+    border: 1px solid #e8e8e8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .ant-input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 60%;
+    margin: 0.5rem auto;
+    max-width: 750px;
+  }
+  .info-wrapper {
+    margin: 0;
   }
 
   .info {
@@ -21,8 +43,6 @@ const StyledSettings = styled.div`
     width: 80%;
     padding: 10px;
     color: #fff;
-    background: rgba(45, 230, 220, 0.1);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
   }
 
@@ -36,45 +56,51 @@ const StyledSettings = styled.div`
     transition: 0.5s;
 
     @media (max-width: 700px) {
-      flex-direction: column; 
-      height: 8rem;   
+      flex-direction: column;
+      height: 8rem;
     }
   }
 
+  .ant-statistic-title {
+    margin-bottom: 4px;
+    color: white;
+    font-size: 14px;
+  }
+
   .info li:nth-child(1) {
-    background: rgba(239, 240, 243, 0.1);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(2) {
-    background: rgba(239, 240, 243, 0.2);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(3) {
-    background: rgba(239, 240, 243, 0.3);
+    background: rgba(107, 189, 250, 0.5);
   }
 
   .info li:nth-child(4) {
-    background: rgba(239, 240, 243, 0.4);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(5) {
-    background: rgba(239, 240, 243, 0.5);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(6) {
-    background: rgba(239, 240, 243, 0.6);
+    background: rgba(107, 189, 250, 0.6);
   }
 
   .info li:nth-child(7) {
-    background: rgba(239, 240, 243, 0.7);
+    background: rgba(107, 189, 250, 0.7);
   }
 
   .info li:nth-child(8) {
-    background: rgba(239, 240, 243, 0.8);
+    background: rgba(107, 189, 250, 0.8);
   }
 
   .info li:nth-child(9) {
-    background: rgba(239, 240, 243, 0.9);
+    background: rgba(107, 189, 250, 0.9);
   }
 
   .info li span:nth-child(1) {
@@ -91,74 +117,99 @@ const StyledSettings = styled.div`
   }
 
   .info li:hover {
-    transform: scale(1.2);
     background: #6bbdfa;
   }
 
-  .update-button {
-    border-color: transparent;
-    width: 7rem;
-    height: 1.8rem;
-    font-size: 0.7rem;
-    line-height: 1.6rem;
-    border-radius: 4px;
-    border: 1px solid #f0f4f6;
-    color: #212432;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    text-align: center;
-    background: linear-gradient(46deg, #2eb7ce, #4296cb);
+  .ant-btn {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   }
 
-  .update-input {
-    width: 100%;
+  .ant-spin-container p {
+    margin: 0 auto;
+  }
+  /* .update-input {
     box-sizing: border-box;
     display: inline-block;
-    border-radius: 5px;
-    padding: 10px 25px;
+    
 
     @media (max-width: 350px) {
       width: 80%;
     }
-  }
+  } */
 
   .text,
   .data,
   .icon {
     width: 15%;
   }
+
+  .off {
+    display: none;
+  }
 `;
 
+const CheckboxGroup = Checkbox.Group;
+
+const plainOptions = [
+  "Email",
+  "Username",
+  // "Weight",
+  // "User Level",
+  "Email Notification",
+  "Push Notification"
+];
+
+const defaultCheckedList = [];
+
 class Settings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      wantUpdate: false,
-      email: this.props.settings ? this.props.settings[0].email : "",
-      username: this.props.settings ? this.props.settings[0].username : "",
-      password: this.props.settings ? this.props.settings[0].password : "",
-      weight: this.props.settings ? this.props.settings[0].weight : "",
-      height: this.props.settings ? this.props.settings[0].height : "",
-      gender: this.props.settings ? this.props.settings[0].gender : "",
-      user_level: this.props.settings ? this.props.settings[0].user_level : "",
-      email_notification: this.props.settings
-        ? this.props.settings[0].email_notification
-        : "",
-      push_notification: this.props.settings
-        ? this.props.settings[0].push_notification
-        : ""
-    };
-  }
+  state = {
+    checkedList: defaultCheckedList,
+    indeterminate: true,
+    checkAll: false,
+    wantUpdate: false,
+    email: this.props.settings ? this.props.settings[0].email : "",
+    username: this.props.settings ? this.props.settings[0].username : "",
+    // password: this.props.settings ? this.props.settings[0].password : "",
+    weight: this.props.settings ? this.props.settings[0].weight : "",
+    user_level: this.props.settings ? this.props.settings[0].user_level : "",
+    email_notification: this.props.settings
+      ? this.props.settings[0].email_notification
+      : "",
+    push_notification: this.props.settings
+      ? this.props.settings[0].push_notification
+      : ""
+  };
 
   componentDidMount = () => {
     this.props.fetchSettings();
+  };
+
+  onChange = checkedList => {
+    this.setState({
+      checkedList,
+      indeterminate:
+        !!checkedList.length && checkedList.length < plainOptions.length,
+      checkAll: checkedList.length === plainOptions.length
+    });
+  };
+
+  onCheckAllChange = e => {
+    this.setState({
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked
+    });
   };
 
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state.gender, this.state.user_level)
   };
 
   startUpdate = () => {
@@ -169,12 +220,16 @@ class Settings extends React.Component {
 
   changeSettings = () => {
     const updatedSettings = {
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-      weight: Number(this.state.weight),
-      height: Number(this.state.height),
-      gender: this.state.gender ? this.state.gender : "Male",
+      email: this.state.email ? this.state.email : this.props.settings[0].email,
+      username: this.state.username
+        ? this.state.username
+        : this.props.settings[0].username,
+      // password: this.state.password,
+      weight: Number(this.state.weight)
+        ? Number(this.state.weight)
+        : this.props.settings[0].weight
+        ? this.props.settings[0].weight
+        : 1,
       user_level: this.state.user_level ? this.state.user_level : "Beginner",
       email_notification:
         this.state.email_notification === "true" ? true : false,
@@ -192,92 +247,103 @@ class Settings extends React.Component {
     if (this.state.wantUpdate) {
       return (
         <StyledSettings>
-          {this.props.settings
-            ? this.props.settings.map((setting, index) => {
-                return (
-                  <div key={index}>
-                    <div className="user-data">
-                      <ul className="info">
-                        <li>
-                          <span className="text">Email:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
+          <div style={{ borderBottom: "1px solid #E9E9E9" }}>
+            <Checkbox
+              indeterminate={this.state.indeterminate}
+              onChange={this.onCheckAllChange}
+              checked={this.state.checkAll}
+            >
+              Check all
+            </Checkbox>
+          </div>
+          <br />
+          <CheckboxGroup
+            options={plainOptions}
+            value={this.state.checkedList}
+            onChange={this.onChange}
+          />
+
+          <div>
+            {this.props.settings
+              ? this.props.settings.map((setting, index) => {
+                  return (
+                    <div key={index}>
+                      <div className="user-data">
+                        <List>
+                          <div
+                            className={
+                              this.state.checkedList.includes("Email")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Email: <i className="fa fa-envelope"></i>
+                              </p>
+                            </div>
+                            <Input
                               value={this.state.email}
                               onChange={this.handleChange}
                               placeholder={setting.email}
                               name="email"
                             />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-envelope"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Username:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
+                          </div>
+                          <div
+                            className={
+                              this.state.checkedList.includes("Username")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Username: <i className="fa fa-user"></i>
+                              </p>
+                            </div>
+                            <Input
                               value={this.state.username}
                               onChange={this.handleChange}
                               placeholder={setting.username}
                               name="username"
                             />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-user"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Password:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.password}
-                              onChange={this.handleChange}
-                              placeholder={setting.password}
-                              name="password"
-                              type="password"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-key"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Weight:</span>
-                          <span className="data">
-                            <input
+                          </div>
+                          {/* <div
+                            className={
+                              this.state.checkedList.includes("Weight")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Weight: <i className="fa fa-balance-scale"></i>
+                              </p>
+                            </div>
+                            <Input
+                              min="1"
+                              type="number"
                               className="update-input"
                               value={this.state.weight}
                               onChange={this.handleChange}
                               placeholder={setting.weight}
                               name="weight"
                             />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-balance-scale"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Height:</span>
-                          <span className="data">
-                            <input
-                              className="update-input"
-                              value={this.state.height}
-                              onChange={this.handleChange}
-                              placeholder={setting.height}
-                              name="height"
-                            />
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-arrow-circle-up"></i>
-                          </span>
-                        </li>
+                          </div> */}
+                          {/* <div
+                            className={
+                              this.state.checkedList.includes("User Level")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                User Level:{" "}
+                                <i className="fa fa-graduation-cap"></i>
+                              </p>
+                            </div>
 
-                        <li>
-                          <span className="text">Level:</span>
-                          <span className="data">
                             <select
                               className="update-input"
                               value={this.state.user_level}
@@ -288,73 +354,74 @@ class Settings extends React.Component {
                               <option value="Intermediate">Intermediate</option>
                               <option value="Expert">Expert</option>
                             </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-graduation-cap"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Gender:</span>
-                          <span className="data">
-                            <select
-                              name="gender"
-                              className="update-input"
-                              value={this.state.gender}
-                              onChange={this.handleChange}
-                            >
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                              <option value="Other">Other</option>
-                            </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-venus-mars"></i>
-                          </span>
-                        </li>
+                          </div> */}
 
-                        <li>
-                          <span className="text">Email Notification:</span>
-                          <span className="data">
+                          <div
+                            className={
+                              this.state.checkedList.includes(
+                                "Email Notification"
+                              )
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Email Notifications:{" "}
+                                <i className="fa fa-envelope"></i>
+                              </p>
+                            </div>
+
                             <select
                               className="update-input"
                               value={this.state.email_notification}
                               onChange={this.handleChange}
                               name="email_notification"
                             >
-                              <option value="male">False</option>
-                              <option value="female">True</option>
+                              <option value="false">False</option>
+                              <option value="true">True</option>
                             </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-envelope"></i>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text">Push Notification:</span>
-                          <span className="data">
+                          </div>
+                          <div
+                            className={
+                              this.state.checkedList.includes(
+                                "Push Notification"
+                              )
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Push Notifications:{" "}
+                                <i className="fa fa-bell"></i>
+                              </p>
+                            </div>
+
                             <select
                               className="update-input"
                               value={this.state.push_notification}
                               onChange={this.handleChange}
                               name="push_notification"
                             >
-                              <option value="male">False</option>
-                              <option value="female">True</option>
+                              <option value="false">False</option>
+                              <option value="true">True</option>
                             </select>
-                          </span>
-                          <span className="icon">
-                            <i className="fa fa-bell"></i>
-                          </span>
-                        </li>
-                      </ul>
+                          </div>
+                        </List>
+                      </div>
                     </div>
-                  </div>
-                );
-              })
-            : null}
-          <button className="update-button" onClick={this.changeSettings}>
-            Change
-          </button>
+                  );
+                })
+              : null}
+            <Button
+              className={this.state.checkedList[0] ? "button" : "off"}
+              onClick={this.changeSettings}
+              style={{ background: "#001529" }}
+            >
+              Update
+            </Button>
+          </div>
         </StyledSettings>
       );
     }
@@ -363,98 +430,98 @@ class Settings extends React.Component {
           return (
             <StyledSettings key={index}>
               <div className="user-data">
-                <ul className="info">
-                  <li>
-                    <span className="text">Email:</span>
-                    <span className="data">
-                      <p>{setting.email ? setting.email : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Username:</span>
-                    <span className="data">
-                      <p>
-                        {setting.username ? setting.username : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-user"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Weight:</span>
-                    <span className="data">
-                      <p>
-                        {setting.weight === 0
-                          ? "Not specified"
-                          : setting.weight}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-balance-scale"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Height:</span>
-                    <span className="data">
-                      <p>
-                        {setting.height === 0
-                          ? "Not specified"
-                          : setting.height}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-arrow-circle-up"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Gender:</span>
-                    <span className="data">
-                      <p>{setting.gender ? setting.gender : "Not specified"}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-venus-mars"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Level:</span>
-                    <span className="data">
-                      <p>
-                        {setting.user_level
-                          ? setting.user_level
-                          : "Not specified"}
-                      </p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-graduation-cap"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Email Notification:</span>
-                    <span className="data">
-                      <p>{setting.email_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-envelope"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="text">Push Notification:</span>
-                    <span className="data">
-                      <p>{setting.push_notification.toString()}</p>
-                    </span>
-                    <span className="icon">
-                      <i className="fa fa-bell"></i>
-                    </span>
-                  </li>
-                </ul>
+                <List>
+                  <Button
+                    style={{ background: "#001529" }}
+                    onClick={this.startUpdate}
+                  >
+                    Update Settings
+                  </Button>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-envelope"></i>
+                      </span>
+                      <Statistic
+                        title="Email"
+                        titleStyle={{ color: "white" }}
+                        value={setting.email ? setting.email : "Not specified"}
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-user"></i>
+                      </span>
+                      <Statistic
+                        title="Username"
+                        value={
+                          setting.username ? setting.username : "Not specified"
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-balance-scale"></i>
+                      </span>
+                      <Statistic
+                        title="Weight (KG)"
+                        value={
+                          setting.weight === 0
+                            ? "Not specified"
+                            : setting.weight
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div> */}
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-graduation-cap"></i>
+                      </span>
+                      <Statistic
+                        title="User Level"
+                        value={
+                          setting.user_level
+                            ? setting.user_level
+                            : "Not specified"
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div> */}
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-envelope"></i>
+                      </span>
+                      <Statistic
+                        title="Email Notification"
+                        value={setting.email_notification.toString()}
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-bell"></i>
+                      </span>
+                      <Statistic
+                        title="Push Notification"
+                        value={setting.push_notification.toString()}
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                </List>
               </div>
-              <button className="update-button" onClick={this.startUpdate}>
-                Update
-              </button>
             </StyledSettings>
           );
         })

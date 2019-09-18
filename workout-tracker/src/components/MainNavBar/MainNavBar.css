@@ -3,9 +3,9 @@
   padding: 0 1rem;
   display: flex;
   align-items: center;
-  max-width: 950px;
   margin: auto;
   z-index: +10;
+  flex-direction: row;
 }
 
 .spacer {
@@ -17,6 +17,10 @@
   padding: 0;
   margin: 0 1.5rem;
   display: none;
+}
+
+.main-nav__logo {
+  flex: 1;
 }
 
 @media (min-width: 768px) {

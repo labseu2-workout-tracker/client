@@ -1,17 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { applyMiddleware, createStore } from "redux";
+import { Provider } from "react-redux";
+import logger from 'redux-logger';
+import thunk from "redux-thunk";
+import rootReducer from "./store/reducers";
+import App from "./App";
 
-import thunk from 'redux-thunk';
-import rootReducer from './store/reducers';
-import logger from "redux-logger";
-import App from './App';
+import "./index.css";
 
-import './index.css';
+function saveToLocalStorage(state) {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("state", serializedState);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+function loadFromLocalStorage() {
+  try {
+    const serializedState = localStorage.getItem("state");
+    if (serializedState === null) return undefined;
+    return JSON.parse(serializedState);
+  } catch (e) {
+    console.log(e);
+    return undefined;
+  }
+}
+
+const persistedState = loadFromLocalStorage();
+
+const store = createStore(rootReducer, persistedState, applyMiddleware(logger, thunk));
+
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,4 +42,5 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById("root")
+);

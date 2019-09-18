@@ -1,44 +1,118 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import {fetchWorkouts } from '../../store/actions/workoutsActions';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import {
+  fetchWorkouts,
+  fetchWorkoutDetails,
+  addWorkout
+} from "../../store/actions/workoutsActions";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { notification } from "antd";
+import WorkoutPage from '../customWorkout/WorkoutPage';
+
+const StyledWorkouts = styled.div`
+  text-align: center;
+
+  .off {
+    display: none;
+  }
+
+  .added-workout {
+    background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
+
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border-radius: 0.5rem;
+  }
+
+  .close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  i {
+    font-size: 3rem;
+    transition: 0.6s ease-in-out;
+
+    &:hover {
+      color: red;
+    }
+  }
+`;
 
 
-class Workouts  extends React.Component {
-
-  // calling the action fetch workout with lifecycle msg
+class Workouts extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
   }
+
+  addWorkout = (type, workout_id, workout_name) => {
+    notification[type]({
+      message: "Successful!",
+      description: `The workout ${workout_name} got added to your list.`
+    });
+
+    this.props.addWorkout(workout_id);
+  };
+
+  
   render() {
-    return(
-      <>
-          <h1 className="coolstuff">Choose from our Workouts</h1>
-      <div className="land-wrapper">
-    
-      {/* array- mappin over each workout */}
-      {/* check if null or not then return  */}
-      {this.props.workouts ? (this.props.workouts.map(workout =>{
-        return <div className="workout-card"> 
-          <img src={workout.image_url} alt="workout" className="workout-img"/>
-          <h1>{workout.workout_name}</h1>
-          <p>{workout.workout_description}</p>
-          <Link to="#" className="btn">
-                Add Workout
-              </Link>
-        </div> 
-      })) : null}
-    </div>
-    </>
-    )
+    return (
+      <StyledWorkouts>
+        <h1 className="coolstuff">Choose from our Workouts</h1>
+        <div className="land-wrapper">
+          {this.props.workouts
+            ? this.props.workouts.map((workout, index) => {
+                return (
+                  <div key={index} className="workout-card">
+                    <img
+                      src={workout.image_url}
+                      alt="workout"
+                      className="workout-img"
+                    />
+                    <h1>{workout.workout_name}</h1>
+                    <p>{workout.workout_description}</p>
+                    <Link
+                      onClick={() => this.props.fetchWorkoutDetails(workout.id)}
+                      to="Workout_session"
+                      className="btn"
+                    >
+                      Start Workout
+                    </Link>
+                    <p
+                      className="btn"
+                      onClick={() =>
+                        this.addWorkout(
+                          "success",
+                          workout.id,
+                          workout.workout_name
+                        )
+                      }
+                    >
+                      Add Workout
+                    </p>
+                  </div>
+                );
+              })
+            : null}
+        </div>
+        <WorkoutPage />
+      </StyledWorkouts>
+    );
   }
 }
 
- 
 const mapStateToProps = state => {
-  return{
-    workouts:state.workouts.workouts,
-
-  }
-}
-export default connect(mapStateToProps, {fetchWorkouts})(Workouts);
+  return {
+    workouts: state.workouts.workouts
+  };
+};
+export default connect(
+  mapStateToProps,
+  { fetchWorkouts, fetchWorkoutDetails, addWorkout }
+)(Workouts);

@@ -34,7 +34,7 @@ const LandingPage = () => {
               <img src={bg} alt="card background" className="card-img" />
               <img src={run} alt="profile" className="profile-img" />
               <h1>User Structured</h1>
-              <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               <Link to="#" className="btn">
                 Find More
               </Link>
@@ -45,7 +45,7 @@ const LandingPage = () => {
               <img src={fapp} alt="card background" className="card-img" />
               <img src={lift} alt="profile" className="profile-img" />
               <h1>Workout Manuals</h1>
-              <p className="job-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               <Link to="#" className="btn">
                 Find More
               </Link>

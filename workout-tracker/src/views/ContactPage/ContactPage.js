@@ -1,85 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
+import './ContactPage.css'
 // import { fetchSettings } from "../../store/actions/settingActions.js"
 // We must wait for new merging where I have the new actions
 
-const StyledContactPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 0 1.5rem;
 
-  h2 {
-    font-weight: 400;
-    line-height: 3.4rem;
-  }
-
-  .question {
-    color: black;
-    line-height: 3.2rem;
-    margin: 0;
-  }
-
-  p {
-    font-size: 0.7rem;
-    color: #828698;
-    margin: 0 0 0.5rem 0;
-  }
-
-  input {
-    border: 1px solid #e3eaee;
-    border-radius: 4px;
-    line-height: 1.2em;
-  }
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 0;
-    width: 100%;
-  }
-
-  .column-start {
-    padding-right: 0.5rem;
-  }
-
-  .column-end {
-    padding-left: 0.5rem;
-  }
-
-  .row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-
-    input {
-      width: 100%;
-      height: 1.5rem;
-    }
-  }
-
-  .messageInput {
-    height: 8rem;
-    width: 100%;
-  }
-
-  button {
-    border-color: transparent;
-    width: 7rem;
-    height: 1.8rem;
-    font-size: 0.7rem;
-    line-height: 1.6rem;
-    border-radius: 4px;
-    border: 1px solid #f0f4f6;
-    color: #212432;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-    text-align: center;
-    background: linear-gradient(46deg, #2eb7ce, #4296cb);
-  }
-`;
 
 class ContactPage extends React.Component {
   constructor(props) {
@@ -90,6 +15,7 @@ class ContactPage extends React.Component {
       email: this.props.settings ? this.props.settings[0].email : "",
       phone: "",
       message: ""
+      
     };
   }
 
@@ -118,65 +44,76 @@ class ContactPage extends React.Component {
 
   render() {
     return (
-      <StyledContactPage>
-        <h2>Contact Us</h2>
-        <p className="question">
-          Have a question about a product, feedback, or business inquiry for
-          Workout Tracker?
-        </p>
+     <>
+     <section className="contact">
+     <h1 className="section-header">Contact Us</h1>
+      
+      <div className="contact-wrapper">
+        <form className="form-horizontal" >
+           
+          <div className="form-group" id="POST">
+            <div className="col-sm-12">
+              <input type="text" className="form-control" id="name" placeholder="First Name:" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="text" className="form-control" id="name" placeholder="Last Name:" name="lastName" value={this.state.lastName} onChange={this.handleChange}  />
+            </div>
+          </div>
+    
+          <div className="form-group">
+            <div className="col-sm-12">
+              <input type="email" className="form-control" id="email" placeholder="Email:" name="email" value={this.state.email} onChange={this.handleChange} />
+            </div>
+          </div>
+    
+          <textarea className="form-control" rows="10" placeholder="Message:" name="message" value={this.state.message} onChange={this.handleChange} />
+          
+          <button className="send-button" id="submit" type="submit" value="SEND" onClick={this.sendMessage}> <h3 className="send-text">Send</h3>
+          </button>
+          
+        </form>
+        
+        <div className="direct-contact-container">
+    
+    <ul className="contact-list">
+      <li className="list-item"><i className="fa fa-map-marker fa-2x"><span className="contact-text place">BeFit | EU</span></i></li>
+      
+      <li className="list-item"><i className="fa fa-info-circle fa-2x"><span className="contact-text phone"><a href="htt">Help Desk</a></span></i></li>
+      <li className="list-item"><i className="fa fa-fax fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+      <li className="list-item"><i className="fa fa-phone fa-2x"><span className="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+      
+      <li className="list-item"><i className="fa fa-envelope fa-2x"><span className="contact-text gmail"><a href="mailto:info@befit.com" title="Send me an email">info@befit.com</a></span></i></li>
+      
+    </ul>
 
-        <div className="row">
-          <div className="column column-start">
-            <p>First Name</p>
-            <input
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              placeholder="John"
-            />
-          </div>
-          <div className="column column-end">
-            <p>Last Name</p>
-            <input
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-              placeholder="Doe"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="column column-start">
-            <p>Email *</p>
-            <input
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeholder="JohnDoe@gmail.com"
-            />
-          </div>
-          <div className="column column-end">
-            <p>Phone</p>
-            <input
-              name="phone"
-              value={this.state.phone}
-              onChange={this.handleChange}
-              placeholder="ex: +49 1729149128"
-            />
-          </div>
-        </div>
-        <div className="column">
-          <p>Message *</p>
-          <input
-            className="messageInput"
-            name="message"
-            value={this.state.message}
-            onChange={this.handleChange}
-            placeholder="Message"
-          />
-        </div>
-        <button onClick={this.sendMessage}>Send</button>
-      </StyledContactPage>
+    <hr />
+    <ul className="soci-media-list">
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-github"></i></a>
+      </li>
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-twitter" ></i></a>
+      </li>
+      <li><a href="htt" className="contact-icon">
+        <i className="fab fa-instagram"></i></a>
+      </li>
+      <li><a href="httt" className="contact-icon">
+        <i className="fab fa-github"></i></a>
+      </li>
+    </ul>
+    <hr />
+
+    <div className="copyright">&copy;{new Date().getFullYear()} ALL OF THE RIGHTS RESERVED</div>
+
+  </div>
+         
+        
+      </div>
+     </section>
+     </>
+        
     );
   }
 }

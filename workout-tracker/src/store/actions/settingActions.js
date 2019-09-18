@@ -1,36 +1,31 @@
-import axios from "axios";
+import { axiosWithAuth } from "../axiosWithAuth";
 
 export const FETCH_SETTINGS = "FETCH_SETTINGS";
 export const UPDATE_SETTINGS = "UPDATE_SETTINGS";
 
-const settings = `${process.env.REACT_APP_BASE_URL}/settings`;
+const settings = `${process.env.REACT_APP_BASE_URL}/profile`;
 // adress get's changed later
 
 export const fetchSettings = () => dispatch => {
   // type LOADING needs to be added (also for the redux state)
-  const userId = localStorage.getItem('userId');
 
-  return axios
-  .get(`${settings}/${userId}`)
+  axiosWithAuth()
+  .get(`${settings}`)
   .then(res => {
-      dispatch({ type: FETCH_SETTINGS, settings: res.data });
+      dispatch({ type: FETCH_SETTINGS, settings: res.data.user });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
     });
   };
   
-  export const updateSettings = updatedSettings => dispatch => {
-    const userId = localStorage.getItem('userId');
-  debugger
-  return axios
-    .put(`${settings}/${userId}`, updatedSettings)
+  export const updateSettings = updatedSettings => dispatch => {  
+    axiosWithAuth()
+    .put(settings, updatedSettings)
     .then(res => {
-debugger
-         dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data });
+         dispatch({ type: UPDATE_SETTINGS, updatedSettings: res.data.user });
     })
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
-    debugger
     });
 };
