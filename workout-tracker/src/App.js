@@ -72,19 +72,6 @@ class App extends Component {
     );
     if (Auth.isAuthenticated()) {
       routes = (
-<<<<<<< HEAD
-        <div className="App">
-          <Switch>
-            <Route path={'/Dashboard'} component={UserPage} />
-            <Route path={'/Exercises'} component={ExercisesLibrary} />
-            <Route path={'/Settings'} component={Settings} />
-            <Route path={'/Contact'} component={ContactPage} />    
-            <Route path={'/Workout'} component={WorkoutView} />  
-            <Route path={'/About'} component={About} />  
-            <Redirect to='/Dashboard' />       
-          </Switch>
-        </div>
-=======
       <Switch>
         <PrivateRoute path={"/Dashboard"} component={Stats} />
         <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
@@ -94,7 +81,6 @@ class App extends Component {
         <PrivateRoute path={"/Workouts/new/add_exercises"} component={AllExercises} />
         <Redirect to="/workouts" />
       </Switch>
->>>>>>> 7fc64ddc206db0d4f9e924400ce8a2de1d7279d1
       )
     }
 
