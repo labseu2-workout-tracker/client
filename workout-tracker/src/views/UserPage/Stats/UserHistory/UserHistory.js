@@ -34,7 +34,7 @@ class SessionHistory extends React.Component {
     return (
       <StyledUserHistory>
         <Card className="history" title="Workout History">
-          {history ? (
+          {history.length ? (
             <div>
               <div className="ordered-list">
                 {history
