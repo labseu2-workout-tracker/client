@@ -1,15 +1,15 @@
 import React from "react";
-import { Form, Input, Button, Radio } from "antd";
+import { Form, Input, Radio } from "antd";
 
 const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
   // eslint-disable-next-line
   class extends React.Component {
     render() {
-      const { onCreate, form } = this.props;
+      const { form } = this.props;
       const { getFieldDecorator } = form;
       return (
-        <Form style={{ textAlign: "center" }} layout="inline">
-          <Form.Item /* label="Workout Name" */>
+        <Form layout="inline">
+          <Form.Item label="Workout Name" >
             {getFieldDecorator("workout_name", {
               initialValue: `${this.props.name || ''}`,
               rules: [
@@ -20,7 +20,7 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
               ]
             })(<Input />)}
           </Form.Item>
-          <Form.Item /* label="Description" */>
+          <Form.Item label="Description">
             {getFieldDecorator("workout_description", {
               initialValue: `${this.props.description || ''}`,
               rules: [
@@ -31,7 +31,7 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
               ]
             })(<Input />)}
           </Form.Item>
-          <Form.Item /* label="Level" */>
+          <Form.Item label="Level" className="collection-create-form_last-form-item">
             {getFieldDecorator("level", {
               initialValue: `${this.props.level || ''}`
             })(
@@ -41,11 +41,6 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
                 <Radio value="Expert">Expert</Radio>
               </Radio.Group>
             )}
-          </Form.Item>
-          <Form.Item className="collection-create-form_last-form-item">
-            <Button type="primary" onClick={onCreate}>
-              Update
-            </Button>
           </Form.Item>
         </Form>
       );

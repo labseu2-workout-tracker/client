@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FilterTag from "./FilterTag";
-import { Divider } from "antd";
+import {  Input, Icon, AutoComplete } from "antd";
 
 export default class FilterExercises extends Component {
   render() {
@@ -39,38 +39,43 @@ export default class FilterExercises extends Component {
       "Exercise Ball"
     ];
     return (
-      <div style={sideFilter}>
+      <div style={filterStyles}>
         <div>
           <h4>Filter By Muscles:</h4>
           {muscles.map(muscle => (
-            <FilterTag key={muscle} filter={'muscle'}>
+            <FilterTag key={muscle} filter={"muscle"}>
               {muscle}
             </FilterTag>
           ))}
         </div>
-        <Divider />
         <div>
           <h4>Filter By Equipment:</h4>
           {equipments.map(equipment => (
-            <FilterTag key={equipment} filter={'equipment'} >
+            <FilterTag key={equipment} filter={"equipment"}>
               {equipment}
             </FilterTag>
           ))}
         </div>
+        <AutoComplete
+          dataSource={[...new Set(this.props.exercises)].map(e => (
+            <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
+              {e.exercise_name}
+            </AutoComplete.Option>
+          ))}
+          style={{ width: 300 }}
+          onChange={exercise_name => this.props.searchExercise(exercise_name)}
+          optionLabelProp="text"
+        >
+          <Input
+            suffix={<Icon type="search" className="certain-category-icon" />}
+            placeholder="Search Exercises"
+          />
+        </AutoComplete>
       </div>
     );
   }
 }
 
-const sideFilter = {
-  margin: "0 auto",
-  display: "flex",
-  padding: "2rem",
-  position: "fixed",
-  width: "20%",
-  borderRightColor: "red",
-  borderRight: ".5px solid #efefef",
-  height: "100%",
-  flexDirection: "column",
-  alignItems: "center"
+const filterStyles = {
+  textAlign: "center"
 };

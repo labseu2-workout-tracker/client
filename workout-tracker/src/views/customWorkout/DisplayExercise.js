@@ -4,21 +4,21 @@ import { List, Card, Modal, Button, Avatar } from "antd";
 export default class DisplayExercise extends Component {
   state = { visible: false };
 
-  showModal = (id) => {
+  showModal = id => {
     this.props.showSingleExercise(id);
     this.setState({
       visible: true
     });
   };
 
-  handleOk = (e) => {
+  handleOk = e => {
     console.log(e);
     this.setState({
       visible: false
     });
   };
 
-  handleCancel = (e) => {
+  handleCancel = e => {
     console.log(e);
     this.setState({
       visible: false
@@ -31,7 +31,7 @@ export default class DisplayExercise extends Component {
           padding: "2rem",
           maxWidth: "75%",
           fontSize: ".8rem",
-          marginLeft: "19%"
+          marginLeft: "24%"
         }}
       >
         <List
@@ -49,7 +49,11 @@ export default class DisplayExercise extends Component {
             <List.Item>
               <Card
                 actions={[
-                  <Button onClick={() => this.showModal(item.id)} icon="info-circle" key={item.id}>
+                  <Button
+                    onClick={() => this.showModal(item.id)}
+                    icon="info-circle"
+                    key={item.id}
+                  >
                     Info
                   </Button>,
                   <Button
@@ -94,13 +98,15 @@ export default class DisplayExercise extends Component {
                 hoverable
                 style={{ width: "100%" }}
                 cover={
-                  this.state.visible && <video className="" controls autoplay>
-                    <source
-                      src={this.props.singleExercise[0].video}
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                  this.state.visible && (
+                    <video className="" controls autoplay>
+                      <source
+                        src={this.props.singleExercise[0].video}
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  )
                 }
               >
                 <Card.Meta

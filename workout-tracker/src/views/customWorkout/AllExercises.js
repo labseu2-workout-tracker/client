@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import DisplayExercise from "./DisplayExercise";
 import FilterExercises from "./FilterExercises";
-import TopBar from "./TopBar";
+import SideBar from "./SideBar";
 import {
   fetchExercises,
   addToSelectedExercises,
   filterMuscles,
-  showSingleExercise
+  showSingleExercise,
+  searchExercise
 } from "../../store/actions/exerciseActions";
 import { Spin, Button } from "antd";
 import { ReactHeight } from "react-height";
@@ -47,14 +48,19 @@ class AllExercises extends Component {
               <ReactHeight
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
-                <TopBar
-                  newWorkout={this.props.newWorkout}
-                  selectedExercises={this.props.selectedExercises}
+                <FilterExercises
+                  {...this.props}
+                  filterMuscles={this.filterMuscles}
                 />
               </ReactHeight>
             </div>
             <div style={{ marginTop: this.state.topBarHeight + 15 }}>
-              <FilterExercises filterMuscles={this.filterMuscles} />
+              <SideBar
+                marginTop={this.state.topBarHeight + 15}
+                newWorkout={this.props.newWorkout}
+                selectedExercises={this.props.selectedExercises}
+              />
+
               <DisplayExercise
                 showSingleExercise={this.props.showSingleExercise}
                 addExercise={this.props.addToSelectedExercises}
@@ -63,9 +69,8 @@ class AllExercises extends Component {
               />
             </div>
             <Button
-              type="dashed"
+              type="link"
               size="large"
-              shape="circle"
               icon="close"
               style={floatingButtons}
               onClick={() => this.props.history.push("/workouts")}
@@ -73,11 +78,10 @@ class AllExercises extends Component {
             <Button
               type="primary"
               size="large"
-              shape="circle"
               icon="check"
               style={{ ...floatingButtons, ...bottom }}
               onClick={() => this.props.history.push("/workouts/new/add_sets")}
-            ></Button>{" "}
+            >Save Exercices</Button>{" "}
           </div>
         )}
       </>
@@ -98,21 +102,27 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { fetchExercises, addToSelectedExercises, filterMuscles, showSingleExercise }
+  {
+    fetchExercises,
+    searchExercise,
+    addToSelectedExercises,
+    filterMuscles,
+    showSingleExercise
+  }
 )(AllExercises);
 
 const floatingButtons = {
   position: "fixed",
   right: "2rem",
-  top: "2rem",
-  width: "60px",
-  height: "60px",
+  top: "1rem",
   zIndex: 7
 };
 
 const bottom = {
   top: "unset",
-  bottom: "2rem",
+  bottom: "1rem",
+  left: "1rem",
+  width: "calc(25% - 2rem)",
   boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)"
 };
 
@@ -122,6 +132,6 @@ const topBar = {
   top: 0,
   width: "100%",
   zIndex: 5,
-  background: "#efefef",
-  boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)"
+  background: "#fff",
+  boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .05)"
 };

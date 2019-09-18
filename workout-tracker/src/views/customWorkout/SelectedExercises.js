@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Tag } from "antd";
-import { TweenOneGroup } from "rc-tween-one";
+import { List, Button } from "antd";
 
 export default class SelectedExercises extends Component {
   handleClose = exercise => {
@@ -10,34 +9,27 @@ export default class SelectedExercises extends Component {
   render() {
     return (
       <div>
-        <strong>Selected Exercises: </strong>
-        <TweenOneGroup
-          enter={{
-            scale: 0.8,
-            opacity: 0,
-            type: "from",
-            duration: 100,
-            onComplete: e => {
-              e.target.style = "";
-            }
-          }}
-          leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
-          appear={false}
-        >
-          {this.props.exercises.map(exercise => (
-            <span key={exercise.id}>
-              <Tag
-                closable
-                onClose={e => {
-                  e.preventDefault();
-                  this.handleClose(exercise);
-                }}
-              >
-                {exercise.exercise_name}
-              </Tag>
-            </span>
-          ))}
-        </TweenOneGroup>
+        <h3>Selected Exercises: </h3>
+        <List
+          size="small"
+          bordered
+          dataSource={this.props.exercises}
+          itemLayout="vertical"
+          renderItem={item => (
+            <List.Item
+              extra={
+                <Button
+                  size="small"
+                  type="danger"
+                  icon="close"
+                  onClick={() => this.handleClose(item)}
+                />
+              }
+            >
+              {item.exercise_name}
+            </List.Item>
+          )}
+        />
       </div>
     );
   }

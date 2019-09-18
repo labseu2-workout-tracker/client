@@ -3,13 +3,9 @@ import UpdateWorkoutDetails from "./UpdateWorkoutDetails";
 import SelectedExercises from "./SelectedExercises";
 import { connect } from "react-redux";
 import { addWorkoutDetails } from "../../store/actions/workoutsActions";
-import {
-  removeFromSelectedExercises,
-  searchExercise
-} from "../../store/actions/exerciseActions";
-import { Input, Icon, AutoComplete } from "antd";
+import { removeFromSelectedExercises } from "../../store/actions/exerciseActions";
 
-class TopBar extends Component {
+class SideBar extends Component {
   handleCreate = () => {
     const { form } = this.formRef.props;
     form.validateFields((err, values) => {
@@ -27,7 +23,8 @@ class TopBar extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ height: `calc(100% - ${this.props.marginTop}px - 3rem)`, ...sideFilter}}>
+        <div style={{ overflow: "auto" }}>
         <UpdateWorkoutDetails
           wrappedComponentRef={this.saveFormRef}
           onCreate={this.handleCreate}
@@ -37,27 +34,10 @@ class TopBar extends Component {
           }
           level={this.props.newWorkout && this.props.newWorkout.level}
         />
-
-        <SelectedExercises
-          remove={this.props.removeFromSelectedExercises}
-          exercises={this.props.selectedExercises}
-        />
-        <div style={{ textAlign: 'center'}}>
-          <AutoComplete
-            dataSource={[...new Set(this.props.exercises)].map(e => (
-              <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
-                {e.exercise_name}
-              </AutoComplete.Option>
-            ))}
-            style={{ width: 300 }}
-            onChange={exercise_name => this.props.searchExercise(exercise_name)}
-            optionLabelProp="text"
-          >
-            <Input
-              suffix={<Icon type="search" className="certain-category-icon" />}
-              placeholder="Search Exercises"
-            />
-          </AutoComplete>
+          <SelectedExercises
+            remove={this.props.removeFromSelectedExercises}
+            exercises={this.props.selectedExercises}
+          />
         </div>
       </div>
     );
@@ -73,5 +53,18 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addWorkoutDetails, removeFromSelectedExercises, searchExercise }
-)(TopBar);
+  { addWorkoutDetails, removeFromSelectedExercises }
+)(SideBar);
+
+const sideFilter = {
+  margin: "0 auto",
+  display: "flex",
+  padding: "1rem",
+  position: "fixed",
+  width: "25%",
+  borderRightColor: "red",
+  borderRight: ".5px solid #efefef",
+  flexDirection: "column",
+  alignItems: "center",
+  overflow: "auto"
+};
