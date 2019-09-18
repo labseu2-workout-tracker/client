@@ -1,5 +1,4 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import { Modal, Form, Input, Button, Radio } from 'antd';
 
 const CreateModalForm = Form.create({ name: 'form_in_modal' })(
@@ -19,8 +18,8 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
           
         >
           <Form layout="vertical">
-            <Form.Item label="Workout Tittle">
-              {getFieldDecorator('title', {
+            <Form.Item label="Workout Title">
+              {getFieldDecorator('workout_name', {
                 rules: [
                   {
                     required: true,
@@ -30,7 +29,7 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
               })(<Input />)}
             </Form.Item>
             <Form.Item label="Description">
-              {getFieldDecorator('description', {
+              {getFieldDecorator('workout_description', {
                 rules: [
                   {
                     required: true,
@@ -40,11 +39,11 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
               })(<Input type="textarea" />)}
             </Form.Item>
             <Form.Item className="collection-create-form_last-form-item">
-              {getFieldDecorator('modifier')(
+              {getFieldDecorator('level')(
                 <Radio.Group>
-                  <Radio value="beginner">beginner</Radio>
-                  <Radio value="intermediate">intermediate</Radio>
-                  <Radio value="expert">expert</Radio>
+                  <Radio value="Beginner">Beginner</Radio>
+                  <Radio value="Intermediate">Intermediate</Radio>
+                  <Radio value="Expert">Expert</Radio>
                 </Radio.Group>,
               )}
             </Form.Item>

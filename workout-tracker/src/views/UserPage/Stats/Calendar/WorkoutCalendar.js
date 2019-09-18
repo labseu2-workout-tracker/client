@@ -2,15 +2,19 @@ import React from "react";
 import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
 import { connect } from "react-redux";
-import { Calendar, Badge, Modal, Button } from "antd";
+import { Calendar, Modal, Button } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
+  p {
+    padding: 0;
+  }
+
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 90px;
+    height: 65px;
   }
 
   .ant-radio-button-wrapper {
@@ -40,13 +44,30 @@ const StyledWorkoutCalendar = styled.div`
     display: none;
   }
 
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
+    display: flex;
+  }
+
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-value {
+    order: 1;
+  }
+
+  .status-text {
+    font-size: 0.75rem;
+    margin: 0;
+    width: 100%;
+    height: 3rem;
+    font-weight: bold;
+    padding: .02rem;
+  }
+
   .fa-info-circle {
     color: green;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1150px) {
     .status {
       display: flex;
       width: 100%;
@@ -56,13 +77,11 @@ const StyledWorkoutCalendar = styled.div`
     }
     .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
     .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-      height: 60px;
+      height: 35px;
     }
 
-    .ant-badge-status-dot {
-      margin-top: 0.5rem;
-      width: 20px;
-      height: 20px;
+    .fa-info-circle {
+      margin: 0.25rem 0 0 0;
     }
 
     .status-text {
@@ -73,6 +92,16 @@ const StyledWorkoutCalendar = styled.div`
   @media (max-width: 600px) {
     .fa-info-circle {
       font-size: 1rem;
+    }
+
+    .ant-fullcalendar-calendar-body {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .status {
+      display: none;
     }
   }
 `;
@@ -224,6 +253,7 @@ class WorkoutCalendar extends React.Component {
             <div className="status">
               <i onClick={this.showModal} className="fa fa-info-circle" />
               <Modal
+                maskStyle={{ opacity: ".2" }}
                 title="Workout List"
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
@@ -240,19 +270,26 @@ class WorkoutCalendar extends React.Component {
                   : null}
               </Modal>
             </div>
-            <Badge
-              style={{
-                borderRadius: ".6rem",
-                textAlign: "center",
-                backgroundColor: "#11B8CC",
-                height: "60px",
-                color: "black",
-                fontWeight: "bold"
-              }}
-              status={item.type}
-              text={item.content}
-              className="status-text"
-            />
+            <div className="status-text">
+              <p onClick={this.showModal}>{item.content}</p>
+              <Modal
+                maskStyle={{ opacity: ".2" }}
+                title="Workout List"
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                footer={[
+                  <Button key={uuid()} type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
+              >
+                {this.state.workoutsForDate
+                  ? this.state.workoutsForDate.map(workoutName => (
+                      <p key={uuid()}>{workoutName}</p>
+                    ))
+                  : null}
+              </Modal>
+            </div>
           </li>
         ))}
       </ul>
@@ -303,9 +340,20 @@ class WorkoutCalendar extends React.Component {
       }
     }
 
-    this.setState({
-      workoutsForDate: workoutsForDay
-    });
+    if (workoutsForDay[0]) {
+      this.setState({
+        workoutsForDate: workoutsForDay
+      });
+    } else {
+      this.setState({
+        workoutsForDate: ["You didnt made a workout this day"]
+      });
+    }
+
+    let checkBrowserWidth = window.innerWidth;
+    if (checkBrowserWidth < 500 && !this.state.visible) {
+      this.showModal();
+    }
   };
 
   showModal = () => {
@@ -329,15 +377,15 @@ class WorkoutCalendar extends React.Component {
 
   render() {
     return (
-      <Card className="calendar" title="Calendar">
-        <StyledWorkoutCalendar>
+      <StyledWorkoutCalendar>
+        <Card className="calendar" title="Calendar">
           <Calendar
             dateCellRender={this.dateCellRender}
             monthCellRender={this.monthCellRender}
             onSelect={this.showWorkoutsForDate}
           />
-        </StyledWorkoutCalendar>
-      </Card>
+        </Card>
+      </StyledWorkoutCalendar>
     );
   }
 }

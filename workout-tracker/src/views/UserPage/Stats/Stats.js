@@ -1,12 +1,9 @@
 import React from "react";
-// import ChartContainer from "./Charts/ChartContainer";
 import WeeklyChart from "./Charts/WeeklyChart";
 import MonthlyChart from "./Charts/MonthlyChart";
 import YearlyChart from "./Charts/YearlyChart";
 import UserHistory from "./UserHistory/UserHistory";
 import WorkoutCalendar from "./Calendar/WorkoutCalendar";
-import MonthlyGraph from "./Charts/MonthlyGraph";
-import YearlyGraph from "./Charts/YearlyGraph";
 import styled from "styled-components";
 import { fetchWorkouts } from "../../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
@@ -15,24 +12,52 @@ import { connect } from "react-redux";
 const StyledStats = styled.div`
   padding: 1.5rem 3rem;
 
+  @media (max-width: 1000px) {
+    padding: 0.5rem 2rem;
+  }
+
+  @media (max-width: 720px) {
+    padding: 0.5rem 0rem;
+  }
+
   .chart-row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
   }
 
   .chart {
-    width: 50%;
+    text-align: center;
+    width: 30%;
     border: 0;
     display: flex;
     font-size: 0.875rem;
     min-width: 0;
     word-wrap: break-word;
     background: #fff;
-    box-shadow: 0 0.1rem 0.4rem 0 rgba(0, 0, 0, 0.14);
     margin-top: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    @media (max-width: 1000px) {
+      width: 80%;
+      margin: 1rem;
+    }
+  }
+
+  .ant-card-head-title {
+    text-align: left;
   }
 
   .calendar,
@@ -45,12 +70,23 @@ const StyledStats = styled.div`
     font-size: 0.875rem;
     min-width: 0;
     word-wrap: break-word;
-    background: #fff;
-    box-shadow: 0.1rem 0.4rem 0.1rem 0.4rem rgba(0, 0, 0, 0.14);
     padding: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    @media (max-width: 720px) {
+      padding: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
   }
 `;
 
@@ -60,9 +96,7 @@ class Stats extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-
-  };
+  componentDidMount = () => {};
   render() {
     return (
       <StyledStats>
@@ -76,10 +110,6 @@ class Stats extends React.Component {
 
         <div>
           <WorkoutCalendar />
-        </div>
-        <div className="chart-row">
-        <MonthlyGraph />
-        <YearlyGraph/>
         </div>
         <div>
           <UserHistory />
