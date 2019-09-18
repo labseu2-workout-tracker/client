@@ -161,6 +161,9 @@ p{
     .down-hidden {
       display: inline;
     }
+    .ant-layout{
+      margin: 0 auto;
+    }
 
   }
 `;
@@ -305,7 +308,7 @@ class AllExercises extends React.Component {
                     this.props.exercises.map((exercise, index) => {
                       return (
                         <Col
-                          xs={{ span: 16 }}
+                          xs={{ span: 24 }}
                           sm={{ span: 12 }}
                           md={{ span: 8 }}
                           lg={{ span: 6}}
