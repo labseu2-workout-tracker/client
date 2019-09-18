@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Modal, Card, Button, Col, Icon } from 'antd';
 
 const { Meta } = Card;
-const ButtonGroup = Button.Group;
 
 class WorkoutCard extends React.Component {
   state = { visible: false };
@@ -49,25 +48,19 @@ class WorkoutCard extends React.Component {
           }
           
           />
-        <ButtonGroup>
-          <Button type="primary" size="small">
+          <Button type="primary" size="small" block style={{fontWeight: 'bold'}}>
             <Link onClick={this.props.startWorkout} to='/Workout_session'>Start Workout</Link>
           </Button>
           {!this.props.myWorkout
-          ? <Button
+          ? <Icon
+              type="plus-circle"
               onClick={this.props.addWorkout}
-              size="small"
-            >
-             Add
-            </Button>
-          : <Button
+            />
+          : <Icon
+              type="minus-circle"
               onClick={this.props.deleteWorkout}
-              size="small"
-            >
-              Remove
-            </Button>
+            />
           }
-        </ButtonGroup>
         <Icon
           type="info-circle"
           onClick={this.showModal}/>

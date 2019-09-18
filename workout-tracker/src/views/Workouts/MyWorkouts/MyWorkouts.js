@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
   margin: auto;
 `;
 
-class WorkoutView extends React.Component {
+class MyWorkouts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -62,4 +62,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { fetchWorkoutDetails, deleteWorkout }
-)(WorkoutView);
+)(MyWorkouts);
