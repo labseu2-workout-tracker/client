@@ -57,8 +57,14 @@ export const endWorkout = (workout_id, history) => dispatch => {
 
       return axiosWithAuth().post(`${workouts}/${workout_id}/end`)
       .then(res => {
-        dispatch({ type: END_WORKOUT });
-        history.push("/dashboard/stats");
+
+        return axiosWithAuth().get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`)
+        .then(res => {
+    
+          dispatch({ type: END_WORKOUT, session: res.data.workoutHistory });
+        
+          setTimeout(() => history.push("/dashboard/stats"), 2000);
+        })
       })
     .catch(err => {
    // type ERROR needs to be added (also for the redux state)

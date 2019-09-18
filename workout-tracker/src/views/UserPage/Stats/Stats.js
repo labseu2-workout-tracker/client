@@ -96,7 +96,11 @@ class Stats extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {};
+  componentWillMount = () => {
+    this.props.fetchWorkouts();
+    this.props.fetchWorkoutsHistory();
+  };
+
   render() {
     return (
       <StyledStats>

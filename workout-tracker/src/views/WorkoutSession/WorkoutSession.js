@@ -71,10 +71,6 @@ class WorkoutSession extends React.Component {
     startButton.click();
   };
 
-  endWorkout = () => {
-    this.props.endWorkout(this.props.workoutId);
-  };
-
   state = {
     visible: false
   };
@@ -99,7 +95,7 @@ class WorkoutSession extends React.Component {
 
   componentWillUnmount() {
     this.setState({ initial: 0 });
-    this.props.endWorkout(this.props.workoutId);
+    this.props.endWorkout(this.props.workoutId, this.props.history);
   }
 
   endWorkout = () => {

@@ -115,9 +115,9 @@ class WorkoutCalendar extends React.Component {
       workoutsForDate: null
     };
   }
-  componentDidMount = () => {
-    this.props.fetchWorkouts();
-    this.props.fetchWorkoutsHistory();
+  componentWillMount = () => {
+    // this.props.fetchWorkouts();
+    // this.props.fetchWorkoutsHistory();
 
     let workoutNames = [];
     let workouts = [];
