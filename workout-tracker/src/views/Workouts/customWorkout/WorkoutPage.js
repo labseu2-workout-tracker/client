@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateModalForm from './ModalForm';
+import CreateModalForm from '../../customWorkout/ModalForm/customWorkout/ModalForm';
 import { connect } from "react-redux";
 import {
   addWorkoutDetails,

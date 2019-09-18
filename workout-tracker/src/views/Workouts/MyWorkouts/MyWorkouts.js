@@ -20,7 +20,8 @@ class MyWorkouts extends React.Component {
   }
   render() {
     return (
-      <StyledDiv>
+      // <StyledDiv>
+      <>
         {this.props.myWorkouts 
         ? (this.props.myWorkouts.map((workout, index) => {
           return (
@@ -48,7 +49,8 @@ class MyWorkouts extends React.Component {
             <AddWorkoutButton />
           </Empty>
         }
-      </StyledDiv>
+        </>
+      //</StyledDiv>
     )
   }
 }
