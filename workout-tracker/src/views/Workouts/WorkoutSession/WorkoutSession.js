@@ -107,9 +107,9 @@ class WorkoutSession extends React.Component {
                   /> */}
                     <video
                       ref="audio"
-                      autoplay
+                      autoPlay
                       loop
-                      playsinline
+                      playsInline
                       muted
                       controls
                       width="90%"
@@ -129,7 +129,6 @@ class WorkoutSession extends React.Component {
                   </div>
                 </Card>
                 <Card
-                  title="stats"
                   bordered={false}
                   style={{ display: 'flex', flexDirection: 'column' }}
                 >
