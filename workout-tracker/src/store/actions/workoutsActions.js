@@ -10,8 +10,17 @@ export const FINISH_EXERCISE = "FINISH_EXERCISE";
 export const END_WORKOUT = "END_WORKOUT";
 export const ADD_WORKOUT = "ADD_WORKOUT";
 export const DELETE_WORKOUT = "DELETE_WORKOUT";
+export const CREATE_WORKOUT = "CREATE_WORKOUT";
+export const LOADING_CREATE_WORKOUT = "LOADING_CREATE_WORKOUT";
+export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
+export const ADD_WORKOUT_DETAILS = "ADD_WORKOUT_DETAILS";
+
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
+
+export const addWorkoutDetails = workoutDetails => {
+  return { type: ADD_WORKOUT_DETAILS, payload: workoutDetails };
+};
 
 // action dispatcher
 export const fetchWorkouts = () => dispatch => {
