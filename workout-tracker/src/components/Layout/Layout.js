@@ -37,7 +37,7 @@ const StyledContainer = styled.section`
   }
   .ant-layout-sider {
     padding: 0.5rem;
-    background-color: #001529;
+    background-color: #5c0d91;
     .ant-layout-content {
       margin: 0;
       padding: 0;
