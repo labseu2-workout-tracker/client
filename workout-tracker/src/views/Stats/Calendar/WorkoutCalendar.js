@@ -113,7 +113,7 @@ class WorkoutCalendar extends React.Component {
       workoutsForDate: null
     };
   }
-  componentWillMount = () => {
+  componentDidMount = () => {
     let workoutNames = [];
     let workouts = [];
 

@@ -96,7 +96,7 @@ class Stats extends React.Component {
     this.state = {};
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
   };

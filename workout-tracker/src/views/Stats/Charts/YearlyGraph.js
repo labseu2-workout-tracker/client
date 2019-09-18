@@ -25,12 +25,6 @@ const StyledYearlyGraph = styled.div`
     display: none;
   }
 
-  /* #SvgjsSvg1858 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-
   .apex {
     width: 70%;
     height: 30%;
