@@ -175,7 +175,6 @@ class WorkoutSession extends React.Component {
             <div
               style={{
                 background: '#ECECEC',
-                padding: '10px',
                 display: 'flex',
                 flexDirection: 'row'
               }}
