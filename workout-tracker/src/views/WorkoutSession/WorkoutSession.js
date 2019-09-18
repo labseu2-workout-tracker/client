@@ -293,7 +293,7 @@ class WorkoutSession extends React.Component {
             </Card>
           </Card>
         ) : (
-          <div style={{ padding: '30px', display:'flex', justifyContent:'center', alignContent:'row' }}>
+          <div style={{ padding: '30px', display:'flex', justifyContent:'center', }}>
           <div style={{ padding: '30px' }}>
           <Row gutter={24}>
             <Col span={24}>
