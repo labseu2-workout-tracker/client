@@ -35,20 +35,27 @@ const StyledContainer = styled.section`
     display: flex;
     flex-direction: row;
   }
+
   .ant-layout-sider {
     padding: 0.5rem;
     background-color: #001529;
-    .ant-layout-content {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-    }
-    .nav-items {
-      padding: 24px 0;
+  }
+
+  .ant-layout-content {
+    min-height: 100vh;
+    min-width: 0;
+  }
+
+  .nav-items {
+    padding: 24px 0;
+  }
+
+  @media (max-width: 992px) {
+    .ant-layout-sider {
+      position: absolute;
+      z-index: 1000;
     }
   }
-`;
 
-
+`
 export default MainLayout;
-
