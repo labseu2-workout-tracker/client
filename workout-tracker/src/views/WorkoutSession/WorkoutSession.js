@@ -69,7 +69,7 @@ class WorkoutSession extends React.Component {
           style={{
             fontSize: 14,
             fontColor: 'white',
-            backgroundColor: '#001529'
+            backgroundColor: '#5c0d91'
           }}
         >
           <Card //Top Card with picture / watch  and Details reps etc
