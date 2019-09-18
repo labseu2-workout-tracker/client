@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import { Empty } from 'antd';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
