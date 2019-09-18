@@ -3,13 +3,10 @@ import Watch from '../../components/Watch/Watch';
 import { connect } from 'react-redux';
 import {
   Statistic,
-  Row,
-  Col,
   Card,
   Icon,
   List,
   Button,
-  Modal,
   Alert
 } from 'antd';
 import {
