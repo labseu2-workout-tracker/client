@@ -15,7 +15,16 @@ import {
   endWorkout
 } from '../../store/actions/workoutsActions';
 import styled from 'styled-components';
-const StyledWorkoutSession = styled.div``;
+const StyledWorkoutSession = styled.div`
+.btn{
+margin: 5px;
+padding: 10px;
+font-size: 20px;
+border: 1px solid transparent;
+border-radius: 10px;
+}
+`;
+
 class WorkoutSession extends React.Component {
   componentDidMount = () => {
   
@@ -76,6 +85,11 @@ class WorkoutSession extends React.Component {
           <Card //Top Card with picture / watch  and Details reps etc
             // type="inner"
             bordered={false}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}
           >
             <div style={{}}>
               <Card
