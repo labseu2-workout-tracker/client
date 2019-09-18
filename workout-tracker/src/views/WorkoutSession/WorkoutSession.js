@@ -1,7 +1,7 @@
 import React from 'react';
 import Watch from '../../components/Watch/Watch';
 import { connect } from 'react-redux';
-import { Statistic, Card, Icon, List, Button, Alert } from 'antd';
+import { Statistic, Card, Icon, List, Button, Alert, Row, Col } from 'antd';
 import {
   chooseExercise,
   finishExercise,
@@ -16,6 +16,7 @@ const StyledWorkoutSession = styled.div`
     font-size: 18px;
     border: 1px solid transparent;
   }
+  
 `;
 
 class WorkoutSession extends React.Component {
@@ -292,9 +293,24 @@ class WorkoutSession extends React.Component {
             </Card>
           </Card>
         ) : (
-          <Button type="danger" onClick={this.endWorkout}>
-            Finish Workout
+          <div style={{ padding: '30px', display:'flex', justifyContent:'center', alignContent:'row' }}>
+          <div style={{ padding: '30px' }}>
+          <Row gutter={24}>
+            <Col span={24}>
+              <Card title="Great News !!!" bordered={false}>
+                 <h1> You managed to get to the End.</h1>
+              </Card>
+            </Col>
+          </Row>
+          <Button className='btn1' type="danger" onClick={this.endWorkout}>
+            Finish Session
           </Button>
+        </div>
+          {/* <Button className='btn1' type="danger" onClick={this.endWorkout}>
+            Finish Session
+          </Button> */}
+          </div>
+
         )}
       </StyledWorkoutSession>
     );
