@@ -14,6 +14,9 @@
 .ant-layout-header{
   background-color: #5c0d91;
 }
+.ant-layout-sider-zero-width-trigger {
+ background: #5c0d91;
+}
 
 .dashboard-list-item:hover,
 .dashboard-list-item.active,
