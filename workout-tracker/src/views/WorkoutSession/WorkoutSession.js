@@ -75,21 +75,18 @@ class WorkoutSession extends React.Component {
           <Card //Top Card with picture / watch  and Details reps etc
             type="inner"
           >
-            <div style={{ background: '#ECECEC', padding: '30px' }}>
-              {/* <Row gutter={16}>
-                <Col // image and details
-                  span={8}
-                > */}
+            <div style={{ }}>
+
               <Card
                  style={{ display:'flex', flexDirection:'column', justifyContent:'center'}}
                 title={this.props.currentExercise[0].exercise_name}
               >
-                <img
+                {/* <img
                   bordered={false}
                   // style={{ width: 500 }}
                   alt="Exercise explanation"
                   src={this.props.currentExercise[0].picture_one}
-                />
+                /> */}
                 {/* <div>
                   <img
                     style={{ width: 200 }}
@@ -98,22 +95,7 @@ class WorkoutSession extends React.Component {
                   />
                 </div> */}
               </Card>
-              {/* <Card
-                    title={this.props.currentExercise[0].exercise_name}
-                    bordered={false}
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={
-                      <img
-                        alt="Exercise explanation"
-                        src={this.props.currentExercise[0].picture_one}
-                      />
-                    }
-                  ></Card> */}
-              {/* </Col>
-                <Col // Stats
-                  span={8}
-                > */}
+
               <Card
                 title="stats"
                 bordered={false}
@@ -134,7 +116,7 @@ class WorkoutSession extends React.Component {
                           ? 'Repetitions'
                           : 'Duration'
                       }
-                      prefix={<Icon type="sync" spin />}
+                      prefix={<Icon type="sync"/>}
                       value={
                         this.props.currentExercise[0].reps ||
                         (this.props.currentExercise[0].duration
@@ -171,10 +153,7 @@ class WorkoutSession extends React.Component {
                   </Button>
                 </div>
               </Card>
-              {/* </Col>
-                <Col // Watch
-                  span={8}
-                > */}
+
               <Card
                 title="Watch"
                 bordered={false}
@@ -186,8 +165,7 @@ class WorkoutSession extends React.Component {
               >
                 <Watch />
               </Card>
-              {/* </Col> */}
-              {/* </Row> */}
+
             </div>
           </Card>
           <Card //Bottom Card with Exer & Instructions
@@ -197,13 +175,12 @@ class WorkoutSession extends React.Component {
             <div
               style={{
                 background: '#ECECEC',
-                padding: '30px',
+                padding: '10px',
                 display: 'flex',
                 flexDirection: 'row'
               }}
             >
-              {/* <Row gutter={16}>
-                <Col span={12}> */}
+
               <Card //Instructions bar
                 title="Instructions"
                 bordered={false}
@@ -217,8 +194,7 @@ class WorkoutSession extends React.Component {
                   {/* {`${this.state.initial} ==> ${this.props.currentExercise.length} ===> ${this.props.allExercises.length}`} */}
                 </Card>
               </Card>
-              {/* </Col> */}
-              {/* <Col span={12}> */}
+
               <Card // Excercise List
                 title="Excercise List"
                 bordered={false}
@@ -249,8 +225,6 @@ class WorkoutSession extends React.Component {
                   )}
                 />
               </Card>
-              {/* </Col> */}
-              {/* </Row> */}
             </div>
           </Card>
         </Card>
