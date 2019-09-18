@@ -20,8 +20,8 @@ import Logo from './components/Logo/Logo'
 import "./App.css";
 import Workouts from "./views/Workouts/Workouts";
 import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
-import 'antd/dist/antd.css';
 import { Button } from 'antd';
+import AllExercises from "./views/customWorkout/AllExercises";
 
 
 class App extends Component {
@@ -89,8 +89,9 @@ class App extends Component {
         <PrivateRoute path={"/Dashboard"} component={Stats} />
         <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
         <PrivateRoute path={"/Settings"} component={Settings} />
-        <PrivateRoute path={"/Workouts"} component={Workouts} />
+        <PrivateRoute exact path={"/Workouts"} component={Workouts} />
         <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
+        <PrivateRoute path={"/Workouts/new/add_exercises"} component={AllExercises} />
         <Redirect to="/workouts" />
       </Switch>
 >>>>>>> 7fc64ddc206db0d4f9e924400ce8a2de1d7279d1
@@ -106,7 +107,9 @@ class App extends Component {
           />
         )}
         <MainLayout
+          {...this.props}
           header={
+            this.props.location.pathname !== "/workouts/new/add_exercises" &&
             <MainNavBar
               onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
               onLogout={this.logoutHandler}
@@ -122,7 +125,7 @@ class App extends Component {
               isAuth={Auth.isAuthenticated()}
             />
           }
-        sider = {sider}
+        sider = {this.props.location.pathname !== "/workouts/new/add_exercises" && sider}
         routes = {routes}
         />
       </>
