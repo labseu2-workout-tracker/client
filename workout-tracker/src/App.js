@@ -67,9 +67,9 @@ class App extends Component {
         <PrivateRoute path={"/Dashboard"} component={Stats} />
         <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
         <PrivateRoute path={"/Settings"} component={Settings} />
-        <PrivateRoute path={"/Workouts"} component={WorkoutContainer} />
+        <PrivateRoute path={"/workouts/new/add_exercises"} component={AllExercises} />
+        <PrivateRoute exact path={"/Workouts"} component={WorkoutContainer} />
         <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
-        <PrivateRoute path={"/Workouts/new/add_exercises"} component={AllExercises} />
         <Redirect to="/workouts" />
       </Switch>
       )
