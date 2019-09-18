@@ -14,7 +14,7 @@ class MainLayout extends React.Component {
         {this.props.mobileNav}
         <div className='content-container'>
         {Auth.isAuthenticated()
-        ? <Sider
+        ? this.props.location.pathname !== "/workouts/new/add_exercises" && <Sider
             breakpoint="lg"
             collapsedWidth="0"
           >

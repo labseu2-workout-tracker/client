@@ -4,7 +4,7 @@ import { Row, Col, PageHeader } from "antd";
 import "antd/dist/antd.css";
 
 import Workouts from './Workouts';
-import WorkoutPage from '../customWorkout/WorkoutPage';
+import WorkoutPage from '../customWorkout/WorkoutPage'
 import MyWorkouts from './MyWorkouts/MyWorkouts';
 
 class WorkoutContainer extends React.Component {

@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import Stats from './views/UserPage/Stats/Stats'
+import Stats from './views/Stats/Stats'
 import About from "./views/AboutUs/AboutUs";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import WorkoutSession from "./views/WorkoutSession/WorkoutSession";
+import WorkoutSession from "./views/Workouts/WorkoutSession/WorkoutSession";
 import PrivateRoute from "./auth/PrivateRoute";
 import Auth from "./auth/auth";
 import SignupPage from "./views/Auth/Signup";
@@ -20,6 +20,7 @@ import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNa
 import WorkoutContainer from './views/Workouts/WorkoutsContainer'
 import 'antd/dist/antd.css';
 import { Button } from 'antd';
+import AllExercises from "./views/customWorkout/AllExercises";
 
 
 class App extends Component {
@@ -68,6 +69,7 @@ class App extends Component {
         <PrivateRoute path={"/Settings"} component={Settings} />
         <PrivateRoute path={"/Workouts"} component={WorkoutContainer} />
         <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
+        <PrivateRoute path={"/Workouts/new/add_exercises"} component={AllExercises} />
         <Redirect to="/workouts" />
       </Switch>
       )
@@ -76,13 +78,15 @@ class App extends Component {
     return (
       <>
         <MainLayout
+          {...this.props}
           header={
+            this.props.location.pathname !== "/workouts/new/add_exercises" &&
             <MainNavBar
               onLogout={this.logoutHandler}
               isAuth={Auth.isAuthenticated()}
             />
           }
-        sider = {sider}
+        sider = {this.props.location.pathname !== "/workouts/new/add_exercises" && sider}
         routes = {routes}
         />
       </>

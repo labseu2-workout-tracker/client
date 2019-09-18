@@ -53,7 +53,7 @@ export const doSignUp = (user, history) => dispatch => {
 };
 
 export const doLogOut = () => dispach => {
-  localStorage.removeItem("soupUserToken");
+  localStorage.removeItem("token");
   dispach(genericAction(LOGOUT));
 };
 
