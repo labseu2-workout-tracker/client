@@ -282,7 +282,7 @@ class WorkoutSession extends React.Component {
     );
   }
 }
-
+//no conflicts here
 const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
