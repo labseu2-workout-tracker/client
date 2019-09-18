@@ -68,8 +68,8 @@ class WorkoutSession extends React.Component {
           title="Workout Session"
           style={{
             fontSize: 14,
-            margin: 10,
-            backgroundColor: 'rgba(13, 40, 90, 0.85)'
+            fontColor:'white',
+            backgroundColor: '#001529'
           }}
         >
           <Card //Top Card with picture / watch  and Details reps etc
