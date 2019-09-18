@@ -28,28 +28,27 @@ const { Meta } = Card;
 
 const StyledAllExercises = styled.div`
 p{
-  text-overflow: ellipsis;
-  overflow: 'hidden';
+    overflow: hidden;
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
   .header {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: white;   
     height: auto;
     margin: auto;
     max-width: 1000px;
   }
   .ant-layout{
     background-color: white;
-    margin: 0 auto;
   }
  
   .load-button-container {
     margin: 0 auto;
   }
-  .ant-row {
-    margin: 0 auto;
-  }
+ 
   #images {
     position: relative;
     height: 150px;
@@ -137,14 +136,6 @@ p{
     font-size: 1.5rem;
   }
   
-  /* @media (max-width: 768px) {
-    .first-picture{
-      width: 150px;
-      height: 150px;
-      padding: 1rem;
-      margin: auto;
-    }
-  } */
 
   @media (max-width: 576px) {
     .header {
@@ -297,7 +288,7 @@ class AllExercises extends React.Component {
           <Layout>
             <Layout
               style={{
-                backgroundColor: "#fff"
+                backgroundColor: "#fff",
               }}
             >
               <Content
@@ -306,7 +297,7 @@ class AllExercises extends React.Component {
                   display: "flex",
                   flexFlow: "row wrap",
                   maxWidth: "1000px",
-                  margin: "auto",
+                  margin: " 0 auto",
                 }}
               >
                 <Row gutter={16} style={{ margin: "0 auto" }}>
@@ -318,17 +309,14 @@ class AllExercises extends React.Component {
                           sm={{ span: 12 }}
                           md={{ span: 8 }}
                           lg={{ span: 6}}
-                          style={{
-                            margin: "auto",
-                            
-                          }}
+
                         >
                           <Card
                             style={{
                               alignContent: "center",
                               textAlign: "center",
                               paddingTop: "3rem",
-                              margin: "1rem"
+                              margin: "1rem",
                             }}
                             key={index}
                             cover={
