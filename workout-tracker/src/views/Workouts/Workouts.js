@@ -68,7 +68,8 @@ class Workouts extends React.Component {
   
   render() {
     return (
-      <StyledWorkouts>
+      // <StyledWorkouts>
+      <>
         {this.props.workouts 
           ? (this.props.workouts.map((workout, index) => {
             return (
@@ -91,7 +92,8 @@ class Workouts extends React.Component {
             >
             </Empty>
         }
-      </StyledWorkouts>
+        </>
+      // </StyledWorkouts>
     );
   }
 }
