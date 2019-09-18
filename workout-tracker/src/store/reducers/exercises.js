@@ -7,11 +7,8 @@ const initialState = {
   singleExercise: null,
   arrayOfCurrentExercises: null,
   currentMuscleGroup: null,
-  indexOfLastExercise: 5,
-  indexFirstExercise: 0,
-  loading: false,
-  error: null,
-  selectedExercises: []
+  indexOfLastExercise: 8,
+  indexFirstExercise: 0
 };
 
 const exercises = (state = initialState, action) => {
@@ -114,7 +111,7 @@ const exercises = (state = initialState, action) => {
         exercise => exercise.muscle === "Chest"
       );
 
-      const currentExercises = filterOnlyGroupChest.slice(0, 5);
+      const currentExercises = filterOnlyGroupChest.slice(0, 8);
 
       return {
         ...state,
@@ -122,32 +119,15 @@ const exercises = (state = initialState, action) => {
         copyOfExercises: changeRatingOfExercise,
         remainingExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
-        currentMuscleGroup: "Chest",
-        indexOfLastExercise: 5,
-        loading: false,
-        selectedExercises: [],
-        error: null
-      };
-
-    case type.FETCH_EXERCISES_LOADING:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
-
-    case type.FETCH_EXERCISES_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload
+        currentMuscleGroup: 'Chest',
+        indexOfLastExercise: 8
       };
 
     case type.SHOW_MUSCLE_GROUP:
       let searchResultForMuscleGroup = state.copyOfExercises.filter(
         exercise => exercise.muscle === action.muscleGroup
       );
-      const indexOfLastExercise = 5;
+      const indexOfLastExercise = 8;
 
       const theCurrentExercises = searchResultForMuscleGroup.slice(
         state.indexFirstExercise,
@@ -163,7 +143,7 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.LOAD_MORE:
-      let indexOfTheLastExercise = state.indexOfLastExercise + 5;
+      let indexOfTheLastExercise = state.indexOfLastExercise + 8;
 
       if (indexOfTheLastExercise > state.arrayOfCurrentExercises.length) {
         indexOfTheLastExercise = state.arrayOfCurrentExercises.length;
@@ -208,7 +188,7 @@ const exercises = (state = initialState, action) => {
           exercise.equipment === action.equipment &&
           exercise.muscle === state.currentMuscleGroup
       );
-      const theIndexLastExercise = 5;
+      const theIndexLastExercise = 8;
       const theActualExercises = searchForEquipment.slice(
         state.indexFirstExercise,
         theIndexLastExercise

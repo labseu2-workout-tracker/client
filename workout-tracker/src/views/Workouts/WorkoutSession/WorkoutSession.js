@@ -106,6 +106,7 @@ class WorkoutSession extends React.Component {
     this.props.endWorkout(this.props.workoutId, this.props.history);
   };
   render() {
+    console.log(this.props)
     return (
       <StyledWorkoutSession>
         <Row type="flex" justify="space-around">
@@ -281,7 +282,7 @@ class WorkoutSession extends React.Component {
     );
   }
 }
-
+//no conflicts here
 const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
