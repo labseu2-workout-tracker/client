@@ -45,7 +45,7 @@ const StyledWorkouts = styled.div`
     transition: 0.6s ease-in-out;
 
     &:hover {
-      color: green;
+      visibility: visible;
     }
   }
 `;
