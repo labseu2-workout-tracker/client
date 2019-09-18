@@ -66,7 +66,6 @@ class WorkoutSession extends React.Component {
     return (
       <StyledWorkoutSession>
         <Card
-          title="Workout Session"
           style={{
             fontSize: 14,
             fontColor: 'white',
@@ -179,7 +178,7 @@ class WorkoutSession extends React.Component {
               </Card>
 
               <Card
-                title="Watch"
+                title="Timer"
                 bordered={false}
                 style={{
                   display: 'flex',
