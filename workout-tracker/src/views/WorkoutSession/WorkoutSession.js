@@ -50,6 +50,13 @@ class WorkoutSession extends React.Component {
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId, this.props.history);
   };
+  nextExercise = () => {
+    this.props.finishExercise(this.props.currentExercise[0].id);
+    
+    if (this.props.currentExercise.length === 1) {
+        this.refs.audio.load();
+    }
+  };
   render() {
     return (
       <StyledWorkoutSession>
