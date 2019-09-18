@@ -9,7 +9,7 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       minValue: 0,
-      maxValue: 2
+      maxValue: 6
     };
   }
 
@@ -17,12 +17,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 2
+        maxValue: 6
       });
     } else {
       this.setState({
-        minValue: value * 2 - 2,
-        maxValue: value * 2
+        minValue: value * 6 - 6,
+        maxValue: value * 6
       });
     }
   };
