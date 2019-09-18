@@ -306,10 +306,7 @@ class WorkoutSession extends React.Component {
             Finish Session
           </Button>
         </div>
-          {/* <Button className='btn1' type="danger" onClick={this.endWorkout}>
-            Finish Session
-          </Button> */}
-          </div>
+       </div>
 
         )}
       </StyledWorkoutSession>
