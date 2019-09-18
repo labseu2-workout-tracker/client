@@ -62,6 +62,7 @@ class NormalSignUpForm extends React.Component {
     const { loadingUser, signUpError } = this.props;
     const emailError = isFieldTouched("email") && getFieldError("email");
     const usernameError = isFieldTouched("username") && getFieldError("username");
+    const fullnameError = isFieldTouched("fullname") && getFieldError("fullname");
     const passwordError =
       isFieldTouched("password") && getFieldError("password");
     return (
@@ -75,6 +76,33 @@ class NormalSignUpForm extends React.Component {
               type="error"
             />
           )}
+          <Form.Item
+            validateStatus={fullnameError ? "error" : ""}
+            help={fullnameError || ""}
+          >
+            {getFieldDecorator("fullname", {
+              rules: [
+                {
+                  required: true,
+                  type: "string",
+                  pattern: /^[a-z\-_\s]+$/i,
+                  message: "Only alphanumeric with spaces are allowed for full name"
+                }
+              ]
+            })(
+              <Input
+                size="large"
+                prefix={
+                  <Icon type="contacts" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                placeholder="Full Name"
+              />
+            )}
+             {
+               typeof signUpError === "object" && signUpError.fullname &&
+                <Alert message={signUpError.fullname} type="error" />
+              }
+          </Form.Item>
           <Form.Item
             validateStatus={usernameError ? "error" : ""}
             help={usernameError || ""}
@@ -101,6 +129,7 @@ class NormalSignUpForm extends React.Component {
                 <Alert message={signUpError.username} type="error" />
               }
           </Form.Item>
+          
           <Form.Item
             validateStatus={emailError ? "error" : ""}
             help={emailError || ""}

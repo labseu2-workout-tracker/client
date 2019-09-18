@@ -6,6 +6,7 @@ const initialState = {
   allExercises: null,
   currentExercise: null,
   myWorkouts: null,
+  newWorkout: null
 };
 
 const removeDuplicates = (arr, comp) => {
@@ -21,6 +22,12 @@ const removeDuplicates = (arr, comp) => {
 
 const workouts = (state = initialState, action) => {
   switch (action.type) {
+    case type.ADD_WORKOUT_DETAILS:
+      return {
+        ...state,
+        newWorkout: { ...action.payload, exercises: [] }
+      };
+
     case type.FETCH_WORKOUTS:
       return {
         ...state,
@@ -60,11 +67,11 @@ const workouts = (state = initialState, action) => {
       const deleteExerciseFromCurrent = state.currentExercise.filter(
         exercise => exercise.id !== action.exercise_id
       );
- 
+
       const deleteExerciseAll = state.allExercises.filter(
         exercise => exercise.id !== action.exercise_id
       );
- 
+
       return {
         ...state,
         allExercises: state.allExercises.length > 1 ? deleteExerciseAll : null,
@@ -94,7 +101,7 @@ const workouts = (state = initialState, action) => {
         ...state,
         myWorkouts: state.myWorkouts
           ? removeDuplicates(mergeWorkouts, "id")
-          : filterWorkout,
+          : filterWorkout
       };
 
     case type.DELETE_WORKOUT:
