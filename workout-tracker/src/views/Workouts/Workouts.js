@@ -5,14 +5,19 @@ import {
   fetchWorkoutDetails,
   addWorkout
 } from "../../store/actions/workoutsActions";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { notification } from "antd";
-import WorkoutPage from '../customWorkout/WorkoutPage';
+import { notification, Empty } from "antd";
+
+import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 
 const StyledWorkouts = styled.div`
-  text-align: center;
+  display: flex;
 
+  .ant-card-meta-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .off {
     display: none;
   }
@@ -34,6 +39,15 @@ const StyledWorkouts = styled.div`
     display: flex;
     justify-content: flex-end;
   }
+
+  i {
+    font-size: 3rem;
+    transition: 0.6s ease-in-out;
+
+    &:hover {
+      visibility: visible;
+    }
+  }
 `;
 
 
@@ -54,46 +68,32 @@ class Workouts extends React.Component {
   
   render() {
     return (
-      <StyledWorkouts>
-        <h1 className="coolstuff">Choose from our Workouts</h1>
-        <div className="land-wrapper">
-          {this.props.workouts
-            ? this.props.workouts.map((workout, index) => {
-                return (
-                  <div key={index} className="workout-card">
-                    <img
-                      src={workout.image_url}
-                      alt="workout"
-                      className="workout-img"
-                    />
-                    <h1>{workout.workout_name}</h1>
-                    <p>{workout.workout_description}</p>
-                    <Link
-                      onClick={() => this.props.fetchWorkoutDetails(workout.id)}
-                      to="Workout_session"
-                      className="btn"
-                    >
-                      Start Workout
-                    </Link>
-                    <p
-                      className="btn"
-                      onClick={() =>
-                        this.addWorkout(
-                          "success",
-                          workout.id,
-                          workout.workout_name
-                        )
-                      }
-                    >
-                      Add Workout
-                    </p>
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        <WorkoutPage {...this.props} />
-      </StyledWorkouts>
+      // <StyledWorkouts>
+      <>
+        {this.props.workouts 
+          ? (this.props.workouts.map((workout, index) => {
+            return (
+              <WorkoutCard
+                key={index}
+                image={workout.image_url}
+                name={workout.workout_name}
+                description={workout.workout_description}
+                startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
+                deleteWorkout={() => this.props.deleteWorkout(workout.id)}
+                addWorkout={() => this.addWorkout( "success", workout.id, workout.workout_name )}
+                myWorkout={false}
+              />
+            )
+            }))
+          :
+            <Empty
+              image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+              imageStyle={{ height: 60 }}
+            >
+            </Empty>
+        }
+        </>
+      // </StyledWorkouts>
     );
   }
 }

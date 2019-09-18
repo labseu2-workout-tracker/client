@@ -1,6 +1,6 @@
 import React from "react";
-import { fetchWorkouts } from "../../../../store/actions/workoutsActions";
-import { fetchWorkoutsHistory } from "../../../../store/actions/historyActions";
+import { fetchWorkouts } from "../../../store/actions/workoutsActions";
+import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
 import { connect } from "react-redux";
 import { Calendar, Modal, Button } from "antd";
 import styled from "styled-components";
