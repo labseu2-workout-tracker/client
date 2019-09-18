@@ -1,12 +1,12 @@
 import React from 'react';
-import Watch from '../../../components/Watch/Watch';
+import Watch from '../../components/Watch/Watch';
 import { connect } from 'react-redux';
 import { Statistic, Card, Icon, List, Button, Alert, Row, Col } from 'antd';
 import {
   chooseExercise,
   finishExercise,
   endWorkout
-} from '../../../store/actions/workoutsActions';
+} from '../../store/actions/workoutsActions';
 import styled from 'styled-components';
 const StyledWorkoutSession = styled.div`
   .btn1 {
