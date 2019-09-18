@@ -56,6 +56,7 @@ class WorkoutSession extends React.Component {
   render() {
     return (
       <StyledWorkoutSession>
+        {this.props.currentExercise ? (
         <Card
           style={{
             fontSize: 14,
@@ -235,7 +236,9 @@ class WorkoutSession extends React.Component {
                 : null}
             </div>
           </Card>
-        </Card>
+        </Card>) : ( <Button type="danger" onClick={this.endWorkout}>
+                    Finish Workout
+                  </Button>) }
       </StyledWorkoutSession>
     );
   }
