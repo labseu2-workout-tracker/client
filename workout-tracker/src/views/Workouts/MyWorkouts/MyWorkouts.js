@@ -10,6 +10,7 @@ import AddWorkoutButton from '../../../utils/AddWorkoutButton';
 
 const StyledDiv = styled.div`
   display: flex;
+  margin: auto;
 `;
 
 class WorkoutView extends React.Component {
@@ -34,21 +35,18 @@ class WorkoutView extends React.Component {
             />
           )
         }))
-        : <Empty
-            image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-            imageStyle={{ height: 60 }}
-            description={
-              <div style={{display: 'flex', flexDirection: 'column'}}>
-                <span style={{marginBottom: ".5rem"}}> 
-                  Custom and saved workouts will appear here!
-                </span>
-                <AddWorkoutButton />
-              </div>
-            }
-      >
-        {/* <Button type="primary"> Now</Button> */}
-      </Empty>
-        
+        : 
+          <Empty
+              image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+              imageStyle={{ height: 60 }}
+              description={
+                  <span style={{marginBottom: ".5rem"}}> 
+                    Custom and saved workouts will appear here!
+                  </span>
+              }
+           >
+            <AddWorkoutButton />
+          </Empty>
         }
       </StyledDiv>
     )

@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 
 import Workouts from './Workouts';
 import WorkoutPage from '../customWorkout/WorkoutPage';
-import MyWorkouts from '../UserPage/MyWorkouts/MyWorkouts';
+import MyWorkouts from './MyWorkouts/MyWorkouts';
 
 class WorkoutContainer extends React.Component {
   
@@ -14,7 +14,7 @@ class WorkoutContainer extends React.Component {
     return (
       <StyledContainer>
         <Row type="flex" justify="end">
-          <Col span={8} offset={8}>
+          <Col>
             <WorkoutPage />
           </Col>
         </Row>
@@ -27,7 +27,7 @@ class WorkoutContainer extends React.Component {
         <Row>
           <PageHeader title="Choose from our pre-made workouts" style={{padding: '0'}}/>
         </Row>
-        <Row type="flex" gutter={16}>
+        <Row type="flex" >
           <Workouts />
         </Row>
       </StyledContainer>
@@ -51,7 +51,6 @@ const StyledContainer = styled.div`
     max-height: 480px;
     flex-wrap: nowrap;
     margin: 1rem 0;
-    justify-content: center;
   }
   .anticon.anticon-info-circle {
     position: absolute;
