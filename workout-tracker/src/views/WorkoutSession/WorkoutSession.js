@@ -101,7 +101,7 @@ class WorkoutSession extends React.Component {
                     src={this.props.currentExercise[0].picture_one}
                   /> */}
 
-                  <video autoplay loop playsinline muted controls>
+                  <video autoplay loop playsinline muted controls width="90%" height="auto">
                     <source
                       alt="Exercise explanation"
                       src={this.props.currentExercise[0].video}
