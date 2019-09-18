@@ -42,6 +42,7 @@ const StyledContainer = styled.div`
   .ant-row-flex:first-child {
     background-color: transparent;
     padding: 0;
+    justify-content: flex-end;
   }
 
   .ant-row-flex {
