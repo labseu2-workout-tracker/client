@@ -81,22 +81,22 @@ class WorkoutSession extends React.Component {
                   span={8}
                 > */}
               <Card
-                //  style={{ width: 240 }}
+                 style={{ display:'flex', flexDirection:'column', justifyContent:'center'}}
                 title={this.props.currentExercise[0].exercise_name}
               >
                 <img
                   bordered={false}
-                  style={{ width: 200 }}
+                  // style={{ width: 500 }}
                   alt="Exercise explanation"
                   src={this.props.currentExercise[0].picture_one}
                 />
-                <div>
+                {/* <div>
                   <img
                     style={{ width: 200 }}
                     alt="Exercise explanation"
                     src={this.props.currentExercise[0].picture_two}
                   />
-                </div>
+                </div> */}
               </Card>
               {/* <Card
                     title={this.props.currentExercise[0].exercise_name}
