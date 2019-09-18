@@ -25,6 +25,7 @@ class WorkoutSession extends React.Component {
   componentDidMount = () => {
     // const startButton = document.querySelector(".btn-start");
     // startButton.click();
+    // location.reload();
   };
 
   endWorkout = () => {
@@ -101,7 +102,7 @@ class WorkoutSession extends React.Component {
                     src={this.props.currentExercise[0].picture_one}
                   /> */}
 
-                  <video controls loop autoplay>
+                  <video autoplay loop playsinline muted controls>
                     <source
                       alt="Exercise explanation"
                       src={this.props.currentExercise[0].video}
