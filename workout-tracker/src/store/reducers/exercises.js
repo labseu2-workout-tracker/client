@@ -17,7 +17,10 @@ const initialState = {
 const exercises = (state = initialState, action) => {
   switch (action.type) {
     case type.SELECT_MUSCLE:
-      if (state.remainingExercises.length === state.copyOfExercises.length) {
+      if (
+        state.remainingExercises.length + state.selectedExercises.length ===
+        state.copyOfExercises.length
+      ) {
         return {
           ...state,
           remainingExercises: state.remainingExercises.filter(
@@ -34,19 +37,26 @@ const exercises = (state = initialState, action) => {
       };
 
     case type.REMOVE_MUSCLE:
+      const selectedId = state.selectedExercises.map(exercise => exercise.id);
+      const allNotSelectedExercises = state.copyOfExercises.filter(
+        exercise => !selectedId.includes(exercise.id)
+      );
       return {
         ...state,
         remainingExercises:
           state.remainingExercises.filter(
             exercise => exercise.muscle !== action.payload
           ).length === 0
-            ? state.copyOfExercises
+            ? allNotSelectedExercises
             : state.remainingExercises.filter(
                 exercise => exercise.muscle !== action.payload
               )
       };
     case type.SELECT_EQUIPMENT:
-      if (state.remainingExercises.length === state.copyOfExercises.length) {
+      if (
+        state.remainingExercises.length + state.selectedExercises.length ===
+        state.copyOfExercises.length
+      ) {
         return {
           ...state,
           remainingExercises: state.remainingExercises.filter(
@@ -62,12 +72,17 @@ const exercises = (state = initialState, action) => {
         remainingExercises: state.remainingExercises.concat(exerciseToAdd2)
       };
     case type.REMOVE_EQUIPMENT:
+      const selectedId2 = state.selectedExercises.map(exercise => exercise.id);
+      const allNotSelectedExercises2 = state.copyOfExercises.filter(
+        exercise => !selectedId2.includes(exercise.id)
+      );
       return {
         ...state,
-        remainingExercises: state.remainingExercises.filter(
-          exercise => exercise.equipment !== action.payload
-        ).length === 0
-            ? state.copyOfExercises
+        remainingExercises:
+          state.remainingExercises.filter(
+            exercise => exercise.equipment !== action.payload
+          ).length === 0
+            ? allNotSelectedExercises2
             : state.remainingExercises.filter(
                 exercise => exercise.equipment !== action.payload
               )
@@ -110,13 +125,15 @@ const exercises = (state = initialState, action) => {
         currentMuscleGroup: "Chest",
         indexOfLastExercise: 5,
         loading: false,
-        selectedExercises: []
+        selectedExercises: [],
+        error: null
       };
 
     case type.FETCH_EXERCISES_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       };
 
     case type.FETCH_EXERCISES_ERROR:
