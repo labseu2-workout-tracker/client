@@ -14,7 +14,19 @@ class Watch extends React.Component {
   }
 
   componentDidMount = () => {
-   
+    const startButton = document.querySelector(".btn-start");
+    startButton.style.backgroundColor= "#2bd22b";
+    startButton.style.color= "#fff";
+    startButton.style.width= "100px";
+    const stopButton = document.querySelector(".btn-stop");
+    stopButton.style.backgroundColor= "#ff4d4f";
+    stopButton.style.color= "#fff";
+    stopButton.style.width= "130px";
+    const resetButton = document.querySelector(".btn-reset");
+    resetButton.style.backgroundColor= "black"
+    resetButton.style.width= "100px";
+    resetButton.style.color= "#fff";
+    startButton.click();
   };
 
   render() {
