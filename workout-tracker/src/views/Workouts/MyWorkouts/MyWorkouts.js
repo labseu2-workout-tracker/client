@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
-
+import CreateModalForm from '../customWorkout/ModalForm';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -14,10 +14,36 @@ const StyledDiv = styled.div`
 `;
 
 class MyWorkouts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+
+      this.props.addWorkoutDetails(values);
+      form.resetFields();
+      this.setState({ visible: false });
+      this.props.history.push('/workouts/new/add_exercises');
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
+
   render() {
     return (
       // <StyledDiv>
@@ -46,7 +72,16 @@ class MyWorkouts extends React.Component {
                   </span>
               }
            >
-            <AddWorkoutButton />
+            <div>
+              <AddWorkoutButton modal={this.showModal}/>
+
+              <CreateModalForm
+                wrappedComponentRef={this.saveFormRef}
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                onCreate={this.handleCreate}
+              />
+      </div>
           </Empty>
         }
         </>
