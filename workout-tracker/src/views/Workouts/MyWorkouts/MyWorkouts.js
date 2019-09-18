@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
 import { Empty, Button } from 'antd';
+import styled from 'styled-components';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
+import AddWorkoutButton from '../../../utils/AddWorkoutButton';
 
-import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -38,12 +39,10 @@ class WorkoutView extends React.Component {
             imageStyle={{ height: 60 }}
             description={
               <div style={{display: 'flex', flexDirection: 'column'}}>
-                <span > 
+                <span style={{marginBottom: ".5rem"}}> 
                   Custom and saved workouts will appear here!
                 </span>
-                <Button type="primary" size="large" style={{fontWeight: 'bold'}}> 
-                  Create Custom Workouts
-                </Button>
+                <AddWorkoutButton />
               </div>
             }
       >

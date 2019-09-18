@@ -11,6 +11,7 @@ const AddWorkoutButton = (props) => {
 
 const myStyle = {
   boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)",
+  fontWeight: 'bold',
 }
 
 export default AddWorkoutButton
