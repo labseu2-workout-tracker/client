@@ -4,7 +4,7 @@ const initialState = {
   user: {},
   userId: null,
   loadingUser: false,
-  loginError: null,
+  loginError: undefined,
   signUpError: undefined
 };
 
