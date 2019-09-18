@@ -67,7 +67,9 @@ export const endWorkout = (workout_id, history) => dispatch => {
         .get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`)
         .then(res => {
           dispatch({ type: END_WORKOUT, session: res.data.workoutHistory });
-          setTimeout(() => history.push("/dashboard/stats"), 1000);
+          if (history) {
+            setTimeout(() => history.push("/dashboard/stats"), 1000);
+          }
         });
     })
     .catch(err => {
