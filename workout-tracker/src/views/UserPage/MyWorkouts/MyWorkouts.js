@@ -37,9 +37,14 @@ class WorkoutView extends React.Component {
             image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
             imageStyle={{ height: 60 }}
             description={
-              <span > 
-                Customize <a href="#API">Description</a>
-              </span>
+              <div style={{display: 'flex', flexDirection: 'column'}}>
+                <span > 
+                  Custom and saved workouts will appear here!
+                </span>
+                <Button type="primary" size="large" style={{fontWeight: 'bold'}}> 
+                  Create Custom Workouts
+                </Button>
+              </div>
             }
       >
         {/* <Button type="primary"> Now</Button> */}
