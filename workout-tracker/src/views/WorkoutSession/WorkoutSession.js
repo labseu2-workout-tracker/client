@@ -68,32 +68,48 @@ class WorkoutSession extends React.Component {
           title="Workout Session"
           style={{
             fontSize: 14,
-            fontColor:'white',
+            fontColor: 'white',
             backgroundColor: '#001529'
           }}
         >
           <Card //Top Card with picture / watch  and Details reps etc
-            type="inner"
+            // type="inner"
+            bordered={false}
           >
-            <div style={{ }}>
-
+            <div style={{}}>
               <Card
-                 style={{ display:'flex', flexDirection:'column', justifyContent:'center'}}
+                bordered={false}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center'
+                }}
                 title={this.props.currentExercise[0].exercise_name}
               >
-                {/* <img
-                  bordered={false}
-                  // style={{ width: 500 }}
-                  alt="Exercise explanation"
-                  src={this.props.currentExercise[0].picture_one}
-                /> */}
-                {/* <div>
-                  <img
-                    style={{ width: 200 }}
+                <div
+                  style={{
+                    height: '350px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {/* <img
+                    bordered={false}
+                    // style={{ width: 500 }}
                     alt="Exercise explanation"
-                    src={this.props.currentExercise[0].picture_two}
-                  />
-                </div> */}
+                    src={this.props.currentExercise[0].picture_one}
+                  /> */}
+
+                  <video controls loop autoplay>
+                    <source
+                      alt="Exercise explanation"
+                      src={this.props.currentExercise[0].video}
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </Card>
 
               <Card
@@ -103,6 +119,7 @@ class WorkoutSession extends React.Component {
               >
                 <Card
                   title={this.props.currentExercise[0].exercise_name}
+                  bordered={false}
                   actions={[
                     <Statistic
                       title="Sets to complete"
@@ -116,7 +133,7 @@ class WorkoutSession extends React.Component {
                           ? 'Repetitions'
                           : 'Duration'
                       }
-                      prefix={<Icon type="sync"/>}
+                      prefix={<Icon type="sync" />}
                       value={
                         this.props.currentExercise[0].reps ||
                         (this.props.currentExercise[0].duration
@@ -147,7 +164,13 @@ class WorkoutSession extends React.Component {
                   />
                 </Card>
 
-                <div style={{margin:20, display:'flex', justifyContent:'center'}}>
+                <div
+                  style={{
+                    margin: 20,
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}
+                >
                   <Button type="danger" onClick={this.endWorkout}>
                     Finish Workout
                   </Button>
@@ -165,7 +188,6 @@ class WorkoutSession extends React.Component {
               >
                 <Watch />
               </Card>
-
             </div>
           </Card>
           <Card //Bottom Card with Exer & Instructions
@@ -179,7 +201,6 @@ class WorkoutSession extends React.Component {
                 flexDirection: 'row'
               }}
             >
-
               <Card //Instructions bar
                 title="Instructions"
                 bordered={false}
