@@ -21,8 +21,34 @@ import styled from 'styled-components';
 const StyledWorkoutSession = styled.div``;
 class WorkoutSession extends React.Component {
   componentDidMount = () => {
-    // const startButton = document.querySelector(".btn-start");
-    // startButton.click();
+  //   .btn {
+  //     margin: 5px;
+  //     background-color: lightslategray;
+  //     color: black;
+  //     padding: 10px;
+  //     font-size: 20px;
+  //     border: 1px solid transparent;
+  //     border-radius: 10px;
+  // }
+  
+  // .btn-start {
+  //     background-color: green;
+  // }
+  
+  // .btn-stop {
+  //     background-color: red;
+  // }
+  
+  // .btn-reset {
+  //     background-color: lightblue;
+  // }
+    const startButton = document.querySelector(".btn-start");
+    startButton.style.backgroundColor= "black";
+    const stopButton = document.querySelector(".btn-stop");
+    stopButton.style.backgroundColor= "black";
+    const resetButton = document.querySelector(".btn-reset");
+    resetButton.style.backgroundColor= "black"
+    startButton.click();
     // location.reload();
   };
   endWorkout = () => {
