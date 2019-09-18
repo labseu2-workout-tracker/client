@@ -11,6 +11,9 @@
   color: #696969;
   border-left: 11px solid #5c0d91;
 }
+.ant-layout-header{
+  background-color: #5c0d91;
+}
 
 .dashboard-list-item:hover,
 .dashboard-list-item.active,
