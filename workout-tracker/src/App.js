@@ -2,24 +2,23 @@ import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
 import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
-import Stats from './views/UserPage/Stats/Stats';
+import Stats from './views/Stats/Stats'
 import About from "./views/AboutUs/AboutUs";
 import LandingPage from "./views/LandingPage/LandingPage";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import WorkoutSession from "./views/WorkoutSession/WorkoutSession";
+import WorkoutSession from "./views/Workouts/WorkoutSession/WorkoutSession";
 import PrivateRoute from "./auth/PrivateRoute";
 import Auth from "./auth/auth";
 import SignupPage from "./views/Auth/Signup";
 import LoginPage from "./views/Auth/Login";
 import MainNavBar from "./components/MainNavBar/MainNavBar";
-import MobileNavigation from "./components/MainNavBar/MobileNavigation/MobileNavigation";
 import MainLayout from "./components/Layout/Layout";
-import Backdrop from "./components/Backdrop/Backdrop";
 import ProfileCard from './components/MainNavBar/SideNavigation/ProfileCard'
 import Logo from './components/Logo/Logo'
 import "./App.css";
-import Workouts from "./views/Workouts/Workouts";
 import DashboardNavItem from "./components/MainNavBar/SideNavigation/DashboardNavItem";
+import WorkoutContainer from './views/Workouts/WorkoutsContainer'
+import 'antd/dist/antd.css';
 import { Button } from 'antd';
 import AllExercises from "./views/customWorkout/AllExercises";
 
@@ -33,14 +32,6 @@ class App extends Component {
   logoutHandler = () => {
     localStorage.clear();
     this.props.history.replace("/login");
-  };
-
-  mobileNavHandler = isOpen => {
-    this.setState({ showMobileNav: isOpen, showBackdrop: isOpen });
-  };
-
-  backdropClickHandler = () => {
-    this.setState({ showBackdrop: false, showMobileNav: false, error: null });
   };
 
   render() {
@@ -76,9 +67,9 @@ class App extends Component {
         <PrivateRoute path={"/Dashboard"} component={Stats} />
         <PrivateRoute path={"/Exercises"} component={ExercisesLibrary} />
         <PrivateRoute path={"/Settings"} component={Settings} />
-        <PrivateRoute exact path={"/Workouts"} component={Workouts} />
+        <PrivateRoute path={"/workouts/new/add_exercises"} component={AllExercises} />
+        <PrivateRoute exact path={"/Workouts"} component={WorkoutContainer} />
         <PrivateRoute path={"/Workout_session"} component={WorkoutSession} />
-        <PrivateRoute path={"/Workouts/new/add_exercises"} component={AllExercises} />
         <Redirect to="/workouts" />
       </Switch>
       )
@@ -86,27 +77,11 @@ class App extends Component {
 
     return (
       <>
-        {this.state.showBackdrop && (
-          <Backdrop
-            onClick={this.backdropClickHandler}
-            open={this.state.showMobileNav}
-          />
-        )}
         <MainLayout
           {...this.props}
           header={
             this.props.location.pathname !== "/workouts/new/add_exercises" &&
             <MainNavBar
-              onOpenMobileNav={this.mobileNavHandler.bind(this, true)}
-              onLogout={this.logoutHandler}
-              isAuth={Auth.isAuthenticated()}
-            />
-          }
-          mobileNav={
-            <MobileNavigation
-              open={this.state.showMobileNav}
-              mobile
-              onChooseItem={this.mobileNavHandler.bind(this, false)}
               onLogout={this.logoutHandler}
               isAuth={Auth.isAuthenticated()}
             />
