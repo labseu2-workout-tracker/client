@@ -417,7 +417,7 @@ class Settings extends React.Component {
             <Button
               className={this.state.checkedList[0] ? "button" : "off"}
               onClick={this.changeSettings}
-              style={{ background: "#5c0d91" }}
+              style={{ background: "#001529" }}
             >
               Update
             </Button>
@@ -432,13 +432,13 @@ class Settings extends React.Component {
               <div className="user-data">
                 <List>
                   <Button
-                    style={{ background: "#5c0d91" }}
+                    style={{ background: "#001529" }}
                     onClick={this.startUpdate}
                   >
                     Update Settings
                   </Button>
                   <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-envelope"></i>
                       </span>
@@ -451,7 +451,7 @@ class Settings extends React.Component {
                     </Card>
                   </div>
                   <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-user"></i>
                       </span>
@@ -465,7 +465,7 @@ class Settings extends React.Component {
                     </Card>
                   </div>
                   {/* <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-balance-scale"></i>
                       </span>
@@ -481,7 +481,7 @@ class Settings extends React.Component {
                     </Card>
                   </div> */}
                   {/* <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-graduation-cap"></i>
                       </span>
@@ -497,7 +497,7 @@ class Settings extends React.Component {
                     </Card>
                   </div> */}
                   <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-envelope"></i>
                       </span>
@@ -509,7 +509,7 @@ class Settings extends React.Component {
                     </Card>
                   </div>
                   <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#5c0d91" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-bell"></i>
                       </span>
