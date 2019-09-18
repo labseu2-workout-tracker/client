@@ -35,7 +35,7 @@ class SessionHistory extends React.Component {
       <StyledUserHistory>
         <Card className="history" title="Workout History">
           {history.length ? (
-            <div>
+            <div className="list-container">
               <div className="ordered-list">
                 {history
                   .slice(this.state.minValue, this.state.maxValue)
@@ -164,6 +164,7 @@ const StyledUserHistory = styled.div`
 
   .ant-card-body {
     padding: 0;
+    width:100%;
   }
   .session-card {
     width: 30%;
@@ -188,6 +189,7 @@ const StyledUserHistory = styled.div`
   }
 
   .ordered-list {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

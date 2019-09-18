@@ -162,12 +162,12 @@ class WorkoutSession extends React.Component {
                   cover={
                     <>
                       <div className="carousel">
-                        <Carousel
+                        {/* <Carousel
                           dots={false}
                           effect="fade"
                           autoplay
                           autoplaySpeed={1000}
-                        >
+                        > */}
                           <div>
                             <img
                               alt="Exercise explanation"
@@ -180,7 +180,7 @@ class WorkoutSession extends React.Component {
                               src={this.props.currentExercise[0].picture_two}
                             />
                           </div>
-                        </Carousel>
+                        {/* </Carousel> */}
                       </div>
                       <div className="cover">
                         <img
