@@ -57,6 +57,11 @@ class WorkoutSession extends React.Component {
         this.refs.audio.load();
     }
   };
+
+  chooseExercise = (item) => {
+    this.props.chooseExercise(item);
+    this.refs.audio.load();
+  }
   render() {
     return (
       <StyledWorkoutSession>
@@ -271,7 +276,7 @@ class WorkoutSession extends React.Component {
                         .map((exercise) => exercise.exercise_name)}
                       renderItem={(item) => (
                         <List.Item
-                          onClick={() => this.props.chooseExercise(item)}
+                          onClick={() => this.chooseExercise(item)}
                         >
                           {
                             <Button

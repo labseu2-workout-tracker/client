@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
 .logo {
-  font-size: 1rem;
+  font-size: 3rem;
   font-weight: bold;
   padding: 0.5rem;
   /* color: white; */
+  color:#0086c9;
+  font-family: 'Viga', sans-serif;
 }
 
-.image {
-  width: 10rem;
-  height: auto;
+.logo span {
+  /* color: #5c0d91; */
+  color: white;
+  font-family: 'Viga', sans-serif;
 }
+
 
 .logo-container {
   flex: 1;
