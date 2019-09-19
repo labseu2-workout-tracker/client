@@ -73,7 +73,7 @@ export const endWorkout = (workout_id, history) => dispatch => {
     .post(`${workouts}/${workout_id}/end`)
     .then(res => {
       return axiosWithAuth()
-        .get(`${process.env.REACT_APP_BASE_URL}/workouts/history/`)
+        .get(`${process.env.REACT_APP_BASE_URL}/workouts/history`)
         .then(res => {
           dispatch({ type: END_WORKOUT, session: res.data.workoutHistory });
           if (history) {

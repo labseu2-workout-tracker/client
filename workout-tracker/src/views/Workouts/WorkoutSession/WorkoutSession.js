@@ -1,13 +1,13 @@
-import React from 'react';
-import Watch from '../../../components/Watch/Watch';
-import { connect } from 'react-redux';
-import { Statistic, Card, Icon, List, Button, Alert, Row, Col } from 'antd';
+import React from "react";
+import Watch from "../../../components/Watch/Watch";
+import { connect } from "react-redux";
+import { Statistic, Card, Icon, List, Button, Alert, Row, Col } from "antd";
 import {
   chooseExercise,
   finishExercise,
   endWorkout
-} from '../../../store/actions/workoutsActions';
-import styled from 'styled-components';
+} from "../../../store/actions/workoutsActions";
+import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
   .btn1 {
     margin: 10px;
@@ -16,52 +16,59 @@ const StyledWorkoutSession = styled.div`
     font-size: 18px;
     border: 1px solid transparent;
   }
-  
 `;
 class WorkoutSession extends React.Component {
-  componentDidMount = () => {
-    // location.reload();
-  };
-  endWorkout = () => {
-    this.props.endWorkout(this.props.workoutId);
-  };
   state = {
-    visible: false
+    visible: false,
+    checkIfFinished: true,
   };
+
   showModal = () => {
     this.setState({
       visible: true
     });
   };
-  handleCancel = (e) => {
+
+  handleCancel = e => {
     this.setState({
       visible: false
     });
   };
-  handleOk = (e) => {
+
+  handleOk = e => {
     this.setState({
       visible: false
     });
   };
+
   componentWillUnmount() {
     this.setState({ initial: 0 });
-    this.props.endWorkout(this.props.workoutId);
+    
+    if(this.state.checkIfFinished) {
+      this.props.endWorkout(this.props.workoutId, this.props.history);
+    }
   }
+
   endWorkout = () => {
     this.props.endWorkout(this.props.workoutId, this.props.history);
+
+    this.setState({
+    checkIfFinished: false,
+    });
   };
+
   nextExercise = () => {
     this.props.finishExercise(this.props.currentExercise[0].id);
-    
+
     if (this.props.currentExercise.length === 1) {
-        this.refs.audio.load();
+      this.refs.audio.load();
     }
   };
 
-  chooseExercise = (item) => {
+  chooseExercise = item => {
     this.props.chooseExercise(item);
     this.refs.audio.load();
-  }
+  };
   render() {
     return (
       <StyledWorkoutSession>
@@ -69,26 +76,26 @@ class WorkoutSession extends React.Component {
           <Card
             style={{
               fontSize: 14,
-              fontColor: 'white',
-              backgroundColor: '#001529'
+              fontColor: "white",
+              backgroundColor: "#001529"
             }}
           >
             <Card //Top Card with picture / watch  and Details reps etc
               // type="inner"
               bordered={false}
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
               }}
             >
               <div style={{}}>
                 <Card
                   bordered={false}
                   style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center'
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center"
                   }}
                   title={
                     this.props.currentExercise
@@ -98,10 +105,10 @@ class WorkoutSession extends React.Component {
                 >
                   <div
                     style={{
-                      height: '350px',
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'center'
+                      height: "350px",
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center"
                     }}
                   >
                     {/* <img
@@ -135,7 +142,7 @@ class WorkoutSession extends React.Component {
                 </Card>
                 <Card
                   bordered={false}
-                  style={{ display: 'flex', flexDirection: 'column' }}
+                  style={{ display: "flex", flexDirection: "column" }}
                 >
                   <Card
                     title={
@@ -148,7 +155,7 @@ class WorkoutSession extends React.Component {
                       <Statistic
                         title="Sets to complete"
                         prefix={<Icon type="list" />}
-                        style={{ cursor: 'default' }}
+                        style={{ cursor: "default" }}
                         value={
                           this.props.currentExercise
                             ? this.props.currentExercise.length
@@ -159,8 +166,8 @@ class WorkoutSession extends React.Component {
                         title={
                           this.props.currentExercise
                             ? this.props.currentExercise[0].reps
-                              ? 'Repetitions'
-                              : 'Duration'
+                              ? "Repetitions"
+                              : "Duration"
                             : null
                         }
                         prefix={<Icon type="sync" />}
@@ -169,21 +176,20 @@ class WorkoutSession extends React.Component {
                             ? this.props.currentExercise[0].reps ||
                               (this.props.currentExercise[0].duration
                                 ? this.props.currentExercise[0].duration
-                                : '20seconds')
+                                : "20seconds")
                             : null
                         }
-                        style={{ cursor: 'default' }}
+                        style={{ cursor: "default" }}
                       />,
                       <Statistic
                         title="Next Exercise"
                         prefix={
                           <Icon
-                            onClick={this.nextExercise
-                            }
+                            onClick={this.nextExercise}
                             type="fast-forward"
                           />
                         }
-                        style={{ cursor: 'default' }}
+                        style={{ cursor: "default" }}
                         value=" "
                       />
                     ]}
@@ -199,8 +205,8 @@ class WorkoutSession extends React.Component {
                   <div
                     style={{
                       margin: 20,
-                      display: 'flex',
-                      justifyContent: 'center'
+                      display: "flex",
+                      justifyContent: "center"
                     }}
                   >
                     <Button
@@ -216,9 +222,9 @@ class WorkoutSession extends React.Component {
                   title="Timer"
                   bordered={false}
                   style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignContent: 'spaceAround'
+                    display: "flex",
+                    flexDirection: "column",
+                    alignContent: "spaceAround"
                   }}
                 >
                   <Watch />
@@ -231,9 +237,9 @@ class WorkoutSession extends React.Component {
             >
               <div
                 style={{
-                  background: '#ECECEC',
-                  display: 'flex',
-                  flexDirection: 'row'
+                  background: "#ECECEC",
+                  display: "flex",
+                  flexDirection: "row"
                 }}
               >
                 <Card //Instructions bar
@@ -264,8 +270,7 @@ class WorkoutSession extends React.Component {
                       dataSource={this.props.allExercises
                         .reduce((acc, current) => {
                           const x = acc.find(
-                            (item) =>
-                              item.exercise_name === current.exercise_name
+                            item => item.exercise_name === current.exercise_name
                           );
                           if (!x) {
                             return acc.concat([current]);
@@ -273,14 +278,12 @@ class WorkoutSession extends React.Component {
                             return acc;
                           }
                         }, [])
-                        .map((exercise) => exercise.exercise_name)}
-                      renderItem={(item) => (
-                        <List.Item
-                          onClick={() => this.chooseExercise(item)}
-                        >
+                        .map(exercise => exercise.exercise_name)}
+                      renderItem={item => (
+                        <List.Item onClick={() => this.chooseExercise(item)}>
                           {
                             <Button
-                              style={{ textAlign: 'left' }}
+                              style={{ textAlign: "left" }}
                               type="link"
                               block
                             >
@@ -296,26 +299,32 @@ class WorkoutSession extends React.Component {
             </Card>
           </Card>
         ) : (
-          <div style={{ padding: '30px', display:'flex', justifyContent:'center', }}>
-          <div style={{ padding: '30px' }}>
-          <Row gutter={24}>
-            <Col span={24}>
-              <Card title="Great News !!!" bordered={false}>
-                 <h1> You managed to get to the End.</h1>
-              </Card>
-            </Col>
-          </Row>
-          <Button className='btn1' type="danger" onClick={this.endWorkout}>
-            Finish Session
-          </Button>
-        </div>
-       </div>
+          <div
+            style={{
+              padding: "30px",
+              display: "flex",
+              justifyContent: "center"
+            }}
+          >
+            <div style={{ padding: "30px" }}>
+              <Row gutter={24}>
+                <Col span={24}>
+                  <Card title="Great News !!!" bordered={false}>
+                    <h1> You managed to get to the End.</h1>
+                  </Card>
+                </Col>
+              </Row>
+              <Button className="btn1" type="danger" onClick={this.endWorkout}>
+                Finish Session
+              </Button>
+            </div>
+          </div>
         )}
       </StyledWorkoutSession>
     );
   }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     allExercises: state.workouts.allExercises,
     currentExercise: state.workouts.currentExercise,
