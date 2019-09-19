@@ -13,8 +13,9 @@ const DashboardNavItem = (props) => [
     <li className="dashboard-list-item"
     
     key={item.id} >
-      <NavLink to={item.link}>{item.icon}</NavLink>
-      <NavLink to={item.link}><span>{item.text}</span></NavLink>   
+      <NavLink to={item.link}> {item.icon} </NavLink>  
+      <span></span>
+      <NavLink to={item.link}><span> {item.text} </span></NavLink>   
     </li>
   )
   )
