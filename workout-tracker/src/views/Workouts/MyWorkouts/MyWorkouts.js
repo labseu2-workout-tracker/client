@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
-import CreateModalForm from '../customWorkout/ModalForm';
+import CreateModalForm from '../../customWorkout/ModalForm';
 
 import {
   addWorkoutDetails,
