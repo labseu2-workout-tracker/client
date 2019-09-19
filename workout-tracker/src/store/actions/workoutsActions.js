@@ -14,8 +14,8 @@ export const LOADING_CREATE_WORKOUT = "LOADING_CREATE_WORKOUT";
 export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
 export const ADD_WORKOUT_DETAILS = "ADD_WORKOUT_DETAILS";
 export const ADD_WORKOUT = "ADD_WORKOUT";
-export const ADD_WORKOUT_SUCCESS = "SAVE_WORKOUT_SUCCESS";
-export const ADD_WORKOUT_FAILURE = "SAVE_WORKOUT_FAILURE"
+export const ADD_WORKOUT_SUCCESS = "ADD_WORKOUT_SUCCESS";
+export const ADD_WORKOUT_FAILURE = "ADD_WORKOUT_FAILURE"
 
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
@@ -96,14 +96,13 @@ export const deleteWorkout = workout_id => {
 };
 
 export const saveWorkout = data => dispatch => {
+  console.log(data)
   dispatch(genericAction(ADD_WORKOUT, true))
-  axiosWithAuth.post(`${workouts}/save-workout`)
+  axiosWithAuth().post(`${workouts}/save-workout`, data)
     .then(res => {
       dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
-      console.log(res);
     })
     .catch(err => {
       dispatch(genericAction(ADD_WORKOUT_FAILURE, err));
-      console.log(err)
     })
 }
