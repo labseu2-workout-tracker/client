@@ -9,6 +9,7 @@
   /* list-style-type: none; */
   text-align: left;
   font-size: 1.3rem;
+  color: #fff;
 }
 
 .dashboard-list-item:hover,
@@ -16,7 +17,7 @@
 .dashboard-list-item:active {
   background-color: #cce6f4;
   border-radius: 10px 0 0 10px;
-  border-left: 11px solid #0086c9;
+  border-left: 11px solid #5c0d91;
 }
 
 .dashbaord-list-item a,
@@ -27,36 +28,38 @@
 .dashbaord-list-item a.active {
   color: white;
 }
-
+a{
+  color:white;
+}
 .dashbaord-list-item a:last-of-type {
   padding-left: 0.75rem;
 }
 .ant-layout-sider-zero-width-trigger {
 
-  background:#5c0d91;
+  background:#0086c9;
 
 }
 .ant-layout-sider-zero-width-trigger:hover {
-  background: #5c0d91;
+  background: #0086c9;
 }
 .ant-layout-sider {
-  background: #5c0d91;
+  background: #0086c9;
 
 }
 .jzzyaV .ant-layout-sider {
 
-  background-color: #5c0d91;
+  background-color: #0086c9;
  
 }
 .dashboard-list-item {
 
-  border-left: 11px solid #5c0d91;
+  border-left: 11px solid #0086c9;
 }
 /*  #001529; */
 
 .ant-avatar {
   color: #fff;
-  background: rgb(112, 230, 218);
+  background:#5c0d91;
   width: 72px;
   height: 72px;
   border-radius: 30%;
