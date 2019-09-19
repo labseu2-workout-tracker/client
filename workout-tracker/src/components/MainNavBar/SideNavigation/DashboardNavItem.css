@@ -26,10 +26,11 @@
   font-weight: bold;
 }
 .dashbaord-list-item a.active {
-  color: white;
+  color: #5c0d91;
 }
 a{
   color:white;
+  word-wrap: none;
 }
 .dashbaord-list-item a:last-of-type {
   padding-left: 0.75rem;
