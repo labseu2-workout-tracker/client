@@ -6,7 +6,9 @@ const initialState = {
   allExercises: null,
   currentExercise: null,
   myWorkouts: null,
-  newWorkout: null
+  newWorkout: null,
+  savedWorkout: null,
+  error: null,
 };
 
 const removeDuplicates = (arr, comp) => {
@@ -87,22 +89,23 @@ const workouts = (state = initialState, action) => {
       };
 
     case type.ADD_WORKOUT:
-      let mergeWorkouts;
-
-      const filterWorkout = state.workouts.filter(
-        workout => workout.id === action.workout_id
-      );
-
-      if (state.myWorkouts) {
-        mergeWorkouts = state.myWorkouts.concat(filterWorkout);
-      }
-
       return {
         ...state,
-        myWorkouts: state.myWorkouts
-          ? removeDuplicates(mergeWorkouts, "id")
-          : filterWorkout
-      };
+        savedWorkout: state.savedWorkout
+      }
+
+      case type.ADD_WORKOUT_SUCCESS: 
+      return {
+        ...state,
+        savedWorkout: action.payload
+      }
+
+      case type.ADD_WORKOUT_FAILURE: 
+        return {
+          ...state,
+          savedWorkout: null,
+          error: action.payload
+        }
 
     case type.DELETE_WORKOUT:
       const filterMyWorkouts = state.myWorkouts.filter(
