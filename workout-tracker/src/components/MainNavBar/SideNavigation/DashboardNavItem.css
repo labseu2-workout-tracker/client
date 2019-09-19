@@ -64,3 +64,6 @@ a{
   height: 72px;
   border-radius: 30%;
 }
+.ant-layout-header {
+  background:  #0086c9;;
+}
