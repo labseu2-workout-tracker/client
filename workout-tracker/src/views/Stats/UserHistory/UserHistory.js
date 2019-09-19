@@ -115,9 +115,9 @@ class SessionHistory extends React.Component {
               </div>
             </div>
           ) : (
-            <p>
+            <div>
               <Empty description={"No Workouts"} />
-            </p>
+            </div>
           )}
         </Card>
       </StyledUserHistory>

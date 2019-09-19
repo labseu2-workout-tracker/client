@@ -6,7 +6,11 @@ import { Empty } from 'antd';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
+import CreateModalForm from '../../customWorkout/ModalForm';
 
+import {
+  addWorkoutDetails,
+} from "../../../store/actions/workoutsActions"
 
 // const StyledDiv = styled.div`
 //   display: flex;
@@ -14,10 +18,36 @@ import AddWorkoutButton from '../../../utils/AddWorkoutButton';
 // `;
 
 class MyWorkouts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+
+      this.props.addWorkoutDetails(values);
+      form.resetFields();
+      this.setState({ visible: false });
+      this.props.history.push('/workouts/new/add_exercises');
+    });
+  };
+
+  saveFormRef = formRef => {
+    this.formRef = formRef;
+  };
+
   render() {
     return (
       // <StyledDiv>
@@ -46,7 +76,16 @@ class MyWorkouts extends React.Component {
                   </span>
               }
            >
-            <AddWorkoutButton />
+            <div>
+              <AddWorkoutButton modal={this.showModal}/>
+
+              <CreateModalForm
+                wrappedComponentRef={this.saveFormRef}
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                onCreate={this.handleCreate}
+              />
+      </div>
           </Empty>
         }
         </>
@@ -57,11 +96,12 @@ class MyWorkouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    myWorkouts: state.workouts.myWorkouts
+    myWorkouts: state.workouts.myWorkouts,
+    newWorkout: state.workouts.newWorkout
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchWorkoutDetails, deleteWorkout }
+  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails }
 )(MyWorkouts);

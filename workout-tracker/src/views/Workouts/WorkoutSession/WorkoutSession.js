@@ -18,7 +18,6 @@ const StyledWorkoutSession = styled.div`
   }
   
 `;
-
 class WorkoutSession extends React.Component {
   componentDidMount = () => {
     // location.reload();
@@ -58,6 +57,11 @@ class WorkoutSession extends React.Component {
         this.refs.audio.load();
     }
   };
+
+  chooseExercise = (item) => {
+    this.props.chooseExercise(item);
+    this.refs.audio.load();
+  }
   render() {
     return (
       <StyledWorkoutSession>
@@ -65,7 +69,8 @@ class WorkoutSession extends React.Component {
           <Card
             style={{
               fontSize: 14,
-              fontColor: 'white'
+              fontColor: 'white',
+              backgroundColor: '#001529'
             }}
           >
             <Card //Top Card with picture / watch  and Details reps etc
@@ -107,9 +112,9 @@ class WorkoutSession extends React.Component {
                   /> */}
                     <video
                       ref="audio"
-                      autoplay
+                      autoPlay
                       loop
-                      playsinline
+                      playsInline
                       muted
                       controls
                       width="90%"
@@ -129,7 +134,6 @@ class WorkoutSession extends React.Component {
                   </div>
                 </Card>
                 <Card
-                  title="stats"
                   bordered={false}
                   style={{ display: 'flex', flexDirection: 'column' }}
                 >
@@ -272,7 +276,7 @@ class WorkoutSession extends React.Component {
                         .map((exercise) => exercise.exercise_name)}
                       renderItem={(item) => (
                         <List.Item
-                          onClick={() => this.props.chooseExercise(item)}
+                          onClick={() => this.chooseExercise(item)}
                         >
                           {
                             <Button
@@ -306,7 +310,6 @@ class WorkoutSession extends React.Component {
           </Button>
         </div>
        </div>
-
         )}
       </StyledWorkoutSession>
     );

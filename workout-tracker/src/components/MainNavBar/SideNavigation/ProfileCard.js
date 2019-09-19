@@ -44,7 +44,7 @@ const StyledImage = styled.div`
         font-size: inherit;
         font-weight: 600;
         margin-bottom: 0;
-        padding: 5px 0;
+        padding: 5px ;
     }
     section {
       display: flex;
