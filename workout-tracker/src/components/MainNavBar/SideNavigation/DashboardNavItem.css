@@ -28,10 +28,10 @@
 .dashbaord-list-item a.active {
   color: #5c0d91;
 }
-a{
+/* a{
   color:white;
   word-wrap: none;
-}
+} */
 .dashbaord-list-item a:last-of-type {
   padding-left: 0.75rem;
 }
