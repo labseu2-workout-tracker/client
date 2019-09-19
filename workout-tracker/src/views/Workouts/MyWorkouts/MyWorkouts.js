@@ -8,6 +8,10 @@ import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
 import CreateModalForm from '../customWorkout/ModalForm';
 
+import {
+  addWorkoutDetails,
+} from "../../../store/actions/workoutsActions"
+
 const StyledDiv = styled.div`
   display: flex;
   margin: auto;
@@ -92,11 +96,12 @@ class MyWorkouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    myWorkouts: state.workouts.myWorkouts
+    myWorkouts: state.workouts.myWorkouts,
+    newWorkout: state.workouts.newWorkout
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchWorkoutDetails, deleteWorkout }
+  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails }
 )(MyWorkouts);
