@@ -47,4 +47,8 @@
 
   background-color: #5c0d91;
 }
+.dashboard-list-item {
+
+  border-left: 11px solid #5c0d91;
+}
 /*  #001529; */
