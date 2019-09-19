@@ -8,15 +8,22 @@ export const START_WORKOUT = "START_WORKOUT";
 export const CHOOSE_EXERCISE = "CHOOSE_EXERCISE";
 export const FINISH_EXERCISE = "FINISH_EXERCISE";
 export const END_WORKOUT = "END_WORKOUT";
-export const ADD_WORKOUT = "ADD_WORKOUT";
 export const DELETE_WORKOUT = "DELETE_WORKOUT";
 export const CREATE_WORKOUT = "CREATE_WORKOUT";
 export const LOADING_CREATE_WORKOUT = "LOADING_CREATE_WORKOUT";
 export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
 export const ADD_WORKOUT_DETAILS = "ADD_WORKOUT_DETAILS";
+export const ADD_WORKOUT = "ADD_WORKOUT";
+export const ADD_WORKOUT_SUCCESS = "SAVE_WORKOUT_SUCCESS";
+export const ADD_WORKOUT_FAILURE = "SAVE_WORKOUT_FAILURE"
 
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
+
+export const genericAction = (type, payload) => ({
+  type,
+  payload
+});
 
 export const addWorkoutDetails = workoutDetails => {
   return { type: ADD_WORKOUT_DETAILS, payload: workoutDetails };
@@ -87,3 +94,16 @@ export const addWorkout = workout_id => {
 export const deleteWorkout = workout_id => {
   return { type: DELETE_WORKOUT, workout_id: workout_id };
 };
+
+export const saveWorkout = data => dispatch => {
+  dispatch(genericAction(ADD_WORKOUT, true))
+  axiosWithAuth.post(`${workouts}/save-workout`)
+    .then(res => {
+      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
+      console.log(res);
+    })
+    .catch(err => {
+      dispatch(genericAction(ADD_WORKOUT_FAILURE, err));
+      console.log(err)
+    })
+}
