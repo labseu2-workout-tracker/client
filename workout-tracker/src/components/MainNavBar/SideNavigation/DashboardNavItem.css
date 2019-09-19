@@ -9,7 +9,7 @@
   /* list-style-type: none; */
   text-align: left;
   font-size: 1.3rem;
-  color: #fff;
+ 
 }
 
 .dashboard-list-item:hover,
@@ -28,10 +28,10 @@
 .dashbaord-list-item a.active {
   color: #5c0d91;
 }
-/* a{
+.dashboard-list-item a{
   color:white;
   word-wrap: none;
-} */
+}
 .dashbaord-list-item a:last-of-type {
   padding-left: 0.75rem;
 }
