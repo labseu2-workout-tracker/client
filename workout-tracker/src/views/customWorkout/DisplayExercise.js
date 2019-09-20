@@ -28,13 +28,14 @@ export default class DisplayExercise extends Component {
     return (
       <div>
         <List
-          itemLayout="vertical"
-          grid={{ gutter: 12, lg: 3, md: 2 }}
+          
+          itemLayout="horizontal"
+          grid={{ type: 'flex', gutter: 12,  md: 2, lg: 3, xl: 4, xxl: 6}}
           pagination={{
             onChange: page => {
               console.log(page);
             },
-            pageSize: 12,
+            pageSize: 24,
             showLessItems: true
           }}
           dataSource={this.props.dataSource.sort((a, b) => a.id - b.id)}

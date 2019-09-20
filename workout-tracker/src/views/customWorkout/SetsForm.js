@@ -36,9 +36,9 @@ class SetsForm extends Component {
           keys.forEach((element, index) => {
             const newObject = {};
             console.log(type[element]);
-            if (type[element] === "reps") newObject["reps"] = reps[element];
-            else newObject["duration"] = `${reps[element]} seconds`;
-            newObject["weights"] = weight[element];
+            if (type[element] === "reps") newObject["reps"] = reps[element] ? reps[element] : null;
+            else newObject["duration"] = reps[element]? `${reps[element]} seconds`: null;
+            newObject["weights"] = weight[element] ? weight[element]: null;
             newObject["exercise_id"] = ex.id;
             newObject["position"] = index + 1;
             result.push(newObject);
