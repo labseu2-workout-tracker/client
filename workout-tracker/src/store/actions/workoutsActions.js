@@ -15,7 +15,10 @@ export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
 export const ADD_WORKOUT_DETAILS = "ADD_WORKOUT_DETAILS";
 export const ADD_WORKOUT = "ADD_WORKOUT";
 export const ADD_WORKOUT_SUCCESS = "ADD_WORKOUT_SUCCESS";
-export const ADD_WORKOUT_FAILURE = "ADD_WORKOUT_FAILURE"
+export const ADD_WORKOUT_FAILURE = "ADD_WORKOUT_FAILURE";
+export const GET_SAVED_WORKOUT = "GET_SAVED_WORKOUT";
+export const GET_SAVED_WORKOUT_SUCCESS = "GET_SAVED_WORKOUT_SUCCESS";
+export const GET_SAVED_WORKOUT_FAILURE = "GET_SAVED_WORKOUT_FAILURE";
 
 
 const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
@@ -96,13 +99,26 @@ export const deleteWorkout = workout_id => {
 };
 
 export const saveWorkout = data => dispatch => {
-  console.log(data)
   dispatch(genericAction(ADD_WORKOUT, true))
-  axiosWithAuth().post(`${workouts}/save-workout`, data)
+  axiosWithAuth()
+    .post(`${workouts}/save-workout`, data)
     .then(res => {
       dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
     })
     .catch(err => {
       dispatch(genericAction(ADD_WORKOUT_FAILURE, err));
     })
+}
+
+export const getSavedWorkout = () => dispatch => {
+  dispatch(genericAction(GET_SAVED_WORKOUT, true));
+  axiosWithAuth()
+    .get(`${workouts}/all-saved`)
+    .then(res => {
+      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
+    })
+    .catch(err => {
+      console.log(err)
+      dispatch(genericAction(GET_SAVED_WORKOUT_FAILURE, err));
+    });
 }
