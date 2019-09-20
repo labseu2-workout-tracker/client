@@ -26,14 +26,7 @@ export default class DisplayExercise extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          padding: "2rem",
-          maxWidth: "75%",
-          fontSize: ".8rem",
-          marginLeft: "24%"
-        }}
-      >
+      <div>
         <List
           itemLayout="vertical"
           grid={{ gutter: 12, lg: 3, md: 2 }}
@@ -88,7 +81,6 @@ export default class DisplayExercise extends Component {
               : null
           }
           visible={this.state.visible}
-          // {this.props.singleExercise[0].closeExercise}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
