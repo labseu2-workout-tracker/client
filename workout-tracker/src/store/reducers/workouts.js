@@ -9,6 +9,7 @@ const initialState = {
   newWorkout: null,
   savedWorkout: null,
   error: null,
+  loading: false,
 };
 
 const removeDuplicates = (arr, comp) => {
@@ -81,11 +82,11 @@ const workouts = (state = initialState, action) => {
           state.currentExercise.length > 1
             ? deleteExerciseFromCurrent
             : deleteExerciseAll[0]
-            ? deleteExerciseAll.filter(
+              ? deleteExerciseAll.filter(
                 workout =>
                   workout.exercise_name === deleteExerciseAll[0].exercise_name
               )
-            : null
+              : null
       };
 
     case type.ADD_WORKOUT:
@@ -94,18 +95,42 @@ const workouts = (state = initialState, action) => {
         savedWorkout: state.savedWorkout
       }
 
-      case type.ADD_WORKOUT_SUCCESS: 
+    case type.ADD_WORKOUT_SUCCESS:
       return {
         ...state,
         savedWorkout: action.payload
       }
 
-      case type.ADD_WORKOUT_FAILURE: 
-        return {
-          ...state,
-          savedWorkout: null,
-          error: action.payload
-        }
+    case type.ADD_WORKOUT_FAILURE:
+      return {
+        ...state,
+        savedWorkout: null,
+        error: action.payload
+      }
+
+    case type.GET_SAVED_WORKOUT:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        myWorkouts: null,
+      }
+
+    case type.GET_SAVED_WORKOUT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        myWorkouts: action.payload,
+      }
+
+    case type.GET_SAVED_WORKOUT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+        myWorkouts: null,
+      }
 
     case type.DELETE_WORKOUT:
       const filterMyWorkouts = state.myWorkouts.filter(
