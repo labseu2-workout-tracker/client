@@ -93,7 +93,6 @@ const workouts = (state = initialState, action) => {
     case type.ADD_WORKOUT_FAILURE:
       return {
         ...state,
-        savedWorkout: null,
         error: action.payload
       }
 
@@ -118,7 +117,6 @@ const workouts = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
-        myWorkouts: null,
       }
 
     case type.DELETE_WORKOUT:

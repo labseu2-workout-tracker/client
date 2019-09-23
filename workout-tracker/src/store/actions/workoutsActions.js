@@ -100,12 +100,15 @@ export const deleteWorkout = workout_id => {
 };
 
 export const saveWorkout = data => dispatch => {
-  debugger;
   dispatch(genericAction(ADD_WORKOUT, true));
   axiosWithAuth()
     .post(`${workouts}/save-workout`, data)
     .then(res => {
-      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
+      return axiosWithAuth()
+        .get(`${workouts}/all-saved/${data.user_id}`)
+        .then(res => {
+          dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
+        });
     })
     .catch(err => {
       dispatch(genericAction(ADD_WORKOUT_FAILURE, err));
