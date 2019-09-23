@@ -53,7 +53,7 @@ import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 
 class Workouts extends React.Component {
   componentDidMount() {
-    this.props.fetchWorkouts();
+    this.props.fetchWorkouts(); 
   }
 
   addWorkout = (type, workout_id, workout_name) => {
@@ -78,10 +78,12 @@ class Workouts extends React.Component {
                 image={workout.image_url}
                 name={workout.workout_name}
                 description={workout.workout_description}
+                difficulty={workout.level}
                 startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
                 deleteWorkout={() => this.props.deleteWorkout(workout.id)}
                 addWorkout={() => this.addWorkout( "success", workout.id, workout.workout_name )}
                 myWorkout={false}
+                exercises={this.props.allExercises}
               />
             )
             }))
@@ -100,7 +102,8 @@ class Workouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    workouts: state.workouts.workouts
+    workouts: state.workouts.workouts,
+    allExercises: state.workouts.allExercises,
   };
 };
 export default connect(
