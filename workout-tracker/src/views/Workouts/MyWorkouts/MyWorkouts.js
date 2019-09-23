@@ -51,6 +51,8 @@ class MyWorkouts extends React.Component {
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
               deleteWorkout={() => this.props.deleteWorkout(workout.id)}
+              difficulty={workout.level}
+              exercises={this.props.allExercises}
               myWorkout={true}
             />
           )
@@ -84,7 +86,8 @@ class MyWorkouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    myWorkouts: state.workouts.myWorkouts
+    myWorkouts: state.workouts.myWorkouts,
+    allExercises: state.workouts.allExercises
   };
 };
 

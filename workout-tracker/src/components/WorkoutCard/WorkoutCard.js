@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Modal, Card, Button, Col, Icon } from 'antd';
+import { Modal, Card, Button, Col, Icon, List } from 'antd';
 
 const { Meta } = Card;
 
@@ -40,9 +40,7 @@ class WorkoutCard extends React.Component {
           title={this.props.name} style={{margin: '.5rem 0'}}
           description={this.props.myWorkout
             ? <ul style={{listStyle: 'none'}}>
-                <li>Difficulty: {this.props.myWorkout.workout_name}</li>
-                <li>Exercises:</li>
-                <li>Duration: </li>
+                <li>Difficulty: {this.props.difficulty}</li>
               </ul>
             : this.props.description
           }
@@ -76,7 +74,34 @@ class WorkoutCard extends React.Component {
         <img alt="cover" src={this.props.image} style={{width: "15rem", height: "15rem", objectFit: "cover"}}/>
         <p><span style={{fontWeight: 'bold'}}>Description: </span>{this.props.description}</p>
       </div>
-      <p>Exercises: </p>
+      <div>
+        {this.props.exercises ? (
+          <div>
+            <List
+              size="small"
+              header={<h3>Exercises</h3>}
+              bordered
+              dataSource={this.props.exercises
+                .reduce((acc, current) => {
+                  const x = acc.find(
+                    item => item.exercise_name === current.exercise_name
+                  );
+                  if (!x) {
+                    return acc.concat([current]);
+                  } else {
+                    return acc;
+                  }
+                }, [])
+                .map(exercise => exercise.exercise_name)}
+              renderItem={item => (
+                <List.Item>
+                  {item}
+                </List.Item>
+              )}
+            />
+          </div>
+        ) : null}
+              </div>
     </Modal>
   </>
   )
