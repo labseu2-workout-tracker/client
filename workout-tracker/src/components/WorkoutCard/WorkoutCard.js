@@ -40,9 +40,9 @@ class WorkoutCard extends React.Component {
           title={this.props.name} style={{margin: '.5rem 0'}}
           description={this.props.myWorkout
             ? <ul style={{listStyle: 'none'}}>
-                <li>Difficulty:</li>
+                <li>Difficulty: {this.props.myWorkout.workout_name}</li>
                 <li>Exercises:</li>
-                <li>Duration:</li>
+                <li>Duration: </li>
               </ul>
             : this.props.description
           }
@@ -76,7 +76,7 @@ class WorkoutCard extends React.Component {
         <img alt="cover" src={this.props.image} style={{width: "15rem", height: "15rem", objectFit: "cover"}}/>
         <p><span style={{fontWeight: 'bold'}}>Description: </span>{this.props.description}</p>
       </div>
-      <p>Exercises:</p>
+      <p>Exercises: </p>
     </Modal>
   </>
   )

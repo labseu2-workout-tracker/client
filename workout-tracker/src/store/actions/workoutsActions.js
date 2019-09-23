@@ -35,7 +35,7 @@ export const fetchWorkouts = () => dispatch => {
     });
 };
 
-export const fetchWorkoutDetails = workout_id => dispatch => {
+export const fetchWorkoutDetails = (workout_id) => dispatch => {
   // type LOADING needs to be added (also for the redux state)
 
   axiosWithAuth()

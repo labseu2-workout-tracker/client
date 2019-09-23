@@ -54,6 +54,7 @@ const StyledWorkouts = styled.div`
 class Workouts extends React.Component {
   componentDidMount() {
     this.props.fetchWorkouts();
+    this.props.fetchWorkoutInfo();
   }
 
   addWorkout = (type, workout_id, workout_name) => {
@@ -78,7 +79,7 @@ class Workouts extends React.Component {
                 image={workout.image_url}
                 name={workout.workout_name}
                 description={workout.workout_description}
-                startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
+                startWorkout={() => this.props.fetchWorkoutDetails(workout.id, true)}
                 deleteWorkout={() => this.props.deleteWorkout(workout.id)}
                 addWorkout={() => this.addWorkout( "success", workout.id, workout.workout_name )}
                 myWorkout={false}
@@ -100,7 +101,9 @@ class Workouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    workouts: state.workouts.workouts
+    workouts: state.workouts.workouts,
+    allExercises: state.workouts.allExercises,
+    myWorkouts: state.workouts.myWorkouts
   };
 };
 export default connect(
