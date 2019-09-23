@@ -5,50 +5,50 @@ import {
   fetchWorkoutDetails,
   addWorkout
 } from "../../store/actions/workoutsActions";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { notification, Empty } from "antd";
 
 import WorkoutCard from '../../components/WorkoutCard/WorkoutCard';
 
-const StyledWorkouts = styled.div`
-  display: flex;
+// const StyledWorkouts = styled.div`
+//   display: flex;
 
-  .ant-card-meta-description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .off {
-    display: none;
-  }
+//   .ant-card-meta-description {
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//   }
+//   .off {
+//     display: none;
+//   }
 
-  .added-workout {
-    background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
+//   .added-workout {
+//     background: linear-gradient(45deg, rgb(106, 120, 209), rgb(0, 164, 189));
 
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-    border-radius: 0.5rem;
-  }
+//     top: 50%;
+//     left: 50%;
+//     position: fixed;
+//     transform: translate(-50%, -50%);
+//     width: 50%;
+//     height: 50%;
+//     border-radius: 0.5rem;
+//   }
 
-  .close {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
+//   .close {
+//     width: 100%;
+//     display: flex;
+//     justify-content: flex-end;
+//   }
 
-  i {
-    font-size: 3rem;
-    transition: 0.6s ease-in-out;
+//   i {
+//     font-size: 3rem;
+//     transition: 0.6s ease-in-out;
 
-    &:hover {
-      visibility: visible;
-    }
-  }
-`;
+//     &:hover {
+//       visibility: visible;
+//     }
+//   }
+// `;
 
 
 class Workouts extends React.Component {

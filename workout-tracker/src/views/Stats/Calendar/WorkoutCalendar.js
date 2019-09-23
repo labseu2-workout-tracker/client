@@ -1,6 +1,4 @@
 import React from "react";
-import { fetchWorkouts } from "../../../store/actions/workoutsActions";
-import { fetchWorkoutsHistory } from "../../../store/actions/historyActions";
 import { connect } from "react-redux";
 import { Calendar, Modal, Button } from "antd";
 import styled from "styled-components";
@@ -58,7 +56,7 @@ const StyledWorkoutCalendar = styled.div`
     width: 100%;
     height: 3rem;
     font-weight: bold;
-    padding: .02rem;
+    padding: 0.02rem;
   }
 
   .fa-info-circle {
@@ -116,9 +114,6 @@ class WorkoutCalendar extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.props.fetchWorkouts();
-    this.props.fetchWorkoutsHistory();
-
     let workoutNames = [];
     let workouts = [];
 
@@ -397,7 +392,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
-)(WorkoutCalendar);
+export default connect(mapStateToProps)(WorkoutCalendar);
