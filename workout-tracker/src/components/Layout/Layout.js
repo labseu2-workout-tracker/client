@@ -40,8 +40,6 @@ const StyledContainer = styled.section`
     overflow: hidden;
   }
 
- 
-
   .ant-layout-content {
     min-height: 100vh;
     min-width: 0;
@@ -51,10 +49,11 @@ const StyledContainer = styled.section`
   .ant-layout-sider {
       position: absolute;
       z-index: 1000;
+      background: #0086c9;
     }
 
   .nav-items {
-    padding: 24px 0;
+    padding: 2rem 0.5rem;
   }
 
   @media (min-width: 992px) {
