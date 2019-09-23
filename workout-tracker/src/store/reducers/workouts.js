@@ -78,12 +78,6 @@ const workouts = (state = initialState, action) => {
               : null
       };
 
-    case type.ADD_WORKOUT:
-      return {
-        ...state,
-        savedWorkout: state.savedWorkout
-      }
-
     case type.ADD_WORKOUT_SUCCESS:
       return {
         ...state,
