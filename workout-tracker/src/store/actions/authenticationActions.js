@@ -39,10 +39,10 @@ export const doSignUp = (user, history) => dispatch => {
   axios
     .post(`${appURL}/auth/signup`, user)
     .then(response => {
-      const { token, userId } = response.data;
-      dispatch(genericAction(LOGIN, userId));
+      const { token, user } = response.data;
+      dispatch(genericAction(LOGIN, user.id));
       localStorage.setItem("token", token);
-      localStorage.setItem("userId", userId);
+      localStorage.setItem("userId", user.id);
       history.push("/workouts");
     })
     .catch(error => {
