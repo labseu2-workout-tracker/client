@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
-import { Empty, Button } from 'antd';
-import styled from 'styled-components';
+import { Empty } from 'antd';
+// import styled from 'styled-components';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
@@ -12,10 +12,10 @@ import {
   addWorkoutDetails,
 } from "../../../store/actions/workoutsActions"
 
-const StyledDiv = styled.div`
-  display: flex;
-  margin: auto;
-`;
+// const StyledDiv = styled.div`
+//   display: flex;
+//   margin: auto;
+// `;
 
 class MyWorkouts extends React.Component {
   state = {

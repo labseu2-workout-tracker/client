@@ -20,6 +20,11 @@
   border-left: 11px solid #5c0d91;
 }
 
+.dashboard-list-item a{
+  color:white;
+  word-wrap: none;
+}
+
 .dashbaord-list-item a,
 .dashbaord-list-item a:hover {
   color: #696969;
