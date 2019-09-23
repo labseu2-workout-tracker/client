@@ -56,17 +56,14 @@ const StyledContainer = styled.div`
     margin: 1rem 0;
   }
   .anticon.anticon-info-circle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
   .anticon.anticon-minus-circle, 
   .anticon.anticon-plus-circle {
-    position: absolute;
-    bottom: 0;
+    /* margin: .25rem 0;
+    bottom: .5rem;
     right: 2rem;
-    font-size: 1.5rem
+    font-size: 1.5rem */
   }
 
   .ant-card-meta-description {
