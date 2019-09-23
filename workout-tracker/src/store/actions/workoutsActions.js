@@ -20,9 +20,7 @@ export const GET_SAVED_WORKOUT = "GET_SAVED_WORKOUT";
 export const GET_SAVED_WORKOUT_SUCCESS = "GET_SAVED_WORKOUT_SUCCESS";
 export const GET_SAVED_WORKOUT_FAILURE = "GET_SAVED_WORKOUT_FAILURE";
 
-// const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
-
-const workouts = `http://localhost:5000/workouts`;
+const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
 export const genericAction = (type, payload) => ({
   type,
