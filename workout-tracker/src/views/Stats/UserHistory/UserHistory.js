@@ -9,7 +9,7 @@ class SessionHistory extends React.Component {
     super(props);
     this.state = {
       minValue: 0,
-      maxValue: 2
+      maxValue: 6
     };
   }
 
@@ -17,12 +17,12 @@ class SessionHistory extends React.Component {
     if (value <= 1) {
       this.setState({
         minValue: 0,
-        maxValue: 2
+        maxValue: 6
       });
     } else {
       this.setState({
-        minValue: value * 2 - 2,
-        maxValue: value * 2
+        minValue: value * 6 - 6,
+        maxValue: value * 6
       });
     }
   };
@@ -34,8 +34,8 @@ class SessionHistory extends React.Component {
     return (
       <StyledUserHistory>
         <Card className="history" title="Workout History">
-          {history ? (
-            <div>
+          {history.length ? (
+            <div className="list-container">
               <div className="ordered-list">
                 {history
                   .slice(this.state.minValue, this.state.maxValue)
@@ -115,9 +115,9 @@ class SessionHistory extends React.Component {
               </div>
             </div>
           ) : (
-            <p>
+            <div>
               <Empty description={"No Workouts"} />
-            </p>
+            </div>
           )}
         </Card>
       </StyledUserHistory>
@@ -164,6 +164,7 @@ const StyledUserHistory = styled.div`
 
   .ant-card-body {
     padding: 0;
+    width:100%;
   }
   .session-card {
     width: 30%;
@@ -188,6 +189,7 @@ const StyledUserHistory = styled.div`
   }
 
   .ordered-list {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
