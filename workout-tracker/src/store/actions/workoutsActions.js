@@ -8,6 +8,7 @@ export const START_WORKOUT = "START_WORKOUT";
 export const CHOOSE_EXERCISE = "CHOOSE_EXERCISE";
 export const FINISH_EXERCISE = "FINISH_EXERCISE";
 export const END_WORKOUT = "END_WORKOUT";
+export const DELETE_WORKOUT = "DELETE_WORKOUT";
 export const CREATE_WORKOUT = "CREATE_WORKOUT";
 export const LOADING_CREATE_WORKOUT = "LOADING_CREATE_WORKOUT";
 export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
@@ -87,6 +88,10 @@ export const endWorkout = (workout_id, history) => dispatch => {
     .catch(err => {
       // type ERROR needs to be added (also for the redux state)
     });
+};
+
+export const deleteWorkout = workout_id => {
+  return { type: DELETE_WORKOUT, workout_id: workout_id };
 };
 
 export const saveWorkout = data => dispatch => {
