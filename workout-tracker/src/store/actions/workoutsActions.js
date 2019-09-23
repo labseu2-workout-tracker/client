@@ -98,6 +98,7 @@ export const deleteWorkout = workout_id => {
 };
 
 export const saveWorkout = data => dispatch => {
+  debugger
   dispatch(genericAction(ADD_WORKOUT, true))
   axiosWithAuth()
     .post(`${workouts}/save-workout`, data)
