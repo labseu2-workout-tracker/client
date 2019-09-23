@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { fetchWorkoutDetails, deleteWorkout, getSavedWorkout } from '../../../store/actions/workoutsActions';
 import { Empty, Button } from 'antd';
 import styled from 'styled-components';
@@ -12,10 +13,10 @@ import {
   addWorkoutDetails,
 } from "../../../store/actions/workoutsActions"
 
-const StyledDiv = styled.div`
-  display: flex;
-  margin: auto;
-`;
+// const StyledDiv = styled.div`
+//   display: flex;
+//   margin: auto;
+// `;
 
 class MyWorkouts extends React.Component {
   state = {
