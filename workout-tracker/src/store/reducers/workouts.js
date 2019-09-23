@@ -9,7 +9,7 @@ const initialState = {
   newWorkout: null,
   savedWorkout: null,
   error: null,
-  loading: false,
+  loading: false
 };
 
 const workouts = (state = initialState, action) => {
@@ -71,53 +71,58 @@ const workouts = (state = initialState, action) => {
           state.currentExercise.length > 1
             ? deleteExerciseFromCurrent
             : deleteExerciseAll[0]
-              ? deleteExerciseAll.filter(
+            ? deleteExerciseAll.filter(
                 workout =>
                   workout.exercise_name === deleteExerciseAll[0].exercise_name
               )
-              : null
+            : null
       };
 
     case type.ADD_WORKOUT_SUCCESS:
+      const checkIfEmpty = action.payload.length ? action.payload : null;
+
       return {
         ...state,
-        savedWorkout: action.payload
-      }
+        savedWorkout: checkIfEmpty
+      };
 
     case type.ADD_WORKOUT_FAILURE:
       return {
         ...state,
         error: action.payload
-      }
+      };
 
     case type.GET_SAVED_WORKOUT:
       return {
         ...state,
         loading: true,
         error: null,
-        myWorkouts: null,
-      }
+        myWorkouts: null
+      };
 
     case type.GET_SAVED_WORKOUT_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
-        myWorkouts: action.payload,
-      }
+        myWorkouts: action.payload
+      };
 
     case type.GET_SAVED_WORKOUT_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.payload,
-      }
+        error: action.payload
+      };
 
     case type.DELETE_WORKOUT:
+      const withoutDeletedWorkout = action.payload.length
+        ? action.payload
+        : null;
 
       return {
         ...state,
-        myWorkouts: action.payload
+        savedWorkout: withoutDeletedWorkout
       };
 
     default:

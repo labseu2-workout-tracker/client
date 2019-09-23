@@ -12,6 +12,7 @@ export const DELETE_WORKOUT = "DELETE_WORKOUT";
 export const CREATE_WORKOUT = "CREATE_WORKOUT";
 export const LOADING_CREATE_WORKOUT = "LOADING_CREATE_WORKOUT";
 export const CREATE_WORKOUT_ERROR = "CREATE_WORKOUT_ERROR";
+export const ADD_WORKOUT = "ADD_WORKOUT";
 export const ADD_WORKOUT_DETAILS = "ADD_WORKOUT_DETAILS";
 export const ADD_WORKOUT_SUCCESS = "ADD_WORKOUT_SUCCESS";
 export const ADD_WORKOUT_FAILURE = "ADD_WORKOUT_FAILURE";
@@ -90,15 +91,20 @@ export const endWorkout = (workout_id, history) => dispatch => {
     });
 };
 
-export const deleteWorkout = workout_id => {
-  const userId = localStorage.getItem("userId"); 
+export const deleteWorkout = workout_id => dispatch => {
+  const userId = Number(localStorage.getItem("userId"));
+
+  const workoutAndUser = {
+    workouts_id: workout_id,
+    user_id: userId
+  };
   axiosWithAuth()
-    .delete(`${workouts}/all-saved/${workout_id}`)
+    .delete(`${workouts}/all-saved`, { data: workoutAndUser })
     .then(res => {
       return axiosWithAuth()
         .get(`${workouts}/all-saved/${userId}`)
         .then(res => {
-          dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
+          dispatch(genericAction(DELETE_WORKOUT, res.data));
         });
     })
     .catch(err => {
@@ -128,7 +134,6 @@ export const getSavedWorkout = () => dispatch => {
   axiosWithAuth()
     .get(`${workouts}/all-saved/${userId}`)
     .then(res => {
-      debugger;
       dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
     })
     .catch(err => {

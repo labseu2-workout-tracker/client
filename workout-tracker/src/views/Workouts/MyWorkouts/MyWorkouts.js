@@ -65,7 +65,7 @@ class MyWorkouts extends React.Component {
               name={workout.workout_name}
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
-              deleteWorkout={() => this.props.deleteWorkout(workout.id)}
+              deleteWorkout={() => this.props.deleteWorkout(workout.workouts_id)}
               myWorkout={true}
             />
           )
