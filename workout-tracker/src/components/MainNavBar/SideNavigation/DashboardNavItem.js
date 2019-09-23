@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import "./DashboardNavItem.css"
+import styled from 'styled-components'
 
 const dashItems = [
   {id: "workouts", text: 'Workouts', link: "/workouts", icon: <i className="fas fa-dumbbell"></i>},
@@ -10,15 +10,41 @@ const dashItems = [
 ]
 const DashboardNavItem = (props) => [
   ...dashItems.map(item => (
-    <li className="dashboard-list-item"
+    <StyledList
     
     key={item.id} >
       <NavLink to={item.link}> {item.icon} </NavLink>  
-      <span></span>
       <NavLink to={item.link}><span> {item.text} </span></NavLink>   
-    </li>
+    </StyledList>
   )
   )
 ]
+
+const StyledList = styled.li`
+  display: flex;
+  word-spacing: 2em;
+  padding: 15px;
+  text-align: left;
+  font-size: 1.3rem;
+  color: #fff;
+
+  a:last-of-type {
+    padding-left: 0.75rem;
+  }
+
+  a,
+  a:hover {
+    color: white;
+    font-weight: bold;
+  }
+
+  a.active {
+    color: #5c0d91;
+  }
+
+  .ant-layout-header {
+    background: #0086c9;
+  }
+`
 
 export default DashboardNavItem;
