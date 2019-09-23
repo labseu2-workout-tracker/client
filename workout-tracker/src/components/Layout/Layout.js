@@ -40,11 +40,7 @@ const StyledContainer = styled.section`
     overflow: hidden;
   }
 
-  .ant-layout-sider {
-    padding: 0.5rem;
-    background-color: #001529;
-    overflow: auto;
-  }
+ 
 
   .ant-layout-content {
     min-height: 100vh;
@@ -52,14 +48,20 @@ const StyledContainer = styled.section`
     overflow: auto;
   }
 
+  .ant-layout-sider {
+      position: absolute;
+      z-index: 1000;
+    }
+
   .nav-items {
     padding: 24px 0;
   }
 
-  @media (max-width: 992px) {
+  @media (min-width: 992px) {
     .ant-layout-sider {
-      position: absolute;
-      z-index: 1000;
+      padding: 0.5rem;
+      overflow: auto;
+      position: relative;
     }
   }
 
