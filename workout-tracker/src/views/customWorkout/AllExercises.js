@@ -105,15 +105,17 @@ class AllExercises extends Component {
               style={floatingButtons}
               onClick={() => this.props.history.push("/workouts")}
             ></Button>
-            <Button
+            {
+              !this.state.saveExercise && <Button
               type="primary"
               size="large"
               icobn="check"
               style={{ ...floatingButtons, ...bottom }}
               onClick={() => this.setState({ saveExercise: true })}
             >
-              Save Exercices
-            </Button>{" "}
+              Add sets to exercices
+            </Button>
+            } 
           </div>
         )}
       </>
