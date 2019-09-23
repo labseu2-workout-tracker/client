@@ -22,7 +22,7 @@ class WorkoutContainer extends React.Component {
           <PageHeader title="My Saved Workouts" style={{padding: '0'}}/>
         </Row>
         <Row type="flex" gutter={16}>
-          <MyWorkouts />
+          <MyWorkouts {...this.props} />
         </Row>
         <Row>
           <PageHeader title="Choose from our pre-made workouts" style={{padding: '0'}}/>
@@ -49,24 +49,7 @@ const StyledContainer = styled.div`
     background-color: white ;
     padding: 30px;
     justify-content: center;
-    /* overflow-x: auto;
-    overflow-y: hidden; */
-    /* max-height: 480px; */
-    /* flex-wrap: nowrap; */
     margin: 1rem 0;
-  }
-  .anticon.anticon-info-circle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 1.5rem;
-  }
-  .anticon.anticon-minus-circle, 
-  .anticon.anticon-plus-circle {
-    position: absolute;
-    bottom: 0;
-    right: 2rem;
-    font-size: 1.5rem
   }
 
   .ant-card-meta-description {
