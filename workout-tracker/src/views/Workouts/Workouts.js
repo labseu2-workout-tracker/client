@@ -56,7 +56,7 @@ class Workouts extends React.Component {
     this.props.fetchWorkouts();
   }
 
-  addWorkout = (type, workouts_id, data) => {
+  addWorkout = (type, workouts_id, name) => {
      let user_id = JSON.parse(localStorage.getItem('userId'))
     data =   {
       workouts_id,
@@ -64,7 +64,7 @@ class Workouts extends React.Component {
     }
     notification[type]({
       message: "Successful!",
-      description: `The workout ${data.workouts_id} got added to your list.`
+      description: `The workout ${name} got added to your list.`
     });
 
     this.props.saveWorkout(data);
