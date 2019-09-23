@@ -114,13 +114,10 @@ const workouts = (state = initialState, action) => {
       }
 
     case type.DELETE_WORKOUT:
-      const filterMyWorkouts = state.myWorkouts.filter(
-        workout => workout.id !== action.workout_id
-      );
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null
+        myWorkouts: action.payload
       };
 
     default:
