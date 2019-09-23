@@ -20,7 +20,9 @@ export const GET_SAVED_WORKOUT = "GET_SAVED_WORKOUT";
 export const GET_SAVED_WORKOUT_SUCCESS = "GET_SAVED_WORKOUT_SUCCESS";
 export const GET_SAVED_WORKOUT_FAILURE = "GET_SAVED_WORKOUT_FAILURE";
 
-const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
+// const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
+
+const workouts = `http://localhost:5000/workouts`;
 
 export const genericAction = (type, payload) => ({
   type,
@@ -98,27 +100,28 @@ export const deleteWorkout = workout_id => {
 };
 
 export const saveWorkout = data => dispatch => {
-  debugger
-  dispatch(genericAction(ADD_WORKOUT, true))
+  debugger;
+  dispatch(genericAction(ADD_WORKOUT, true));
   axiosWithAuth()
     .post(`${workouts}/save-workout`, data)
     .then(res => {
-      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
+      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
     })
     .catch(err => {
       dispatch(genericAction(ADD_WORKOUT_FAILURE, err));
-    })
-}
+    });
+};
 
 export const getSavedWorkout = () => dispatch => {
   dispatch(genericAction(GET_SAVED_WORKOUT, true));
+  const userId = localStorage.getItem("userId");
   axiosWithAuth()
-    .get(`${workouts}/all-saved`)
+    .get(`${workouts}/all-saved/${userId}`)
     .then(res => {
-      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data))
+      debugger;
+      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
     })
     .catch(err => {
-      console.log(err)
       dispatch(genericAction(GET_SAVED_WORKOUT_FAILURE, err));
     });
-}
+};

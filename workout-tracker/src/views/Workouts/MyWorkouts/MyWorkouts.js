@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkoutDetails, deleteWorkout } from '../../../store/actions/workoutsActions';
+import { fetchWorkoutDetails, deleteWorkout, getSavedWorkout } from '../../../store/actions/workoutsActions';
 import { Empty, Button } from 'antd';
 import styled from 'styled-components';
 
@@ -20,6 +20,10 @@ const StyledDiv = styled.div`
 class MyWorkouts extends React.Component {
   state = {
     visible: false
+  };
+  
+  componentDidMount = () => {
+    this.props.getSavedWorkout();
   };
 
   showModal = () => {
@@ -96,12 +100,12 @@ class MyWorkouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    myWorkouts: state.workouts.myWorkouts,
+    myWorkouts: state.workouts.savedWorkout,
     newWorkout: state.workouts.newWorkout
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails }
+  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails, getSavedWorkout }
 )(MyWorkouts);
