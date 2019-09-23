@@ -31,9 +31,13 @@ class MainLayout extends React.Component {
 const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+
   .content-container {
     display: flex;
     flex-direction: row;
+    overflow: auto;
   }
 
   .ant-layout-sider {
