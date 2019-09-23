@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails } from '../../../store/actions/workoutsActions';
+import { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails, getSavedWorkout } from '../../../store/actions/workoutsActions';
 import { Empty} from 'antd';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
@@ -10,6 +10,10 @@ import CreateModalForm from '../../customWorkout/ModalForm';
 class MyWorkouts extends React.Component {
   state = {
     visible: false
+  };
+  
+  componentDidMount = () => {
+    this.props.getSavedWorkout();
   };
 
   showModal = () => {
@@ -50,7 +54,7 @@ class MyWorkouts extends React.Component {
               name={workout.workout_name}
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
-              deleteWorkout={() => this.props.deleteWorkout(workout.id)}
+              deleteWorkout={() => this.props.deleteWorkout(workout.workouts_id)}
               difficulty={workout.level}
               exercises={this.props.allExercises}
               myWorkout={true}
@@ -86,12 +90,12 @@ class MyWorkouts extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    myWorkouts: state.workouts.myWorkouts,
+    myWorkouts: state.workouts.savedWorkout,
     allExercises: state.workouts.allExercises
   };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails }
+  { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails, getSavedWorkout }
 )(MyWorkouts);

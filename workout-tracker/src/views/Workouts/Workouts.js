@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   fetchWorkouts,
   fetchWorkoutDetails,
-  addWorkout
+  saveWorkout
 } from "../../store/actions/workoutsActions";
 // import styled from "styled-components";
 import { notification, Empty } from "antd";
@@ -56,13 +56,18 @@ class Workouts extends React.Component {
     this.props.fetchWorkouts(); 
   }
 
-  addWorkout = (type, workout_id, workout_name) => {
+  addWorkout = (type, workouts_id, name) => {
+     let user_id = Number(localStorage.getItem('userId'));
+   const data =   {
+      workouts_id,
+      user_id
+    }
     notification[type]({
       message: "Successful!",
-      description: `The workout ${workout_name} got added to your list.`
+      description: `The workout ${name} got added to your list.`
     });
 
-    this.props.addWorkout(workout_id);
+    this.props.saveWorkout(data);
   };
 
   
@@ -108,5 +113,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { fetchWorkouts, fetchWorkoutDetails, addWorkout }
+  { fetchWorkouts, fetchWorkoutDetails, saveWorkout }
 )(Workouts);

@@ -6,18 +6,10 @@ const initialState = {
   allExercises: null,
   currentExercise: null,
   myWorkouts: null,
-  newWorkout: null
-};
-
-const removeDuplicates = (arr, comp) => {
-  const unique = arr
-    .map(workout => workout[comp])
-    .map((workout, index, array) => array.indexOf(workout) === index && index)
-
-    .filter(workout => arr[workout])
-    .map(workout => arr[workout]);
-
-  return unique;
+  newWorkout: null,
+  savedWorkout: null,
+  error: null,
+  loading: false
 };
 
 const workouts = (state = initialState, action) => {
@@ -86,32 +78,51 @@ const workouts = (state = initialState, action) => {
             : null
       };
 
-    case type.ADD_WORKOUT:
-      let mergeWorkouts;
-
-      const filterWorkout = state.workouts.filter(
-        workout => workout.id === action.workout_id
-      );
-
-      if (state.myWorkouts) {
-        mergeWorkouts = state.myWorkouts.concat(filterWorkout);
-      }
+    case type.ADD_WORKOUT_SUCCESS:
+      const checkIfEmpty = action.payload.length ? action.payload : null;
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts
-          ? removeDuplicates(mergeWorkouts, "id")
-          : filterWorkout
+        savedWorkout: checkIfEmpty
+      };
+
+    case type.ADD_WORKOUT_FAILURE:
+      return {
+        ...state,
+        error: action.payload
+      };
+
+    case type.GET_SAVED_WORKOUT:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        myWorkouts: null
+      };
+
+    case type.GET_SAVED_WORKOUT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        myWorkouts: action.payload
+      };
+
+    case type.GET_SAVED_WORKOUT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
 
     case type.DELETE_WORKOUT:
-      const filterMyWorkouts = state.myWorkouts.filter(
-        workout => workout.id !== action.workout_id
-      );
+      const withoutDeletedWorkout = action.payload.length
+        ? action.payload
+        : null;
 
       return {
         ...state,
-        myWorkouts: state.myWorkouts[1] ? filterMyWorkouts : null
+        savedWorkout: withoutDeletedWorkout
       };
 
     default:
