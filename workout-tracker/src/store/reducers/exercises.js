@@ -8,7 +8,10 @@ const initialState = {
   arrayOfCurrentExercises: null,
   currentMuscleGroup: null,
   indexOfLastExercise: 8,
-  indexFirstExercise: 0
+  indexFirstExercise: 0,
+  loading: false,
+  error: null,
+  selectedExercises: []
 };
 
 const exercises = (state = initialState, action) => {
@@ -120,7 +123,10 @@ const exercises = (state = initialState, action) => {
         remainingExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
         currentMuscleGroup: 'Chest',
-        indexOfLastExercise: 8
+        indexOfLastExercise: 8,
+        loading: false,
+        selectedExercises: [],
+        error: null
       };
 
     case type.SHOW_MUSCLE_GROUP:
