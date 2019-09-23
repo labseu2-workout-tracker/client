@@ -49,21 +49,7 @@ const StyledContainer = styled.div`
     background-color: white ;
     padding: 30px;
     justify-content: center;
-    /* overflow-x: auto;
-    overflow-y: hidden; */
-    /* max-height: 480px; */
-    /* flex-wrap: nowrap; */
     margin: 1rem 0;
-  }
-  .anticon.anticon-info-circle {
-    /* font-size: 1.5rem; */
-  }
-  .anticon.anticon-minus-circle, 
-  .anticon.anticon-plus-circle {
-    /* margin: .25rem 0;
-    bottom: .5rem;
-    right: 2rem;
-    font-size: 1.5rem */
   }
 
   .ant-card-meta-description {
