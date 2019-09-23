@@ -91,7 +91,19 @@ export const endWorkout = (workout_id, history) => dispatch => {
 };
 
 export const deleteWorkout = workout_id => {
-  return { type: DELETE_WORKOUT, workout_id: workout_id };
+  const userId = localStorage.getItem("userId"); 
+  axiosWithAuth()
+    .delete(`${workouts}/all-saved/${workout_id}`)
+    .then(res => {
+      return axiosWithAuth()
+        .get(`${workouts}/all-saved/${userId}`)
+        .then(res => {
+          dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
+        });
+    })
+    .catch(err => {
+      dispatch(genericAction(GET_SAVED_WORKOUT_FAILURE, err));
+    });
 };
 
 export const saveWorkout = data => dispatch => {
