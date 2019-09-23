@@ -1,21 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkoutDetails, deleteWorkout, getSavedWorkout } from '../../../store/actions/workoutsActions';
-import { Empty, Button } from 'antd';
-import styled from 'styled-components';
+import { fetchWorkoutDetails, deleteWorkout, addWorkoutDetails, getSavedWorkout } from '../../../store/actions/workoutsActions';
+import { Empty} from 'antd';
 
 import WorkoutCard from '../../../components/WorkoutCard/WorkoutCard';
 import AddWorkoutButton from '../../../utils/AddWorkoutButton';
 import CreateModalForm from '../../customWorkout/ModalForm';
-
-import {
-  addWorkoutDetails,
-} from "../../../store/actions/workoutsActions"
-
-const StyledDiv = styled.div`
-  display: flex;
-  margin: auto;
-`;
 
 class MyWorkouts extends React.Component {
   state = {
@@ -54,7 +44,6 @@ class MyWorkouts extends React.Component {
 
   render() {
     return (
-      // <StyledDiv>
       <>
         {this.props.myWorkouts 
         ? (this.props.myWorkouts.map((workout, index) => {
@@ -66,6 +55,8 @@ class MyWorkouts extends React.Component {
               description={workout.workout_description}
               startWorkout={() => this.props.fetchWorkoutDetails(workout.id)}
               deleteWorkout={() => this.props.deleteWorkout(workout.workouts_id)}
+              difficulty={workout.level}
+              exercises={this.props.allExercises}
               myWorkout={true}
             />
           )
@@ -93,7 +84,6 @@ class MyWorkouts extends React.Component {
           </Empty>
         }
         </>
-      //</StyledDiv>
     )
   }
 }
@@ -101,7 +91,7 @@ class MyWorkouts extends React.Component {
 const mapStateToProps = state => {
   return {
     myWorkouts: state.workouts.savedWorkout,
-    newWorkout: state.workouts.newWorkout
+    allExercises: state.workouts.allExercises
   };
 };
 

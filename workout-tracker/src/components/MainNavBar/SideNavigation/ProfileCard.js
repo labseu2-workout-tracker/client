@@ -58,6 +58,14 @@ const StyledImage = styled.div`
             width: auto;
         }
     }
+
+    .ant-avatar {
+        color: #fff;
+        background: #5c0d91;
+        width: 72px;
+        height: 72px;
+        border-radius: 30%;
+    }
 `
 const mapStateToProps = state => {
     return {
