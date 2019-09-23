@@ -12,17 +12,6 @@ const initialState = {
   loading: false,
 };
 
-const removeDuplicates = (arr, comp) => {
-  const unique = arr
-    .map(workout => workout[comp])
-    .map((workout, index, array) => array.indexOf(workout) === index && index)
-
-    .filter(workout => arr[workout])
-    .map(workout => arr[workout]);
-
-  return unique;
-};
-
 const workouts = (state = initialState, action) => {
   switch (action.type) {
     case type.ADD_WORKOUT_DETAILS:

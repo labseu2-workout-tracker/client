@@ -58,7 +58,7 @@ class Workouts extends React.Component {
 
   addWorkout = (type, workouts_id, name) => {
      let user_id = JSON.parse(localStorage.getItem('userId'))
-    data =   {
+   const data =   {
       workouts_id,
       user_id
     }
