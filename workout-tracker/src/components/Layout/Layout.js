@@ -37,17 +37,19 @@ const StyledContainer = styled.section`
   .content-container {
     display: flex;
     flex-direction: row;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .ant-layout-sider {
     padding: 0.5rem;
     background-color: #001529;
+    overflow: auto;
   }
 
   .ant-layout-content {
     min-height: 100vh;
     min-width: 0;
+    overflow: auto;
   }
 
   .nav-items {
