@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 .navigation-item {
   padding: 0 1.5rem;
 }
@@ -5,6 +6,9 @@
 .navigation-item a {
   text-decoration: none;
   color: white;
+  font-weight: bolder;
+  font-family: 'Viga', sans-serif;
+  letter-spacing: 2px;
 }
 
 .navigation-item {
@@ -25,7 +29,7 @@
 .navigation-item a:hover,
 .navigation-item a:active,
 .navigation-item a.active {
-  color: #0086c9;
+  color: #5c0d91;
 }
 
 .navigation-item:last-of-type {
