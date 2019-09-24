@@ -10,40 +10,84 @@ class MainLayout extends React.Component {
   render() {
     return (
       <StyledContainer>
-        {!Auth.isAuthenticated() ? <Header style={{backgroundColor: '#0086c9'}}>{this.props.header}</Header> : ""}
+        {!Auth.isAuthenticated() ? (
+          <Header style={{ backgroundColor: "#0086c9" }}>
+            {this.props.header}
+          </Header>
+        ) : (
+          ""
+        )}
         {this.props.mobileNav}
-        <div className='content-container'>
-        {Auth.isAuthenticated()
-        ? this.props.location.pathname !== "/workouts/new/add_exercises" && <Sider
-            breakpoint="lg"
-            collapsedWidth="0"
-          >
-            {this.props.sider}
-          </Sider>
-          : '' }
-        <Content>{this.props.routes}
-        <Footer><div><p>Our statement</p></div></Footer>
-        </Content>
+        <div className="content-container">
+          {Auth.isAuthenticated()
+            ? this.props.location.pathname !==
+                "/workouts/new/add_exercises" && (
+                <Sider breakpoint="lg" collapsedWidth="0">
+                  {this.props.sider}
+                </Sider>
+              )
+            : ""}
+          <Content>
+            {this.props.routes}
+            <Footer>
+              <div>
+                <div className='footer-content'>
+                  <div>
+                    <h5>Our statement</h5>
+                    <p>
+                      This is our important statemant... 
+                    </p>
+                  </div>
+                  <div>
+                    <h5>Contact us</h5>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className='copy'>
+                  <span>© Copyright 2019 - 2020</span>
+                  <p>All rights reserved. Powered by <a href="#!">
+                  BeFit
+                  </a></p>
+                </div>
+              </div>
+            </Footer>
+          </Content>
         </div>
       </StyledContainer>
     );
   }
 }
 
+const Footer = styled.div`
 
-const Footer = styled.div `
-width: 100%;
-height: 100px;
-background: #0086C9;
-
-  p{
-  color: #696969;
-  column-count: 2;
-  column-gap: 50px;
-  font-size: 1em;
-  font-weight: 300;
+a {
+  color:white;
 }
-`
+
+.copy {
+  padding: 5px;
+  width: 300px;
+  margin: 0 auto;
+
+  span {
+    width:100px;
+    margin: 33px;
+  }
+}
+
+p {
+  padding: 0;
+}
+
+div {
+  background-color:#0086c9;
+}
+
+  width: 100%;
+  height: 100px;
+  background: #0086c9;
+`;
 
 const StyledContainer = styled.section`
   display: flex;
@@ -64,11 +108,11 @@ const StyledContainer = styled.section`
   }
 
   .ant-layout-sider {
-      position: absolute;
-      z-index: 1000;
-      background: #0086c9;
-      height: 100vh;
-    }
+    position: absolute;
+    z-index: 1000;
+    background: #0086c9;
+    height: 100vh;
+  }
 
   .nav-items {
     padding: 2rem 0.5rem;
@@ -81,6 +125,5 @@ const StyledContainer = styled.section`
       position: relative;
     }
   }
-
-`
+`;
 export default MainLayout;
