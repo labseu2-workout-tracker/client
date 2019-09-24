@@ -21,12 +21,29 @@ class MainLayout extends React.Component {
             {this.props.sider}
           </Sider>
           : '' }
-        <Content>{this.props.routes}</Content>
+        <Content>{this.props.routes}
+        <Footer><div><p>Our statement</p></div></Footer>
+        </Content>
         </div>
       </StyledContainer>
     );
   }
 }
+
+
+const Footer = styled.div `
+width: 100%;
+height: 100px;
+background: #0086C9;
+
+  p{
+  color: #696969;
+  column-count: 2;
+  column-gap: 50px;
+  font-size: 1em;
+  font-weight: 300;
+}
+`
 
 const StyledContainer = styled.section`
   display: flex;
