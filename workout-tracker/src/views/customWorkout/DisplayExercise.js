@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { List, Card, Modal, Button, Avatar } from "antd";
+import { List, Card, Modal, Button, Avatar, Row } from "antd";
+import { withRouter } from "react-router-dom";
+import styled from "styled-components";
 
-export default class DisplayExercise extends Component {
+class DisplayExercise extends Component {
   state = { visible: false };
 
   showModal = id => {
@@ -26,22 +28,12 @@ export default class DisplayExercise extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          padding: "2rem",
-          maxWidth: "75%",
-          fontSize: ".8rem",
-          marginLeft: "24%"
-        }}
-      >
-        <List
-          itemLayout="vertical"
-          grid={{ gutter: 12, lg: 3, md: 2 }}
+      <div>
+        <StyledList
+          itemLayout="horizontal"
+          grid={{ gutter: 12, md: 2, lg: 3, xl: 4, xxl: 6}}
           pagination={{
-            onChange: page => {
-              console.log(page);
-            },
-            pageSize: 12,
+            pageSize: 24,
             showLessItems: true
           }}
           dataSource={this.props.dataSource.sort((a, b) => a.id - b.id)}
@@ -56,27 +48,27 @@ export default class DisplayExercise extends Component {
                   >
                     Info
                   </Button>,
+                  this.props.location.pathname === "/workouts/new/add_exercises" &&
                   <Button
                     onClick={e => this.props.addExercise(item, e)}
                     type="primary"
                     icon="plus-circle"
                     key={item.id}
                   >
-                    Add
+                    Add 
                   </Button>
                 ]}
               >
-                <Card.Meta
-                  title={<h4>{item.exercise_name}</h4>}
-                  avatar={<Avatar src={item.picture_one} />}
-                  description={
-                    <>
-                      This is a <strong>{item.type}</strong> exercise that
-                      targets the <strong>{item.muscle}</strong> muscle and
-                      requires <strong>{item.equipment}</strong>
-                    </>
-                  }
-                />
+                <Row type="flex" justify="space-around">
+                  <Avatar shape="square" size={64} src={item.picture_one} />
+                  <Avatar shape="square" size={64} src={item.picture_two} />
+                </Row>
+                <h3>{item.exercise_name}</h3>
+                <>
+                  Type: <strong>{item.type}</strong><br />
+                  Target: <strong>{item.muscle}</strong> muscle<br />
+                  Equipment: <strong>{item.equipment}</strong><br />
+                </>
               </Card>
             </List.Item>
           )}
@@ -88,7 +80,6 @@ export default class DisplayExercise extends Component {
               : null
           }
           visible={this.state.visible}
-          // {this.props.singleExercise[0].closeExercise}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
@@ -132,3 +123,33 @@ export default class DisplayExercise extends Component {
     );
   }
 }
+
+const StyledList = styled(List)`
+  .ant-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ant-list-item {
+    height: 100%;
+  }
+
+  .ant-card-bordered {
+    height: calc(100% - 1rem);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .ant-card-body {
+    margin-bottom: 2rem;
+  }
+
+  .ant-card-actions {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+`
+
+export default withRouter(DisplayExercise);

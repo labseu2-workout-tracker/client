@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Radio } from "antd";
+import { Form, Input, Button, Radio } from "antd";
 
 const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
   // eslint-disable-next-line
@@ -8,7 +8,7 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
       const { form } = this.props;
       const { getFieldDecorator } = form;
       return (
-        <Form layout="inline">
+        <Form style={{ marginTop: '1rem'}} layout="inline">
           <Form.Item label="Workout Name" >
             {getFieldDecorator("workout_name", {
               initialValue: `${this.props.name || ''}`,
@@ -42,6 +42,7 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
               </Radio.Group>
             )}
           </Form.Item>
+          <Button onClick={this.props.onCreate}>Update</Button>
         </Form>
       );
     }

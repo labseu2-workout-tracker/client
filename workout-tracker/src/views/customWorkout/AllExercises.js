@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DisplayExercise from "./DisplayExercise";
 import FilterExercises from "./FilterExercises";
 import SideBar from "./SideBar";
+import SetsForm from "./SetsForm";
 import {
   fetchExercises,
   addToSelectedExercises,
@@ -9,13 +10,15 @@ import {
   showSingleExercise,
   searchExercise
 } from "../../store/actions/exerciseActions";
-import { Spin, Button } from "antd";
+import { createWorkout } from "../../store/actions/workoutsActions";
+import { Spin, Button, PageHeader } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
 
 class AllExercises extends Component {
   state = {
-    topBarHeight: ""
+    topBarHeight: "",
+    saveExercise: false
   };
 
   setTopBarHeight = height => {
@@ -48,10 +51,18 @@ class AllExercises extends Component {
               <ReactHeight
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
-                <FilterExercises
-                  {...this.props}
-                  filterMuscles={this.filterMuscles}
-                />
+                {!this.state.saveExercise ? (
+                  <FilterExercises
+                    {...this.props}
+                    filterMuscles={this.filterMuscles}
+                  />
+                ) : (
+                  <PageHeader
+                    onBack={() => this.setState({ saveExercise: false })}
+                    title="Add Sets"
+                    subTitle="Add reps, weights, duration to each set of exercise"
+                  />
+                )}
               </ReactHeight>
             </div>
             <div style={{ marginTop: this.state.topBarHeight + 15 }}>
@@ -60,13 +71,32 @@ class AllExercises extends Component {
                 newWorkout={this.props.newWorkout}
                 selectedExercises={this.props.selectedExercises}
               />
-
-              <DisplayExercise
-                showSingleExercise={this.props.showSingleExercise}
-                addExercise={this.props.addToSelectedExercises}
-                dataSource={this.props.exercises}
-                singleExercise={this.props.singleExercise}
-              />
+              <div
+                style={{
+                  padding: "2rem",
+                  maxWidth: "75%",
+                  fontSize: ".8rem",
+                  marginLeft: "24%"
+                }}
+              >
+                {!this.state.saveExercise ? (
+                  <DisplayExercise
+                    showSingleExercise={this.props.showSingleExercise}
+                    addExercise={this.props.addToSelectedExercises}
+                    dataSource={this.props.exercises}
+                    singleExercise={this.props.singleExercise}
+                  />
+                ) : (
+                  <SetsForm
+                    exercises={this.props.selectedExercises}
+                    workouts={this.props.workouts}
+                    newWorkout={this.props.newWorkout}
+                    createWorkout={this.props.createWorkout}
+                    loading={this.props.loadingWorkouts}
+                    history={this.props.history}
+                  />
+                )}
+              </div>
             </div>
             <Button
               type="link"
@@ -75,13 +105,17 @@ class AllExercises extends Component {
               style={floatingButtons}
               onClick={() => this.props.history.push("/workouts")}
             ></Button>
-            <Button
+            {
+              !this.state.saveExercise && <Button
               type="primary"
               size="large"
-              icon="check"
+              icobn="check"
               style={{ ...floatingButtons, ...bottom }}
-              onClick={() => this.props.history.push("/workouts/new/add_sets")}
-            >Save Exercices</Button>{" "}
+              onClick={() => this.setState({ saveExercise: true })}
+            >
+              Add sets to exercices
+            </Button>
+            } 
           </div>
         )}
       </>
@@ -96,7 +130,10 @@ function mapStateToProps(state) {
     newWorkout: state.workouts.newWorkout,
     error: state.exercises.error,
     selectedExercises: state.exercises.selectedExercises,
-    singleExercise: state.exercises.singleExercise
+    singleExercise: state.exercises.singleExercise,
+    workouts: state.workouts.workouts,
+    loadingWorkouts: state.workouts.loading,
+    errorWorkouts: state.workouts.error
   };
 }
 
@@ -107,7 +144,8 @@ export default connect(
     searchExercise,
     addToSelectedExercises,
     filterMuscles,
-    showSingleExercise
+    showSingleExercise,
+    createWorkout
   }
 )(AllExercises);
 

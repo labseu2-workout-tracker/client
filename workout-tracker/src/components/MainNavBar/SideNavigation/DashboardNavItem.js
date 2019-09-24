@@ -41,10 +41,6 @@ const StyledList = styled.li`
   a.active {
     color: #5c0d91;
   }
-
-  .ant-layout-header {
-    background: #0086c9;
-  }
 `
 
 export default DashboardNavItem;
