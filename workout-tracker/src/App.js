@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Settings from "./views/Settings/Settings";
-import ContactPage from "./views/ContactPage/ContactPage";
 import ExercisesLibrary from "./views/ExerciseLibrary/ExercisesLibrary";
 import Stats from './views/Stats/Stats'
 import About from "./views/AboutUs/AboutUs";
@@ -54,7 +53,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/about" component={About} />
-          <Route exact path="/contact" component={ContactPage} />
+          <Route path="/about" component={LandingPage} />
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
           <Redirect to="/" />

@@ -24,25 +24,25 @@ const About = () => {
               <img src={tale} alt="profile" className="profile-img" />
               <h1>Antonio Talent</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="htt" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/sampler36"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/talentantonio-fsse/"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -52,25 +52,25 @@ const About = () => {
               <img src={yusuf} alt="profile" className="profile-img" />
               <h1>Yusuf Abdulkarim</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="htt" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/haywhyze"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -80,25 +80,25 @@ const About = () => {
               <img src={remi} alt="profile" className="profile-img" />
               <h1>Remi Becheru</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/Becheru888"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -108,25 +108,25 @@ const About = () => {
               <img src={kelechi} alt="profile" className="profile-img" />
               <h1>Kelechi Ogbonna</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="htt" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/Kellswork"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>             
             </div>
@@ -136,25 +136,25 @@ const About = () => {
               <img src={benjamin} alt="profile" className="profile-img" />
               <h1>Benjamin Grabow</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/BenjaminGrabow"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -164,25 +164,25 @@ const About = () => {
               <img src={matt} alt="profile" className="profile-img" />
               <h1>Matthew Locklin</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/Lockers"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -192,25 +192,25 @@ const About = () => {
               <img src={wasiu} alt="profile" className="profile-img" />
               <h1>Wasiu Idowu</h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/Hoxtygen"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="htthttps://www.linkedin.com/"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -220,25 +220,25 @@ const About = () => {
               <img src={tigran} alt="profile" className="profile-img" />
               <h1>Tigran Asriyan </h1>
               <p className="job-title">Full Stack Developer</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/hyetigran"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/tigranasriyan/"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
@@ -248,25 +248,25 @@ const About = () => {
               <img src={sean} alt="profile" className="profile-img" />
               <h1>Shaun Carmody</h1>
               <p className="job-title">Team Lead</p>
-              <p className="about">
+              {/* <p className="about">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              </p> */}
               <a href="http" className="btn">
                 Contact
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-facebook-square"></i></a>
+                  <a href="https://www.facebook.com"><i className="fab fa-facebook-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-twitter-square"></i></a>
+                  <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-github-square"></i></a>
+                  <a href="https://github.com/shaunmcarmody"><i className="fab fa-github-square"></i></a>
                 </li>
                 <li className="social-media">
-                  <a href="http"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/shaunmcarmody/"><i className="fab fa-linkedin"></i></a>
                 </li>               
               </ul>
             </div>
