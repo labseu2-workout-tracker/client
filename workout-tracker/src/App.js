@@ -53,7 +53,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/about" component={About} />
-          <Route path="/about" component={LandingPage} />
+          <Route path="/" component={LandingPage} />
           <Route path="/login" render={props => <LoginPage {...props} />} />
           <Route path="/signup" render={props => <SignupPage {...props} />} />
           <Redirect to="/" />
