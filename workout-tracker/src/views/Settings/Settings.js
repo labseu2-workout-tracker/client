@@ -355,7 +355,7 @@ class Settings extends React.Component {
                               <option value="Expert">Expert</option>
                             </select>
                           </div> */}
-
+{/* 
                           <div
                             className={
                               this.state.checkedList.includes(
@@ -381,8 +381,8 @@ class Settings extends React.Component {
                               <option value="false">False</option>
                               <option value="true">True</option>
                             </select>
-                          </div>
-                          <div
+                          </div> */}
+                          {/* <div
                             className={
                               this.state.checkedList.includes(
                                 "Push Notification"
@@ -407,7 +407,7 @@ class Settings extends React.Component {
                               <option value="false">False</option>
                               <option value="true">True</option>
                             </select>
-                          </div>
+                          </div> */}
                         </List>
                       </div>
                     </div>
@@ -440,6 +440,20 @@ class Settings extends React.Component {
                   <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
+                        <i className="fa fa-user"></i>
+                      </span>
+                      <Statistic
+                        title="Name"
+                        value={
+                          setting.name ? setting.name : "Not specified"
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
                         <i className="fa fa-envelope"></i>
                       </span>
                       <Statistic
@@ -450,20 +464,7 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
-                    <Card style={{ color: "white", background: "#001529" }}>
-                      <span className="icon">
-                        <i className="fa fa-user"></i>
-                      </span>
-                      <Statistic
-                        title="Username"
-                        value={
-                          setting.username ? setting.username : "Not specified"
-                        }
-                        valueStyle={{ color: "white" }}
-                      />
-                    </Card>
-                  </div>
+
                   {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
@@ -496,7 +497,7 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div> */}
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-envelope"></i>
@@ -507,8 +508,8 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  </div> */}
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-bell"></i>
@@ -519,7 +520,7 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
+                  </div> */}
                 </List>
               </div>
             </StyledSettings>
