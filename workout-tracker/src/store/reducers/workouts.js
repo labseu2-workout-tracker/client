@@ -7,11 +7,6 @@ const initialState = {
   currentExercise: null,
   myWorkouts: null,
   newWorkout: null,
-<<<<<<< HEAD
-  savedWorkout: null,
-  error: null,
-  loading: false
-=======
   loading: null,
   error: null,
 };
@@ -25,7 +20,6 @@ const removeDuplicates = (arr, comp) => {
     .map(workout => arr[workout]);
 
   return unique;
->>>>>>> add create custom workout reducers
 };
 
 const workouts = (state = initialState, action) => {
