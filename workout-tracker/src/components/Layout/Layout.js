@@ -10,7 +10,7 @@ class MainLayout extends React.Component {
   render() {
     return (
       <StyledContainer>
-        {!Auth.isAuthenticated() ? <Header>{this.props.header}</Header> : ""}
+        {!Auth.isAuthenticated() ? <Header style={{backgroundColor: '#0086c9'}}>{this.props.header}</Header> : ""}
         {this.props.mobileNav}
         <div className='content-container'>
         {Auth.isAuthenticated()
@@ -50,6 +50,7 @@ const StyledContainer = styled.section`
       position: absolute;
       z-index: 1000;
       background: #0086c9;
+      height: 100vh;
     }
 
   .nav-items {
