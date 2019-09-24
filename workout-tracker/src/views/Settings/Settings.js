@@ -173,9 +173,10 @@ class Settings extends React.Component {
     indeterminate: true,
     checkAll: false,
     wantUpdate: false,
+    fullName: this.props.settings ? this.props.settings[0].fullName : "",
     email: this.props.settings ? this.props.settings[0].email : "",
     username: this.props.settings ? this.props.settings[0].username : "",
-    // password: this.props.settings ? this.props.settings[0].password : "",
+    password: this.props.settings ? this.props.settings[0].password : "",
     weight: this.props.settings ? this.props.settings[0].weight : "",
     user_level: this.props.settings ? this.props.settings[0].user_level : "",
     email_notification: this.props.settings
@@ -221,6 +222,7 @@ class Settings extends React.Component {
 
   changeSettings = () => {
     const updatedSettings = {
+      fullName: this.state.fullName ? this.state.fullName : this.props.settings[0].fullName,
       email: this.state.email ? this.state.email : this.props.settings[0].email,
       username: this.state.username
         ? this.state.username
