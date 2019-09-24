@@ -159,7 +159,7 @@ const plainOptions = [
   "Email",
   "Username",
   "Full Name",
-  "Password",
+  // "Password",
   // "User Level",
   // "Email Notification",
   // "Push Notification"
@@ -330,7 +330,7 @@ class Settings extends React.Component {
                               name="username"
                             />
                           </div>
-                          <div
+                          {/* <div
                             className={
                               this.state.checkedList.includes("Password")
                                 ? null
@@ -348,7 +348,7 @@ class Settings extends React.Component {
                               placeholder={setting.password}
                               name="Password"
                             />
-                            </div>
+                            </div> */}
                           {/* <div
                             className={
                               this.state.checkedList.includes("Weight")
@@ -486,7 +486,7 @@ class Settings extends React.Component {
                       <Statistic
                         title="Full Name"
                         value={
-                          setting.name ? setting.name : "Not specified"
+                          setting.fullname ? setting.fullname : "Not specified"
                         }
                         valueStyle={{ color: "white" }}
                       />
@@ -519,7 +519,7 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-key"></i>
@@ -532,7 +532,7 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
+                  </div> */}
 
                   {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
