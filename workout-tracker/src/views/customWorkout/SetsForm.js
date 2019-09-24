@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Radio, InputNumber, Icon, Button } from "antd";
+import { Form, Radio, InputNumber, Icon, Button, Alert } from "antd";
 
 class SetsForm extends Component {
   remove = (e, k) => {
@@ -140,6 +140,35 @@ class SetsForm extends Component {
             </Button>
           </Form.Item>
         </Form>
+        {this.props.error && this.props.error.exercises && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.exercises}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && this.props.error.workout_name && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.workout_name}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && this.props.error.workout_description && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.workout_description}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && 
+          !this.props.error.exercises && 
+          !this.props.error.workout_name && 
+          !this.props.error.workout_description &&
+          this.props.error.code &&
+         <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description="Workout name already exists"
+          type="error"
+          showIcon
+        />}
       </div>
     );
   }

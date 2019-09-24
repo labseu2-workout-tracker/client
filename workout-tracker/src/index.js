@@ -32,9 +32,9 @@ function loadFromLocalStorage() {
 
 const persistedState = loadFromLocalStorage();
 
-const store = createStore(rootReducer, persistedState, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
-store.subscribe(() => saveToLocalStorage(store.getState()));
+// store.subscribe(() => saveToLocalStorage(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>

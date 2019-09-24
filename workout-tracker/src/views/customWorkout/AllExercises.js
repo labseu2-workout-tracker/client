@@ -94,6 +94,7 @@ class AllExercises extends Component {
                     createWorkout={this.props.createWorkout}
                     loading={this.props.loadingWorkouts}
                     history={this.props.history}
+                    error={this.props.errorWorkouts}
                   />
                 )}
               </div>
