@@ -50,6 +50,7 @@ const StyledContainer = styled.section`
       position: absolute;
       z-index: 1000;
       background: #0086c9;
+      height: 100vh;
     }
 
   .nav-items {
