@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { List, Card, Modal, Button, Avatar, Row } from "antd";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
-export default class DisplayExercise extends Component {
+class DisplayExercise extends Component {
   state = { visible: false };
 
   showModal = id => {
@@ -47,13 +48,14 @@ export default class DisplayExercise extends Component {
                   >
                     Info
                   </Button>,
+                  this.props.location.pathname === "/workouts/new/add_exercises" &&
                   <Button
                     onClick={e => this.props.addExercise(item, e)}
                     type="primary"
                     icon="plus-circle"
                     key={item.id}
                   >
-                    Add
+                    Add 
                   </Button>
                 ]}
               >
@@ -149,3 +151,5 @@ const StyledList = styled(List)`
     bottom: 0;
   }
 `
+
+export default withRouter(DisplayExercise);
