@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { List, Card, Modal, Button, Avatar } from "antd";
+import { List, Card, Modal, Button, Avatar, Row } from "antd";
+import styled from "styled-components";
 
 export default class DisplayExercise extends Component {
   state = { visible: false };
@@ -27,14 +28,10 @@ export default class DisplayExercise extends Component {
   render() {
     return (
       <div>
-        <List
-          
+        <StyledList
           itemLayout="horizontal"
-          grid={{ type: 'flex', gutter: 12,  md: 2, lg: 3, xl: 4, xxl: 6}}
+          grid={{ gutter: 12, md: 2, lg: 3, xl: 4, xxl: 6}}
           pagination={{
-            onChange: page => {
-              console.log(page);
-            },
             pageSize: 24,
             showLessItems: true
           }}
@@ -60,17 +57,16 @@ export default class DisplayExercise extends Component {
                   </Button>
                 ]}
               >
-                <Card.Meta
-                  title={<h4>{item.exercise_name}</h4>}
-                  avatar={<Avatar src={item.picture_one} />}
-                  description={
-                    <>
-                      This is a <strong>{item.type}</strong> exercise that
-                      targets the <strong>{item.muscle}</strong> muscle and
-                      requires <strong>{item.equipment}</strong>
-                    </>
-                  }
-                />
+                <Row type="flex" justify="space-around">
+                  <Avatar shape="square" size={64} src={item.picture_one} />
+                  <Avatar shape="square" size={64} src={item.picture_two} />
+                </Row>
+                <h3>{item.exercise_name}</h3>
+                <>
+                  Type: <strong>{item.type}</strong><br />
+                  Target: <strong>{item.muscle}</strong> muscle<br />
+                  Equipment: <strong>{item.equipment}</strong><br />
+                </>
               </Card>
             </List.Item>
           )}
@@ -125,3 +121,31 @@ export default class DisplayExercise extends Component {
     );
   }
 }
+
+const StyledList = styled(List)`
+  .ant-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ant-list-item {
+    height: 100%;
+  }
+
+  .ant-card-bordered {
+    height: calc(100% - 1rem);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .ant-card-body {
+    margin-bottom: 2rem;
+  }
+
+  .ant-card-actions {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+`
