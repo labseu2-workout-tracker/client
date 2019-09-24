@@ -135,7 +135,7 @@ class SetsForm extends Component {
         <Form layout="inline" onSubmit={this.handleSubmit}>
           {exerciseSet}
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={this.props.loading}>
+    <Button type="primary" htmlType="submit" loading={false}>           {/* loading needs to be changed to loading={this.props.loading} */}
               {this.props.loading ? "Creating Workout..." : "Create Workout"}
             </Button>
           </Form.Item>
