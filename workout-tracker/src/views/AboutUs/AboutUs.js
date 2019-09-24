@@ -33,7 +33,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -61,7 +61,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                  <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -89,7 +89,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -117,7 +117,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -145,7 +145,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -173,7 +173,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -201,7 +201,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -229,7 +229,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
@@ -257,7 +257,7 @@ const About = () => {
               </a>
               <ul className="social-media">
                 <li className="social-media">
-                <a href="https://www.codepen.io"><i className="fab fa-codepen"></i></a>
+                <a href="https://codepen.io/"><i className="fab fa-codepen"></i></a>
                 </li>
                 <li className="social-media">
                   <a href="https://www.twitter.com"><i className="fab fa-twitter-square"></i></a>
