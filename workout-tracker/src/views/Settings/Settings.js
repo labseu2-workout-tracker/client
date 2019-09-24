@@ -443,9 +443,23 @@ class Settings extends React.Component {
                         <i className="fa fa-user"></i>
                       </span>
                       <Statistic
-                        title="Name"
+                        title="Full Name"
                         value={
                           setting.name ? setting.name : "Not specified"
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-user"></i>
+                      </span>
+                      <Statistic
+                        title="Username"
+                        value={
+                          setting.username ? setting.username : "Not specified"
                         }
                         valueStyle={{ color: "white" }}
                       />
@@ -460,6 +474,20 @@ class Settings extends React.Component {
                         title="Email"
                         titleStyle={{ color: "white" }}
                         value={setting.email ? setting.email : "Not specified"}
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-key"></i>
+                      </span>
+                      <Statistic
+                        title="Password"
+                        value={
+                          setting.password ? setting.password : "Not specified"
+                        }
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
