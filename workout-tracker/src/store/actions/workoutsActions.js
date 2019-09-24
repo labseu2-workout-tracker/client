@@ -31,6 +31,34 @@ export const addWorkoutDetails = workoutDetails => {
   return { type: ADD_WORKOUT_DETAILS, payload: workoutDetails };
 };
 
+export const createWorkout = (fullWorkoutDetails, history) => dispatch => {
+  console.log(fullWorkoutDetails)
+  dispatch({
+    type: LOADING_CREATE_WORKOUT,
+    payload: true
+  });
+  axiosWithAuth()
+    .post(workouts, fullWorkoutDetails)
+    .then(res => {
+      dispatch({
+        type: CREATE_WORKOUT,
+        payload: res.data
+      });
+      history.push('/workouts');
+    })
+    .catch(error => {
+      console.log(error.response.data)
+      dispatch({
+        type: CREATE_WORKOUT_ERROR,
+        payload: "Error creating workout. Please Try Again"
+      });
+    })
+    .finally(() => ({
+      type: LOADING_CREATE_WORKOUT,
+      payload: false
+    }));
+};
+
 // action dispatcher
 export const fetchWorkouts = () => dispatch => {
   // type LOADING needs to be added (also for the redux state)
