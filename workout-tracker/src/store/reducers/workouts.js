@@ -7,9 +7,25 @@ const initialState = {
   currentExercise: null,
   myWorkouts: null,
   newWorkout: null,
+<<<<<<< HEAD
   savedWorkout: null,
   error: null,
   loading: false
+=======
+  loading: null,
+  error: null,
+};
+
+const removeDuplicates = (arr, comp) => {
+  const unique = arr
+    .map(workout => workout[comp])
+    .map((workout, index, array) => array.indexOf(workout) === index && index)
+
+    .filter(workout => arr[workout])
+    .map(workout => arr[workout]);
+
+  return unique;
+>>>>>>> add create custom workout reducers
 };
 
 const workouts = (state = initialState, action) => {
@@ -19,6 +35,28 @@ const workouts = (state = initialState, action) => {
         ...state,
         newWorkout: { ...action.payload, exercises: [] }
       };
+
+    case type.CREATE_WORKOUT:
+      return {
+        ...state,
+        workouts: state.workouts.concat(action.payload),
+        loading: false,
+        error: null,
+      }
+    
+    case type.LOADING_CREATE_WORKOUT:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      }
+
+    case type.CREATE_WORKOUT_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      }
 
     case type.FETCH_WORKOUTS:
       return {

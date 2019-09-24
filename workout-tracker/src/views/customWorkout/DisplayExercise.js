@@ -26,22 +26,16 @@ export default class DisplayExercise extends Component {
   };
   render() {
     return (
-      <div
-        style={{
-          padding: "2rem",
-          maxWidth: "75%",
-          fontSize: ".8rem",
-          marginLeft: "24%"
-        }}
-      >
+      <div>
         <List
-          itemLayout="vertical"
-          grid={{ gutter: 12, lg: 3, md: 2 }}
+          
+          itemLayout="horizontal"
+          grid={{ type: 'flex', gutter: 12,  md: 2, lg: 3, xl: 4, xxl: 6}}
           pagination={{
             onChange: page => {
               console.log(page);
             },
-            pageSize: 12,
+            pageSize: 24,
             showLessItems: true
           }}
           dataSource={this.props.dataSource.sort((a, b) => a.id - b.id)}
@@ -88,7 +82,6 @@ export default class DisplayExercise extends Component {
               : null
           }
           visible={this.state.visible}
-          // {this.props.singleExercise[0].closeExercise}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
