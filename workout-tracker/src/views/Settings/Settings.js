@@ -158,10 +158,11 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
   "Email",
   "Username",
-  // "Weight",
+  "Full Name",
+  "Password",
   // "User Level",
-  "Email Notification",
-  "Push Notification"
+  // "Email Notification",
+  // "Push Notification"
 ];
 
 const defaultCheckedList = [];
