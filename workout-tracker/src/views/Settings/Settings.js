@@ -224,7 +224,7 @@ class Settings extends React.Component {
       username: this.state.username
         ? this.state.username
         : this.props.settings[0].username,
-      // password: this.state.password,
+      password: this.state.password,
       weight: Number(this.state.weight)
         ? Number(this.state.weight)
         : this.props.settings[0].weight
@@ -270,6 +270,25 @@ class Settings extends React.Component {
                     <div key={index}>
                       <div className="user-data">
                         <List>
+                        <div
+                            className={
+                              this.state.checkedList.includes("Full Name")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                fullName: <i className="fa fa-user"></i>
+                              </p>
+                            </div>
+                            <Input
+                              value={this.state.fullName}
+                              onChange={this.handleChange}
+                              placeholder={setting.fullName}
+                              name="Full Name"
+                            />
+                            </div>
                           <div
                             className={
                               this.state.checkedList.includes("Email")
