@@ -227,7 +227,7 @@ class Settings extends React.Component {
       username: this.state.username
         ? this.state.username
         : this.props.settings[0].username,
-      // password: this.state.password,
+      password: this.state.password,
       weight: Number(this.state.weight)
         ? Number(this.state.weight)
         : this.props.settings[0].weight
