@@ -47,10 +47,10 @@ class MainLayout extends React.Component {
               <div style={{display:'flex', flexDirection:'column'}}>
                  <h4>The Team Behind</h4>
                  <a>Shaun Carmody TL</a>
-                 <a>Remi Becheru FS</a>        
-                 <a>Benjamin Grabow FS</a>
+                 <a href='https://github.com/Becheru888'>Remi Becheru FS</a>        
+                 <a href='https://github.com/benjamingrabow '>Benjamin Grabow FS</a>
                  <a>Matt Locklin FS</a>
-                 <a>Tigran Asriyan FS</a>
+                 <a href='https://github.com/hyetigran'>Tigran Asriyan FS</a>
                  <a>Yusuf Abdulkarim FS</a>
                  <a>Kelechi Ogbonna FS</a>
                  <a>Talent Antonio FS</a>
