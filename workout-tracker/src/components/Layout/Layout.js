@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import Auth from "../../auth/auth";
 import styled from "styled-components";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider, Footer } = Layout;
 
 class MainLayout extends React.Component {
   render() {
@@ -30,26 +30,32 @@ class MainLayout extends React.Component {
           <Content>
             {this.props.routes}
             <Footer>
+              <div style={{ display: "flex", flexDirection: "row" }} >
               <div>
-                <div className='footer-content'>
-                  <div>
-                    <h5>Our statement</h5>
-                    <p>
-                      This is our important statemant... 
-                    </p>
-                  </div>
-                  <div>
-                    <h5>Contact us</h5>
-                  </div>
-                </div>
+                <h4>Our statement</h4>
+                <p>
+                  If you can make it that far,<br></br> what's stopping you from
+                  one more mile or one more set of reps?
+                </p>
               </div>
               <div>
-                <div className='copy'>
-                  <span>© Copyright 2019 - 2020</span>
-                  <p>All rights reserved. Powered by <a href="#!">
-                  BeFit
-                  </a></p>
-                </div>
+                <h4>Contact us</h4>
+                <p>
+                  <a href="#">befit@tracker.com</a>
+                </p>
+              </div>
+              <div>
+                 <h4>The Team Behind</h4>
+                         <p>
+                links to the teams chats etc
+                </p>
+              </div>
+              </div>
+              <div style={{paddingRight:'10rem'}}>
+                <span>© Copyright {new Date().getFullYear()}</span>
+                <p>
+                  All rights reserved. Powered by <a href="#!">BeFit</a>
+                </p>
               </div>
             </Footer>
           </Content>
@@ -58,36 +64,6 @@ class MainLayout extends React.Component {
     );
   }
 }
-
-const Footer = styled.div`
-
-a {
-  color:white;
-}
-
-.copy {
-  padding: 5px;
-  width: 300px;
-  margin: 0 auto;
-
-  span {
-    width:100px;
-    margin: 33px;
-  }
-}
-
-p {
-  padding: 0;
-}
-
-div {
-  background-color:#0086c9;
-}
-
-  width: 100%;
-  height: 100px;
-  background: #0086c9;
-`;
 
 const StyledContainer = styled.section`
   display: flex;
