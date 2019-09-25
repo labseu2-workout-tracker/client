@@ -9,7 +9,7 @@ const UpdateWorkoutDetails = Form.create({ name: "update_workout" })(
       const { getFieldDecorator } = form;
       return (
         <Form style={{ marginTop: '1rem'}} layout="inline">
-          <Form.Item label="Workout Name" >
+          <Form.Item label="Name" >
             {getFieldDecorator("workout_name", {
               initialValue: `${this.props.name || ''}`,
               rules: [
