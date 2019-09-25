@@ -70,6 +70,7 @@ class AllExercises extends Component {
                 marginTop={this.state.topBarHeight + 15}
                 newWorkout={this.props.newWorkout}
                 selectedExercises={this.props.selectedExercises}
+                saveExercise={this.state.saveExercise}
               />
               <div
                 style={{

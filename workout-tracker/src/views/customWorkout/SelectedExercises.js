@@ -17,7 +17,7 @@ export default class SelectedExercises extends Component {
           itemLayout="vertical"
           renderItem={item => (
             <List.Item
-              extra={
+              extra={!this.props.saveExercise &&
                 <Button
                   size="small"
                   type="danger"
