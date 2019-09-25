@@ -43,7 +43,7 @@ export default class FilterExercises extends Component {
         <div>
           <h4>Filter By Muscles:</h4>
           {muscles.map(muscle => (
-            <FilterTag key={muscle} filter={"muscle"}>
+            <FilterTag style={{marginBottom: '1rem' }} key={muscle} filter={"muscle"}>
               {muscle}
             </FilterTag>
           ))}
@@ -51,13 +51,12 @@ export default class FilterExercises extends Component {
         <div>
           <h4>Filter By Equipment:</h4>
           {equipments.map(equipment => (
-            <FilterTag key={equipment} filter={"equipment"}>
+            <FilterTag style={{ marginTop: '1rem'}} key={equipment} filter={"equipment"}>
               {equipment}
             </FilterTag>
           ))}
         </div>
         <AutoComplete
-          style={{marginTop: '10rem'}}
           dataSource={[...new Set(this.props.exercises)].map(e => (
             <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
               {e.exercise_name}
