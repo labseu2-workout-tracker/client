@@ -110,7 +110,8 @@ class AllExercises extends Component {
               !this.state.saveExercise && <Button
               type="primary"
               size="large"
-              icobn="check"
+              icon="check"
+              disabled={!this.props.selectedExercises.length}
               style={{ ...floatingButtons, ...bottom }}
               onClick={() => this.setState({ saveExercise: true })}
             >
