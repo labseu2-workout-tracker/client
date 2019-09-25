@@ -62,8 +62,8 @@ export default class FilterExercises extends Component {
               {e.exercise_name}
             </AutoComplete.Option>
           ))}
-          style={{ width: 300 }}
-          onChange={exercise_name => this.props.searchExercise(exercise_name)}
+          style={{ width: 300, marginTop: "1rem" }}
+          onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
           optionLabelProp="text"
         >
           <Input
