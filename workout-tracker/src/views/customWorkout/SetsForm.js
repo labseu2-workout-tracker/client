@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Form, Radio, InputNumber, Icon, Button } from "antd";
+import { Form, Radio, InputNumber, Icon, Button, Card } from "antd";
 
 class SetsForm extends Component {
   remove = (e, k) => {
     const { form } = this.props;
     const keys = form.getFieldValue(`${e}keys`);
-    if (keys.length === 1) {
+    if (keys.length === 0) {
       return;
     }
     form.setFieldsValue({
@@ -60,7 +60,7 @@ class SetsForm extends Component {
       getFieldDecorator(`${e.id}keys`, { initialValue: [] });
       const keys = getFieldValue(`${e.id}keys`);
       return (
-        <div key={e.id}>
+        <Card key={e.id}>
           <h3>{e.exercise_name}</h3>
           {keys.map(k => (
             <div key={`${e.id}${k}`}>
@@ -108,7 +108,7 @@ class SetsForm extends Component {
                   ]
                 })(<InputNumber min={1} max={200} />)}
               </Form.Item>
-              {keys.length > 1 ? (
+              {keys.length > 0 ? (
                 <Icon
                   className="dynamic-delete-button"
                   type="minus-circle-o"
@@ -126,7 +126,7 @@ class SetsForm extends Component {
               Add field
             </Button>
           </Form.Item>
-        </div>
+        </Card>
       );
     });
 
@@ -135,8 +135,8 @@ class SetsForm extends Component {
         <Form layout="inline" onSubmit={this.handleSubmit}>
           {exerciseSet}
           <Form.Item>
-    <Button type="primary" htmlType="submit" loading={false}>           {/* loading needs to be changed to loading={this.props.loading} */}
-              {this.props.loading ? "Creating Workout..." : "Create Workout"}
+            <Button style={{ margin: "1rem" }} type="primary" size="large" htmlType="submit" loading={this.props.loading}>
+              {this.props.loading ? " Creating Workout..." : "Create Workout"}
             </Button>
           </Form.Item>
         </Form>
