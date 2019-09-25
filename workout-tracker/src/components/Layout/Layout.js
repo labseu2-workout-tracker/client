@@ -30,7 +30,7 @@ class MainLayout extends React.Component {
           <Content>
             {this.props.routes}
             <Footer>
-              <div style={{ display: "flex", flexDirection: "row" }} >
+              <FooterContent style={{ display: "flex", flexDirection: "row", justifyContent: 'space-between' }} >
               <div>
                 <h4>Our statement</h4>
                 <p>
@@ -50,13 +50,14 @@ class MainLayout extends React.Component {
                 links to the teams chats etc
                 </p>
               </div>
-              </div>
-              <div style={{paddingRight:'10rem'}}>
-                <span>© Copyright {new Date().getFullYear()}</span>
+              </FooterContent>
+              <Copy>
+                
                 <p>
+                <span>© Copyright {new Date().getFullYear()}</span><br></br>
                   All rights reserved. Powered by <a href="#!">BeFit</a>
                 </p>
-              </div>
+              </Copy>
             </Footer>
           </Content>
         </div>
@@ -64,6 +65,21 @@ class MainLayout extends React.Component {
     );
   }
 }
+
+const Copy = styled.div`
+
+p {
+  text-align:center;
+  padding:0;
+}
+`
+
+const FooterContent = styled.div `
+    p{
+    padding:0px;
+  }
+
+`
 
 const StyledContainer = styled.section`
   display: flex;
