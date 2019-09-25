@@ -57,12 +57,13 @@ export default class FilterExercises extends Component {
           ))}
         </div>
         <AutoComplete
+          style={{marginTop: '10rem'}}
           dataSource={[...new Set(this.props.exercises)].map(e => (
             <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
               {e.exercise_name}
             </AutoComplete.Option>
           ))}
-          style={{ width: 300 }}
+          style={{ marginTop: '2rem', width: 300 }}
           onChange={exercise_name => this.props.searchExercise(exercise_name)}
           optionLabelProp="text"
         >
