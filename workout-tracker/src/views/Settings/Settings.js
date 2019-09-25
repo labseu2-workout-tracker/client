@@ -158,10 +158,11 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
   "Email",
   "Username",
-  // "Weight",
+  "Full Name",
+  // "Password",
   // "User Level",
-  "Email Notification",
-  "Push Notification"
+  // "Email Notification",
+  // "Push Notification"
 ];
 
 const defaultCheckedList = [];
@@ -172,6 +173,7 @@ class Settings extends React.Component {
     indeterminate: true,
     checkAll: false,
     wantUpdate: false,
+    fullname: this.props.settings ? this.props.settings[0].fullname : "",
     email: this.props.settings ? this.props.settings[0].email : "",
     username: this.props.settings ? this.props.settings[0].username : "",
     // password: this.props.settings ? this.props.settings[0].password : "",
@@ -220,11 +222,12 @@ class Settings extends React.Component {
 
   changeSettings = () => {
     const updatedSettings = {
+      fullname: this.state.fullname ? this.state.fullname : this.props.settings[0].fullname,
       email: this.state.email ? this.state.email : this.props.settings[0].email,
       username: this.state.username
         ? this.state.username
         : this.props.settings[0].username,
-      // password: this.state.password,
+      password: this.state.password,
       weight: Number(this.state.weight)
         ? Number(this.state.weight)
         : this.props.settings[0].weight
@@ -270,6 +273,25 @@ class Settings extends React.Component {
                     <div key={index}>
                       <div className="user-data">
                         <List>
+                        <div
+                            className={
+                              this.state.checkedList.includes("Full Name")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Full Name: <i className="fa fa-user"></i>
+                              </p>
+                            </div>
+                            <Input
+                              value={this.state.fullname}
+                              onChange={this.handleChange}
+                              placeholder={setting.fullname}
+                              name="fullname"
+                            />
+                            </div>
                           <div
                             className={
                               this.state.checkedList.includes("Email")
@@ -308,6 +330,25 @@ class Settings extends React.Component {
                               name="username"
                             />
                           </div>
+                          {/* <div
+                            className={
+                              this.state.checkedList.includes("Password")
+                                ? null
+                                : "off"
+                            }
+                          >
+                            <div className="info-wrapper">
+                              <p>
+                                Password: <i className="fa fa-key"></i>
+                              </p>
+                            </div>
+                            <Input
+                              value={this.state.password}
+                              onChange={this.handleChange}
+                              placeholder={setting.password}
+                              name="Password"
+                            />
+                            </div> */}
                           {/* <div
                             className={
                               this.state.checkedList.includes("Weight")
@@ -355,7 +396,7 @@ class Settings extends React.Component {
                               <option value="Expert">Expert</option>
                             </select>
                           </div> */}
-
+{/* 
                           <div
                             className={
                               this.state.checkedList.includes(
@@ -381,8 +422,8 @@ class Settings extends React.Component {
                               <option value="false">False</option>
                               <option value="true">True</option>
                             </select>
-                          </div>
-                          <div
+                          </div> */}
+                          {/* <div
                             className={
                               this.state.checkedList.includes(
                                 "Push Notification"
@@ -407,7 +448,7 @@ class Settings extends React.Component {
                               <option value="false">False</option>
                               <option value="true">True</option>
                             </select>
-                          </div>
+                          </div> */}
                         </List>
                       </div>
                     </div>
@@ -440,12 +481,13 @@ class Settings extends React.Component {
                   <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
-                        <i className="fa fa-envelope"></i>
+                        <i className="fa fa-user"></i>
                       </span>
                       <Statistic
-                        title="Email"
-                        titleStyle={{ color: "white" }}
-                        value={setting.email ? setting.email : "Not specified"}
+                        title="Full Name"
+                        value={
+                          setting.fullname ? setting.fullname : "Not specified"
+                        }
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
@@ -464,6 +506,34 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div>
+                  <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-envelope"></i>
+                      </span>
+                      <Statistic
+                        title="Email"
+                        titleStyle={{ color: "white" }}
+                        value={setting.email ? setting.email : "Not specified"}
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
+                    <Card style={{ color: "white", background: "#001529" }}>
+                      <span className="icon">
+                        <i className="fa fa-key"></i>
+                      </span>
+                      <Statistic
+                        title="Password"
+                        value={
+                          setting.password ? setting.password : "Not specified"
+                        }
+                        valueStyle={{ color: "white" }}
+                      />
+                    </Card>
+                  </div> */}
+
                   {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
@@ -496,7 +566,7 @@ class Settings extends React.Component {
                       />
                     </Card>
                   </div> */}
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-envelope"></i>
@@ -507,8 +577,8 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
-                  <div style={{ background: "white", padding: "1rem" }}>
+                  </div> */}
+                  {/* <div style={{ background: "white", padding: "1rem" }}>
                     <Card style={{ color: "white", background: "#001529" }}>
                       <span className="icon">
                         <i className="fa fa-bell"></i>
@@ -519,7 +589,7 @@ class Settings extends React.Component {
                         valueStyle={{ color: "white" }}
                       />
                     </Card>
-                  </div>
+                  </div> */}
                 </List>
               </div>
             </StyledSettings>
