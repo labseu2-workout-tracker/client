@@ -44,11 +44,17 @@ class MainLayout extends React.Component {
                   <a href="#">befit@tracker.com</a>
                 </p>
               </div>
-              <div>
+              <div style={{display:'flex', flexDirection:'column'}}>
                  <h4>The Team Behind</h4>
-                         <p>
-                links to the teams chats etc
-                </p>
+                 <a>Shaun Carmody TL</a>
+                 <a>Remi Becheru FS</a>        
+                 <a>Benjamin Grabow FS</a>
+                 <a>Matt Locklin FS</a>
+                 <a>Tigran Asriyan FS</a>
+                 <a>Yusuf Abdulkarim FS</a>
+                 <a>Kelechi Ogbonna FS</a>
+                 <a>Talent Antonio FS</a>
+                 <a>Wasiu Idowu FS</a>               
               </div>
               </FooterContent>
               <Copy>
@@ -67,7 +73,6 @@ class MainLayout extends React.Component {
 }
 
 const Copy = styled.div`
-
 p {
   text-align:center;
   padding:0;
