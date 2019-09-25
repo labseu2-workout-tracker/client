@@ -122,11 +122,25 @@ const exercises = (state = initialState, action) => {
         copyOfExercises: changeRatingOfExercise,
         remainingExercises: changeRatingOfExercise,
         arrayOfCurrentExercises: filterOnlyGroupChest,
-        currentMuscleGroup: 'Chest',
+        currentMuscleGroup: "Chest",
         indexOfLastExercise: 8,
         loading: false,
         selectedExercises: [],
         error: null
+      };
+
+    case type.FETCH_EXERCISES_LOADING:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case type.FETCH_EXERCISES_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
       };
 
     case type.SHOW_MUSCLE_GROUP:

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UpdateWorkoutDetails from "./UpdateWorkoutDetails";
 import SelectedExercises from "./SelectedExercises";
 import { connect } from "react-redux";
+import { notification } from "antd";
 import { addWorkoutDetails } from "../../store/actions/workoutsActions";
 import { removeFromSelectedExercises } from "../../store/actions/exerciseActions";
 
@@ -14,6 +15,10 @@ class SideBar extends Component {
       }
 
       this.props.addWorkoutDetails(values);
+      notification["success"]({
+        message: 'Workout details updated successfully',
+        duration: 3,
+      });
     });
   };
 

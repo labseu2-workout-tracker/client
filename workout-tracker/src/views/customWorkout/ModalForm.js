@@ -23,7 +23,8 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
                 rules: [
                   {
                     required: true,
-                    message: 'Please input the name of the custom workout!'
+                    pattern: /^[a-z\d\-_\s']+$/i,
+                    message: 'Please input a valid custom workout name!'
                   }
                 ]
               })(<Input />)}
@@ -33,7 +34,8 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
                 rules: [
                   {
                     required: true,
-                    message: 'Please input the description for the workout!'
+                    pattern: /^[a-z\d\-_\s']+$/i,
+                    message: 'Please input a valid workout description!'
                   }
                 ]
               })(<Input type="textarea" />)}
