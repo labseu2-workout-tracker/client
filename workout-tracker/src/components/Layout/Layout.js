@@ -30,7 +30,7 @@ class MainLayout extends React.Component {
           <Content>
             {this.props.routes}
             <Footer>
-              <FooterContent style={{ display: "flex", flexDirection: "row", justifyContent: 'space-between' }} >
+              <FooterContent style={{ display: "flex", flexDirection: "row", justifyContent: 'space-between'}} >
               <div>
                 <h4>Our statement</h4>
                 <p>
