@@ -27,16 +27,17 @@ class DisplayExercise extends Component {
     });
   };
   render() {
+    this.props.dataSource.sort((a, b) => a.exercise_name < b.exercise_name ? -1 : a.exercise_name > b.exercise_name ? 1 : 0)
     return (
       <div>
         <StyledList
           itemLayout="horizontal"
-          grid={{ gutter: 12, md: 2, lg: 3, xl: 4, xxl: 6}}
+          grid={{ gutter: 36, sm: 2, lg: 3, xl: 3, xxl: 4}}
           pagination={{
             pageSize: 24,
             showLessItems: true
           }}
-          dataSource={this.props.dataSource.sort((a, b) => a.id - b.id)}
+          dataSource={this.props.dataSource}
           renderItem={item => (
             <List.Item>
               <Card
