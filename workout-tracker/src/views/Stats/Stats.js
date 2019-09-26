@@ -104,6 +104,9 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
+         {/* <div className="legend">
+          {this.state.labels.map((label,index) => <p style={{backgroundColor: `${this.state.backgroundColor[index]}`}}>{label}</p>)}
+        </div> */}
         <div className="chart-row">
           <WeeklyChart />
 

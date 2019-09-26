@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const { Meta } = Card;
 
-// Chart.defaults.global.legend.display = false;
+Chart.defaults.global.legend.display = false;
 
 class WeeklyChart extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class WeeklyChart extends React.Component {
     let startAndEndWeek = startAndEndOfWeek(new Date());
 
     let getDaysArray = function(s, e) {
-      for (let a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
         a.push(new Date(d));
       }
       return a;
@@ -127,7 +127,7 @@ class WeeklyChart extends React.Component {
 
     let valuesForDataset = [];
 
-    for (let value in hashTable) {
+    for (var value in hashTable) {
       valuesForDataset.push(hashTable[value]);
     }
 
@@ -139,55 +139,55 @@ class WeeklyChart extends React.Component {
 
   render() {
     return (
-      <Card
-        hoverable
-        className="chart chart-one"
-        cover={
-          <Card
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#11B8CC",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem",
-            }}
-          >
-            <Pie
-              data={{
-                labels: this.state.labels,
-                datasets: [
-                  {
-                    data: this.state.data,
-                    backgroundColor: this.state.backgroundColor,
-                    hoverBackgroundColor: this.state.hoverBackgroundColor
-                  }
-                ]
+        <Card
+          hoverable
+          className="chart chart-one"
+          cover={
+            <Card
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#11B8CC",
+                borderTopLeftRadius: ".6rem",
+                borderTopRightRadius: ".6rem"
               }}
-            />
-          </Card>
-        }
-      >
-        <Meta
-          title="Weekly Result"
-          description={
-            <div>
-              <i className="fa fa-fire"></i>{" "}
-              {`You made ${this.state.data.reduce(
-                (accumulator, currentValue) => accumulator + currentValue,
-                0
-              )} ${
-                this.state.data.reduce(
+            >
+              <Pie
+                data={{
+                  labels: this.state.labels,
+                  datasets: [
+                    {
+                      data: this.state.data,
+                      backgroundColor: this.state.backgroundColor,
+                      hoverBackgroundColor: this.state.hoverBackgroundColor
+                    }
+                  ]
+                }}
+              />
+            </Card>
+          }
+        >
+          <Meta
+            title="Weekly Result"
+            description={
+              <div>
+                <i className="fa fa-fire"></i>{" "}
+                {`You made ${this.state.data.reduce(
                   (accumulator, currentValue) => accumulator + currentValue,
                   0
-                ) === 1
-                  ? "workout"
-                  : "workouts"
-              } this week.`}{" "}
-            </div>
-          }
-        />
-      </Card>
+                )} ${
+                  this.state.data.reduce(
+                    (accumulator, currentValue) => accumulator + currentValue,
+                    0
+                  ) === 1
+                    ? "workout"
+                    : "workouts"
+                } this week.`}{" "}
+              </div>
+            }
+          />
+        </Card>
     );
   }
 }

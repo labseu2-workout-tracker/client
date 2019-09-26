@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import {calculateWeeklyChart} from "../../../store/actions/chartActions";
 import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 
@@ -36,6 +37,7 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
+    this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
     let workoutNames = [];
     let workouts = [];
 
@@ -50,7 +52,7 @@ class MonthlyChart extends React.Component {
     let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
     let getDaysArray = function(s, e) {
-      for (let a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
         a.push(new Date(d));
       }
       return a;
@@ -117,7 +119,7 @@ class MonthlyChart extends React.Component {
 
     let valuesForDataset = [];
 
-    for (let value in hashTable) {
+    for (var value in hashTable) {
       valuesForDataset.push(hashTable[value]);
     }
 
@@ -190,4 +192,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(MonthlyChart);
+export default connect(mapStateToProps, {calculateWeeklyChart})(MonthlyChart);
