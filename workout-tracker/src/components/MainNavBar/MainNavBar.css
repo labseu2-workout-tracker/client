@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+ 
 
   z-index: +10;
   flex-direction: row;
@@ -23,6 +24,13 @@
   margin: 0 1.5rem;
   display: flex;
 }
+
+
+.main-nav__items :hover,
+.main-nav__items :active{
+  transform: scale(1.5);
+}
+
 .buttonWrapper{
   display: flex;
   flex-direction: row;
