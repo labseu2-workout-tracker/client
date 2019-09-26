@@ -151,9 +151,8 @@ class MonthlyChart extends React.Component {
                 datasets: [
                   {
                     data: this.props.monthlyChart.data,
-                    backgroundColor: this.props.monthlyChart.backgroundColor,
-                    hoverBackgroundColor: this.props.monthlyChart
-                      .hoverBackgroundColor
+                    backgroundColor: this.props.color,
+                    hoverBackgroundColor: this.props.color
                   }
                 ]
               }}
@@ -189,7 +188,8 @@ const mapStateToProps = state => {
   return {
     history: state.history.history,
     workouts: state.workouts.workouts,
-    monthlyChart: state.charts.monthlyChart
+    monthlyChart: state.charts.monthlyChart,
+    color: state.charts.color
   };
 };
 

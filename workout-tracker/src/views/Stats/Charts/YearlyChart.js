@@ -33,9 +33,8 @@ class YearlyChart extends React.Component {
                 datasets: [
                   {
                     data: this.props.yearlyChart.data,
-                    backgroundColor: this.props.yearlyChart.backgroundColor,
-                    hoverBackgroundColor: this.props.yearlyChart
-                      .hoverBackgroundColor
+                    backgroundColor: this.props.color,
+                    hoverBackgroundColor: this.props.color
                   }
                 ]
               }}
@@ -71,7 +70,8 @@ const mapStateToProps = state => {
   return {
     history: state.history.history,
     workouts: state.workouts.workouts,
-    yearlyChart: state.charts.yearlyChart
+    yearlyChart: state.charts.yearlyChart,
+    color: state.charts.color
   };
 };
 

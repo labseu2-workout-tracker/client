@@ -35,9 +35,8 @@ class WeeklyChart extends React.Component {
                 datasets: [
                   {
                     data: this.props.weeklyChart.data,
-                    backgroundColor: this.props.weeklyChart.backgroundColor,
-                    hoverBackgroundColor: this.props.weeklyChart
-                      .hoverBackgroundColor
+                    backgroundColor: this.props.color,
+                    hoverBackgroundColor: this.props.color
                   }
                 ]
               }}
@@ -73,7 +72,8 @@ const mapStateToProps = state => {
   return {
     history: state.history.history,
     workouts: state.workouts.workouts,
-    weeklyChart: state.charts.weeklyChart
+    weeklyChart: state.charts.weeklyChart,
+    color: state.charts.color
   };
 };
 
