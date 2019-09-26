@@ -258,6 +258,7 @@ updateWindowDimensions = () => {
             <Card //Bottom Card with Exer & Instructions
               style={{ marginTop: 16 }}
               type="outer"
+              bordered={true}
             >
               <div
               style={
