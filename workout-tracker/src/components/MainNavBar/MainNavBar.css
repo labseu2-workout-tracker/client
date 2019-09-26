@@ -37,7 +37,7 @@
 }
 
 .ant-layout-sider {
-  opacity:0.85;
+  /* opacity:0.85; */
 }
 .main-nav__logo {
   flex: 1;
