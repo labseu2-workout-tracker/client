@@ -165,7 +165,7 @@ updateWindowDimensions = () => {
                 </Card>
                 <Card
                   bordered={false}
-                  style={{ display: "flex", flexDirection: "column" }}
+                  style={{ display: "flex", flexDirection: "column", }}
                 >
                   <Card
                     title={
@@ -247,7 +247,8 @@ updateWindowDimensions = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignContent: "spaceAround"
+                    alignContent: "spaceBetween",
+                    alignItems: "center"
                   }}
                 >
                   <Watch />

@@ -210,6 +210,11 @@ section {
 .fa-github-square:hover {
   color: #980cc6;
 }
+
+div .ant-card-body{
+    background-color: white;
+}
+
 @media screen and (min-width: 300px) {
   .card-wrapper {
     flex-direction: row;
