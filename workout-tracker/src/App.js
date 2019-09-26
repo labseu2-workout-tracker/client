@@ -43,7 +43,8 @@ class App extends Component {
         <ul className="nav-items">
           <DashboardNavItem isAuth={Auth.isAuthenticated()}/>
         </ul>
-        <div style={{paddingLeft: "35px"}}>
+        <div className="space" style={{flex: 1}}></div>
+        <div style={{paddingLeft: "35px", marginBottom: '1rem'}}>
           <Button  type="danger" onClick={this.logoutHandler}>Logout</Button>
         </div>
       </>

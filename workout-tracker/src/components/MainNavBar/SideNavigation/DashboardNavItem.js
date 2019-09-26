@@ -29,6 +29,9 @@ const StyledList = styled.li`
   color: #fff;
  
 
+  @media (max-width: 992px) {
+      padding: 5px 15px;
+  }
   a:last-of-type {
     padding-left: 0.75rem;
   }
