@@ -48,8 +48,26 @@ const initialState = {
       "#51dacf",
       "#edaaaa"
     ]
-  },
+  }
 };
+let getDaysArray = function(s, e) {
+  for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+    a.push(new Date(d));
+  }
+  return a;
+};
+
+function formatDate(date) {
+  let d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}
 
 const charts = (state = initialState, action) => {
   switch (action.type) {
@@ -78,28 +96,10 @@ const charts = (state = initialState, action) => {
 
       let startAndEndWeek = startAndEndOfWeek(new Date());
 
-      let getDaysArray = function(s, e) {
-        for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-          a.push(new Date(d));
-        }
-        return a;
-      };
       let daylist = getDaysArray(startAndEndWeek[0], startAndEndWeek[1]);
       daylist.map(v => v.toISOString().slice(0, 10)).join("");
 
       let daysInWeek = [];
-
-      function formatDate(date) {
-        let d = new Date(date),
-          month = "" + (d.getMonth() + 1),
-          day = "" + d.getDate(),
-          year = d.getFullYear();
-
-        if (month.length < 2) month = "0" + month;
-        if (day.length < 2) day = "0" + day;
-
-        return [year, month, day].join("-");
-      }
 
       for (let i = 0; i < daylist.length; i++) {
         daysInWeek.push(
@@ -149,11 +149,6 @@ const charts = (state = initialState, action) => {
         valuesForDataset.push(hashTable[value]);
       }
 
-      // this.setState({
-      //   data: valuesForDataset,
-      //   labels: workoutNames
-      // });
-
       let copyOfWeeklyChart = { ...state.weeklyChart };
       copyOfWeeklyChart.data = valuesForDataset;
       copyOfWeeklyChart.labels = workoutNames;
@@ -161,6 +156,82 @@ const charts = (state = initialState, action) => {
       return {
         ...state,
         weeklyChart: copyOfWeeklyChart
+      };
+
+    case type.CALCULATE_MONTHLY_CHART:
+      let allWorkoutNames = [];
+      let allWorkouts = [];
+
+      action.workouts.map(workout => {
+        allWorkoutNames.push(workout.workout_name);
+        allWorkouts.push(workout);
+        return workout;
+      });
+
+      let date = new Date();
+      let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+      let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+      let theDaylist = getDaysArray(firstDay, lastDay);
+      theDaylist.map(v => v.toISOString().slice(0, 10)).join("");
+
+      let daysInMonth = [];
+
+      for (let i = 0; i < theDaylist.length; i++) {
+        daysInMonth.push(
+          formatDate(theDaylist[i])
+            .split("-")
+            .join("")
+        );
+      }
+
+      let theUserHistory = action.history;
+      let theResultOfWeek = [];
+
+      for (let j = 0; j < daysInMonth.length; j++) {
+        for (let i = 0; i < theUserHistory.length; i++) {
+          if (
+            theUserHistory[i].session_start
+              .match(/.{1,10}/g)[0]
+              .split("-")
+              .join("") === daysInMonth[j]
+          ) {
+            theResultOfWeek.push(theUserHistory[i]);
+          }
+        }
+      }
+
+      let theHashTable = {};
+
+      for (let j = 0; j < allWorkouts.length; j++) {
+        theHashTable[allWorkouts[j].workout_name] = 0;
+      }
+
+      for (let i = 0; i < theResultOfWeek.length; i++) {
+        for (let j = 0; j < allWorkouts.length; j++) {
+          if (theResultOfWeek[i].workout_id === allWorkouts[j].id) {
+            if (theHashTable[allWorkouts[j].workout_name]) {
+              theHashTable[allWorkouts[j].workout_name] += 1;
+            } else {
+              theHashTable[allWorkouts[j].workout_name] = 1;
+            }
+          }
+        }
+      }
+
+      let theValuesForDataset = [];
+
+      for (var value in theHashTable) {
+        theValuesForDataset.push(theHashTable[value]);
+      }
+
+      let theCopyOfWeeklyChart = { ...state.weeklyChart };
+      theCopyOfWeeklyChart.data = theValuesForDataset;
+      theCopyOfWeeklyChart.labels = allWorkoutNames;
+      debugger;
+      return {
+        ...state,
+        weeklyChart: theCopyOfWeeklyChart
       };
 
     default:

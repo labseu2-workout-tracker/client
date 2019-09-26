@@ -7,34 +7,34 @@ import { Card } from "antd";
 const { Meta } = Card;
 
 class MonthlyChart extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      labels: ["Red", "Green", "Yellow"],
-      data: [1, 5, 6, 7],
-      backgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
-      ],
-      hoverBackgroundColor: [
-        "#f6f078",
-        "#01d28e",
-        "#434982",
-        "#730068",
-        "#a6e3e9",
-        "##36A2EB",
-        "#51dacf",
-        "#edaaaa"
-      ]
-    };
-  }
+  //   this.state = {
+  //     labels: ["Red", "Green", "Yellow"],
+  //     data: [1, 5, 6, 7],
+  //     backgroundColor: [
+  //       "#f6f078",
+  //       "#01d28e",
+  //       "#434982",
+  //       "#730068",
+  //       "#a6e3e9",
+  //       "##36A2EB",
+  //       "#51dacf",
+  //       "#edaaaa"
+  //     ],
+  //     hoverBackgroundColor: [
+  //       "#f6f078",
+  //       "#01d28e",
+  //       "#434982",
+  //       "#730068",
+  //       "#a6e3e9",
+  //       "##36A2EB",
+  //       "#51dacf",
+  //       "#edaaaa"
+  //     ]
+  //   };
+  // }
 
   componentDidMount = () => {
     this.props.calculateMonthlyChart(this.props.history, this.props.workouts);
