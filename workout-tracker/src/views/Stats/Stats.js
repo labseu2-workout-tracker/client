@@ -126,7 +126,16 @@ class Stats extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts,
+    weeklyChart: state.charts.weeklyChart,
+    color: state.charts.color
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { fetchWorkouts, fetchWorkoutsHistory }
 )(Stats);
