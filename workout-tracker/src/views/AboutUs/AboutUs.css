@@ -227,6 +227,11 @@ div .ant-layout-sider-zero-width-trigger {
 .ant-layout-sider-children {
  background-color: #0086c998;
 }
+
+.ant-card-body {
+  padding: 2px;
+
+}
 @media screen and (min-width: 300px) {
   .card-wrapper {
     flex-direction: row;
