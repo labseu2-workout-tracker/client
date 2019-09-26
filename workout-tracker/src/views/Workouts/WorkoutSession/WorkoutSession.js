@@ -11,6 +11,7 @@ import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
 .ant-card-body {
   padding: 2px;
+  padding-bottom:10px;
  }
   .btn1 {
     margin: 10px;
