@@ -16,12 +16,34 @@ const StyledWorkoutSession = styled.div`
     font-size: 18px;
     border: 1px solid transparent;
   }
+  .media{
+    @media only screen and (max-width: 600px) {
+      background: "#ECECEC",
+      display: "flex",
+      flexDirection: "column"
+    }
+
+  }
 `;
 class WorkoutSession extends React.Component {
   state = {
     visible: false,
     checkIfFinished: true,
+    width: 0,
+    height: 0
   };
+
+
+componentDidMount = () => {
+  this.updateWindowDimensions();
+  window.addEventListener("resize", this.updateWindowDimensions);
+}
+
+updateWindowDimensions = () => {
+  this.setState({
+    width: window.innerWidth
+  })
+}
 
   showModal = () => {
     this.setState({
@@ -235,13 +257,7 @@ class WorkoutSession extends React.Component {
               style={{ marginTop: 16 }}
               type="outer"
             >
-              <div
-                style={{
-                  background: "#ECECEC",
-                  display: "flex",
-                  flexDirection: "row"
-                }}
-              >
+              <div >
                 <Card //Instructions bar
                   title="Instructions"
                   bordered={false}
