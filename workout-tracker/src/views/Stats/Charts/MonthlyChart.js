@@ -149,13 +149,13 @@ class MonthlyChart extends React.Component {
               data={{
                 datasets: [
                   {
-                    data: this.state.data,
-                    backgroundColor: this.state.backgroundColor,
-                    hoverBackgroundColor: this.state.hoverBackgroundColor,
+                    data: this.props.monthlyChart.data,
+                    backgroundColor: this.props.monthlyChart.backgroundColor,
+                    hoverBackgroundColor: this.props.monthlyChart.hoverBackgroundColor,
                     label: "Monthly Results"
                   }
                 ],
-                labels: this.state.labels
+                labels: this.props.monthlyChart.labels
               }}
             />
           </Card>
@@ -166,11 +166,11 @@ class MonthlyChart extends React.Component {
           description={
             <div>
               <i className="fa fa-fire"></i>{" "}
-              {`You made ${this.state.data.reduce(
+              {`You made ${this.props.monthlyChart.data.reduce(
                 (accumulator, currentValue) => accumulator + currentValue,
                 0
               )} ${
-                this.state.data.reduce(
+                this.props.monthlyChart.data.reduce(
                   (accumulator, currentValue) => accumulator + currentValue,
                   0
                 ) === 1
@@ -188,7 +188,8 @@ class MonthlyChart extends React.Component {
 const mapStateToProps = state => {
   return {
     history: state.history.history,
-    workouts: state.workouts.workouts
+    workouts: state.workouts.workouts,
+    monthlyChart: state.charts.monthlyChart,
   };
 };
 
