@@ -79,6 +79,7 @@ class Workouts extends React.Component {
           ? (this.props.workouts.map((workout, index) => {
             return (
               <WorkoutCard
+               
                 key={index}
                 image={workout.image_url || 'https://www.bodybuilding.com/images/2018/april/5-workous-that-are-insanely-efficient-at-torching-fat-signature-3-700xh.jpg'}
                 name={workout.workout_name}

@@ -32,7 +32,7 @@ class WorkoutCard extends React.Component {
       <>
         <Col>
           <Card
-            style={{ width: '15.1rem', marginBottom: '1rem' }}
+            style={{ width: '15.1rem', marginBottom: '1rem', display:'flex', flexDirection: 'column',}}
             cover={
               <img
                 alt="cover"

@@ -36,7 +36,7 @@ class WorkoutContainer extends React.Component {
 }
 
 const StyledContainer = styled.div`
-  padding: 2rem;
+  padding: 1rem;
   background: #fff;
 
   .ant-row-flex:first-child {
