@@ -3,52 +3,26 @@ import * as type from "../actions/chartActions";
 const initialState = {
   weeklyChart: {
     labels: ["Red", "Green", "Yellow"],
-    data: [1],
-    backgroundColor: [
-      "#f6f078",
-      "#01d28e",
-      "#434982",
-      "#730068",
-      "#a6e3e9",
-      "##36A2EB",
-      "#51dacf",
-      "#edaaaa"
-    ],
-    hoverBackgroundColor: [
-      "#f6f078",
-      "#01d28e",
-      "#434982",
-      "#730068",
-      "#a6e3e9",
-      "##36A2EB",
-      "#51dacf",
-      "#edaaaa"
-    ]
+    data: [1]
   },
   monthlyChart: {
     labels: ["Red", "Green", "Yellow"],
-    data: [1, 5, 6, 7],
-    backgroundColor: [
-      "#f6f078",
-      "#01d28e",
-      "#434982",
-      "#730068",
-      "#a6e3e9",
-      "##36A2EB",
-      "#51dacf",
-      "#edaaaa"
-    ],
-    hoverBackgroundColor: [
-      "#f6f078",
-      "#01d28e",
-      "#434982",
-      "#730068",
-      "#a6e3e9",
-      "##36A2EB",
-      "#51dacf",
-      "#edaaaa"
-    ]
-  }
+    data: [1, 5, 6, 7]
+  },
+  yearlyChart: {
+    labels: ["Red", "Green", "Yellow"],
+    data: [1, 5, 6, 7]
+  },
+  color: [
+    "#f6f078",
+    "#01d28e",
+    "#434982",
+    "#730068",
+    "#a6e3e9",
+    "##36A2EB",
+    "#51dacf",
+    "#edaaaa"
+  ]
 };
 let getDaysArray = function(s, e) {
   for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
@@ -221,11 +195,11 @@ const charts = (state = initialState, action) => {
 
       let theValuesForDataset = [];
 
-      for (var value in theHashTable) {
-        theValuesForDataset.push(theHashTable[value]);
+      for (var thisValue in theHashTable) {
+        theValuesForDataset.push(theHashTable[thisValue]);
       }
 
-      let CopyOfMonthlyChart = { ...state.weeklyChart };
+      let CopyOfMonthlyChart = { ...state.yearlyChart };
       CopyOfMonthlyChart.data = theValuesForDataset;
       CopyOfMonthlyChart.labels = allWorkoutNames;
 
@@ -234,98 +208,81 @@ const charts = (state = initialState, action) => {
         monthlyChart: CopyOfMonthlyChart
       };
 
+    case type.CALCULATE_YEARLY_CHART:
+      let workoutName = [];
+      let theWorkouts = [];
 
+      action.workouts.map(workout => {
+        workoutName.push(workout.workout_name);
+        theWorkouts.push(workout);
+        return workout;
+      });
 
+      let year = new Date().getFullYear();
+      let first_day_year = new Date(year, 0, 1);
+      let last_day_year = new Date(year, 11, 31);
 
-      let workoutNames = [];
-    let workouts = [];
+      let allDays = getDaysArray(first_day_year, last_day_year);
+      allDays.map(v => v.toISOString().slice(0, 10)).join("");
 
-    this.props.workouts.map(workout => {
-      workoutNames.push(workout.workout_name);
-      workouts.push(workout);
-      return workout;
-    });
+      let daysInYear = [];
 
-    let year = new Date().getFullYear();
-    let first_day_year = new Date(year, 0, 1);
-    let last_day_year = new Date(year, 11, 31);
-
-    let getDaysArray = function(s, e) {
-      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
-        a.push(new Date(d));
-      }
-      return a;
-    };
-
-    let daylist = getDaysArray(first_day_year, last_day_year);
-    daylist.map(v => v.toISOString().slice(0, 10)).join("");
-
-    let daysInYear = [];
-
-    function formatDate(date) {
-      let d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
-
-      if (month.length < 2) month = "0" + month;
-      if (day.length < 2) day = "0" + day;
-
-      return [year, month, day].join("-");
-    }
-
-    for (let i = 0; i < daylist.length; i++) {
-      daysInYear.push(
-        formatDate(daylist[i])
-          .split("-")
-          .join("")
-      );
-    }
-
-    let userHistory = this.props.history;
-    let resultOfWeek = [];
-
-    for (let j = 0; j < daysInYear.length; j++) {
-      for (let i = 0; i < userHistory.length; i++) {
-        if (
-          userHistory[i].session_start
-            .match(/.{1,10}/g)[0]
+      for (let i = 0; i < allDays.length; i++) {
+        daysInYear.push(
+          formatDate(allDays[i])
             .split("-")
-            .join("") === daysInYear[j]
-        ) {
-          resultOfWeek.push(userHistory[i]);
-        }
+            .join("")
+        );
       }
-    }
 
-    let hashTable = {};
+      let history = action.history;
+      let resultOfYear = [];
 
-    for (let j = 0; j < workouts.length; j++) {
-      hashTable[workouts[j].workout_name] = 0;
-    }
-
-    for (let i = 0; i < resultOfWeek.length; i++) {
-      for (let j = 0; j < workouts.length; j++) {
-        if (resultOfWeek[i].workout_id === workouts[j].id) {
-          if (hashTable[workouts[j].workout_name]) {
-            hashTable[workouts[j].workout_name] += 1;
-          } else {
-            hashTable[workouts[j].workout_name] = 1;
+      for (let j = 0; j < daysInYear.length; j++) {
+        for (let i = 0; i < history.length; i++) {
+          if (
+            history[i].session_start
+              .match(/.{1,10}/g)[0]
+              .split("-")
+              .join("") === daysInYear[j]
+          ) {
+            resultOfYear.push(history[i]);
           }
         }
       }
-    }
 
-    let valuesForDataset = [];
+      let myHashTable = {};
 
-    for (var value in hashTable) {
-      valuesForDataset.push(hashTable[value]);
-    }
+      for (let j = 0; j < theWorkouts.length; j++) {
+        myHashTable[theWorkouts[j].workout_name] = 0;
+      }
 
-    this.setState({
-      data: valuesForDataset,
-      labels: workoutNames
-    });
+      for (let i = 0; i < resultOfYear.length; i++) {
+        for (let j = 0; j < theWorkouts.length; j++) {
+          if (resultOfYear[i].workout_id === theWorkouts[j].id) {
+            if (myHashTable[theWorkouts[j].workout_name]) {
+              myHashTable[theWorkouts[j].workout_name] += 1;
+            } else {
+              myHashTable[theWorkouts[j].workout_name] = 1;
+            }
+          }
+        }
+      }
+
+      let allValuesForDataset = [];
+
+      for (var objectValue in myHashTable) {
+        allValuesForDataset.push(myHashTable[objectValue]);
+      }
+
+      let CopyOfYearlyChart = { ...state.yearlyChart };
+      CopyOfYearlyChart.data = allValuesForDataset;
+      CopyOfYearlyChart.labels = workoutName;
+
+      return {
+        ...state,
+        yearlyChart: CopyOfYearlyChart
+      };
 
     default:
       return state;

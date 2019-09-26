@@ -52,7 +52,7 @@ class YearlyChart extends React.Component {
                 (accumulator, currentValue) => accumulator + currentValue,
                 0
               )} ${
-                this.state.props.yearlyChart.reduce(
+                this.props.yearlyChart.data.reduce(
                   (accumulator, currentValue) => accumulator + currentValue,
                   0
                 ) === 1
