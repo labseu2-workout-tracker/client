@@ -15,7 +15,9 @@ import {
 } from "antd";
 
 const StyledSettings = styled.div`
+
 margin-bottom: 12rem;
+
   .user-data {
     margin: 1rem 2rem 0 2rem;
     padding: 1.5rem 0;
