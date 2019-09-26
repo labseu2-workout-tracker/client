@@ -233,7 +233,7 @@ class WorkoutCalendar extends React.Component {
     const d = new Date();
     const lettersCurrentMonth = monthNames[d.getMonth()].match(/.{3}/g)[0];
     const currentYear = new Date().getFullYear().toString();
-    console.log(typeof currentYear, typeof numbersOfTheYear, typeof lettersOfTheMonth, typeof lettersCurrentMonth)
+
     for (let i = 0; i < this.state.result.length; i++) {
       if (
         lettersOfTheMonth === lettersCurrentMonth
