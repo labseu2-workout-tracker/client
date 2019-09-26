@@ -94,7 +94,7 @@ updateWindowDimensions = () => {
   };
   render() {
     return (
-      <StyledWorkoutSession>
+      <StyledWorkoutSession  style={{ margin:0}}>
         {this.props.currentExercise ? (
           <Card
             style={{
@@ -107,6 +107,7 @@ updateWindowDimensions = () => {
               // type="inner"
               bordered={false}
               style={{
+                margin:0,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center"
@@ -116,6 +117,7 @@ updateWindowDimensions = () => {
                 <Card
                   bordered={false}
                   style={{
+                    margin:0,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center"
@@ -128,6 +130,7 @@ updateWindowDimensions = () => {
                 >
                   <div
                     style={{
+                      margin:0,
                       height: "250px",
                       display: "flex",
                       flexDirection: "row",
@@ -165,7 +168,7 @@ updateWindowDimensions = () => {
                 </Card>
                 <Card
                   bordered={false}
-                  style={{ display: "flex", flexDirection: "column", }}
+                  style={{ margin:0, display: "flex", flexDirection: "column", }}
                 >
                   <Card 
                     title={
@@ -174,6 +177,7 @@ updateWindowDimensions = () => {
                         : null
                     }
                     bordered={false}
+                    style={{ margin:0,}}
                     actions={[
                       <Statistic
                         title="Sets to complete"
