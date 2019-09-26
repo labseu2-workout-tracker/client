@@ -260,7 +260,7 @@ updateWindowDimensions = () => {
             >
               <div
               style={
-                this.state.width > 600
+                this.state.width > 680
                   ? {
                       display: "flex",
                       flexDirection: "row",
