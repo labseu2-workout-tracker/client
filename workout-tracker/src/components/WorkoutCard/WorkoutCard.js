@@ -58,7 +58,7 @@ class WorkoutCard extends React.Component {
               type="primary"
               size="small"
               block
-              style={{ fontWeight: 'bold' }}
+              style={{ fontWeight: 'bold',  margin: '.95rem', }}
             >
               <Link onClick={this.props.startWorkout} to="/Workout_session">
                 Start Workout
