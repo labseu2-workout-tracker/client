@@ -2,17 +2,12 @@ import React from "react";
 import { Pie, Chart } from "react-chartjs-2";
 import { Card } from "antd";
 import { connect } from "react-redux";
-import { calculateWeeklyChart } from "../../../store/actions/chartActions";
 
 const { Meta } = Card;
 
 Chart.defaults.global.legend.display = false;
 
 class WeeklyChart extends React.Component {
-  componentDidMount = () => {
-    this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
-  };
-
   render() {
     return (
       <Card
@@ -73,7 +68,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { calculateWeeklyChart }
-)(WeeklyChart);
+export default connect(mapStateToProps)(WeeklyChart);
