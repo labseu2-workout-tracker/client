@@ -10,7 +10,7 @@ class MainLayout extends React.Component {
   render() {
     return (
       <StyledContainer>
-        {!Auth.isAuthenticated() ? <Header style={{backgroundColor: '#0086c9'}}>{this.props.header}</Header> : ""}
+        {!Auth.isAuthenticated() ? <Header style={{backgroundColor: '#1890ff'}}>{this.props.header}</Header> : ""}
         {this.props.mobileNav}
         <div className='content-container'>
         {Auth.isAuthenticated()
@@ -54,7 +54,7 @@ const StyledContainer = styled.section`
   .ant-layout-sider {
       position: absolute;
       z-index: 1000;
-      background: #0086c9;
+      background: #1890ff;
       height: 100vh;
     }
 
