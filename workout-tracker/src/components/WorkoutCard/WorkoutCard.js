@@ -43,7 +43,7 @@ class WorkoutCard extends React.Component {
           >
             <Meta
               title={this.props.name}
-              style={{ margin: '.5rem 0' }}
+              style={{ margin: '.9rem' }}
               description={
                 this.props.myWorkout ? (
                   <ul style={{ listStyle: 'none' }}>
