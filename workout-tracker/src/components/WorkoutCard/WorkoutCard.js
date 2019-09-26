@@ -68,7 +68,7 @@ class WorkoutCard extends React.Component {
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                margin: '.5rem',
+                margin: '1rem',
               }}
             >
               {!this.props.myWorkout ? (
