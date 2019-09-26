@@ -215,6 +215,19 @@ div .ant-card-body{
     background-color: white;
 }
 
+ div .ant-layout-sider-zero-width-trigger:hover {
+  background-color:#0086c9;
+}
+div .ant-layout-sider-zero-width-trigger {
+  background-color: #0086c9;
+  border-radius: 0 90px 90px 0; 
+  height: 6vh;
+}
+.ant-layout-sider-children {
+  height: 100%;
+  margin-top: -0.1px;
+  padding-top: 0.1px;
+}
 @media screen and (min-width: 300px) {
   .card-wrapper {
     flex-direction: row;
