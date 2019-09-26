@@ -211,9 +211,9 @@ section {
   color: #980cc6;
 }
 
-div .ant-card-body{
+/* div .ant-card-body{
     background-color: white;
-}
+} */
 
  div .ant-layout-sider-zero-width-trigger:hover {
   background-color:#1890ff;

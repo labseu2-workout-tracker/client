@@ -12,6 +12,8 @@ const StyledWorkoutSession = styled.div`
 .ant-card-body {
   padding: 2px;
   padding-bottom:10px;
+  background-color: white;
+
  }
   .btn1 {
     margin: 10px;
