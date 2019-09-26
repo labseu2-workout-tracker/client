@@ -128,7 +128,7 @@ updateWindowDimensions = () => {
                 >
                   <div
                     style={{
-                      height: "350px",
+                      height: "250px",
                       display: "flex",
                       flexDirection: "row",
                       justifyContent: "center"
@@ -147,7 +147,7 @@ updateWindowDimensions = () => {
                       playsInline
                       muted
                       controls
-                      width="90%"
+                      width="100%"
                       height="auto"
                     >
                       <source
@@ -167,7 +167,7 @@ updateWindowDimensions = () => {
                   bordered={false}
                   style={{ display: "flex", flexDirection: "column", }}
                 >
-                  <Card
+                  <Card 
                     title={
                       this.props.currentExercise
                         ? this.props.currentExercise[0].exercise_name
@@ -274,6 +274,7 @@ updateWindowDimensions = () => {
                   }
               } >
                 <Card //Instructions bar
+                style={{ margin:0}}
                   title="Instructions"
                   bordered={false}
                 >
