@@ -220,9 +220,11 @@ section {
 }
 div .ant-layout-sider-zero-width-trigger {
   background-color: #1890ff;
-  border-radius: 0 90px 90px 0; 
+  border-radius: 0 0 60px 0; 
   height: 40px;
   width: 50px;
+  position:absolute;
+  top:0;
 }
 .ant-layout-sider-children {
  background-color: #1890ff;
