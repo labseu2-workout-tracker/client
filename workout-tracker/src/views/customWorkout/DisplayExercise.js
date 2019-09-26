@@ -151,6 +151,22 @@ const StyledList = styled(List)`
     width: 100%;
     bottom: 0;
   }
+  @media screen and (max-width: 992px) {
+    .ant-card-bordered {
+      height: calc(100% - 1rem);
+      width: 45vw;
+      margin-bottom: 16px;
+      position: relative;
+    }
+  }
+  @media screen and (max-width: 560px) {
+    .ant-card-bordered {
+      height: calc(100% - 1rem);
+      width: 60vw;
+      margin-bottom: 16px;
+      position: relative;
+    }
+  }
 `
 
 export default withRouter(DisplayExercise);
