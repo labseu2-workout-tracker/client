@@ -68,12 +68,10 @@ const StyledStats = styled.div`
       margin: 1rem;
     }
 
-    
     @media (max-width: 800px) {
       width: 70%;
     }
 
-    
     @media (max-width: 600px) {
       width: 80%;
     }
@@ -145,7 +143,10 @@ class Stats extends React.Component {
       <StyledStats>
         <div className="legend">
           {this.props.weeklyChart.labels.map((workout, index) => (
-            <p style={{ backgroundColor: `${this.props.color[index]}` }}>
+            <p
+              key={index}
+              style={{ backgroundColor: `${this.props.color[index]}` }}
+            >
               {workout}
             </p>
           ))}
