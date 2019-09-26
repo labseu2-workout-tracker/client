@@ -28,6 +28,9 @@ const StyledList = styled.li`
   font-size: 1.3rem;
   color: #fff;
 
+  @media (max-width: 992px) {
+      padding: 5px 15px;
+  }
   a:last-of-type {
     padding-left: 0.75rem;
   }

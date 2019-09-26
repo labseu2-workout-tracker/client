@@ -7,10 +7,10 @@
 
   z-index: +10;
   flex-direction: row;
-  background:  #0086c9;
+  background: #0086c9;
 }
 .ant-layout-header {
-  background:  #0086c9;;
+  background: #0086c9;
 }
 .spacer {
   flex: 1;
@@ -20,15 +20,9 @@
   list-style: none;
   padding: 0;
   margin: 0 1.5rem;
-  display: none;
+  display: flex;
 }
 
 .main-nav__logo {
   flex: 1;
-}
-
-@media (min-width: 768px) {
-  .main-nav__items {
-    display: flex;
-  }
 }

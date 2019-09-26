@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { injectGlobal } from 'styled-components'
 import { Row, Col, PageHeader } from "antd";
 import "antd/dist/antd.css";
 
@@ -65,6 +64,7 @@ const StyledContainer = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
   }
 `
 
