@@ -152,7 +152,7 @@ const charts = (state = initialState, action) => {
       let copyOfWeeklyChart = { ...state.weeklyChart };
       copyOfWeeklyChart.data = valuesForDataset;
       copyOfWeeklyChart.labels = workoutNames;
-      debugger;
+
       return {
         ...state,
         weeklyChart: copyOfWeeklyChart
@@ -225,13 +225,13 @@ const charts = (state = initialState, action) => {
         theValuesForDataset.push(theHashTable[value]);
       }
 
-      let theCopyOfWeeklyChart = { ...state.weeklyChart };
-      theCopyOfWeeklyChart.data = theValuesForDataset;
-      theCopyOfWeeklyChart.labels = allWorkoutNames;
-      debugger;
+      let CopyOfMonthlyChart = { ...state.weeklyChart };
+      CopyOfMonthlyChart.data = theValuesForDataset;
+      CopyOfMonthlyChart.labels = allWorkoutNames;
+
       return {
         ...state,
-        weeklyChart: theCopyOfWeeklyChart
+        monthlyChart: CopyOfMonthlyChart
       };
 
     default:
