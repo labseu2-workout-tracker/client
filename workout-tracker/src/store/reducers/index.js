@@ -3,6 +3,7 @@ import exercises from "./exercises";
 import workouts from "./workouts";
 import settings from "./settings";
 import history from "./history";
+import charts from "./charts";
 import authentication from "./authentication";
 
 const appReducer = combineReducers({
@@ -10,7 +11,8 @@ const appReducer = combineReducers({
   workouts: workouts,
   settings: settings,
   authentication,
-  history: history
+  history: history,
+  charts: charts,
 });
 
 const rootReducer = (state, action) => {

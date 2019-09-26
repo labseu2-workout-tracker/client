@@ -197,7 +197,7 @@ class WeeklyChart extends React.Component {
 const mapStateToProps = state => {
   return {
     history: state.history.history,
-    workouts: state.workouts.workouts
+    workouts: state.workouts.workouts,
   };
 };
 
