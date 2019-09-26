@@ -258,7 +258,19 @@ updateWindowDimensions = () => {
               style={{ marginTop: 16 }}
               type="outer"
             >
-              <div >
+              <div
+              style={
+                this.state.width > 600
+                  ? {
+                      display: "flex",
+                      flexDirection: "row",
+                     
+                    }
+                  : {
+                    display: "flex",
+                    flexDirection: "column",
+                  }
+              } >
                 <Card //Instructions bar
                   title="Instructions"
                   bordered={false}
