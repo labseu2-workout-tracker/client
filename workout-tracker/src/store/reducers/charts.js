@@ -25,7 +25,30 @@ const initialState = {
       "#edaaaa"
     ]
   },
-  monthlyChart: 
+  monthlyChart: {
+    labels: ["Red", "Green", "Yellow"],
+    data: [1, 5, 6, 7],
+    backgroundColor: [
+      "#f6f078",
+      "#01d28e",
+      "#434982",
+      "#730068",
+      "#a6e3e9",
+      "##36A2EB",
+      "#51dacf",
+      "#edaaaa"
+    ],
+    hoverBackgroundColor: [
+      "#f6f078",
+      "#01d28e",
+      "#434982",
+      "#730068",
+      "#a6e3e9",
+      "##36A2EB",
+      "#51dacf",
+      "#edaaaa"
+    ]
+  },
 };
 
 const charts = (state = initialState, action) => {
