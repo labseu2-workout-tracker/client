@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import FilterTag from "./FilterTag";
-import {  Input, Icon, AutoComplete } from "antd";
 
 export default class FilterExercises extends Component {
   render() {
@@ -56,21 +55,6 @@ export default class FilterExercises extends Component {
             </FilterTag>
           ))}
         </div>
-        <AutoComplete
-          dataSource={[...new Set(this.props.exercises)].map(e => (
-            <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
-              {e.exercise_name}
-            </AutoComplete.Option>
-          ))}
-          style={{ width: 300, marginTop: "1rem" }}
-          onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
-          optionLabelProp="text"
-        >
-          <Input
-            suffix={<Icon type="search" className="certain-category-icon" />}
-            placeholder="Search Exercises"
-          />
-        </AutoComplete>
       </div>
     );
   }
