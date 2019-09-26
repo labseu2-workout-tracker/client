@@ -9,9 +9,9 @@ import {
 } from "../../../store/actions/workoutsActions";
 import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
-.newcard {
-   padding: 2px;
-}
+.ant-card-body {
+  padding: 2px;
+ }
   .btn1 {
     margin: 10px;
     padding: 10px;
@@ -19,14 +19,7 @@ const StyledWorkoutSession = styled.div`
     font-size: 18px;
     border: 1px solid transparent;
   }
-  .media{
-    @media only screen and (max-width: 600px) {
-      background: "#ECECEC",
-      display: "flex",
-      flexDirection: "column"
-    }
 
-  }
 `;
 class WorkoutSession extends React.Component {
   state = {
@@ -97,7 +90,7 @@ updateWindowDimensions = () => {
   };
   render() {
     return (
-      <StyledWorkoutSession  style={{ margin:0}}>
+      <StyledWorkoutSession  style={{ margin:0, padding:"2px",}}>
         {this.props.currentExercise ? (
           <Card
             style={{
@@ -111,6 +104,7 @@ updateWindowDimensions = () => {
               bordered={false}
               style={{
                 margin:0,
+                padding:"2px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center"
@@ -121,6 +115,7 @@ updateWindowDimensions = () => {
                   bordered={false}
                   style={{
                     margin:0,
+                    padding:"2px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center"
@@ -262,8 +257,8 @@ updateWindowDimensions = () => {
                 </Card>
               </div>
             </Card>
-            <Card className='newcard' //Bottom Card with Exer & Instructions
-              style={{ marginTop: 16 }}
+            <Card //Bottom Card with Exer & Instructions
+              style={{ marginTop: 16}}
               type="outer"
               bordered={true}
             >
@@ -281,7 +276,7 @@ updateWindowDimensions = () => {
                   }
               } >
                 <Card //Instructions bar
-                style={{ margin:0}}
+                style={{ margin:0, padding:2,}}
                   title="Instructions"
                   bordered={false}
                 >

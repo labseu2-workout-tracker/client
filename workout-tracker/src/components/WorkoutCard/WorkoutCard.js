@@ -49,7 +49,7 @@ class WorkoutCard extends React.Component {
           <Button type="primary" size="small" block style={{fontWeight: 'bold'}}>
             <Link onClick={this.props.startWorkout} to='/Workout_session'>Start Workout</Link>
           </Button>
-          <div style={{display: 'flex', justifyContent: 'space-around', margin: '.5rem 1rem -1rem 1rem'}}>
+          <div style={{display: 'flex', justifyContent: 'space-around', margin: '.5rem 1rem'}}>
           {!this.props.myWorkout
           ? <Icon
               type="plus-circle"
