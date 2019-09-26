@@ -3,7 +3,7 @@ import * as type from "../actions/chartActions";
 const initialState = {
   weeklyChart: {
     labels: ["Red", "Green", "Yellow"],
-    data: [],
+    data: [1],
     backgroundColor: [
       "#f6f078",
       "#01d28e",
