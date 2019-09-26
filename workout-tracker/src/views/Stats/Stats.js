@@ -7,6 +7,11 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { fetchWorkouts } from "../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../store/actions/historyActions";
+import {
+  calculateWeeklyChart,
+  calculateMonthlyChart,
+  calculateYearlyChart
+} from "../../store/actions/chartActions";
 import { connect } from "react-redux";
 
 const StyledStats = styled.div`
@@ -59,10 +64,25 @@ const StyledStats = styled.div`
     }
 
     @media (max-width: 1000px) {
-      width: 80%;
+      width: 60%;
       margin: 1rem;
     }
+
+    
+    @media (max-width: 800px) {
+      width: 70%;
+    }
+
+    
+    @media (max-width: 600px) {
+      width: 80%;
+    }
   }
+
+  /* .chart-card {
+    height: 200px;
+    width: 70%;
+  } */
 
   .ant-card-head-title {
     text-align: left;
@@ -84,7 +104,7 @@ const StyledStats = styled.div`
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    width:80%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,7 +120,9 @@ const StyledStats = styled.div`
     }
   }
 
-  .calendar-container, .history-container, .sc-ifAKCX .eXlgtv {
+  .calendar-container,
+  .history-container,
+  .sc-ifAKCX .eXlgtv {
   }
 `;
 
@@ -113,6 +135,9 @@ class Stats extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
+    this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
+    this.props.calculateMonthlyChart(this.props.history, this.props.workouts);
+    this.props.calculateYearlyChart(this.props.history, this.props.workouts);
   };
 
   render() {
@@ -146,6 +171,8 @@ class Stats extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    history: state.history.history,
+    workouts: state.workouts.workouts,
     weeklyChart: state.charts.weeklyChart,
     color: state.charts.color
   };
@@ -153,5 +180,11 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchWorkouts, fetchWorkoutsHistory }
+  {
+    fetchWorkouts,
+    fetchWorkoutsHistory,
+    calculateWeeklyChart,
+    calculateMonthlyChart,
+    calculateYearlyChart
+  }
 )(Stats);

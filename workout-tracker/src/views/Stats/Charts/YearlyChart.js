@@ -10,7 +10,7 @@ class YearlyChart extends React.Component {
   componentDidMount = () => {
     this.props.calculateYearlyChart(this.props.history, this.props.workouts);
   };
-  
+
   render() {
     return (
       <Card
@@ -18,16 +18,12 @@ class YearlyChart extends React.Component {
         className="chart chart-three"
         cover={
           <Card
+            className="chart-card"
             style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#FC940C",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem",
+              backgroundColor: "#FC940C"
             }}
           >
-             <Pie
+            <Pie
               data={{
                 labels: this.props.yearlyChart.labels,
                 datasets: [
@@ -71,8 +67,11 @@ const mapStateToProps = state => {
     history: state.history.history,
     workouts: state.workouts.workouts,
     color: state.charts.color,
-    yearlyChart: state.charts.yearlyChart,
+    yearlyChart: state.charts.yearlyChart
   };
 };
 
-export default connect(mapStateToProps, { calculateYearlyChart })(YearlyChart);
+export default connect(
+  mapStateToProps,
+  { calculateYearlyChart }
+)(YearlyChart);

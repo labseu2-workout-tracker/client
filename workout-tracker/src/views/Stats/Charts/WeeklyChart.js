@@ -20,13 +20,9 @@ class WeeklyChart extends React.Component {
         className="chart chart-one"
         cover={
           <Card
+            className="chart-card"
             style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#11B8CC",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem"
+              backgroundColor: "#11B8CC"
             }}
           >
             <Pie

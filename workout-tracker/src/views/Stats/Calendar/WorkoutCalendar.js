@@ -17,7 +17,7 @@ const StyledWorkoutCalendar = styled.div`
 
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 65px;
+    height: 50px;
   }
 
   .ant-radio-button-wrapper {
@@ -277,7 +277,7 @@ class WorkoutCalendar extends React.Component {
               >
                 {this.state.workoutsForDate
                   ? this.state.workoutsForDate.map(workoutName => (
-                      <p key={uuid()}>{workoutName}</p>
+                      <p style={{height: "80px"}} key={uuid()}>{workoutName}</p>
                     ))
                   : null}
               </Modal>

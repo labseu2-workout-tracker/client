@@ -7,10 +7,24 @@ import { Card } from "antd";
 const { Meta } = Card;
 
 class MonthlyChart extends React.Component {
+  state = {
+    width: 0
+  };
 
   componentDidMount = () => {
-    this.props.calculateMonthlyChart(this.props.history, this.props.workouts);
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
   };
+
+  updateWindowDimensions = () => {
+    this.setState({
+      width: window.innerWidth
+    });
+  };
+  componentWillUnmount() {
+    this.setState({ initial: 0 });
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
 
   render() {
     return (
@@ -19,18 +33,15 @@ class MonthlyChart extends React.Component {
         className="chart chart-two"
         cover={
           <Card
+            className="chart-card"
             style={{
-              position: "relative",
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#E94340",
-              borderTopLeftRadius: ".6rem",
-              borderTopRightRadius: ".6rem"
+              backgroundColor: "#E94340"
             }}
           >
             <Pie
               data={{
                 labels: this.props.monthlyChart.labels,
+
                 datasets: [
                   {
                     data: this.props.monthlyChart.data,
