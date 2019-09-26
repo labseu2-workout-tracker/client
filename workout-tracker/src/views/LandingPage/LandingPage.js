@@ -15,7 +15,7 @@ const LandingPage = () => {
         <div className="land">
      
           <h1 id="h1">
-            Be<span>Fit</span>
+            Be<span> Fit </span>Trackr
           </h1>
           <hr />
           <p id="p">
