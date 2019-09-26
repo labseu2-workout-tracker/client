@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import gym from '../../assets/landingpage/off1.gif';
+import gym from '../../assets/avatar/gym.gif';
 import tale from '../../assets/avatar/tale.jpg';
 import kelechi from '../../assets/avatar/kelechi.jpg';
 import sean from '../../assets/avatar/sean.jpg';
