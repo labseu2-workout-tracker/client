@@ -96,6 +96,7 @@ class AllExercises extends Component {
               <ReactHeight
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
+                <div className="mobile-menu">
                 {this.state.saveExercise && <PageHeader
                   onBack={() => this.setState({ saveExercise: false })}
                   title="Add Sets"
@@ -106,14 +107,14 @@ class AllExercises extends Component {
                {!this.state.saveExercise && 
                 <Button type="link" onClick={this.showFilters}> 
                   <Icon style={{ fontSize: "2rem", marginLeft: "1rem" }} type="filter" />
-                </Button>}
+                </Button>}</div>
                 {!this.state.saveExercise && <AutoComplete
                   dataSource={[...new Set(this.props.exercises)].map(e => (
                     <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
                       {e.exercise_name}
                     </AutoComplete.Option>
                   ))}
-                  style={{ width: 300, marginLeft: "1rem" }}
+                  style={{ width: 300, margin: "1rem auto" }}
                   onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
                   optionLabelProp="text"
                 >
@@ -286,6 +287,12 @@ const StyledContainer = styled.div`
     left: 1rem;
     width: calc(25% - 2rem);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .15);
+  }
+
+  @media screen and (min-width: 767px) {
+    .mobile-menu {
+      display: none;
+    }
   }
 
   @media screen and (max-width: 768px) {
