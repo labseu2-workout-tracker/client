@@ -23,6 +23,10 @@
   margin: 0 1.5rem;
   display: none;
 }
+.buttonWrapper{
+  display: flex;
+  flex-direction: row;
+}
 
 .ant-layout-sider {
   opacity:0.85;
