@@ -51,7 +51,7 @@ export default class FilterExercises extends Component {
         <div>
           <h4>Filter By Equipment:</h4>
           {equipments.map(equipment => (
-            <FilterTag style={{ marginTop: '1rem'}} key={equipment} filter={"equipment"}>
+            <FilterTag style={{ marginBottom: '1rem'}} key={equipment} filter={"equipment"}>
               {equipment}
             </FilterTag>
           ))}
