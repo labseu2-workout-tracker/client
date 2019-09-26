@@ -104,9 +104,13 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
-         {/* <div className="legend">
-          {this.state.labels.map((label,index) => <p style={{backgroundColor: `${this.state.backgroundColor[index]}`}}>{label}</p>)}
-        </div> */}
+        <div className="legend">
+          {this.props.workouts.map((workout, index) => (
+            <p style={{ backgroundColor: `${this.props.color[index]}` }}>
+              {workout}
+            </p>
+          ))}
+        </div>
         <div className="chart-row">
           <WeeklyChart />
 
@@ -128,9 +132,7 @@ class Stats extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    history: state.history.history,
     workouts: state.workouts.workouts,
-    weeklyChart: state.charts.weeklyChart,
     color: state.charts.color
   };
 };
