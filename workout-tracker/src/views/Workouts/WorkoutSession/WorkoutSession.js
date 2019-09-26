@@ -65,8 +65,9 @@ updateWindowDimensions = () => {
 
   componentWillUnmount() {
     this.setState({ initial: 0 });
-    
-    if(this.state.checkIfFinished) {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+
+    if (this.state.checkIfFinished) {
       this.props.endWorkout(this.props.workoutId, this.props.history);
     }
   }
