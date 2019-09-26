@@ -4,7 +4,7 @@ import { Button, Tooltip } from 'antd'
 const AddWorkoutButton = (props) => {
   return (
     <Tooltip Tooltip title = "Add new workout">
-         <Button type = "primary" size = "large" block style = {myStyle} onClick={props.modal}>Create Custom Workout</Button>
+         <Button  type = "primary" size = "large" block style = {myStyle} onClick={props.modal}>Create Custom Workout</Button>
     </Tooltip>
   )
 }

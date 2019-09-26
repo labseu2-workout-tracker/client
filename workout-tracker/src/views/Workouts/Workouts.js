@@ -89,6 +89,7 @@ class Workouts extends React.Component {
                 addWorkout={() => this.addWorkout( "success", workout.id, workout.workout_name )}
                 myWorkout={false}
                 exercises={this.props.allExercises}
+                
               />
             )
             }))
