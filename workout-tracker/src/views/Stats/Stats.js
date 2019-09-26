@@ -20,6 +20,14 @@ const StyledStats = styled.div`
     padding: 0.5rem 0rem;
   }
 
+  .legend {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
   .chart-row {
     display: flex;
     justify-content: space-between;
@@ -63,21 +71,24 @@ const StyledStats = styled.div`
   .calendar,
   .history {
     color: rgba(0, 0, 0, 0.87);
-    width: 100%;
+    width: 70%;
     border: 0;
-    display: flex;
-    position: relative;
     font-size: 0.875rem;
+    text-align: center;
+    position: relative;
     min-width: 0;
     word-wrap: break-word;
     padding: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
-    flex-direction: column;
-    text-align: center;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 720px) {
       padding: 0;
@@ -87,6 +98,9 @@ const StyledStats = styled.div`
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
     }
+  }
+
+  .calendar-container, .history-container, .sc-ifAKCX .eXlgtv {
   }
 `;
 
@@ -105,7 +119,7 @@ class Stats extends React.Component {
     return (
       <StyledStats>
         <div className="legend">
-          {this.props.workouts.map((workout, index) => (
+          {this.props.weeklyChart.labels.map((workout, index) => (
             <p style={{ backgroundColor: `${this.props.color[index]}` }}>
               {workout}
             </p>
@@ -119,10 +133,10 @@ class Stats extends React.Component {
           <YearlyChart />
         </div>
 
-        <div>
+        <div className="calendar-container">
           <WorkoutCalendar />
         </div>
-        <div>
+        <div className="history-container">
           <UserHistory />
         </div>
       </StyledStats>
@@ -132,7 +146,7 @@ class Stats extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    workouts: state.workouts.workouts,
+    weeklyChart: state.charts.weeklyChart,
     color: state.charts.color
   };
 };

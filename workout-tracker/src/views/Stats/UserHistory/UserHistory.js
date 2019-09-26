@@ -153,8 +153,11 @@ const Loader = styled.div`
 `;
 
 const StyledUserHistory = styled.div`
-  width: 100%;
-
+width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   .history {
     display: flex;
     flex-direction: column;
@@ -164,7 +167,7 @@ const StyledUserHistory = styled.div`
 
   .ant-card-body {
     padding: 0;
-    width:100%;
+    width: 100%;
   }
   .session-card {
     width: 30%;

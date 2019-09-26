@@ -6,6 +6,11 @@ import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
+ width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   p {
     padding: 0;
   }
@@ -51,11 +56,11 @@ const StyledWorkoutCalendar = styled.div`
   }
 
   .status-text {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     margin: 0;
     width: 100%;
     height: 3rem;
-    font-weight: bold;
+    font-weight: 200;
     padding: 0.02rem;
   }
 
