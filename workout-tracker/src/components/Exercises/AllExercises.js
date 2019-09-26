@@ -37,7 +37,8 @@ class AllExercises extends Component {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh"
+          height: "100vh",
+          margin: '0 auto'
         }}
       >
         <Spin tip="Loading Exercices..." size="large" />

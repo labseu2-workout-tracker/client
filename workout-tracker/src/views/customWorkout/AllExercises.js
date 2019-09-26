@@ -39,7 +39,7 @@ class AllExercises extends Component {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          maxWidth: '1200px',
+          maxWidth: '800px',
           margin: '0 auto',
         }}
       >
@@ -78,11 +78,13 @@ class AllExercises extends Component {
                   padding: "2rem",
                   maxWidth: "75%",
                   fontSize: ".8rem",
-                  marginLeft: "24%"
+                  marginLeft: "24%",
+                  
                 }}
               >
                 {!this.state.saveExercise ? (
-                  <DisplayExercise
+                    <DisplayExercise
+                      style={{margin: '2rem'}}
                     showSingleExercise={this.props.showSingleExercise}
                     addExercise={this.props.addToSelectedExercises}
                     dataSource={this.props.exercises}

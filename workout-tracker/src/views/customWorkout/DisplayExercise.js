@@ -30,16 +30,17 @@ class DisplayExercise extends Component {
     return (
       <div>
         <StyledList
+        
           itemLayout="horizontal"
-          grid={{ gutter: 12, md: 2, lg: 3, xl: 4, xxl: 6}}
+          grid={{ gutter: 12, md: 2, lg: 3, xl: 4, xxl: 4}}
           pagination={{
             pageSize: 24,
             showLessItems: true
           }}
           dataSource={this.props.dataSource.sort((a, b) => a.id - b.id)}
           renderItem={item => (
-            <List.Item>
-              <Card
+            <List.Item style={{ margin: '1rem auto', maxWidth: '1000px' }}>
+              <Card style={{padding: '1rem', margin: '1rem'}}
                 actions={[
                   <Button
                     onClick={() => this.showModal(item.id)}
@@ -142,7 +143,7 @@ const StyledList = styled(List)`
   }
 
   .ant-card-body {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .ant-card-actions {
