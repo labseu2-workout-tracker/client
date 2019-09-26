@@ -9,6 +9,10 @@ import {
 } from "../../../store/actions/workoutsActions";
 import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
+.ant-card-body {
+  padding: 2px;
+  zoom 1;
+}
   .btn1 {
     margin: 10px;
     padding: 10px;
