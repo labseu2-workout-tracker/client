@@ -9,3 +9,7 @@ export const calculateWeeklyChart = (history, workouts) => {
 export const calculateMonthlyChart = (history, workouts) => {
   return { type: CALCULATE_MONTHLY_CHART, history: history, workouts: workouts };
 };
+
+export const calculateYearlyChart = (history, workouts) => {
+  return { type: CALCULATE_YEARLY_CHART, history: history, workouts: workouts };
+};
