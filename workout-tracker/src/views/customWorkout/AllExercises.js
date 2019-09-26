@@ -96,11 +96,18 @@ class AllExercises extends Component {
               <ReactHeight
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
+                {this.state.saveExercise && <PageHeader
+                  onBack={() => this.setState({ saveExercise: false })}
+                  title="Add Sets"
+                />}
                 <Button type="link" onClick={this.showModal}><Badge style={{ marginRight: "1rem" }} count={this.props.selectedExercises.length}>
                   <IconFont style={{ fontSize: "2rem", marginRight: "1rem" }} type="icon-musclewhitebig-copy" />
                </Badge></Button>
-               <Button type="link" onClick={this.showFilters}> <Icon style={{ fontSize: "2rem", marginLeft: "1rem" }} type="filter" /></Button>
-               <AutoComplete
+               {!this.state.saveExercise && 
+                <Button type="link" onClick={this.showFilters}> 
+                  <Icon style={{ fontSize: "2rem", marginLeft: "1rem" }} type="filter" />
+                </Button>}
+                {!this.state.saveExercise && <AutoComplete
                   dataSource={[...new Set(this.props.exercises)].map(e => (
                     <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
                       {e.exercise_name}
@@ -114,7 +121,8 @@ class AllExercises extends Component {
                     suffix={<Icon type="search" className="certain-category-icon" />}
                     placeholder="Search Exercises"
                   />
-                </AutoComplete>
+                </AutoComplete>}
+                
                 <div className="top-bar">
                 {!this.state.saveExercise ? (
                   <FilterExercises
@@ -198,7 +206,7 @@ class AllExercises extends Component {
               <SelectedExercises
                 remove={this.props.removeFromSelectedExercises}
                 exercises={this.props.selectedExercises}
-                saveExercise={this.props.saveExercise}
+                saveExercise={this.state.saveExercise}
               />
             </Modal>
             <Modal
