@@ -6,12 +6,9 @@ const initialState = {
 
 const charts = (state = initialState, action) => {
   switch (action.type) {
-    case type.SELECT_MUSCLE:
+    case type.CALCULATE_WEEKLY_CHART:
       return {
         ...state,
-        remainingExercises: state.remainingExercises.filter(
-          exercise => exercise.muscle === action.payload
-        )
       };
 
     default:

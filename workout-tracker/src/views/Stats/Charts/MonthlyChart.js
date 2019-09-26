@@ -37,7 +37,7 @@ class MonthlyChart extends React.Component {
   }
 
   componentDidMount = () => {
-    this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
+    // this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
     let workoutNames = [];
     let workouts = [];
 
