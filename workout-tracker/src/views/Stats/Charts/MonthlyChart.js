@@ -1,31 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { calculateMonthlyChart } from "../../../store/actions/chartActions";
 import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 
 const { Meta } = Card;
 
 class MonthlyChart extends React.Component {
-  state = {
-    width: 0
-  };
-
-  componentDidMount = () => {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  };
-
-  updateWindowDimensions = () => {
-    this.setState({
-      width: window.innerWidth
-    });
-  };
-  componentWillUnmount() {
-    this.setState({ initial: 0 });
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
   render() {
     return (
       <Card
@@ -87,7 +67,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { calculateMonthlyChart }
-)(MonthlyChart);
+export default connect(mapStateToProps)(MonthlyChart);
