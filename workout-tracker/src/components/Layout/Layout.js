@@ -40,6 +40,11 @@ const StyledContainer = styled.section`
     overflow: hidden;
   }
 
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column
+  }
+
   .ant-layout-content {
     min-height: 100vh;
     min-width: 0;
