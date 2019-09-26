@@ -6,10 +6,10 @@ import uuid from "uuidv4";
 import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
- width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   p {
     padding: 0;
@@ -205,8 +205,15 @@ class WorkoutCalendar extends React.Component {
   getListData = value => {
     let listData;
     let lettersOfMonth = value._d.toString();
+
     const lettersOfTheMonth =
       lettersOfMonth[4] + lettersOfMonth[5] + lettersOfMonth[6];
+
+    const numbersOfTheYear =
+      lettersOfMonth[11] +
+      lettersOfMonth[12] +
+      lettersOfMonth[13] +
+      lettersOfMonth[14];
 
     const monthNames = [
       "January",
@@ -225,9 +232,14 @@ class WorkoutCalendar extends React.Component {
 
     const d = new Date();
     const lettersCurrentMonth = monthNames[d.getMonth()].match(/.{3}/g)[0];
-
+    const currentYear = new Date().getFullYear().toString();
+    console.log(typeof currentYear, typeof numbersOfTheYear, typeof lettersOfTheMonth, typeof lettersCurrentMonth)
     for (let i = 0; i < this.state.result.length; i++) {
-      if (lettersOfTheMonth === lettersCurrentMonth) {
+      if (
+        lettersOfTheMonth === lettersCurrentMonth
+        &&
+        numbersOfTheYear === currentYear
+      ) {
         switch (value.date()) {
           case this.state.result[i].day:
             listData = [
