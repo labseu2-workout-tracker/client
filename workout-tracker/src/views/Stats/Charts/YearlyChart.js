@@ -2,15 +2,10 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Card } from "antd";
 import { connect } from "react-redux";
-import { calculateYearlyChart } from "../../../store/actions/chartActions";
 
 const { Meta } = Card;
 
 class YearlyChart extends React.Component {
-  componentDidMount = () => {
-    this.props.calculateYearlyChart(this.props.history, this.props.workouts);
-  };
-
   render() {
     return (
       <Card
@@ -71,7 +66,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { calculateYearlyChart }
-)(YearlyChart);
+export default connect(mapStateToProps)(YearlyChart);
