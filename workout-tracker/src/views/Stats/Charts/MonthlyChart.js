@@ -49,8 +49,8 @@ class MonthlyChart extends React.Component {
     let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-    var getDaysArray = function(s, e) {
-      for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
+    let getDaysArray = function(s, e) {
+      for (let a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
         a.push(new Date(d));
       }
       return a;
@@ -62,7 +62,7 @@ class MonthlyChart extends React.Component {
     let daysInMonth = [];
 
     function formatDate(date) {
-      var d = new Date(date),
+      let d = new Date(date),
         month = "" + (d.getMonth() + 1),
         day = "" + d.getDate(),
         year = d.getFullYear();
@@ -117,7 +117,7 @@ class MonthlyChart extends React.Component {
 
     let valuesForDataset = [];
 
-    for (var value in hashTable) {
+    for (let value in hashTable) {
       valuesForDataset.push(hashTable[value]);
     }
 
