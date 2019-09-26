@@ -224,9 +224,7 @@ div .ant-layout-sider-zero-width-trigger {
   height: 6vh;
 }
 .ant-layout-sider-children {
-  height: 100%;
-  margin-top: -0.1px;
-  padding-top: 0.1px;
+ background-color: #0086c998;
 }
 @media screen and (min-width: 300px) {
   .card-wrapper {

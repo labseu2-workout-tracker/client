@@ -22,11 +22,12 @@ const DashboardNavItem = (props) => [
 
 const StyledList = styled.li`
   display: flex;
-  word-spacing: 2em;
+  word-spacing: 1em;
   padding: 15px;
   text-align: left;
   font-size: 1.3rem;
   color: #fff;
+ 
 
   a:last-of-type {
     padding-left: 0.75rem;
