@@ -3,22 +3,66 @@ import DisplayExercise from "./DisplayExercise";
 import FilterExercises from "./FilterExercises";
 import SideBar from "./SideBar";
 import SetsForm from "./SetsForm";
+import SelectedExercises from "./SelectedExercises";
 import {
   fetchExercises,
   addToSelectedExercises,
   filterMuscles,
   showSingleExercise,
-  searchExercise
+  searchExercise,
+  removeFromSelectedExercises
 } from "../../store/actions/exerciseActions";
 import { createWorkout } from "../../store/actions/workoutsActions";
-import { Spin, Button, PageHeader } from "antd";
+import { Spin, Button, PageHeader, Icon, Badge, Modal, AutoComplete, Input } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_1394475_0d6q9r1xk5c.js',
+});
 class AllExercises extends Component {
   state = {
     topBarHeight: "",
-    saveExercise: false
+    saveExercise: false,
+    visible: false,
+  };
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    this.setState({
+      visible: false,
+      saveExercise: true,
+    });
+  };
+
+  handleCancel = e => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  showFilters = () => {
+    this.setState({
+      visibleFilter: true,
+    });
+  };
+
+  handleFilterOk = e => {
+    this.setState({
+      visibleFilter: false,
+    });
+  };
+
+  handleFilterCancel = e => {
+    this.setState({
+      visibleFilter: false,
+    });
   };
 
   setTopBarHeight = height => {
@@ -46,11 +90,32 @@ class AllExercises extends Component {
     ) : (
       <>
         {this.props.exercises && (
-          <div>
+          <StyledContainer>
             <div style={topBar}>
+            
               <ReactHeight
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
+                <Button type="link" onClick={this.showModal}><Badge style={{ marginRight: "1rem" }} count={this.props.selectedExercises.length}>
+                  <IconFont style={{ fontSize: "2rem", marginRight: "1rem" }} type="icon-musclewhitebig-copy" />
+               </Badge></Button>
+               <Button type="link" onClick={this.showFilters}> <Icon style={{ fontSize: "2rem", marginLeft: "1rem" }} type="filter" /></Button>
+               <AutoComplete
+                  dataSource={[...new Set(this.props.exercises)].map(e => (
+                    <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
+                      {e.exercise_name}
+                    </AutoComplete.Option>
+                  ))}
+                  style={{ width: 300, marginLeft: "1rem" }}
+                  onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
+                  optionLabelProp="text"
+                >
+                  <Input
+                    suffix={<Icon type="search" className="certain-category-icon" />}
+                    placeholder="Search Exercises"
+                  />
+                </AutoComplete>
+                <div className="top-bar">
                 {!this.state.saveExercise ? (
                   <FilterExercises
                     {...this.props}
@@ -62,23 +127,20 @@ class AllExercises extends Component {
                     title="Add Sets"
                     subTitle="Add reps, weights, duration to each set of exercise"
                   />
-                )}
+                )}</div>
+                
               </ReactHeight>
             </div>
             <div style={{ marginTop: this.state.topBarHeight + 15 }}>
+              <div className="side-bar">
               <SideBar
                 marginTop={this.state.topBarHeight + 15}
                 newWorkout={this.props.newWorkout}
                 selectedExercises={this.props.selectedExercises}
                 saveExercise={this.state.saveExercise}
-              />
+              /></div>
               <div
-                style={{
-                  padding: "2rem",
-                  maxWidth: "75%",
-                  fontSize: ".8rem",
-                  marginLeft: "24%"
-                }}
+                className="display-exercises"
               >
                 {!this.state.saveExercise ? (
                   <DisplayExercise
@@ -103,7 +165,7 @@ class AllExercises extends Component {
               type="link"
               size="large"
               icon="close"
-              style={floatingButtons}
+              className="fixed-button"
               onClick={() => this.props.history.push("/workouts")}
             ></Button>
             {
@@ -112,13 +174,44 @@ class AllExercises extends Component {
               size="large"
               icon="check"
               disabled={!this.props.selectedExercises.length}
-              style={{ ...floatingButtons, ...bottom }}
+              className="fixed-button save-button"
               onClick={() => this.setState({ saveExercise: true })}
             >
               Add sets to exercices
             </Button>
-            } 
-          </div>
+            }
+            <Modal
+              visible={this.state.visible}
+              onOk={this.handleOk}
+              onCancel={this.handleCancel}
+              footer={[
+                <Button 
+                  key="submit" 
+                  disabled={!this.props.selectedExercises.length}
+                  type="primary"
+                  size="large"
+                  onClick={this.handleOk}>
+                  Add Sets to Exercices
+                </Button>,
+              ]}
+            >
+              <SelectedExercises
+                remove={this.props.removeFromSelectedExercises}
+                exercises={this.props.selectedExercises}
+                saveExercise={this.props.saveExercise}
+              />
+            </Modal>
+            <Modal
+              visible={this.state.visibleFilter}
+              onOk={this.handleFilterOk}
+              onCancel={this.handleFilterCancel}
+            >
+              <FilterExercises
+                    {...this.props}
+                    filterMuscles={this.filterMuscles}
+                  />
+            </Modal>
+          </StyledContainer>
         )}
       </>
     );
@@ -147,24 +240,10 @@ export default connect(
     addToSelectedExercises,
     filterMuscles,
     showSingleExercise,
-    createWorkout
+    createWorkout,
+    removeFromSelectedExercises
   }
 )(AllExercises);
-
-const floatingButtons = {
-  position: "fixed",
-  right: "2rem",
-  top: "1rem",
-  zIndex: 7
-};
-
-const bottom = {
-  top: "unset",
-  bottom: "1rem",
-  left: "1rem",
-  width: "calc(25% - 2rem)",
-  boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)"
-};
 
 const topBar = {
   padding: "1rem",
@@ -175,3 +254,42 @@ const topBar = {
   background: "#fff",
   boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .05)"
 };
+
+const StyledContainer = styled.div`
+  text-align: center;
+
+  .fixed-button {
+    position: fixed;
+    right: 2rem;
+    top: 1rem;
+    z-index: 7;
+  }
+
+  .display-exercises {
+    padding: 2rem;
+    max-width: 75%;
+    font-size: .8rem;
+    margin-left: 24%;
+  }
+
+  .save-button {
+    top: unset;
+    bottom: 1rem;
+    left: 1rem;
+    width: calc(25% - 2rem);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .15);
+  }
+
+  @media screen and (max-width: 768px) {
+    .top-bar, .side-bar, .save-button {
+      display: none;
+    }
+
+    .display-exercises {
+      padding: 1rem;
+      max-width: 100%;
+      font-size: .7rem;
+      margin-left: 0;
+    }
+  }
+`
