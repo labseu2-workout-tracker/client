@@ -21,6 +21,20 @@ import styled from "styled-components";
 const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1394475_0d6q9r1xk5c.js',
 });
+
+const { confirm } = Modal;
+
+function showConfirm(history) {
+  confirm({
+    title: 'Are you sure you want to exit this page?',
+    content: 'When you click on exit, you will lose all selected exercises and sets',
+    okText: 'Exit',
+    onOk() {
+      return history.push("/workouts")
+    },
+    onCancel() {},
+  });
+}
 class AllExercises extends Component {
   state = {
     topBarHeight: "",
@@ -175,7 +189,7 @@ class AllExercises extends Component {
               size="large"
               icon="close"
               className="fixed-button"
-              onClick={() => this.props.history.push("/workouts")}
+              onClick={() => showConfirm(this.props.history)}
             ></Button>
             {
               !this.state.saveExercise && <Button
