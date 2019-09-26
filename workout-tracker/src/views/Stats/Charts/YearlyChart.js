@@ -10,7 +10,7 @@ class YearlyChart extends React.Component {
   componentDidMount = () => {
     this.props.calculateYearlyChart(this.props.history, this.props.workouts);
   };
-
+  
   render() {
     return (
       <Card
@@ -70,8 +70,8 @@ const mapStateToProps = state => {
   return {
     history: state.history.history,
     workouts: state.workouts.workouts,
+    color: state.charts.color,
     yearlyChart: state.charts.yearlyChart,
-    color: state.charts.color
   };
 };
 

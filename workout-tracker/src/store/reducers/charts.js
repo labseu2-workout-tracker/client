@@ -1,6 +1,16 @@
 import * as type from "../actions/chartActions";
 
 const initialState = {
+  color: [
+    "#f6f078",
+    "#01d28e",
+    "#434982",
+    "#730068",
+    "#a6e3e9",
+    "#36A2EB",
+    "#51dacf",
+    "#edaaaa"
+  ],
   weeklyChart: {
     labels: ["Red", "Green", "Yellow"],
     data: [1]
@@ -13,17 +23,8 @@ const initialState = {
     labels: ["Red", "Green", "Yellow"],
     data: [1, 5, 6, 7]
   },
-  color: [
-    "#f6f078",
-    "#01d28e",
-    "#434982",
-    "#730068",
-    "#a6e3e9",
-    "##36A2EB",
-    "#51dacf",
-    "#edaaaa"
-  ]
 };
+
 let getDaysArray = function(s, e) {
   for (var a = [], d = s; d <= e; d.setDate(d.getDate() + 1)) {
     a.push(new Date(d));
