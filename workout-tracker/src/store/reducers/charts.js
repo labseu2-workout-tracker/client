@@ -24,7 +24,8 @@ const initialState = {
       "#51dacf",
       "#edaaaa"
     ]
-  }
+  },
+  monthlyChart: 
 };
 
 const charts = (state = initialState, action) => {
