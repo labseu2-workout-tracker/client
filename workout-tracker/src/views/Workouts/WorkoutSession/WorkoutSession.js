@@ -9,9 +9,8 @@ import {
 } from "../../../store/actions/workoutsActions";
 import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
-.ant-card-body {
-  padding: 2px;
-  zoom 1;
+.newcard {
+   padding: 2px;
 }
   .btn1 {
     margin: 10px;
@@ -263,7 +262,7 @@ updateWindowDimensions = () => {
                 </Card>
               </div>
             </Card>
-            <Card //Bottom Card with Exer & Instructions
+            <Card className='newcard' //Bottom Card with Exer & Instructions
               style={{ marginTop: 16 }}
               type="outer"
               bordered={true}
