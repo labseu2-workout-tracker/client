@@ -38,7 +38,8 @@ class YearlyChart extends React.Component {
           <Card
             className="chart-card"
             style={{
-              backgroundColor: "#FC940C"
+              backgroundColor: "#FC940C",
+              borderRadius: ".6rem"
             }}
           >
             <div className="info">
@@ -58,11 +59,16 @@ class YearlyChart extends React.Component {
                   </Button>
                 ]}
               >
-                {/* {this.state.workoutsForDate
-                   ? this.state.workoutsForDate.map(workoutName => (
-                       <p style={{height: "80px"}} key={uuid()}>{workoutName}</p>
-                     ))
-                   : null} */}
+                <div className="legend">
+                  {this.props.yearlyChart.labels.map((workout, index) => (
+                    <p
+                      key={index}
+                      style={{ backgroundColor: `${this.props.color[index]}` }}
+                    >
+                      {workout}
+                    </p>
+                  ))}
+                </div>
               </Modal>
             </div>
             <Pie

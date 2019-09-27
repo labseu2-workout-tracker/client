@@ -17,7 +17,8 @@ class WeeklyChart extends React.Component {
           <Card
             className="chart-card"
             style={{
-              backgroundColor: "#11B8CC"
+              backgroundColor: "#11B8CC",
+              borderRadius: ".6rem"
             }}
           >
             <Pie

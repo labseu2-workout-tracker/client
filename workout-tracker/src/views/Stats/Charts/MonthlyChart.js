@@ -15,7 +15,8 @@ class MonthlyChart extends React.Component {
           <Card
             className="chart-card"
             style={{
-              backgroundColor: "#E94340"
+              backgroundColor: "#E94340",
+              borderRadius: ".6rem"
             }}
           >
             <Pie
