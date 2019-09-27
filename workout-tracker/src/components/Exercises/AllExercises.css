@@ -2,8 +2,8 @@
 /*  */
 .new-button {
   font: inherit;
-  border: 1px solid #0086c9;
-  color: #0086c9;
+  border: 1px solid #1890ff;
+  color: #1890ff;
   background: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -229,7 +229,7 @@ background:#c7a06e;
 /* kindle fire */
 @media screen and (max-width: 800px) {
   .all-exercise {
-  /* color: #0086c9; */
+  /* color: #1890ff; */
   }  
   .container-1{
         /* background-color: rgb(189, 147, 11); */

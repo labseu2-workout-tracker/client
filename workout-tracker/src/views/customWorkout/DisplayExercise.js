@@ -59,16 +59,16 @@ class DisplayExercise extends Component {
                   </Button>
                 ]}
               >
-                <Row type="flex" justify="space-around">
+                <Row  type="flex" justify="space-around">
                   <Avatar shape="square" size={64} src={item.picture_one} />
                   <Avatar shape="square" size={64} src={item.picture_two} />
                 </Row>
-                <h3>{item.exercise_name}</h3>
-                <>
+                <h3  style={{padding:9}}>{item.exercise_name}</h3>
+                < div style={{padding:20, marginBottom:20}}>
                   Type: <strong>{item.type}</strong><br />
                   Target: <strong>{item.muscle}</strong> muscle<br />
                   Equipment: <strong>{item.equipment}</strong><br />
-                </>
+                </div>
               </Card>
             </List.Item>
           )}

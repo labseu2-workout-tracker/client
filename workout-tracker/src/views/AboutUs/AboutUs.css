@@ -210,6 +210,30 @@ section {
 .fa-github-square:hover {
   color: #980cc6;
 }
+
+/* div .ant-card-body{
+    background-color: white;
+} */
+
+ div .ant-layout-sider-zero-width-trigger:hover {
+  background-color:#1890ff;
+}
+div .ant-layout-sider-zero-width-trigger {
+  background-color: #1890ff;
+  border-radius: 0 0 60px 0; 
+  height: 40px;
+  width: 50px;
+  position:absolute;
+  top:0;
+}
+.ant-layout-sider-children {
+ background-color: #1890ff;
+}
+
+.ant-card-body {
+  padding: 2px;
+
+}
 @media screen and (min-width: 300px) {
   .card-wrapper {
     flex-direction: row;

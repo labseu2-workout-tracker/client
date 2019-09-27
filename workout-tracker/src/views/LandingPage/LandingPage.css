@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
 #h1 {
   font-size: 6em;
-  color: #0086c9;
+  color: #1890ff;
   line-height: 0.8em;
   text-align: left;
 }
@@ -12,7 +12,7 @@ h1 span {
 }
 
 #p {
-  color: #0086c9;
+  color: #1890ff;
   align-content: center;
   text-align: center;
 }
