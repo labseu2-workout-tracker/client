@@ -134,16 +134,6 @@ class Stats extends React.Component {
   render() {
     return (
       <StyledStats>
-        <div className="legend">
-          {this.props.weeklyChart.labels.map((workout, index) => (
-            <p
-              key={index}
-              style={{ backgroundColor: `${this.props.color[index]}` }}
-            >
-              {workout}
-            </p>
-          ))}
-        </div>
         <div className="chart-row">
           <WeeklyChart />
 
