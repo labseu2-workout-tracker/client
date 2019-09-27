@@ -30,6 +30,7 @@ function showConfirm(history) {
     content: 'When you click on exit, you will lose all selected exercises and sets',
     okText: 'Exit',
     onOk() {
+      window.localStorage.removeItem('state');
       return history.push("/workouts")
     },
     onCancel() {},
