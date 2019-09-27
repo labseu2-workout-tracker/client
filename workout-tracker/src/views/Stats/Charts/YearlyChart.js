@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { Card } from "antd";
+import { Modal, Button, Card } from "antd";
 import { connect } from "react-redux";
 
 const { Meta } = Card;
