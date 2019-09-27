@@ -8,6 +8,29 @@ const { Meta } = Card;
 Chart.defaults.global.legend.display = false;
 
 class WeeklyChart extends React.Component {
+  state = {
+    visible: false
+  };
+
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = () => {
+    this.setState({
+      visible: false,
+      workoutsForDate: null
+    });
+  };
+
+  handleCancel = () => {
+    this.setState({
+      visible: false
+    });
+  };
+
   render() {
     return (
       <Card
@@ -21,6 +44,31 @@ class WeeklyChart extends React.Component {
               borderRadius: ".6rem"
             }}
           >
+            <div className="info">
+              <i onClick={this.showModal} className="fa fa-info-circle" />
+              <Modal
+                maskStyle={{ opacity: ".2" }}
+                title="Workout List"
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                footer={[
+                  <Button type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
+              >
+                <div className="legend">
+                  {this.props.weeklyChart.labels.map((workout, index) => (
+                    <p
+                      key={index}
+                      style={{ backgroundColor: `${this.props.color[index]}` }}
+                    >
+                      {workout}
+                    </p>
+                  ))}
+                </div>
+              </Modal>
+            </div>
             <Pie
               data={{
                 labels: this.props.weeklyChart.labels,

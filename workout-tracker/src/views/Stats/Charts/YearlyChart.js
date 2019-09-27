@@ -51,7 +51,6 @@ class YearlyChart extends React.Component {
                 onCancel={this.handleCancel}
                 footer={[
                   <Button
-                    // key={uuid()}
                     type="primary"
                     onClick={this.handleOk}
                   >
