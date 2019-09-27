@@ -65,7 +65,7 @@ class SetsForm extends Component {
           <Divider />
           {keys.map(k => (<>
             <FormItemsContainer key={`${e.id}${k}`} style={{ textAlign: "center" }}>
-              <StyledFormItem key={k + "2" + e}>
+              <Form.Item key={k + "2" + e}>
                 {getFieldDecorator(`${e.id}type[${k}]`, {
                   initialValue: "reps"
                 })(
@@ -74,8 +74,8 @@ class SetsForm extends Component {
                     <Radio.Button value="duration">Duration</Radio.Button>
                   </Radio.Group>
                 )}
-              </StyledFormItem>
-              <StyledFormItem
+              </Form.Item>
+              <Form.Item
                 label={
                   getFieldValue(`${e.id}type[${k}]`) === "reps"
                     ? "Reps"
@@ -95,8 +95,8 @@ class SetsForm extends Component {
                     }
                   ]
                 })(<InputNumber min={1} max={200} />)}
-              </StyledFormItem>
-              <StyledFormItem label="Weight (kg)" required={false} key={k + "1"}>
+              </Form.Item>
+              <Form.Item label="Weight (kg)" required={false} key={k + "1"}>
                 {getFieldDecorator(`${e.id}weight[${k}]`, {
                   validateTrigger: ["onChange", "onBlur"],
                   rules: [
@@ -108,7 +108,7 @@ class SetsForm extends Component {
                     }
                   ]
                 })(<InputNumber min={1} max={200} />)}
-              </StyledFormItem>
+              </Form.Item>
               {keys.length > 0 ? (
                 <Icon
                   className="dynamic-delete-button"
