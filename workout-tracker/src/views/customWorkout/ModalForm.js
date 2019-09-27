@@ -1,9 +1,50 @@
 import React from 'react';
 import { Modal, Form, Input, Button, Radio } from 'antd';
+import { axiosWithAuth } from '../../store/axiosWithAuth'
+
+const workouts = `${process.env.REACT_APP_BASE_URL}/workouts`;
 
 const CreateModalForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
   class extends React.Component {
+    state = {
+      status: '',
+      help: ''
+    }
+
+    onCreate = () => {
+      if (this.state.status !== 'success') return
+      this.props.onCreate()
+    }
+
+    checkWorkoutName = (name) => {
+      if (!/^[a-z\d\-_\s']+$/i.test(name)) {
+        console.log(name)
+        this.setState({
+          status: 'error',
+          help: 'Please input a valid workout name'
+        })
+        return
+      }
+      this.setState({
+        status: 'validating',
+        help: 'Checking...'
+      })
+      axiosWithAuth()
+        .post(`${workouts}/exists`, { workout_name: name})
+        .then(res => {
+          this.setState({
+            status: 'success',
+            help: 'Workout name valid and available'
+          })
+        })
+        .catch(error => {
+          this.setState({
+            status: 'error',
+            help: 'Workout Name already exist'
+          })
+        })
+    }
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
@@ -18,7 +59,12 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
           
         >
           <Form layout="vertical">
-            <Form.Item label="Workout Title">
+            <Form.Item 
+              label="Workout Title" 
+              hasFeedback 
+              validateStatus={this.state.status}
+              help={this.state.help}
+            >
               {getFieldDecorator('workout_name', {
                 rules: [
                   {
@@ -27,7 +73,7 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
                     message: 'Please input a valid custom workout name!'
                   }
                 ]
-              })(<Input />)}
+              })(<Input onChange={(e) => this.checkWorkoutName(e.target.value)} />)}
             </Form.Item>
             <Form.Item label="Description">
               {getFieldDecorator('workout_description', {
@@ -50,7 +96,7 @@ const CreateModalForm = Form.create({ name: 'form_in_modal' })(
               )}
             </Form.Item>
             <div style={{ textAlign: 'center' }}>
-              <Button type="primary"  onClick={onCreate} >
+              <Button type="primary"  onClick={this.onCreate} >
                 Add exercises
               </Button>
             </div>
