@@ -10,7 +10,7 @@ import {
   searchExercise
 } from "../../store/actions/exerciseActions";
 import { createWorkout } from "../../store/actions/workoutsActions";
-import { Spin, Button, PageHeader } from "antd";
+import { Spin, PageHeader } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
 
@@ -65,19 +65,6 @@ class AllExercises extends Component {
               </ReactHeight>
             </div>
             <div style={{ marginTop: this.state.topBarHeight + 15 }}>
-              {/* <SideBar
-                marginTop={this.state.topBarHeight + 15}
-                newWorkout={this.props.newWorkout}
-                selectedExercises={this.props.selectedExercises}
-              /> */}
-              {/* <div
-                style={{
-                  padding: "2rem",
-                  maxWidth: "75%",
-                  fontSize: ".8rem",
-                  marginLeft: "24%"
-                }}
-              > */}
               {!this.state.saveExercise ? (
                 <DisplayExercise
                   showSingleExercise={this.props.showSingleExercise}
@@ -95,7 +82,8 @@ class AllExercises extends Component {
                   loading={this.props.loadingWorkouts}
                   history={this.props.history}
                 />
-              )}            
+              )}
+            </div>
           </div>
         )}
       </>
