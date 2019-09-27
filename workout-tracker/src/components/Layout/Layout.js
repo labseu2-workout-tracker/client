@@ -15,7 +15,7 @@ class MainLayout extends React.Component {
         <div className='content-container'>
         {Auth.isAuthenticated()
         ? this.props.location.pathname !== "/workouts/new/add_exercises" && <Sider
-            breakpoint="lg"
+            breakpoint="sm"
             collapsedWidth="0"
           >
             {this.props.sider}
@@ -50,7 +50,6 @@ const StyledContainer = styled.section`
     min-width: 0;
     overflow: auto;
   }
-
   .ant-layout-sider {
       position: absolute;
       z-index: 1000;
