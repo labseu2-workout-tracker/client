@@ -16,7 +16,7 @@ const StyledWorkoutCalendar = styled.div`
 
   .ant-fullcalendar-fullscreen .ant-fullcalendar-month,
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date {
-    height: 50px;
+    height: 65px;
   }
 
   .ant-radio-button-wrapper {

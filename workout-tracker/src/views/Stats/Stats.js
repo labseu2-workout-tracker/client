@@ -95,6 +95,10 @@ const StyledStats = styled.div`
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 850px) {
+      width: 90%;
+    }
+
     @media (max-width: 720px) {
       padding: 0;
     }
