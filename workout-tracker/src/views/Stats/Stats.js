@@ -7,6 +7,11 @@ import WorkoutCalendar from "./Calendar/WorkoutCalendar";
 import styled from "styled-components";
 import { fetchWorkouts } from "../../store/actions/workoutsActions";
 import { fetchWorkoutsHistory } from "../../store/actions/historyActions";
+import {
+  calculateWeeklyChart,
+  calculateMonthlyChart,
+  calculateYearlyChart
+} from "../../store/actions/chartActions";
 import { connect } from "react-redux";
 
 const StyledStats = styled.div`
@@ -51,8 +56,16 @@ const StyledStats = styled.div`
     }
 
     @media (max-width: 1000px) {
-      width: 80%;
+      width: 60%;
       margin: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      width: 70%;
+    }
+
+    @media (max-width: 600px) {
+      width: 80%;
     }
   }
 
@@ -63,21 +76,28 @@ const StyledStats = styled.div`
   .calendar,
   .history {
     color: rgba(0, 0, 0, 0.87);
-    width: 100%;
+    width: 70%;
     border: 0;
-    display: flex;
-    position: relative;
     font-size: 0.875rem;
+    text-align: center;
+    position: relative;
     min-width: 0;
     word-wrap: break-word;
     padding: 3rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
-    flex-direction: column;
-    text-align: center;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 850px) {
+      width: 90%;
+    }
 
     @media (max-width: 720px) {
       padding: 0;
@@ -86,6 +106,24 @@ const StyledStats = styled.div`
     &:hover {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
         0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    i {
+      font-size: 1.3rem;
+      color: #fff;
+
+      @media (max-width: 1000px) {
+        font-size: 1.5rem;
+      }
+      &:hover {
+        color: green;
+      }
     }
   }
 `;
@@ -99,6 +137,9 @@ class Stats extends React.Component {
   componentDidMount = () => {
     this.props.fetchWorkouts();
     this.props.fetchWorkoutsHistory();
+    this.props.calculateWeeklyChart(this.props.history, this.props.workouts);
+    this.props.calculateMonthlyChart(this.props.history, this.props.workouts);
+    this.props.calculateYearlyChart(this.props.history, this.props.workouts);
   };
 
   render() {
@@ -112,10 +153,10 @@ class Stats extends React.Component {
           <YearlyChart />
         </div>
 
-        <div>
+        <div className="calendar-container">
           <WorkoutCalendar />
         </div>
-        <div>
+        <div className="history-container">
           <UserHistory />
         </div>
       </StyledStats>
@@ -123,7 +164,21 @@ class Stats extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    history: state.history.history,
+    workouts: state.workouts.workouts,
+    weeklyChart: state.charts.weeklyChart
+  };
+};
+
 export default connect(
-  null,
-  { fetchWorkouts, fetchWorkoutsHistory }
+  mapStateToProps,
+  {
+    fetchWorkouts,
+    fetchWorkoutsHistory,
+    calculateWeeklyChart,
+    calculateMonthlyChart,
+    calculateYearlyChart
+  }
 )(Stats);

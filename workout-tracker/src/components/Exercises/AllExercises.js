@@ -80,19 +80,6 @@ class AllExercises extends Component {
               </ReactHeight>
             </div>
             <div style={{ marginTop: this.state.topBarHeight + 15, padding: '3rem' }}>
-              {/* <SideBar
-                marginTop={this.state.topBarHeight + 15}
-                newWorkout={this.props.newWorkout}
-                selectedExercises={this.props.selectedExercises}
-              /> */}
-              {/* <div
-                style={{
-                  padding: "2rem",
-                  maxWidth: "75%",
-                  fontSize: ".8rem",
-                  marginLeft: "24%"
-                }}
-              > */}
               {!this.state.saveExercise ? (
                 <DisplayExercise
                   showSingleExercise={this.props.showSingleExercise}
@@ -111,26 +98,7 @@ class AllExercises extends Component {
                   history={this.props.history}
                 />
               )}
-              {/* </div> */}
             </div>
-            {/* <Button
-              type="link"
-              size="large"
-              icon="close"
-              style={floatingButtons}
-              onClick={() => this.props.history.push("/workouts")}
-            ></Button>
-            {
-              !this.state.saveExercise && <Button
-              type="primary"
-              size="large"
-              icobn="check"
-              style={{ ...floatingButtons, ...bottom }}
-              onClick={() => this.setState({ saveExercise: true })}
-            >
-              Add sets to exercices
-            </Button> */}
-            }
           </div>
         )}
       </>
