@@ -143,7 +143,12 @@ const StyledList = styled(List)`
   }
 
   .ant-card-body {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    
+    h3 {
+      margin-top: 1rem;
+    }
   }
 
   .ant-card-actions {

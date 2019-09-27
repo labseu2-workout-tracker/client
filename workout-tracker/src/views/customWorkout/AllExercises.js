@@ -155,7 +155,7 @@ class AllExercises extends Component {
                 
               </ReactHeight>
             </div>
-            <div style={{ marginTop: this.state.topBarHeight + 15 }}>
+            <div style={{ marginTop: this.state.topBarHeight + 15,  padding: '3rem 1rem' }}>
               <div className="side-bar">
               <SideBar
                 marginTop={this.state.topBarHeight + 15}
