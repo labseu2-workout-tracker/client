@@ -35,27 +35,36 @@ class WorkoutContainer extends React.Component {
   }
 }
 
+
+
 const StyledContainer = styled.div`
-  padding: 2rem;
-  background: #ECECEC;
+  padding: 1.5rem 3rem;
+  background: #fff;
+
 
   .ant-row-flex:first-child {
     background-color: transparent;
     padding: 0;
     justify-content: flex-end;
+    box-shadow: none;
   }
 
   .ant-row-flex {
-    background-color: white ;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: transparent ;
     padding: 30px;
     justify-content: center;
-    margin: 1rem 0;
+    border-radius: 0.6rem;
+    margin-bottom: 3rem;
+ 
   }
 
   .ant-card-meta-description {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
   }
 `
 

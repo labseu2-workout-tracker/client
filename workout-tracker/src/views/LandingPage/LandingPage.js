@@ -19,9 +19,7 @@ const LandingPage = () => {
           </h1>
           <hr />
           <p id="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni
-            virtuti vitium contrario nomine opponitur. Hoc est non dividere, sed
-            frangere.
+            Join the thousands of ordinary people just like you who are planning, creating and tracking their workuts.
           </p>
           <div>
           <Link to="/signup" className="btn">
@@ -34,7 +32,7 @@ const LandingPage = () => {
               <img src={bg} alt="card background" className="card-img" />
               <img src={run} alt="profile" className="profile-img" />
               <h1>User Structured</h1>
-              <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="about">Choose from hundreds of curated exercises from the all the best workout sites.</p>
               <Link to="#" className="btn">
                 Find More
               </Link>
@@ -45,7 +43,7 @@ const LandingPage = () => {
               <img src={fapp} alt="card background" className="card-img" />
               <img src={lift} alt="profile" className="profile-img" />
               <h1>Workout Manuals</h1>
-              <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="about">Create custom workouts specifically tailored to your needs.</p>
               <Link to="#" className="btn">
                 Find More
               </Link>
