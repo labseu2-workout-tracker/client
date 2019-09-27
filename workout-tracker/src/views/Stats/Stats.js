@@ -158,7 +158,6 @@ const mapStateToProps = state => {
     history: state.history.history,
     workouts: state.workouts.workouts,
     weeklyChart: state.charts.weeklyChart,
-    color: state.charts.color
   };
 };
 
