@@ -34,7 +34,7 @@ const StyledStats = styled.div`
     flex-wrap: wrap;
 
     p {
-      margin:0;
+      margin: 0;
       padding: 0;
     }
   }
@@ -83,11 +83,6 @@ const StyledStats = styled.div`
     }
   }
 
-  /* .chart-card {
-    height: 200px;
-    width: 70%;
-  } */
-
   .ant-card-head-title {
     text-align: left;
   }
@@ -124,9 +119,15 @@ const StyledStats = styled.div`
     }
   }
 
-  .calendar-container,
-  .history-container,
-  .sc-ifAKCX .eXlgtv {
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    i {
+      font-size: 1.2rem;
+      color: green;
+    }
   }
 `;
 
