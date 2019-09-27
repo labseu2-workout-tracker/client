@@ -1,6 +1,5 @@
 import { axiosWithAuth } from "../axiosWithAuth";
 // import axiosWithAuth from 'axios';
-
 // actions
 export const FETCH_WORKOUTS = "FETCH_WORKOUTS";
 export const FETCH_WORKOUT_DETAILS = "FETCH_WORKOUT_DETAILS";
@@ -32,7 +31,6 @@ export const addWorkoutDetails = workoutDetails => {
 };
 
 export const createWorkout = (fullWorkoutDetails, history) => dispatch => {
-  console.log(fullWorkoutDetails)
   dispatch({
     type: LOADING_CREATE_WORKOUT,
     payload: true
@@ -47,10 +45,9 @@ export const createWorkout = (fullWorkoutDetails, history) => dispatch => {
       history.push('/workouts');
     })
     .catch(error => {
-      console.log(error.response.data)
       dispatch({
         type: CREATE_WORKOUT_ERROR,
-        payload: "Error creating workout. Please Try Again"
+        payload: error.response.data.errorMessage
       });
     })
     .finally(() => ({
@@ -166,7 +163,7 @@ export const getSavedWorkout = () => dispatch => {
   axiosWithAuth()
     .get(`${workouts}/all-saved/${userId}`)
     .then(res => {
-      dispatch(genericAction(ADD_WORKOUT_SUCCESS, res.data));
+      dispatch(genericAction(GET_SAVED_WORKOUT_SUCCESS, res.data));
     })
     .catch(err => {
       dispatch(genericAction(GET_SAVED_WORKOUT_FAILURE, err));

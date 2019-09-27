@@ -10,7 +10,7 @@ import {
   searchExercise
 } from "../../store/actions/exerciseActions";
 import { createWorkout } from "../../store/actions/workoutsActions";
-import { Spin, Button, PageHeader } from "antd";
+import { Spin, PageHeader, AutoComplete, Input, Icon } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
 
@@ -51,10 +51,25 @@ class AllExercises extends Component {
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
                 {!this.state.saveExercise ? (
-                  <FilterExercises
+                  <><FilterExercises
                     {...this.props}
                     filterMuscles={this.filterMuscles}
                   />
+                  <AutoComplete
+                    dataSource={[...new Set(this.props.exercises)].map(e => (
+                      <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
+                        {e.exercise_name}
+                      </AutoComplete.Option>
+                    ))}
+                    style={{ width: 300, margin: "1rem auto" }}
+                    onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
+                    optionLabelProp="text"
+                  >
+                    <Input
+                      suffix={<Icon type="search" className="certain-category-icon" />}
+                      placeholder="Search Exercises"
+                    />
+                  </AutoComplete></>
                 ) : (
                   <PageHeader
                     onBack={() => this.setState({ saveExercise: false })}
@@ -64,7 +79,7 @@ class AllExercises extends Component {
                 )}
               </ReactHeight>
             </div>
-            <div style={{ marginTop: this.state.topBarHeight + 15 }}>
+            <div style={{ marginTop: this.state.topBarHeight + 15, padding: '3rem' }}>
               {/* <SideBar
                 marginTop={this.state.topBarHeight + 15}
                 newWorkout={this.props.newWorkout}
@@ -149,26 +164,12 @@ export default connect(
   }
 )(AllExercises);
 
-const floatingButtons = {
-  position: "fixed",
-  right: "2rem",
-  top: "1rem",
-  zIndex: 7
-};
-
-const bottom = {
-  top: "unset",
-  bottom: "1rem",
-  left: "1rem",
-  width: "calc(25% - 2rem)",
-  boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)"
-};
-
 const topBar = {
   padding: "1rem",
   position: "fixed",
   top: 0,
   width: "100%",
+  textAlign: 'center',
   zIndex: 5,
   background: "#fff",
   boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .05)"

@@ -2,22 +2,24 @@ html {
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
 }
+
 body {
   overflow-x: hidden;
 }
+
 a {
   text-decoration: none;
 }
-p {
-  padding: 2rem;
-}
+
 section {
   padding: 10 rem 0;
   background-color: #ffffff;
 }
-.container{
+
+.container {
   align-content: center;
 }
+
 /* Workout img styling */
 .workout-img {
   width: 15rem;
@@ -28,6 +30,7 @@ section {
   margin-top: -10rem;
   border: 0.7rem solid #c7d9eef9;
 }
+
 .workout-card {
   width: 30rem;
   background-color: #c7d9eef9;
@@ -40,11 +43,13 @@ section {
   border-radius: 0 0 2rem 2rem;
   box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
+
 .workout-card h1 {
   font-size: 1.7rem;
   color: #6bbdfa;
   margin: 0.5rem;
 }
+
 .workout-card .btn {
   padding: 0.8rem 2.5rem;
   background-color: #6bbdfa;
@@ -55,27 +60,32 @@ section {
   font-size: 1.4rem;
   transition: all 0.7s;
 }
+
 .workout-card .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
 }
+
 .workout-card .btn:active {
   transform: translateY(0);
   box-shadow: none;
 }
+
 .workout-card p {
   color: #655f69;
   font-size: 1rem;
   text-align: start;
   font-weight: 300;
 }
+
 .coolstuff {
   font-size: 2.5rem;
   color: #6bbdfa;
   margin: 1.5rem;
-  align-content: center; 
+  align-content: center;
   font-family: 'Viga', sans-serif;
 }
+
 /* card workouts */
 
 .heading {
@@ -87,6 +97,7 @@ section {
   color: #6bbdfa;
   position: relative;
 }
+
 .heading::after {
   content: '';
   width: 10rem;
@@ -98,12 +109,14 @@ section {
   transform: translateX(-50%);
   border-radius: 2rem;
 }
+
 .card-wrapper {
   display: flex;
   align-items: center;
   align-content: center;
   flex-direction: column;
 }
+
 .card {
   width: 30rem;
   background-color: #c7d9eef9;
@@ -115,6 +128,7 @@ section {
   border-radius: 0 0 2rem 2rem;
   box-shadow: 1.5rem 1.5rem 3rem rgba(0, 0, 0, 0.2);
 }
+
 .card .card-img {
   width: 100%;
   height: 20rem;
@@ -122,6 +136,7 @@ section {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 49%, 0% 100%);
 }
+
 .profile-img {
   width: 15rem;
   height: 15rem;
@@ -138,19 +153,22 @@ section {
   margin: .9rem;
   font-family: 'Viga', sans-serif;
 }
+
 .team {
   font-size: 3.5rem;
   color: #6bbdfa;
-  text-align:center;
+  text-align: center;
   margin: 1.5rem;
   font-family: 'Viga', sans-serif;
 }
+
 .job-title {
   color: #655f69;
   font-family: 'Viga', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
 }
+
 .about {
   font-size: 1.3rem;
   margin: 1.5rem 0;
@@ -158,6 +176,7 @@ section {
   color: #ffffff;
   font-weight: 250;
 }
+
 .card .btn {
   padding: 0.8rem 2.5rem;
   background-color: #6bbdfa;
@@ -168,10 +187,12 @@ section {
   font-size: 1.4rem;
   transition: all 0.7s;
 }
+
 .card .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
 }
+
 .card .btn:active {
   transform: translateY(0);
   box-shadow: none;
@@ -195,21 +216,26 @@ section {
 .fa-linkedin {
   color: #0e76a8;
 }
+
 .fa-twitter-square {
   color: #0ea7e9;
 }
+
 .fa-facebook-square {
   color: #3b5998;
 }
+
 .fa-github-square {
   color: #333;
 }
+
 .fa-twitter-square:hover,
 .fa-facebook-square:hover,
 .fa-linkedin:hover,
 .fa-github-square:hover {
   color: #980cc6;
 }
+
 @media screen and (min-width: 300px) {
   .card-wrapper {
     flex-direction: row;
@@ -217,6 +243,7 @@ section {
     justify-content: center;
     align-items: center;
   }
+
   .card {
     margin: 2rem;
     transition: transfom 0.5s;
