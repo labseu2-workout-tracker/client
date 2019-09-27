@@ -10,7 +10,7 @@ import {
   searchExercise
 } from "../../store/actions/exerciseActions";
 import { createWorkout } from "../../store/actions/workoutsActions";
-import { Spin, Button, PageHeader } from "antd";
+import { Spin, PageHeader } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
 
@@ -148,21 +148,6 @@ export default connect(
     createWorkout
   }
 )(AllExercises);
-
-const floatingButtons = {
-  position: "fixed",
-  right: "2rem",
-  top: "1rem",
-  zIndex: 7
-};
-
-const bottom = {
-  top: "unset",
-  bottom: "1rem",
-  left: "1rem",
-  width: "calc(25% - 2rem)",
-  boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, .15)"
-};
 
 const topBar = {
   padding: "1rem",

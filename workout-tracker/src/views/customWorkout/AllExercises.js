@@ -180,6 +180,7 @@ class AllExercises extends Component {
                     createWorkout={this.props.createWorkout}
                     loading={this.props.loadingWorkouts}
                     history={this.props.history}
+                    error={this.props.errorWorkouts}
                   />
                 )}
               </div>
@@ -208,7 +209,7 @@ class AllExercises extends Component {
               onOk={this.handleOk}
               onCancel={this.handleCancel}
               footer={[
-                <Button 
+                !this.state.saveExercise && <Button 
                   key="submit" 
                   disabled={!this.props.selectedExercises.length}
                   type="primary"
@@ -303,7 +304,7 @@ const StyledContainer = styled.div`
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .15);
   }
 
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 769px) {
     .mobile-menu {
       display: none;
     }
