@@ -30,7 +30,13 @@ const StyledStats = styled.div`
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
+    /* font-size: 1rem; */
+    flex-wrap: wrap;
+
+    p {
+      margin:0;
+      padding: 0;
+    }
   }
 
   .chart-row {
