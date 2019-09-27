@@ -115,11 +115,14 @@ const StyledStats = styled.div`
     justify-content: flex-end;
 
     i {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #fff;
 
       @media (max-width: 1000px) {
         font-size: 1.5rem;
+      }
+      &:hover {
+        color: green;
       }
     }
   }
