@@ -58,12 +58,16 @@ class YearlyChart extends React.Component {
               >
                 <div className="legend">
                   {this.props.yearlyChart.labels.map((workout, index) => (
+                   this.props.yearlyChart.data[index] ? (
                     <p
                       key={index}
-                      style={{ backgroundColor: `${this.props.color[index]}` }}
+                      style={{
+                        backgroundColor: `${this.props.color[index]}`
+                      }}
                     >
                       {workout}
                     </p>
+                  ) : null
                   ))}
                 </div>
               </Modal>
