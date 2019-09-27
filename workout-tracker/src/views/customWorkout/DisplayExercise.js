@@ -64,7 +64,7 @@ class DisplayExercise extends Component {
                   <Avatar shape="square" size={64} src={item.picture_two} />
                 </Row>
                 <h3  style={{padding:9}}>{item.exercise_name}</h3>
-                < div style={{padding:9}}>
+                < div style={{padding:20, marginBottom:20}}>
                   Type: <strong>{item.type}</strong><br />
                   Target: <strong>{item.muscle}</strong> muscle<br />
                   Equipment: <strong>{item.equipment}</strong><br />
