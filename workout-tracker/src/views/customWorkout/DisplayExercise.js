@@ -65,11 +65,11 @@ class DisplayExercise extends Component {
                   <Avatar shape="square" size={64} src={item.picture_two} />
                 </Row>
                 <h3>{item.exercise_name}</h3>
-                <>
-                  Type: <strong>{item.type}</strong><br />
-                  Target: <strong>{item.muscle}</strong> muscle<br />
-                  Equipment: <strong>{item.equipment}</strong><br />
-                </>
+                <div style={{ textAlign: "left" }}>
+                  Type: <em>{item.type}</em><br />
+                  Target: <em>{item.muscle}</em><br />
+                  Equipment: <em>{item.equipment}</em><br />
+                </div>
               </Card>
             </List.Item>
           )}
@@ -151,7 +151,7 @@ const StyledList = styled(List)`
     width: 100%;
     bottom: 0;
   }
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 768px) {
     .ant-card-bordered {
       height: calc(100% - 1rem);
       width: 45vw;
@@ -162,7 +162,7 @@ const StyledList = styled(List)`
   @media screen and (max-width: 560px) {
     .ant-card-bordered {
       height: calc(100% - 1rem);
-      width: 60vw;
+      width: 70vw;
       margin-bottom: 16px;
       position: relative;
     }
