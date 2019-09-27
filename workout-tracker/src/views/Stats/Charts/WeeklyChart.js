@@ -58,15 +58,26 @@ class WeeklyChart extends React.Component {
                   </Button>
                 ]}
               >
-                <div className="legend" style={{ textAlign: "center" }}>
-                  {this.props.weeklyChart.labels.map((workout, index) => (
-                    <p
-                      key={index}
-                      style={{ backgroundColor: `${this.props.color[index]}` }}
-                    >
-                      {workout}
-                    </p>
-                  ))}
+                <div
+                  className="legend"
+                  style={{
+                    fontWeight: "600",
+                    color: "white",
+                    textAlign: "center"
+                  }}
+                >
+                  {this.props.weeklyChart.labels.map((workout, index) =>
+                    this.props.weeklyChart.data[index] ? (
+                      <p
+                        key={index}
+                        style={{
+                          backgroundColor: `${this.props.color[index]}`
+                        }}
+                      >
+                        {workout}
+                      </p>
+                    ) : null
+                  )}
                 </div>
               </Modal>
             </div>

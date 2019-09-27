@@ -112,7 +112,11 @@ const StyledStats = styled.div`
 
     i {
       font-size: 1.2rem;
-      color: #FFF;
+      color: #fff;
+
+      @media (max-width: 1000px) {
+        font-size: 1.5rem;
+      }
     }
   }
 `;
