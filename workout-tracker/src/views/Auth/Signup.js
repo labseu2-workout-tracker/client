@@ -45,6 +45,8 @@ class NormalSignUpForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
+      let email = values.email.toLowerCase();
+      values.email = email;
       if (!err) {
         console.log("Received values of form: ", values);
         this.props.doSignUp(values, this.props.history);
