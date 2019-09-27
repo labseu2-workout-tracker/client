@@ -95,27 +95,7 @@ class AllExercises extends Component {
                   loading={this.props.loadingWorkouts}
                   history={this.props.history}
                 />
-              )}
-              {/* </div> */}
-            </div>
-            {/* <Button
-              type="link"
-              size="large"
-              icon="close"
-              style={floatingButtons}
-              onClick={() => this.props.history.push("/workouts")}
-            ></Button>
-            {
-              !this.state.saveExercise && <Button
-              type="primary"
-              size="large"
-              icobn="check"
-              style={{ ...floatingButtons, ...bottom }}
-              onClick={() => this.setState({ saveExercise: true })}
-            >
-              Add sets to exercices
-            </Button> */}
-            }
+              )}            
           </div>
         )}
       </>
