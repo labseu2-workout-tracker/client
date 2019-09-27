@@ -235,8 +235,7 @@ class WorkoutCalendar extends React.Component {
 
     for (let i = 0; i < this.state.result.length; i++) {
       if (
-        lettersOfTheMonth === lettersCurrentMonth
-        &&
+        lettersOfTheMonth === lettersCurrentMonth &&
         numbersOfTheYear === currentYear
       ) {
         switch (value.date()) {
@@ -276,7 +275,9 @@ class WorkoutCalendar extends React.Component {
               >
                 {this.state.workoutsForDate
                   ? this.state.workoutsForDate.map(workoutName => (
-                      <p style={{height: "80px"}} key={uuid()}>{workoutName}</p>
+                      <p style={{ height: "80px" }} key={uuid()}>
+                        {workoutName}
+                      </p>
                     ))
                   : null}
               </Modal>
