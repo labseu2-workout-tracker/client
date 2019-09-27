@@ -57,14 +57,18 @@ class MonthlyChart extends React.Component {
                 ]}
               >
                 <div className="legend">
-                  {this.props.monthlyChart.labels.map((workout, index) => (
-                    <p
-                      key={index}
-                      style={{ backgroundColor: `${this.props.color[index]}` }}
-                    >
-                      {workout}
-                    </p>
-                  ))}
+                  {this.props.monthlyChart.labels.map((workout, index) =>
+                    this.props.monthlyChart.data[index] ? (
+                      <p
+                        key={index}
+                        style={{
+                          backgroundColor: `${this.props.color[index]}`
+                        }}
+                      >
+                        {workout}
+                      </p>
+                    ) : null
+                  )}
                 </div>
               </Modal>
             </div>
