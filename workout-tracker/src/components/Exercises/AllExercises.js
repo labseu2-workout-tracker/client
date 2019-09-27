@@ -10,7 +10,7 @@ import {
   searchExercise
 } from "../../store/actions/exerciseActions";
 import { createWorkout } from "../../store/actions/workoutsActions";
-import { Spin, PageHeader } from "antd";
+import { Spin, PageHeader, AutoComplete, Input, Icon } from "antd";
 import { ReactHeight } from "react-height";
 import { connect } from "react-redux";
 
@@ -51,10 +51,25 @@ class AllExercises extends Component {
                 onHeightReady={height => this.setTopBarHeight(height)}
               >
                 {!this.state.saveExercise ? (
-                  <FilterExercises
+                  <><FilterExercises
                     {...this.props}
                     filterMuscles={this.filterMuscles}
                   />
+                  <AutoComplete
+                    dataSource={[...new Set(this.props.exercises)].map(e => (
+                      <AutoComplete.Option key={e.exercise_name} text={e.exercise_name}>
+                        {e.exercise_name}
+                      </AutoComplete.Option>
+                    ))}
+                    style={{ width: 300, margin: "1rem auto" }}
+                    onChange={exercise_name => {this.props.searchExercise(exercise_name)}}
+                    optionLabelProp="text"
+                  >
+                    <Input
+                      suffix={<Icon type="search" className="certain-category-icon" />}
+                      placeholder="Search Exercises"
+                    />
+                  </AutoComplete></>
                 ) : (
                   <PageHeader
                     onBack={() => this.setState({ saveExercise: false })}
@@ -154,6 +169,7 @@ const topBar = {
   position: "fixed",
   top: 0,
   width: "100%",
+  textAlign: 'center',
   zIndex: 5,
   background: "#fff",
   boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, .05)"
