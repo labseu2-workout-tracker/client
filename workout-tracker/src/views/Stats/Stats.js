@@ -25,20 +25,6 @@ const StyledStats = styled.div`
     padding: 0.5rem 0rem;
   }
 
-  .legend {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    /* font-size: 1rem; */
-    flex-wrap: wrap;
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
   .chart-row {
     display: flex;
     justify-content: space-between;
