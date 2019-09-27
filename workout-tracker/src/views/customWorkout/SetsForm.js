@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Form, Radio, InputNumber, Icon, Button } from "antd";
+import { Form, Radio, InputNumber, Icon, Button, Card, Divider, Alert } from "antd";
+import styled from "styled-components";
 
 class SetsForm extends Component {
   remove = (e, k) => {
     const { form } = this.props;
     const keys = form.getFieldValue(`${e}keys`);
-    if (keys.length === 1) {
+    if (keys.length === 0) {
       return;
     }
     form.setFieldsValue({
@@ -35,7 +36,6 @@ class SetsForm extends Component {
           const type = values[`${ex.id}type`];
           keys.forEach((element, index) => {
             const newObject = {};
-            console.log(type[element]);
             if (type[element] === "reps") newObject["reps"] = reps[element] ? reps[element] : null;
             else newObject["duration"] = reps[element]? `${reps[element]} seconds`: null;
             newObject["weights"] = weight[element] ? weight[element]: null;
@@ -60,10 +60,11 @@ class SetsForm extends Component {
       getFieldDecorator(`${e.id}keys`, { initialValue: [] });
       const keys = getFieldValue(`${e.id}keys`);
       return (
-        <div key={e.id}>
+        <Card key={e.id}>
           <h3>{e.exercise_name}</h3>
-          {keys.map(k => (
-            <div key={`${e.id}${k}`}>
+          <Divider />
+          {keys.map(k => (<>
+            <FormItemsContainer key={`${e.id}${k}`} style={{ textAlign: "center" }}>
               <Form.Item key={k + "2" + e}>
                 {getFieldDecorator(`${e.id}type[${k}]`, {
                   initialValue: "reps"
@@ -108,14 +109,17 @@ class SetsForm extends Component {
                   ]
                 })(<InputNumber min={1} max={200} />)}
               </Form.Item>
-              {keys.length > 1 ? (
+              {keys.length > 0 ? (
                 <Icon
                   className="dynamic-delete-button"
                   type="minus-circle-o"
+                  style={{ fontSize: "2rem" }}
                   onClick={() => this.remove(e.id, k)}
                 />
               ) : null}
-            </div>
+            </FormItemsContainer>
+            <Divider />
+            </>
           ))}
           <Form.Item>
             <Button
@@ -126,23 +130,64 @@ class SetsForm extends Component {
               Add field
             </Button>
           </Form.Item>
-        </div>
+        </Card>
       );
     });
-
     return (
       <div>
         <Form layout="inline" onSubmit={this.handleSubmit}>
           {exerciseSet}
           <Form.Item>
-    <Button type="primary" htmlType="submit" loading={false}>           {/* loading needs to be changed to loading={this.props.loading} */}
-              {this.props.loading ? "Creating Workout..." : "Create Workout"}
+            <Button style={{ margin: "1rem" }} type="primary" size="large" htmlType="submit" loading={this.props.loading}>
+              {this.props.loading ? " Creating Workout..." : "Create Workout"}
             </Button>
           </Form.Item>
         </Form>
+        {this.props.error && this.props.error.exercises && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.exercises}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && this.props.error.workout_name && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.workout_name}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && this.props.error.workout_description && <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description={this.props.error.workout_description}
+          type="error"
+          showIcon
+        />} <br />
+        {this.props.error && 
+          !this.props.error.exercises && 
+          !this.props.error.workout_name && 
+          !this.props.error.workout_description &&
+          this.props.error.code &&
+         <Alert style={{ display: "inline-block"}}
+          message="Error"
+          description="Workout name already exists"
+          type="error"
+          showIcon
+        />}
       </div>
     );
   }
 }
 
 export default Form.create({ name: "sets-form" })(SetsForm);
+
+const FormItemsContainer = styled.div`
+
+  @media screen and (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+
+    .ant-form-item-label {
+      text-align: center;
+    }
+  }
+
+`

@@ -42,6 +42,7 @@ class SideBar extends Component {
           <SelectedExercises
             remove={this.props.removeFromSelectedExercises}
             exercises={this.props.selectedExercises}
+            saveExercise={this.props.saveExercise}
           />
         </div>
       </div>
