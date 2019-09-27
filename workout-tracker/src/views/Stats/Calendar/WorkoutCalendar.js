@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Calendar, Modal, Button } from "antd";
+import { Calendar, Modal, Button, Card } from "antd";
 import styled from "styled-components";
 import uuid from "uuidv4";
-import { Card } from "antd";
 
 const StyledWorkoutCalendar = styled.div`
   width: 100%;

@@ -53,25 +53,26 @@ class YearlyChart extends React.Component {
                 ]
               }}
             />
-            <Modal
-              maskStyle={{ opacity: ".2" }}
-              title="Workout List"
-              visible={this.state.visible}
-              onCancel={this.handleCancel}
-              footer={[
-                <Button type="primary" onClick={this.handleOk}>
-                  OK
-                </Button>
-              ]}
-            >
-              {/* {this.state.workoutsForDate
-                ? this.state.workoutsForDate.map(workoutName => (
-                    <p style={{ height: "80px" }} key={uuid()}>
-                      {workoutName}
-                    </p>
-                  ))
-                : null} */}
-            </Modal>
+             <i onClick={this.showModal} className="fa fa-info-circle" />
+              <Modal
+                maskStyle={{ opacity: ".2" }}
+                title="Workout List"
+                visible={this.state.visible}
+                onCancel={this.handleCancel}
+                footer={[
+                  <Button 
+                  // key={uuid()}
+                   type="primary" onClick={this.handleOk}>
+                    OK
+                  </Button>
+                ]}
+              >
+                {/* {this.state.workoutsForDate
+                  ? this.state.workoutsForDate.map(workoutName => (
+                      <p style={{height: "80px"}} key={uuid()}>{workoutName}</p>
+                    ))
+                  : null} */}
+              </Modal>
           </Card>
         }
       >
