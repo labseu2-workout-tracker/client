@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 const { Meta } = Card;
 
 class YearlyChart extends React.Component {
+  state = {
+    visible: false,
+  };
+  
   render() {
     return (
       <Card
@@ -36,7 +40,7 @@ class YearlyChart extends React.Component {
               visible={this.state.visible}
               onCancel={this.handleCancel}
               footer={[
-                <Button  type="primary" onClick={this.handleOk}>
+                <Button type="primary" onClick={this.handleOk}>
                   OK
                 </Button>
               ]}
