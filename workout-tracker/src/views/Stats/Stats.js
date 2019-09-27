@@ -112,7 +112,7 @@ const StyledStats = styled.div`
 
     i {
       font-size: 1.2rem;
-      color: green;
+      color: #FFF;
     }
   }
 `;

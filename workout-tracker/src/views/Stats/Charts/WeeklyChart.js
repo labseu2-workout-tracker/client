@@ -2,6 +2,7 @@ import React from "react";
 import { Pie, Chart } from "react-chartjs-2";
 import { Modal, Button, Card } from "antd";
 import { connect } from "react-redux";
+import uuid from "uuidv4";
 
 const { Meta } = Card;
 
@@ -52,7 +53,7 @@ class WeeklyChart extends React.Component {
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
                 footer={[
-                  <Button type="primary" onClick={this.handleOk}>
+                  <Button key={uuid()} type="primary" onClick={this.handleOk}>
                     OK
                   </Button>
                 ]}

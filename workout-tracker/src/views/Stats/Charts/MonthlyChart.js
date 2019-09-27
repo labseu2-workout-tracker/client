@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Pie } from "react-chartjs-2";
 import { Modal, Button, Card } from "antd";
+import uuid from "uuidv4";
 
 const { Meta } = Card;
 
