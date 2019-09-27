@@ -41,6 +41,7 @@ const StyledStats = styled.div`
     word-wrap: break-word;
     background: #fff;
     margin-top: 3rem;
+    padding:2rem;
     border-radius: 0.6rem;
     margin-bottom: 3rem;
     flex-direction: column;
