@@ -9,7 +9,26 @@ class YearlyChart extends React.Component {
   state = {
     visible: false,
   };
-  
+
+  showModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+
+  handleOk = () => {
+    this.setState({
+      visible: false,
+      workoutsForDate: null
+    });
+  };
+
+  handleCancel = () => {
+    this.setState({
+      visible: false
+    });
+  };
+
   render() {
     return (
       <Card
