@@ -157,7 +157,7 @@ const mapStateToProps = state => {
   return {
     history: state.history.history,
     workouts: state.workouts.workouts,
-    weeklyChart: state.charts.weeklyChart,
+    weeklyChart: state.charts.weeklyChart
   };
 };
 
