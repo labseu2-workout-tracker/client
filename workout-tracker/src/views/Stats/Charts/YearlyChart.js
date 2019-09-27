@@ -56,7 +56,14 @@ class YearlyChart extends React.Component {
                   </Button>
                 ]}
               >
-                <div className="legend">
+                <div
+                  className="legend"
+                  style={{
+                    fontWeight: "600",
+                    color: "white",
+                    textAlign: "center"
+                  }}
+                >
                   {this.props.yearlyChart.labels.map((workout, index) =>
                     this.props.yearlyChart.data[index] ? (
                       <p

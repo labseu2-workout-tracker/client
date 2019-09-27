@@ -56,7 +56,14 @@ class MonthlyChart extends React.Component {
                   </Button>
                 ]}
               >
-                <div className="legend">
+                <div
+                  className="legend"
+                  style={{
+                    fontWeight: "600",
+                    color: "white",
+                    textAlign: "center"
+                  }}
+                >
                   {this.props.monthlyChart.labels.map((workout, index) =>
                     this.props.monthlyChart.data[index] ? (
                       <p
