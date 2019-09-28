@@ -152,13 +152,16 @@ const StyledContainer = styled.section`
     min-width: 0;
     overflow: auto;
   }
-
   .ant-layout-sider {
+    // position: absolute;
+    // z-index: 1000;
+    // background: #0086c9;
+    // height: 100vh;
     position: absolute;
     z-index: 1000;
-    background: #0086c9;
+    background: #1890ff;
     height: 100vh;
-  }
+    }
 
   .nav-items {
     padding: 2rem 0.5rem;
