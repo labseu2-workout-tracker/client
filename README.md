@@ -62,7 +62,6 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 - point three
   🚫 List the rest of the back end end features and libraries in the same format as the framework above
 
-# APIs
 
 ## 2️⃣ Authentication API here
 
@@ -71,6 +70,7 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do 
 
 
 #  Environment Variables
+
 - `REACT_APP_BASE_URL=http://localhost:5000`
 
 # 5️⃣ Content Licenses
@@ -83,6 +83,7 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do 
 
 
 #  Installation Instructions
+
 1. Clone the repository
 2. Open a terminal on your local machine
 3. Run `git clone <project name>`
@@ -92,11 +93,8 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do 
 
 ## Other Scripts
 
-🚫replace these examples with your own
-_ typecheck - runs the TypeScript compiler
-_ build - creates a build of the application
-_ start - starts the production server after a build is created
-_ test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+1.  build - creates a build of the application
+1.  start - starts the production server after a build is created.
 
 # Contributing
 
@@ -135,4 +133,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫*link to your backend readme here*) for details on the backend of our project.
+See [Backend Documentation](https://github.com/labseu2-workout-tracker/server/blob/master/README.md) for details on the backend of our project.
