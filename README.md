@@ -70,20 +70,8 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
 
 
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-🚫These are just examples, replace them with the specifics for your app
-_ REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-_ REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-_ REACT_APP_databaseURL - in the Firebase dashboard
-_ REACT_APP_projectID - in the Firebase dashboard
-_ REACT_APP_storageBucket - in the Firebase dashboard
-_ REACT_APP_messagingSenderId - in the Firebase dashboard
-_ REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-_ REACT_APP_backendURL - optional for your local development server
-_ REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-_ REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+#  Environment Variables
+- `REACT_APP_BASE_URL=http://localhost:5000`
 
 # 5️⃣ Content Licenses
 
