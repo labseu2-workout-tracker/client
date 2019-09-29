@@ -51,11 +51,11 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 - point four
   🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to `netlify`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://github.com/labseu2-workout-tracker/server) built using:
 
-#### 🚫 back end framework goes here
+####  node/express
 
 - point one
 - point two
