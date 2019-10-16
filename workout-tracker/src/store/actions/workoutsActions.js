@@ -111,7 +111,7 @@ export const endWorkout = (workout_id, history) => dispatch => {
         .then(res => {
           dispatch({ type: END_WORKOUT, session: res.data.workoutHistory });
           if (history) {
-            setTimeout(() => history.push("/dashboard/stats"), 1000);
+            setTimeout(() => history.push("/dashboard/stats"), 1500);
           }
         });
     })

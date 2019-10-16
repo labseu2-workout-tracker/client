@@ -229,11 +229,30 @@ class WorkoutCalendar extends React.Component {
       "December"
     ];
 
-    const d = new Date();
-    const lettersCurrentMonth = monthNames[d.getMonth()].match(/.{3}/g)[0];
-    const currentYear = new Date().getFullYear().toString();
-
     for (let i = 0; i < this.state.result.length; i++) {
+      const lettersCurrentMonth =
+        monthNames[
+          this.state.result[i].session_start[5] +
+            this.state.result[i].session_start[6] -
+            1
+        ][0] +
+        monthNames[
+          this.state.result[i].session_start[5] +
+            this.state.result[i].session_start[6] -
+            1
+        ][1] +
+        monthNames[
+          this.state.result[i].session_start[5] +
+            this.state.result[i].session_start[6] -
+            1
+        ][2];
+
+      const currentYear =
+        this.state.result[i].session_start[0] +
+        this.state.result[i].session_start[1] +
+        this.state.result[i].session_start[2] +
+        this.state.result[i].session_start[3];
+
       if (
         lettersOfTheMonth === lettersCurrentMonth &&
         numbersOfTheYear === currentYear
@@ -284,7 +303,7 @@ class WorkoutCalendar extends React.Component {
             </div>
             <div className="status-text">
               <p onClick={this.showModal}>{item.content}</p>
-              <Modal
+              {/* <Modal
                 maskStyle={{ opacity: ".2" }}
                 title="Workout List"
                 visible={this.state.visible}
@@ -300,7 +319,7 @@ class WorkoutCalendar extends React.Component {
                       <p key={uuid()}>{workoutName}</p>
                     ))
                   : null}
-              </Modal>
+              </Modal> */}
             </div>
           </li>
         ))}
