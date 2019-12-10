@@ -9,6 +9,12 @@ import {
 } from "../../../store/actions/workoutsActions";
 import styled from "styled-components";
 const StyledWorkoutSession = styled.div`
+.ant-card-body {
+  padding: 2px;
+  padding-bottom:10px;
+  background-color: white;
+
+ }
   .btn1 {
     margin: 10px;
     padding: 10px;
@@ -16,12 +22,27 @@ const StyledWorkoutSession = styled.div`
     font-size: 18px;
     border: 1px solid transparent;
   }
+
 `;
 class WorkoutSession extends React.Component {
   state = {
     visible: false,
     checkIfFinished: true,
+    width: 0,
+    height: 0
   };
+
+
+componentDidMount = () => {
+  this.updateWindowDimensions();
+  window.addEventListener("resize", this.updateWindowDimensions);
+}
+
+updateWindowDimensions = () => {
+  this.setState({
+    width: window.innerWidth
+  })
+}
 
   showModal = () => {
     this.setState({
@@ -43,8 +64,9 @@ class WorkoutSession extends React.Component {
 
   componentWillUnmount() {
     this.setState({ initial: 0 });
-    
-    if(this.state.checkIfFinished) {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+
+    if (this.state.checkIfFinished) {
       this.props.endWorkout(this.props.workoutId, this.props.history);
     }
   }
@@ -71,7 +93,7 @@ class WorkoutSession extends React.Component {
   };
   render() {
     return (
-      <StyledWorkoutSession>
+      <StyledWorkoutSession  style={{ margin:0, padding:"2px",}}>
         {this.props.currentExercise ? (
           <Card
             style={{
@@ -84,6 +106,8 @@ class WorkoutSession extends React.Component {
               // type="inner"
               bordered={false}
               style={{
+                margin:0,
+                padding:"2px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center"
@@ -93,6 +117,8 @@ class WorkoutSession extends React.Component {
                 <Card
                   bordered={false}
                   style={{
+                    margin:0,
+                    padding:"2px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center"
@@ -105,7 +131,8 @@ class WorkoutSession extends React.Component {
                 >
                   <div
                     style={{
-                      height: "350px",
+                      margin:0,
+                      height: "250px",
                       display: "flex",
                       flexDirection: "row",
                       justifyContent: "center"
@@ -124,7 +151,7 @@ class WorkoutSession extends React.Component {
                       playsInline
                       muted
                       controls
-                      width="90%"
+                      width="100%"
                       height="auto"
                     >
                       <source
@@ -142,15 +169,16 @@ class WorkoutSession extends React.Component {
                 </Card>
                 <Card
                   bordered={false}
-                  style={{ display: "flex", flexDirection: "column" }}
+                  style={{ margin:0, display: "flex", flexDirection: "column", }}
                 >
-                  <Card
+                  <Card 
                     title={
                       this.props.currentExercise
                         ? this.props.currentExercise[0].exercise_name
                         : null
                     }
                     bordered={false}
+                    style={{ margin:0,}}
                     actions={[
                       <Statistic
                         title="Sets to complete"
@@ -224,7 +252,8 @@ class WorkoutSession extends React.Component {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignContent: "spaceAround"
+                    alignContent: "spaceBetween",
+                    alignItems: "center"
                   }}
                 >
                   <Watch />
@@ -232,17 +261,25 @@ class WorkoutSession extends React.Component {
               </div>
             </Card>
             <Card //Bottom Card with Exer & Instructions
-              style={{ marginTop: 16 }}
+              style={{ marginTop: 16}}
               type="outer"
+              bordered={true}
             >
               <div
-                style={{
-                  background: "#ECECEC",
-                  display: "flex",
-                  flexDirection: "row"
-                }}
-              >
+              style={
+                this.state.width > 680
+                  ? {
+                      display: "flex",
+                      flexDirection: "row",
+                     
+                    }
+                  : {
+                    display: "flex",
+                    flexDirection: "column",
+                  }
+              } >
                 <Card //Instructions bar
+                style={{ margin:0, padding:2,}}
                   title="Instructions"
                   bordered={false}
                 >

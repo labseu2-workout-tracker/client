@@ -38,7 +38,7 @@ class WorkoutContainer extends React.Component {
 
 
 const StyledContainer = styled.div`
-  padding: 1.5rem 3rem;
+  padding: 1rem;
   background: #fff;
 
 
