@@ -1,6 +1,6 @@
 # BEFIT WORKOUT TRACKER
 
-`Link to React application - https://theworkouttracker.netlify.com/`
+Link to React application - [Befit Tracker](https://theworkouttracker.netlify.com/)
 
 #Table of Content
 
